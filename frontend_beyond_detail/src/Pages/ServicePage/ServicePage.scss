@@ -1,0 +1,144 @@
+.service-page {
+  min-height: 100vh;
+
+  .service-header {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+
+    .header-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-title {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin: 0;
+    }
+  }
+
+  .service-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    .description-section {
+      margin-bottom: 40px;
+
+      .description {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .detailed-content {
+        margin-top: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-left: 4px solid #007bff;
+      }
+    }
+
+    .features-section {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+
+        li {
+          padding: 10px 0;
+          border-bottom: 1px solid #eee;
+
+          &:before {
+            content: '✓ ';
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .pricing-section {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+
+        .pricing-box {
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 20px;
+          text-align: center;
+          transition: all 0.3s ease;
+
+          &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+          }
+
+          h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+          }
+
+          .price {
+            font-size: 2rem;
+            color: #007bff;
+            font-weight: bold;
+            margin: 10px 0;
+          }
+
+          .price-description {
+            font-size: 0.9rem;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-section {
+    background: #f5f5f5;
+    padding: 40px 20px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-page {
+    .service-header {
+      height: 250px;
+
+      .header-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    .service-container {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

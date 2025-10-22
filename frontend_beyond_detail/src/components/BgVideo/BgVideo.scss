@@ -1,0 +1,760 @@
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  z-index: 1;
+  top: 0;
+}
+
+.noise-overlay {
+  position: absolute;
+  height: 100%;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  $color: var(--black-color);
+  $rotation: 45/2;
+  background-image: linear-gradient(
+    #{$rotation}deg,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 4px 4px;
+  z-index: 3;
+  opacity: 0.5;
+}
+
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-color);
+  mix-blend-mode: darken;
+  //   mix-blend-mode: overlay;
+  opacity: 0.3;
+  z-index: 2;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  // mix-blend-mode: darken;
+  // opacity: 0.3;
+  z-index: 11;
+
+  @media screen and (max-width: 400px) {
+    height: 101%;
+  }
+  @media screen and (max-width: 696px) {
+    height: 101%;
+  }
+  @media screen and (max-width: 900px) {
+    height: 101%;
+  }
+}
+
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  @media screen and (max-width: 360px) {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 375px) {
+    height: 55vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 390px) {
+    height: 55vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 410px) {
+    height: 55vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1400px) {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 1600px) {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 1715px) {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 1900px) {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 2500px) {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 3000px) {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .viewport-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1,
+  h2 {
+    margin: 0 2rem;
+    z-index: 3;
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 60px;
+    letter-spacing: 0.3rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .hero-container {
+    h1,
+    h2 {
+      font-size: 30px;
+    }
+  }
+}
+
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 5vh;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  z-index: 100;
+  text-decoration: none;
+  text-shadow: 0;
+  width: 13px;
+  height: 13px;
+  border-bottom: 2px solid var(--white-color);
+  border-right: 2px solid var(--white-color);
+  -webkit-transform: translate(-50%, 0%) rotate(45deg);
+  -moz-transform: translate(-50%, 0%) rotate(45deg);
+  transform: translate(-50%, 0%) rotate(45deg);
+  -webkit-animation: fade_move_down 2s ease-in-out infinite;
+  -moz-animation: fade_move_down 2s ease-in-out infinite;
+  animation: fade_move_down 2s ease-in-out infinite;
+}
+
+/*animated scroll arrow animation*/
+@-webkit-keyframes fade_move_down {
+  0% {
+    -webkit-transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+@-moz-keyframes fade_move_down {
+  0% {
+    -moz-transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -moz-transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+@keyframes fade_move_down {
+  0% {
+    transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.ellipses-container {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  top: -5rem;
+  z-index: 10;
+  opacity: 0;
+  // overflow: hidden;
+
+  @media screen and (min-width: 275px) {
+    display: none;
+  }
+  @media screen and (min-width: 375px) {
+    display: none;
+  }
+  @media screen and (min-width: 696px) {
+    display: none;
+  }
+  @media screen and (min-width: 1000px) {
+    width: 25rem;
+    height: 25rem;
+    top: 15rem;
+    right: 6rem;
+    display: block;
+  }
+  @media screen and (min-width: 1300px) {
+    width: 32.5rem;
+    height: 32.5rem;
+    top: 7;
+    display: block;
+  }
+  @media screen and (min-width: 1400px) {
+    width: 32.5rem;
+    height: 32.5rem;
+    top: 0;
+    display: block;
+  }
+  @media screen and (min-width: 1600px) {
+    width: 37rem;
+    height: 37rem;
+    top: -3rem;
+    display: block;
+  }
+  @media screen and (min-width: 1700px) {
+    width: 38rem;
+    height: 38rem;
+    top: -5rem;
+    display: block;
+  }
+  @media screen and (min-width: 1900px) {
+    width: 40rem;
+    height: 40rem;
+    top: -5rem;
+    display: block;
+  }
+  @media screen and (min-width: 2500px) {
+    width: 51rem;
+    height: 51rem;
+    top: -14rem;
+    display: block;
+  }
+  @media screen and (min-width: 3000px) {
+    width: 67rem;
+    height: 67rem;
+    top: -22rem;
+    display: block;
+  }
+}
+
+.ellipses {
+  border-radius: 50%;
+  position: absolute;
+  top: -25rem;
+  left: -10rem;
+  border-style: solid;
+}
+
+.ellipses__outer--thin {
+  width: 230%;
+  height: 230%;
+  border-width: 1px;
+  border-color: rgba(253, 253, 253, 0.1);
+  animation: ellipsesOrbit 15s ease-in-out infinite;
+
+  @media screen and (max-width: 400px) {
+    width: 98%;
+    height: 98%;
+  }
+  @media screen and (max-width: 696px) {
+    width: 98%;
+    height: 98%;
+  }
+}
+
+.ellipses__outer--thick {
+  width: 230%;
+  height: 230%;
+  border-color: var(--secondary-color) transparent;
+  border-width: 2px;
+  transform: rotate(-45deg);
+  animation: ellipsesRotate 15s ease-in-out infinite;
+
+  @media screen and (max-width: 400px) {
+    width: 98%;
+    height: 98%;
+  }
+  @media screen and (max-width: 696px) {
+    width: 98%;
+    height: 98%;
+  }
+}
+
+@-webkit-keyframes ellipsesRotate {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+@keyframes ellipsesRotate {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+.greeting__wrapper {
+  z-index: 99;
+  .greeting {
+    position: absolute;
+    top: 15rem;
+    left: -20rem;
+    right: 0;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    // opacity: 0.5;
+    text-align: end;
+    // background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    padding-bottom: 12.4px;
+    padding-top: 12.4px;
+    padding-right: 1rem;
+    padding-left: 4rem;
+    height: 250px;
+    // border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 275px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 25rem;
+      width: 100%;
+      left: 0;
+      padding-right: 0;
+      padding-left: 0;
+      height: 250px;
+    }
+    @media screen and (min-width: 375px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 25rem;
+      width: 100%;
+      left: 0;
+      padding-right: 0;
+      padding-left: 0;
+      height: 250px;
+    }
+    @media screen and (min-width: 410px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 17rem;
+      width: 100%;
+      left: 0;
+      padding-right: 0;
+      padding-left: 0;
+      height: 180px;
+    }
+    @media screen and (min-width: 696px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 25rem;
+      width: 100%;
+      left: 0;
+      padding-right: 0;
+      padding-left: 0;
+      height: 250px;
+    }
+    @media screen and (min-width: 1300px) {
+      letter-spacing: 1rem;
+      top: 15rem;
+      font-size: 2rem;
+      left: -55rem;
+      width: 700px;
+      padding-right: 0;
+      padding-left: 6rem;
+      height: 250px;
+    }
+    @media screen and (min-width: 1400px) {
+      letter-spacing: 1rem;
+      top: 15rem;
+      font-size: 2rem;
+      left: -55rem;
+      width: 700px;
+      padding-right: 0;
+      padding-left: 6rem;
+      height: 250px;
+    }
+    @media screen and (min-width: 1600px) {
+      letter-spacing: 1rem;
+      top: 20rem;
+      font-size: 2rem;
+      left: -65rem;
+      width: 700px;
+      padding-right: 0;
+      padding-left: 4rem;
+      height: 250px;
+    }
+    @media screen and (min-width: 1700px) {
+      letter-spacing: 1rem;
+      top: 30rem;
+      font-size: 2rem;
+      left: -65rem;
+      width: 700px;
+      padding-right: 0;
+      padding-left: 4rem;
+      height: 250px;
+    }
+    @media screen and (min-width: 1900px) {
+      letter-spacing: 1rem;
+      top: 20rem;
+      font-size: 2rem;
+      left: -80rem;
+      width: 685px;
+      padding-right: 0;
+      padding-left: 4rem;
+      height: 250px;
+    }
+    @media screen and (min-width: 2500px) {
+      letter-spacing: 1rem;
+      top: 30rem;
+      font-size: 2rem;
+      left: -100rem;
+      width: 1000px;
+      padding-right: 0;
+      padding-left: 20rem;
+      height: 250px;
+    }
+    @media screen and (min-width: 3000px) {
+      letter-spacing: 1rem;
+      top: 30rem;
+      font-size: 2rem;
+      left: -140rem;
+      width: 1200px;
+      padding-right: 0;
+      padding-left: 38rem;
+      height: 250px;
+    }
+  }
+
+  .greetingTop {
+    position: absolute;
+    top: 10rem;
+    left: -20rem;
+    right: 0;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: end;
+    padding-bottom: 12.4px;
+    padding-top: 12.4px;
+    padding-right: 1rem;
+    padding-left: 4rem;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    color: var(--secondary-color);
+
+    @media screen and (min-width: 275px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 23.5rem;
+      width: 100%;
+      left: 0;
+      padding-left: 0.5rem;
+    }
+    @media screen and (min-width: 375px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 23.5rem;
+      width: 100%;
+      left: 0;
+      padding-left: 0.5rem;
+    }
+    @media screen and (min-width: 410px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 13.3rem;
+      width: 100%;
+      left: 0;
+      padding-left: 0.5rem;
+    }
+    @media screen and (min-width: 696px) {
+      letter-spacing: 0.5rem;
+      font-size: 1rem;
+      top: 23.5rem;
+      width: 100%;
+      left: 0;
+      padding-left: 0.5rem;
+    }
+    @media screen and (min-width: 1300px) {
+      letter-spacing: 1rem;
+      top: 13rem;
+      font-size: 1rem;
+      left: -65rem;
+      width: 700px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 1400px) {
+      letter-spacing: 1rem;
+      top: 13rem;
+      font-size: 1rem;
+      left: -65rem;
+      width: 700px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 1600px) {
+      letter-spacing: 1rem;
+      top: 17.5rem;
+      font-size: 1rem;
+      left: -77rem;
+      width: 785px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 1700px) {
+      letter-spacing: 1rem;
+      top: 27.5rem;
+      font-size: 1rem;
+      left: -77rem;
+      width: 785px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 1900px) {
+      letter-spacing: 1rem;
+      top: 17.5rem;
+      font-size: 1rem;
+      left: -91.5rem;
+      width: 785px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 2500px) {
+      letter-spacing: 1rem;
+      top: 27.5rem;
+      font-size: 1rem;
+      left: -96rem;
+      width: 785px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 3000px) {
+      letter-spacing: 1rem;
+      top: 28rem;
+      font-size: 1rem;
+      left: -118rem;
+      width: 1200px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+  }
+
+  .greetingBottom {
+    position: absolute;
+    top: 23rem;
+    left: -20rem;
+    right: 0;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: end;
+    padding-bottom: 12.4px;
+    padding-top: 12.4px;
+    padding-right: 1rem;
+    padding-left: 4rem;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 275px) {
+      letter-spacing: 0.7rem;
+      font-size: 1rem;
+      top: 28rem;
+      width: 100%;
+      left: 0;
+      padding-left: 1.2rem;
+    }
+    @media screen and (min-width: 375px) {
+      letter-spacing: 0.7rem;
+      font-size: 1rem;
+      top: 28rem;
+      width: 100%;
+      left: 0;
+      padding-left: 1.2rem;
+    }
+    @media screen and (min-width: 410px) {
+      letter-spacing: 0.7rem;
+      font-size: 1rem;
+      top: 17.5rem;
+      width: 100%;
+      left: 0;
+      padding-left: 1.2rem;
+    }
+    @media screen and (min-width: 696px) {
+      letter-spacing: 0.7rem;
+      font-size: 1rem;
+      top: 28rem;
+      width: 100%;
+      left: 0;
+      padding-left: 1.2rem;
+    }
+    @media screen and (min-width: 1300px) {
+      letter-spacing: 1.4rem;
+      top: 19rem;
+      font-size: 2rem;
+      left: -53.5rem;
+      width: 100%;
+      padding-left: 6rem;
+    }
+    @media screen and (min-width: 1400px) {
+      letter-spacing: 1.4rem;
+      top: 19rem;
+      font-size: 2rem;
+      left: -54rem;
+      width: 100%;
+      padding-left: 6rem;
+    }
+    @media screen and (min-width: 1600px) {
+      letter-spacing: 1.4rem;
+      top: 24rem;
+      font-size: 2rem;
+      left: -63.5rem;
+      width: 100%;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 1700px) {
+      letter-spacing: 1.4rem;
+      top: 34rem;
+      font-size: 2rem;
+      left: -63.5rem;
+      width: 100%;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 1900px) {
+      letter-spacing: 1.4rem;
+      top: 24rem;
+      font-size: 2rem;
+      left: -78.5rem;
+      width: 100%;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 2500px) {
+      letter-spacing: 1.4rem;
+      top: 34rem;
+      font-size: 2rem;
+      left: -84rem;
+      width: 100%;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+    @media screen and (min-width: 3000px) {
+      letter-spacing: 1.4rem;
+      top: 34rem;
+      font-size: 2rem;
+      left: -105.7rem;
+      width: 1200px;
+      padding-right: 0;
+      padding-left: 4rem;
+    }
+  }
+}

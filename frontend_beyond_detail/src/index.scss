@@ -1,0 +1,222 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+@custom-media --mediaDesktop (max-width: 2080px);
+@custom-media --mediaLaptop (max-width: 1680px);
+@custom-media --mediaTablet (max-width: 1024px);
+@custom-media --mediaMobile (max-width: 696px);
+@custom-media --mediaMobileS (max-width: 400px);
+
+// theme fonts
+@font-face {
+  font-family: 'Calibre';
+  src: url('./assets/Fonts/Calibre-Regular.woff2') format('woff2'),
+    url('./assets/Fonts/Calibre-Regular.woff') format('woff'),
+    url('./assets/Fonts/Calibre-Medium.woff2') format('woff2'),
+    url('./assets/Fonts/Calibre-Medium.woff') format('woff'),
+    url('./assets/Fonts/Calibre-Light.woff2') format('woff2'),
+    url('./assets/Fonts/Calibre-Light.woff') format('woff'),
+    url('./assets/Fonts/Calibre-Semibold.woff2') format('woff2'),
+    url('./assets/Fonts/Calibre-Semibold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/Fonts/Montserrat-Regular.woff2') format('woff2'),
+    url('./assets/Fonts/Montserrat-Regular.woff') format('woff'),
+    url('./assets/Fonts/Montserrat-Medium.woff2') format('woff2'),
+    url('./assets/Fonts/Montserrat-Medium.woff') format('woff'),
+    url('./assets/Fonts/Montserrat-Light.woff2') format('woff2'),
+    url('./assets/Fonts/Montserrat-Light.woff') format('woff'),
+    url('./assets/Fonts/Montserrat-SemiBold.woff2') format('woff2'),
+    url('./assets/Fonts/Montserrat-SemiBold.woff') format('woff'),
+    url('./assets/Fonts/Montserrat-Bold.woff2') format('woff2'),
+    url('./assets/Fonts/Montserrat-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Theme colors  */
+:root {
+  --font-base: 'Montserrat', sans-serif;
+
+  --background-color: rgb(0, 0, 0);
+  --primary-color: #edf2f8;
+  --secondary-color: #f07900;
+  --darkOrange-color: #d35100;
+  --lightOrange-color: #f8a145;
+  --black-color: #030303;
+  --lightBlack-color: #161616;
+  --lightGray-color: #818181;
+  --gray-color: #454545;
+  --brown-color: #46364a;
+  --white-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  // scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// custom scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--black-color);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--darkOrange-color);
+}
+
+h1 {
+  font-weight: 500;
+  font-family: var(--font-base);
+}
+
+// button styling
+.btn {
+  text-decoration: none;
+  position: relative;
+  padding: 16px;
+  border: none;
+  z-index: 9;
+  width: 220px;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(1, 0, 0, 1);
+
+  @media screen and (max-width: 400px) {
+    width: 200px;
+    height: 50px;
+  }
+
+  @media screen and (max-width: 696px) {
+    width: 160px;
+    height: 50px;
+  }
+
+  p {
+    text-align: end;
+    padding-right: 1rem;
+    padding-top: 0rem;
+    letter-spacing: 1px;
+    font-family: var(--font-base);
+    color: white !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+
+    @media screen and (max-width: 400px) {
+      font-size: 11px;
+      margin-top: -5px;
+      padding-right: 0.6rem;
+    }
+
+    @media screen and (max-width: 696px) {
+      font-size: 11px;
+      margin-top: -5px;
+      padding-right: 0.6rem;
+    }
+  }
+
+  p:before {
+    content: '';
+    display: block;
+    background: url(./assets/plus-icon.png) no-repeat;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 8px 0 0 30px;
+    margin-right: -40px;
+    transition: transform 0.5s;
+    transform-origin: 15% 18%;
+
+    @media screen and (max-width: 696px) {
+      display: none;
+    }
+
+    @media screen and (max-width: 400px) {
+      display: none;
+    }
+  }
+
+  p:hover:before {
+    transform: rotate(-180deg);
+    transform-origin: 15% 18%;
+  }
+}
+
+.btn:hover {
+  color: #fcfcfc;
+}
+
+.btn-color {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white-color);
+}
+.btn-color::before,
+.btn-color::after {
+  background: var(--secondary-color);
+}
+
+.btn::before,
+.btn::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  transition: all 0.35s cubic-bezier(1, 0, 0, 1);
+}
+
+.btn-l-r::after {
+  height: 100%;
+  width: 0;
+  top: 0;
+}
+
+.btn-l-r:hover::after {
+  width: 100%;
+}
+
+.btn-l-r::after {
+  left: 0;
+}
+
+.btn__vertLine {
+  width: 6px;
+  height: 60px;
+  background-color: var(--secondary-color);
+  content: '';
+  margin-bottom: -3.75rem;
+  z-index: 10;
+
+  @media screen and (max-width: 696px) {
+    height: 49px;
+    margin-bottom: -3.11rem;
+  }
+
+  @media screen and (max-width: 400px) {
+    height: 49px;
+    margin-bottom: -3.11rem;
+  }
+}

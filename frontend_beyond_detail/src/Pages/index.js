@@ -1,0 +1,11 @@
+export { default as Home } from './Home/Home';
+export { default as About } from './About/About';
+export { default as Contact2 } from './Contact/Contact2';
+export { default as Gallery } from './Gallery/Gallery';
+export { default as Services } from './Services/Services';
+export { default as Testimonials } from './Testimonials/Testimonials';
+export { default as Error } from './Error/Error';
+export { default as Tints } from './Tints/Tints';
+export { default as ServicePage } from './ServicePage/ServicePage';
+export { default as FAQs } from './FAQs/FAQs';
+export { default as Blog } from './Blog/Blog';

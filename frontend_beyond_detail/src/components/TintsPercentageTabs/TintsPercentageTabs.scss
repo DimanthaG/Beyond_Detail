@@ -1,0 +1,329 @@
+.tintsPercentageTabs__wrapper {
+  width: 100%;
+  height: 100%;
+  padding-left: 200px;
+  padding-right: 200px;
+
+  @media screen and (min-width: 275px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media screen and (min-width: 375px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media screen and (min-width: 696px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media screen and (min-width: 1300px) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  @media screen and (min-width: 1420px) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  @media screen and (min-width: 1600px) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  @media screen and (min-width: 1900px) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  @media screen and (min-width: 3000px) {
+    padding-left: 48rem;
+    padding-right: 48rem;
+  }
+
+  .tintsPercentage__title {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 45px;
+    font-weight: 600;
+    font-family: var(--font-base);
+    padding-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media screen and (min-width: 270px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 375px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 696px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 1366px) {
+      font-size: 45px;
+      max-width: 600px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 45px;
+      max-width: 600px;
+    }
+
+    @media screen and (min-width: 1910px) {
+      font-size: 45px;
+      max-width: 600px;
+    }
+  }
+
+  .tradeMark {
+    font-size: 15px;
+    vertical-align: top;
+
+    @media screen and (min-width: 270px) {
+      font-size: 13px;
+    }
+
+    @media screen and (min-width: 375px) {
+      font-size: 13px;
+    }
+
+    @media screen and (min-width: 696px) {
+      font-size: 13px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      font-size: 15px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 15px;
+    }
+
+    @media screen and (min-width: 1910px) {
+      font-size: 15px;
+    }
+  }
+
+  .tintsPercentage__divider {
+    width: 39%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1px;
+    background-color: var(--secondary-color);
+    border: none;
+
+    @media screen and (min-width: 270px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 375px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 696px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: 39%;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 39%;
+    }
+
+    @media screen and (min-width: 1910px) {
+      width: 39%;
+    }
+  }
+
+  p {
+    text-align: center;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--lightGray-color);
+    font-family: var(--font-base);
+    letter-spacing: 1px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 270px) {
+      font-size: 12px;
+    }
+
+    @media screen and (min-width: 375px) {
+      font-size: 12px;
+    }
+
+    @media screen and (min-width: 696px) {
+      font-size: 12px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1910px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.tintsPercentageTabs__container {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #181818;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 500px;
+  grid-template-areas: 'left right';
+
+  @media screen and (min-width: 275px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 375px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 696px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 1300px) {
+    display: grid;
+    flex-direction: none;
+  }
+  @media screen and (min-width: 1420px) {
+    display: grid;
+    flex-direction: none;
+  }
+  @media screen and (min-width: 1600px) {
+    display: grid;
+    flex-direction: none;
+  }
+  @media screen and (min-width: 1900px) {
+    display: grid;
+    flex-direction: none;
+  }
+}
+.tab-cont {
+  grid-area: left;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid var(--secondary-color);
+
+  @media screen and (min-width: 275px) {
+    border-right: none;
+  }
+  @media screen and (min-width: 375px) {
+    border-right: none;
+  }
+  @media screen and (min-width: 696px) {
+    border-right: none;
+  }
+  @media screen and (min-width: 1300px) {
+    border-right: 1px solid var(--secondary-color);
+  }
+  @media screen and (min-width: 1420px) {
+    border-right: 1px solid var(--secondary-color);
+  }
+  @media screen and (min-width: 1600px) {
+    border-right: 1px solid var(--secondary-color);
+  }
+  @media screen and (min-width: 1900px) {
+    border-right: 1px solid var(--secondary-color);
+  }
+}
+.tab-cont button {
+  width: 100%;
+  //   background-color: var(--background-color);
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  border: 1px solid #181818;
+  cursor: pointer;
+  font-family: var(--font-base);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tab-cont button:hover {
+  background-color: #0c0c0c;
+}
+.tab-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+
+  img {
+    width: auto;
+    height: 500px;
+    object-fit: cover;
+
+    @media screen and (min-width: 275px) {
+      width: auto;
+      height: 250px;
+    }
+    @media screen and (min-width: 375px) {
+      width: auto;
+      height: 250px;
+    }
+    @media screen and (min-width: 696px) {
+      width: auto;
+      height: 250px;
+    }
+    @media screen and (min-width: 1300px) {
+      width: auto;
+      height: 500px;
+    }
+    @media screen and (min-width: 1420px) {
+      width: auto;
+      height: 500px;
+    }
+    @media screen and (min-width: 1600px) {
+      width: auto;
+      height: 500px;
+    }
+    @media screen and (min-width: 1900px) {
+      width: auto;
+      height: 500px;
+    }
+  }
+}
+
+.tab-content h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 20px 0 10px 0;
+}
+.tab-content p {
+  font-weight: 100;
+  color: #666;
+  margin-top: 20px;
+}
+.tab-cont .but.active {
+  background-color: #b4b4b4;
+}
+
+.but {
+  background-color: var(--background-color);
+}
+
+.tintClicked {
+  background-color: #181818;
+}

@@ -1,2 +1,13 @@
+# Dependencies
 node_modules
+/backend_sanity/node_modules
+# Ignore frontend build/env files but track source
+frontend_beyond_detail/build/
+frontend_beyond_detail/.env
+frontend_beyond_detail/.env.local
+frontend_beyond_detail/.env.*.local
+frontend_beyond_detail/npm-debug.log*
+frontend_beyond_detail/yarn-debug.log*
+frontend_beyond_detail/yarn-error.log*
+# Other
 .history

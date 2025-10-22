@@ -1,0 +1,234 @@
+.tintsLaws__wrapper {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10rem;
+  padding-left: 200px;
+  padding-right: 200px;
+
+  @media screen and (min-width: 275px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 5rem;
+  }
+  @media screen and (min-width: 375px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 5rem;
+  }
+  @media screen and (min-width: 696px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 5rem;
+  }
+  @media screen and (min-width: 1300px) {
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-bottom: 10rem;
+  }
+  @media screen and (min-width: 1420px) {
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-bottom: 10rem;
+  }
+  @media screen and (min-width: 1600px) {
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-bottom: 10rem;
+  }
+  @media screen and (min-width: 1900px) {
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-bottom: 10rem;
+  }
+  @media screen and (min-width: 3000px) {
+    padding-left: 48rem;
+    padding-right: 48rem;
+    margin-bottom: 10rem;
+  }
+
+  .tintsLaws__title {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 45px;
+    font-weight: 600;
+    font-family: var(--font-base);
+    padding-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media screen and (min-width: 270px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 375px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 696px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media screen and (min-width: 1366px) {
+      font-size: 45px;
+      max-width: 600px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 45px;
+      max-width: 600px;
+    }
+
+    @media screen and (min-width: 1910px) {
+      font-size: 45px;
+      max-width: 600px;
+    }
+  }
+
+  .tintsLaws__divider {
+    width: 41%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1px;
+    background-color: var(--secondary-color);
+    border: none;
+
+    @media screen and (min-width: 270px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 375px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 696px) {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: 39%;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 39%;
+    }
+
+    @media screen and (min-width: 1910px) {
+      width: 39%;
+    }
+  }
+
+  p {
+    text-align: center;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--lightGray-color);
+    font-family: var(--font-base);
+    letter-spacing: 1px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 270px) {
+      font-size: 12px;
+    }
+
+    @media screen and (min-width: 375px) {
+      font-size: 12px;
+    }
+
+    @media screen and (min-width: 696px) {
+      font-size: 12px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 1910px) {
+      font-size: 14px;
+    }
+  }
+
+  .tintsLaws__table-container {
+    // padding: 0 10%;
+    margin: 40px auto 0;
+
+    .tintsLaws__table-container__table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        background-color: #181818;
+
+        tr th {
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: var(--secondary-color);
+          opacity: 1;
+          padding: 12px;
+          vertical-align: top;
+          border: 1px solid #1a1a1a;
+        }
+      }
+
+      tbody {
+        tr td {
+          font-size: 13px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 500;
+          color: white;
+          background-color: #0c0c0c;
+          padding: 8px;
+          text-align: center;
+          border: 1px solid #1a1a1a;
+
+          @media screen and (max-width: 768px) {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tintsLaws__table-container__table thead {
+    display: none;
+  }
+  .tintsLaws__table-container__table,
+  .tintsLaws__table-container__table tbody,
+  .tintsLaws__table-container__table tr,
+  .tintsLaws__table-container__table td {
+    display: block;
+    width: 100%;
+  }
+  .tintsLaws__table-container__table tr {
+    margin-bottom: 15px;
+  }
+  .tintsLaws__table-container__table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 60%;
+    padding-left: 15px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: left;
+    color: var(--secondary-color);
+  }
+}
