@@ -20,6 +20,17 @@ import contactPage from './contactPage';
 import galleryComparisonSlider from './galleryComparisonSlider';
 import partners from './partners';
 import tints from './tints';
+import paintCorrection from './paintCorrection';
+import ceramicCoatings from './ceramicCoatings';
+import interiorDetailing from './interiorDetailing';
+import exteriorDetailing from './exteriorDetailing';
+import headlightRestoration from './headlightRestoration';
+import odourRemoval from './odourRemoval';
+import leatherCleaning from './leatherCleaning';
+import paintRemoval from './paintRemoval';
+import faqs from './faqs';
+import blog from './blog';
+import fleetServices from './fleetServices';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -45,5 +56,16 @@ export default createSchema({
     galleryComparisonSlider,
     partners,
     tints,
+    paintCorrection,
+    ceramicCoatings,
+    interiorDetailing,
+    exteriorDetailing,
+    headlightRestoration,
+    odourRemoval,
+    leatherCleaning,
+    paintRemoval,
+    faqs,
+    blog,
+    fleetServices,
   ]),
 });
