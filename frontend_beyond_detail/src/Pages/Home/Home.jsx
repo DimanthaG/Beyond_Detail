@@ -26,9 +26,9 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Beyond Detail | Auto Detailing Oshawa'
-        description='Premium car detailing services in Oshawa. Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
-        name='Beyond Detail Oshawa'
+        title='Beyond Detail | Auto Detailing Toronto'
+        description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
+        name='Beyond Detail Toronto'
         type='website'
       />
       <BgVideo />

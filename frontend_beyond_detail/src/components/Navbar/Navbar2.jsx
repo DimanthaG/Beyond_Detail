@@ -144,11 +144,11 @@ function Navbar2() {
         <li
           className='itemList list-tints'
           ref={liRefTints}
-          onClick={() => navigate('/tints')}
+          onClick={() => navigate('/tint')}
         >
-          <span className='itemSpan' onClick={() => navigate('/tints')}>
-            <div className='linkItem' onClick={() => navigate('/tints')}>
-              tints
+          <span className='itemSpan' onClick={() => navigate('/tint')}>
+            <div className='linkItem' onClick={() => navigate('/tint')}>
+              tint
             </div>
           </span>
         </li>

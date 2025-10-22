@@ -77,9 +77,9 @@ function Gallery() {
             transition={transition}
           >
             <SEO
-              title='Gallery - Beyond Detail Oshawa'
-              description='Premium car detailing services in Oshawa. Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
-              name='Beyond Detail Oshawa'
+              title='Gallery - Beyond Detail Toronto'
+              description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
+              name='Beyond Detail Toronto'
               type='website'
             />
             <div className='gallery__wrapper'>

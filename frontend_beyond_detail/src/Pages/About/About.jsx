@@ -38,9 +38,9 @@ function About() {
             transition={transition}
           >
             <SEO
-              title='About - Beyond Detail Oshawa'
-              description='Premium car detailing services in Oshawa. Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
-              name='Beyond Detail Oshawa'
+              title='About - Beyond Detail Toronto'
+              description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
+              name='Beyond Detail Toronto'
               type='website'
             />
             <div className='aboutHeader__wrapper'>
