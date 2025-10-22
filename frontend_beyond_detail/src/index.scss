@@ -89,6 +89,26 @@ html {
   background-color: var(--darkOrange-color);
 }
 
+// Global text overflow protection
+* {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+div {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 h1 {
   font-weight: 500;
   font-family: var(--font-base);

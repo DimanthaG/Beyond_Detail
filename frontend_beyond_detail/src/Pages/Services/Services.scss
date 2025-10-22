@@ -224,13 +224,18 @@
         .rightCol1ContainerText {
           height: 361px;
           width: 703px;
+          max-width: 100%;
+          box-sizing: border-box;
+          overflow-wrap: break-word;
+          word-break: break-word;
 
           h1 {
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 4px;
             font-size: 40px;
-            // padding-left: 15rem;
+            word-break: break-word;
+            overflow-wrap: break-word;
 
             @media screen and (min-width: 280px) {
               font-size: 26px;
@@ -257,6 +262,8 @@
             color: var(--lightGray-color);
             padding-bottom: 2rem;
             letter-spacing: 1px;
+            word-break: break-word;
+            overflow-wrap: break-word;
 
             @media screen and (min-width: 280px) {
               font-size: 12px;
@@ -279,6 +286,9 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            flex-wrap: wrap;
+            word-break: break-word;
+            overflow-wrap: break-word;
 
             text-transform: uppercase;
             font-weight: 500;
@@ -288,15 +298,20 @@
 
             @media screen and (min-width: 275px) {
               font-size: 10px;
+              flex-direction: column;
+              gap: 0.5rem;
             }
             @media screen and (min-width: 375px) {
               font-size: 11px;
+              flex-direction: column;
             }
             @media screen and (min-width: 696px) {
               font-size: 11px;
+              flex-direction: column;
             }
             @media screen and (min-width: 1024px) {
               font-size: 13px;
+              flex-direction: row;
             }
 
             .options__price {
