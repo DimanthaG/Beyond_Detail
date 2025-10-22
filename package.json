@@ -1,6 +1,14 @@
 {
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+  "private": true,
+  "workspaces": [
+    "frontend_beyond_detail",
+    "backend_sanity"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd frontend_beyond_detail && npm install && cd ../backend_sanity && npm install",
+    "start:frontend": "cd frontend_beyond_detail && npm start",
+    "build:frontend": "cd frontend_beyond_detail && npm run build",
+    "start:backend": "cd backend_sanity && npm start",
+    "build:backend": "cd backend_sanity && npm build"
   }
 }
