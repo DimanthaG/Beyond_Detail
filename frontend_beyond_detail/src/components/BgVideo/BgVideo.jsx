@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './BgVideo.scss';
-import bgVideo from '../../assets/Video/520.mp4';
 import { motion } from 'framer-motion';
 import { Loading } from '../../components';
 import { urlFor, client } from '../../client';
@@ -23,7 +22,13 @@ function BgVideo() {
     <>
       {loading ? (
         <div className='hero-container'>
-          <video src={bgVideo} autoPlay loop muted playsInline />
+          <video 
+            src={heading[0]?.videoUrl || ''} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+          />
           <div className='noise-overlay'></div>
           <div className='color-overlay'></div>
           <div className='gradient-overlay'></div>
