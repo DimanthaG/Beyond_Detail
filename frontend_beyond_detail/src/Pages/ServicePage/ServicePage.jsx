@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { client } from '../../client';
+import { client, urlFor } from '../../client';
 import { Contact } from '../../components';
-import { urlFor } from '../../constants/images';
 import './ServicePage.scss';
 
 function ServicePage() {

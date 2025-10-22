@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { client } from '../../client';
-import { urlFor } from '../../constants/images';
+import { client, urlFor } from '../../client';
 import './Blog.scss';
 
 function Blog() {
