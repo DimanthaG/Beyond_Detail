@@ -1,9 +1,5 @@
 {
   "buildCommand": "cd frontend_beyond_detail && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "frontend_beyond_detail/build",
-  "public": false,
-  "env": {
-    "REACT_APP_SANITY_PROJECT_ID": "@sanity_project_id",
-    "REACT_APP_SANITY_TOKEN": "@sanity_token"
-  }
+  "public": false
 }
