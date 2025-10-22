@@ -1,5 +1,6 @@
 {
-  "buildCommand": "cd frontend_beyond_detail && npm install --legacy-peer-deps && npm run build",
-  "outputDirectory": "frontend_beyond_detail/build",
-  "public": false
+  "buildCommand": "npm install --legacy-peer-deps && npm run build",
+  "outputDirectory": "build",
+  "public": false,
+  "rootDirectory": "frontend_beyond_detail"
 }
