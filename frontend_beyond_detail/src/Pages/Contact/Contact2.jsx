@@ -10,7 +10,7 @@ import '../../react-datepicker.css';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import images from '../../constants/images';
-import './Contact2.scass';
+import './Contact2.scss';
 
 function ContactPage() {
   const [formData, setFormData] = useState({
