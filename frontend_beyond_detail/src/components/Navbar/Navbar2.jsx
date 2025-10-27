@@ -5,7 +5,6 @@ import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import './Navbar2.scss';
 import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
 function Navbar2() {
   const [scrolled, setScrolled] = useState(false);
@@ -217,16 +216,16 @@ function Navbar2() {
             </span>
           </div>
         </div>
-        <li>
+        <li className='desktop-only'>
           <h3 className='nav-divider'>|</h3>
         </li>
-        <li>
+        <li className='desktop-only'>
           <h3>
             <BsFillTelephoneFill className='phoneIcon' />
             <a href='tel: +1 (647) 689-6109'>647-689-6109</a>
           </h3>
         </li>
-        <li></li>
+        <li className='desktop-only'></li>
       </ul>
 
       <div className='burger' ref={canvasRef}>

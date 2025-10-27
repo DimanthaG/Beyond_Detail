@@ -72,19 +72,36 @@
     // background: darkblue;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 858px;
+    grid-template-rows: auto;
+    min-height: 858px;
     grid-template-areas: 'picture description';
     padding: 0 50px;
+    margin-bottom: 3rem;
+    clear: both;
+    position: relative;
+    z-index: 5;
 
     @media screen and (max-width: 400px) {
       display: flex;
       flex-direction: column;
       padding: 0 0;
+      margin-bottom: 2rem;
+      min-height: auto;
     }
     @media screen and (max-width: 696px) {
       display: flex;
       flex-direction: column;
       padding: 0 0;
+      margin-bottom: 2rem;
+      min-height: auto;
+    }
+    @media screen and (min-width: 800px) {
+      margin-bottom: 3rem;
+      min-height: 900px;
+    }
+    @media screen and (min-width: 1100px) {
+      margin-bottom: 4rem;
+      min-height: 950px;
     }
 
     // @media screen and (min-width: 270px) {
@@ -377,26 +394,46 @@
     .aboutHeader__topRight {
       padding: 30px 80px;
       grid-area: description;
+      overflow: visible;
+      position: relative;
 
       @media screen and (max-width: 400px) {
         padding: 0 0;
+        overflow: visible;
       }
       @media screen and (max-width: 696px) {
         padding: 0 0;
+        overflow: visible;
+      }
+      @media screen and (min-width: 800px) {
+        padding: 30px 40px;
+        overflow: visible;
+      }
+      @media screen and (min-width: 1100px) {
+        padding: 30px 60px;
+        overflow: visible;
       }
 
       .aboutHeader__topRight__textContainer {
         padding-top: 20px;
+        overflow: visible;
+        position: relative;
 
         @media screen and (max-width: 400px) {
           padding-top: 0;
           padding-left: 2rem;
           padding-right: 2rem;
+          overflow: visible;
         }
         @media screen and (max-width: 696px) {
           padding-top: 0;
           padding-left: 2rem;
           padding-right: 2rem;
+          overflow: visible;
+        }
+        @media screen and (min-width: 800px) {
+          padding-top: 20px;
+          overflow: visible;
         }
 
         h1 {
@@ -406,6 +443,8 @@
           font-size: 85px;
           line-height: 90px;
           color: var(--white-color);
+          overflow: visible;
+          padding-top: 20px;
 
           @media screen and (max-width: 400px) {
             font-size: 35px;
@@ -413,6 +452,7 @@
             margin-top: 34rem;
             line-height: 60px;
             padding-left: 1rem;
+            overflow: visible;
           }
           @media screen and (max-width: 696px) {
             font-size: 35px;
@@ -420,26 +460,57 @@
             margin-top: 34rem;
             line-height: 60px;
             padding-left: 1rem;
+            overflow: visible;
+          }
+          @media screen and (min-width: 700px) {
+            font-size: 60px;
+            line-height: 70px;
+            letter-spacing: 4px;
+            overflow: visible;
+          }
+          @media screen and (min-width: 900px) {
+            font-size: 70px;
+            line-height: 80px;
+            letter-spacing: 5px;
+            overflow: visible;
           }
         }
 
         .aboutHeader__topRight__textContainer__descriptionContainer {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-areas: 'list description';
-          margin-bottom: 5rem;
+          display: block;
+          margin-bottom: 2rem;
+          padding-bottom: 2rem;
           opacity: 0;
+          max-width: 100%;
+          clear: both;
+
+          @media screen and (min-width: 800px) {
+            margin-bottom: 3rem;
+          }
+
+          @media screen and (min-width: 1100px) {
+            margin-bottom: 4rem;
+          }
+
+          @media screen and (min-width: 1300px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'list description';
+            gap: 40px;
+            margin-bottom: 5rem;
+          }
 
           @media screen and (max-width: 400px) {
-            // padding-top: 20rem;
+            margin-bottom: 2rem;
           }
           @media screen and (max-width: 696px) {
-            // padding-top: 20rem;
+            margin-bottom: 2rem;
           }
 
           ul {
             grid-area: list;
             padding-top: 2rem;
+            max-width: 100%;
 
             @media screen and (max-width: 400px) {
               padding: 2rem;
@@ -448,21 +519,35 @@
               padding: 2rem;
             }
 
+            @media screen and (min-width: 1300px) {
+              padding-right: 20px;
+            }
+
             li {
               text-transform: uppercase;
               font-size: 16px;
               color: var(--lightGray-color);
               font-family: var(--font-base);
               list-style: none;
-              line-height: 40px;
+              line-height: 1.8;
+              padding-bottom: 12px;
+              padding-right: 20px;
+              word-break: keep-all;
+              hyphens: none;
 
               @media screen and (max-width: 400px) {
                 list-style: circle;
                 font-size: 13px;
+                line-height: 1.6;
               }
               @media screen and (max-width: 696px) {
                 font-size: 13px;
                 list-style: circle;
+                line-height: 1.6;
+              }
+
+              @media screen and (min-width: 1300px) {
+                max-width: 100%;
               }
             }
 
@@ -473,6 +558,9 @@
               width: 15px;
               margin-right: 10px;
               background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b9/Eo_circle_orange_checkmark.svg);
+              background-size: contain;
+              background-repeat: no-repeat;
+              flex-shrink: 0;
 
               @media screen and (max-width: 400px) {
                 display: none;
@@ -492,6 +580,14 @@
             color: var(--lightGray-color);
             font-family: var(--font-base);
             padding-top: 2rem;
+            word-break: keep-all;
+            hyphens: none;
+            line-height: 1.6;
+            max-width: 100%;
+
+            @media screen and (min-width: 1300px) {
+              padding-top: 2rem;
+            }
 
             @media screen and (max-width: 400px) {
               font-size: 13px;
@@ -508,19 +604,44 @@
   .aboutHeader__columnWrapperBottom {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 858px;
+    grid-template-rows: auto;
+    min-height: 858px;
     grid-template-areas: 'description picture';
     padding: 0 50px;
+    margin-top: 3rem;
+    clear: both;
+    position: relative;
+    z-index: 1;
 
     @media screen and (max-width: 400px) {
       display: flex;
       flex-direction: column;
       padding: 0 0;
+      margin-top: 2rem;
+      min-height: auto;
     }
     @media screen and (max-width: 696px) {
       display: flex;
       flex-direction: column;
       padding: 0 0;
+      margin-top: 2rem;
+      min-height: auto;
+    }
+    @media screen and (min-width: 800px) and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+      padding: 0 2rem;
+      margin-top: 3rem;
+      gap: 0;
+    }
+    @media screen and (min-width: 1000px) {
+      grid-template-columns: 1fr 1fr;
+      padding: 0 3rem;
+      margin-top: 3rem;
+      gap: 30px;
+    }
+    @media screen and (min-width: 1100px) {
+      padding: 0 3rem;
+      margin-top: 4rem;
     }
 
     @media screen and (min-width: 2500px) {
@@ -538,22 +659,45 @@
       grid-area: description;
       padding: 130px 70px;
       opacity: 0;
+      overflow: visible;
+      width: 100%;
 
       @media screen and (max-width: 400px) {
-        padding: 0 0;
+        padding: 2rem 1rem;
+        overflow: visible;
+        width: 100%;
       }
       @media screen and (max-width: 696px) {
-        padding: 0 0;
+        padding: 2rem 1rem;
+        overflow: visible;
+        width: 100%;
+      }
+      @media screen and (min-width: 800px) {
+        padding: 4rem 2rem;
+        overflow: visible;
+        width: 100%;
+      }
+      @media screen and (min-width: 1100px) {
+        padding: 100px 3rem;
+        overflow: visible;
+        width: 100%;
       }
 
       .aboutHeader__bottomLeft__textContainer {
         padding-top: 20px;
+        overflow: visible;
 
         @media screen and (max-width: 400px) {
           padding-top: 0;
+          overflow: visible;
         }
         @media screen and (max-width: 696px) {
           padding-top: 0;
+          overflow: visible;
+        }
+        @media screen and (min-width: 800px) {
+          padding-top: 20px;
+          overflow: visible;
         }
 
         h1 {
@@ -561,21 +705,34 @@
           font-weight: 500;
           letter-spacing: 6px;
           font-size: 85px;
-          line-height: 90px;
+          line-height: 100px;
+          max-width: 100%;
+          overflow: visible;
+          white-space: normal;
 
           @media screen and (max-width: 400px) {
             letter-spacing: 2px;
             font-size: 35px;
-            line-height: 55px;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            line-height: 45px;
+            overflow: visible;
           }
           @media screen and (max-width: 696px) {
             letter-spacing: 2px;
             font-size: 35px;
+            line-height: 45px;
+            overflow: visible;
+          }
+          @media screen and (min-width: 800px) {
+            font-size: 45px;
             line-height: 55px;
-            padding-left: 3rem;
-            padding-right: 3rem;
+            letter-spacing: 3px;
+            overflow: visible;
+          }
+          @media screen and (min-width: 1100px) {
+            font-size: 65px;
+            line-height: 75px;
+            letter-spacing: 5px;
+            overflow: visible;
           }
         }
 
@@ -586,18 +743,33 @@
           color: var(--lightGray-color);
           font-family: var(--font-base);
           padding-top: 2rem;
+          overflow: visible;
+          white-space: normal;
+          line-height: 1.8;
+          max-width: 100%;
 
           @media screen and (max-width: 400px) {
             padding-top: 1rem;
             font-size: 13px;
-            padding-left: 3rem;
-            padding-right: 3rem;
+            overflow: visible;
+            line-height: 1.6;
           }
           @media screen and (max-width: 696px) {
             padding-top: 1rem;
             font-size: 13px;
-            padding-left: 3rem;
-            padding-right: 3rem;
+            overflow: visible;
+            line-height: 1.6;
+          }
+          @media screen and (min-width: 800px) {
+            font-size: 15px;
+            padding-top: 2rem;
+            overflow: visible;
+            line-height: 1.8;
+          }
+          @media screen and (min-width: 1100px) {
+            font-size: 16px;
+            overflow: visible;
+            line-height: 1.8;
           }
         }
       }
@@ -710,20 +882,63 @@
   border-radius: 50%;
   font-size: 36px;
   text-align: center;
-  line-height: 20px;
+  line-height: 1.2;
   align-items: center;
   justify-content: center;
   height: 100%;
   font-weight: 300;
+  color: var(--white-color);
+  position: relative;
+  z-index: 10;
 }
 .progress .progress-value div {
   margin-top: 10px;
-  width: 80%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .progress .progress-value span {
   font-size: 12px;
   text-transform: uppercase;
-  line-height: 5px;
+  line-height: 1.3;
+  display: block;
+  margin-top: 5px;
+  overflow: visible;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
+  padding: 0 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .progress {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+  }
+  
+  .progress .progress-value {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  
+  .progress .progress-value span {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+  
+  .progress:after {
+    width: 90%;
+    height: 90%;
+    border: 5px solid var(--white-color);
+  }
+  
+  .progress .progress-bar {
+    border-width: 5px;
+  }
 }
 
 /* This for loop creates the 	necessary css animation names 
@@ -862,44 +1077,70 @@ Due to the split circle of progress-left and progress right, we must use the ani
 
 .progress-wrapper {
   display: flex;
-  flex-direction: flex-start;
-  margin-top: 0;
+  flex-direction: column;
+  margin-top: 2rem;
   opacity: 0;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  clear: both;
 
   @media screen and (min-width: 275px) {
-    margin-top: -3rem;
+    margin-top: 2rem;
     flex-direction: column;
     margin-bottom: 3rem;
+    gap: 1.5rem;
   }
   @media screen and (min-width: 375px) {
-    margin-top: -3rem;
+    margin-top: 2rem;
     flex-direction: column;
     margin-bottom: 3rem;
+    gap: 1.5rem;
   }
   @media screen and (min-width: 696px) {
-    margin-top: -3rem;
-    flex-direction: column;
+    margin-top: 2rem;
+    flex-direction: row;
     margin-bottom: 3rem;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: 1100px) {
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: flex-start;
   }
   @media screen and (min-width: 1300px) {
-    margin-top: 0;
+    margin-top: 2rem;
     flex-direction: row;
     margin-bottom: 0;
+    gap: 2rem;
+    justify-content: flex-start;
   }
   @media screen and (min-width: 1420px) {
+    margin-top: 2rem;
+    flex-direction: row;
+    margin-bottom: 0;
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: 1600px) {
     margin-top: 0;
     flex-direction: row;
     margin-bottom: 0;
-  }
-  @media screen and (min-width: 1600px) {
-    margin-top: -3rem;
-    flex-direction: row;
-    margin-bottom: 0;
+    gap: 2rem;
   }
   @media screen and (min-width: 1900px) {
     margin-top: 0;
     flex-direction: row;
     margin-bottom: 0;
+    gap: 2rem;
   }
 }
 

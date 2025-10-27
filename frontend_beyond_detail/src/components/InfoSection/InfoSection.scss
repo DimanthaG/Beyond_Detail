@@ -6,66 +6,38 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 800px;
-    margin-bottom: -16.5%;
+    margin-bottom: 0;
+    gap: 0;
 
     @media screen and (min-width: 275px) {
       grid-template-columns: 1fr;
-      margin-top: 0%;
-      margin-bottom: -16.5%;
+      margin-top: 0;
+      margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 375px) {
       grid-template-columns: 1fr;
-      margin-top: 0%;
-      margin-bottom: -16.5%;
+      margin-top: 0;
+      margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 410px) {
       grid-template-columns: 1fr;
-      margin-top: 0%;
-      margin-bottom: -20.5%;
+      margin-top: 0;
+      margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 696px) {
       grid-template-columns: 1fr;
-      margin-top: 0%;
-      margin-bottom: -16.5%;
+      margin-top: 0;
+      margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 1300px) {
       grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -23.2%;
-    }
-    @media screen and (min-width: 1420px) {
-      grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -22.2%;
-    }
-    @media screen and (min-width: 1600px) {
-      grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -19%;
-    }
-
-    @media screen and (min-width: 1715px) {
-      grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -18.3%;
-    }
-
-    @media screen and (min-width: 1900px) {
-      grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -16.5%;
-    }
-
-    @media screen and (min-width: 2500px) {
-      grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -12.3%;
-    }
-
-    @media screen and (min-width: 3000px) {
-      grid-template-columns: 1fr 1fr;
-      margin-top: 0%;
-      margin-bottom: -9%;
+      margin-top: 0;
+      margin-bottom: 0;
+      grid-template-rows: 800px;
     }
 
     .column__left {
@@ -313,22 +285,22 @@
         object-fit: cover;
 
         @media screen and (min-width: 275px) {
-          margin-top: -111%;
-          width: 86%;
-          height: 230px;
-          margin-left: -2.3rem;
+          width: 100%;
+          height: 300px;
+          margin-left: 0;
+          margin-top: 0;
         }
         @media screen and (min-width: 375px) {
-          margin-top: -101.5%;
           width: 100%;
-          height: 230px;
+          height: 350px;
           margin-left: 0;
+          margin-top: 0;
         }
         @media screen and (min-width: 696px) {
-          margin-top: -103%;
           width: 100%;
-          height: 230px;
+          height: 400px;
           margin-left: 0;
+          margin-top: 0;
         }
         @media screen and (min-width: 1300px) {
           margin-top: 0;
@@ -382,57 +354,31 @@
   }
 
   .info__container__bottom {
-    // padding: 3rem calc((100vw - 1300px) / 2);
     margin-top: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 800px;
-    // margin-bottom: -15%;
+    margin-bottom: 0;
 
     @media screen and (min-width: 275px) {
       grid-template-columns: 1fr;
       margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 375px) {
       grid-template-columns: 1fr;
       margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 696px) {
       grid-template-columns: 1fr;
       margin-bottom: 0;
+      grid-template-rows: auto;
     }
     @media screen and (min-width: 1300px) {
       grid-template-columns: 1fr 1fr;
-      margin-bottom: -18.3%;
-    }
-    @media screen and (min-width: 1420px) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: -18.3%;
-    }
-
-    @media screen and (min-width: 1600px) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: -18.3%;
-    }
-
-    @media screen and (min-width: 1715px) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: -18.3%;
-    }
-
-    @media screen and (min-width: 1900px) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: -16.5%;
-    }
-
-    @media screen and (min-width: 2500px) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: -12.3%;
-    }
-
-    @media screen and (min-width: 3000px) {
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: -9%;
+      margin-bottom: 0;
+      grid-template-rows: 800px;
     }
 
     .column__right__bottom {
@@ -501,9 +447,9 @@
         justify-content: center;
         align-items: flex-start;
         line-height: 1.4;
-        margin-top: -184%;
+        margin-top: 0;
         margin-left: 0;
-        width: 86%;
+        width: 100%;
         height: 400px;
         padding: 1rem 3rem;
       }
@@ -513,7 +459,7 @@
         justify-content: center;
         align-items: flex-start;
         line-height: 1.4;
-        margin-top: -172%;
+        margin-top: 0;
         margin-left: 0;
         width: 100%;
         height: 400px;
@@ -525,7 +471,7 @@
         justify-content: center;
         align-items: flex-start;
         line-height: 1.4;
-        margin-top: -163%;
+        margin-top: 0;
         margin-left: 0;
         width: 100%;
         height: 400px;
@@ -537,7 +483,7 @@
         justify-content: center;
         align-items: flex-start;
         line-height: 1.4;
-        margin-top: -168%;
+        margin-top: 0;
         margin-left: 0;
         width: 100%;
         height: 400px;
@@ -634,7 +580,7 @@
       align-items: flex-start;
 
       @media screen and (max-width: 768px) {
-        margin-top: 35.5%;
+        margin-top: 0;
       }
 
       img {
@@ -643,24 +589,24 @@
         object-fit: cover;
 
         @media screen and (min-width: 275px) {
-          width: 86%;
-          height: 230px;
+          width: 100%;
+          height: 300px;
           object-fit: cover;
-          margin-left: -2.3rem;
-          margin-top: -55%;
+          margin-left: 0;
+          margin-top: 0;
         }
         @media screen and (min-width: 375px) {
           width: 100%;
-          height: 230px;
+          height: 350px;
           object-fit: cover;
-          margin-top: -60%;
+          margin-top: 0;
           margin-left: 0;
         }
         @media screen and (min-width: 696px) {
           width: 100%;
-          height: 230px;
+          height: 400px;
           object-fit: cover;
-          margin-top: -65%;
+          margin-top: 0;
           margin-left: 0;
         }
         @media screen and (min-width: 1300px) {

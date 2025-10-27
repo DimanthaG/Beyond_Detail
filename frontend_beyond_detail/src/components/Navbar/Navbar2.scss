@@ -115,10 +115,7 @@
       letter-spacing: 0.1rem;
       font-family: var(--font-base);
 
-      @media screen and (max-width: 400px) {
-        display: none;
-      }
-      @media screen and (max-width: 696px) {
+      @media screen and (max-width: 900px) {
         display: none;
       }
     }
@@ -227,6 +224,10 @@
       opacity: 0;
       font-size: 20px;
     }
+
+    .desktop-only {
+      display: none;
+    }
   }
 
   .burger {
@@ -315,10 +316,7 @@
   color: var(--secondary-color);
   margin-top: -0.2rem;
 
-  @media screen and (max-width: 400px) {
-    display: none;
-  }
-  @media screen and (max-width: 696px) {
+  @media screen and (max-width: 900px) {
     display: none;
   }
   @media screen and (max-width: 1720px) {
@@ -349,9 +347,17 @@
 .socialIcons__container__navBar {
   display: flex;
   flex-direction: row;
+  gap: 10px;
+  padding: 20px 0;
+
   @media screen and (min-width: 900px) {
     display: none;
   }
+}
+
+.nav-links li:has(.socialIcons__container__navBar) {
+  display: flex;
+  justify-content: center;
 }
 
 .socialIcons__icon__navBar {

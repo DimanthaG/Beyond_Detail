@@ -99,16 +99,16 @@ function About() {
                           viewport={{ once: true }}
                         >
                           <ul>
-                            <li class='b1'>
+                            <li className='b1'>
                               {aboutData[0].topRow.checkList.text1}
                             </li>
-                            <li class='b1'>
+                            <li className='b1'>
                               {aboutData[0].topRow.checkList.text2}
                             </li>
-                            <li class='b1'>
+                            <li className='b1'>
                               {aboutData[0].topRow.checkList.text3}
                             </li>
-                            <li class='b1'>
+                            <li className='b1'>
                               {aboutData[0].topRow.checkList.text4}
                             </li>
                           </ul>
@@ -120,14 +120,14 @@ function About() {
                           transition={{ duration: 0.8 }}
                           viewport={{ once: true }}
                         >
-                          <div class='progress' data-percentage='100'>
-                            <span class='progress-left'>
-                              <span class='progress-bar'></span>
+                          <div className='progress' data-percentage='100'>
+                            <span className='progress-left'>
+                              <span className='progress-bar'></span>
                             </span>
-                            <span class='progress-right'>
-                              <span class='progress-bar'></span>
+                            <span className='progress-right'>
+                              <span className='progress-bar'></span>
                             </span>
-                            <div class='progress-value'>
+                            <div className='progress-value'>
                               <div>
                                 {aboutData[0].topRow.progressBar.percentage1}%
                                 <br />
@@ -141,14 +141,14 @@ function About() {
                             </div>
                           </div>
 
-                          <div class='progress' data-percentage='98'>
-                            <span class='progress-left'>
-                              <span class='progress-bar'></span>
+                          <div className='progress' data-percentage='98'>
+                            <span className='progress-left'>
+                              <span className='progress-bar'></span>
                             </span>
-                            <span class='progress-right'>
-                              <span class='progress-bar'></span>
+                            <span className='progress-right'>
+                              <span className='progress-bar'></span>
                             </span>
-                            <div class='progress-value'>
+                            <div className='progress-value'>
                               <div>
                                 {aboutData[0].topRow.progressBar.percentage2}%
                                 <br />
@@ -162,14 +162,14 @@ function About() {
                             </div>
                           </div>
 
-                          <div class='progress' data-percentage='80'>
-                            <span class='progress-left'>
-                              <span class='progress-bar'></span>
+                          <div className='progress' data-percentage='80'>
+                            <span className='progress-left'>
+                              <span className='progress-bar'></span>
                             </span>
-                            <span class='progress-right'>
-                              <span class='progress-bar'></span>
+                            <span className='progress-right'>
+                              <span className='progress-bar'></span>
                             </span>
-                            <div class='progress-value'>
+                            <div className='progress-value'>
                               <div>
                                 {aboutData[0].topRow.progressBar.percentage3}%
                                 <br />
