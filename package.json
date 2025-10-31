@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "install:all": "npm install && cd frontend_beyond_detail && npm install && cd ../backend_sanity && npm install",
+    "start": "cd frontend_beyond_detail && npm start",
     "start:frontend": "cd frontend_beyond_detail && npm start",
     "build:frontend": "cd frontend_beyond_detail && npm run build",
     "start:backend": "cd backend_sanity && npm start",
