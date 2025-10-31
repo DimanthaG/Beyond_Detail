@@ -287,6 +287,15 @@
   }
 }
 
+.list-blog-active {
+  @media screen and (max-width: 400px) {
+    animation: navLinkFade 0.15s ease forwards 0.48s;
+  }
+  @media screen and (max-width: 696px) {
+    animation: navLinkFade 0.15s ease forwards 0.48s;
+  }
+}
+
 .list-contact-active {
   @media screen and (max-width: 400px) {
     animation: navLinkFade 0.2s ease forwards 0.5s;

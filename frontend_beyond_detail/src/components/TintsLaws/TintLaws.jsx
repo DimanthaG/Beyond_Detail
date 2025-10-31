@@ -96,6 +96,62 @@ function TintLaws() {
           </tbody>
         </table>
       </div>
+      
+      <div className="tintsLaws__sources">
+        <h2 className="tintsLaws__sources-title">Sources & References</h2>
+        <p className="tintsLaws__sources-disclaimer">
+          The information provided in this table is based on Canadian provincial vehicle regulations. 
+          Laws may change over time, and interpretations can vary. Always verify current regulations 
+          with your provincial transportation authority before applying window tint.
+        </p>
+        <div className="tintsLaws__sources-list">
+          <div className="source-item">
+            <strong>Alberta Transportation</strong>
+            <span>Alberta Vehicle Equipment Regulation</span>
+          </div>
+          <div className="source-item">
+            <strong>BC Ministry of Transportation</strong>
+            <span>Motor Vehicle Act Regulations</span>
+          </div>
+          <div className="source-item">
+            <strong>Manitoba Public Insurance</strong>
+            <span>Highway Traffic Act Regulations</span>
+          </div>
+          <div className="source-item">
+            <strong>New Brunswick Department of Transportation</strong>
+            <span>Motor Vehicle Act</span>
+          </div>
+          <div className="source-item">
+            <strong>Newfoundland and Labrador Motor Registration</strong>
+            <span>Highway Traffic Act</span>
+          </div>
+          <div className="source-item">
+            <strong>Nova Scotia Department of Transportation</strong>
+            <span>Motor Vehicle Act</span>
+          </div>
+          <div className="source-item">
+            <strong>Ontario Ministry of Transportation</strong>
+            <span>Highway Traffic Act Regulations</span>
+          </div>
+          <div className="source-item">
+            <strong>Quebec Ministère des Transports</strong>
+            <span>Highway Safety Code</span>
+          </div>
+          <div className="source-item">
+            <strong>PEI Department of Transportation</strong>
+            <span>Highway Traffic Act</span>
+          </div>
+          <div className="source-item">
+            <strong>Saskatchewan Government Insurance</strong>
+            <span>The Traffic Safety Act</span>
+          </div>
+        </div>
+        <p className="tintsLaws__sources-note">
+          For the most up-to-date information, please consult your provincial transportation authority 
+          or visit their official website. This information is provided for reference purposes only 
+          and should not be considered legal advice.
+        </p>
+      </div>
     </div>
   );
 }

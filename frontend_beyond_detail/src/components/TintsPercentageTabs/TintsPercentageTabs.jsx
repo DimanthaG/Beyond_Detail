@@ -198,7 +198,7 @@ function TintsPercentageTabs() {
       {loading && tintsSimulatorData.length !== 0 ? (
         <div className='tintsPercentageTabs__wrapper'>
           <h1 className='tintsPercentage__title'>
-            3M<span className='tradeMark'>™</span> Ceramic Series
+            LLUMAR WINDOW TINT
           </h1>
           <hr className='tintsPercentage__divider' />
           <p>{tintsSimulatorData[0].tintsSimulator.description}</p>

@@ -63,7 +63,7 @@ function Footer() {
               <div className='footer-menu-h social-links-h'>Menu</div>
               <div className='footer-menu-links social-links-items'>
                 <a href='/about' className='footer-menu-links-items'>
-                  Tints
+                  Tint
                 </a>
                 <a href='/about' className='footer-menu-links-items'>
                   About
@@ -73,6 +73,9 @@ function Footer() {
                 </a>
                 <a href='/gallery' className='footer-menu-links-items'>
                   Gallery
+                </a>
+                <a href='/blog' className='footer-menu-links-items'>
+                  Blog
                 </a>
                 <a href='/contact' className='footer-menu-links-items'>
                   Contact

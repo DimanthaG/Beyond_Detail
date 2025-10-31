@@ -17,6 +17,7 @@ function Navbar2() {
   const liRefTints = useRef();
   const liRefServices = useRef();
   const liRefGallery = useRef();
+  const liRefBlog = useRef();
   const liRefContact = useRef();
   const logoRef = useRef();
 
@@ -28,6 +29,7 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -38,6 +40,7 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -48,6 +51,7 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -58,6 +62,7 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -68,6 +73,18 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
+      liRefContact.current.classList.toggle('list-contact-active');
+      canvasRef.current.classList.toggle('toggle');
+    });
+
+    liRefBlog.current.addEventListener('click', () => {
+      navLinksRef.current.classList.toggle('nav-active');
+      liRefAbout.current.classList.toggle('list-about-active');
+      liRefTints.current.classList.toggle('list-tints-active');
+      liRefServices.current.classList.toggle('list-services-active');
+      liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -78,6 +95,7 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -88,6 +106,7 @@ function Navbar2() {
       liRefTints.current.classList.toggle('list-tints-active');
       liRefServices.current.classList.toggle('list-services-active');
       liRefGallery.current.classList.toggle('list-gallery-active');
+      liRefBlog.current.classList.toggle('list-blog-active');
       liRefContact.current.classList.toggle('list-contact-active');
       canvasRef.current.classList.toggle('toggle');
     });
@@ -172,6 +191,18 @@ function Navbar2() {
           <span className='itemSpan' onClick={() => navigate('/gallery')}>
             <div className='linkItem' onClick={() => navigate('/gallery')}>
               gallery
+            </div>
+          </span>
+        </li>
+
+        <li
+          className='itemList list-blog'
+          ref={liRefBlog}
+          onClick={() => navigate('/blog')}
+        >
+          <span className='itemSpan' onClick={() => navigate('/blog')}>
+            <div className='linkItem' onClick={() => navigate('/blog')}>
+              blog
             </div>
           </span>
         </li>
