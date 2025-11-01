@@ -1,12 +1,37 @@
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Phone } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Phone, Sparkles, Shield, Zap } from 'lucide-react';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
+import carImage from '../../assets/bd/bd-20.jpg';
 import './HomeHero.scss';
 
 export function HomeHero() {
   const sliderRef = useRef(null);
+  const heroRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Parallax scroll effect
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  // Mouse move parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+        setMousePosition({ x, y });
+      }
+    };
+
+    const hero = heroRef.current;
+    if (hero) {
+      hero.addEventListener('mousemove', handleMouseMove);
+      return () => hero.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
 
   useEffect(() => {
     // Infinite scroll effect for brands
@@ -60,30 +85,40 @@ export function HomeHero() {
 
   return (
     <>
-      <div className="home-hero">
-        {/* Video Background Container */}
-        <div className="home-hero__video-container">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="home-hero__video"
+      <div className="home-hero" ref={heroRef}>
+        {/* Car Image Background with Parallax */}
+        <motion.div 
+          className="home-hero__background"
+          style={{ y, opacity }}
+        >
+          <motion.div 
+            className="home-hero__background-image"
+            style={{
+              x: mousePosition.x * 20,
+              y: mousePosition.y * 20,
+            }}
           >
-            <source src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477" type="video/mp4" />
-          </video>
-        </div>
+            <img src={carImage} alt="Premium car detailing" />
+          </motion.div>
+          <div className="home-hero__background-overlay"></div>
+          <div className="home-hero__background-gradient"></div>
+        </motion.div>
 
         <div className="home-hero__content">
           <div className="home-hero__container">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               className="home-hero__inner"
             >
               {/* Top Button */}
-              <div className="home-hero__top-button-wrapper">
+              <motion.div 
+                className="home-hero__top-button-wrapper"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <a 
                   href="#home-services" 
                   className="home-hero__top-button"
@@ -98,21 +133,96 @@ export function HomeHero() {
                   <span>Explore Our Services</span>
                   <ArrowRight className="home-hero__icon" />
                 </a>
-              </div>
+              </motion.div>
 
               {/* Title Section */}
-              <div className="home-hero__title-section">
-                <h1 className="home-hero__main-title">
-                  <span className="home-hero__title-line">Build 10x Faster with</span>
-                  <span className="home-hero__title-line home-hero__title-line--highlight">Beyond Detail</span>
-                </h1>
-                <p className="home-hero__description">
-                  Highly customizable components for building modern websites and applications you mean it.
-                </p>
+              <motion.div 
+                className="home-hero__title-section"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <motion.h1 
+                  className="home-hero__main-title"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  <motion.span 
+                    className="home-hero__title-line home-hero__title-line--white"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                    Experience Premium
+                  </motion.span>
+                  <motion.span 
+                    className="home-hero__title-line home-hero__title-line--white"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    Automotive Care
+                  </motion.span>
+                  <motion.span 
+                    className="home-hero__title-line home-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    Beyond Detail
+                  </motion.span>
+                </motion.h1>
+                <motion.p 
+                  className="home-hero__description"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
+                >
+                  Toronto's trusted automotive care specialists. From window tint installation to ceramic coating, paint correction, and comprehensive detailing — we deliver exceptional results that protect and enhance your vehicle's appearance and value.
+                </motion.p>
+
+                {/* Feature Icons */}
+                <motion.div 
+                  className="home-hero__features"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.1 }}
+                >
+                  <motion.div 
+                    className="home-hero__feature-item"
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Shield className="home-hero__feature-icon" />
+                    <span>Lifetime Warranties</span>
+                  </motion.div>
+                  <motion.div 
+                    className="home-hero__feature-item"
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Sparkles className="home-hero__feature-icon" />
+                    <span>Premium Products</span>
+                  </motion.div>
+                  <motion.div 
+                    className="home-hero__feature-item"
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Zap className="home-hero__feature-icon" />
+                    <span>Expert Installation</span>
+                  </motion.div>
+                </motion.div>
 
                 {/* Action Buttons */}
-                <div className="home-hero__actions">
-                  <a 
+                <motion.div 
+                  className="home-hero__actions"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.3 }}
+                >
+                  <motion.a 
                     href="#home-services" 
                     className="home-hero__action-button home-hero__action-button--primary"
                     onClick={(e) => {
@@ -122,25 +232,23 @@ export function HomeHero() {
                         element.scrollIntoView({ behavior: "smooth", block: "start" });
                       }
                     }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <span>Start Building</span>
+                    <span>View Services</span>
                     <ArrowRight className="home-hero__icon" />
-                  </a>
-                  <a 
-                    href="#contact" 
+                  </motion.a>
+                  <motion.a 
+                    href="tel:16476896109"
                     className="home-hero__action-button home-hero__action-button--outline"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.querySelector("#contact");
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }
-                    }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <span>Request a demo</span>
-                  </a>
-                </div>
-              </div>
+                    <Phone className="home-hero__icon" />
+                    <span>Call Now</span>
+                  </motion.a>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
 

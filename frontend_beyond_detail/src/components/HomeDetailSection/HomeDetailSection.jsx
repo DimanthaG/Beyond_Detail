@@ -9,6 +9,12 @@ import {
 } from 'lucide-react';
 import { BentoCard, BentoGrid } from '../BentoGrid/BentoGrid';
 import { Loading } from '../../components';
+// Import images from gallery
+import tintImage from '../../assets/bd/bd-26.jpg'; // Window tint car image
+import paintCorrectionImage from '../../assets/bd/bd-20.jpg'; // Ceramic coating image (clean car)
+import ceramicCoatingImage from '../../assets/bd/bd-28.jpg'; // Ceramic coating image
+import carWashImage from '../../assets/bd/bd-3.jpg'; // Keep as is
+import headlightImage from '../../assets/bd/bd-4.jpg'; // Keep as is
 import './HomeDetailSection.scss';
 
 function HomeDetailSection() {
@@ -23,7 +29,7 @@ function HomeDetailSection() {
       name: 'Window Tint',
       description: 'ENHANCE YOUR VEHICLE WITH PROFESSIONAL WINDOW TINTING TO ENJOY COOLER INTERIORS, REDUCED GLARE, INCREASED PRIVACY, AND PROTECTION FROM HARMFUL UV RAYS.',
       icon: Sun,
-      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80', // Window tint service image
+      image: tintImage, // Window tint service image from gallery
       href: '/tint',
       cta: 'Learn More',
       className: 'col-span-1',
@@ -33,7 +39,7 @@ function HomeDetailSection() {
       name: 'Paint Correction',
       description: 'REVITALIZE YOUR VEHICLE\'S FINISH WITH OUR PROFESSIONAL PAINT CORRECTION, REMOVING SWIRLS AND SCRATCHES FOR A FLAWLESS, HIGH-GLOSS LOOK.',
       icon: Sparkles,
-      image: 'https://images.unsplash.com/photo-1580274455191-6c0c3b4e9a8a?w=800&q=80', // Paint correction service image
+      image: paintCorrectionImage, // Paint correction service image from gallery
       href: '/paint-correction',
       cta: 'Learn More',
       className: 'col-span-1',
@@ -43,7 +49,7 @@ function HomeDetailSection() {
       name: 'Ceramic Coating',
       description: 'PROTECT YOUR PAINT FROM SCRATCHES AND UV DAMAGE WITH OUR PREMIUM CERAMIC COATING SERVICES FOR LONG-LASTING PROTECTION.',
       icon: Shield,
-      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80', // Ceramic coating service image
+      image: ceramicCoatingImage, // Ceramic coating service image from gallery
       href: '/ceramic-coatings',
       cta: 'Learn More',
       className: 'col-span-1',
@@ -53,7 +59,7 @@ function HomeDetailSection() {
       name: 'Car Wash & Detailing',
       description: 'ELEVATE YOUR VEHICLE WITH OUR COMPREHENSIVE CAR DETAILING SERVICES, RESTORING BOTH INTERIOR AND EXTERIOR TO PRISTINE CONDITION.',
       icon: Droplets,
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', // Car wash/detailing service image
+      image: carWashImage, // Car wash/detailing service image from gallery
       href: '/services',
       cta: 'Learn More',
       className: 'col-span-2',
@@ -63,7 +69,7 @@ function HomeDetailSection() {
       name: 'Headlight Restoration',
       description: 'IMPROVE NIGHTTIME VISIBILITY AND ENHANCE YOUR CAR\'S APPEARANCE WITH OUR PROFESSIONAL HEADLIGHT RESTORATION SERVICES.',
       icon: Car,
-      image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80', // Headlight restoration service image
+      image: headlightImage, // Headlight restoration service image from gallery
       href: '/headlight-restoration',
       cta: 'Learn More',
       className: 'col-span-1',
