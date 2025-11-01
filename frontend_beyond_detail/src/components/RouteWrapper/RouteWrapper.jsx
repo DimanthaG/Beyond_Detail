@@ -15,8 +15,11 @@ export function RouteWrapper({ children }) {
     return <>{children}</>;
   }
 
+  // Use automotive variant for paint correction page
+  const variant = location.pathname === "/paint-correction" ? "automotive" : "default";
+
   // Wrap all other pages with PageBackground
-  return <PageBackground>{children}</PageBackground>;
+  return <PageBackground variant={variant}>{children}</PageBackground>;
 }
 
 /**

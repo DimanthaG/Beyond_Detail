@@ -1,0 +1,32 @@
+.automotive-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.automotive-background__svg {
+  width: 100%;
+  height: 100%;
+  color: var(--secondary-color); // Orange color
+  opacity: 0.7;
+  filter: blur(0.5px);
+}
+
+// Add subtle animation to the entire background
+@keyframes backgroundPulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.automotive-background__svg {
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+

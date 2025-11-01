@@ -40,9 +40,9 @@ function TintLaws() {
             <tr>
               <td data-label='Province'>Manitoba</td>
               <td data-label='Windshield'>15cm Strip</td>
-              <td data-label='Front Side Windows'>45%</td>
-              <td data-label='Back Side Windows'>30%</td>
-              <td data-label='Rear Window'>35%</td>
+              <td data-label='Front Side Windows'>45% Light Transmission</td>
+              <td data-label='Back Side Windows'>30% Light Transmission</td>
+              <td data-label='Rear Window'>35% Light Transmission</td>
             </tr>
             <tr>
               <td data-label='Province'>New Brunswick</td>
@@ -68,14 +68,14 @@ function TintLaws() {
             <tr>
               <td data-label='Province'>Ontario</td>
               <td data-label='Windshield'>15cm Strip</td>
-              <td data-label='Front Side Windows'>Vague</td>
+              <td data-label='Front Side Windows'>70% Light Transmission</td>
               <td data-label='Back Side Windows'>Any Shade</td>
               <td data-label='Rear Window'>Any Shade</td>
             </tr>
             <tr>
               <td data-label='Province'>Quebec</td>
               <td data-label='Windshield'>15cm Strip</td>
-              <td data-label='Front Side Windows'>70%</td>
+              <td data-label='Front Side Windows'>70% Light Transmission</td>
               <td data-label='Back Side Windows'>Any Shade</td>
               <td data-label='Rear Window'>Any Shade</td>
             </tr>
@@ -95,6 +95,48 @@ function TintLaws() {
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div className="tintsLaws__explanation">
+        <h2 className="tintsLaws__explanation-title">Understanding Light Transmission vs. Tint Percentages</h2>
+        <div className="tintsLaws__explanation-content">
+          <p className="tintsLaws__explanation-text">
+            It's important to understand the difference between <strong>light transmission</strong> and <strong>tint percentages</strong>, as they represent opposite measurements:
+          </p>
+          <div className="tintsLaws__explanation-items">
+            <div className="tintsLaws__explanation-item">
+              <h3 className="tintsLaws__explanation-item-title">Light Transmission Percentage</h3>
+              <p>
+                <strong>Light Transmission</strong> measures how much light <em>passes through</em> the window. 
+                A higher percentage means more light comes through (lighter tint). For example:
+              </p>
+              <ul>
+                <li><strong>70% Light Transmission</strong> = 70% of light passes through (30% is blocked)</li>
+                <li><strong>45% Light Transmission</strong> = 45% of light passes through (55% is blocked)</li>
+                <li><strong>30% Light Transmission</strong> = 30% of light passes through (70% is blocked)</li>
+              </ul>
+            </div>
+            <div className="tintsLaws__explanation-item">
+              <h3 className="tintsLaws__explanation-item-title">Tint Percentage</h3>
+              <p>
+                <strong>Tint Percentage</strong> measures how much light is <em>blocked</em> by the tint film. 
+                A higher percentage means darker tint (less light passes through). For example:
+              </p>
+              <ul>
+                <li><strong>5% Tint</strong> = Very dark, blocks 95% of light (allows only 5% through)</li>
+                <li><strong>30% Tint</strong> = Moderately dark, blocks 30% of light (allows 70% through)</li>
+                <li><strong>50% Tint</strong> = Light tint, blocks 50% of light (allows 50% through)</li>
+              </ul>
+            </div>
+          </div>
+          <div className="tintsLaws__explanation-note">
+            <p>
+              <strong>Important:</strong> When provincial laws specify a light transmission percentage (like "70% Light Transmission"), 
+              this means the tint film must allow at least that amount of light through. This corresponds to a maximum tint darkness. 
+              For example, a 70% light transmission requirement means you can use up to a 30% tint (since 30% + 70% = 100%).
+            </p>
+          </div>
+        </div>
       </div>
       
       <div className="tintsLaws__sources">
@@ -226,9 +268,9 @@ function TintLaws() {
             </strong>
             <span>Highway Traffic Act Regulations</span>
             <p className="source-description">
-              Ontario allows a 15cm strip on the windshield. While front side window regulations are 
-              somewhat vague, rear windows can be tinted to any shade. Many drivers choose lighter 
-              tints on front windows to ensure compliance.
+              Ontario allows a 15cm strip on the windshield. Front side windows must allow at least 
+              70% of light transmission (maximum 30% tint). Rear windows can be tinted to any shade, 
+              providing flexibility for privacy and protection.
             </p>
           </div>
           <div className="source-item">

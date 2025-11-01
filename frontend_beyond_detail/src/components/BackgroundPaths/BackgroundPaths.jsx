@@ -7,7 +7,8 @@ import "./BackgroundPaths.scss";
 export function BackgroundPaths({
   title = "Window Tint",
   scrollTarget = "#contact",
-  description = "Professional automotive services in Toronto. We provide premium quality services with expert installation, exceptional customer service, and a commitment to excellence that goes beyond detail.",
+  description = "At Beyond Detail, we offer professional window tinting using high-quality Llumar films trusted for their performance, durability, and sleek finish. We're proud to be a top choice in the Scarborough and Toronto area, with a strong focus on customer satisfaction and expert installation. All premium films include a manufacturer-backed lifetime warranty.",
+  hideAnimatedWords = false,
 }) {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
@@ -57,36 +58,40 @@ export function BackgroundPaths({
             {/* Title Section */}
             <div className="background-paths__title-section">
               <h1 className="background-paths__main-title">
-                <span className="background-paths__title-static">Experience</span>
-                <span className="background-paths__title-animated">
-                  &nbsp;
-                  {titles.map((title, index) => {
-                    const letterCount = title.length;
-                    const fontSize = letterCount > 5 ? `${(5 / letterCount) * 100}%` : "100%";
-                    return (
-                      <motion.span
-                        key={index}
-                        className="background-paths__title-word"
-                        style={{ fontSize }}
-                        initial={{ opacity: 0, y: -100 }}
-                        transition={{ type: "spring", stiffness: 50 }}
-                        animate={
-                          titleNumber === index
-                            ? {
-                                y: 0,
-                                opacity: 1,
-                              }
-                            : {
-                                y: titleNumber > index ? -150 : 150,
-                                opacity: 0,
-                              }
-                        }
-                      >
-                        {title}
-                      </motion.span>
-                    );
-                  })}
-                </span>
+                {!hideAnimatedWords && (
+                  <>
+                    <span className="background-paths__title-static">Experience</span>
+                    <span className="background-paths__title-animated">
+                      &nbsp;
+                      {titles.map((title, index) => {
+                        const letterCount = title.length;
+                        const fontSize = letterCount > 5 ? `${(5 / letterCount) * 100}%` : "100%";
+                        return (
+                          <motion.span
+                            key={index}
+                            className="background-paths__title-word"
+                            style={{ fontSize }}
+                            initial={{ opacity: 0, y: -100 }}
+                            transition={{ type: "spring", stiffness: 50 }}
+                            animate={
+                              titleNumber === index
+                                ? {
+                                    y: 0,
+                                    opacity: 1,
+                                  }
+                                : {
+                                    y: titleNumber > index ? -150 : 150,
+                                    opacity: 0,
+                                  }
+                            }
+                          >
+                            {title}
+                          </motion.span>
+                        );
+                      })}
+                    </span>
+                  </>
+                )}
                 <span className="background-paths__title-static">{title}</span>
               </h1>
 
@@ -99,25 +104,18 @@ export function BackgroundPaths({
             {/* Action Buttons */}
             <div className="background-paths__actions">
               <a 
-                href="#contact" 
+                href="tel:16476896109" 
                 className="background-paths__action-button background-paths__action-button--outline"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.querySelector("#contact");
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }
-                }}
               >
-                <span>Book a Call</span>
+                <span>Call Now</span>
                 <Phone className="background-paths__icon" />
               </a>
               <a 
-                href={scrollTarget} 
+                href="#contact" 
                 className="background-paths__action-button background-paths__action-button--primary"
                 onClick={(e) => {
                   e.preventDefault();
-                  const element = document.querySelector(scrollTarget);
+                  const element = document.querySelector("#contact");
                   if (element) {
                     element.scrollIntoView({ behavior: "smooth", block: "start" });
                   }

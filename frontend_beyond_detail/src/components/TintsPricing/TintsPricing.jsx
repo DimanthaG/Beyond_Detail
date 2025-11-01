@@ -114,68 +114,79 @@ function TintsPricing() {
   const products = [
     {
       name: "LLUMAR ATC",
+      subtitle: "DYED FILM",
+      tagline: "Everyday Style, Trusted Protection",
       benefits: [
-        "Premium carbon-based technology",
-        "Superior heat rejection",
-        "99% UV protection",
-        "Excellent clarity and visibility",
-        "Long-lasting durability",
-        "Non-reflective finish",
-        "Fade-resistant warranty",
+        "Blocks 99% of harmful UV rays",
+        "Non-reflective, factory-look finish",
+        "Color-stable and fade-resistant",
+        "Great value with long-term durability",
+        "Available in 5%, 15%, 20%, 30%",
+        "Lifetime warranty backed by Llumar",
       ],
+      color: "#22c55e", // Green
+      badge: "BEST VALUE",
       basePrice: {
-        0: 249, // 2 Door Coupe
-        1: 299, // 4 Door Sedan
-        2: 349, // Mid Size SUV
-        3: 399, // Full Size SUV / Van
-        4: 449, // Pick Up Truck
-        5: 199, // Windshield
+        0: 140, // 2 Door Coupe - TWO FRONT WINDOWS
+        1: 250, // 4 Door Sedan - FULL CAR
+        2: 300, // Mid Size SUV - FULL SUV
+        3: 300, // Full Size SUV / Van - FULL SUV
+        4: 300, // Pick Up Truck - FULL TRUCK
+        5: 0, // Windshield (not available for ATC)
       },
     },
     {
       name: "LLUMAR CTX",
+      subtitle: "CERAMIC FILM",
+      tagline: "Smart Heat Rejection with Signal-Safe Technology",
       benefits: [
-        "Advanced ceramic technology",
-        "Maximum heat rejection",
-        "99% UV protection",
-        "Crystal-clear visibility",
-        "Non-reflective, non-conductive",
-        "Fade-resistant performance",
-        "Lifetime warranty",
+        "Advanced nano-ceramic formula",
+        "Blocks infrared heat and UV rays",
+        "Zero interference with cell, GPS, Bluetooth",
+        "Signal-safe & tech friendly",
+        "Subtle, stylish neutral charcoal tone",
+        "Available in 5%, 15%, 35%, 50%",
       ],
+      color: "#3b82f6", // Blue
+      badge: "HIGH QUALITY",
       basePrice: {
-        0: 349, // 2 Door Coupe
-        1: 399, // 4 Door Sedan
-        2: 449, // Mid Size SUV
-        3: 499, // Full Size SUV / Van
-        4: 549, // Pick Up Truck
-        5: 249, // Windshield
+        0: 180, // 2 Door Coupe - TWO FRONT WINDOWS
+        1: 400, // 4 Door Sedan - FULL CAR
+        2: 450, // Mid Size SUV - FULL SUV
+        3: 450, // Full Size SUV / Van - FULL SUV
+        4: 450, // Pick Up Truck - FULL TRUCK
+        5: 200, // Windshield
       },
     },
     {
       name: "LLUMAR IRX",
+      subtitle: "NANO CERAMIC",
+      tagline: "Luxury-Level Heat Rejection & Premium Privacy",
       benefits: [
-        "Elite ceramic infrared technology",
-        "Superior infrared rejection",
-        "99% UV ray blocking",
-        "Ultimate heat protection",
-        "Premium clarity",
-        "Non-metallic, non-interference",
+        "Maximum infrared heat rejection",
+        "Blocks 99% of harmful UV rays",
+        "Premium clarity and visibility",
+        "Advanced infrared-blocking technology",
+        "Available in 5%, 15%, 35%, 50%",
         "Lifetime warranty included",
       ],
+      color: "#f59e0b", // Gold/Amber
+      badge: "TOP HEAT BLOCKER",
       basePrice: {
-        0: 449, // 2 Door Coupe
-        1: 499, // 4 Door Sedan
-        2: 549, // Mid Size SUV
-        3: 599, // Full Size SUV / Van
-        4: 649, // Pick Up Truck
-        5: 299, // Windshield
+        0: 220, // 2 Door Coupe - TWO FRONT WINDOWS
+        1: 500, // 4 Door Sedan - FULL CAR
+        2: 550, // Mid Size SUV - FULL SUV
+        3: 550, // Full Size SUV / Van - FULL SUV
+        4: 550, // Pick Up Truck - FULL TRUCK
+        5: 300, // Windshield
       },
     },
   ];
 
   const currentProduct = products[selectedProduct];
-  const currentPrice = currentProduct.basePrice[vehicleType];
+  const currentPrice = vehicleType === 5 && currentProduct.basePrice[vehicleType] === 0 
+    ? 0 
+    : currentProduct.basePrice[vehicleType];
 
   const revealVariants = {
     visible: (i) => ({
@@ -195,7 +206,7 @@ function TintsPricing() {
   };
 
   return (
-    <div className="tints-pricing" ref={pricingRef}>
+    <section id="pricing" className="tints-pricing" ref={pricingRef}>
       <div className="tints-pricing__container">
         <motion.div
           initial="hidden"
@@ -210,11 +221,10 @@ function TintsPricing() {
             <span className="tints-pricing__badge">Premium Products</span>
           </div>
 
-          <h1 className="tints-pricing__title">Choose Your Llumar Window Tint</h1>
+          <h1 className="tints-pricing__title">Premium Llumar Window Tinting for Cars, Trucks & SUVs</h1>
 
           <p className="tints-pricing__subtitle">
-            Select a premium Llumar product and vehicle type to get started with
-            professional window tint services.
+            Llumar window films are known worldwide for their performance, durability, and advanced UV protection. At Beyond Detail, we proudly install Llumar's industry-leading films to help you stay cooler, protect your interior, and drive in style — all backed by a manufacturer's lifetime warranty.
           </p>
         </motion.div>
 
@@ -227,7 +237,20 @@ function TintsPricing() {
               variants={revealVariants}
               custom={1}
             >
-              <h3 className="tints-pricing__section-title">Product Benefits</h3>
+              {currentProduct.badge && (
+                <div className="tints-pricing__product-badge" style={{ color: currentProduct.color }}>
+                  {currentProduct.badge}
+                </div>
+              )}
+              <h3 className="tints-pricing__section-title">{currentProduct.name}</h3>
+              {currentProduct.subtitle && (
+                <p className="tints-pricing__product-subtitle" style={{ color: currentProduct.color }}>
+                  {currentProduct.subtitle}
+                </p>
+              )}
+              {currentProduct.tagline && (
+                <p className="tints-pricing__product-tagline">{currentProduct.tagline}</p>
+              )}
 
               <div className="tints-pricing__benefits">
                 {currentProduct.benefits.map((benefit, index) => (
@@ -240,7 +263,7 @@ function TintsPricing() {
                     custom={2 + index}
                     className="tints-pricing__benefit-item"
                   >
-                    <div className="tints-pricing__check-icon">
+                    <div className="tints-pricing__check-icon" style={{ background: currentProduct.color }}>
                       <CheckCheck className="tints-pricing__check" />
                     </div>
                     <span className="tints-pricing__benefit-text">
@@ -272,8 +295,19 @@ function TintsPricing() {
                           ? "tints-pricing__product-button--active"
                           : ""
                       }`}
+                      style={{
+                        borderColor: selectedProduct === index ? product.color : undefined,
+                        background: selectedProduct === index 
+                          ? 'transparent' 
+                          : undefined,
+                      }}
                     >
                       {product.name}
+                      {product.badge && (
+                        <span className="tints-pricing__button-badge" style={{ color: product.color }}>
+                          {product.badge}
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -325,8 +359,10 @@ function TintsPricing() {
                   />
                 </div>
                 <span className="tints-pricing__price-note">
-                  Starting price for {vehicleOptions[vehicleType]}
-                  {vehicleType === 5 ? ` (${selectedPercentage}% tint)` : ""}
+                  {currentPrice === 0 
+                    ? "Not available for this vehicle type"
+                    : `Starting price for ${vehicleOptions[vehicleType]}${vehicleType === 5 ? ` (${selectedPercentage}% tint)` : ""}`
+                  }
                 </span>
               </div>
 
@@ -355,7 +391,7 @@ function TintsPricing() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

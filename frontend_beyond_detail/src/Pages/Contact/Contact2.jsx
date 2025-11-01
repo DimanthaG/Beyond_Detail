@@ -166,7 +166,7 @@ function ContactPage() {
                   >
                     <div className='socialIcons__icon__navBar2 instagram2'>
                       <span>
-                        <a href='http://google.com' target='_blank'>
+                        <a href='https://www.instagram.com/beyonddetail.ca/' target='_blank' rel='noopener noreferrer'>
                           <BsInstagram />
                         </a>
                       </span>
@@ -174,7 +174,7 @@ function ContactPage() {
 
                     <div className='socialIcons__icon__navBar2 twitter2'>
                       <span>
-                        <a href='http://google.com' target='_blank'>
+                        <a href='https://x.com/BeyondDetailca' target='_blank' rel='noopener noreferrer'>
                           <BsTwitter />
                         </a>
                       </span>
@@ -182,7 +182,7 @@ function ContactPage() {
 
                     <div className='socialIcons__icon__navBar2 facebook2'>
                       <span>
-                        <a href='http://google.com' target='_blank'>
+                        <a href='https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/' target='_blank' rel='noopener noreferrer'>
                           <FaFacebookF />
                         </a>
                       </span>

@@ -2,17 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { SEO } from '../../components';
 import { animationOne, transition } from '../../components/Transition';
+import { HomeHero } from '../../components/HomeHero/HomeHero';
 
 import {
-  BgVideo,
-  InfoSection,
   HomeDetailSection,
   Testimonials,
-  HomeProcess,
   Map,
-  HomeServicesHeader,
-  HomeServicesCards,
-  Partners,
   Contact,
 } from '../../components';
 import './Home.scss';
@@ -31,13 +26,9 @@ function Home() {
         name='Beyond Detail Toronto'
         type='website'
       />
-      <BgVideo />
+      <HomeHero />
+      <div id="home-services"></div>
       <HomeDetailSection />
-      <InfoSection />
-      <HomeProcess />
-      <HomeServicesHeader />
-      <HomeServicesCards />
-      <Partners />
       <Testimonials />
       <Contact />
       <Map />

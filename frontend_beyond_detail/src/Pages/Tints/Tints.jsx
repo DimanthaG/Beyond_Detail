@@ -12,7 +12,10 @@ const TintsFeatures = lazy(() => import('../../components/TintsFeatures/TintsFea
 const TintsPercentageTabs = lazy(() => import('../../components/TintsPercentageTabs/TintsPercentageTabs'));
 const TintsPercentage = lazy(() => import('../../components/TintsPercentage/TintsPercentage'));
 const TintsPricing = lazy(() => import('../../components/TintsPricing/TintsPricing'));
-const TintLaws = lazy(() => import('../../components/TintsLaws/TintLaws'));
+const TintLawsChart = lazy(() => import('../../components/TintsLaws/TintLawsChart'));
+const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLawsExplanation'));
+const TintLawsSources = lazy(() => import('../../components/TintsLaws/TintLawsSources'));
+const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Tints() {
@@ -40,15 +43,20 @@ function Tints() {
           <div className='tints__wrapper'>
             <BackgroundPaths 
               title="Window Tint"
-              scrollTarget="#tintsMaterials"
-              description="Professional automotive window tint services in Toronto. We provide premium quality tint with expert installation, exceptional customer service, and a commitment to excellence that goes beyond detail."
+              scrollTarget="#pricing"
+              description="Transform your vehicle with premium LLUMAR window tint installation. We're Toronto and Scarborough's trusted experts, delivering exceptional quality, professional installation, and manufacturer-backed lifetime warranties. Experience the perfect blend of style, privacy, and protection."
             />
+            <Suspense fallback={null}>
+              <ServiceGallery serviceType="tint" title="Window Tint Gallery" />
+            </Suspense>
             <BrandsGrid />
             <TintsFeatures />
             <TintsPricing />
+            <TintLawsChart />
+            <TintLawsExplanation />
             <TintsPercentageTabs />
             <TintsPercentage />
-            <TintLaws />
+            <TintLawsSources />
             <Contact />
           </div>
         </motion.div>

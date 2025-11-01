@@ -205,6 +205,164 @@
     }
   }
 
+  .tintsLaws__explanation {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(240, 121, 0, 0.3);
+
+    .tintsLaws__explanation-title {
+      font-size: 24px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--secondary-color);
+      font-family: var(--font-base);
+      text-align: center;
+      margin-bottom: 30px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .tintsLaws__explanation-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tintsLaws__explanation-text {
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: var(--font-base);
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-transform: none;
+      letter-spacing: 0.5px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 13px;
+        padding: 0 10px;
+      }
+
+      strong {
+        color: var(--white-color);
+        font-weight: 600;
+      }
+    }
+
+    .tintsLaws__explanation-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+
+    .tintsLaws__explanation-item {
+      padding: 20px;
+      background: rgba(12, 12, 12, 0.6);
+      border-left: 3px solid var(--secondary-color);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(12, 12, 12, 0.8);
+        transform: translateX(5px);
+      }
+
+      .tintsLaws__explanation-item-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        font-family: var(--font-base);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        @media screen and (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+
+      p {
+        text-align: left;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.75);
+        font-family: var(--font-base);
+        line-height: 1.6;
+        margin-bottom: 15px;
+        text-transform: none;
+        letter-spacing: 0.5px;
+
+        strong {
+          color: var(--white-color);
+          font-weight: 600;
+        }
+
+        em {
+          color: var(--secondary-color);
+          font-style: normal;
+          font-weight: 500;
+        }
+      }
+
+      ul {
+        margin: 10px 0;
+        padding-left: 20px;
+
+        li {
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.7);
+          font-family: var(--font-base);
+          line-height: 1.8;
+          margin-bottom: 8px;
+          text-transform: none;
+          letter-spacing: 0.5px;
+
+          strong {
+            color: var(--secondary-color);
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .tintsLaws__explanation-note {
+      padding: 20px;
+      background: rgba(240, 121, 0, 0.1);
+      border-left: 3px solid var(--secondary-color);
+      border-radius: 4px;
+      margin-top: 20px;
+
+      p {
+        text-align: left;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: var(--font-base);
+        line-height: 1.7;
+        margin: 0;
+        text-transform: none;
+        letter-spacing: 0.5px;
+
+        strong {
+          color: var(--secondary-color);
+          font-weight: 600;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        padding: 15px;
+        font-size: 12px;
+      }
+    }
+  }
+
   .tintsLaws__sources {
     margin-top: 60px;
     padding-top: 40px;

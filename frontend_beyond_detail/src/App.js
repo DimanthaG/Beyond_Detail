@@ -18,6 +18,7 @@ import {
   ServicePage,
   FAQs,
   Blog,
+  PrivacyPolicy,
   PaintCorrection,
   CeramicCoating,
   FleetServices,
@@ -38,6 +39,7 @@ const WrappedServicePage = withRouteWrapper(ServicePage);
 const WrappedGallery = withRouteWrapper(Gallery);
 const WrappedFAQs = withRouteWrapper(FAQs);
 const WrappedBlog = withRouteWrapper(Blog);
+const WrappedPrivacyPolicy = withRouteWrapper(PrivacyPolicy);
 const WrappedTestimonials = withRouteWrapper(Testimonials);
 const WrappedContact = withRouteWrapper(Contact2);
 const WrappedError = withRouteWrapper(Error);
@@ -80,6 +82,7 @@ function App() {
           <Route path='/fleet-services' element={<WrappedFleetServices />} />
           <Route path='/gallery' element={<WrappedGallery />} />
           <Route path='/faqs' element={<WrappedFAQs />} />
+          <Route path='/privacy-policy' element={<WrappedPrivacyPolicy />} />
           <Route path='/blog' element={<WrappedBlog />} />
           <Route path='/blog/:slug' element={<WrappedBlog />} />
           <Route path='/testimonials' element={<WrappedTestimonials />} />

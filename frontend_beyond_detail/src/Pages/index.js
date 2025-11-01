@@ -9,6 +9,7 @@ export { default as Tints } from './Tints/Tints';
 export { default as ServicePage } from './ServicePage/ServicePage';
 export { default as FAQs } from './FAQs/FAQs';
 export { default as Blog } from './Blog/Blog';
+export { default as PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy';
 export { default as PaintCorrection } from './PaintCorrection/PaintCorrection';
 export { default as CeramicCoating } from './CeramicCoating/CeramicCoating';
 export { default as FleetServices } from './FleetServices/FleetServices';

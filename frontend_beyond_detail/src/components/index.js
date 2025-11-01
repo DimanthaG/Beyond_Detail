@@ -3,6 +3,8 @@ export { default as Navbar } from './Navbar/Navbar2';
 export { default as BgVideo } from './BgVideo/BgVideo';
 export { default as HoverSlider } from './HoverSlider/HoverSlider';
 export { default as InfoSection } from './InfoSection/InfoSection';
+export { default as ServiceInfoSection } from './ServiceInfoSection/ServiceInfoSection';
+export { default as ServicePricing } from './ServicePricing/ServicePricing';
 export { default as HomeDetailSection } from './HomeDetailSection/HomeDetailSection';
 export { default as SocialIcons } from './SocialIcons/SocialIcons';
 export { default as Testimonials } from './Testimonials/Testimonials';

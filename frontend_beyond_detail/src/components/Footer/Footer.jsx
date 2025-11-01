@@ -26,12 +26,22 @@ function Footer() {
               <img src={images.logo2} alt='beyond detail logo' loading='lazy' />
               {footerData.length !== 0 && (
                 <>
-                  <h3>{footerData[0].number}</h3>
+                  <h3>
+                    <a href={`tel:${footerData[0].number?.replace(/\s/g, '')}`}>
+                      {footerData[0].number}
+                    </a>
+                  </h3>
                   <span>{footerData[0].addressTitle}</span>
                   <h5>
-                    {footerData[0].addressUnit}
-                    <br />
-                    {footerData[0].address}
+                    <a 
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${footerData[0].addressUnit} ${footerData[0].address}`)}`}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {footerData[0].addressUnit}
+                      <br />
+                      {footerData[0].address}
+                    </a>
                   </h5>
                 </>
               )}
@@ -39,30 +49,36 @@ function Footer() {
             <div className='social-links'>
               <div className='social-links-h'>Social</div>
               <div className='social-links-items'>
-                {footerData.length !== 0 && (
-                  <>
-                    <a href={footerData[0].socialLinks.socialUrl1}>
-                      {footerData[0].socialLinks.socialName1}
-                    </a>
-                    <a href={footerData[0].socialLinks.socialUrl2}>
-                      {footerData[0].socialLinks.socialName2}
-                    </a>
-                    <a href={footerData[0].socialLinks.socialUrl3}>
-                      {footerData[0].socialLinks.socialName3}
-                    </a>
-                    <a href={footerData[0].socialLinks.socialUrl4}>
-                      {footerData[0].socialLinks.socialName4}
-                    </a>
-                  </>
-                )}
-                <br />
-                <br />
+                <a 
+                  href='https://www.youtube.com/@beyonddetailtoronto' 
+                  target='_blank' 
+                  rel='noopener noreferrer'
+                >
+                  YouTube
+                </a>
+                <a 
+                  href='https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/' 
+                  target='_blank' 
+                  rel='noopener noreferrer'
+                >
+                  Facebook
+                </a>
+                <a 
+                  href='https://www.instagram.com/beyonddetail.ca/' 
+                  target='_blank' 
+                  rel='noopener noreferrer'
+                >
+                  Instagram
+                </a>
+                <a href='/privacy-policy'>
+                  Privacy Policy
+                </a>
               </div>
             </div>
             <div className='footer-menu social-links'>
               <div className='footer-menu-h social-links-h'>Menu</div>
               <div className='footer-menu-links social-links-items'>
-                <a href='/about' className='footer-menu-links-items'>
+                <a href='/tint' className='footer-menu-links-items'>
                   Tint
                 </a>
                 <a href='/about' className='footer-menu-links-items'>

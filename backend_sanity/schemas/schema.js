@@ -31,6 +31,7 @@ import paintRemoval from './paintRemoval';
 import faqs from './faqs';
 import blog from './blog';
 import fleetServices from './fleetServices';
+import serviceGallery from './serviceGallery';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -67,5 +68,6 @@ export default createSchema({
     faqs,
     blog,
     fleetServices,
+    serviceGallery,
   ]),
 });

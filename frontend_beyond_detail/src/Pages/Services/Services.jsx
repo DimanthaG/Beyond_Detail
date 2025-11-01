@@ -1,373 +1,210 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
-import { urlFor, client } from '../../client';
-import { Contact, Loading, SEO } from '../../components';
 import { animationOne, transition } from '../../components/Transition';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { Loading, HomeProcess } from '../../components';
+import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
+import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import Testimonials from '../../components/Testimonials/Testimonials';
 import './Services.scss';
 
-function Services() {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false);
+// Lazy load heavy components to improve initial bundle size
+const SEO = lazy(() => import('../../components/SEO'));
+const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
+const Contact = lazy(() => import('../../components/Contact/Contact'));
 
+function Services() {
   // scroll to top on page render
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const query = '*[_type == "services"]';
-
-    client.fetch(query).then((data) => {
-      setServices(data);
-      setLoading(true);
-    });
-  }, []);
-
   return (
     <>
-      {loading ? (
-        <>
-          <motion.div
-            initial='out'
-            animate='in'
-            exit='out'
-            variants={animationOne}
-            transition={transition}
-          >
-            <SEO
-              title='Auto Detail - Beyond Detail Toronto'
-              description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
-              name='Beyond Detail Toronto'
-              type='website'
+      <Suspense fallback={<Loading />}>
+        <SEO
+          title='Auto Detail - Beyond Detail Toronto'
+          description='Complete auto detailing services in Toronto and Scarborough. Comprehensive interior and exterior detailing, paint correction, and protection services to keep your vehicle looking its best.'
+          name='Beyond Detail Toronto'
+          type='website'
+        />
+        <motion.div
+          initial='out'
+          animate='in'
+          exit='out'
+          variants={animationOne}
+          transition={{ ...transition, delay: 0 }}
+        >
+          <div className='auto-detail__wrapper'>
+            <BackgroundPaths 
+              title="Auto Detail"
+              scrollTarget="#pricing"
+              description="Complete auto detailing that brings your vehicle back to showroom condition. From deep interior cleaning to exterior paint enhancement, we combine expert craftsmanship with premium products to deliver results that exceed expectations. Your satisfaction is our priority."
             />
-            <div className='services__wrapper'>
-              {services.length !== 0 && (
-                <>
-                  <motion.div
-                    className='servicesHeader'
-                    whileInView={{ opacity: [0, 1] }}
-                    transition={{ duration: 2.0 }}
-                    viewport={{ once: true }}
-                  >
-                    <h1>{services[0].servicesMainHeader}</h1>
-                  </motion.div>
-                  <div className='servicesTintWrapper'>
-                    <div className='firstRowWrapper'>
-                      <motion.div
-                        className='leftCol1'
-                        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <img
-                          src={urlFor(services[0].firstRow.picture)}
-                          loading='lazy'
-                          alt='window tint'
-                        />
-                      </motion.div>
-                      <motion.div
-                        className='rightCol1'
-                        id='windowTint'
-                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className='rightCol1Container'>
-                          <div className='rightCol1ContainerText'>
-                            <h1>{services[0].firstRow.service1}</h1>
-                            <p>{services[0].firstRow.description}</p>
+            <Suspense fallback={null}>
+              <ServiceGallery serviceType="auto-detail" title="Auto Detailing Gallery" />
+            </Suspense>
+            <ServiceInfoSection
+              title="Complete Auto Detailing Services"
+              subtitle="Interior & Exterior Excellence"
+              description="Our comprehensive auto detailing services combine expert interior and exterior care to fully restore and protect your vehicle. From deep cleaning and stain removal to paint enhancement and protection, we treat every surface with meticulous attention to detail, ensuring your vehicle looks and feels like new."
+              benefits={[
+                {
+                  title: "Complete Vehicle Restoration",
+                  description: "Both interior and exterior surfaces are professionally cleaned, restored, and protected in one comprehensive service, ensuring your entire vehicle receives expert care."
+                },
+                {
+                  title: "Showroom-Quality Results",
+                  description: "Our dual approach combines interior deep cleaning with exterior paint enhancement to achieve showroom-quality results that transform your vehicle's appearance."
+                },
+                {
+                  title: "Enhanced Protection",
+                  description: "Protective treatments are applied to interior and exterior surfaces, shielding against UV damage, stains, spills, and environmental contaminants."
+                },
+                {
+                  title: "Increased Vehicle Value",
+                  description: "Professional detailing significantly increases your vehicle's resale value by maintaining and restoring both interior and exterior surfaces."
+                },
+                {
+                  title: "Healthier Interior Environment",
+                  description: "Thorough interior cleaning eliminates bacteria, allergens, and odors while exterior protection defends against environmental hazards."
+                },
+                {
+                  title: "Comprehensive Service",
+                  description: "One service covers everything from carpet shampooing and leather conditioning to paint polishing and sealant application, saving you time and ensuring consistent quality."
+                }
+              ]}
+              process={[
+                {
+                  title: "Exterior Wash & Decontamination",
+                  description: "We begin with a premium hand wash using the two-bucket method, followed by clay bar treatment to remove embedded contaminants from the paint surface."
+                },
+                {
+                  title: "Interior Deep Cleaning",
+                  description: "Comprehensive vacuuming of all interior areas, followed by professional shampoo and extraction of upholstery and carpets to remove embedded dirt and stains."
+                },
+                {
+                  title: "Exterior Paint Enhancement",
+                  description: "Light polishing removes minor imperfections, swirl marks, and oxidation to restore paint clarity and depth, revealing your vehicle's true color."
+                },
+                {
+                  title: "Interior Surface Restoration",
+                  description: "All plastic, vinyl, and leather surfaces are meticulously cleaned and conditioned. Dashboard, console, air vents, and door panels receive detailed attention."
+                },
+                {
+                  title: "Wheel & Trim Care",
+                  description: "Wheels, tires, and all exterior trim are thoroughly cleaned, conditioned, and protected to maintain their appearance and prevent deterioration."
+                },
+                {
+                  title: "Protection Application",
+                  description: "High-quality protection is applied to both interior (conditioners, fabric protectors) and exterior (wax, sealant) surfaces for long-lasting results."
+                },
+                {
+                  title: "Final Inspection",
+                  description: "A comprehensive quality check ensures every detail has been addressed and your vehicle meets our high standards before delivery."
+                }
+              ]}
+              features={[
+                "Premium hand wash and chamois dry",
+                "Clay bar decontamination treatment",
+                "Complete interior vacuuming (all areas)",
+                "Professional shampoo and extraction",
+                "Light paint polishing and enhancement",
+                "Dashboard and console detailed cleaning",
+                "Wheel and tire deep cleaning",
+                "Air vent and cup holder cleaning",
+                "Leather cleaning and conditioning",
+                "Exterior trim restoration",
+                "Glass cleaning (interior and exterior)",
+                "Protection application (wax/sealant)",
+                "Final quality inspection"
+              ]}
+            />
 
-                            <div className='rightCol1ContainerText__option'>
-                              <h3>{services[0].firstRow.options.option1}</h3>
-                              <h3 className='options__price'>
-                                {services[0].firstRow.options.price1}
-                              </h3>
-                            </div>
+            <ServicePricing
+              title="Complete Auto Detailing Packages"
+              packages={[
+                {
+                  name: "Standard Detail Package",
+                  duration: "5-6 hours",
+                  priceRange: { start: 349, end: 449 },
+                  priceNote: "Pricing varies by vehicle size",
+                  description: "Comprehensive interior and exterior detailing package perfect for regular maintenance. Restores your vehicle to clean, fresh condition.",
+                  features: [
+                    "Premium hand wash and dry",
+                    "Complete interior vacuuming",
+                    "Interior surface cleaning",
+                    "Dashboard and console cleaning",
+                    "Wheel and tire cleaning",
+                    "Basic paint enhancement",
+                    "Window cleaning (interior & exterior)",
+                    "Quick wax application"
+                  ],
+                  ctaText: "Book This Package"
+                },
+                {
+                  name: "Premium Detail Package",
+                  duration: "7-9 hours",
+                  priceRange: { start: 549, end: 699 },
+                  priceNote: "Pricing varies by vehicle size",
+                  description: "Deep cleaning package with shampoo extraction and paint enhancement. Ideal for restoring neglected or heavily used vehicles.",
+                  features: [
+                    "Premium hand wash and dry",
+                    "Clay bar decontamination",
+                    "Complete interior vacuuming",
+                    "Shampoo and extraction (seats & carpets)",
+                    "Light paint polishing",
+                    "Detailed dashboard and console cleaning",
+                    "Air vent and cup holder cleaning",
+                    "Fabric headliner cleaning",
+                    "Leather cleaning and conditioning",
+                    "Wheel and tire deep cleaning",
+                    "Premium wax or sealant application",
+                    "Complete protection treatment"
+                  ],
+                  featured: true,
+                  ctaText: "Book This Package"
+                },
+                {
+                  name: "Ultimate Detail Package",
+                  duration: "10-12 hours",
+                  priceRange: { start: 799, end: 1099 },
+                  priceNote: "Pricing varies by vehicle size and condition",
+                  description: "Comprehensive restoration package combining interior deep cleaning with exterior paint correction. Maximum results for showroom-quality finish.",
+                  features: [
+                    "Premium hand wash and dry",
+                    "Clay bar decontamination",
+                    "Complete interior vacuuming (all areas)",
+                    "Professional shampoo and extraction",
+                    "Multi-stage paint correction",
+                    "Complete dashboard and console restoration",
+                    "Deep cleaning of all upholstery",
+                    "Carpet and floor mat professional treatment",
+                    "Complete leather restoration",
+                    "Complete wheel and tire detail",
+                    "Premium ceramic sealant application",
+                    "Complete trim restoration",
+                    "Crystal-clear glass treatment",
+                    "Odor elimination (if needed)",
+                    "Comprehensive protection application"
+                  ],
+                  ctaText: "Book This Package"
+                }
+              ]}
+            />
 
-                            <div className='rightCol1ContainerText__option'>
-                              <h3>{services[0].firstRow.options.option2}</h3>
-                              <h3 className='options__price'>
-                                {services[0].firstRow.options.price2}
-                              </h3>
-                            </div>
+            <Testimonials
+              title="What Our Customers Say"
+              subtitle="Hear from customers who have experienced our complete auto detailing services"
+              badgeText="Customer Reviews"
+            />
 
-                            <div className='rightCol1ContainerText__option'>
-                              <h3>{services[0].firstRow.options.option3}</h3>
-                              <h3 className='options__price'>
-                                {services[0].firstRow.options.price3}
-                              </h3>
-                            </div>
+            <HomeProcess />
 
-                            <div className='rightCol1ContainerText__option last__option'>
-                              <h3>{services[0].firstRow.options.option4}</h3>
-                              <h3 className='options__price'>
-                                {services[0].firstRow.options.price4}
-                              </h3>
-                            </div>
-                            <p className='shade__options'>
-                              {services[0].firstRow.bottomDescription}
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-
-                    <div className='secondRowWrapper'>
-                      <motion.div
-                        className='leftCol2'
-                        id='exteriorServices'
-                        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className='leftCol2Container'>
-                          <div className='leftCol2ContainerText'>
-                            <h1>{services[0].secondRow.service2}</h1>
-                            <p>{services[0].secondRow.description}</p>
-
-                            <div className='leftCol2ContainerText__option'>
-                              <h3>{services[0].secondRow.options.option1}</h3>
-                              <h3 className='options__price'>
-                                {services[0].secondRow.options.price1}
-                              </h3>
-                            </div>
-
-                            <div className='leftCol2ContainerText__option'>
-                              <h3>{services[0].secondRow.options.option2}</h3>
-                              <h3 className='options__price'>
-                                {services[0].secondRow.options.price2}
-                              </h3>
-                            </div>
-
-                            <div className='leftCol2ContainerText__option last__option'>
-                              <h3>{services[0].secondRow.options.option3}</h3>
-                              <h3 className='options__price'>
-                                {services[0].secondRow.options.price3}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                      <motion.div
-                        className='rightCol2'
-                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <LazyLoadImage
-                          src={urlFor(services[0].secondRow.picture)}
-                          loading='lazy'
-                          alt='exterior services'
-                          effect='blur'
-                        />
-                      </motion.div>
-                    </div>
-
-                    <div className='thirdRowWrapper'>
-                      <motion.div
-                        className='leftCol3'
-                        id='paintCorrection'
-                        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <LazyLoadImage
-                          src={urlFor(services[0].thirdRow.picture)}
-                          loading='lazy'
-                          alt='paint correction'
-                          effect='blur'
-                        />
-                      </motion.div>
-                      <motion.div
-                        className='rightCol3'
-                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className='rightCol3Container'>
-                          <div className='rightCol3ContainerText'>
-                            <h1>{services[0].thirdRow.service3}</h1>
-                            <p>{services[0].thirdRow.description}</p>
-
-                            <div className='rightCol3ContainerText__option'>
-                              <h3>{services[0].thirdRow.options.option1}</h3>
-                              <h3 className='options__price'>
-                                {services[0].thirdRow.options.price1}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol3ContainerText__option'>
-                              <h3>{services[0].thirdRow.options.option2}</h3>
-                              <h3 className='options__price'>
-                                {services[0].thirdRow.options.price2}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol3ContainerText__option last__option'>
-                              <h3>{services[0].thirdRow.options.option3}</h3>
-                              <h3 className='options__price'>
-                                {services[0].thirdRow.options.price3}
-                              </h3>
-                            </div>
-                            <p className='shade__options'>
-                              {services[0].thirdRow.bottomDescription}
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-
-                    <div className='fourthRowWrapper'>
-                      <motion.div
-                        className='leftCol4'
-                        id='paintProtection'
-                        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className='leftCol4Container'>
-                          <div className='leftCol4ContainerText'>
-                            <h1>{services[0].fourthRow.service4}</h1>
-                            <p>{services[0].fourthRow.description}</p>
-
-                            <div className='leftCol4ContainerText__option'>
-                              <h3>{services[0].fourthRow.options.option1}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fourthRow.options.price1}
-                              </h3>
-                            </div>
-
-                            <div className='leftCol4ContainerText__option'>
-                              <h3>{services[0].fourthRow.options.option2}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fourthRow.options.price2}
-                              </h3>
-                            </div>
-
-                            <div className='leftCol4ContainerText__option'>
-                              <h3>{services[0].fourthRow.options.option3}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fourthRow.options.price3}
-                              </h3>
-                            </div>
-
-                            <div className='leftCol4ContainerText__option last__option'>
-                              <h3>{services[0].fourthRow.options.option4}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fourthRow.options.price4}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                      <motion.div
-                        className='rightCol4'
-                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <LazyLoadImage
-                          src={urlFor(services[0].fourthRow.picture)}
-                          loading='lazy'
-                          alt='paint protection'
-                          className='rightCol4__img'
-                        />
-                      </motion.div>
-                    </div>
-
-                    <div className='fifthRowWrapper'>
-                      <motion.div
-                        className='leftCol5'
-                        id='otherProtection'
-                        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <LazyLoadImage
-                          src={urlFor(services[0].fifthRow.picture)}
-                          loading='lazy'
-                          alt='other protection'
-                          effect='blur'
-                        />
-                      </motion.div>
-                      <motion.div
-                        className='rightCol5'
-                        whileInView={{ x: [100, 0], opacity: [0, 1] }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className='rightCol5Container'>
-                          <div className='rightCol5ContainerText'>
-                            <h1>{services[0].fifthRow.service5}</h1>
-                            <p>{services[0].fifthRow.description}</p>
-
-                            <div className='rightCol5ContainerText__option'>
-                              <h3>{services[0].fifthRow.options.option1}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fifthRow.options.price1}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol5ContainerText__option'>
-                              <h3>{services[0].fifthRow.options.option2}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fifthRow.options.price2}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol5ContainerText__option'>
-                              <h3>{services[0].fifthRow.options.option3}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fifthRow.options.price3}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol5ContainerText__option'>
-                              <h3>{services[0].fifthRow.options.option4}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fifthRow.options.price4}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol5ContainerText__option'>
-                              <h3>{services[0].fifthRow.options.option5}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fifthRow.options.price5}
-                              </h3>
-                            </div>
-
-                            <div className='rightCol5ContainerText__option last__option'>
-                              <h3>{services[0].fifthRow.options.option6}</h3>
-                              <h3 className='options__price'>
-                                {services[0].fifthRow.options.price6}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                    <motion.div
-                      className='bottomAnimation'
-                      whileInView={{ y: [100, 0], opacity: [0, 1] }}
-                      transition={{ duration: 0.8 }}
-                      viewport={{ once: true }}
-                    >
-                      <p className='services__disclaimer'>
-                        {services[0].bottomDisclaimer}
-                      </p>
-                    </motion.div>
-                  </div>
-                </>
-              )}
-            </div>
             <Contact />
-          </motion.div>
-        </>
-      ) : (
-        <Loading />
-      )}
+          </div>
+        </motion.div>
+      </Suspense>
     </>
   );
 }
