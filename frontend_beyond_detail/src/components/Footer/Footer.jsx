@@ -66,10 +66,10 @@ function Footer() {
                   Tint
                 </a>
                 <a href='/about' className='footer-menu-links-items'>
-                  About
+                  About Us
                 </a>
                 <a href='/services' className='footer-menu-links-items'>
-                  Services
+                  Auto Detail
                 </a>
                 <a href='/gallery' className='footer-menu-links-items'>
                   Gallery

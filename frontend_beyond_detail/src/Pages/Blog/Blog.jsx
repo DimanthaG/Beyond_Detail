@@ -1,126 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Contact } from '../../components';
 import './Blog.scss';
-
-// Contact form component
-const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    }, 1000);
-  };
-
-  return (
-    <section className="blog-contact-section">
-      <div className="blog-contact-container">
-        <h2>Get In Touch</h2>
-        <p className="contact-subtitle">
-          Have questions or want to learn more about our services? Contact us today!
-        </p>
-        
-        <div className="contact-info-grid">
-          <div className="contact-info-item">
-            <strong>Phone:</strong>
-            <a href="tel:+16476896109">647-689-6109</a>
-          </div>
-          <div className="contact-info-item">
-            <strong>Email:</strong>
-            <a href="mailto:info@beyonddetail.com">info@beyonddetail.com</a>
-          </div>
-          <div className="contact-info-item">
-            <strong>Address:</strong>
-            <span>170 Finchdene Square Unit 11<br />Toronto, Ontario</span>
-          </div>
-          <div className="contact-info-item">
-            <strong>Hours:</strong>
-            <span>Mon - Fri: 8AM to 8PM<br />Sat: By Appointment Only</span>
-          </div>
-        </div>
-
-        {!isSubmitted ? (
-          <form className="blog-contact-form" onSubmit={handleSubmit}>
-            <div className="form-row">
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name *"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email *"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone *"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Message *"
-                value={formData.message}
-                onChange={handleChange}
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        ) : (
-          <div className="contact-success">
-            <div className="success-icon">✓</div>
-            <h3>Thank you for contacting us!</h3>
-            <p>We'll get back to you shortly.</p>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
 
 // Mock blog data
 const mockBlogs = [
@@ -309,7 +190,7 @@ function Blog() {
           ← Back to Blog
         </Link>
       </div>
-      <ContactSection />
+      <Contact />
     </>
     );
   }
@@ -351,7 +232,7 @@ function Blog() {
           ))}
         </div>
       </div>
-      <ContactSection />
+      <Contact />
     </>
   );
 }

@@ -37,7 +37,7 @@ function Services() {
             transition={transition}
           >
             <SEO
-              title='Services - Beyond Detail Toronto'
+              title='Auto Detail - Beyond Detail Toronto'
               description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
               name='Beyond Detail Toronto'
               type='website'

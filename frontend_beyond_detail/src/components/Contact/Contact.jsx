@@ -1,3 +1,36 @@
+/**
+ * Universal Contact Component
+ * 
+ * This component provides a consistent contact form and information section
+ * that should be used across all pages on the website.
+ * 
+ * USAGE:
+ * Simply import and include the Contact component at the bottom of any page:
+ * 
+ *   import { Contact } from '../../components';
+ *   // ... in your component's return:
+ *   <Contact />
+ * 
+ * The component includes:
+ * - Contact information (address, phone, email, hours)
+ * - Social media links
+ * - Booking form with date/time picker
+ * - Vehicle type and service interest selection
+ * - Automatic form submission to Sanity CMS
+ * 
+ * FEATURES:
+ * - Fully responsive design
+ * - Integrated with Sanity CMS for contact submissions
+ * - Smooth scroll anchor: #contact
+ * - Loading states and success feedback
+ * 
+ * NOTES:
+ * - Data is fetched from Sanity CMS 'contactPage' document type
+ * - Form submissions are saved to Sanity CMS 'contact' document type
+ * - The component is lazy-loaded on the Tints page for performance
+ * - All styling is in Contact.scss and follows the site's design system
+ */
+
 import React, { useState, useEffect, useRef } from 'react';
 import { client } from '../../client';
 import { motion } from 'framer-motion';
@@ -23,8 +56,6 @@ function Contact() {
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState(false);
   const [contactData, setContactData] = useState([]);
-
-  let interestedOptions = [];
 
   const optTints = useRef();
   const optWash = useRef();
@@ -54,6 +85,9 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoadingMessage(true);
+
+    // Reset and populate interestedOptions array for each submission
+    const interestedOptions = [];
 
     if (optTints.current.checked) {
       interestedOptions.push(optTints.current.value);
@@ -94,6 +128,7 @@ function Contact() {
     <>
       {loading ? (
         <>
+          <span className='anchor' id='contact'></span>
           <span className='anchor' id='bookingComponent'></span>
           <div className='contact__wrapper'>
             <div className='sec_sp2'>
@@ -214,7 +249,7 @@ function Contact() {
                                 ref={optTints}
                                 className='cbInterest'
                               />
-                              <span>Window Tints</span>
+                              <span>Window Tint</span>
                             </label>
                           </div>
                           <div className='interestsCB'>

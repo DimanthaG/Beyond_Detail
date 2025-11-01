@@ -9,6 +9,12 @@
   position: -webkit-sticky;
   top: 0;
   z-index: 900;
+  padding: 0 2rem;
+  width: 100%;
+  
+  @media screen and (max-width: 900px) {
+    padding: 0 1rem;
+  }
 }
 
 .scrolled {
@@ -64,16 +70,21 @@
 .nav-links {
   display: flex;
   justify-content: space-around;
-  width: 27%;
+  align-items: center;
+  width: auto;
+  min-width: fit-content;
   list-style: none;
   margin: 0 0;
+  gap: 1.5rem;
+  padding: 0 1rem;
 
   li {
     flex-direction: column;
     position: relative;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: var(--font-base);
+    white-space: nowrap;
 
     span:before,
     span:after {
@@ -126,9 +137,16 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.15rem;
     transition: all 0.3s ease-in-out;
     font-family: var(--font-base);
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    
+    &:hover {
+      color: var(--secondary-color);
+    }
   }
 
   a {
@@ -143,6 +161,149 @@
 
   @media screen and (max-width: 900px) {
     display: none;
+  }
+}
+
+// Dropdown Styles
+.navbar__dropdown {
+  position: relative;
+  
+  // Create an invisible bridge to prevent gap when hovering
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: transparent;
+    pointer-events: none;
+  }
+}
+
+.navbar__dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+.navbar__dropdown-icon {
+  transition: transform 0.3s ease;
+  color: var(--white-color);
+}
+
+.navbar__dropdown-icon--open {
+  transform: rotate(180deg);
+}
+
+.navbar__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  margin-top: 0;
+  background: rgba(0, 0, 0, 0.98);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(240, 121, 0, 0.3);
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.75rem 0;
+  min-width: 200px;
+  z-index: 1000;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 10px rgba(240, 121, 0, 0.1);
+  animation: dropdownFadeIn 0.2s ease-out;
+  pointer-events: auto;
+  
+  // Create an invisible top area to catch mouse events before menu
+  &::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: transparent;
+    pointer-events: auto;
+  }
+
+  @media screen and (max-width: 900px) {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 0.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-left: 3px solid rgba(240, 121, 0, 0.5);
+    border-radius: 0;
+    min-width: auto;
+    width: 100%;
+    padding-left: 1.5rem;
+    box-shadow: none;
+  }
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar__dropdown-item {
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  pointer-events: auto;
+  user-select: none;
+
+  &:hover {
+    background: rgba(240, 121, 0, 0.15);
+    border-left-color: var(--secondary-color);
+    transform: translateX(3px);
+  }
+
+  &:active {
+    background: rgba(240, 121, 0, 0.25);
+  }
+
+  .linkItem {
+    color: var(--white-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    letter-spacing: 0.08rem;
+    pointer-events: none;
+    
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 1.125rem 1.5rem;
+    border-left: none;
+    
+    &:hover {
+      transform: translateX(0);
+      border-left: 3px solid var(--secondary-color);
+    }
+    
+    .linkItem {
+      font-size: 1.1rem;
+      letter-spacing: 0.1rem;
+    }
   }
 }
 
@@ -161,45 +322,72 @@
   }
 }
 
-@media screen and (min-width: 3000px) {
+@media screen and (min-width: 2000px) {
   .nav-links {
-    width: 18%;
-  }
-}
-
-@media screen and (max-width: 2000px) {
-  .nav-links {
-    width: 32%;
+    gap: 2rem;
+    padding: 0 2rem;
+    
+    .linkItem {
+      font-size: 1rem;
+    }
   }
 }
 
 @media screen and (max-width: 1720px) {
   .nav-links {
-    width: 33%;
+    gap: 1.25rem;
+    
+    .linkItem {
+      font-size: 0.85rem;
+      letter-spacing: 0.1rem;
+    }
   }
 }
 
 @media screen and (max-width: 1460px) {
   .nav-links {
-    width: 40%;
+    gap: 1rem;
+    
+    .linkItem {
+      font-size: 0.8rem;
+      letter-spacing: 0.08rem;
+      padding: 0.25rem 0.4rem;
+    }
   }
 }
 
 @media screen and (max-width: 1300px) {
   .nav-links {
-    width: 45%;
+    gap: 0.75rem;
+    
+    .linkItem {
+      font-size: 0.75rem;
+      letter-spacing: 0.05rem;
+      padding: 0.2rem 0.3rem;
+    }
   }
 }
 
 @media screen and (max-width: 1200px) {
   .nav-links {
-    width: 45%;
+    gap: 0.5rem;
+    
+    .linkItem {
+      font-size: 0.7rem;
+      letter-spacing: 0.05rem;
+      padding: 0.2rem 0.25rem;
+    }
   }
 }
 
 @media screen and (max-width: 1024px) {
   .nav-links {
-    width: 60%;
+    gap: 0.5rem;
+    
+    .linkItem {
+      font-size: 0.7rem;
+      letter-spacing: 0.05rem;
+    }
   }
 }
 
@@ -251,17 +439,17 @@
 }
 
 // activate menu item animation
-.list-about-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.5s ease forwards 0.3s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.5s ease forwards 0.3s;
-  }
-}
-
 .list-tints-active {
   @media screen and (max-width: 400px) {
+    animation: navLinkFade 0.5s ease forwards 0.3s;
+  }
+  @media screen and (max-width: 696px) {
+    animation: navLinkFade 0.5s ease forwards 0.3s;
+  }
+}
+
+.list-paint-correction-active {
+  @media screen and (max-width: 400px) {
     animation: navLinkFade 0.1s ease forwards 0.35s;
   }
   @media screen and (max-width: 696px) {
@@ -269,7 +457,7 @@
   }
 }
 
-.list-services-active {
+.list-ceramic-coating-active {
   @media screen and (max-width: 400px) {
     animation: navLinkFade 0.1s ease forwards 0.4s;
   }
@@ -278,7 +466,7 @@
   }
 }
 
-.list-gallery-active {
+.list-other-services-active {
   @media screen and (max-width: 400px) {
     animation: navLinkFade 0.15s ease forwards 0.45s;
   }
@@ -287,21 +475,30 @@
   }
 }
 
-.list-blog-active {
+.list-about-active {
   @media screen and (max-width: 400px) {
     animation: navLinkFade 0.15s ease forwards 0.48s;
   }
   @media screen and (max-width: 696px) {
     animation: navLinkFade 0.15s ease forwards 0.48s;
+  }
+}
+
+.list-fleet-services-active {
+  @media screen and (max-width: 400px) {
+    animation: navLinkFade 0.2s ease forwards 0.5s;
+  }
+  @media screen and (max-width: 696px) {
+    animation: navLinkFade 0.2s ease forwards 0.5s;
   }
 }
 
 .list-contact-active {
   @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.2s ease forwards 0.5s;
+    animation: navLinkFade 0.25s ease forwards 0.55s;
   }
   @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.2s ease forwards 0.5s;
+    animation: navLinkFade 0.25s ease forwards 0.55s;
   }
 }
 
