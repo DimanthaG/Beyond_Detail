@@ -59,10 +59,11 @@ function About() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='About Us - Beyond Detail Toronto'
-          description="Learn about Beyond Detail, Toronto and Scarborough's premier auto detailing service. We specialize in professional window tint, paint correction, ceramic coating, and comprehensive auto detailing services."
+          title='About Us - Premium Auto Detailing Toronto, Scarborough, Markham, Pickering'
+          description="Learn about Beyond Detail, serving Toronto, Scarborough, Markham, and Pickering with premier auto detailing services. Professional window tint, paint correction, ceramic coating, and comprehensive auto detailing across the GTA."
           name='Beyond Detail Toronto'
           type='website'
+          keywords='about Beyond Detail Toronto, auto detailing company Scarborough, professional car detailing Markham, vehicle detailing services Pickering, GTA car care'
         />
         <motion.div
           initial='out'

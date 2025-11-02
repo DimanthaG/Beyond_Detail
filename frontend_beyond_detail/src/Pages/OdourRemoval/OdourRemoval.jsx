@@ -23,10 +23,12 @@ function OdourRemoval() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Odour Removal - Beyond Detail Toronto'
-          description='Professional odour removal services in Toronto. Eliminate stubborn odors from your vehicle with our advanced odour removal and interior sanitization services.'
+          title='Odour Removal Toronto, Scarborough, Markham, Pickering | Vehicle Odor Elimination'
+          description='Professional odour removal services in Toronto, Scarborough, Markham, and Pickering. Eliminate stubborn odors, smoke smell, and pet odors from your vehicle. Advanced odor removal across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Odour Removal'
+          keywords='odour removal Toronto, vehicle odor elimination Scarborough, car smell removal Markham, smoke odor removal Pickering, interior odor treatment GTA'
         />
         <motion.div
           initial='out'

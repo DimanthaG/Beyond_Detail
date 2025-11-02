@@ -28,6 +28,11 @@
   -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+  will-change: background;
+  
+  @media screen and (max-width: 900px) {
+    backdrop-filter: blur(2px);
+  }
 }
 
 .app__navbar-logo {
@@ -235,15 +240,21 @@
     position: relative;
     top: 0;
     left: 0;
-    margin-top: 0.75rem;
-    background: rgba(0, 0, 0, 0.7);
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
     border-left: 3px solid rgba(240, 121, 0, 0.5);
     border-radius: 0;
     min-width: auto;
-    width: 100%;
+    width: calc(100% - 2rem);
+    padding: 0.5rem 0;
     padding-left: 1.5rem;
     box-shadow: none;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: none;
   }
 }
 
@@ -393,24 +404,32 @@
 
 @media screen and (max-width: 900px) {
   .nav-links {
-    position: absolute;
+    position: fixed;
     right: 0px;
     height: 100vh;
     top: 0vh;
-    padding-top: 170px;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(6px);
+    padding-top: 100px;
+    padding-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 100%;
     margin: 0 0;
-    transform: translatey(-100%);
-    transition: transform 0.5s ease-in;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 998;
+    will-change: transform;
 
     li {
       opacity: 0;
-      font-size: 20px;
+      font-size: 18px;
+      width: 100%;
+      padding: 0.5rem 1.5rem;
     }
 
     .desktop-only {
@@ -420,85 +439,89 @@
 
   .burger {
     display: block;
+    z-index: 999;
   }
 }
 
 .nav-active {
-  transform: translatey(0%);
+  transform: translateY(0%);
+  
+  li {
+    opacity: 1 !important;
+  }
+  
+  .navbar__dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 @keyframes navLinkFade {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translate3d(0, -20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-// activate menu item animation
+// activate menu item animation - Optimized for mobile performance
 .list-tints-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.5s ease forwards 0.3s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.5s ease forwards 0.3s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.1s;
+    transform: translateY(0);
   }
 }
 
 .list-paint-correction-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.1s ease forwards 0.35s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.1s ease forwards 0.35s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.15s;
+    transform: translateY(0);
   }
 }
 
 .list-ceramic-coating-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.1s ease forwards 0.4s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.1s ease forwards 0.4s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.2s;
+    transform: translateY(0);
   }
 }
 
 .list-other-services-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.15s ease forwards 0.45s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.15s ease forwards 0.45s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.25s;
+    transform: translateY(0);
   }
 }
 
 .list-about-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.15s ease forwards 0.48s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.15s ease forwards 0.48s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.3s;
+    transform: translateY(0);
   }
 }
 
 .list-fleet-services-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.2s ease forwards 0.5s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.2s ease forwards 0.5s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.35s;
+    transform: translateY(0);
   }
 }
 
 .list-contact-active {
-  @media screen and (max-width: 400px) {
-    animation: navLinkFade 0.25s ease forwards 0.55s;
-  }
-  @media screen and (max-width: 696px) {
-    animation: navLinkFade 0.25s ease forwards 0.55s;
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.4s;
+    transform: translateY(0);
   }
 }
 

@@ -46,8 +46,8 @@ function Navbar2() {
 
   // toggle mobile menu on icon click
   useEffect(() => {
-    if (canvasRef.current) {
-      canvasRef.current.addEventListener('click', () => {
+    const handleMenuToggle = () => {
+      if (navLinksRef.current) {
         navLinksRef.current.classList.toggle('nav-active');
         liRefTints.current?.classList.toggle('list-tints-active');
         liRefPaintCorrection.current?.classList.toggle('list-paint-correction-active');
@@ -56,45 +56,65 @@ function Navbar2() {
         liRefAbout.current?.classList.toggle('list-about-active');
         liRefFleetServices.current?.classList.toggle('list-fleet-services-active');
         liRefContact.current?.classList.toggle('list-contact-active');
-        canvasRef.current.classList.toggle('toggle');
-      });
+        canvasRef.current?.classList.toggle('toggle');
+      }
+    };
+
+    const handleMenuItemClick = () => {
+      closeMobileMenu();
+    };
+
+    if (canvasRef.current) {
+      canvasRef.current.addEventListener('click', handleMenuToggle);
     }
 
     if (liRefTints.current) {
-      liRefTints.current.addEventListener('click', () => {
-        closeMobileMenu();
-      });
+      liRefTints.current.addEventListener('click', handleMenuItemClick);
     }
 
     if (liRefPaintCorrection.current) {
-      liRefPaintCorrection.current.addEventListener('click', () => {
-        closeMobileMenu();
-      });
+      liRefPaintCorrection.current.addEventListener('click', handleMenuItemClick);
     }
 
     if (liRefCeramicCoating.current) {
-      liRefCeramicCoating.current.addEventListener('click', () => {
-        closeMobileMenu();
-      });
+      liRefCeramicCoating.current.addEventListener('click', handleMenuItemClick);
     }
 
     if (liRefFleetServices.current) {
-      liRefFleetServices.current.addEventListener('click', () => {
-        closeMobileMenu();
-      });
+      liRefFleetServices.current.addEventListener('click', handleMenuItemClick);
     }
 
     if (liRefContact.current) {
-      liRefContact.current.addEventListener('click', () => {
-        closeMobileMenu();
-      });
+      liRefContact.current.addEventListener('click', handleMenuItemClick);
     }
 
     if (logoRef.current) {
-      logoRef.current.addEventListener('click', () => {
-        closeMobileMenu();
-      });
+      logoRef.current.addEventListener('click', handleMenuItemClick);
     }
+
+    return () => {
+      if (canvasRef.current) {
+        canvasRef.current.removeEventListener('click', handleMenuToggle);
+      }
+      if (liRefTints.current) {
+        liRefTints.current.removeEventListener('click', handleMenuItemClick);
+      }
+      if (liRefPaintCorrection.current) {
+        liRefPaintCorrection.current.removeEventListener('click', handleMenuItemClick);
+      }
+      if (liRefCeramicCoating.current) {
+        liRefCeramicCoating.current.removeEventListener('click', handleMenuItemClick);
+      }
+      if (liRefFleetServices.current) {
+        liRefFleetServices.current.removeEventListener('click', handleMenuItemClick);
+      }
+      if (liRefContact.current) {
+        liRefContact.current.removeEventListener('click', handleMenuItemClick);
+      }
+      if (logoRef.current) {
+        logoRef.current.removeEventListener('click', handleMenuItemClick);
+      }
+    };
   }, []);
 
   // make navbar fixed on scroll
@@ -107,8 +127,11 @@ function Navbar2() {
     }
   };
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-  });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>

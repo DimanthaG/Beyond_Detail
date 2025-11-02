@@ -25,10 +25,12 @@ function CeramicCoating() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Ceramic Coating - Beyond Detail Toronto'
-          description='Premium ceramic coating services in Toronto. Protect your vehicle with professional-grade ceramic coatings that provide long-lasting protection and shine.'
+          title='Ceramic Coating Toronto, Scarborough, Markham, Pickering | Professional Paint Protection'
+          description='Professional ceramic coating services in Toronto, Scarborough, Markham, and Pickering. Premium nano-ceramic coatings with 5+ year protection, 9H hardness, and hydrophobic technology. Expert application across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Ceramic Coating'
+          keywords='ceramic coating Toronto, paint protection Scarborough, nano ceramic coating Markham, vehicle coating Pickering, car protection GTA'
         />
         <motion.div
           initial='out'

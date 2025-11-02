@@ -108,18 +108,18 @@ const PercentageSelector = ({ percentage, onSelect, options, isWindshield }) => 
         {options.map((option, index) => {
           const isDisabled = option === 50 && !isWindshield;
           return (
-            <button
-              key={index}
+          <button
+            key={index}
               onClick={() => !isDisabled && onSelect(option)}
               disabled={isDisabled}
-              className={`tints-pricing__percentage-option ${
-                percentage === option ? "tints-pricing__percentage-option--active" : ""
+            className={`tints-pricing__percentage-option ${
+              percentage === option ? "tints-pricing__percentage-option--active" : ""
               } ${
                 isDisabled ? "tints-pricing__percentage-option--disabled" : ""
-              }`}
-            >
-              {option}%
-            </button>
+            }`}
+          >
+            {option}%
+          </button>
           );
         })}
       </div>
@@ -356,31 +356,31 @@ function TintsPricing() {
                   {products.map((product, index) => {
                     const isDisabled = tintService === 2 && index === 0; // Disable ATC when windshield is selected
                     return (
-                      <button
-                        key={index}
+                    <button
+                      key={index}
                         onClick={() => !isDisabled && setSelectedProduct(index)}
                         disabled={isDisabled}
-                        className={`tints-pricing__product-button ${
-                          selectedProduct === index
-                            ? "tints-pricing__product-button--active"
-                            : ""
+                      className={`tints-pricing__product-button ${
+                        selectedProduct === index
+                          ? "tints-pricing__product-button--active"
+                          : ""
                         } ${
                           isDisabled ? "tints-pricing__product-button--disabled" : ""
-                        }`}
-                        style={{
-                          borderColor: selectedProduct === index ? product.color : undefined,
-                          background: selectedProduct === index 
-                            ? 'transparent' 
-                            : undefined,
-                        }}
-                      >
-                        {product.name}
-                        {product.badge && (
-                          <span className="tints-pricing__button-badge" style={{ color: product.color }}>
-                            {product.badge}
-                          </span>
-                        )}
-                      </button>
+                      }`}
+                      style={{
+                        borderColor: selectedProduct === index ? product.color : undefined,
+                        background: selectedProduct === index 
+                          ? 'transparent' 
+                          : undefined,
+                      }}
+                    >
+                      {product.name}
+                      {product.badge && (
+                        <span className="tints-pricing__button-badge" style={{ color: product.color }}>
+                          {product.badge}
+                        </span>
+                      )}
+                    </button>
                     );
                   })}
                 </div>

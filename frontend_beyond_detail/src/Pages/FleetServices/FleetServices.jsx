@@ -23,10 +23,12 @@ function FleetServices() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Fleet Services - Beyond Detail Toronto'
-          description='Professional fleet detailing services in Toronto. Keep your commercial vehicle fleet looking professional with our comprehensive fleet maintenance and detailing services.'
+          title='Fleet Services Toronto, Scarborough, Markham, Pickering | Commercial Vehicle Detailing'
+          description='Professional fleet detailing services in Toronto, Scarborough, Markham, and Pickering. Commercial vehicle fleet maintenance, detailing, and protection. Keep your fleet looking professional across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Fleet Services'
+          keywords='fleet services Toronto, commercial vehicle detailing Scarborough, fleet detailing Markham, company car detailing Pickering, commercial auto detailing GTA'
         />
         <motion.div
           initial='out'

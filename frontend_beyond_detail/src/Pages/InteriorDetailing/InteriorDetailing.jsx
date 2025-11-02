@@ -23,10 +23,12 @@ function InteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Interior Detailing - Beyond Detail Toronto'
-          description="Professional interior detailing services in Toronto. Deep clean and protect your vehicle's interior with our comprehensive interior detailing services."
+          title='Interior Detailing Toronto, Scarborough, Markham, Pickering | Deep Interior Cleaning'
+          description='Professional interior detailing services in Toronto, Scarborough, Markham, and Pickering. Deep interior cleaning, pet hair removal, stain removal, steam cleaning, and sanitization. Expert interior care across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Interior Detailing'
+          keywords='interior detailing Toronto, car interior cleaning Scarborough, vehicle interior detailing Markham, upholstery cleaning Pickering, interior car wash GTA'
         />
         <motion.div
           initial='out'

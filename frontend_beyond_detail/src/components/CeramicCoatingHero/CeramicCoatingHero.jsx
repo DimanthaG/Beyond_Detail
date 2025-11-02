@@ -111,7 +111,7 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    With Ceramic Coating
+                    For Your Vehicle
                   </motion.span>
                 </motion.h1>
                 <motion.p 

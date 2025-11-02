@@ -23,10 +23,12 @@ function PaintRemoval() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Paint Removal - Beyond Detail Toronto'
-          description='Professional paint removal services in Toronto. Safely remove unwanted paint, overspray, and paint defects from your vehicle with our expert paint removal services.'
+          title='Paint Removal Toronto, Scarborough, Markham, Pickering | Overspray & Paint Defect Removal'
+          description='Professional paint removal services in Toronto, Scarborough, Markham, and Pickering. Safely remove unwanted paint, overspray, and paint defects. Expert paint removal across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Paint Removal'
+          keywords='paint removal Toronto, overspray removal Scarborough, paint defect removal Markham, vehicle paint stripping Pickering, automotive paint removal GTA'
         />
         <motion.div
           initial='out'

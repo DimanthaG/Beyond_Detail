@@ -30,10 +30,12 @@ function Tints() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Tint - Beyond Detail Toronto'
-          description='Premium car detailing services in Toronto (Scarborough area). Services include window tint, car wash, restoration, paint correction, paint protection, and much more.'
+          title='Window Tinting Toronto, Scarborough, Markham, Pickering | LLUMAR Premium Films'
+          description='Professional window tinting services in Toronto, Scarborough, Markham, and Pickering. Premium LLUMAR ATC, CTX, and IRX films. Expert installation with lifetime warranty. Serving all GTA areas.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Window Tinting'
+          keywords='window tinting Toronto, car tint Scarborough, LLUMAR tint Markham, window film Pickering, automotive tinting GTA'
         />
         <motion.div
           initial='out'
@@ -42,9 +44,9 @@ function Tints() {
           variants={animationOne}
           transition={{ ...transition, delay: 0 }}
         >
-                <div className='tints__wrapper'>
+          <div className='tints__wrapper'>
                   <TintsHero scrollTarget="#pricing" />
-                  <BrandsGrid />
+            <BrandsGrid />
             <TintsFeatures />
             <TintBenefitsInfo />
             <TintLawsExplanation />

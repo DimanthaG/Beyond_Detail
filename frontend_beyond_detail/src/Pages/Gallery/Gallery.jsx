@@ -77,10 +77,11 @@ function Gallery() {
             transition={transition}
           >
             <SEO
-              title='Gallery - Beyond Detail Toronto'
-              description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
+              title='Gallery - Auto Detailing Work Toronto, Scarborough, Markham, Pickering'
+              description='View our auto detailing gallery showcasing professional work in Toronto, Scarborough, Markham, and Pickering. Window tinting, paint correction, ceramic coating, and complete auto detailing results across the GTA.'
               name='Beyond Detail Toronto'
               type='website'
+              keywords='auto detailing gallery Toronto, car detailing photos Scarborough, vehicle detailing portfolio Markham, detailing before after Pickering, GTA car detailing gallery'
             />
             <div className='gallery__wrapper'>
               <motion.div

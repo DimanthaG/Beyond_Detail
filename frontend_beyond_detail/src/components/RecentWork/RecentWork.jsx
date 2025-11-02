@@ -155,8 +155,8 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.3 }}
             className="recent-work__header"
           >
             <h2 className="recent-work__title">RECENT WORK</h2>
@@ -169,10 +169,10 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
               <motion.div
                 key={`${item._id}-${index}`}
                 className="recent-work__item"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                transition={{ duration: 0.3, delay: index * 0.03 }}
                 onClick={() => openLightbox(index)}
               >
                 <div className="recent-work__image-wrapper">

@@ -48,12 +48,12 @@ function PaintCorrectionInfo({
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.1,
-        duration: 0.6,
+        delay: i * 0.03,
+        duration: 0.3,
       },
     }),
     hidden: {
-      y: 30,
+      y: 20,
       opacity: 0,
     },
   };
@@ -66,7 +66,7 @@ function PaintCorrectionInfo({
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
             variants={revealVariants}
             custom={0}
             className="paint-correction-info__header"
@@ -82,7 +82,7 @@ function PaintCorrectionInfo({
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
           variants={revealVariants}
           custom={1}
           className="paint-correction-info__tabs"
@@ -129,7 +129,7 @@ function PaintCorrectionInfo({
                       key={index}
                       initial="hidden"
                       whileInView="visible"
-                      viewport={{ once: true }}
+                      viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
                       variants={revealVariants}
                       custom={index}
                       className="paint-correction-info__benefit-card"
@@ -170,7 +170,7 @@ function PaintCorrectionInfo({
                       key={index}
                       initial="hidden"
                       whileInView="visible"
-                      viewport={{ once: true }}
+                      viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
                       variants={revealVariants}
                       custom={index}
                       className="paint-correction-info__process-step"
@@ -214,7 +214,7 @@ function PaintCorrectionInfo({
                     key={index}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
                     variants={revealVariants}
                     custom={index}
                     className="paint-correction-info__feature-card"

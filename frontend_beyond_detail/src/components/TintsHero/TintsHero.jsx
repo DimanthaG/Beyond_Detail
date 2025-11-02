@@ -111,7 +111,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    With Premium Window Tint
+                    With LLUMAR
                   </motion.span>
                 </motion.h1>
                 <motion.p 

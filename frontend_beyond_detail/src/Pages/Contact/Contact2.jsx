@@ -105,10 +105,11 @@ function ContactPage() {
         transition={transition}
       >
         <SEO
-          title='Contact - Beyond Detail Toronto'
-          description='Premium car detailing services in Toronto (Scarborough area). Services include window tints, car wash, restoration, paint correction, paint protection, and much more.'
+          title='Contact Us - Auto Detailing Toronto, Scarborough, Markham, Pickering'
+          description='Contact Beyond Detail for premium car detailing services in Toronto, Scarborough, Markham, and Pickering. Book your appointment for window tinting, paint correction, ceramic coating, and more across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          keywords='contact Beyond Detail Toronto, book appointment Scarborough, auto detailing contact Markham, car detailing phone Pickering, GTA detailing service'
         />
         {loading ? (
           <>

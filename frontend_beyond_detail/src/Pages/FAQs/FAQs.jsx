@@ -73,10 +73,11 @@ function FAQs() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='FAQs - Beyond Detail Toronto'
-          description='Frequently asked questions about our auto detailing services in Toronto and Scarborough. Get answers about paint correction, ceramic coating, window tint, interior detailing, and more.'
+          title='FAQs - Auto Detailing Questions Toronto, Scarborough, Markham, Pickering'
+          description='Frequently asked questions about our auto detailing services in Toronto, Scarborough, Markham, and Pickering. Get answers about paint correction, ceramic coating, window tint, interior detailing, and more across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          keywords='auto detailing FAQs Toronto, car detailing questions Scarborough, detailing FAQ Markham, vehicle detailing answers Pickering, GTA car care FAQ'
         />
         <motion.div
           initial='out'

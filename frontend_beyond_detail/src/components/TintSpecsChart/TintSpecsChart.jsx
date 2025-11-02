@@ -8,11 +8,11 @@ function TintSpecsChart() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
       },
     },
     hidden: {
-      y: 30,
+      y: 20,
       opacity: 0,
     },
   };
@@ -30,7 +30,7 @@ function TintSpecsChart() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
           variants={revealVariants}
           className="tint-specs-chart__wrapper"
         >

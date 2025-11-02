@@ -23,10 +23,12 @@ function Services() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Auto Detail - Beyond Detail Toronto'
-          description='Complete auto detailing services in Toronto and Scarborough. Comprehensive interior and exterior detailing, paint correction, and protection services to keep your vehicle looking its best.'
+          title='Auto Detailing Toronto, Scarborough, Markham, Pickering | Complete Car Detailing'
+          description='Complete auto detailing services in Toronto, Scarborough, Markham, and Pickering. Professional interior and exterior detailing, paint correction, ceramic coating, and protection. Comprehensive vehicle care across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Auto Detailing'
+          keywords='auto detailing Toronto, car detailing Scarborough, vehicle detailing Markham, full service detailing Pickering, professional car wash GTA'
         />
         <motion.div
           initial='out'

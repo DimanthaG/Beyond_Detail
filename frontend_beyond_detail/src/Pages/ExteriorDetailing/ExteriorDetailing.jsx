@@ -23,10 +23,12 @@ function ExteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Exterior Detailing - Beyond Detail Toronto'
-          description="Professional exterior detailing services in Toronto. Restore and protect your vehicle's exterior with our premium exterior detailing and paint protection services."
+          title='Exterior Detailing Toronto, Scarborough, Markham, Pickering | Paint Protection & Wash'
+          description='Professional exterior detailing services in Toronto, Scarborough, Markham, and Pickering. Expert exterior wash, paint correction, ceramic coating, and protection. Premium exterior care across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Exterior Detailing'
+          keywords='exterior detailing Toronto, car exterior cleaning Scarborough, vehicle exterior detailing Markham, paint protection Pickering, exterior car care GTA'
         />
         <motion.div
           initial='out'

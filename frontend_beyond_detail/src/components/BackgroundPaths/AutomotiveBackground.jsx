@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./AutomotiveBackground.scss";
 
 function AutomotiveBackground() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduced elements count on mobile for better performance
+  const swirlCount = isMobile ? 3 : 8;
+  const reflectionCount = isMobile ? 4 : 12;
+  const speedLineCount = isMobile ? 6 : 20;
+
   // Create circular swirl patterns (like buffing/polishing motions)
-  const swirls = Array.from({ length: 8 }, (_, i) => ({
+  const swirls = Array.from({ length: swirlCount }, (_, i) => ({
     id: i,
     cx: 20 + (i * 12.5) % 100, // Distribute across width
     cy: 15 + (i * 15) % 85, // Distribute across height
@@ -13,7 +29,7 @@ function AutomotiveBackground() {
   }));
 
   // Create paint reflection lines (horizontal)
-  const reflections = Array.from({ length: 12 }, (_, i) => ({
+  const reflections = Array.from({ length: reflectionCount }, (_, i) => ({
     id: `reflection-${i}`,
     y: 10 + i * 7,
     width: 60 + (i % 3) * 20,
@@ -21,7 +37,7 @@ function AutomotiveBackground() {
   }));
 
   // Create speed lines (diagonal)
-  const speedLines = Array.from({ length: 20 }, (_, i) => ({
+  const speedLines = Array.from({ length: speedLineCount }, (_, i) => ({
     id: `speed-${i}`,
     x1: -10 + (i * 5) % 120,
     y1: -5 + (i * 3) % 100,
@@ -50,12 +66,16 @@ function AutomotiveBackground() {
             strokeWidth="0.3"
             strokeOpacity={reflection.opacity}
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={{
+            animate={isMobile ? {
+              opacity: reflection.opacity * 0.7,
+            } : {
               pathLength: [0, 1, 0],
               opacity: [reflection.opacity * 0.5, reflection.opacity, reflection.opacity * 0.5],
               x2: [reflection.width * 0.5, reflection.width, reflection.width * 0.5],
             }}
-            transition={{
+            transition={isMobile ? {
+              duration: 0,
+            } : {
               duration: 8 + Math.random() * 4,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
@@ -77,11 +97,15 @@ function AutomotiveBackground() {
                 strokeWidth="0.5"
                 strokeOpacity={0.08}
                 initial={{ pathLength: 0, opacity: 0.05 }}
-                animate={{
+                animate={isMobile ? {
+                  opacity: 0.1,
+                } : {
                   pathLength: [0, 1, 0],
                   opacity: [0.05, 0.15, 0.05],
                 }}
-                transition={{
+                transition={isMobile ? {
+                  duration: 0,
+                } : {
                   duration: 15 + Math.random() * 10,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
@@ -98,10 +122,14 @@ function AutomotiveBackground() {
                 strokeWidth="0.8"
                 strokeOpacity={0.12}
                 initial={{ pathLength: 0 }}
-                animate={{
+                animate={isMobile ? {
+                  pathLength: 0.5,
+                } : {
                   pathLength: [0, 1, 0],
                 }}
-                transition={{
+                transition={isMobile ? {
+                  duration: 0,
+                } : {
                   duration: 12 + Math.random() * 6,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
@@ -123,11 +151,15 @@ function AutomotiveBackground() {
             strokeWidth="0.4"
             strokeOpacity={line.opacity}
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={{
+            animate={isMobile ? {
+              opacity: line.opacity * 0.7,
+            } : {
               pathLength: [0, 1, 0],
               opacity: [line.opacity * 0.3, line.opacity, line.opacity * 0.3],
             }}
-            transition={{
+            transition={isMobile ? {
+              duration: 0,
+            } : {
               duration: 6 + Math.random() * 4,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
@@ -146,12 +178,17 @@ function AutomotiveBackground() {
             fill="currentColor"
             fillOpacity={0.03}
             initial={{ scale: 0, opacity: 0 }}
-            animate={{
+            animate={isMobile ? {
+              opacity: 0.04,
+              scale: 0.8,
+            } : {
               scale: [0, 1.5, 0],
               opacity: [0, 0.08, 0],
               rotate: [0, 180, 360],
             }}
-            transition={{
+            transition={isMobile ? {
+              duration: 0,
+            } : {
               duration: 10 + i * 2,
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",

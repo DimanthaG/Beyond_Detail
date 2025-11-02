@@ -25,10 +25,12 @@ function PaintCorrection() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Paint Correction - Beyond Detail Toronto'
-          description="Professional paint correction services in Toronto. Restore your vehicle's paint to showroom condition with our expert paint correction and detailing services."
+          title='Paint Correction Toronto, Scarborough, Markham, Pickering | Swirl Mark Removal'
+          description='Professional paint correction services in Toronto, Scarborough, Markham, and Pickering. Expert swirl mark removal, scratch repair, and paint restoration. Single, two, and three-stage correction available across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Paint Correction'
+          keywords='paint correction Toronto, swirl mark removal Scarborough, paint restoration Markham, scratch repair Pickering, paint polishing GTA'
         />
         <motion.div
           initial='out'

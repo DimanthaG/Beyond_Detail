@@ -23,10 +23,12 @@ function HeadlightRestoration() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Headlight Restoration - Beyond Detail Toronto'
-          description='Professional headlight restoration services in Toronto. Restore cloudy and yellowed headlights to crystal clear condition with our expert headlight restoration services.'
+          title='Headlight Restoration Toronto, Scarborough, Markham, Pickering | Cloudy Headlight Repair'
+          description='Professional headlight restoration services in Toronto, Scarborough, Markham, and Pickering. Restore cloudy and yellowed headlights to crystal clear condition. Expert restoration across the GTA.'
           name='Beyond Detail Toronto'
           type='website'
+          serviceType='Headlight Restoration'
+          keywords='headlight restoration Toronto, cloudy headlight repair Scarborough, yellowed headlights Markham, headlight polishing Pickering, headlight restoration GTA'
         />
         <motion.div
           initial='out'
