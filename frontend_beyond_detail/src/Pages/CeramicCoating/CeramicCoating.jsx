@@ -2,14 +2,15 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
-import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
+import CeramicCoatingInfo from '../../components/CeramicCoatingInfo/CeramicCoatingInfo';
+import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import './CeramicCoating.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const CeramicCoatingHero = lazy(() => import('../../components/CeramicCoatingHero/CeramicCoatingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Partners = lazy(() => import('../../components/Partners/Partners'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
@@ -37,134 +38,125 @@ function CeramicCoating() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='ceramic-coating__wrapper'>
-            <BackgroundPaths 
-              title="Ceramic Coating"
-              scrollTarget="#pricing"
-              description="Ultimate protection that lasts for years, not months. Our premium ceramic coatings create a permanent shield against UV rays, environmental damage, and daily wear. Experience the brilliance of a mirror-like finish with maintenance made simple."
-            />
+            <CeramicCoatingHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
               <ServiceGallery serviceType="ceramic-coating" title="Ceramic Coating Gallery" />
             </Suspense>
-            <ServiceInfoSection
-              title="Advanced Ceramic Coating Protection"
-              subtitle="Long-Lasting Shield"
-              description="Ceramic coating is a revolutionary liquid polymer that chemically bonds with your vehicle's paint, creating a permanent protective layer. Unlike traditional waxes or sealants, ceramic coatings provide superior durability, lasting for years while maintaining exceptional gloss and protection against environmental hazards."
+            <CeramicCoatingInfo />
+            <PaintCorrectionInfo
+              title="Professional Ceramic Coating Services"
+              description="Our ceramic coating service includes comprehensive paint correction to ensure your coating bonds perfectly and performs at its best. Every package includes paint correction to remove imperfections before coating application."
               benefits={[
                 {
-                  title: "Enhanced Gloss & Depth",
-                  description: "Achieve a deep, mirror-like finish that accentuates your vehicle's color and design, creating a showroom-quality appearance."
+                  title: "Permanent Protection",
+                  description: "Ceramic coatings form a permanent molecular bond with your paint, creating a durable protective layer that lasts for years, not months."
                 },
                 {
-                  title: "UV Protection",
-                  description: "Shield your paint from harmful UV rays that cause fading, oxidation, and premature aging, preserving your vehicle's finish for years."
+                  title: "Ultra-Hard Surface",
+                  description: "Achieves 9H hardness rating—harder than your clear coat—providing exceptional resistance to scratches, swirl marks, and minor abrasions."
                 },
                 {
-                  title: "Hydrophobic Properties",
-                  description: "Water and contaminants bead up and roll off the surface, making cleaning easier and reducing the risk of water spots and stains."
+                  title: "Exceptional Gloss & Depth",
+                  description: "Creates a deep, mirror-like finish that enhances your vehicle's color and creates a showroom-quality appearance that lasts."
+                },
+                {
+                  title: "Superior Heat & UV Protection",
+                  description: "Blocks infrared heat and up to 99% of harmful UV rays, protecting your paint from fading, oxidation, and premature aging."
+                },
+                {
+                  title: "Hydrophobic & Self-Cleaning",
+                  description: "Water and contaminants bead up and roll off effortlessly, making cleaning easier and reducing maintenance requirements."
                 },
                 {
                   title: "Chemical Resistance",
-                  description: "Protect against harsh chemicals, bird droppings, tree sap, bug splatter, and other environmental hazards that can damage your paint."
-                },
-                {
-                  title: "Long-Term Durability",
-                  description: "Our coatings are tested and proven to meet or exceed their warranty periods, providing protection for years, not months."
-                },
-                {
-                  title: "Maintenance Made Easy",
-                  description: "Reduced need for frequent waxing and detailing, saving you time and money while maintaining superior protection."
+                  description: "Protects against harsh chemicals, bird droppings, tree sap, bug splatter, and other environmental contaminants that damage paint."
                 }
               ]}
               process={[
                 {
-                  title: "Surface Preparation",
-                  description: "Before application, your vehicle's paint must be perfectly clean and corrected. We perform comprehensive paint correction to remove all defects, ensuring optimal coating adhesion and results."
+                  title: "Comprehensive Paint Correction",
+                  description: "Complete paint correction is performed to remove all imperfections. This is included in every ceramic coating package because the coating will permanently lock in any defects if not removed first."
                 },
                 {
-                  title: "Decontamination",
-                  description: "Thorough cleaning using clay bar treatment and iron fallout removers eliminates embedded contaminants that could compromise the coating's performance."
+                  title: "Decontamination & Preparation",
+                  description: "Thorough decontamination using clay bar treatment and iron fallout removers eliminates embedded contaminants. Pre-coating solutions ensure optimal bonding conditions."
                 },
                 {
-                  title: "Paint Correction",
-                  description: "All surface imperfections are removed through multi-stage polishing, creating a flawless foundation for the ceramic coating application."
+                  title: "Professional Coating Application",
+                  description: "Our certified technicians apply the ceramic coating in thin, even layers using specialized applicators, ensuring complete coverage without runs or high spots."
                 },
                 {
-                  title: "Coating Application",
-                  description: "Our certified technicians apply the ceramic coating using precise techniques, ensuring even coverage and optimal bonding with the paint surface."
-                },
-                {
-                  title: "Curing Period",
-                  description: "The coating requires proper curing time to fully bond with the paint. We provide detailed instructions for optimal results during this critical period."
+                  title: "Leveling & Finishing",
+                  description: "Excess coating is carefully removed using premium microfiber towels to ensure even thickness and prevent uneven curing that could compromise performance."
                 },
                 {
                   title: "Quality Inspection",
-                  description: "A comprehensive final inspection ensures the coating has been applied correctly and meets our rigorous quality standards."
+                  description: "A comprehensive final inspection ensures the coating has been applied correctly and meets our rigorous quality standards before delivery."
                 }
               ]}
               features={[
-                "Complete paint correction included",
+                "Complete paint correction included (single, two, or three-stage)",
                 "Thorough decontamination process",
                 "Professional ceramic coating application",
-                "Multi-layer coating option available",
+                "Premium nano-ceramic coating products",
                 "Warranty-backed protection",
-                "Detailed aftercare instructions",
-                "Follow-up support and maintenance guidance",
-                "Premium coating products used"
+                "Detailed maintenance instructions",
+                "Follow-up support and guidance",
+                "Quality inspection and final check"
               ]}
             />
             <ServicePricing
               title="Ceramic Coating Packages"
               packages={[
                 {
-                  name: "Single Layer Coating",
-                  duration: "10-12 hours",
-                  priceRange: { start: 1299, end: 1799 },
-                  priceNote: "Includes paint correction. Pricing varies by vehicle size",
-                  description: "Entry-level ceramic coating with excellent protection. Perfect for daily drivers seeking long-term paint protection.",
+                  name: "Single Stage + Ceramic Coating",
+                  priceRange: { start: 350, end: 450 },
+                  priceNote: "Pricing varies by vehicle size. Includes Single Stage Paint Correction + Ceramic Coating (replaces standard sealant)",
+                  description: "Perfect for vehicles with light swirl marks. Includes single-stage paint correction plus ceramic coating for superior protection. Ceramic coating replaces the standard sealant and provides better, longer-lasting protection.",
                   features: [
-                    "Complete paint correction included",
-                    "Thorough decontamination",
-                    "Single-layer ceramic coating",
-                    "Up to 2 years protection",
-                    "Hydrophobic properties",
-                    "UV and chemical resistance",
-                    "Basic warranty included"
+                    "Complete paint surface inspection",
+                    "Thorough decontamination (clay bar)",
+                    "Single-stage compound polishing",
+                    "Finishing polish application",
+                    "Professional ceramic coating application",
+                    "All exterior panels treated",
+                    "Superior protection vs. standard sealant"
                   ],
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Multi-Layer Coating",
-                  duration: "12-14 hours",
-                  priceRange: { start: 1799, end: 2499 },
-                  priceNote: "Includes paint correction. Pricing varies by vehicle size",
-                  description: "Enhanced protection with multiple coating layers. Ideal for high-end vehicles requiring superior durability and gloss.",
+                  name: "Two Stage + Ceramic Coating",
+                  priceRange: { start: 600, end: 800 },
+                  priceNote: "Pricing varies by vehicle size. Includes Two Stage Paint Correction + Ceramic Coating (replaces standard sealant)",
+                  description: "Ideal for moderate swirl marks and light scratches. Includes two-stage paint correction plus ceramic coating. Ceramic coating provides better protection than the standard sealant included with paint correction packages.",
                   features: [
-                    "Complete paint correction included",
-                    "Thorough decontamination",
-                    "Multi-layer ceramic coating (2-3 layers)",
-                    "Up to 5 years protection",
-                    "Superior hydrophobic properties",
-                    "Enhanced UV and chemical resistance",
-                    "Extended warranty included"
+                    "Complete paint surface inspection",
+                    "Thorough decontamination (clay bar)",
+                    "Two-stage compound polishing",
+                    "Advanced finishing polish",
+                    "Professional ceramic coating application",
+                    "All exterior panels treated",
+                    "Enhanced gloss and depth",
+                    "Superior protection vs. standard sealant"
                   ],
                   featured: true,
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Premium Coating System",
-                  duration: "14-18 hours",
-                  priceRange: { start: 2499, end: 3499 },
-                  priceNote: "Includes comprehensive paint correction. Pricing varies by vehicle size",
-                  description: "Ultimate protection package with premium coating system. Maximum durability, gloss, and warranty coverage.",
+                  name: "Three Stage + Ceramic Coating",
+                  priceRange: { start: 900, end: 1300 },
+                  priceNote: "Pricing varies by vehicle size and condition. Includes Three Stage Paint Correction + Ceramic Coating (replaces standard sealant)",
+                  description: "Comprehensive correction for severe defects plus ceramic coating. Includes three-stage paint correction for maximum results, finished with ceramic coating that provides superior protection compared to standard sealant.",
                   features: [
-                    "Comprehensive paint correction included",
-                    "Thorough decontamination",
-                    "Premium multi-layer coating system",
-                    "Up to 10 years protection",
-                    "Maximum hydrophobic properties",
-                    "Ultimate UV and chemical resistance",
-                    "Premium warranty coverage",
-                    "Follow-up maintenance included"
+                    "Complete paint surface inspection",
+                    "Thorough decontamination (clay bar)",
+                    "Multi-stage compound polishing (3+ stages)",
+                    "Advanced finishing polish",
+                    "Professional ceramic coating application",
+                    "All exterior panels treated",
+                    "Maximum gloss and depth restoration",
+                    "Minor scratch repair (when applicable)",
+                    "Superior protection vs. standard sealant"
                   ],
                   ctaText: "Book This Package"
                 }

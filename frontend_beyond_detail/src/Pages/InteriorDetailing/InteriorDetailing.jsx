@@ -9,7 +9,7 @@ import './InteriorDetailing.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const InteriorDetailingHero = lazy(() => import('../../components/InteriorDetailingHero/InteriorDetailingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
@@ -36,38 +36,34 @@ function InteriorDetailing() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='interior-detailing__wrapper'>
-            <BackgroundPaths 
-              title="Interior Detailing"
-              scrollTarget="#pricing"
-              description="Breathe new life into your vehicle's interior. Our deep cleaning services go beyond surface cleaning to remove embedded dirt, eliminate odors, and restore that like-new freshness. Professional shampoo extraction, leather conditioning, and meticulous attention to every detail."
-            />
+            <InteriorDetailingHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
               <ServiceGallery serviceType="interior-detailing" title="Interior Detailing Gallery" />
             </Suspense>
             <ServiceInfoSection
-              title="Complete Interior Detailing Services"
+              title="Interior Detailing Services"
               subtitle="Deep Cleaning & Restoration"
-              description="Our interior detailing services go far beyond basic vacuuming. We provide comprehensive deep cleaning, shampoo extraction, and detailed restoration of every interior surface, from upholstery and carpets to dashboards and air vents, ensuring your vehicle's interior looks and feels like new."
+              description="Our interior detailing services specialize in comprehensive deep cleaning of your vehicle's interior. From removing pet hair and stubborn stains to professional shampoo extraction and sanitization, we restore your interior to like-new condition using proven techniques and professional-grade equipment."
               benefits={[
                 {
-                  title: "Deep Clean Upholstery",
-                  description: "Professional shampoo and extraction removes deeply embedded dirt, stains, and odors from seats, carpets, and fabric surfaces, restoring their original appearance and freshness."
+                  title: "Deep Stain Removal",
+                  description: "Professional shampoo extraction and steam cleaning removes deeply embedded stains including pet hair, salt stains, fabric stains, and other contaminants that regular cleaning cannot eliminate."
                 },
                 {
-                  title: "Sanitized Interior",
-                  description: "Thorough cleaning eliminates bacteria, allergens, and germs, creating a healthier environment for you and your passengers."
+                  title: "Odor Elimination",
+                  description: "Deep cleaning removes the source of unpleasant odors including smoke smell, pet odors, and food odors, leaving your interior fresh and clean."
                 },
                 {
-                  title: "Restored Interior Appearance",
+                  title: "Sanitized Environment",
+                  description: "Thorough sanitization eliminates bacteria, allergens, and germs, creating a healthier environment for you and your passengers."
+                },
+                {
+                  title: "Restored Appearance",
                   description: "Remove years of accumulated dirt, grime, and wear to restore your vehicle's interior to showroom condition."
                 },
                 {
                   title: "Enhanced Resale Value",
                   description: "A professionally detailed interior significantly increases your vehicle's resale value and appeal to potential buyers."
-                },
-                {
-                  title: "Odor Elimination",
-                  description: "Deep cleaning removes the source of unpleasant odors, leaving your interior smelling fresh and clean."
                 },
                 {
                   title: "Protection & Conditioning",
@@ -77,42 +73,47 @@ function InteriorDetailing() {
               process={[
                 {
                   title: "Comprehensive Vacuuming",
-                  description: "We begin with thorough vacuuming of all interior surfaces including seats, carpets, floor mats, trunk, and hard-to-reach areas using specialized attachments and tools."
+                  description: "We begin with thorough vacuuming of all interior surfaces including seats, carpets, floor mats, trunk, and hard-to-reach areas using specialized attachments designed for pet hair removal."
                 },
                 {
-                  title: "Shampoo & Extraction",
-                  description: "Professional-grade shampoo is applied to upholstery, carpets, and fabric surfaces, then extracted with powerful equipment that removes dirt, stains, and embedded contaminants."
+                  title: "Upholstery Cleaning",
+                  description: "All upholstery surfaces are thoroughly cleaned using appropriate methods for fabric, leather, or vinyl, removing surface stains and embedded dirt."
+                },
+                {
+                  title: "Professional Shampoo Extraction",
+                  description: "Professional-grade shampoo is applied to seats and carpets, then extracted with powerful equipment that removes deeply embedded stains, salt deposits, pet hair, and contaminants."
                 },
                 {
                   title: "Detailed Surface Cleaning",
-                  description: "All plastic, vinyl, and leather surfaces are meticulously cleaned and scrubbed, including dashboard, console, door panels, air vents, and cup holders."
+                  description: "Dashboard, console, and door panels are meticulously cleaned and scrubbed, removing dust, fingerprints, and discoloration from all plastic, vinyl, and leather surfaces."
                 },
                 {
-                  title: "Headliner & Trim Care",
-                  description: "Fabric headliners are carefully cleaned, and all interior trim pieces receive attention to remove dust, stains, and discoloration."
+                  title: "Sanitization & Disinfection",
+                  description: "Interior surfaces are sanitized and disinfected to eliminate bacteria, germs, smoke odors, and allergens, ensuring a fresh and healthy environment."
                 },
                 {
-                  title: "Leather Conditioning",
-                  description: "Leather surfaces are cleaned, conditioned, and protected with premium products that restore suppleness and protect against cracking and fading."
+                  title: "Window & Mirror Cleaning",
+                  description: "All interior windows and mirrors receive crystal-clear cleaning for optimal visibility and appearance."
                 },
                 {
                   title: "Final Protection",
-                  description: "Protective treatments are applied to appropriate surfaces, and a final inspection ensures every detail has been addressed."
+                  description: "Protective treatments are applied where appropriate, and a comprehensive quality check ensures every detail has been addressed."
                 }
               ]}
               features={[
-                "Complete interior vacuuming (seats, carpets, trunk)",
-                "Professional shampoo and extraction",
-                "Deep cleaning of all upholstery",
-                "Carpet and floor mat shampoo treatment",
-                "Dashboard and console detailed cleaning",
-                "Air vent and cup holder cleaning",
-                "Fabric headliner cleaning",
-                "Plastic and vinyl surface scrubbing",
-                "Leather cleaning and conditioning",
-                "Door panel and trim restoration",
-                "Interior glass cleaning",
-                "Final protection and finishing"
+                "Interior Vacuumed & Dusted",
+                "Carpets, Seats, & Mats Vacuumed",
+                "All Upholstery Cleaned",
+                "Dashboard, Console & Doors Cleaned",
+                "Professional Shampoo Extraction",
+                "Pet Hair Removal",
+                "Salt Stain Removal",
+                "Fabric Stain Treatment",
+                "Smoke Odor Elimination",
+                "Steam Cleaning Available",
+                "Interior Sanitized & Disinfected",
+                "Interior Windows Cleaned",
+                "All Mirrors Cleaned"
               ]}
             />
             <ServicePricing
@@ -120,56 +121,49 @@ function InteriorDetailing() {
               packages={[
                 {
                   name: "Basic Interior Detail",
-                  duration: "3-4 hours",
-                  priceRange: { start: 199, end: 249 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Essential interior cleaning for regular maintenance. Keeps your vehicle's interior fresh and clean.",
+                  priceRange: { start: 80, end: 80 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Essential interior cleaning for regular maintenance. Perfect for keeping your vehicle's interior fresh and clean.",
                   features: [
-                    "Complete interior vacuuming",
-                    "Dashboard and console cleaning",
-                    "Window and mirror cleaning",
-                    "Basic surface cleaning",
-                    "Trunk vacuuming",
-                    "Interior wipe-down"
+                    "Interior Vacuumed & Dusted",
+                    "Carpets, Seats, & Mats Vacuumed",
+                    "All Upholstery Cleaned",
+                    "Interior Windows Cleaned",
+                    "All Mirrors Cleaned"
                   ],
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Premium Interior Detail",
-                  duration: "5-7 hours",
-                  priceRange: { start: 349, end: 449 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Deep cleaning with shampoo extraction. Restores your interior to like-new condition with thorough cleaning.",
+                  name: "Intermediate Interior Detail",
+                  priceRange: { start: 130, end: 130 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Enhanced interior cleaning with sanitization. Ideal for vehicles that need deeper cleaning and odor elimination.",
                   features: [
-                    "Complete interior vacuuming",
-                    "Shampoo and extraction of seats",
-                    "Carpet and floor mat deep cleaning",
-                    "Dashboard and console detailed cleaning",
-                    "Air vent and cup holder cleaning",
-                    "Fabric headliner cleaning",
-                    "Plastic and vinyl scrubbing",
-                    "Leather cleaning and conditioning"
+                    "Interior Vacuumed & Dusted",
+                    "Carpets, Seats, & Mats Vacuumed",
+                    "All Upholstery Cleaned",
+                    "Interior Windows Cleaned",
+                    "All Mirrors Cleaned",
+                    "Interior Sanitized & Disinfected"
                   ],
                   featured: true,
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Ultimate Interior Detail",
-                  duration: "7-9 hours",
-                  priceRange: { start: 499, end: 699 },
-                  priceNote: "Pricing varies by vehicle size and condition",
-                  description: "Comprehensive interior restoration with professional-grade equipment. Maximum results for heavily soiled or neglected interiors.",
+                  name: "Advanced Interior Detail",
+                  priceRange: { start: 180, end: 180 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Comprehensive deep cleaning with professional shampoo extraction. Removes embedded stains, pet hair, salt deposits, and deeply embedded dirt.",
                   features: [
-                    "Complete interior vacuuming (all areas)",
-                    "Professional shampoo and extraction",
-                    "Deep cleaning of all upholstery",
-                    "Carpet and floor mat professional treatment",
-                    "Complete dashboard and console restoration",
-                    "Air vent deep cleaning",
-                    "Fabric headliner professional cleaning",
-                    "Complete leather restoration and conditioning",
-                    "Odor elimination treatment",
-                    "Interior protection application"
+                    "Interior Vacuumed & Dusted",
+                    "Dashboard, Console & Doors Cleaned",
+                    "Carpets, Seats, & Mats Vacuumed",
+                    "All Upholstery Cleaned",
+                    "Interior Windows Cleaned",
+                    "All Mirrors Cleaned",
+                    "Interior Sanitized & Disinfected",
+                    "Seats Extracted / Shampoo Wash To Remove Deep Embedded Stains And Grime",
+                    "Carpets Extracted / Shampoo Wash To Remove Deep Embedded Stains And Grime"
                   ],
                   ctaText: "Book This Package"
                 }

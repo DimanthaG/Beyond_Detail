@@ -9,7 +9,7 @@ import './ExteriorDetailing.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const ExteriorDetailingHero = lazy(() => import('../../components/ExteriorDetailingHero/ExteriorDetailingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
@@ -36,132 +36,129 @@ function ExteriorDetailing() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='exterior-detailing__wrapper'>
-            <BackgroundPaths 
-              title="Exterior Detailing"
-              scrollTarget="#pricing"
-              description="Restore and protect your vehicle's exterior to stunning condition. From paint enhancement to comprehensive protection, we transform your vehicle's appearance while defending it against weather, UV damage, and environmental hazards. Showroom quality, guaranteed."
-            />
+            <ExteriorDetailingHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
               <ServiceGallery serviceType="exterior-detailing" title="Exterior Detailing Gallery" />
             </Suspense>
             <ServiceInfoSection
-              title="Complete Exterior Detailing Services"
+              title="Exterior Detailing Services"
               subtitle="Premium Exterior Care"
-              description="Our exterior detailing services go far beyond a simple car wash. We provide comprehensive cleaning, polishing, and protection that restores your vehicle's exterior to pristine condition while defending against future damage from weather, road debris, and environmental contaminants."
+              description="Our exterior detailing services provide comprehensive cleaning, protection, and enhancement of your vehicle's exterior. From basic hand washing to advanced paint correction and ceramic coating, we restore and protect your vehicle's exterior while defending against environmental damage, road debris, and harsh weather conditions."
               benefits={[
                 {
                   title: "Restored Paint Finish",
-                  description: "Remove oxidation, light scratches, and surface imperfections to reveal your vehicle's true color and shine."
+                  description: "Professional cleaning and polishing removes oxidation, light scratches, and surface imperfections to reveal your vehicle's true color and shine."
                 },
                 {
                   title: "Environmental Protection",
-                  description: "Shield your paint from UV rays, acid rain, bird droppings, tree sap, and other contaminants that cause damage over time."
+                  description: "Sealants and ceramic coatings shield your paint from UV rays, acid rain, bird droppings, tree sap, road salt, and other contaminants that cause damage over time."
                 },
                 {
                   title: "Enhanced Appearance",
-                  description: "Transform your vehicle's exterior with a deep, glossy finish that makes it look brand new."
+                  description: "Transform your vehicle's exterior with a deep, glossy finish that makes it look brand new and maintains its showroom-quality appearance."
                 },
                 {
                   title: "Extended Paint Life",
-                  description: "Regular professional detailing extends the life of your paint, helping maintain your vehicle's value."
+                  description: "Regular professional detailing and protection extends the life of your paint, helping maintain your vehicle's value and appearance."
                 },
                 {
                   title: "Protection Against Elements",
-                  description: "Advanced sealants and coatings protect against harsh weather conditions, road salt, and environmental hazards."
+                  description: "Advanced sealants protect against harsh weather conditions, road salt, environmental hazards, and daily wear and tear."
                 },
                 {
                   title: "Comprehensive Care",
-                  description: "From paint to trim, wheels to glass, every exterior surface receives meticulous attention and care."
+                  description: "From paint to trim, wheels to glass, every exterior surface receives meticulous attention and professional care."
                 }
               ]}
               process={[
                 {
-                  title: "Thorough Wash & Decontamination",
-                  description: "We begin with a comprehensive wash using premium products, followed by clay bar treatment to remove embedded contaminants and road film that normal washing cannot eliminate."
+                  title: "Premium Hand Wash",
+                  description: "We begin with a premium two-bucket hand wash using high-quality products, carefully cleaning every exterior surface including paint, wheels, tires, door jams, and trunk jams."
                 },
                 {
-                  title: "Paint Enhancement",
-                  description: "Light polishing removes minor imperfections, swirl marks, and oxidation to restore clarity and depth to your paint finish."
+                  title: "Decontamination Treatment",
+                  description: "Clay bar treatment removes embedded contaminants, road film, and industrial fallout that normal washing cannot eliminate from the paint surface."
                 },
                 {
-                  title: "Trim & Wheel Care",
-                  description: "All exterior trim, wheels, and tires are meticulously cleaned, conditioned, and protected to maintain their appearance and prevent deterioration."
+                  title: "Tire & Wheel Care",
+                  description: "Wheels and tires are thoroughly cleaned, conditioned, and protected to maintain their appearance and prevent deterioration from brake dust and road debris."
                 },
                 {
-                  title: "Glass & Mirror Cleaning",
-                  description: "Crystal-clear glass cleaning ensures optimal visibility while removing water spots, streaks, and contaminants from all exterior glass surfaces."
+                  title: "Trim & Glass Cleaning",
+                  description: "All exterior trim pieces receive attention, and all glass surfaces are cleaned to crystal-clear perfection for optimal visibility."
                 },
                 {
                   title: "Protection Application",
-                  description: "High-quality wax or sealant is applied to protect your newly restored finish and provide long-lasting shine and protection."
+                  description: "High-quality sealants are applied to protect your vehicle's finish and provide long-lasting shine and protection against the elements."
+                },
+                {
+                  title: "Final Inspection",
+                  description: "A comprehensive quality check ensures every detail has been addressed and your vehicle meets our high standards."
                 }
               ]}
               features={[
-                "Premium two-bucket wash method",
-                "Clay bar decontamination treatment",
-                "Light paint polishing and enhancement",
-                "Wheel and tire deep cleaning",
-                "Trim restoration and protection",
-                "Glass cleaning and treatment",
-                "High-quality wax or sealant application",
-                "Final inspection and quality check"
+                "Premium Hand Wash",
+                "Tire and Rims Cleaned",
+                "Door Jams Cleaned",
+                "Trunk Jams Cleaned",
+                "Exterior Windows Cleaned",
+                "All Mirrors Cleaned",
+                "Clay Bar Decontamination (Intermediate & Advanced)",
+                "Premium Sealant Application (Intermediate & Advanced)",
+                "Paint Correction Available (Advanced)",
+                "Ceramic Coating Available (Advanced)"
               ]}
             />
             <ServicePricing
               title="Exterior Detailing Packages"
               packages={[
                 {
-                  name: "Basic Exterior Detail",
-                  duration: "2-3 hours",
-                  priceRange: { start: 149, end: 199 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Essential exterior cleaning and protection for regular maintenance. Perfect for keeping your vehicle looking fresh.",
+                  name: "Basic Wash",
+                  priceRange: { start: 50, end: 50 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Essential exterior cleaning perfect for regular maintenance. Keeps your vehicle looking fresh and clean.",
                   features: [
-                    "Hand wash and chamois dry",
-                    "Wheel and tire cleaning",
-                    "Tire dressing application",
-                    "Basic paint enhancement",
-                    "Exterior trim dressing",
-                    "Quick wax application"
+                    "Exterior Hand Wash",
+                    "Tire and Rims Cleaned",
+                    "Exterior Windows Cleaned",
+                    "All Mirrors Cleaned"
                   ],
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Premium Exterior Detail",
-                  duration: "4-6 hours",
-                  priceRange: { start: 299, end: 399 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Comprehensive exterior detailing with paint enhancement and protection. Restores shine and protects your investment.",
+                  name: "Intermediate Wash",
+                  priceRange: { start: 150, end: 150 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Enhanced exterior cleaning with decontamination and sealant protection. Ideal for vehicles that need deeper cleaning and protection.",
                   features: [
-                    "Premium hand wash and dry",
-                    "Wheel, tire, and wheel well cleaning",
-                    "Clay bar decontamination",
-                    "Light paint polishing",
-                    "Premium wax or sealant application",
-                    "Exterior trim restoration",
-                    "Glass cleaning and treatment",
-                    "Complete exterior protection"
+                    "Exterior Hand Wash",
+                    "Tire and Rims Cleaned",
+                    "Door Jams Cleaned",
+                    "Trunk Jams Cleaned",
+                    "Exterior Windows Cleaned",
+                    "All Mirrors Cleaned",
+                    "Clay Bar Decontamination",
+                    "Premium Sealant Application"
                   ],
                   featured: true,
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Ultimate Exterior Detail",
-                  duration: "6-8 hours",
-                  priceRange: { start: 499, end: 699 },
-                  priceNote: "Pricing varies by vehicle size and condition",
-                  description: "Premium exterior restoration with paint correction. Maximum results for achieving showroom-quality appearance.",
+                  name: "Advanced Exterior Service",
+                  priceRange: { start: 0, end: 0 },
+                  priceNote: "Paint Correction & Ceramic Coating Services",
+                  description: "For comprehensive paint correction and long-lasting ceramic coating protection, please see our Paint Correction and Ceramic Coating pages for detailed packages and pricing.",
                   features: [
-                    "Premium hand wash and dry",
-                    "Complete wheel and tire detail",
-                    "Clay bar decontamination",
-                    "Multi-stage paint correction",
-                    "Premium ceramic sealant application",
-                    "Complete trim restoration",
-                    "Crystal-clear glass treatment",
-                    "Long-lasting protection"
+                    "Professional Paint Correction",
+                    "Ceramic Coating Application",
+                    "Complete Exterior Restoration",
+                    "Long-Lasting Protection"
                   ],
-                  ctaText: "Book This Package"
+                  ctaText: "View Paint Correction",
+                  links: [
+                    { text: "View Paint Correction", href: "/paint-correction" },
+                    { text: "View Ceramic Coating", href: "/ceramic-coating" }
+                  ]
                 }
               ]}
             />

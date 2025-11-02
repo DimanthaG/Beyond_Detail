@@ -9,7 +9,7 @@ import './Services.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
@@ -36,157 +36,148 @@ function Services() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='auto-detail__wrapper'>
-            <BackgroundPaths 
-              title="Auto Detail"
-              scrollTarget="#pricing"
-              description="Complete auto detailing that brings your vehicle back to showroom condition. From deep interior cleaning to exterior paint enhancement, we combine expert craftsmanship with premium products to deliver results that exceed expectations. Your satisfaction is our priority."
-            />
+            <AutoDetailHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
               <ServiceGallery serviceType="auto-detail" title="Auto Detailing Gallery" />
             </Suspense>
             <ServiceInfoSection
               title="Complete Auto Detailing Services"
               subtitle="Interior & Exterior Excellence"
-              description="Our comprehensive auto detailing services combine expert interior and exterior care to fully restore and protect your vehicle. From deep cleaning and stain removal to paint enhancement and protection, we treat every surface with meticulous attention to detail, ensuring your vehicle looks and feels like new."
+              description="Our comprehensive auto detailing services provide complete interior and exterior care in one convenient package. From removing pet hair and salt stains to deep steam cleaning and sanitization, we restore your vehicle to showroom condition while protecting it for the future."
               benefits={[
                 {
-                  title: "Complete Vehicle Restoration",
-                  description: "Both interior and exterior surfaces are professionally cleaned, restored, and protected in one comprehensive service, ensuring your entire vehicle receives expert care."
+                  title: "Complete Vehicle Care",
+                  description: "Both interior and exterior surfaces are professionally cleaned, restored, and protected in one comprehensive service, ensuring your entire vehicle receives expert attention."
                 },
                 {
-                  title: "Showroom-Quality Results",
-                  description: "Our dual approach combines interior deep cleaning with exterior paint enhancement to achieve showroom-quality results that transform your vehicle's appearance."
+                  title: "Specialized Stain Removal",
+                  description: "We tackle tough stains including pet hair, salt stains, fabric stains, and smoke odors using professional-grade equipment and proven techniques."
+                },
+                {
+                  title: "Deep Cleaning Technology",
+                  description: "Professional shampoo extraction and steam cleaning removes deeply embedded dirt, grime, and contaminants that regular cleaning cannot reach."
+                },
+                {
+                  title: "Sanitization & Disinfection",
+                  description: "Advanced sanitization eliminates bacteria, germs, and allergens, creating a healthier environment for you and your passengers."
                 },
                 {
                   title: "Enhanced Protection",
                   description: "Protective treatments are applied to interior and exterior surfaces, shielding against UV damage, stains, spills, and environmental contaminants."
                 },
                 {
-                  title: "Increased Vehicle Value",
-                  description: "Professional detailing significantly increases your vehicle's resale value by maintaining and restoring both interior and exterior surfaces."
-                },
-                {
-                  title: "Healthier Interior Environment",
-                  description: "Thorough interior cleaning eliminates bacteria, allergens, and odors while exterior protection defends against environmental hazards."
-                },
-                {
-                  title: "Comprehensive Service",
-                  description: "One service covers everything from carpet shampooing and leather conditioning to paint polishing and sealant application, saving you time and ensuring consistent quality."
+                  title: "Increased Resale Value",
+                  description: "Regular professional detailing maintains your vehicle's appearance and significantly increases its resale value over time."
                 }
               ]}
               process={[
                 {
-                  title: "Exterior Wash & Decontamination",
-                  description: "We begin with a premium hand wash using the two-bucket method, followed by clay bar treatment to remove embedded contaminants from the paint surface."
+                  title: "Exterior Hand Wash",
+                  description: "We begin with a premium two-bucket hand wash, carefully cleaning every exterior surface including paint, wheels, tires, door jams, and trunk jams."
                 },
                 {
-                  title: "Interior Deep Cleaning",
-                  description: "Comprehensive vacuuming of all interior areas, followed by professional shampoo and extraction of upholstery and carpets to remove embedded dirt and stains."
+                  title: "Interior Vacuum & Dust",
+                  description: "Comprehensive vacuuming removes loose dirt, debris, and pet hair from all interior areas including seats, carpets, floor mats, and hard-to-reach spaces."
                 },
                 {
-                  title: "Exterior Paint Enhancement",
-                  description: "Light polishing removes minor imperfections, swirl marks, and oxidation to restore paint clarity and depth, revealing your vehicle's true color."
+                  title: "Upholstery Cleaning",
+                  description: "All upholstery surfaces are thoroughly cleaned using appropriate methods for fabric, leather, or vinyl, removing surface stains and embedded dirt."
                 },
                 {
-                  title: "Interior Surface Restoration",
-                  description: "All plastic, vinyl, and leather surfaces are meticulously cleaned and conditioned. Dashboard, console, air vents, and door panels receive detailed attention."
+                  title: "Deep Shampoo Extraction",
+                  description: "Professional-grade shampoo is applied and extracted from seats and carpets, removing deep stains, salt deposits, and embedded contaminants."
                 },
                 {
-                  title: "Wheel & Trim Care",
-                  description: "Wheels, tires, and all exterior trim are thoroughly cleaned, conditioned, and protected to maintain their appearance and prevent deterioration."
+                  title: "Sanitization & Disinfection",
+                  description: "Interior surfaces are sanitized and disinfected to eliminate bacteria, germs, and odors, ensuring a fresh and healthy environment."
                 },
                 {
-                  title: "Protection Application",
-                  description: "High-quality protection is applied to both interior (conditioners, fabric protectors) and exterior (wax, sealant) surfaces for long-lasting results."
+                  title: "Window & Mirror Cleaning",
+                  description: "All interior and exterior windows and mirrors receive crystal-clear cleaning for optimal visibility and appearance."
                 },
                 {
-                  title: "Final Inspection",
-                  description: "A comprehensive quality check ensures every detail has been addressed and your vehicle meets our high standards before delivery."
+                  title: "Final Protection",
+                  description: "Protective treatments are applied where appropriate, and a comprehensive quality inspection ensures quality results."
                 }
               ]}
               features={[
-                "Premium hand wash and chamois dry",
-                "Clay bar decontamination treatment",
-                "Complete interior vacuuming (all areas)",
-                "Professional shampoo and extraction",
-                "Light paint polishing and enhancement",
-                "Dashboard and console detailed cleaning",
-                "Wheel and tire deep cleaning",
-                "Air vent and cup holder cleaning",
-                "Leather cleaning and conditioning",
-                "Exterior trim restoration",
-                "Glass cleaning (interior and exterior)",
-                "Protection application (wax/sealant)",
-                "Final quality inspection"
+                "Interior vacuumed & dusted",
+                "Carpets, seats & mats vacuumed",
+                "All upholstery cleaned",
+                "Professional shampoo extraction (seats & carpets)",
+                "Pet hair removal",
+                "Salt stain removal",
+                "Fabric stain treatment",
+                "Smoke odor elimination",
+                "Steam cleaning available",
+                "Interior sanitization & disinfection",
+                "Dashboard, console & doors cleaned",
+                "Exterior hand wash",
+                "Tire and rims cleaned",
+                "Door jams & trunk jams cleaned",
+                "Interior & exterior windows cleaned",
+                "All mirrors cleaned"
               ]}
             />
 
             <ServicePricing
-              title="Complete Auto Detailing Packages"
+              title="Auto Detailing Packages"
               packages={[
                 {
-                  name: "Standard Detail Package",
-                  duration: "5-6 hours",
-                  priceRange: { start: 349, end: 449 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Comprehensive interior and exterior detailing package perfect for regular maintenance. Restores your vehicle to clean, fresh condition.",
+                  name: "Basic Detail",
+                  priceRange: { start: 100, end: 100 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Essential interior and exterior cleaning perfect for regular maintenance. Keeps your vehicle looking fresh and clean.",
                   features: [
-                    "Premium hand wash and dry",
-                    "Complete interior vacuuming",
-                    "Interior surface cleaning",
-                    "Dashboard and console cleaning",
-                    "Wheel and tire cleaning",
-                    "Basic paint enhancement",
-                    "Window cleaning (interior & exterior)",
-                    "Quick wax application"
+                    "Interior Vacuumed & Dusted",
+                    "Carpets, Seats, & Mats Vacuumed",
+                    "All Upholstery Cleaned",
+                    "Interior & Exterior Windows Cleaned",
+                    "All Mirrors Cleaned",
+                    "Exterior Hand Wash",
+                    "Tire and Rims Cleaned"
                   ],
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Premium Detail Package",
-                  duration: "7-9 hours",
-                  priceRange: { start: 549, end: 699 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Deep cleaning package with shampoo extraction and paint enhancement. Ideal for restoring neglected or heavily used vehicles.",
+                  name: "Intermediate Detail",
+                  priceRange: { start: 150, end: 150 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Enhanced cleaning with sanitization and door jam cleaning. Ideal for vehicles that need a deeper clean.",
                   features: [
-                    "Premium hand wash and dry",
-                    "Clay bar decontamination",
-                    "Complete interior vacuuming",
-                    "Shampoo and extraction (seats & carpets)",
-                    "Light paint polishing",
-                    "Detailed dashboard and console cleaning",
-                    "Air vent and cup holder cleaning",
-                    "Fabric headliner cleaning",
-                    "Leather cleaning and conditioning",
-                    "Wheel and tire deep cleaning",
-                    "Premium wax or sealant application",
-                    "Complete protection treatment"
+                    "Interior Vacuumed & Dusted",
+                    "Carpets, Seats, & Mats Vacuumed",
+                    "All Upholstery Cleaned",
+                    "Interior & Exterior Windows Cleaned",
+                    "All Mirrors Cleaned",
+                    "Interior Sanitized & Disinfected",
+                    "Exterior Hand Wash",
+                    "Tire and Rims Cleaned",
+                    "Door Jams Cleaned",
+                    "Trunk Jams Cleaned"
                   ],
                   featured: true,
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Ultimate Detail Package",
-                  duration: "10-12 hours",
-                  priceRange: { start: 799, end: 1099 },
-                  priceNote: "Pricing varies by vehicle size and condition",
-                  description: "Comprehensive restoration package combining interior deep cleaning with exterior paint correction. Maximum results for showroom-quality finish.",
+                  name: "Advanced Detail",
+                  priceRange: { start: 200, end: 200 },
+                  priceNote: "Fixed pricing for all vehicle sizes",
+                  description: "Comprehensive deep cleaning with professional shampoo extraction. Removes embedded stains, salt deposits, and deeply embedded dirt.",
                   features: [
-                    "Premium hand wash and dry",
-                    "Clay bar decontamination",
-                    "Complete interior vacuuming (all areas)",
-                    "Professional shampoo and extraction",
-                    "Multi-stage paint correction",
-                    "Complete dashboard and console restoration",
-                    "Deep cleaning of all upholstery",
-                    "Carpet and floor mat professional treatment",
-                    "Complete leather restoration",
-                    "Complete wheel and tire detail",
-                    "Premium ceramic sealant application",
-                    "Complete trim restoration",
-                    "Crystal-clear glass treatment",
-                    "Odor elimination (if needed)",
-                    "Comprehensive protection application"
+                    "Interior Vacuumed & Dusted",
+                    "Dashboard, Console & Doors Cleaned",
+                    "Carpets, Seats, & Mats Vacuumed",
+                    "All Upholstery Cleaned",
+                    "Interior & Exterior Windows Cleaned",
+                    "All Mirrors Cleaned",
+                    "Interior Sanitized & Disinfected",
+                    "Exterior Hand Wash",
+                    "Tire and Rims Cleaned",
+                    "Door Jams Cleaned",
+                    "Trunk Jams Cleaned",
+                    "Seats Extracted / Shampoo Wash To Remove Deep Embedded Stains And Grime",
+                    "Carpets Extracted / Shampoo Wash To Remove Deep Embedded Stains And Grime"
                   ],
                   ctaText: "Book This Package"
                 }

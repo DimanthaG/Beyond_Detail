@@ -123,3 +123,6 @@ If you encounter issues:
 3. Ensure your Google Business Profile is public and has reviews
 4. Check API quota and billing status
 
+
+
+

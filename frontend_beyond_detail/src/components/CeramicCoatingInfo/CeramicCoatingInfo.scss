@@ -1,0 +1,492 @@
+.ceramic-coating-info {
+  width: 100%;
+  padding: 4rem 1rem;
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+
+  @media screen and (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 8rem 4rem;
+  }
+}
+
+.ceramic-coating-info__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+// Header
+.ceramic-coating-info__header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 5rem;
+  }
+}
+
+.ceramic-coating-info__badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  background: var(--secondary-color);
+  color: var(--white-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-base);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ceramic-coating-info__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-base);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+
+  @media screen and (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 4rem;
+  }
+}
+
+.ceramic-coating-info__subtitle {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--lightGray-color);
+  font-family: var(--font-base);
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.25rem;
+  }
+}
+
+// Section Header
+.ceramic-coating-info__section {
+  margin-bottom: 5rem;
+
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 6rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ceramic-coating-info__section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
+}
+
+.ceramic-coating-info__section-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ceramic-coating-info__section-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--secondary-color);
+  flex-shrink: 0;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.ceramic-coating-info__section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin: 0;
+  font-family: var(--font-base);
+  letter-spacing: -0.01em;
+
+  @media screen and (min-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 3rem;
+  }
+}
+
+.ceramic-coating-info__section-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ceramic-coating-info__section-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.125rem;
+    line-height: 1.9;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Composition Grid
+.ceramic-coating-info__composition-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.ceramic-coating-info__composition-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.ceramic-coating-info__composition-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-base);
+}
+
+.ceramic-coating-info__composition-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-family: var(--font-base);
+}
+
+// Application Steps
+.ceramic-coating-info__application-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+
+  @media screen and (min-width: 768px) {
+    gap: 2.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ceramic-coating-info__step-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(240, 121, 0, 0.08);
+    border-color: rgba(240, 121, 0, 0.3);
+    transform: translateY(-3px);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.ceramic-coating-info__step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ceramic-coating-info__step-number {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--secondary-color), var(--darkOrange-color));
+  color: var(--white-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-base);
+  flex-shrink: 0;
+}
+
+.ceramic-coating-info__step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin: 0;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.ceramic-coating-info__step-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+// Longevity Grid
+.ceramic-coating-info__longevity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.ceramic-coating-info__longevity-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+  }
+
+  &--featured {
+    background: rgba(240, 121, 0, 0.1);
+    border-color: rgba(240, 121, 0, 0.3);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.ceramic-coating-info__longevity-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.ceramic-coating-info__longevity-duration {
+  margin-bottom: 1.5rem;
+}
+
+.ceramic-coating-info__longevity-time {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+.ceramic-coating-info__longevity-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-family: var(--font-base);
+}
+
+.ceramic-coating-info__maintenance-note {
+  background: rgba(240, 121, 0, 0.1);
+  border: 1px solid rgba(240, 121, 0, 0.3);
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+
+  @media screen and (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+.ceramic-coating-info__note-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--secondary-color);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.ceramic-coating-info__note-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-family: var(--font-base);
+
+  strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+}
+
+// Maintenance Grid
+.ceramic-coating-info__maintenance-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ceramic-coating-info__maintenance-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(240, 121, 0, 0.3);
+    transform: translateY(-3px);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.ceramic-coating-info__maintenance-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.ceramic-coating-info__maintenance-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.ceramic-coating-info__maintenance-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-base);
+    padding-left: 1.5rem;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+  }
+}
+
+.ceramic-coating-info__maintenance-dos-donts {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-base);
+
+  div {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+  }
+}
+

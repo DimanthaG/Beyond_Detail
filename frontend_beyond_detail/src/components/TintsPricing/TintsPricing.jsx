@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CheckCheck, Zap, Car } from "lucide-react";
 import NumberFlow from "@number-flow/react";
@@ -52,6 +52,33 @@ const PricingSwitch = ({
   );
 };
 
+const TintServiceSelector = ({ tintService, onSelect, options, disabledIndices = [] }) => {
+  return (
+    <div className="tints-pricing__service-selector">
+      <h4 className="tints-pricing__service-title">Tint Service</h4>
+      <div className="tints-pricing__service-grid">
+        {options.map((option, index) => {
+          const isDisabled = disabledIndices.includes(index);
+          return (
+            <button
+              key={index}
+              onClick={() => !isDisabled && onSelect(index)}
+              disabled={isDisabled}
+              className={`tints-pricing__service-option ${
+                tintService === index ? "tints-pricing__service-option--active" : ""
+              } ${
+                isDisabled ? "tints-pricing__service-option--disabled" : ""
+              }`}
+            >
+              {option}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const VehicleTypeSelector = ({ vehicleType, onSelect, options }) => {
   return (
     <div className="tints-pricing__vehicle-selector">
@@ -73,22 +100,28 @@ const VehicleTypeSelector = ({ vehicleType, onSelect, options }) => {
   );
 };
 
-const PercentageSelector = ({ percentage, onSelect, options }) => {
+const PercentageSelector = ({ percentage, onSelect, options, isWindshield }) => {
   return (
     <div className="tints-pricing__percentage-selector">
       <h4 className="tints-pricing__percentage-title">Tint Percentage</h4>
       <div className="tints-pricing__percentage-grid">
-        {options.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => onSelect(option)}
-            className={`tints-pricing__percentage-option ${
-              percentage === option ? "tints-pricing__percentage-option--active" : ""
-            }`}
-          >
-            {option}%
-          </button>
-        ))}
+        {options.map((option, index) => {
+          const isDisabled = option === 50 && !isWindshield;
+          return (
+            <button
+              key={index}
+              onClick={() => !isDisabled && onSelect(option)}
+              disabled={isDisabled}
+              className={`tints-pricing__percentage-option ${
+                percentage === option ? "tints-pricing__percentage-option--active" : ""
+              } ${
+                isDisabled ? "tints-pricing__percentage-option--disabled" : ""
+              }`}
+            >
+              {option}%
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -96,20 +129,44 @@ const PercentageSelector = ({ percentage, onSelect, options }) => {
 
 function TintsPricing() {
   const [selectedProduct, setSelectedProduct] = useState(0); // 0: ATC, 1: CTX, 2: IRX
+  const [tintService, setTintService] = useState(0); // 0: Two Front Windows, 1: Full Vehicle, 2: Windshield Tint
   const [vehicleType, setVehicleType] = useState(0);
   const [selectedPercentage, setSelectedPercentage] = useState(30);
   const pricingRef = useRef(null);
 
+  const tintServiceOptions = [
+    "Two Front Windows",
+    "Full Vehicle",
+    "Windshield Tint",
+  ];
+
   const vehicleOptions = [
-    "2 Door Coupe",
-    "4 Door Sedan",
+    "Car",
     "Mid Size SUV",
     "Full Size SUV / Van",
     "Pick Up Truck",
-    "Windshield",
   ];
 
   const percentageOptions = [5, 15, 30, 50];
+
+  // Auto-set percentage to 50% when windshield tint is selected
+  // Auto-adjust percentage when switching away from windshield (if 50% was selected)
+  useEffect(() => {
+    if (tintService === 2) {
+      setSelectedPercentage(50);
+    } else if (tintService !== 2 && selectedPercentage === 50) {
+      // If switching away from windshield and 50% is selected, default to 30%
+      setSelectedPercentage(30);
+    }
+  }, [tintService, selectedPercentage]);
+
+  // Auto-switch from ATC to CTX if windshield tint is selected
+  useEffect(() => {
+    if (tintService === 2 && selectedProduct === 0) {
+      // ATC doesn't support windshield, switch to CTX
+      setSelectedProduct(1);
+    }
+  }, [tintService]);
 
   const products = [
     {
@@ -126,14 +183,14 @@ function TintsPricing() {
       ],
       color: "#22c55e", // Green
       badge: "BEST VALUE",
+      twoFrontWindowsPrice: 140, // Two Front Windows
       basePrice: {
-        0: 140, // 2 Door Coupe - TWO FRONT WINDOWS
-        1: 250, // 4 Door Sedan - FULL CAR
-        2: 300, // Mid Size SUV - FULL SUV
-        3: 300, // Full Size SUV / Van - FULL SUV
-        4: 300, // Pick Up Truck - FULL TRUCK
-        5: 0, // Windshield (not available for ATC)
+        0: 250, // Car - FULL CAR
+        1: 280, // Mid Size SUV - FULL SUV
+        2: 300, // Full Size SUV / Van - FULL SUV
+        3: 300, // Pick Up Truck - FULL TRUCK
       },
+      windshieldPrice: 0, // Windshield (not available for ATC)
     },
     {
       name: "LLUMAR CTX",
@@ -149,14 +206,14 @@ function TintsPricing() {
       ],
       color: "#3b82f6", // Blue
       badge: "HIGH QUALITY",
+      twoFrontWindowsPrice: 180, // Two Front Windows
       basePrice: {
-        0: 180, // 2 Door Coupe - TWO FRONT WINDOWS
-        1: 400, // 4 Door Sedan - FULL CAR
-        2: 450, // Mid Size SUV - FULL SUV
-        3: 450, // Full Size SUV / Van - FULL SUV
-        4: 450, // Pick Up Truck - FULL TRUCK
-        5: 200, // Windshield
+        0: 350, // Car - FULL CAR
+        1: 380, // Mid Size SUV - FULL SUV
+        2: 400, // Full Size SUV / Van - FULL SUV
+        3: 400, // Pick Up Truck - FULL TRUCK
       },
+      windshieldPrice: 200, // Windshield
     },
     {
       name: "LLUMAR IRX",
@@ -172,21 +229,31 @@ function TintsPricing() {
       ],
       color: "#f59e0b", // Gold/Amber
       badge: "TOP HEAT BLOCKER",
+      twoFrontWindowsPrice: 200, // Two Front Windows
       basePrice: {
-        0: 220, // 2 Door Coupe - TWO FRONT WINDOWS
-        1: 500, // 4 Door Sedan - FULL CAR
-        2: 550, // Mid Size SUV - FULL SUV
-        3: 550, // Full Size SUV / Van - FULL SUV
-        4: 550, // Pick Up Truck - FULL TRUCK
-        5: 300, // Windshield
+        0: 450, // Car - FULL CAR
+        1: 480, // Mid Size SUV - FULL SUV
+        2: 500, // Full Size SUV / Van - FULL SUV
+        3: 500, // Pick Up Truck - FULL TRUCK
       },
+      windshieldPrice: 300, // Windshield
     },
   ];
 
   const currentProduct = products[selectedProduct];
-  const currentPrice = vehicleType === 5 && currentProduct.basePrice[vehicleType] === 0 
-    ? 0 
-    : currentProduct.basePrice[vehicleType];
+  
+  // Calculate price based on tint service and vehicle type
+  let currentPrice = 0;
+  if (tintService === 2) {
+    // Windshield Tint
+    currentPrice = currentProduct.windshieldPrice || 0;
+  } else if (tintService === 0) {
+    // Two Front Windows - fixed price regardless of vehicle type
+    currentPrice = currentProduct.twoFrontWindowsPrice || 0;
+  } else if (tintService === 1) {
+    // Full Vehicle - use vehicle type pricing for full car
+    currentPrice = currentProduct.basePrice[vehicleType] || 0;
+  }
 
   const revealVariants = {
     visible: (i) => ({
@@ -286,32 +353,53 @@ function TintsPricing() {
               <div className="tints-pricing__product-selector">
                 <h4 className="tints-pricing__selector-title">Llumar Product</h4>
                 <div className="tints-pricing__product-grid">
-                  {products.map((product, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedProduct(index)}
-                      className={`tints-pricing__product-button ${
-                        selectedProduct === index
-                          ? "tints-pricing__product-button--active"
-                          : ""
-                      }`}
-                      style={{
-                        borderColor: selectedProduct === index ? product.color : undefined,
-                        background: selectedProduct === index 
-                          ? 'transparent' 
-                          : undefined,
-                      }}
-                    >
-                      {product.name}
-                      {product.badge && (
-                        <span className="tints-pricing__button-badge" style={{ color: product.color }}>
-                          {product.badge}
-                        </span>
-                      )}
-                    </button>
-                  ))}
+                  {products.map((product, index) => {
+                    const isDisabled = tintService === 2 && index === 0; // Disable ATC when windshield is selected
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => !isDisabled && setSelectedProduct(index)}
+                        disabled={isDisabled}
+                        className={`tints-pricing__product-button ${
+                          selectedProduct === index
+                            ? "tints-pricing__product-button--active"
+                            : ""
+                        } ${
+                          isDisabled ? "tints-pricing__product-button--disabled" : ""
+                        }`}
+                        style={{
+                          borderColor: selectedProduct === index ? product.color : undefined,
+                          background: selectedProduct === index 
+                            ? 'transparent' 
+                            : undefined,
+                        }}
+                      >
+                        {product.name}
+                        {product.badge && (
+                          <span className="tints-pricing__button-badge" style={{ color: product.color }}>
+                            {product.badge}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={revealVariants}
+              custom={2.5}
+            >
+              <TintServiceSelector
+                tintService={tintService}
+                onSelect={setTintService}
+                options={tintServiceOptions}
+                disabledIndices={selectedProduct === 0 ? [2] : []} // Disable Windshield Tint for ATC
+              />
             </motion.div>
 
             <motion.div
@@ -339,6 +427,7 @@ function TintsPricing() {
                 percentage={selectedPercentage}
                 onSelect={setSelectedPercentage}
                 options={percentageOptions}
+                isWindshield={tintService === 2}
               />
             </motion.div>
 
@@ -360,8 +449,8 @@ function TintsPricing() {
                 </div>
                 <span className="tints-pricing__price-note">
                   {currentPrice === 0 
-                    ? "Not available for this vehicle type"
-                    : `Starting price for ${vehicleOptions[vehicleType]}${vehicleType === 5 ? ` (${selectedPercentage}% tint)` : ""}`
+                    ? "Not available for this service"
+                    : `Starting price for ${tintServiceOptions[tintService]}${tintService === 2 ? ` (${selectedPercentage}% tint)` : vehicleType !== undefined ? ` - ${vehicleOptions[vehicleType]}` : ""}`
                   }
                 </span>
               </div>

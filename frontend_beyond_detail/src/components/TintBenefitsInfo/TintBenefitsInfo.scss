@@ -1,0 +1,404 @@
+.tint-benefits-info {
+  width: 100%;
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    padding: 5rem 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 6rem 3rem;
+  }
+}
+
+.tint-benefits-info__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tint-benefits-info__section {
+  margin-bottom: 5rem;
+
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 6rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tint-benefits-info__section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
+}
+
+.tint-benefits-info__main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin: 0 0 1.5rem 0;
+  font-family: var(--font-base);
+  line-height: 1.2;
+
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 3.5rem;
+  }
+}
+
+.tint-benefits-info__main-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.3rem;
+    line-height: 1.9;
+  }
+}
+
+// Benefits Grid
+.tint-benefits-info__benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.tint-benefits-info__benefit-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(240, 121, 0, 0.08);
+    border-color: rgba(240, 121, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(240, 121, 0, 0.2);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.tint-benefits-info__benefit-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(240, 121, 0, 0.2), rgba(240, 121, 0, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(240, 121, 0, 0.3);
+}
+
+.tint-benefits-info__benefit-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--secondary-color);
+}
+
+.tint-benefits-info__benefit-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin: 0 0 1rem 0;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.tint-benefits-info__benefit-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.05rem;
+  }
+}
+
+// Film Types Section
+.tint-benefits-info__section--film-types {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  @media screen and (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 5rem 3rem;
+  }
+}
+
+.tint-benefits-info__film-types-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.tint-benefits-info__film-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.tint-benefits-info__film-card-header {
+  padding: 2rem;
+  border-top: 4px solid;
+  background: rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.tint-benefits-info__film-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.tint-benefits-info__film-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: var(--font-base);
+  opacity: 0.9;
+}
+
+.tint-benefits-info__film-content {
+  padding: 0 2rem 2rem 2rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 2.5rem 2.5rem 2.5rem;
+  }
+}
+
+.tint-benefits-info__film-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.tint-benefits-info__film-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tint-benefits-info__film-check {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.tint-benefits-info__film-best-for {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+}
+
+// Quality Matters Section
+.tint-benefits-info__section--quality {
+  background: rgba(240, 121, 0, 0.05);
+  padding: 3rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(240, 121, 0, 0.2);
+
+  @media screen and (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 5rem 3rem;
+  }
+}
+
+.tint-benefits-info__quality-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tint-benefits-info__quality-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(240, 121, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(240, 121, 0, 0.15);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.tint-benefits-info__quality-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(240, 121, 0, 0.2), rgba(240, 121, 0, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(240, 121, 0, 0.3);
+}
+
+.tint-benefits-info__quality-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--secondary-color);
+}
+
+.tint-benefits-info__quality-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+  margin: 0 0 1.5rem 0;
+  font-family: var(--font-base);
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.tint-benefits-info__quality-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tint-benefits-info__quality-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-base);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tint-benefits-info__quality-bullet {
+  width: 6px;
+  height: 6px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.6rem;
+}
+

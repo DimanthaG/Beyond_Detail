@@ -52,3 +52,6 @@ function FloatingPaths({ position }) {
 
 export default FloatingPaths;
 
+
+
+

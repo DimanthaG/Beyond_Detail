@@ -1,0 +1,198 @@
+.tint-specs-chart {
+  width: 100%;
+  padding: 3rem 1rem;
+  background: transparent;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 5rem 3rem;
+  }
+}
+
+.tint-specs-chart__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tint-specs-chart__wrapper {
+  width: 100%;
+}
+
+.tint-specs-chart__table-container {
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+
+  // Diagonal wavy lines background effect
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(240, 121, 0, 0.03) 10px,
+        rgba(240, 121, 0, 0.03) 20px
+      );
+    border-radius: 16px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem;
+  }
+}
+
+.tint-specs-chart__table {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  z-index: 1;
+}
+
+.tint-specs-chart__header {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  font-family: var(--font-base);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid rgba(240, 121, 0, 0.3);
+  background: rgba(240, 121, 0, 0.05);
+
+  @media screen and (min-width: 768px) {
+    padding: 1.5rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 1.75rem 2.5rem;
+    font-size: 1.15rem;
+  }
+
+  &:first-child {
+    border-top-left-radius: 12px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 12px;
+  }
+}
+
+.tint-specs-chart__row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(240, 121, 0, 0.08);
+  }
+}
+
+.tint-specs-chart__cell {
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  color: var(--white-color);
+  font-family: var(--font-base);
+  font-weight: 600;
+
+  @media screen and (min-width: 768px) {
+    padding: 1.5rem 2rem;
+    font-size: 1.05rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 1.75rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+.tint-specs-chart__cell--shade {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tint-specs-chart__cell--light {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tint-specs-chart__cell--infrared {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+// Responsive table for mobile
+@media screen and (max-width: 640px) {
+  .tint-specs-chart__table {
+    display: block;
+  }
+
+  .tint-specs-chart__table thead {
+    display: none;
+  }
+
+  .tint-specs-chart__table tbody,
+  .tint-specs-chart__table tr,
+  .tint-specs-chart__table td {
+    display: block;
+    width: 100%;
+  }
+
+  .tint-specs-chart__table tr {
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tint-specs-chart__cell {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .tint-specs-chart__cell--shade::before {
+    content: 'SHADE: ';
+  }
+
+  .tint-specs-chart__cell--light::before {
+    content: 'LIGHT ALLOWED IN: ';
+  }
+
+  .tint-specs-chart__cell--infrared::before {
+    content: 'INFRARED REJECTION: ';
+  }
+}
+

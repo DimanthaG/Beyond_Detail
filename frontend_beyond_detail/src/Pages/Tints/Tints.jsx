@@ -6,16 +6,18 @@ import './Tints.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const TintsHero = lazy(() => import('../../components/TintsHero/TintsHero'));
 const BrandsGrid = lazy(() => import('../../components/BrandsGrid/BrandsGrid'));
 const TintsFeatures = lazy(() => import('../../components/TintsFeatures/TintsFeatures'));
+const TintBenefitsInfo = lazy(() => import('../../components/TintBenefitsInfo/TintBenefitsInfo'));
+const TintSpecsChart = lazy(() => import('../../components/TintSpecsChart/TintSpecsChart'));
 const TintsPercentageTabs = lazy(() => import('../../components/TintsPercentageTabs/TintsPercentageTabs'));
 const TintsPercentage = lazy(() => import('../../components/TintsPercentage/TintsPercentage'));
 const TintsPricing = lazy(() => import('../../components/TintsPricing/TintsPricing'));
 const TintLawsChart = lazy(() => import('../../components/TintsLaws/TintLawsChart'));
 const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLawsExplanation'));
 const TintLawsSources = lazy(() => import('../../components/TintsLaws/TintLawsSources'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
+const RecentWork = lazy(() => import('../../components/RecentWork/RecentWork'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Tints() {
@@ -40,23 +42,21 @@ function Tints() {
           variants={animationOne}
           transition={{ ...transition, delay: 0 }}
         >
-          <div className='tints__wrapper'>
-            <BackgroundPaths 
-              title="Window Tint"
-              scrollTarget="#pricing"
-              description="Transform your vehicle with premium LLUMAR window tint installation. We're Toronto and Scarborough's trusted experts, delivering exceptional quality, professional installation, and manufacturer-backed lifetime warranties. Experience the perfect blend of style, privacy, and protection."
-            />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="tint" title="Window Tint Gallery" />
-            </Suspense>
-            <BrandsGrid />
+                <div className='tints__wrapper'>
+                  <TintsHero scrollTarget="#pricing" />
+                  <BrandsGrid />
             <TintsFeatures />
-            <TintsPricing />
-            <TintLawsChart />
+            <TintBenefitsInfo />
             <TintLawsExplanation />
+            <TintSpecsChart />
+            <TintsPricing />
             <TintsPercentageTabs />
+            <TintLawsChart />
             <TintsPercentage />
             <TintLawsSources />
+            <Suspense fallback={null}>
+              <RecentWork serviceType="tint" title="WINDOW TINT" limit={6} />
+            </Suspense>
             <Contact />
           </div>
         </motion.div>

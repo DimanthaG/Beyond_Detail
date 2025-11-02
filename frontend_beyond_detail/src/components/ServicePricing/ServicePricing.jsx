@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './ServicePricing.scss';
 
 function ServicePricing({ packages = [], title = "Service Packages" }) {
+  const navigate = useNavigate();
+  
   const revealVariants = {
     visible: (i) => ({
       y: 0,
@@ -65,19 +68,23 @@ function ServicePricing({ packages = [], title = "Service Packages" }) {
               </div>
               
               <div className="service-pricing__price-section">
-                {pkg.priceRange ? (
+                {pkg.priceRange && pkg.priceRange.start > 0 ? (
                   <div className="service-pricing__price-range">
                     <span className="service-pricing__price-label">Starting at</span>
                     <div className="service-pricing__price">
                       ${pkg.priceRange.start}
-                      {pkg.priceRange.end && (
+                      {pkg.priceRange.end && pkg.priceRange.end > 0 && (
                         <span className="service-pricing__price-end"> - ${pkg.priceRange.end}</span>
                       )}
                     </div>
                   </div>
+                ) : pkg.price ? (
+                  <div className="service-pricing__price">
+                    ${pkg.price}
+                  </div>
                 ) : (
                   <div className="service-pricing__price">
-                    {pkg.price ? `$${pkg.price}` : 'Contact for Quote'}
+                    See Details Below
                   </div>
                 )}
                 {pkg.priceNote && (
@@ -100,7 +107,21 @@ function ServicePricing({ packages = [], title = "Service Packages" }) {
                 </ul>
               )}
 
-              {pkg.ctaText && (
+              {pkg.links && pkg.links.length > 0 ? (
+                <div className="service-pricing__links">
+                  {pkg.links.map((link, linkIndex) => (
+                    <motion.button
+                      key={linkIndex}
+                      className="service-pricing__link-button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => navigate(link.href)}
+                    >
+                      {link.text}
+                    </motion.button>
+                  ))}
+                </div>
+              ) : pkg.ctaText && (
                 <motion.button
                   className="service-pricing__cta-button"
                   whileHover={{ scale: 1.05 }}

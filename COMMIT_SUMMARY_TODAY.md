@@ -58,3 +58,6 @@ After committing, you can:
 2. The galleries will automatically appear on respective pages
 3. Images can be ordered using the `order` field in Sanity
 
+
+
+

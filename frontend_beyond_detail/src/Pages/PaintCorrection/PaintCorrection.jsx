@@ -2,14 +2,15 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
-import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
+import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
+import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import './PaintCorrection.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
+const PaintCorrectionHero = lazy(() => import('../../components/PaintCorrectionHero/PaintCorrectionHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Partners = lazy(() => import('../../components/Partners/Partners'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
@@ -37,15 +38,12 @@ function PaintCorrection() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='paint-correction__wrapper'>
-            <BackgroundPaths 
-              title="Paint Correction"
-              scrollTarget="#pricing"
-              description="Eliminate swirl marks, scratches, and oxidation to reveal your vehicle's true beauty. Our advanced paint correction techniques restore your paint to factory-fresh perfection, enhancing depth, clarity, and that showroom shine you've been missing."
-            />
+            <PaintCorrectionHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
               <ServiceGallery serviceType="paint-correction" title="Paint Correction Gallery" />
             </Suspense>
-            <ServiceInfoSection
+            <PaintProtectionInfo />
+            <PaintCorrectionInfo
               title="Professional Paint Correction Services"
               subtitle="Advanced Restoration"
               description="Paint correction is an intensive process designed to eliminate imperfections such as swirl marks, scratches, oxidation, and other surface defects. Our expert technicians use advanced techniques and premium products to restore your vehicle's paint to its original flawless condition."
@@ -113,8 +111,7 @@ function PaintCorrection() {
               packages={[
                 {
                   name: "Single Stage Correction",
-                  duration: "6-8 hours",
-                  priceRange: { start: 499, end: 699 },
+                  priceRange: { start: 250, end: 350 },
                   priceNote: "Pricing varies by vehicle size",
                   description: "Perfect for vehicles with light swirl marks and minor defects. Includes one-stage polishing to restore paint clarity and gloss.",
                   features: [
@@ -129,8 +126,7 @@ function PaintCorrection() {
                 },
                 {
                   name: "Two Stage Correction",
-                  duration: "8-10 hours",
-                  priceRange: { start: 699, end: 999 },
+                  priceRange: { start: 500, end: 700 },
                   priceNote: "Pricing varies by vehicle size",
                   description: "Ideal for moderate swirl marks, light scratches, and oxidation. Two-stage polishing ensures deeper defect removal.",
                   features: [
@@ -146,9 +142,8 @@ function PaintCorrection() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Multi-Stage Correction",
-                  duration: "12-16 hours",
-                  priceRange: { start: 999, end: 1499 },
+                  name: "Three Stage Correction",
+                  priceRange: { start: 800, end: 1200 },
                   priceNote: "Pricing varies by vehicle size and condition",
                   description: "Comprehensive correction for severe defects, deep scratches, and heavy oxidation. Three or more polishing stages achieve showroom-perfect results.",
                   features: [
