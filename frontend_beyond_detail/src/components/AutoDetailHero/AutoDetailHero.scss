@@ -6,8 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 2rem 1rem;
   padding-top: 6rem;
   box-sizing: border-box;
@@ -80,6 +79,7 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  overflow: visible;
 
   @media screen and (min-width: 768px) {
     padding: 0 2rem;
@@ -94,10 +94,12 @@
   width: 100%;
   position: relative;
   z-index: 10;
+  overflow: visible;
 }
 
 .auto-detail-hero__inner {
   display: flex;
+  overflow: visible;
   flex-direction: column;
   align-items: center;
   justify-content: center;
