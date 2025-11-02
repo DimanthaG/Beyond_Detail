@@ -5,10 +5,10 @@ import { Loading } from '../../components';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
-import Testimonials from '../../components/Testimonials/Testimonials';
 import './PaintCorrection.scss';
 
 // Lazy load heavy components to improve initial bundle size
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const PaintCorrectionHero = lazy(() => import('../../components/PaintCorrectionHero/PaintCorrectionHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
@@ -162,11 +162,9 @@ function PaintCorrection() {
                 }
               ]}
             />
-            <Testimonials
-              title="What Our Customers Say"
-              subtitle="Hear from customers who have experienced our paint correction services"
-              badgeText="Customer Reviews"
-            />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Partners />
             <Contact />
           </div>

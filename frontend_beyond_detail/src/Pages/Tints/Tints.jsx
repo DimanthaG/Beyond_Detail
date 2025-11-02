@@ -18,6 +18,7 @@ const TintLawsChart = lazy(() => import('../../components/TintsLaws/TintLawsChar
 const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLawsExplanation'));
 const TintLawsSources = lazy(() => import('../../components/TintsLaws/TintLawsSources'));
 const RecentWork = lazy(() => import('../../components/RecentWork/RecentWork'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Tints() {
@@ -58,6 +59,9 @@ function Tints() {
             <TintLawsSources />
             <Suspense fallback={null}>
               <RecentWork serviceType="tint" title="WINDOW TINT" limit={6} />
+            </Suspense>
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
             </Suspense>
             <Contact />
           </div>

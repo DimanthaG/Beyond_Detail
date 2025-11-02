@@ -5,10 +5,10 @@ import { Loading } from '../../components';
 import CeramicCoatingInfo from '../../components/CeramicCoatingInfo/CeramicCoatingInfo';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
-import Testimonials from '../../components/Testimonials/Testimonials';
 import './CeramicCoating.scss';
 
 // Lazy load heavy components to improve initial bundle size
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const CeramicCoatingHero = lazy(() => import('../../components/CeramicCoatingHero/CeramicCoatingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
@@ -164,11 +164,9 @@ function CeramicCoating() {
                 }
               ]}
             />
-            <Testimonials
-              title="What Our Customers Say"
-              subtitle="Hear from customers who have experienced our ceramic coating services"
-              badgeText="Customer Reviews"
-            />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Partners />
             <Contact />
           </div>

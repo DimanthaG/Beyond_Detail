@@ -4,10 +4,10 @@ import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
-import Testimonials from '../../components/Testimonials/Testimonials';
 import './InteriorDetailing.scss';
 
 // Lazy load heavy components to improve initial bundle size
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const InteriorDetailingHero = lazy(() => import('../../components/InteriorDetailingHero/InteriorDetailingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
@@ -171,11 +171,9 @@ function InteriorDetailing() {
                 }
               ]}
             />
-            <Testimonials
-              title="What Our Customers Say"
-              subtitle="Hear from customers who have experienced our interior detailing services"
-              badgeText="Customer Reviews"
-            />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Contact />
           </div>
         </motion.div>

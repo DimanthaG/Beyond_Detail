@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { SEO } from '../../components';
 import { animationOne, transition } from '../../components/Transition';
@@ -6,11 +6,12 @@ import { HomeHero } from '../../components/HomeHero/HomeHero';
 
 import {
   HomeDetailSection,
-  Testimonials,
   Map,
   Contact,
 } from '../../components';
 import './Home.scss';
+
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function Home() {
   // scroll to top on page render
@@ -30,7 +31,9 @@ function Home() {
       <HomeHero />
       <div id="home-services"></div>
       <HomeDetailSection />
-      <Testimonials />
+      <Suspense fallback={null}>
+        <GoogleReviewsCarousel />
+      </Suspense>
       <Contact />
       <Map />
     </div>

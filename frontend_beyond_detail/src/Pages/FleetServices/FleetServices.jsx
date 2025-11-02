@@ -4,10 +4,10 @@ import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
-import Testimonials from '../../components/Testimonials/Testimonials';
 import './FleetServices.scss';
 
 // Lazy load heavy components to improve initial bundle size
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
@@ -168,11 +168,9 @@ function FleetServices() {
                 }
               ]}
             />
-            <Testimonials
-              title="What Our Customers Say"
-              subtitle="Hear from fleet managers and business owners who trust us with their vehicles"
-              badgeText="Customer Reviews"
-            />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Contact />
           </div>
         </motion.div>
