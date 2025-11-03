@@ -28,6 +28,19 @@ export default async function handler(req, res) {
     const response = await fetch(url);
     const data = await response.json();
 
+    // Check for Google API errors
+    if (data.status && data.status !== 'OK') {
+      const errorMsg = data.error_message || `Google API error: ${data.status}`;
+      console.error('Google Places API error:', data.status, errorMsg);
+      res.status(200).json({
+        reviews: [],
+        rating: 0,
+        totalReviews: 0,
+        error: errorMsg,
+      });
+      return;
+    }
+
     if (!response.ok) {
       res.status(response.status).json({ error: data?.error_message || 'Failed to fetch' });
       return;
