@@ -2,8 +2,9 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { client, urlFor } from '../../client';
 import { Contact } from '../../components';
-const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import './ServicePage.scss';
+
+const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function ServicePage() {
   const { serviceType } = useParams();
@@ -85,9 +86,9 @@ function ServicePage() {
       {/* Contact Form Section */}
       <section className="contact-section">
         {!service.pricing || service.pricing.length === 0 ? (
-          <ReactSuspense fallback={null}>
+          <Suspense fallback={null}>
             <GoogleReviewsCarousel />
-          </ReactSuspense>
+          </Suspense>
         ) : null}
         <Contact />
       </section>

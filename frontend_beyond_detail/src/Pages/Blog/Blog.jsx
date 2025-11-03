@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Contact } from '../../components';
-const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import './Blog.scss';
+
+const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 // Mock blog data
 const mockBlogs = [

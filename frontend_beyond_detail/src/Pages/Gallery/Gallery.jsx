@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { Contact, Loading, SEO } from '../../components';
-const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { urlFor, client } from '../../client';
@@ -10,6 +9,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import images from '../../constants/images';
 import './Gallery.scss';
+
+const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function Gallery() {
   const [galImages, setGalImages] = useState([]);

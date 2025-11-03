@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { Contact } from '../../components';
-const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import './Testimonials.scss';
+
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function Testimonials() {
   return (

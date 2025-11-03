@@ -2,13 +2,13 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, HomeProcess } from '../../components';
-const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import { Award, Users, Target, Shield, Sparkles, Phone, ArrowRight } from 'lucide-react';
 import './About.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function About() {
 
