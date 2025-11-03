@@ -53,15 +53,15 @@ function Tints() {
             <TintLawsExplanation />
             <TintSpecsChart />
             <TintsPricing />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <TintsPercentageTabs />
             <TintLawsChart />
             <TintsPercentage />
             <TintLawsSources />
             <Suspense fallback={null}>
               <RecentWork serviceType="tint" title="WINDOW TINT" limit={6} />
-            </Suspense>
-            <Suspense fallback={null}>
-              <GoogleReviewsCarousel />
             </Suspense>
             <Contact />
           </div>
