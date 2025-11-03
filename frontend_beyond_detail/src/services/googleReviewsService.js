@@ -73,7 +73,12 @@ export async function getGoogleReviews(placeId = null) {
 
     console.log('Google Reviews - Fetching from URL:', url.replace(GOOGLE_PLACES_API_KEY, 'API_KEY_HIDDEN'));
 
-    const response = await fetch(url);
+    // Google Places Web Service responses don't include CORS headers when called from the browser.
+    // Use a lightweight public CORS proxy as a temporary workaround. For production, prefer a server-side proxy.
+    const PROXY = 'https://corsproxy.io/?';
+    const proxiedUrl = `${PROXY}${encodeURIComponent(url)}`;
+
+    const response = await fetch(proxiedUrl);
     const data = await response.json();
 
     console.log('Google Reviews - API Status:', data.status);
