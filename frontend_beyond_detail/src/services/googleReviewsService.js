@@ -67,28 +67,24 @@ export async function getGoogleReviews(placeId = null) {
   }
 
   try {
-    // Use Place Details API - legacy API (works without billing)
-    const fields = 'reviews,rating,user_ratings_total,name,formatted_address';
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${finalPlaceId}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
-
-    console.log('Google Reviews - Fetching from URL:', url.replace(GOOGLE_PLACES_API_KEY, 'API_KEY_HIDDEN'));
-
-    // Google Places Web Service responses don't include CORS headers when called from the browser.
-    // Use a lightweight public CORS proxy as a temporary workaround. For production, prefer a server-side proxy.
-    const PROXY = 'https://corsproxy.io/?';
-    const proxiedUrl = `${PROXY}${encodeURIComponent(url)}`;
-
-    const response = await fetch(proxiedUrl);
+    // Prefer serverless proxy endpoint to keep API key secret and avoid CORS
+    const apiUrl = `/api/get-google-reviews?placeId=${encodeURIComponent(finalPlaceId)}`;
+    const response = await fetch(apiUrl);
     const data = await response.json();
 
-    console.log('Google Reviews - API Status:', data.status);
-    console.log('Google Reviews - API Data:', data);
+    console.log('Google Reviews - API Data (via proxy):', data);
 
-    if (data.status === 'OK' && data.result) {
-      const result = data.result;
+    if (!data.error && (data.reviews || data.rating || data.totalReviews !== undefined)) {
+      const result = {
+        reviews: data.reviews || [],
+        rating: data.rating || 0,
+        user_ratings_total: data.totalReviews || 0,
+        name: data.businessName,
+        formatted_address: data.address,
+      };
       
       // Format reviews to match our component structure
-      const formattedReviews = (result.reviews || []).map((review) => ({
+      const formattedReviews = (result.reviews).map((review) => ({
         _id: review.time || Date.now() + Math.random(), // Unique ID
         name: review.author_name,
         message: review.text,
@@ -100,18 +96,18 @@ export async function getGoogleReviews(placeId = null) {
 
       return {
         reviews: formattedReviews,
-        rating: result.rating || 0,
-        totalReviews: result.user_ratings_total || 0,
+        rating: result.rating,
+        totalReviews: result.user_ratings_total,
         businessName: result.name,
         address: result.formatted_address,
       };
     } else {
-      console.error('Google Places API error:', data.status, data.error_message);
+      console.error('Google Reviews proxy error:', data.error);
       return {
         reviews: [],
         rating: 0,
         totalReviews: 0,
-        error: data.error_message || 'Failed to fetch reviews',
+        error: data.error || 'Failed to fetch reviews',
       };
     }
   } catch (error) {
