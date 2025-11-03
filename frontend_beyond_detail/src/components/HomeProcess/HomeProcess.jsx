@@ -24,9 +24,9 @@ function HomeProcess() {
         <section className='homeProcess__section'>
           <motion.div
             className='homeProcess__heading'
-            whileInView={{ y: [100, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            whileInView={{ y: [30, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           >
             {process.length !== 0 && (
               <>
@@ -38,9 +38,9 @@ function HomeProcess() {
           </motion.div>
           <motion.div
             className='homeProcess__items'
-            whileInView={{ y: [100, 0], opacity: [0, 1] }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            whileInView={{ y: [30, 0], opacity: [0, 1] }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           >
             {process.length !== 0 && (
               <>

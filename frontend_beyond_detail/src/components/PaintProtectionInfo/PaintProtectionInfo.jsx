@@ -11,12 +11,13 @@ function PaintProtectionInfo() {
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.03,
-        duration: 0.3,
+        delay: Math.min(i * 0.01, 0.03), // Reduced delay, capped
+        duration: 0.2, // Faster animation
+        ease: [0.25, 0.1, 0.25, 1],
       },
     }),
     hidden: {
-      y: 20,
+      y: 10, // Less movement
       opacity: 0,
     },
   };
@@ -79,7 +80,7 @@ function PaintProtectionInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={0}
           className="paint-protection-info__header"
@@ -97,7 +98,7 @@ function PaintProtectionInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={1}
           className="paint-protection-info__layers-section"
@@ -126,7 +127,7 @@ function PaintProtectionInfo() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+            viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
             variants={revealVariants}
             custom={2}
             className="paint-protection-info__important-note"
@@ -148,7 +149,7 @@ function PaintProtectionInfo() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+            viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
             variants={revealVariants}
             custom={4}
             className="paint-protection-info__correction-stages"
@@ -168,7 +169,7 @@ function PaintProtectionInfo() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={5}
                 className="paint-protection-info__stage-card"
@@ -202,7 +203,7 @@ function PaintProtectionInfo() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={6}
                 className="paint-protection-info__stage-card paint-protection-info__stage-card--featured"
@@ -237,7 +238,7 @@ function PaintProtectionInfo() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={7}
                 className="paint-protection-info__stage-card"
@@ -318,7 +319,7 @@ function PaintProtectionInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={6}
           className="paint-protection-info__products-section"
@@ -339,7 +340,7 @@ function PaintProtectionInfo() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={7}
                 className="paint-protection-info__product-card"
@@ -407,7 +408,7 @@ function PaintProtectionInfo() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={8}
                 className="paint-protection-info__product-card paint-protection-info__product-card--ceramic"

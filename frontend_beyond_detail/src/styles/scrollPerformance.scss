@@ -1,0 +1,67 @@
+/**
+ * CSS Performance Optimizations for Smooth Scrolling
+ * These styles help reduce lag on mobile and desktop
+ */
+
+// Enable GPU acceleration for animated elements
+[data-framer-name],
+.motion-div,
+[class*="motion"] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+// Optimize images during scroll
+img,
+[class*="image"],
+[class*="Image"] {
+  will-change: transform;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+// Smooth scrolling containers
+section,
+.container,
+[class*="container"],
+[class*="section"] {
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+// Reduce repaints on scroll
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+// Mobile-specific optimizations
+@media screen and (max-width: 768px) {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  // Reduce will-change on mobile to save memory
+  [data-framer-name],
+  .motion-div {
+    will-change: auto;
+  }
+}
+
+// Disable animations for users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

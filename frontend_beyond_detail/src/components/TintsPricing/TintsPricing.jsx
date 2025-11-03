@@ -261,13 +261,14 @@ function TintsPricing() {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.2,
-        duration: 0.5,
+        delay: Math.min(i * 0.01, 0.03),
+        duration: 0.2,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     }),
     hidden: {
-      filter: "blur(10px)",
-      y: -20,
+      filter: "blur(3px)",
+      y: 10,
       opacity: 0,
     },
   };

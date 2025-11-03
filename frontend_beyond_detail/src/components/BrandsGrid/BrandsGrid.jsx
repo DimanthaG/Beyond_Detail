@@ -2,29 +2,31 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./BrandsGrid.scss";
 
-// Logo imports - IMPORTANT: Uncomment these lines ONLY after adding the image files to src/assets/brands/
-// Once you've added the files, uncomment all 4 lines below:
-// import llumarLogo from "../../assets/brands/llumar_logo.png";
-// import eastmanLogo from "../../assets/brands/eastman_logo.png";
-// import iwfaLogo from "../../assets/brands/iwfa_logo.png";
-// import skinCancerLogo from "../../assets/brands/skin_cancer_logo.png";
+// Logo imports - Add your logo images to src/assets/brands/ folder
+// Make sure the file names match exactly (case-sensitive)
+// NOTE: If you get build errors saying files not found, add the logo images first!
+// Supported formats: PNG, JPG, SVG (PNG recommended with transparent background)
+import llumarLogo from "../../assets/brands/llumar_logo.png";
+import eastmanLogo from "../../assets/brands/eastman_logo.png";
+import iwfaLogo from "../../assets/brands/iwfa_logo.png";
+import skinCancerLogo from "../../assets/brands/skin_cancer_logo.png";
 
 const brands = [
   {
     name: "LLumar",
-    logo: null, // Replace null with llumarLogo after uncommenting import above
+    logo: llumarLogo,
   },
   {
     name: "EASTMAN",
-    logo: null, // Replace null with eastmanLogo after uncommenting import above
+    logo: eastmanLogo,
   },
   {
     name: "IWFA",
-    logo: null, // Replace null with iwfaLogo after uncommenting import above
+    logo: iwfaLogo,
   },
   {
     name: "Skin Cancer Foundation",
-    logo: null, // Replace null with skinCancerLogo after uncommenting import above
+    logo: skinCancerLogo,
   },
 ];
 

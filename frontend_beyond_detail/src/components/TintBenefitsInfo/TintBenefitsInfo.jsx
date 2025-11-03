@@ -10,13 +10,14 @@ function TintBenefitsInfo() {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.03,
-        duration: 0.3,
+        delay: Math.min(i * 0.01, 0.03),
+        duration: 0.2,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     }),
     hidden: {
-      filter: "blur(5px)",
-      y: 20,
+      filter: "blur(3px)",
+      y: 10,
       opacity: 0,
     },
   };
@@ -146,7 +147,7 @@ function TintBenefitsInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={0}
           className="tint-benefits-info__section"
@@ -166,7 +167,7 @@ function TintBenefitsInfo() {
                 key={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={1 + index}
                 className="tint-benefits-info__benefit-card"
@@ -185,7 +186,7 @@ function TintBenefitsInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={7}
           className="tint-benefits-info__section tint-benefits-info__section--film-types"
@@ -205,7 +206,7 @@ function TintBenefitsInfo() {
                 key={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={8 + index}
                 className="tint-benefits-info__film-card"
@@ -238,7 +239,7 @@ function TintBenefitsInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={11}
           className="tint-benefits-info__section tint-benefits-info__section--quality"
@@ -258,7 +259,7 @@ function TintBenefitsInfo() {
                 key={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
                 custom={12 + index}
                 className="tint-benefits-info__quality-card"

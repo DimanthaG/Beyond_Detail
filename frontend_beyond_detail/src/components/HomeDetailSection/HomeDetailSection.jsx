@@ -94,8 +94,8 @@ function HomeDetailSection() {
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 className='homeDetail__heading'
               >
                 <h1>{heading[0]?.heading || 'SCARBOROUGH\'S TOP CHOICE'}</h1>

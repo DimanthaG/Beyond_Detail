@@ -51,9 +51,9 @@ function Gallery() {
   const galleryImages = galImages.map((data) => {
     return (
       <motion.div
-        whileInView={{ y: [100, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        whileInView={{ y: [30, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
         className='gallery__pics'
         key={data._id}
         onClick={() => getImg(urlFor(data.galleryPicture))}
@@ -90,7 +90,7 @@ function Gallery() {
                 className='galleryHeader'
                 whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 2.0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               >
                 <h1>GALLERY</h1>
               </motion.div>
@@ -98,7 +98,7 @@ function Gallery() {
                 className='gallery__imageSlider__container'
                 whileInView={{ y: [100, 0], opacity: [0, 1] }}
                 transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               >
                 <div className='gallery__imageSlider'>
                   <ImageSlider

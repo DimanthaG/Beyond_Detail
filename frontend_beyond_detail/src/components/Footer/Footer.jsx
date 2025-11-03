@@ -20,97 +20,109 @@ function Footer() {
   return (
     <>
       {loading ? (
-        <div className='footer'>
+        <footer className='footer'>
           <div className='footer-container'>
-            <div className='message-for-users'>
-              <img src={images.logo2} alt='beyond detail logo' loading='lazy' />
+            {/* Column 1: Company Info */}
+            <div className='footer-column footer-company'>
+              <div className='footer-logo'>
+                <img src={images.logo2} alt='beyond detail logo' loading='lazy' />
+              </div>
               {footerData.length !== 0 && (
                 <>
-                  <h3>
+                  <div className='footer-phone'>
                     <a href={`tel:${footerData[0].number?.replace(/\s/g, '')}`}>
                       {footerData[0].number}
                     </a>
-                  </h3>
-                  <span>{footerData[0].addressTitle}</span>
-                  <h5>
+                  </div>
+                  <div className='footer-address'>
+                    <h4 className='footer-heading'>OUR ADDRESS</h4>
                     <a 
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${footerData[0].addressUnit} ${footerData[0].address}`)}`}
                       target='_blank'
                       rel='noopener noreferrer'
+                      className='footer-address-link'
                     >
                       {footerData[0].addressUnit}
                       <br />
                       {footerData[0].address}
                     </a>
-                  </h5>
+                  </div>
                 </>
               )}
             </div>
-            <div className='social-links'>
-              <div className='social-links-h'>Social</div>
-              <div className='social-links-items'>
+
+            {/* Column 2: Social Links */}
+            <div className='footer-column footer-social'>
+              <h4 className='footer-heading'>SOCIAL</h4>
+              <div className='footer-links'>
                 <a 
                   href='https://www.youtube.com/@beyonddetailtoronto' 
                   target='_blank' 
                   rel='noopener noreferrer'
                 >
-                  YouTube
+                  YOUTUBE
                 </a>
                 <a 
                   href='https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/' 
                   target='_blank' 
                   rel='noopener noreferrer'
                 >
-                  Facebook
+                  FACEBOOK
                 </a>
                 <a 
                   href='https://www.instagram.com/beyonddetail.ca/' 
                   target='_blank' 
                   rel='noopener noreferrer'
                 >
-                  Instagram
+                  INSTAGRAM
                 </a>
                 <a href='/privacy-policy'>
-                  Privacy Policy
+                  PRIVACY POLICY
                 </a>
               </div>
             </div>
-            <div className='footer-menu social-links'>
-              <div className='footer-menu-h social-links-h'>Menu</div>
-              <div className='footer-menu-links social-links-items'>
-                <a href='/tint' className='footer-menu-links-items'>
-                  Tint
+
+            {/* Column 3: Navigation Menu */}
+            <div className='footer-column footer-menu'>
+              <h4 className='footer-heading'>MENU</h4>
+              <div className='footer-links'>
+                <a href='/tint'>
+                  TINT
                 </a>
-                <a href='/about' className='footer-menu-links-items'>
-                  About Us
+                <a href='/about'>
+                  ABOUT US
                 </a>
-                <a href='/auto-detail' className='footer-menu-links-items'>
-                  Auto Detail
+                <a href='/auto-detail'>
+                  AUTO DETAIL
                 </a>
-                <a href='/gallery' className='footer-menu-links-items'>
-                  Gallery
+                <a href='/gallery'>
+                  GALLERY
                 </a>
-                <a href='/blog' className='footer-menu-links-items'>
-                  Blog
+                <a href='/blog'>
+                  BLOG
                 </a>
-                <a href='/contact' className='footer-menu-links-items'>
-                  Contact
+                <a href='/contact'>
+                  CONTACT
                 </a>
               </div>
             </div>
-            <div className='social-links'>
-              <div className='social-links-h social-links-hours'>Hours</div>
-              <div className='social-links-items '>
+
+            {/* Column 4: Business Hours */}
+            <div className='footer-column footer-hours'>
+              <h4 className='footer-heading'>HOURS</h4>
+              <div className='footer-links'>
                 {footerData.length !== 0 && (
                   <>
-                    <p className='footer__hours'>
-                      <strong>{footerData[0].hours.hoursDay1}</strong>
-                      <br />
+                    <p className='footer-hours-item'>
+                      {footerData[0].hours.hoursDay1}
+                    </p>
+                    <p className='footer-hours-item'>
                       {footerData[0].hours.hours1}
                     </p>
-                    <p className='footer__hours'>
-                      <strong>{footerData[0].hours.hoursDay2}</strong>
-                      <br />
+                    <p className='footer-hours-item'>
+                      {footerData[0].hours.hoursDay2}
+                    </p>
+                    <p className='footer-hours-item'>
                       {footerData[0].hours.hours2}
                     </p>
                   </>
@@ -118,17 +130,14 @@ function Footer() {
               </div>
             </div>
           </div>
+
+          {/* Footer Bottom - Copyright */}
           <div className='footer-bottom'>
-            <div className='left-footer-bottom'>
-              <p></p>
-            </div>
-            <div className='right-footer-bottom'>
-              <p>
-                {`© ${new Date().getFullYear()} Beyond Detail. All Rights Reserved`}
-              </p>
-            </div>
+            <p className='footer-copyright'>
+              {`© ${new Date().getFullYear()} BEYOND DETAIL. ALL RIGHTS RESERVED`}
+            </p>
           </div>
-        </div>
+        </footer>
       ) : (
         <Loading />
       )}

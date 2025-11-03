@@ -69,6 +69,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  // Performance optimizations for smooth scrolling
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -77,6 +80,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  // GPU acceleration for smoother scrolling
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 // custom scrollbar

@@ -55,12 +55,13 @@ function ServiceInfoSection({
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.03,
-        duration: 0.3,
+        delay: Math.min(i * 0.01, 0.03),
+        duration: 0.2,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     }),
     hidden: {
-      y: 20,
+      y: 10,
       opacity: 0,
     },
   };
@@ -73,7 +74,7 @@ function ServiceInfoSection({
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+            viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
             variants={revealVariants}
             custom={0}
             className="service-info__header"
@@ -89,7 +90,7 @@ function ServiceInfoSection({
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={1}
           className="service-info__tabs"
@@ -142,7 +143,7 @@ function ServiceInfoSection({
                       key={index}
                       initial="hidden"
                       whileInView="visible"
-                      viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                      viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                       variants={revealVariants}
                       custom={index}
                       className="service-info__benefit-card"
@@ -185,7 +186,7 @@ function ServiceInfoSection({
                       key={index}
                       initial="hidden"
                       whileInView="visible"
-                      viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                      viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                       variants={revealVariants}
                       custom={index}
                       className="service-info__process-step"
@@ -231,7 +232,7 @@ function ServiceInfoSection({
                     key={index}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                     variants={revealVariants}
                     custom={index}
                     className="service-info__feature-card"

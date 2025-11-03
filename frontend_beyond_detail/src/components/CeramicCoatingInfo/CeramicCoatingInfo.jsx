@@ -26,7 +26,7 @@ function CeramicCoatingInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={0}
           className="ceramic-coating-info__header"
@@ -44,7 +44,7 @@ function CeramicCoatingInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={1}
           className="ceramic-coating-info__section"
@@ -71,7 +71,7 @@ function CeramicCoatingInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={2}
           className="ceramic-coating-info__section"
@@ -118,7 +118,7 @@ function CeramicCoatingInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={3}
           className="ceramic-coating-info__section"
@@ -139,7 +139,7 @@ function CeramicCoatingInfo() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+              viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               variants={revealVariants}
               custom={4}
               className="ceramic-coating-info__step-card"
@@ -156,7 +156,7 @@ function CeramicCoatingInfo() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+              viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               variants={revealVariants}
               custom={5}
               className="ceramic-coating-info__step-card"
@@ -173,7 +173,7 @@ function CeramicCoatingInfo() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+              viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               variants={revealVariants}
               custom={6}
               className="ceramic-coating-info__step-card"
@@ -190,7 +190,7 @@ function CeramicCoatingInfo() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+              viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               variants={revealVariants}
               custom={7}
               className="ceramic-coating-info__step-card"
@@ -207,7 +207,7 @@ function CeramicCoatingInfo() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+              viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               variants={revealVariants}
               custom={8}
               className="ceramic-coating-info__step-card"
@@ -227,7 +227,7 @@ function CeramicCoatingInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={9}
           className="ceramic-coating-info__section"
@@ -288,7 +288,7 @@ function CeramicCoatingInfo() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
           custom={10}
           className="ceramic-coating-info__section"

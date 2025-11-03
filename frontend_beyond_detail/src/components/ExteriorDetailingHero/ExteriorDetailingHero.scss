@@ -236,14 +236,17 @@
   
   &--highlight {
     color: #f07900;
-    font-size: 1.15em;
+    font-size: 0.95em;
     text-shadow: 0 4px 20px rgba(240, 121, 0, 0.4);
     font-weight: 800;
     letter-spacing: -0.04em;
     
     @media screen and (min-width: 768px) {
-      font-size: 1.2em;
-      white-space: nowrap;
+      font-size: 0.95em;
+    }
+    
+    @media screen and (min-width: 1024px) {
+      font-size: 1em;
     }
   }
 }

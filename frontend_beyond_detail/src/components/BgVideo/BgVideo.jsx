@@ -36,7 +36,7 @@ function BgVideo() {
             <motion.div
               className='ellipses-container'
               whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 2.0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               viewport={{ once: true }}
             >
               <div className='ellipses ellipses__outer--thin'></div>

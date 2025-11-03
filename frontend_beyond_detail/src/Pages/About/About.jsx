@@ -80,7 +80,7 @@ function About() {
                   className='about__hero-content'
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                   <h1 className='about__hero-title'>About Us</h1>
                   <p className='about__hero-description'>

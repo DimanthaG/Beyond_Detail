@@ -23,9 +23,9 @@ function TintsPackages() {
       {loading && tintsPackagesData.length !== 0 ? (
         <motion.div
           className='tintsPackages__wrapper'
-          whileInView={{ y: [100, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          whileInView={{ y: [30, 0], opacity: [0, 1] }}
+          transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
         >
           <div className='tintsPackages__grid'>
             <div className='tintsPackages__grid1'>
