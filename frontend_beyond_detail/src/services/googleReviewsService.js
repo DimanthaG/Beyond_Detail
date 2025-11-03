@@ -66,13 +66,17 @@ export async function getGoogleReviews(placeId = null) {
   }
 
   try {
-    // Use Place Details API (New) - requires billing but more reliable
-    // Fallback to legacy API if new one fails
+    // Use Place Details API - legacy API (works without billing)
     const fields = 'reviews,rating,user_ratings_total,name,formatted_address';
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${finalPlaceId}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
 
+    console.log('Google Reviews - Fetching from URL:', url.replace(GOOGLE_PLACES_API_KEY, 'API_KEY_HIDDEN'));
+
     const response = await fetch(url);
     const data = await response.json();
+
+    console.log('Google Reviews - API Status:', data.status);
+    console.log('Google Reviews - API Data:', data);
 
     if (data.status === 'OK' && data.result) {
       const result = data.result;

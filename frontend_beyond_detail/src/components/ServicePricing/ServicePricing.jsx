@@ -149,8 +149,7 @@ function ServicePricing({ packages = [], title = "Service Packages" }) {
           className="service-pricing__disclaimer"
         >
           <p>
-            <strong>Note:</strong> Prices may vary based on vehicle size, condition, and specific requirements. 
-            All prices exclude HST. Please remove all personal items and valuables before service.
+            <strong>Note:</strong> Prices are starting rates and may vary based on vehicle size, condition, and specific requirements. Additional fees may apply for excessive pet hair, heavy dirt or mud, salt stains, upholstery stains, and similar conditions. All prices exclude HST. Please remove all personal items and valuables before service.
           </p>
         </motion.div>
       </div>

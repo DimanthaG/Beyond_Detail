@@ -116,8 +116,8 @@ function ExteriorDetailing() {
               packages={[
                 {
                   name: "Basic Wash",
-                  priceRange: { start: 50, end: 50 },
-                  priceNote: "Fixed pricing for all vehicle sizes",
+                  priceRange: { start: 50 },
+                  priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Essential exterior cleaning perfect for regular maintenance. Keeps your vehicle looking fresh and clean.",
                   features: [
                     "Exterior Hand Wash",
@@ -129,8 +129,8 @@ function ExteriorDetailing() {
                 },
                 {
                   name: "Intermediate Wash",
-                  priceRange: { start: 150, end: 150 },
-                  priceNote: "Fixed pricing for all vehicle sizes",
+                  priceRange: { start: 150 },
+                  priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Enhanced exterior cleaning with decontamination and sealant protection. Ideal for vehicles that need deeper cleaning and protection.",
                   features: [
                     "Exterior Hand Wash",

@@ -84,7 +84,7 @@ function Footer() {
                 <a href='/about' className='footer-menu-links-items'>
                   About Us
                 </a>
-                <a href='/services' className='footer-menu-links-items'>
+                <a href='/auto-detail' className='footer-menu-links-items'>
                   Auto Detail
                 </a>
                 <a href='/gallery' className='footer-menu-links-items'>

@@ -60,7 +60,7 @@ function HomeDetailSection() {
       description: 'ELEVATE YOUR VEHICLE WITH OUR COMPREHENSIVE CAR DETAILING SERVICES, RESTORING BOTH INTERIOR AND EXTERIOR TO PRISTINE CONDITION.',
       icon: Droplets,
       image: carWashImage, // Car wash/detailing service image from gallery
-      href: '/services',
+      href: '/auto-detail',
       cta: 'Learn More',
       className: 'col-span-2',
     },

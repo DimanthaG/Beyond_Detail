@@ -4,6 +4,7 @@ import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import CeramicCoatingInfo from '../../components/CeramicCoatingInfo/CeramicCoatingInfo';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
+import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './CeramicCoating.scss';
 
@@ -45,6 +46,7 @@ function CeramicCoating() {
               <ServiceGallery serviceType="ceramic-coating" title="Ceramic Coating Gallery" />
             </Suspense>
             <CeramicCoatingInfo />
+            <PaintProtectionInfo />
             <PaintCorrectionInfo
               title="Professional Ceramic Coating Services"
               description="Our ceramic coating service includes comprehensive paint correction to ensure your coating bonds perfectly and performs at its best. Every package includes paint correction to remove imperfections before coating application."

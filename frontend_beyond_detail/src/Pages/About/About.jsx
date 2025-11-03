@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, HomeProcess } from '../../components';
 import { Award, Users, Target, Shield, Sparkles, Phone, ArrowRight } from 'lucide-react';
 import './About.scss';
 
@@ -190,6 +190,8 @@ function About() {
                 </div>
               </div>
             </section>
+
+            <HomeProcess />
 
             <section className='about__cta'>
               <div className='about__cta-container'>

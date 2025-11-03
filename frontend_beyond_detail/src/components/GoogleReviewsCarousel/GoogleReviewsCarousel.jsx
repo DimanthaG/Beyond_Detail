@@ -19,21 +19,27 @@ function GoogleReviewsCarousel() {
       setLoading(true);
       setError(null);
       
+      // Debug: Log API configuration
+      console.log('Google Reviews - API Key:', process.env.REACT_APP_GOOGLE_PLACES_API_KEY ? 'Set' : 'Missing');
+      console.log('Google Reviews - Place ID:', process.env.REACT_APP_GOOGLE_PLACE_ID || 'Not set');
+      
       try {
         const data = await getCachedGoogleReviews();
+        console.log('Google Reviews - API Response:', data);
         
         if (data.error) {
           setError(data.error);
-          // Fallback to empty state or show error message
-          console.warn('Google Reviews error:', data.error);
+          console.error('Google Reviews error:', data.error);
         } else {
-          setReviews(data.reviews || []);
+          const reviewsList = data.reviews || [];
+          console.log('Google Reviews - Fetched reviews count:', reviewsList.length);
+          setReviews(reviewsList);
           setRating(data.rating || 0);
           setTotalReviews(data.totalReviews || 0);
         }
       } catch (err) {
         console.error('Error loading Google Reviews:', err);
-        setError('Failed to load reviews');
+        setError(err.message || 'Failed to load reviews');
       } finally {
         setLoading(false);
       }
@@ -80,9 +86,30 @@ function GoogleReviewsCarousel() {
     );
   }
 
-  if (error || reviews.length === 0) {
-    // Silently fail - don't show the carousel if there's an error or no reviews
-    return null;
+  // Show error message for debugging (development) or hide in production
+  if (error) {
+    return (
+      <div className="google-reviews-carousel google-reviews-carousel--error">
+        <div className="google-reviews-carousel__error-message">
+          <p><strong>Unable to load Google Reviews</strong></p>
+          <p>{error}</p>
+          <p style={{ fontSize: '0.875rem', marginTop: '1rem', opacity: 0.8 }}>
+            Please check the browser console for more details.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (reviews.length === 0 && !loading) {
+    // Show empty state instead of hiding completely
+    return (
+      <div className="google-reviews-carousel google-reviews-carousel--empty">
+        <div className="google-reviews-carousel__empty-message">
+          <p>No reviews available at this time.</p>
+        </div>
+      </div>
+    );
   }
 
   return (

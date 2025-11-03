@@ -394,7 +394,6 @@ function PaintProtectionInfo() {
                     <h4 className="paint-protection-info__product-benefits-title">Key Characteristics</h4>
                     <ul className="paint-protection-info__product-benefits-list">
                       <li>Sits on top of the clear coat surface</li>
-                      <li>Forms a flexible, elastic film</li>
                       <li>Easy to apply and remove</li>
                       <li>Provides 6 months to 1 year of protection</li>
                       <li>Can be layered for enhanced durability</li>
@@ -467,8 +466,7 @@ function PaintProtectionInfo() {
                       <li>Extreme hydrophobic properties</li>
                       <li>Superior UV and chemical resistance</li>
                       <li>Lasts 2-5 years or longer</li>
-                      <li>Cannot be removed without professional stripping</li>
-                      <li>Self-cleaning properties reduce maintenance</li>
+                      <li>Hydrophobic coating keeps dirt off, reducing how often you need to wash</li>
                     </ul>
                   </div>
                 </div>

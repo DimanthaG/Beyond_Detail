@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, HomeProcess } from '../../components';
+import { Loading } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './Services.scss';
@@ -122,13 +122,14 @@ function Services() {
               ]}
             />
 
+
             <ServicePricing
               title="Auto Detailing Packages"
               packages={[
                 {
                   name: "Basic Detail",
-                  priceRange: { start: 100, end: 100 },
-                  priceNote: "Fixed pricing for all vehicle sizes",
+                  priceRange: { start: 100 },
+                  priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Essential interior and exterior cleaning perfect for regular maintenance. Keeps your vehicle looking fresh and clean.",
                   features: [
                     "Interior Vacuumed & Dusted",
@@ -143,8 +144,8 @@ function Services() {
                 },
                 {
                   name: "Intermediate Detail",
-                  priceRange: { start: 150, end: 150 },
-                  priceNote: "Fixed pricing for all vehicle sizes",
+                  priceRange: { start: 150 },
+                  priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Enhanced cleaning with sanitization and door jam cleaning. Ideal for vehicles that need a deeper clean.",
                   features: [
                     "Interior Vacuumed & Dusted",
@@ -163,8 +164,8 @@ function Services() {
                 },
                 {
                   name: "Advanced Detail",
-                  priceRange: { start: 200, end: 200 },
-                  priceNote: "Fixed pricing for all vehicle sizes",
+                  priceRange: { start: 200 },
+                  priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Comprehensive deep cleaning with professional shampoo extraction. Removes embedded stains, salt deposits, and deeply embedded dirt.",
                   features: [
                     "Interior Vacuumed & Dusted",
@@ -190,7 +191,7 @@ function Services() {
               <GoogleReviewsCarousel />
             </Suspense>
 
-            <HomeProcess />
+
 
             <Contact />
           </div>

@@ -131,7 +131,7 @@ function InfoSection() {
               <div className='btn__vertLine'></div>
 
               <div
-                onClick={() => navigate('/services')}
+                onClick={() => navigate('/auto-detail')}
                 className='btn btn-color btn-l-r'
               >
                 <p>{info[0].buttonLabelTwo}</p>

@@ -256,7 +256,7 @@ function Navbar2() {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  navigate('/services');
+                  navigate('/auto-detail');
                   setOtherServicesDropdownOpen(false);
                   closeMobileMenu();
                 }}
