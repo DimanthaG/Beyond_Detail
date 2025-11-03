@@ -9,7 +9,8 @@
  */
 
 const GOOGLE_PLACES_API_KEY = process.env.REACT_APP_GOOGLE_PLACES_API_KEY || process.env.REACT_APP_MAPS_KEY;
-const PLACE_ID = process.env.REACT_APP_GOOGLE_PLACE_ID;
+// Fallback to known Place ID if env var is missing in runtime
+const PLACE_ID = process.env.REACT_APP_GOOGLE_PLACE_ID || 'ChIJFeApoP4d1YkRv0VpV6_h8sY';
 
 /**
  * Find place by location (lat/lng) and business name
