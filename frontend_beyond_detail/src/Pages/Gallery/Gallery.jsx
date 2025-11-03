@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Contact, Loading, SEO } from '../../components';
-import React, { Suspense as ReactSuspense } from 'react';
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
@@ -123,9 +122,9 @@ function Gallery() {
               </div>
               <div className='image__wrapper'>{galleryImages}</div>
             </div>
-            <ReactSuspense fallback={null}>
+            <Suspense fallback={null}>
               <GoogleReviewsCarousel />
-            </ReactSuspense>
+            </Suspense>
             <Contact />
           </motion.div>
         </>

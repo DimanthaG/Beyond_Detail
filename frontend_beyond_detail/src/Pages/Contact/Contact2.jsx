@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { client } from '../../client';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Contact, Map, Loading, SEO } from '../../components';
-import React, { Suspense as ReactSuspense } from 'react';
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import DatePicker from 'react-datepicker';
 import setHours from 'date-fns/setHours';
@@ -370,9 +369,9 @@ function ContactPage() {
                 )}
               </motion.div>
             </div>
-            <ReactSuspense fallback={null}>
+            <Suspense fallback={null}>
               <GoogleReviewsCarousel />
-            </ReactSuspense>
+            </Suspense>
             <Map />
           </>
         ) : (

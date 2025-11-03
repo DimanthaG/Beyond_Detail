@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { client, urlFor } from '../../client';
 import { Contact } from '../../components';
-import React, { Suspense as ReactSuspense } from 'react';
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import './ServicePage.scss';
 
@@ -76,9 +75,9 @@ function ServicePage() {
                 </div>
               ))}
             </div>
-            <ReactSuspense fallback={null}>
+            <Suspense fallback={null}>
               <GoogleReviewsCarousel />
-            </ReactSuspense>
+            </Suspense>
           </section>
         )}
       </div>
