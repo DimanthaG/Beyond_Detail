@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
-import GoogleReviewsCarousel from "../GoogleReviewsCarousel/GoogleReviewsCarousel";
 import "./BackgroundPaths.scss";
 
 export function BackgroundPaths({
@@ -128,10 +127,7 @@ export function BackgroundPaths({
           </motion.div>
         </div>
 
-        {/* Reviews Carousel Below Hero */}
-        <div className="background-paths__reviews">
-          <GoogleReviewsCarousel />
-        </div>
+        {/* Reviews moved to page-level placement to avoid duplicates */}
       </div>
     </div>
   );

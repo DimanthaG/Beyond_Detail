@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone, Sparkles, Shield, Zap } from 'lucide-react';
-import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import carImage from '../../assets/bd/bd-20.jpg';
 import './HomeHero.scss';
 
@@ -252,10 +251,7 @@ export function HomeHero() {
             </motion.div>
           </div>
 
-          {/* Reviews Carousel Below Hero */}
-          <div className="home-hero__reviews">
-            <GoogleReviewsCarousel />
-          </div>
+          {/* Reviews moved to page-level placement to avoid duplicates */}
         </div>
       </div>
 
