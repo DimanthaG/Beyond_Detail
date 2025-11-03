@@ -45,3 +45,4 @@ When you deploy to Vercel:
 - The browser key (`REACT_APP_GOOGLE_PLACES_API_KEY`) stays in `.env` and can have referrer restrictions
 - The server key (`GOOGLE_PLACES_SERVER_KEY`) should have "None" for application restrictions
 
+

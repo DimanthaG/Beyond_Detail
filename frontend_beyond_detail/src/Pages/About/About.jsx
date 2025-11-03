@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, HomeProcess } from '../../components';
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import { Award, Users, Target, Shield, Sparkles, Phone, ArrowRight } from 'lucide-react';
 import './About.scss';
 
@@ -226,6 +227,9 @@ function About() {
               </div>
             </section>
 
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Contact />
           </div>
         </motion.div>

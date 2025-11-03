@@ -10,6 +10,7 @@ import { fallbackFAQs } from '../../data/faqsData';
 import './FAQs.scss';
 
 const SEO = lazy(() => import('../../components/SEO'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 const categories = [
   { id: 'general', label: 'General', icon: '📋' },
@@ -196,6 +197,9 @@ function FAQs() {
               </div>
             </section>
 
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Contact />
           </div>
         </motion.div>

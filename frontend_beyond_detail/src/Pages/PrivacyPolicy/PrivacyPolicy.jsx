@@ -7,6 +7,7 @@ import './PrivacyPolicy.scss';
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function PrivacyPolicy() {
   // scroll to top on page render
@@ -152,6 +153,9 @@ function PrivacyPolicy() {
               </div>
             </div>
 
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
             <Contact />
           </div>
         </motion.div>

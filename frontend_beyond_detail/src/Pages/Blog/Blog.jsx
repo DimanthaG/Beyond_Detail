@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Contact } from '../../components';
+import React, { Suspense as ReactSuspense } from 'react';
+const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 import './Blog.scss';
 
 // Mock blog data
@@ -190,6 +192,9 @@ function Blog() {
           ← Back to Blog
         </Link>
       </div>
+      <ReactSuspense fallback={null}>
+        <GoogleReviewsCarousel />
+      </ReactSuspense>
       <Contact />
     </>
     );
@@ -232,6 +237,9 @@ function Blog() {
           ))}
         </div>
       </div>
+      <ReactSuspense fallback={null}>
+        <GoogleReviewsCarousel />
+      </ReactSuspense>
       <Contact />
     </>
   );
