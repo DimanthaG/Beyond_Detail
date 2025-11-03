@@ -1,0 +1,111 @@
+@import '../FleetHero/FleetHero.scss';
+
+.leather-cleaning-hero {
+  @extend .fleet-hero;
+}
+
+.leather-cleaning-hero__background {
+  @extend .fleet-hero__background;
+}
+
+.leather-cleaning-hero__background-image {
+  @extend .fleet-hero__background-image;
+}
+
+.leather-cleaning-hero__background-overlay {
+  @extend .fleet-hero__background-overlay;
+}
+
+.leather-cleaning-hero__background-gradient {
+  @extend .fleet-hero__background-gradient;
+}
+
+.leather-cleaning-hero__content {
+  @extend .fleet-hero__content;
+}
+
+.leather-cleaning-hero__container {
+  @extend .fleet-hero__container;
+}
+
+.leather-cleaning-hero__inner {
+  @extend .fleet-hero__inner;
+}
+
+.leather-cleaning-hero__top-button-wrapper {
+  @extend .fleet-hero__top-button-wrapper;
+}
+
+.leather-cleaning-hero__top-button {
+  @extend .fleet-hero__top-button;
+}
+
+.leather-cleaning-hero__title-section {
+  @extend .fleet-hero__title-section;
+}
+
+.leather-cleaning-hero__main-title {
+  @extend .fleet-hero__main-title;
+}
+
+.leather-cleaning-hero__title-line {
+  @extend .fleet-hero__title-line;
+  
+  &--white {
+    @extend .fleet-hero__title-line--white;
+  }
+  
+  &--highlight {
+    @extend .fleet-hero__title-line--highlight;
+  }
+}
+
+.leather-cleaning-hero__description {
+  @extend .fleet-hero__description;
+}
+
+.leather-cleaning-hero__features {
+  @extend .fleet-hero__features;
+}
+
+.leather-cleaning-hero__feature-item {
+  @extend .fleet-hero__feature-item;
+}
+
+.leather-cleaning-hero__feature-icon {
+  @extend .fleet-hero__feature-icon;
+}
+
+.leather-cleaning-hero__actions {
+  @extend .fleet-hero__actions;
+}
+
+.leather-cleaning-hero__action-button {
+  @extend .fleet-hero__action-button;
+  
+  &--primary {
+    @extend .fleet-hero__action-button--primary;
+  }
+  
+  &--outline {
+    @extend .fleet-hero__action-button--outline;
+  }
+}
+
+.leather-cleaning-hero__partners {
+  @extend .fleet-hero__partners;
+}
+
+.leather-cleaning-hero__reviews {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: none;
+  z-index: 15;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+}
+

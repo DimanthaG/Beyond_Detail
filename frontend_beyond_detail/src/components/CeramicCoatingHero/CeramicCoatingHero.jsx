@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone, Shield, Sparkles, Award } from 'lucide-react';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
+import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-28.jpg';
 import './CeramicCoatingHero.scss';
 
@@ -191,6 +192,11 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
               </motion.div>
             </motion.div>
+          </div>
+
+          {/* Partners Compact Section */}
+          <div className="ceramic-coating-hero__partners">
+            <PartnersCompact />
           </div>
 
           {/* Reviews Carousel Below Hero */}

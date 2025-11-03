@@ -12,7 +12,6 @@ const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsC
 const SEO = lazy(() => import('../../components/SEO'));
 const PaintCorrectionHero = lazy(() => import('../../components/PaintCorrectionHero/PaintCorrectionHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
-const Partners = lazy(() => import('../../components/Partners/Partners'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function PaintCorrection() {
@@ -165,7 +164,6 @@ function PaintCorrection() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
-            <Partners />
             <Contact />
           </div>
         </motion.div>

@@ -112,18 +112,18 @@
 
 .partners__logos-track {
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
   animation: scroll-partners 30s linear infinite;
   will-change: transform;
   align-items: center;
   width: fit-content;
 
   @media screen and (min-width: 768px) {
-    gap: 5rem;
+    gap: 4rem;
   }
 
   @media screen and (min-width: 1024px) {
-    gap: 6rem;
+    gap: 5rem;
   }
 
   // Pause on hover
@@ -150,18 +150,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  width: 200px;
+  padding: 1.5rem 2rem;
+  width: 220px;
+  min-height: 100px;
   transition: transform 0.3s ease;
   background-color: transparent;
   background: transparent;
 
   @media screen and (min-width: 768px) {
-    width: 220px;
+    width: 240px;
+    min-height: 120px;
+    padding: 2rem 2.5rem;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 250px;
+    width: 280px;
+    min-height: 140px;
+    padding: 2.5rem 3rem;
   }
 
   &:hover {
@@ -171,20 +176,24 @@
 
 .partners__logo-wrapper {
   width: 100%;
-  height: 60px;
+  min-height: 100px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
   transition: all 0.3s ease;
   background-color: transparent;
   background: transparent;
 
   @media screen and (min-width: 768px) {
-    height: 70px;
+    min-height: 120px;
+    padding: 1.5rem;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 80px;
+    min-height: 140px;
+    padding: 2rem;
   }
 
   &:hover {
@@ -194,42 +203,69 @@
 
 // Universal styling for ALL partner logos
 // This applies automatically to any logo added to the Partners component
+// Standardizes all logos to have consistent color appearance
 .partners__logo-image {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
+  min-height: 80px;
+  min-width: 150px;
   object-fit: contain;
+  object-position: center;
   display: block;
   background-color: transparent !important;
   background: transparent !important;
   
-  // Remove any embedded backgrounds - use darken blend mode to remove white
-  mix-blend-mode: darken;
-  
-  // Styling for partner logos with glow effect
-  filter: brightness(1.3) contrast(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  // Standardize colors: Convert to grayscale, then apply brightness/contrast
+  // This ensures all logos look consistent regardless of original colors
+  filter: grayscale(100%) brightness(1.4) contrast(1.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   opacity: 0.9;
+  
+  // Ensure text and details are crisp and readable
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-  // Hover effect: Enhanced brightness and glow
+  @media screen and (min-width: 768px) {
+    min-height: 90px;
+    min-width: 180px;
+    filter: grayscale(100%) brightness(1.5) contrast(1.4);
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 100px;
+    min-width: 200px;
+    filter: grayscale(100%) brightness(1.6) contrast(1.5);
+  }
+
+  // Hover effect: Full color restored with enhanced brightness
   .partners__logo-wrapper:hover & {
-    filter: brightness(1.6);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    filter: grayscale(0%) brightness(1.8) contrast(1.6);
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
     opacity: 1;
+    transform: scale(1.08);
   }
 }
 
 // Ensure any image in partners folder gets these styles
 .partners__section img {
   // Apply same styling to any direct img tags (if needed)
-  filter: brightness(1.3) contrast(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  // Standardize colors: Convert to grayscale for consistency
+  filter: grayscale(100%) brightness(1.4) contrast(1.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
   transition: all 0.3s ease;
+  opacity: 0.9;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Force all containers to have transparent/black background

@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone, Sparkles, Shield, Zap } from 'lucide-react';
+import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-20.jpg';
 import './HomeHero.scss';
 
 export function HomeHero() {
-  const sliderRef = useRef(null);
   const heroRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -31,56 +31,6 @@ export function HomeHero() {
       return () => hero.removeEventListener('mousemove', handleMouseMove);
     }
   }, []);
-
-  useEffect(() => {
-    // Infinite scroll effect for brands
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    let scrollAmount = 0;
-    const scrollSpeed = 0.5;
-    let isScrolling = true;
-
-    const scroll = () => {
-      if (slider && isScrolling) {
-        scrollAmount += scrollSpeed;
-        slider.scrollLeft = scrollAmount;
-
-        // Reset scroll position when we've scrolled through half the content
-        if (scrollAmount >= slider.scrollWidth / 2) {
-          scrollAmount = 0;
-          slider.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(scroll);
-    };
-
-    const animationFrame = requestAnimationFrame(scroll);
-
-    // Pause on hover
-    const handleMouseEnter = () => {
-      isScrolling = false;
-    };
-    const handleMouseLeave = () => {
-      isScrolling = true;
-    };
-
-    slider.addEventListener('mouseenter', handleMouseEnter);
-    slider.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      slider.removeEventListener('mouseenter', handleMouseEnter);
-      slider.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
-  const brands = [
-    { name: 'LLumar', logo: null },
-    { name: 'EASTMAN', logo: null },
-    { name: 'IWFA', logo: null },
-    { name: 'Skin Cancer Foundation', logo: null },
-  ];
 
   return (
     <>
@@ -251,46 +201,12 @@ export function HomeHero() {
             </motion.div>
           </div>
 
-          {/* Reviews moved to page-level placement to avoid duplicates */}
-        </div>
-      </div>
-
-      {/* Brands Slider Section */}
-      <section className="home-hero__brands-section">
-        <div className="home-hero__brands-container">
-          <div className="home-hero__brands-wrapper">
-            <div className="home-hero__brands-label">
-              <p>Powering the best teams</p>
-            </div>
-            <div className="home-hero__brands-slider-wrapper">
-              <div 
-                ref={sliderRef}
-                className="home-hero__brands-slider"
-              >
-                {/* Duplicate brands for seamless loop */}
-                {[...brands, ...brands].map((brand, index) => (
-                  <div key={index} className="home-hero__brand-item">
-                    {brand.logo ? (
-                      <img
-                        src={brand.logo}
-                        alt={`${brand.name} logo`}
-                        className="home-hero__brand-logo"
-                      />
-                    ) : (
-                      <div className="home-hero__brand-placeholder">
-                        {brand.name}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              {/* Fade gradients */}
-              <div className="home-hero__brands-fade home-hero__brands-fade--left"></div>
-              <div className="home-hero__brands-fade home-hero__brands-fade--right"></div>
-            </div>
+          {/* Partners Compact Section */}
+          <div className="home-hero__partners">
+            <PartnersCompact />
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

@@ -54,6 +54,12 @@ import llumar_logo from '../assets/Partners/Llumar.png';
 import eastman_logo from '../assets/Partners/eastman.png';
 import iwfa_logo from '../assets/Partners/IWFA.png';
 import skinCancer_logo from '../assets/Partners/CancerFoundation.png';
+import carstars_logo from '../assets/Partners/Carstars.png';
+import ceramicPro_logo from '../assets/Partners/ceramic pro.png';
+import feynlab_logo from '../assets/Partners/feynlab.png';
+import menzerna_logo from '../assets/Partners/menzerna.png';
+import rupes_logo from '../assets/Partners/rupes.png';
+import uniglass_logo from '../assets/Partners/uniglass.png';
 
 export default {
   circle,
@@ -110,4 +116,10 @@ export default {
   eastman_logo,
   iwfa_logo,
   skinCancer_logo,
+  carstars_logo,
+  ceramicPro_logo,
+  feynlab_logo,
+  menzerna_logo,
+  rupes_logo,
+  uniglass_logo,
 };

@@ -1,0 +1,111 @@
+@import '../FleetHero/FleetHero.scss';
+
+.odour-removal-hero {
+  @extend .fleet-hero;
+}
+
+.odour-removal-hero__background {
+  @extend .fleet-hero__background;
+}
+
+.odour-removal-hero__background-image {
+  @extend .fleet-hero__background-image;
+}
+
+.odour-removal-hero__background-overlay {
+  @extend .fleet-hero__background-overlay;
+}
+
+.odour-removal-hero__background-gradient {
+  @extend .fleet-hero__background-gradient;
+}
+
+.odour-removal-hero__content {
+  @extend .fleet-hero__content;
+}
+
+.odour-removal-hero__container {
+  @extend .fleet-hero__container;
+}
+
+.odour-removal-hero__inner {
+  @extend .fleet-hero__inner;
+}
+
+.odour-removal-hero__top-button-wrapper {
+  @extend .fleet-hero__top-button-wrapper;
+}
+
+.odour-removal-hero__top-button {
+  @extend .fleet-hero__top-button;
+}
+
+.odour-removal-hero__title-section {
+  @extend .fleet-hero__title-section;
+}
+
+.odour-removal-hero__main-title {
+  @extend .fleet-hero__main-title;
+}
+
+.odour-removal-hero__title-line {
+  @extend .fleet-hero__title-line;
+  
+  &--white {
+    @extend .fleet-hero__title-line--white;
+  }
+  
+  &--highlight {
+    @extend .fleet-hero__title-line--highlight;
+  }
+}
+
+.odour-removal-hero__description {
+  @extend .fleet-hero__description;
+}
+
+.odour-removal-hero__features {
+  @extend .fleet-hero__features;
+}
+
+.odour-removal-hero__feature-item {
+  @extend .fleet-hero__feature-item;
+}
+
+.odour-removal-hero__feature-icon {
+  @extend .fleet-hero__feature-icon;
+}
+
+.odour-removal-hero__actions {
+  @extend .fleet-hero__actions;
+}
+
+.odour-removal-hero__action-button {
+  @extend .fleet-hero__action-button;
+  
+  &--primary {
+    @extend .fleet-hero__action-button--primary;
+  }
+  
+  &--outline {
+    @extend .fleet-hero__action-button--outline;
+  }
+}
+
+.odour-removal-hero__partners {
+  @extend .fleet-hero__partners;
+}
+
+.odour-removal-hero__reviews {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: none;
+  z-index: 15;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+}
+

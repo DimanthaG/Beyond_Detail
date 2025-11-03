@@ -3,13 +3,15 @@ import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
-import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import FleetHero from '../../components/FleetHero/FleetHero';
+import FleetExpertise from '../../components/FleetExpertise/FleetExpertise';
+import FleetContactCTA from '../../components/FleetContactCTA/FleetContactCTA';
+import FleetVision from '../../components/FleetVision/FleetVision';
 import './FleetServices.scss';
 
 // Lazy load heavy components to improve initial bundle size
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function FleetServices() {
@@ -37,11 +39,7 @@ function FleetServices() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='fleet-services__wrapper'>
-            <BackgroundPaths 
-              title="Fleet Services"
-              scrollTarget="#pricing"
-              description="Keep your entire fleet looking professional while maximizing vehicle value. We offer flexible scheduling, volume discounts, and comprehensive packages designed for businesses. From basic maintenance to full detailing, we ensure consistent quality across every vehicle in your fleet."
-            />
+            <FleetHero scrollTarget="#contact" />
             <ServiceInfoSection
               title="Professional Fleet Detailing Services"
               subtitle="Commercial Vehicle Care"
@@ -107,66 +105,12 @@ function FleetServices() {
                 "Customized service packages"
               ]}
             />
-            <ServicePricing
-              title="Fleet Service Packages"
-              packages={[
-                {
-                  name: "Fleet Maintenance Wash",
-                  duration: "1-2 hours per vehicle",
-                  priceRange: { start: 79, end: 129 },
-                  priceNote: "Per vehicle. Volume discounts available",
-                  description: "Essential exterior cleaning to keep your fleet looking professional. Perfect for regular maintenance between full details.",
-                  features: [
-                    "Hand wash and dry",
-                    "Wheel and tire cleaning",
-                    "Quick interior vacuum",
-                    "Window cleaning",
-                    "Basic interior wipe-down",
-                    "Consistent quality service"
-                  ],
-                  ctaText: "Request Fleet Quote"
-                },
-                {
-                  name: "Complete Fleet Detail",
-                  duration: "3-5 hours per vehicle",
-                  priceRange: { start: 249, end: 399 },
-                  priceNote: "Per vehicle. Volume discounts available",
-                  description: "Comprehensive interior and exterior detailing for your fleet. Restores professional appearance and maintains vehicle value.",
-                  features: [
-                    "Premium exterior wash and dry",
-                    "Complete wheel and tire detail",
-                    "Interior vacuuming and cleaning",
-                    "Dashboard and console cleaning",
-                    "Window cleaning",
-                    "Exterior protection application",
-                    "Professional finish"
-                  ],
-                  featured: true,
-                  ctaText: "Request Fleet Quote"
-                },
-                {
-                  name: "Premium Fleet Service",
-                  duration: "5-8 hours per vehicle",
-                  priceRange: { start: 399, end: 699 },
-                  priceNote: "Per vehicle. Custom pricing for large fleets",
-                  description: "Ultimate fleet maintenance with paint enhancement and interior deep cleaning. Maximum results for executive or customer-facing vehicles.",
-                  features: [
-                    "Premium exterior wash and detail",
-                    "Paint enhancement and protection",
-                    "Complete interior deep cleaning",
-                    "Carpet and upholstery cleaning",
-                    "Leather conditioning (if applicable)",
-                    "Premium protection application",
-                    "Showroom-quality finish",
-                    "Extended protection"
-                  ],
-                  ctaText: "Request Fleet Quote"
-                }
-              ]}
-            />
+            <FleetExpertise />
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <FleetContactCTA />
+            <FleetVision />
             <Contact />
           </div>
         </motion.div>

@@ -2,14 +2,13 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
-import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
-import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import OdourRemovalHero from '../../components/OdourRemovalHero/OdourRemovalHero';
+import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
+import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
 import './OdourRemoval.scss';
 
 // Lazy load heavy components to improve initial bundle size
-const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
-const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function OdourRemoval() {
@@ -37,13 +36,9 @@ function OdourRemoval() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='odour-removal__wrapper'>
-            <BackgroundPaths 
-              title="Odour Removal"
-              scrollTarget="#pricing"
-              description="Eliminate persistent odors permanently, not temporarily. Our advanced treatments penetrate deep into materials to neutralize odors at their source—whether from smoke, pets, mold, or biological contaminants. Professional-grade solutions that deliver lasting results."
-            />
-            <ServiceInfoSection
-              title="Professional Odour Removal Services"
+            <OdourRemovalHero scrollTarget="#contact" />
+            <ServiceBenefits
+              title="PROFESSIONAL ODOUR REMOVAL SERVICES"
               subtitle="Complete Odor Elimination"
               description="Unpleasant odors in your vehicle can be persistent and frustrating. Our advanced odour removal treatments use professional-grade technology and products to neutralize and eliminate odors at their source, rather than simply masking them. We effectively treat everything from smoke and pet odors to mold and biological contaminants."
               benefits={[
@@ -72,32 +67,6 @@ function OdourRemoval() {
                   description: "Our treatments not only eliminate odors but also sanitize surfaces, reducing bacteria, germs, and allergens for a healthier interior environment."
                 }
               ]}
-              process={[
-                {
-                  title: "Source Identification",
-                  description: "We identify the source and type of odor to determine the most effective treatment method. This may involve inspection of interior materials, HVAC systems, and hidden areas."
-                },
-                {
-                  title: "Interior Preparation",
-                  description: "Before treatment, we recommend a thorough interior detail to remove visible contamination and prepare surfaces for optimal odor treatment effectiveness."
-                },
-                {
-                  title: "Specialized Treatment Application",
-                  description: "Professional-grade odor-neutralizing treatments are applied using appropriate methods for the specific odor type. This may include fogging, direct application, or HVAC system treatment."
-                },
-                {
-                  title: "Penetration & Neutralization",
-                  description: "The treatment penetrates deep into materials where odors are embedded, breaking down odor molecules at the source to neutralize them permanently."
-                },
-                {
-                  title: "Ventilation & Air Circulation",
-                  description: "Proper ventilation ensures the treatment effectively reaches all areas, including air ducts and hidden spaces where odors can accumulate."
-                },
-                {
-                  title: "Final Verification",
-                  description: "We verify the effectiveness of the treatment and provide recommendations for maintaining a fresh interior environment."
-                }
-              ]}
               features={[
                 "Comprehensive odor source identification",
                 "Professional-grade odor neutralization treatment",
@@ -113,65 +82,10 @@ function OdourRemoval() {
                 "Quality assurance inspection"
               ]}
             />
-            <ServicePricing
-              title="Odour Removal Packages"
-              packages={[
-                {
-                  name: "Standard Odour Treatment",
-                  duration: "2-3 hours",
-                  priceRange: { start: 99, end: 149 },
-                  priceNote: "Pricing varies by vehicle size and odor severity",
-                  description: "Effective treatment for common odors like food, smoke, and general interior smells. Professional-grade odor neutralization.",
-                  features: [
-                    "Odor source identification",
-                    "Standard odor neutralization treatment",
-                    "Interior surface treatment",
-                    "Basic ventilation system treatment",
-                    "Odor elimination guarantee"
-                  ],
-                  ctaText: "Book This Service"
-                },
-                {
-                  name: "Advanced Odour Treatment",
-                  duration: "3-4 hours",
-                  priceRange: { start: 149, end: 249 },
-                  priceNote: "Pricing varies by vehicle size and odor type",
-                  description: "Comprehensive treatment for stubborn odors including pet odors, smoke, and biological contaminants. Deep penetration treatment.",
-                  features: [
-                    "Comprehensive odor source identification",
-                    "Advanced odor neutralization treatment",
-                    "Deep penetration into materials",
-                    "Complete HVAC system treatment",
-                    "Mold and mildew odor elimination",
-                    "Smoke odor removal",
-                    "Extended treatment guarantee"
-                  ],
-                  featured: true,
-                  ctaText: "Book This Service"
-                },
-                {
-                  name: "Premium Odour Elimination",
-                  duration: "4-6 hours",
-                  priceRange: { start: 249, end: 349 },
-                  priceNote: "Pricing varies by vehicle size and severity",
-                  description: "Ultimate treatment for severe odors including pet urine, biological contaminants, and deeply embedded smells. Complete sanitization included.",
-                  features: [
-                    "Complete odor source identification",
-                    "Premium multi-treatment application",
-                    "Maximum penetration treatment",
-                    "Complete HVAC system deep treatment",
-                    "All odor types eliminated (pet, smoke, biological)",
-                    "Complete interior sanitization",
-                    "Extended warranty coverage",
-                    "Follow-up treatment if needed"
-                  ],
-                  ctaText: "Book This Service"
-                }
-              ]}
+            <ServiceContactCTA 
+              title="READY TO ELIMINATE ODORS?"
+              description="Contact us today for a personalized quote and permanently eliminate unpleasant odors from your vehicle."
             />
-            <Suspense fallback={null}>
-              <GoogleReviewsCarousel />
-            </Suspense>
             <Contact />
           </div>
         </motion.div>

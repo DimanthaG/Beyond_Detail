@@ -13,7 +13,6 @@ const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsC
 const SEO = lazy(() => import('../../components/SEO'));
 const CeramicCoatingHero = lazy(() => import('../../components/CeramicCoatingHero/CeramicCoatingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
-const Partners = lazy(() => import('../../components/Partners/Partners'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function CeramicCoating() {
@@ -169,7 +168,6 @@ function CeramicCoating() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
-            <Partners />
             <Contact />
           </div>
         </motion.div>
