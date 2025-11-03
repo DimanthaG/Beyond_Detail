@@ -10,7 +10,6 @@ import './FleetServices.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function FleetServices() {
@@ -43,9 +42,6 @@ function FleetServices() {
               scrollTarget="#pricing"
               description="Keep your entire fleet looking professional while maximizing vehicle value. We offer flexible scheduling, volume discounts, and comprehensive packages designed for businesses. From basic maintenance to full detailing, we ensure consistent quality across every vehicle in your fleet."
             />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="fleet-services" title="Fleet Services Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Professional Fleet Detailing Services"
               subtitle="Commercial Vehicle Care"

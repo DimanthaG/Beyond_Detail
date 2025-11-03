@@ -10,7 +10,6 @@ import './PaintRemoval.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function PaintRemoval() {
@@ -43,9 +42,6 @@ function PaintRemoval() {
               scrollTarget="#pricing"
               description="Safely remove unwanted paint, overspray, and contamination without damaging your original finish. Our specialized techniques and premium products effectively eliminate paint defects while preserving your vehicle's surfaces—whether on paint, glass, chrome, or trim."
             />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="paint-removal" title="Paint Removal Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Expert Paint Removal Services"
               subtitle="Safe & Effective"

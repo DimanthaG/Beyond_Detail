@@ -5,13 +5,23 @@ import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import './GoogleReviewsCarousel.scss';
 
 function GoogleReviewsCarousel() {
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [allReviews, setAllReviews] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [rating, setRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
   const [error, setError] = useState(null);
   const carouselRef = useRef(null);
+
+  // Shuffle array function to randomize reviews
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   // Fetch reviews from Google Places API
   useEffect(() => {
@@ -19,21 +29,19 @@ function GoogleReviewsCarousel() {
       setLoading(true);
       setError(null);
       
-      // Debug: Log API configuration
-      console.log('Google Reviews - API Key:', process.env.REACT_APP_GOOGLE_PLACES_API_KEY ? 'Set' : 'Missing');
-      console.log('Google Reviews - Place ID:', process.env.REACT_APP_GOOGLE_PLACE_ID || 'Not set');
-      
       try {
         const data = await getCachedGoogleReviews();
-        console.log('Google Reviews - API Response:', data);
         
         if (data.error) {
           setError(data.error);
           console.error('Google Reviews error:', data.error);
         } else {
           const reviewsList = data.reviews || [];
-          console.log('Google Reviews - Fetched reviews count:', reviewsList.length);
-          setReviews(reviewsList);
+          // Shuffle reviews to show different ones each time page loads
+          const shuffledReviews = shuffleArray(reviewsList);
+          
+          setAllReviews(shuffledReviews);
+          setCurrentIndex(0);
           setRating(data.rating || 0);
           setTotalReviews(data.totalReviews || 0);
         }
@@ -48,32 +56,32 @@ function GoogleReviewsCarousel() {
     fetchReviews();
   }, []);
 
-  // Auto-scroll carousel
-  useEffect(() => {
-    if (reviews.length <= 3) return; // Don't auto-scroll if we have 3 or fewer reviews
+  // Get visible reviews (3 at a time)
+  const getVisibleReviews = () => {
+    if (allReviews.length === 0) return [];
     
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => 
-        prev >= reviews.length - 3 ? 0 : prev + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [reviews.length]);
+    // Always show 3 reviews, wrapping around if needed
+    const reviews = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % allReviews.length;
+      reviews.push(allReviews[index]);
+    }
+    return reviews;
+  };
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => 
-      prev === 0 ? Math.max(0, reviews.length - 3) : prev - 1
-    );
+    setCurrentIndex((prev) => {
+      // Wrap around to the end if at the beginning
+      return prev === 0 ? allReviews.length - 1 : prev - 1;
+    });
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => 
-      prev >= reviews.length - 3 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => {
+      // Wrap around to the beginning if at the end
+      return (prev + 1) % allReviews.length;
+    });
   };
-
-  const visibleReviews = reviews.slice(currentIndex, currentIndex + 3);
 
   // Show loading state or handle errors gracefully
   if (loading) {
@@ -101,7 +109,7 @@ function GoogleReviewsCarousel() {
     );
   }
 
-  if (reviews.length === 0 && !loading) {
+  if (allReviews.length === 0 && !loading) {
     // Show empty state instead of hiding completely
     return (
       <div className="google-reviews-carousel google-reviews-carousel--empty">
@@ -135,7 +143,7 @@ function GoogleReviewsCarousel() {
               ))}
             </div>
             <p className="google-reviews-carousel__count">
-              {rating > 0 ? `${rating.toFixed(1)}` : ''} • {totalReviews > 0 ? `${totalReviews}` : reviews.length}+ Reviews
+              {rating > 0 ? `${rating.toFixed(1)}` : ''} • {totalReviews > 0 ? `${totalReviews}` : allReviews.length}+ Reviews
             </p>
           </div>
         </div>
@@ -147,18 +155,19 @@ function GoogleReviewsCarousel() {
           className="google-reviews-carousel__nav google-reviews-carousel__nav--prev"
           onClick={handlePrevious}
           aria-label="Previous reviews"
+          disabled={allReviews.length === 0}
         >
           <HiChevronLeft />
         </button>
 
         <div className="google-reviews-carousel__track">
-          {visibleReviews.map((review, index) => (
+          {getVisibleReviews().map((review, index) => (
             <motion.div
-              key={review._id || index}
+              key={`${review._id || review.time}-${currentIndex}-${index}`}
               className="google-reviews-carousel__card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ opacity: 0, x: index === 0 ? -20 : index === 2 ? 20 : 0 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div className="google-reviews-carousel__card-header">
                 {review.profilePhoto ? (
@@ -204,23 +213,17 @@ function GoogleReviewsCarousel() {
           className="google-reviews-carousel__nav google-reviews-carousel__nav--next"
           onClick={handleNext}
           aria-label="Next reviews"
+          disabled={allReviews.length === 0}
         >
           <HiChevronRight />
         </button>
       </div>
 
-      {reviews.length > 3 && (
-        <div className="google-reviews-carousel__indicators">
-          {Array.from({ length: Math.ceil(reviews.length / 3) }).map((_, i) => (
-            <button
-              key={i}
-              className={`google-reviews-carousel__indicator ${
-                Math.floor(currentIndex / 3) === i ? 'active' : ''
-              }`}
-              onClick={() => setCurrentIndex(i * 3)}
-              aria-label={`Go to review set ${i + 1}`}
-            />
-          ))}
+      {allReviews.length > 3 && (
+        <div className="google-reviews-carousel__progress">
+          <p className="google-reviews-carousel__progress-text">
+            {currentIndex + 1} - {Math.min(currentIndex + 3, allReviews.length)} of {allReviews.length} reviews
+          </p>
         </div>
       )}
     </div>

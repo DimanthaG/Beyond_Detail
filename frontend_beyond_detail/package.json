@@ -45,7 +45,10 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "dev": "vercel dev",
-    "dev:react": "react-app-rewired start"
+    "dev:react": "react-app-rewired start",
+    "update-galleries": "node scripts/updateGalleryImports.js",
+    "prestart": "npm run update-galleries",
+    "prebuild": "npm run update-galleries"
   },
   "eslintConfig": {
     "extends": [

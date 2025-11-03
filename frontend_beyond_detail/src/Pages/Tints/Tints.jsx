@@ -7,7 +7,7 @@ import './Tints.scss';
 // Lazy load heavy components to improve initial bundle size
 const SEO = lazy(() => import('../../components/SEO'));
 const TintsHero = lazy(() => import('../../components/TintsHero/TintsHero'));
-const BrandsGrid = lazy(() => import('../../components/BrandsGrid/BrandsGrid'));
+const Partners = lazy(() => import('../../components/Partners/Partners'));
 const TintsFeatures = lazy(() => import('../../components/TintsFeatures/TintsFeatures'));
 const TintBenefitsInfo = lazy(() => import('../../components/TintBenefitsInfo/TintBenefitsInfo'));
 const TintSpecsChart = lazy(() => import('../../components/TintSpecsChart/TintSpecsChart'));
@@ -19,6 +19,7 @@ const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLa
 const TintLawsSources = lazy(() => import('../../components/TintsLaws/TintLawsSources'));
 const RecentWork = lazy(() => import('../../components/RecentWork/RecentWork'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Tints() {
@@ -47,7 +48,12 @@ function Tints() {
         >
           <div className='tints__wrapper'>
                   <TintsHero scrollTarget="#pricing" />
-            <BrandsGrid />
+            <Suspense fallback={null}>
+              <Partners />
+            </Suspense>
+            <Suspense fallback={null}>
+              <ServiceGallery serviceType="window-tint" title="Window Tint Gallery" />
+            </Suspense>
             <TintsFeatures />
             <TintBenefitsInfo />
             <TintLawsExplanation />

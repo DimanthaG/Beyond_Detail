@@ -10,7 +10,6 @@ import './LeatherCleaning.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function LeatherCleaning() {
@@ -43,9 +42,6 @@ function LeatherCleaning() {
               scrollTarget="#pricing"
               description="Restore your leather to luxurious condition and protect it for years to come. Our professional cleaning removes embedded dirt and stains, while premium conditioning treatments restore suppleness and create a protective barrier against UV damage, cracking, and wear."
             />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="leather-cleaning" title="Leather Cleaning Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Expert Leather Care Services"
               subtitle="Restoration & Protection"

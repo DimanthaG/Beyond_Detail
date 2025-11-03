@@ -10,7 +10,6 @@ import './HeadlightRestoration.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function HeadlightRestoration() {
@@ -43,9 +42,6 @@ function HeadlightRestoration() {
               scrollTarget="#pricing"
               description="Restore cloudy, yellowed headlights to crystal-clear perfection. Our professional restoration process removes years of oxidation and damage, dramatically improving your vehicle's appearance and significantly enhancing nighttime driving safety. UV protection included."
             />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="headlight-restoration" title="Headlight Restoration Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Expert Headlight Restoration"
               subtitle="Crystal Clear Results"

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { urlFor, client } from '../../client';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { getGalleryImages } from '../../utils/galleryImages';
 import './ServiceGallery.scss';
 
 function ServiceGallery({ serviceType, title = "Gallery" }) {
@@ -14,21 +14,31 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch gallery images from Sanity based on service type
-    const query = `*[_type == "serviceGallery" && serviceType == $serviceType] | order(order asc) {
-      _id,
-      title,
-      image,
-      order
-    }`;
+    // Load gallery images from local folder
+    console.log(`[ServiceGallery] Loading gallery for serviceType: ${serviceType}`);
+    try {
+      const galleryImages = getGalleryImages(serviceType);
+      console.log(`[ServiceGallery] Received ${galleryImages.length} images:`, galleryImages);
+      
+      // Convert to format expected by component
+      const formattedImages = galleryImages.map((img, index) => {
+        console.log(`[ServiceGallery] Formatting image ${index}:`, img);
+        return {
+          _id: `local-${serviceType}-${index}`,
+          src: img.src,
+          name: img.name,
+          // No title - don't display filename
+        };
+      });
 
-    client.fetch(query, { serviceType }).then((data) => {
-      setImages(data);
+      console.log(`[ServiceGallery] Formatted ${formattedImages.length} images for display`);
+      setImages(formattedImages);
       setLoading(false);
-    }).catch((error) => {
-      console.error('Error fetching service gallery:', error);
+    } catch (error) {
+      console.error('[ServiceGallery] Error loading gallery images:', error);
+      setImages([]);
       setLoading(false);
-    });
+    }
   }, [serviceType]);
 
   const nextSlide = () => {
@@ -125,7 +135,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
           >
             <h2 className="service-gallery__title">{title}</h2>
             <p className="service-gallery__subtitle">
-              Gallery images coming soon. Upload images in Sanity CMS to display here.
+              Gallery images coming soon. Upload images to the <code>src/assets/galleries/{serviceType}/</code> folder to display here.
             </p>
           </motion.div>
         </div>
@@ -176,18 +186,11 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                       onClick={() => openLightbox(index)}
                     >
                       <LazyLoadImage
-                        src={urlFor(item.image).width(1200).height(800).url()}
-                        alt={item.title || `Gallery image ${index + 1}`}
+                        src={item.src || item.image}
+                        alt={`Gallery image ${index + 1}`}
                         effect="blur"
                         className="service-gallery__image"
                       />
-                      {item.title && (
-                        <div className="service-gallery__slide-overlay">
-                          <span className="service-gallery__slide-title">
-                            {item.title}
-                          </span>
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))}
@@ -246,16 +249,11 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
             onClick={(e) => e.stopPropagation()}
           >
             <LazyLoadImage
-              src={urlFor(images[lightboxIndex]?.image).width(1920).height(1080).url()}
-              alt={images[lightboxIndex]?.title || `Gallery image ${lightboxIndex + 1}`}
+              src={images[lightboxIndex]?.src || images[lightboxIndex]?.image}
+              alt={`Gallery image ${lightboxIndex + 1}`}
               effect="blur"
               className="service-gallery__lightbox-image"
             />
-            {images[lightboxIndex]?.title && (
-              <div className="service-gallery__lightbox-title">
-                {images[lightboxIndex].title}
-              </div>
-            )}
             <div className="service-gallery__lightbox-counter">
               {lightboxIndex + 1} / {images.length}
             </div>

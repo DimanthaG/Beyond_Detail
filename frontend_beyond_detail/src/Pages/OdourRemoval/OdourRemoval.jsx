@@ -10,7 +10,6 @@ import './OdourRemoval.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const BackgroundPaths = lazy(() => import('../../components/BackgroundPaths/BackgroundPaths'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function OdourRemoval() {
@@ -43,9 +42,6 @@ function OdourRemoval() {
               scrollTarget="#pricing"
               description="Eliminate persistent odors permanently, not temporarily. Our advanced treatments penetrate deep into materials to neutralize odors at their source—whether from smoke, pets, mold, or biological contaminants. Professional-grade solutions that deliver lasting results."
             />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="odour-removal" title="Odour Removal Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Professional Odour Removal Services"
               subtitle="Complete Odor Elimination"

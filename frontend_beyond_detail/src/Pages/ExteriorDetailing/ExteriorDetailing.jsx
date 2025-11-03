@@ -10,7 +10,6 @@ import './ExteriorDetailing.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const ExteriorDetailingHero = lazy(() => import('../../components/ExteriorDetailingHero/ExteriorDetailingHero'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function ExteriorDetailing() {
@@ -39,9 +38,6 @@ function ExteriorDetailing() {
         >
           <div className='exterior-detailing__wrapper'>
             <ExteriorDetailingHero scrollTarget="#pricing" />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="exterior-detailing" title="Exterior Detailing Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Exterior Detailing Services"
               subtitle="Premium Exterior Care"

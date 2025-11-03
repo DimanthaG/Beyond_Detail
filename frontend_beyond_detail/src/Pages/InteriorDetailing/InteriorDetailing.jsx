@@ -10,7 +10,6 @@ import './InteriorDetailing.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const InteriorDetailingHero = lazy(() => import('../../components/InteriorDetailingHero/InteriorDetailingHero'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function InteriorDetailing() {
@@ -39,9 +38,6 @@ function InteriorDetailing() {
         >
           <div className='interior-detailing__wrapper'>
             <InteriorDetailingHero scrollTarget="#pricing" />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="interior-detailing" title="Interior Detailing Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Interior Detailing Services"
               subtitle="Deep Cleaning & Restoration"

@@ -10,7 +10,6 @@ import './Services.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
-const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Services() {
@@ -39,9 +38,6 @@ function Services() {
         >
           <div className='auto-detail__wrapper'>
             <AutoDetailHero scrollTarget="#pricing" />
-            <Suspense fallback={null}>
-              <ServiceGallery serviceType="auto-detail" title="Auto Detailing Gallery" />
-            </Suspense>
             <ServiceInfoSection
               title="Complete Auto Detailing Services"
               subtitle="Interior & Exterior Excellence"

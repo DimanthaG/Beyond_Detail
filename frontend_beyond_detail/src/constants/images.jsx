@@ -45,10 +45,15 @@ import logo2 from '../assets/logo_3.svg';
 import dropletBg from '../assets/droplet1.png';
 import dropletBg2 from '../assets/droplet2.png';
 import dropletBg3 from '../assets/droplet3.png';
+// All logos from Partners folder
 import threeEm_logo from '../assets/Partners/3m_logo.png';
 import sparco_logo from '../assets/Partners/sparco_logo.png';
 import igl_logo from '../assets/Partners/igl_logo.png';
 import huper_logo from '../assets/Partners/huper_logo.png';
+import llumar_logo from '../assets/Partners/Llumar.png';
+import eastman_logo from '../assets/Partners/eastman.png';
+import iwfa_logo from '../assets/Partners/IWFA.png';
+import skinCancer_logo from '../assets/Partners/CancerFoundation.png';
 
 export default {
   circle,
@@ -101,4 +106,8 @@ export default {
   sparco_logo,
   igl_logo,
   huper_logo,
+  llumar_logo,
+  eastman_logo,
+  iwfa_logo,
+  skinCancer_logo,
 };
