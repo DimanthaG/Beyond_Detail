@@ -66,11 +66,47 @@ export async function getGoogleReviews(placeId = null) {
     }
   }
 
+  // Helper: direct fetch via Google + CORS proxy (dev fallback)
+  const fetchViaCorsProxy = async () => {
+    const fields = 'reviews,rating,user_ratings_total,name,formatted_address';
+    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${finalPlaceId}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
+    const proxied = `https://corsproxy.io/?${encodeURIComponent(url)}`;
+    const r = await fetch(proxied);
+    const d = await r.json();
+    if (d.status === 'OK' && d.result) {
+      const result = d.result;
+      const formattedReviews = (result.reviews || []).map((review) => ({
+        _id: review.time || Date.now() + Math.random(),
+        name: review.author_name,
+        message: review.text,
+        rating: review.rating,
+        time: review.time,
+        profilePhoto: review.profile_photo_url || null,
+        relativeTime: review.relative_time_description,
+      }));
+      return {
+        reviews: formattedReviews,
+        rating: result.rating || 0,
+        totalReviews: result.user_ratings_total || 0,
+        businessName: result.name,
+        address: result.formatted_address,
+      };
+    }
+    return { reviews: [], rating: 0, totalReviews: 0, error: d.error_message || d.status || 'Failed to fetch' };
+  };
+
   try {
     // Prefer serverless proxy endpoint to keep API key secret and avoid CORS
     const apiUrl = `/api/get-google-reviews?placeId=${encodeURIComponent(finalPlaceId)}`;
     const response = await fetch(apiUrl);
-    const data = await response.json();
+    let data;
+    try {
+      data = await response.json();
+    } catch (jsonErr) {
+      // Likely received HTML (e.g., CRA dev server). Fallback to direct fetch.
+      console.warn('Proxy did not return JSON; falling back to CORS proxy.', jsonErr);
+      return await fetchViaCorsProxy();
+    }
 
     console.log('Google Reviews - API Data (via proxy):', data);
 
@@ -103,21 +139,12 @@ export async function getGoogleReviews(placeId = null) {
       };
     } else {
       console.error('Google Reviews proxy error:', data.error);
-      return {
-        reviews: [],
-        rating: 0,
-        totalReviews: 0,
-        error: data.error || 'Failed to fetch reviews',
-      };
+      // Fallback to direct fetch if proxy reports error
+      return await fetchViaCorsProxy();
     }
   } catch (error) {
-    console.error('Error fetching Google Reviews:', error);
-    return {
-      reviews: [],
-      rating: 0,
-      totalReviews: 0,
-      error: error.message,
-    };
+    console.error('Error fetching Google Reviews (proxy). Falling back to CORS proxy.', error);
+    return await fetchViaCorsProxy();
   }
 }
 
