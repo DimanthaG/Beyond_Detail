@@ -7,7 +7,6 @@ import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './Services.scss';
 
 // Lazy load heavy components to improve initial bundle size
-const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const SEO = lazy(() => import('../../components/SEO'));
 const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
@@ -179,12 +178,6 @@ function Services() {
                 }
               ]}
             />
-
-            <Suspense fallback={null}>
-              <GoogleReviewsCarousel />
-            </Suspense>
-
-
 
             <Contact />
           </div>
