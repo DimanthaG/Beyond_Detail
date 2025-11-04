@@ -33,7 +33,7 @@ export function OdourRemovalHero({ scrollTarget = "#contact" }) {
 
   return (
     <>
-      <div className="odour-removal-hero" ref={heroRef}>
+      <div id="hero" className="odour-removal-hero" ref={heroRef}>
         <motion.div 
           className="odour-removal-hero__background"
           style={{ y, opacity }}

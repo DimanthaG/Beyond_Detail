@@ -49,7 +49,16 @@ function HomeServicesCards() {
                     <p>{cards[0].cardOne.description}</p>
                     <div className='arrow-button'>
                       <span
-                        onClick={() => navigate(cards[0].cardOne.buttonUrl)}
+                        onClick={() => {
+                          navigate(`${cards[0].cardOne.buttonUrl}#hero`);
+                          // Ensure scroll happens after navigation
+                          setTimeout(() => {
+                            const heroElement = document.getElementById('hero');
+                            if (heroElement) {
+                              heroElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }, 100);
+                        }}
                       >
                         {cards[0].cardOne.buttonLabel}
                       </span>
@@ -78,7 +87,16 @@ function HomeServicesCards() {
                     <p>{cards[0].cardTwo.description}</p>
                     <div className='arrow-button2'>
                       <span
-                        onClick={() => navigate(cards[0].cardTwo.buttonUrl)}
+                        onClick={() => {
+                          navigate(`${cards[0].cardTwo.buttonUrl}#hero`);
+                          // Ensure scroll happens after navigation
+                          setTimeout(() => {
+                            const heroElement = document.getElementById('hero');
+                            if (heroElement) {
+                              heroElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }, 100);
+                        }}
                       >
                         {cards[0].cardTwo.buttonLabel}
                       </span>
@@ -107,7 +125,17 @@ function HomeServicesCards() {
                     <p>{cards[0].cardThree.description}</p>
                     <div className='arrow-button'>
                       <span
-                        onClick={() => navigate(cards[0].cardOne.buttonUrl)}
+                        onClick={() => {
+                          const buttonUrl = cards[0].cardThree.buttonUrl || cards[0].cardOne.buttonUrl;
+                          navigate(`${buttonUrl}#hero`);
+                          // Ensure scroll happens after navigation
+                          setTimeout(() => {
+                            const heroElement = document.getElementById('hero');
+                            if (heroElement) {
+                              heroElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                          }, 100);
+                        }}
                       >
                         {cards[0].cardThree.buttonLabel}
                       </span>

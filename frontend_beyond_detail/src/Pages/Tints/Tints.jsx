@@ -22,10 +22,7 @@ const ServiceGallery = lazy(() => import('../../components/ServiceGallery/Servic
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Tints() {
-  // scroll to top on page render
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // ScrollToTop component handles scrolling to hero section
 
   return (
     <>

@@ -35,7 +35,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
 
   return (
     <>
-      <div className="paint-correction-hero" ref={heroRef}>
+      <div id="hero" className="paint-correction-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="paint-correction-hero__background"

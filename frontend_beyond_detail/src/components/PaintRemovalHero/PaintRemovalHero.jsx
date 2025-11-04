@@ -33,7 +33,7 @@ export function PaintRemovalHero({ scrollTarget = "#contact" }) {
 
   return (
     <>
-      <div className="paint-removal-hero" ref={heroRef}>
+      <div id="hero" className="paint-removal-hero" ref={heroRef}>
         <motion.div 
           className="paint-removal-hero__background"
           style={{ y, opacity }}

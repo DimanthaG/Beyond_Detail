@@ -35,7 +35,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
 
   return (
     <>
-      <div className="auto-detail-hero" ref={heroRef}>
+      <div id="hero" className="auto-detail-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="auto-detail-hero__background"

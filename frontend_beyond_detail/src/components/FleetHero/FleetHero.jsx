@@ -34,7 +34,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
 
   return (
     <>
-      <div className="fleet-hero" ref={heroRef}>
+      <div id="hero" className="fleet-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="fleet-hero__background"

@@ -35,7 +35,7 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
 
   return (
     <>
-      <div className="ceramic-coating-hero" ref={heroRef}>
+      <div id="hero" className="ceramic-coating-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="ceramic-coating-hero__background"

@@ -12,10 +12,7 @@ const SEO = lazy(() => import('../../components/SEO'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function LeatherCleaning() {
-  // scroll to top on page render
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // ScrollToTop component handles scrolling to hero section
 
   return (
     <>

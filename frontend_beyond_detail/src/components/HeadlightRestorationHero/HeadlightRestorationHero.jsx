@@ -35,7 +35,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
 
   return (
     <>
-      <div className="headlight-restoration-hero" ref={heroRef}>
+      <div id="hero" className="headlight-restoration-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="headlight-restoration-hero__background"

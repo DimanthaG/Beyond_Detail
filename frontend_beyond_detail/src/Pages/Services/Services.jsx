@@ -13,10 +13,7 @@ const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDe
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Services() {
-  // scroll to top on page render
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // ScrollToTop component handles scrolling to hero section
 
   return (
     <>

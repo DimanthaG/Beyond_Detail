@@ -35,7 +35,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
 
   return (
     <>
-      <div className="interior-detailing-hero" ref={heroRef}>
+      <div id="hero" className="interior-detailing-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="interior-detailing-hero__background"

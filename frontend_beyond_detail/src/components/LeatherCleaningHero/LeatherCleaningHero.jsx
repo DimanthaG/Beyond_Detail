@@ -33,7 +33,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
 
   return (
     <>
-      <div className="leather-cleaning-hero" ref={heroRef}>
+      <div id="hero" className="leather-cleaning-hero" ref={heroRef}>
         <motion.div 
           className="leather-cleaning-hero__background"
           style={{ y, opacity }}

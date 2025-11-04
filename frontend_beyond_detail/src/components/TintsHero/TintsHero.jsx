@@ -35,7 +35,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
 
   return (
     <>
-      <div className="tints-hero" ref={heroRef}>
+      <div id="hero" className="tints-hero" ref={heroRef}>
         {/* Car Image Background with Parallax */}
         <motion.div 
           className="tints-hero__background"

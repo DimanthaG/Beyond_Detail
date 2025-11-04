@@ -58,7 +58,7 @@ const BentoCard = ({
     </div>
 
     <div className="bento-card__cta">
-      <Link to={href} className="bento-card__button">
+      <Link to={`${href}#hero`} className="bento-card__button">
         {cta}
         <ArrowRight className="bento-card__arrow" />
       </Link>
