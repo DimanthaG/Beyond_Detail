@@ -1,11 +1,13 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Contact } from '../../components';
+import { useParams, Link, useLocation } from 'react-router-dom';
+import { Contact, SEO } from '../../components';
+import { blogImages, blogImageCollections, allBlogImages } from './blogImages';
+import { formatContent, calculateReadingTime } from './blogContentFormatter';
 import './Blog.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
-// Mock blog data
+// Mock blog data with enhanced structure
 const mockBlogs = [
   {
     id: '1',
@@ -14,7 +16,8 @@ const mockBlogs = [
     author: 'Beyond Detail Team',
     publishedAt: '2025-01-15',
     excerpt: 'Your vehicle\'s paint is constantly exposed to environmental hazards. Learn five professional tips from our detailing experts to keep your car\'s finish protected and looking new.',
-    mainImage: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=1200&h=600&fit=crop',
+    mainImage: blogImages['5-essential-tips-protect-vehicle-paint'],
+    category: 'Paint Protection',
     content: [
       'Your vehicle\'s paint is under constant assault from UV rays, bird droppings, tree sap, road salt, and more. Protecting it requires a multi-faceted approach.',
       'Here are five essential tips to keep your paint looking pristine:',
@@ -37,7 +40,8 @@ const mockBlogs = [
     author: 'John Smith',
     publishedAt: '2025-01-10',
     excerpt: 'Understanding the differences between ceramic coatings and traditional wax can help you make the best choice for protecting your vehicle\'s paint.',
-    mainImage: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1200&h=600&fit=crop',
+    mainImage: blogImages['ceramic-coating-vs-traditional-wax'],
+    category: 'Ceramic Coating',
     content: [
       'When it comes to protecting your vehicle\'s paint, you have two main options: traditional wax and modern ceramic coatings. Each has its own benefits and drawbacks.',
       'Traditional Wax:',
@@ -55,7 +59,8 @@ const mockBlogs = [
     author: 'Beyond Detail Team',
     publishedAt: '2025-01-05',
     excerpt: 'Winter weather can be harsh on your vehicle. Follow these expert tips to protect your car during the cold months and keep it looking great.',
-    mainImage: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=1200&h=600&fit=crop',
+    mainImage: blogImages['preparing-your-car-for-winter'],
+    category: 'Seasonal Care',
     content: [
       'Winter weather brings unique challenges for vehicle owners. Salt, ice, and freezing temperatures can take a toll on your car\'s exterior and interior.',
       'Exterior Protection:',
@@ -75,16 +80,17 @@ const mockBlogs = [
     author: 'Sarah Johnson',
     publishedAt: '2024-12-28',
     excerpt: 'Learn professional techniques for deep cleaning and protecting your vehicle\'s interior to keep it looking and smelling like new.',
-    mainImage: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&h=600&fit=crop',
+    mainImage: blogImages['interior-detailing-guide'],
+    category: 'Interior Detailing',
     content: [
       'A clean interior not only looks great but also preserves the value of your vehicle. Here\'s a comprehensive guide to professional interior detailing.',
       'Cleaning Steps:',
-      '1. Remove all items and personal belongings',
-      '2. Vacuum thoroughly, including under seats',
-      '3. Clean dashboard and surfaces with appropriate cleaners',
-      '4. Shampoo carpets and upholstery',
-      '5. Clean windows from inside',
-      '6. Apply protectants to vinyl and leather',
+      '- Remove all items and personal belongings',
+      '- Vacuum thoroughly, including under seats',
+      '- Clean dashboard and surfaces with appropriate cleaners',
+      '- Shampoo carpets and upholstery',
+      '- Clean windows from inside',
+      '- Apply protectants to vinyl and leather',
       'Materials Needed:',
       'Use quality microfiber towels, pH-balanced cleaners, and protectants designed specifically for automotive use. Avoid household cleaners that can damage materials.',
       'Professional Services:',
@@ -98,13 +104,13 @@ const mockBlogs = [
     author: 'Beyond Detail Team',
     publishedAt: '2024-12-20',
     excerpt: 'Cloudy or yellowed headlights don\'t just look bad—they can significantly reduce visibility and compromise your safety on the road.',
-    mainImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop',
+    mainImage: blogImages['headlight-restoration-benefits'],
+    category: 'Safety',
     content: [
       'Over time, headlights become cloudy and yellowed due to UV damage, oxidation, and environmental factors. This reduces light output and can make nighttime driving dangerous.',
       'Safety Impact:',
       'Cloudy headlights can reduce light output by up to 80%, significantly decreasing visibility at night. This increases the risk of accidents and makes driving hazardous.',
       'Restoration Process:',
-      'Professional headlight restoration involves:',
       '- Sanding away the damaged surface layer',
       '- Polishing to restore clarity',
       '- Applying UV-resistant protective coating',
@@ -120,7 +126,8 @@ const mockBlogs = [
     author: 'Mike Chen',
     publishedAt: '2024-12-15',
     excerpt: 'Discover what happens during a professional paint correction service and how we restore your vehicle\'s finish to showroom condition.',
-    mainImage: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=600&fit=crop',
+    mainImage: blogImages['paint-correction-process-explained'],
+    category: 'Paint Correction',
     content: [
       'Paint correction is a meticulous process that removes swirl marks, scratches, and other imperfections from your vehicle\'s paint without damaging the original finish.',
       'Step 1: Assessment',
@@ -138,17 +145,168 @@ const mockBlogs = [
   }
 ];
 
+// Helper function to render content
+const renderContent = (content, blogSlug) => {
+  const formatted = formatContent(content, blogSlug);
+  const imageCollection = blogImageCollections[blogSlug] || [];
+  let imageIndex = 0;
+
+  return formatted.map((item, idx) => {
+    switch (item.type) {
+      case 'heading':
+        return (
+          <h2 key={idx} className="blog-heading">
+            {item.text}
+          </h2>
+        );
+      case 'section-header':
+        return (
+          <h3 key={idx} className="blog-section-header">
+            {item.text}
+          </h3>
+        );
+      case 'list':
+        return (
+          <ul key={idx} className="blog-list-items">
+            {item.items.map((listItem, listIdx) => (
+              <li key={listIdx}>{listItem}</li>
+            ))}
+          </ul>
+        );
+      case 'image-placeholder':
+        if (imageCollection.length > 0 && imageIndex < imageCollection.length) {
+          const imgSrc = imageCollection[imageIndex];
+          imageIndex++;
+          return (
+            <div key={idx} className="blog-content-image">
+              <img src={imgSrc} alt={`Blog content image ${imageIndex}`} />
+            </div>
+          );
+        }
+        return null;
+      case 'paragraph':
+      default:
+        return (
+          <p key={idx} className="blog-paragraph">
+            {item.text}
+          </p>
+        );
+    }
+  });
+};
+
+// Share buttons component
+const ShareButtons = ({ title, url }) => {
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : url;
+  const encodedTitle = encodeURIComponent(title);
+  const encodedUrl = encodeURIComponent(shareUrl);
+
+  return (
+    <div className="blog-share-buttons">
+      <span className="share-label">Share:</span>
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="share-btn share-facebook"
+        aria-label="Share on Facebook"
+      >
+        Facebook
+      </a>
+      <a
+        href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="share-btn share-twitter"
+        aria-label="Share on Twitter"
+      >
+        Twitter
+      </a>
+      <a
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="share-btn share-linkedin"
+        aria-label="Share on LinkedIn"
+      >
+        LinkedIn
+      </a>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(shareUrl);
+          alert('Link copied to clipboard!');
+        }}
+        className="share-btn share-copy"
+        aria-label="Copy link"
+      >
+        Copy Link
+      </button>
+    </div>
+  );
+};
+
+// Related posts component
+const RelatedPosts = ({ currentBlog, allBlogs }) => {
+  const related = allBlogs
+    .filter(blog => blog.id !== currentBlog.id && blog.category === currentBlog.category)
+    .slice(0, 3);
+
+  if (related.length === 0) {
+    // If no same category, get latest posts
+    const latest = allBlogs
+      .filter(blog => blog.id !== currentBlog.id)
+      .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+      .slice(0, 3);
+    return latest.length > 0 ? (
+      <section className="related-posts">
+        <h3>Latest Posts</h3>
+        <div className="related-posts-grid">
+          {latest.map((blog) => (
+            <Link key={blog.id} to={`/blog/${blog.slug}`} className="related-post-card">
+              {blog.mainImage && (
+                <img src={blog.mainImage} alt={blog.title} className="related-post-image" />
+              )}
+              <div className="related-post-content">
+                <h4>{blog.title}</h4>
+                <p className="related-post-excerpt">{blog.excerpt}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    ) : null;
+  }
+
+  return (
+    <section className="related-posts">
+      <h3>Related Posts</h3>
+      <div className="related-posts-grid">
+        {related.map((blog) => (
+          <Link key={blog.id} to={`/blog/${blog.slug}`} className="related-post-card">
+            {blog.mainImage && (
+              <img src={blog.mainImage} alt={blog.title} className="related-post-image" />
+            )}
+            <div className="related-post-content">
+              <h4>{blog.title}</h4>
+              <p className="related-post-excerpt">{blog.excerpt}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 function Blog() {
   const { slug } = useParams();
+  const location = useLocation();
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Simulate loading delay
     setLoading(true);
     setTimeout(() => {
       if (slug) {
-        // Find single blog post
         const blog = mockBlogs.find(b => b.slug === slug);
         setSelectedBlog(blog || null);
       }
@@ -156,84 +314,150 @@ function Blog() {
     }, 300);
   }, [slug]);
 
-  if (loading) return <div className="loading">Loading...</div>;
-
-  // Single Blog View
-  if (selectedBlog) {
+  if (loading) {
     return (
-      <>
-      <div className="blog-detail">
-        {selectedBlog.mainImage && (
-          <img
-            src={selectedBlog.mainImage}
-            alt={selectedBlog.title}
-            className="blog-main-image"
-          />
-        )}
-        <article className="blog-content">
-          <h1>{selectedBlog.title}</h1>
-          <div className="blog-meta">
-            <span className="author">{selectedBlog.author || 'Admin'}</span>
-            <span className="date">
-              {new Date(selectedBlog.publishedAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </span>
-          </div>
-          <div className="blog-body">
-            {selectedBlog.content.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
-            ))}
-          </div>
-        </article>
-        <Link to="/blog" className="back-link">
-          ← Back to Blog
-        </Link>
+      <div className="blog-loading">
+        <div className="loading-spinner"></div>
+        <p>Loading article...</p>
       </div>
-      <Suspense fallback={null}>
-        <GoogleReviewsCarousel />
-      </Suspense>
-      <Contact />
-    </>
     );
   }
 
-  // Blog List View
-  return (
-    <>
-      <div className="blog-list">
-        <h1>Our Blog</h1>
-        <div className="blogs-grid">
-          {mockBlogs.map((blog) => (
-            <Link
-              key={blog.id}
-              to={`/blog/${blog.slug}`}
-              className="blog-card"
-            >
-              {blog.mainImage && (
-                <img
-                  src={blog.mainImage}
-                  alt={blog.title}
-                  className="blog-image"
-                />
-              )}
-              <div className="blog-info">
-                <h3>{blog.title}</h3>
-                <p className="excerpt">{blog.excerpt}</p>
-                <div className="blog-footer">
-                  <span className="author">{blog.author || 'Admin'}</span>
-                  <span className="date">
-                    {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+  // Single Blog View
+  if (selectedBlog) {
+    const readingTime = calculateReadingTime(selectedBlog.content);
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+    const blogUrl = `${currentUrl.split('/blog')[0]}/blog/${selectedBlog.slug}`;
+
+    return (
+      <>
+        <SEO
+          title={`${selectedBlog.title} | Beyond Detail Toronto Blog`}
+          description={selectedBlog.excerpt}
+          name="Beyond Detail Toronto"
+          type="article"
+          keywords={`${selectedBlog.category}, car detailing, auto detailing, Toronto, Scarborough, Markham, Pickering`}
+          image={selectedBlog.mainImage}
+          url={blogUrl}
+        />
+        <div className="blog-detail">
+          {/* Hero Section */}
+          <div className="blog-hero">
+            {selectedBlog.mainImage && (
+              <div className="blog-hero-image">
+                <img src={selectedBlog.mainImage} alt={selectedBlog.title} />
+              </div>
+            )}
+            <div className="blog-hero-content">
+              <div className="blog-category-badge">{selectedBlog.category || 'Blog'}</div>
+              <h1 className="blog-title">{selectedBlog.title}</h1>
+              <div className="blog-meta-info">
+                <div className="blog-author-info">
+                  <span className="blog-author">{selectedBlog.author || 'Admin'}</span>
+                  <span className="blog-date">
+                    {new Date(selectedBlog.publishedAt).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
                     })}
                   </span>
                 </div>
+                <div className="blog-reading-time">
+                  <span className="reading-time-icon">⏱️</span>
+                  {readingTime} min read
+                </div>
               </div>
-            </Link>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <article className="blog-article">
+            <div className="blog-content-wrapper">
+              {/* Share Buttons - Sticky */}
+              <div className="blog-share-sticky">
+                <ShareButtons title={selectedBlog.title} url={blogUrl} />
+              </div>
+
+              {/* Article Content */}
+              <div className="blog-article-content">
+                {renderContent(selectedBlog.content, selectedBlog.slug)}
+              </div>
+            </div>
+
+            {/* Share Buttons - Bottom */}
+            <div className="blog-share-bottom">
+              <ShareButtons title={selectedBlog.title} url={blogUrl} />
+            </div>
+
+            {/* Related Posts */}
+            <RelatedPosts currentBlog={selectedBlog} allBlogs={mockBlogs} />
+
+            {/* Back to Blog */}
+            <div className="blog-navigation">
+              <Link to="/blog" className="back-to-blog-btn">
+                ← Back to All Posts
+              </Link>
+            </div>
+          </article>
+        </div>
+        <Suspense fallback={null}>
+          <GoogleReviewsCarousel />
+        </Suspense>
+        <Contact />
+      </>
+    );
+  }
+
+  // Blog List View
+  return (
+    <>
+      <SEO
+        title="Blog | Beyond Detail Toronto - Expert Auto Detailing Tips & Guides"
+        description="Read expert guides and tips on car detailing, paint protection, ceramic coating, and vehicle maintenance from Beyond Detail Toronto. Serving Toronto, Scarborough, Markham, and Pickering."
+        name="Beyond Detail Toronto"
+        type="website"
+        keywords="car detailing blog, auto detailing tips, paint protection guide, ceramic coating information, Toronto car care"
+      />
+      <div className="blog-list">
+        <div className="blog-list-header">
+          <h1>Our Blog</h1>
+          <p className="blog-list-subtitle">
+            Expert tips, guides, and insights on car detailing, paint protection, and vehicle maintenance
+          </p>
+        </div>
+        <div className="blogs-grid">
+          {mockBlogs.map((blog) => (
+            <article key={blog.id} className="blog-card">
+              <Link to={`/blog/${blog.slug}`} className="blog-card-link">
+                {blog.mainImage && (
+                  <div className="blog-card-image-wrapper">
+                    <img src={blog.mainImage} alt={blog.title} className="blog-image" />
+                    {blog.category && (
+                      <span className="blog-card-category">{blog.category}</span>
+                    )}
+                  </div>
+                )}
+                <div className="blog-info">
+                  <h2 className="blog-card-title">{blog.title}</h2>
+                  <p className="excerpt">{blog.excerpt}</p>
+                  <div className="blog-footer">
+                    <div className="blog-card-meta">
+                      <span className="author">{blog.author || 'Admin'}</span>
+                      <span className="date">
+                        {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </span>
+                    </div>
+                    <div className="blog-card-reading-time">
+                      {calculateReadingTime(blog.content)} min read
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </article>
           ))}
         </div>
       </div>
