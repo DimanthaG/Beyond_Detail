@@ -104,7 +104,15 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Complete Auto Detailing
+                    COMPLETE
+                  </motion.span>
+                  <motion.span 
+                    className="auto-detail-hero__title-line auto-detail-hero__title-line--white"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.55 }}
+                  >
+                    AUTO DETAILING
                   </motion.span>
                   <motion.span 
                     className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
@@ -112,7 +120,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    Showroom Quality
+                    INSIDE & OUT
                   </motion.span>
                 </motion.h1>
                 <motion.p 
