@@ -13,8 +13,8 @@ const path = require('path');
 const galleriesPath = path.join(__dirname, '../src/assets/galleries');
 const galleryImagesPath = path.join(__dirname, '../src/utils/galleryImages.js');
 
-// Gallery folders to scan (only these three have active galleries)
-const activeGalleries = ['paint-correction', 'ceramic-coating', 'window-tint'];
+// Gallery folders to scan (active galleries)
+const activeGalleries = ['paint-correction', 'ceramic-coating', 'window-tint', 'auto-detail'];
 
 // Supported image extensions
 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.svg', '.JPG', '.JPEG', '.PNG', '.WEBP', '.SVG'];
@@ -103,7 +103,7 @@ function updateGalleryImagesFile() {
   // Generate the full file content
   const fileContent = `// Gallery images utility
 // Manual imports approach (require.context not available in this webpack setup)
-// NOTE: This gallery is for Paint Correction, Ceramic Coating, and Window Tint pages only
+// NOTE: Active galleries include Paint Correction, Ceramic Coating, Window Tint, and Auto Detail
 // 
 // ⚠️ AUTO-GENERATED: This file is auto-updated by scripts/updateGalleryImports.js
 // If you manually edit this file, your changes may be overwritten.

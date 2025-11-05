@@ -116,7 +116,7 @@ function InteriorDetailing() {
               title="Interior Detailing Packages"
               packages={[
                 {
-                  name: "Basic Interior Detail",
+                  name: "Express Interior Detail",
                   priceRange: { start: 80 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Essential interior cleaning for regular maintenance. Perfect for keeping your vehicle's interior fresh and clean.",
@@ -130,7 +130,7 @@ function InteriorDetailing() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Intermediate Interior Detail",
+                  name: "Signature Interior Detail",
                   priceRange: { start: 130 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Enhanced interior cleaning with sanitization. Ideal for vehicles that need deeper cleaning and odor elimination.",
@@ -146,7 +146,7 @@ function InteriorDetailing() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Advanced Interior Detail",
+                  name: "Premium Interior Detail",
                   priceRange: { start: 180 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Comprehensive deep cleaning with professional shampoo extraction. Removes embedded stains, pet hair, salt deposits, and deeply embedded dirt.",

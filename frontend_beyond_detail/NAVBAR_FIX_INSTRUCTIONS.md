@@ -1,3 +1,20 @@
+# Navbar Component Fix Instructions
+
+## Problem
+The Navbar2.jsx file keeps getting corrupted/cleared. The error indicates that React is receiving an object instead of a component.
+
+## Solution
+You need to manually create the Navbar2.jsx file with the following content:
+
+### File Location
+```
+frontend_beyond_detail/src/components/Navbar/Navbar2.jsx
+```
+
+### File Content
+Copy and paste this complete code into the file:
+
+```javascript
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
@@ -91,3 +108,22 @@ function Navbar2({ className = '' }) {
 }
 
 export default Navbar2;
+```
+
+## Steps
+1. Open VS Code or your IDE
+2. Navigate to `frontend_beyond_detail/src/components/Navbar/`
+3. Create or open `Navbar2.jsx`
+4. Paste the code above
+5. Save the file
+6. Restart your dev server: `npm start`
+7. Hard refresh browser: `Ctrl+Shift+R`
+
+## Verification
+After saving, verify the file has:
+- Import statements at the top
+- Function Navbar2 component
+- export default Navbar2 at the bottom
+
+The file should be approximately 100+ lines.
+

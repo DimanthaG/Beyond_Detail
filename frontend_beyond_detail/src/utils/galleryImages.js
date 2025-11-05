@@ -1,6 +1,6 @@
 // Gallery images utility
 // Manual imports approach (require.context not available in this webpack setup)
-// NOTE: This gallery is for Paint Correction, Ceramic Coating, and Window Tint pages only
+// NOTE: Active galleries include Paint Correction, Ceramic Coating, Window Tint, and Auto Detail
 // 
 // ⚠️ AUTO-GENERATED: This file is auto-updated by scripts/updateGalleryImports.js
 // If you manually edit this file, your changes may be overwritten.
@@ -118,6 +118,30 @@ import windowtintImg43 from '../assets/galleries/window-tint/WhatsApp Image 2025
 import windowtintImg44 from '../assets/galleries/window-tint/WhatsApp Image 2025-03-10 at 13.42.01 (17).jpeg';
 import windowtintImg45 from '../assets/galleries/window-tint/WhatsApp Image 2025-03-10 at 13.42.01.jpeg';
 import windowtintImg46 from '../assets/galleries/window-tint/XRQN5525.JPG';
+import autodetailImg1 from '../assets/galleries/auto-detail/16B1FDAF-2D48-4DFF-AD83-58C9165CEFE0.jpeg';
+import autodetailImg2 from '../assets/galleries/auto-detail/1AC9B443-1EFC-4877-AA02-EFD698E9C073.jpeg';
+import autodetailImg3 from '../assets/galleries/auto-detail/1EDEE7EF-F7B8-4BE9-B407-B6AAA13F219A.jpeg';
+import autodetailImg4 from '../assets/galleries/auto-detail/25640804-1C40-481F-88C2-D766BA5BBB1B.jpeg';
+import autodetailImg5 from '../assets/galleries/auto-detail/2590918A-4416-49CC-B1EA-918342255671.jpeg';
+import autodetailImg6 from '../assets/galleries/auto-detail/27618C1B-BFEA-458C-8768-EA604AEFADC1.jpeg';
+import autodetailImg7 from '../assets/galleries/auto-detail/33B64914-708C-4E7B-93C8-8AE4AFAF367D.jpeg';
+import autodetailImg8 from '../assets/galleries/auto-detail/3DF42A0B-CF17-42AD-89AE-564CC0E3102A.jpeg';
+import autodetailImg9 from '../assets/galleries/auto-detail/53728F8B-A232-41FD-9A05-696AF4571979.jpeg';
+import autodetailImg10 from '../assets/galleries/auto-detail/5C247561-C52E-450F-848A-79C4F0CA1B56.jpeg';
+import autodetailImg11 from '../assets/galleries/auto-detail/666A7DCC-2DBC-47D6-98E2-351F95DE6C29.jpeg';
+import autodetailImg12 from '../assets/galleries/auto-detail/6B7DE6C9-18EE-451F-AB69-2AB01EC72696.jpeg';
+import autodetailImg13 from '../assets/galleries/auto-detail/7A87DB84-1109-43DD-9165-A3A36F7E0C5B.jpeg';
+import autodetailImg14 from '../assets/galleries/auto-detail/9A51A382-8134-4B60-82ED-99540E66328C.jpeg';
+import autodetailImg15 from '../assets/galleries/auto-detail/9DE3AB17-A839-42D2-B887-027A549B4498.jpeg';
+import autodetailImg16 from '../assets/galleries/auto-detail/ACB149BC-F068-4D2A-BB37-FF426060A807.jpeg';
+import autodetailImg17 from '../assets/galleries/auto-detail/B1D8E57D-B53A-4E03-AAFE-A1A254D01C04.jpeg';
+import autodetailImg18 from '../assets/galleries/auto-detail/BCF8CA68-F227-4009-B87C-96E3FC8B38ED.jpeg';
+import autodetailImg19 from '../assets/galleries/auto-detail/C2D8149B-54E0-42B2-824F-F2B3DD4E8047.jpeg';
+import autodetailImg20 from '../assets/galleries/auto-detail/D7054962-0522-4D84-A8FC-7DAB7A705240.jpeg';
+import autodetailImg21 from '../assets/galleries/auto-detail/D8F93A06-AB64-4848-BDBC-A84022E6DB84.jpeg';
+import autodetailImg22 from '../assets/galleries/auto-detail/DD84F8B3-AD8C-44FE-85BD-AAE01999950A.jpeg';
+import autodetailImg23 from '../assets/galleries/auto-detail/EB0DB86F-0803-4643-8556-835BF770B5C0.jpeg';
+import autodetailImg24 from '../assets/galleries/auto-detail/FFE66538-78F8-4FBD-9DA9-C45C02D18E0D.jpeg';
 
 // Gallery image mappings - manually defined for each service type
 const galleryImageMap = {
@@ -687,7 +711,128 @@ const galleryImageMap = {
       fileName: 'XRQN5525.JPG',
     },
   ],
-  'auto-detail': [],
+  'auto-detail': [
+    {
+      src: autodetailImg1,
+      name: '16B1FDAF-2D48-4DFF-AD83-58C9165CEFE0',
+      fileName: '16B1FDAF-2D48-4DFF-AD83-58C9165CEFE0.jpeg',
+    },
+    {
+      src: autodetailImg2,
+      name: '1AC9B443-1EFC-4877-AA02-EFD698E9C073',
+      fileName: '1AC9B443-1EFC-4877-AA02-EFD698E9C073.jpeg',
+    },
+    {
+      src: autodetailImg3,
+      name: '1EDEE7EF-F7B8-4BE9-B407-B6AAA13F219A',
+      fileName: '1EDEE7EF-F7B8-4BE9-B407-B6AAA13F219A.jpeg',
+    },
+    {
+      src: autodetailImg4,
+      name: '25640804-1C40-481F-88C2-D766BA5BBB1B',
+      fileName: '25640804-1C40-481F-88C2-D766BA5BBB1B.jpeg',
+    },
+    {
+      src: autodetailImg5,
+      name: '2590918A-4416-49CC-B1EA-918342255671',
+      fileName: '2590918A-4416-49CC-B1EA-918342255671.jpeg',
+    },
+    {
+      src: autodetailImg6,
+      name: '27618C1B-BFEA-458C-8768-EA604AEFADC1',
+      fileName: '27618C1B-BFEA-458C-8768-EA604AEFADC1.jpeg',
+    },
+    {
+      src: autodetailImg7,
+      name: '33B64914-708C-4E7B-93C8-8AE4AFAF367D',
+      fileName: '33B64914-708C-4E7B-93C8-8AE4AFAF367D.jpeg',
+    },
+    {
+      src: autodetailImg8,
+      name: '3DF42A0B-CF17-42AD-89AE-564CC0E3102A',
+      fileName: '3DF42A0B-CF17-42AD-89AE-564CC0E3102A.jpeg',
+    },
+    {
+      src: autodetailImg9,
+      name: '53728F8B-A232-41FD-9A05-696AF4571979',
+      fileName: '53728F8B-A232-41FD-9A05-696AF4571979.jpeg',
+    },
+    {
+      src: autodetailImg10,
+      name: '5C247561-C52E-450F-848A-79C4F0CA1B56',
+      fileName: '5C247561-C52E-450F-848A-79C4F0CA1B56.jpeg',
+    },
+    {
+      src: autodetailImg11,
+      name: '666A7DCC-2DBC-47D6-98E2-351F95DE6C29',
+      fileName: '666A7DCC-2DBC-47D6-98E2-351F95DE6C29.jpeg',
+    },
+    {
+      src: autodetailImg12,
+      name: '6B7DE6C9-18EE-451F-AB69-2AB01EC72696',
+      fileName: '6B7DE6C9-18EE-451F-AB69-2AB01EC72696.jpeg',
+    },
+    {
+      src: autodetailImg13,
+      name: '7A87DB84-1109-43DD-9165-A3A36F7E0C5B',
+      fileName: '7A87DB84-1109-43DD-9165-A3A36F7E0C5B.jpeg',
+    },
+    {
+      src: autodetailImg14,
+      name: '9A51A382-8134-4B60-82ED-99540E66328C',
+      fileName: '9A51A382-8134-4B60-82ED-99540E66328C.jpeg',
+    },
+    {
+      src: autodetailImg15,
+      name: '9DE3AB17-A839-42D2-B887-027A549B4498',
+      fileName: '9DE3AB17-A839-42D2-B887-027A549B4498.jpeg',
+    },
+    {
+      src: autodetailImg16,
+      name: 'ACB149BC-F068-4D2A-BB37-FF426060A807',
+      fileName: 'ACB149BC-F068-4D2A-BB37-FF426060A807.jpeg',
+    },
+    {
+      src: autodetailImg17,
+      name: 'B1D8E57D-B53A-4E03-AAFE-A1A254D01C04',
+      fileName: 'B1D8E57D-B53A-4E03-AAFE-A1A254D01C04.jpeg',
+    },
+    {
+      src: autodetailImg18,
+      name: 'BCF8CA68-F227-4009-B87C-96E3FC8B38ED',
+      fileName: 'BCF8CA68-F227-4009-B87C-96E3FC8B38ED.jpeg',
+    },
+    {
+      src: autodetailImg19,
+      name: 'C2D8149B-54E0-42B2-824F-F2B3DD4E8047',
+      fileName: 'C2D8149B-54E0-42B2-824F-F2B3DD4E8047.jpeg',
+    },
+    {
+      src: autodetailImg20,
+      name: 'D7054962-0522-4D84-A8FC-7DAB7A705240',
+      fileName: 'D7054962-0522-4D84-A8FC-7DAB7A705240.jpeg',
+    },
+    {
+      src: autodetailImg21,
+      name: 'D8F93A06-AB64-4848-BDBC-A84022E6DB84',
+      fileName: 'D8F93A06-AB64-4848-BDBC-A84022E6DB84.jpeg',
+    },
+    {
+      src: autodetailImg22,
+      name: 'DD84F8B3-AD8C-44FE-85BD-AAE01999950A',
+      fileName: 'DD84F8B3-AD8C-44FE-85BD-AAE01999950A.jpeg',
+    },
+    {
+      src: autodetailImg23,
+      name: 'EB0DB86F-0803-4643-8556-835BF770B5C0',
+      fileName: 'EB0DB86F-0803-4643-8556-835BF770B5C0.jpeg',
+    },
+    {
+      src: autodetailImg24,
+      name: 'FFE66538-78F8-4FBD-9DA9-C45C02D18E0D',
+      fileName: 'FFE66538-78F8-4FBD-9DA9-C45C02D18E0D.jpeg',
+    },
+  ],
   'interior-detailing': [],
   'exterior-detailing': [],
   'headlight-restoration': [],

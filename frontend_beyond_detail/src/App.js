@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import { Footer, Navbar, SocialIcons } from './components';
+import { Footer, SocialIcons } from './components';
+import Navbar from './components/Navbar/Navbar2';
 import { AnimatePresence } from 'framer-motion';
 import { withRouteWrapper } from './components/RouteWrapper/RouteWrapper';
 

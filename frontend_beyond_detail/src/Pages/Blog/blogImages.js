@@ -22,7 +22,7 @@ import interiorImg2 from '../../assets/bd/bd-28.jpg';
 import interiorImg3 from '../../assets/bd/bd-29.jpg';
 
 // Headlight Restoration - Use paint correction images that show front views with headlights
-import headlightImg1 from '../../assets/galleries/paint-correction/WhatsApp Image 2024-12-02 at 13.47.36.jpeg';
+import headlightImg1 from '../../assets/galleries/paint-correction/IMG_3721.JPG';
 import headlightImg2 from '../../assets/galleries/paint-correction/IMG_3903.JPG';
 import headlightImg3 from '../../assets/galleries/paint-correction/IMG_4610.JPG';
 

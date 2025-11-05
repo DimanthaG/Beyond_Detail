@@ -92,23 +92,23 @@ function ExteriorDetailing() {
                 }
               ]}
               features={[
-                "Premium Hand Wash",
+                "Exterior Hand Wash",
                 "Tire and Rims Cleaned",
                 "Door Jams Cleaned",
                 "Trunk Jams Cleaned",
                 "Exterior Windows Cleaned",
                 "All Mirrors Cleaned",
-                "Clay Bar Decontamination (Intermediate & Advanced)",
-                "Premium Sealant Application (Intermediate & Advanced)",
-                "Paint Correction Available (Advanced)",
-                "Ceramic Coating Available (Advanced)"
+                "Clay Bar Decontamination (Signature & Premium)",
+                "Premium Sealant Application (Signature & Premium)",
+                "Paint Correction Available (Premium)",
+                "Ceramic Coating Available (Premium)"
               ]}
             />
             <ServicePricing
               title="Exterior Detailing Packages"
               packages={[
                 {
-                  name: "Basic Wash",
+                  name: "Express Wash",
                   priceRange: { start: 50 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Essential exterior cleaning perfect for regular maintenance. Keeps your vehicle looking fresh and clean.",
@@ -121,7 +121,7 @@ function ExteriorDetailing() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Intermediate Wash",
+                  name: "Signature Wash",
                   priceRange: { start: 150 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Enhanced exterior cleaning with decontamination and sealant protection. Ideal for vehicles that need deeper cleaning and protection.",
@@ -139,7 +139,7 @@ function ExteriorDetailing() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Advanced Exterior Service",
+                  name: "Premium Exterior Service",
                   priceRange: { start: 0, end: 0 },
                   priceNote: "Paint Correction & Ceramic Coating Services",
                   description: "For comprehensive paint correction and long-lasting ceramic coating protection, please see our Paint Correction and Ceramic Coating pages for detailed packages and pricing.",

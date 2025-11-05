@@ -86,43 +86,45 @@ function ServiceInfoSection({
           </motion.div>
         )}
 
-        {/* Tab Navigation */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-          variants={revealVariants}
-          custom={1}
-          className="service-info__tabs"
-        >
-          {benefits.length > 0 && (
-            <button
-              onClick={() => setActiveTab('benefits')}
-              className={`service-info__tab ${activeTab === 'benefits' ? 'service-info__tab--active' : ''}`}
-            >
-              <Sparkles size={20} />
-              <span>Key Benefits</span>
-            </button>
-          )}
-          {process.length > 0 && (
-            <button
-              onClick={() => setActiveTab('process')}
-              className={`service-info__tab ${activeTab === 'process' ? 'service-info__tab--active' : ''}`}
-            >
-              <Layers size={20} />
-              <span>Our Process</span>
-            </button>
-          )}
-          {features.length > 0 && (
-            <button
-              onClick={() => setActiveTab('features')}
-              className={`service-info__tab ${activeTab === 'features' ? 'service-info__tab--active' : ''}`}
-            >
-              <CheckCircle2 size={20} />
-              <span>What's Included</span>
-            </button>
-          )}
-        </motion.div>
+        {/* Tab Navigation - Only show if multiple sections */}
+        {(process.length > 0 || features.length > 0) && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+            variants={revealVariants}
+            custom={1}
+            className="service-info__tabs"
+          >
+            {benefits.length > 0 && (
+              <button
+                onClick={() => setActiveTab('benefits')}
+                className={`service-info__tab ${activeTab === 'benefits' ? 'service-info__tab--active' : ''}`}
+              >
+                <Sparkles size={20} />
+                <span>Key Benefits</span>
+              </button>
+            )}
+            {process.length > 0 && (
+              <button
+                onClick={() => setActiveTab('process')}
+                className={`service-info__tab ${activeTab === 'process' ? 'service-info__tab--active' : ''}`}
+              >
+                <Layers size={20} />
+                <span>Our Process</span>
+              </button>
+            )}
+            {features.length > 0 && (
+              <button
+                onClick={() => setActiveTab('features')}
+                className={`service-info__tab ${activeTab === 'features' ? 'service-info__tab--active' : ''}`}
+              >
+                <CheckCircle2 size={20} />
+                <span>What's Included</span>
+              </button>
+            )}
+          </motion.div>
+        )}
 
         {/* Tab Content */}
         <div className="service-info__content">

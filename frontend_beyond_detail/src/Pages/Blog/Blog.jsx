@@ -340,10 +340,10 @@ function Blog() {
           image={selectedBlog.mainImage}
           url={blogUrl}
         />
-        <div className="blog-detail">
+      <div className="blog-detail">
           {/* Hero Section */}
           <div className="blog-hero">
-            {selectedBlog.mainImage && (
+        {selectedBlog.mainImage && (
               <div className="blog-hero-image">
                 <img src={selectedBlog.mainImage} alt={selectedBlog.title} />
               </div>
@@ -355,13 +355,13 @@ function Blog() {
                 <div className="blog-author-info">
                   <span className="blog-author">{selectedBlog.author || 'Admin'}</span>
                   <span className="blog-date">
-                    {new Date(selectedBlog.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </span>
-                </div>
+              {new Date(selectedBlog.publishedAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+          </div>
                 <div className="blog-reading-time">
                   <span className="reading-time-icon">⏱️</span>
                   {readingTime} min read
@@ -396,15 +396,15 @@ function Blog() {
             <div className="blog-navigation">
               <Link to="/blog" className="back-to-blog-btn">
                 ← Back to All Posts
-              </Link>
+        </Link>
             </div>
           </article>
-        </div>
-        <Suspense fallback={null}>
-          <GoogleReviewsCarousel />
-        </Suspense>
-        <Contact />
-      </>
+      </div>
+      <Suspense fallback={null}>
+        <GoogleReviewsCarousel />
+      </Suspense>
+      <Contact />
+    </>
     );
   }
 
@@ -420,7 +420,7 @@ function Blog() {
       />
       <div className="blog-list">
         <div className="blog-list-header">
-          <h1>Our Blog</h1>
+        <h1>Our Blog</h1>
           <p className="blog-list-subtitle">
             Expert tips, guides, and insights on car detailing, paint protection, and vehicle maintenance
           </p>
@@ -429,34 +429,34 @@ function Blog() {
           {mockBlogs.map((blog) => (
             <article key={blog.id} className="blog-card">
               <Link to={`/blog/${blog.slug}`} className="blog-card-link">
-                {blog.mainImage && (
+              {blog.mainImage && (
                   <div className="blog-card-image-wrapper">
                     <img src={blog.mainImage} alt={blog.title} className="blog-image" />
                     {blog.category && (
                       <span className="blog-card-category">{blog.category}</span>
                     )}
                   </div>
-                )}
-                <div className="blog-info">
+              )}
+              <div className="blog-info">
                   <h2 className="blog-card-title">{blog.title}</h2>
-                  <p className="excerpt">{blog.excerpt}</p>
-                  <div className="blog-footer">
+                <p className="excerpt">{blog.excerpt}</p>
+                <div className="blog-footer">
                     <div className="blog-card-meta">
-                      <span className="author">{blog.author || 'Admin'}</span>
-                      <span className="date">
-                        {new Date(blog.publishedAt).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </span>
+                  <span className="author">{blog.author || 'Admin'}</span>
+                  <span className="date">
+                    {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
                     </div>
                     <div className="blog-card-reading-time">
                       {calculateReadingTime(blog.content)} min read
                     </div>
-                  </div>
                 </div>
-              </Link>
+              </div>
+            </Link>
             </article>
           ))}
         </div>
