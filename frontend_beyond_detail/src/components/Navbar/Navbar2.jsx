@@ -66,9 +66,9 @@ function Navbar2({ className = '' }) {
                   <ChevronDown className={`navbar__dropdown-icon ${openDropdown === 'services' ? 'navbar__dropdown-icon--open' : ''}`} size={16} />
                 </div>
                 {openDropdown === 'services' && (
-                  <ul className="navbar__dropdown-menu" onClick={() => setOpenDropdown(null)}>
+                  <ul className="navbar__dropdown-menu">
                     {link.dropdown.map((item, idx) => (
-                      <li key={idx} className="navbar__dropdown-item">
+                      <li key={idx} className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
                         <Link to={item.path} className="linkItem">{item.name}</Link>
                       </li>
                     ))}

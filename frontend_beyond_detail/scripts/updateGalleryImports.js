@@ -114,7 +114,6 @@ ${allImports.join('\n')}
 // Gallery image mappings - manually defined for each service type
 const galleryImageMap = {
 ${galleryMapEntries.join('\n')}
-  'auto-detail': [],
   'interior-detailing': [],
   'exterior-detailing': [],
   'headlight-restoration': [],
