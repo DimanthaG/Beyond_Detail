@@ -68,8 +68,18 @@ function Navbar2({ className = '' }) {
                 {openDropdown === 'services' && (
                   <ul className="navbar__dropdown-menu">
                     {link.dropdown.map((item, idx) => (
-                      <li key={idx} className="navbar__dropdown-item" onClick={() => setOpenDropdown(null)}>
-                        <Link to={item.path} className="linkItem">{item.name}</Link>
+                      <li key={idx} className="navbar__dropdown-item">
+                        <Link 
+                          to={item.path} 
+                          className="linkItem"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setOpenDropdown(null);
+                            setNavActive(false);
+                          }}
+                        >
+                          {item.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>

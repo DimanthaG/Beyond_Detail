@@ -5,48 +5,44 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // If there's a hash in the URL, scroll to that element
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-        return;
-      }
+    // Always scroll to top immediately when pathname changes
+    // Use scrollTo(0, 0) for maximum compatibility
+    window.scrollTo(0, 0);
+    
+    // Also set scrollTop on document elements for better compatibility
+    if (document.documentElement) {
+      document.documentElement.scrollTop = 0;
+    }
+    if (document.body) {
+      document.body.scrollTop = 0;
     }
 
-    // Check if this is a service page (has a hero section)
-    const servicePages = [
-      '/paint-correction',
-      '/ceramic-coatings',
-      '/interior-detailing',
-      '/exterior-detailing',
-      '/headlight-restoration',
-      '/odour-removal',
-      '/leather-cleaning',
-      '/paint-removal',
-      '/fleet-services',
-      '/tint',
-      '/auto-detail'
-    ];
+    // If there's a hash in the URL, scroll to that element after a brief delay
+    // This allows the page to render first
+    if (hash) {
+      const scrollToHash = () => {
+        const element = document.querySelector(hash);
+        if (element) {
+          // Calculate offset for fixed navbar (approximately 8vh)
+          const navbarHeight = 80; // Approximate navbar height in pixels
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
 
-    const isServicePage = servicePages.some(page => pathname === page || pathname.startsWith(page + '/'));
-
-    if (isServicePage) {
-      // Scroll to hero section on service pages
-      setTimeout(() => {
-        const heroElement = document.getElementById('hero');
-        if (heroElement) {
-          heroElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          // Fallback to top if hero not found
-          window.scrollTo(0, 0);
+          window.scrollTo({
+            top: offsetPosition,
+            left: 0,
+            behavior: 'smooth'
+          });
         }
+      };
+
+      // Try immediately, then retry after a short delay if element not found
+      scrollToHash();
+      const timeoutId = setTimeout(() => {
+        scrollToHash();
       }, 100);
-    } else {
-      // For other pages, scroll to top
-      window.scrollTo(0, 0);
+
+      return () => clearTimeout(timeoutId);
     }
   }, [pathname, hash]);
 
