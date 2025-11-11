@@ -9,6 +9,25 @@ module.exports = function override(config, env) {
       chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     };
     
+    // Ensure images are properly handled in production
+    // Update file-loader/asset modules configuration if needed
+    if (config.module && config.module.rules) {
+      config.module.rules.forEach(rule => {
+        if (rule.oneOf) {
+          rule.oneOf.forEach(oneOfRule => {
+            // Ensure image files are processed correctly
+            if (oneOfRule.test && oneOfRule.test.toString().includes('image')) {
+              // Make sure images are included in the build
+              if (!oneOfRule.generator) {
+                oneOfRule.generator = {};
+              }
+              oneOfRule.generator.filename = 'static/media/[name].[hash:8][ext]';
+            }
+          });
+        }
+      });
+    }
+    
     // Add long-term caching for assets
     config.optimization = {
       ...config.optimization,

@@ -22,16 +22,27 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
       
       // Convert to format expected by component
       const formattedImages = galleryImages.map((img, index) => {
-        console.log(`[ServiceGallery] Formatting image ${index}:`, img);
+        // Log the image src to debug path issues
+        const imageSrc = img.src;
+        console.log(`[ServiceGallery] Formatting image ${index}:`, {
+          name: img.name,
+          src: imageSrc,
+          srcType: typeof imageSrc,
+          isString: typeof imageSrc === 'string',
+          startsWithSlash: typeof imageSrc === 'string' && imageSrc.startsWith('/'),
+          startsWithHttp: typeof imageSrc === 'string' && imageSrc.startsWith('http'),
+        });
+        
         return {
           _id: `local-${serviceType}-${index}`,
-          src: img.src,
+          src: imageSrc,
           name: img.name,
           // No title - don't display filename
         };
       });
 
       console.log(`[ServiceGallery] Formatted ${formattedImages.length} images for display`);
+      console.log(`[ServiceGallery] Sample image src:`, formattedImages[0]?.src);
       setImages(formattedImages);
       setLoading(false);
     } catch (error) {
@@ -190,6 +201,17 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                         alt={`Gallery image ${index + 1}`}
                         effect="blur"
                         className="service-gallery__image"
+                        onError={(e) => {
+                          console.error('[ServiceGallery] Image failed to load:', item.src || item.image);
+                          console.error('[ServiceGallery] Image object:', item);
+                          // Try to construct the path if it's a relative path
+                          if (item.src && typeof item.src === 'string' && !item.src.startsWith('http') && !item.src.startsWith('/')) {
+                            const publicUrl = process.env.PUBLIC_URL || '';
+                            const correctedPath = `${publicUrl}${item.src.startsWith('./') ? item.src.substring(1) : '/' + item.src}`;
+                            console.log('[ServiceGallery] Attempting corrected path:', correctedPath);
+                            e.target.src = correctedPath;
+                          }
+                        }}
                       />
                     </div>
                   </div>
@@ -253,6 +275,16 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
               alt={`Gallery image ${lightboxIndex + 1}`}
               effect="blur"
               className="service-gallery__lightbox-image"
+              onError={(e) => {
+                console.error('[ServiceGallery] Lightbox image failed to load:', images[lightboxIndex]?.src || images[lightboxIndex]?.image);
+                const img = images[lightboxIndex];
+                if (img?.src && typeof img.src === 'string' && !img.src.startsWith('http') && !img.src.startsWith('/')) {
+                  const publicUrl = process.env.PUBLIC_URL || '';
+                  const correctedPath = `${publicUrl}${img.src.startsWith('./') ? img.src.substring(1) : '/' + img.src}`;
+                  console.log('[ServiceGallery] Attempting corrected lightbox path:', correctedPath);
+                  e.target.src = correctedPath;
+                }
+              }}
             />
             <div className="service-gallery__lightbox-counter">
               {lightboxIndex + 1} / {images.length}
