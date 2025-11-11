@@ -47,3 +47,10 @@ Look for these messages:
 2. Type: `window.location.href` - should be on auto-detail page
 3. Check Network tab - should see image requests loading
 
+
+
+
+
+
+
+

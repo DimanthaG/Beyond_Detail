@@ -121,3 +121,10 @@ export default React.memo(TintLawsChart);
 
 
 
+
+
+
+
+
+
+

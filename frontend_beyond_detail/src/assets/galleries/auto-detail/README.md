@@ -38,3 +38,10 @@ frontend_beyond_detail/src/assets/galleries/auto-detail/
 
 The gallery will display on the Auto Detail page (Services page) between the "Why Choose Our Auto Detailing" section and the "Our Auto Detailing Packages" section.
 
+
+
+
+
+
+
+
