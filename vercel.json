@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm install --legacy-peer-deps && npm run update-galleries && npm run build",
+  "outputDirectory": "build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "create-react-app",
+  "rootDirectory": "frontend_beyond_detail"
+}
+
