@@ -24,12 +24,12 @@ export const formatContent = (content, blogSlug) => {
       });
     }
     // Check if it's a list item
-    else if (/^[-•\*]\s/.test(item)) {
+    else if (/^[-•*]\s/.test(item)) {
       if (!currentSection || currentSection.type !== 'list') {
         if (currentSection) formatted.push(currentSection);
         currentSection = { type: 'list', items: [] };
       }
-      currentSection.items.push(item.replace(/^[-•\*]\s/, '').trim());
+      currentSection.items.push(item.replace(/^[-•*]\s/, '').trim());
     }
     // Check if it's a section header (ends with colon and is short)
     else if (/^[A-Z][^:]+:$/.test(item) && item.length < 50) {

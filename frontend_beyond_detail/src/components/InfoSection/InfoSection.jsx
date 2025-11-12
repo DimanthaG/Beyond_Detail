@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import './InfoSection.scss';
 import { urlFor, client } from '../../client';
 import { useNavigate } from 'react-router-dom';
-import { GoPlus } from 'react-icons/go';
 
 function InfoSection() {
   const [info, setInfo] = useState([]);
@@ -67,7 +66,7 @@ function InfoSection() {
     },
     appearOptionsTwo);
 
-    const appearOnScrollThree = new IntersectionObserver(function (
+    new IntersectionObserver(function (
       entries,
       appearOnScroll
     ) {

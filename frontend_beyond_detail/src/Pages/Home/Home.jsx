@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { SEO } from '../../components';
-import { animationOne, transition } from '../../components/Transition';
 import { HomeHero } from '../../components/HomeHero/HomeHero';
 
 import {

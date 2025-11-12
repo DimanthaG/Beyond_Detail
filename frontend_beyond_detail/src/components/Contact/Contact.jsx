@@ -33,16 +33,13 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { client } from '../../client';
-import { motion } from 'framer-motion';
 import { Loading } from '../../components';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
-import getDate from 'date-fns/getDate';
 import '../../react-datepicker.css';
-import images from '../../constants/images';
 import './Contact.scss';
 
 function Contact() {

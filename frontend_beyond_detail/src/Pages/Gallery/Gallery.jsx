@@ -7,7 +7,6 @@ import ImageSlider from 'react-image-comparison-slider';
 import { GrClose } from 'react-icons/gr';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import images from '../../constants/images';
 import './Gallery.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));

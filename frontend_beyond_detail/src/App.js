@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Footer, SocialIcons } from './components';

@@ -322,4 +322,5 @@ const Dark = [
   },
 ];
 
-export default { Dark };
+const styles = { Dark };
+export default styles;

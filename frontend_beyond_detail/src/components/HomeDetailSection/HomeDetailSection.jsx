@@ -18,8 +18,7 @@ import headlightImage from '../../assets/bd/bd-4.jpg'; // Keep as is
 import './HomeDetailSection.scss';
 
 function HomeDetailSection() {
-  const [heading, setHeading] = useState([]);
-  const [services, setServices] = useState([]);
+  const [heading] = useState([]);
   const [loading, setLoading] = useState(false);
 
   // Service data with icons, images, and routes
@@ -78,9 +77,6 @@ function HomeDetailSection() {
 
   useEffect(() => {
     // Fetch heading if still needed
-    const query =
-      '*[_type == "homeDetailSectionHeading"] | order(_createdAt desc)';
-    
     // Using client from '../../client' if available, but keeping simple for now
     setLoading(true);
   }, []);

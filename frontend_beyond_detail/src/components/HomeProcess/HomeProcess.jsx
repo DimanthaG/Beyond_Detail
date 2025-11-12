@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import images from '../../constants/images';
 import { motion } from 'framer-motion';
-import { urlFor, client } from '../../client';
+import { client } from '../../client';
 import { Loading } from '../../components';
 import './HomeProcess.scss';
 

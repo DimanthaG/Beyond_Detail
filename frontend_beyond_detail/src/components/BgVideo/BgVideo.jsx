@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './BgVideo.scss';
 import { motion } from 'framer-motion';
 import { Loading } from '../../components';
-import { urlFor, client } from '../../client';
+import { client } from '../../client';
 
 function BgVideo() {
   const [heading, setHeading] = useState([]);

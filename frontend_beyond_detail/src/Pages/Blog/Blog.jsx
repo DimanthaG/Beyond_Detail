@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Contact, SEO } from '../../components';
-import { blogImages, blogImageCollections, allBlogImages } from './blogImages';
+import { blogImages, blogImageCollections } from './blogImages';
 import { formatContent, calculateReadingTime } from './blogContentFormatter';
 import './Blog.scss';
 
@@ -179,7 +179,7 @@ const renderContent = (content, blogSlug) => {
           imageIndex++;
           return (
             <div key={idx} className="blog-content-image">
-              <img src={imgSrc} alt={`Blog content image ${imageIndex}`} />
+              <img src={imgSrc} alt={`Content illustration ${imageIndex}`} />
             </div>
           );
         }
@@ -299,7 +299,6 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
 
 function Blog() {
   const { slug } = useParams();
-  const location = useLocation();
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [loading, setLoading] = useState(false);
 

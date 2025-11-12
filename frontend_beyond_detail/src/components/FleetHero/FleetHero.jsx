@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Phone, Building2, Truck, Car, Sparkles, Award, Shield } from 'lucide-react';
+import { ArrowRight, Phone, Building2, Truck, Award } from 'lucide-react';
 import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-32.jpg';
 import './FleetHero.scss';

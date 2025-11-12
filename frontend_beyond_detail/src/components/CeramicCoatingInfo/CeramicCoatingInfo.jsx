@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Layers, Droplet, Sparkles, Clock, AlertCircle, CheckCircle2, Wrench } from 'lucide-react';
+import { Shield, Layers, Sparkles, Clock, AlertCircle, CheckCircle2, Wrench } from 'lucide-react';
 import './CeramicCoatingInfo.scss';
 
 function CeramicCoatingInfo() {
