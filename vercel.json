@@ -11,6 +11,10 @@
         {
           "key": "Content-Type",
           "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     },
@@ -20,14 +24,22 @@
         {
           "key": "Content-Type",
           "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon\\.ico|manifest\\.json|logo.*\\.png|static/).*)",
+      "source": "/((?!sitemap\\.xml|sitemaps\\.xml|robots\\.txt|favicon\\.ico|manifest\\.json|logo.*\\.png|static/).*)",
       "destination": "/index.html"
+    },
+    {
+      "source": "/sitemaps.xml",
+      "destination": "/sitemap.xml"
     }
   ]
 }
