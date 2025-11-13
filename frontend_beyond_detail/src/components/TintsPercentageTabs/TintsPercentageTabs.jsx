@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import images from '../../constants/images';
-import { urlFor, client } from '../../client';
+import React, { useState, useEffect } from 'react';
+import { client } from '../../client';
 import { Loading } from '../../components';
 import Tint_noTint from '../../assets/Tints/Car-Ceramic-No-Film.png';
 import Tint_five from '../../assets/Tints/Car-Ceramic-5-Percent.png';

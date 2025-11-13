@@ -4,54 +4,6 @@ import { CheckCheck, Zap, Car } from "lucide-react";
 import NumberFlow from "@number-flow/react";
 import "./TintsPricing.scss";
 
-const PricingSwitch = ({
-  button1,
-  button2,
-  onSwitch,
-  selectedValue,
-  className,
-}) => {
-  const handleSwitch = (value) => {
-    onSwitch(value);
-  };
-
-  return (
-    <div className={`tints-pricing__switch ${className || ""}`}>
-      <button
-        onClick={() => handleSwitch(0)}
-        className={`tints-pricing__switch-button ${
-          selectedValue === 0 ? "tints-pricing__switch-button--active" : ""
-        }`}
-      >
-        {selectedValue === 0 && (
-          <motion.span
-            layoutId="pricing-switch-bg"
-            className="tints-pricing__switch-bg"
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          />
-        )}
-        <span className="tints-pricing__switch-text">{button1}</span>
-      </button>
-
-      <button
-        onClick={() => handleSwitch(1)}
-        className={`tints-pricing__switch-button ${
-          selectedValue === 1 ? "tints-pricing__switch-button--active" : ""
-        }`}
-      >
-        {selectedValue === 1 && (
-          <motion.span
-            layoutId="pricing-switch-bg"
-            className="tints-pricing__switch-bg"
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          />
-        )}
-        <span className="tints-pricing__switch-text">{button2}</span>
-      </button>
-    </div>
-  );
-};
-
 const TintServiceSelector = ({ tintService, onSelect, options, disabledIndices = [] }) => {
   return (
     <div className="tints-pricing__service-selector">
@@ -166,7 +118,7 @@ function TintsPricing() {
       // ATC doesn't support windshield, switch to CTX
       setSelectedProduct(1);
     }
-  }, [tintService]);
+  }, [tintService, selectedProduct]);
 
   const products = [
     {

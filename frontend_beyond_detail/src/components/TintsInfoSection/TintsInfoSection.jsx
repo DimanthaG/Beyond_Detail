@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import images from '../../constants/images';
+import React, { useState, useEffect } from 'react';
 import { urlFor, client } from '../../client';
 import { motion } from 'framer-motion';
 import { Loading } from '../../components';

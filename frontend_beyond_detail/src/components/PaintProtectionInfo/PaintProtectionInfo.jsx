@@ -1,77 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Layers, Droplet, Sparkles, CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react';
+import { Shield, Layers, Sparkles, AlertCircle } from 'lucide-react';
 import './PaintProtectionInfo.scss';
 
 function PaintProtectionInfo() {
-  const [activeComparison, setActiveComparison] = useState('sealants');
 
   const revealVariants = {
     visible: (i) => ({
       y: 0,
       opacity: 1,
       transition: {
-        delay: Math.min(i * 0.01, 0.03), // Reduced delay, capped
-        duration: 0.2, // Faster animation
+        delay: Math.min(i * 0.01, 0.03),
+        duration: 0.2,
         ease: [0.25, 0.1, 0.25, 1],
       },
     }),
     hidden: {
-      y: 10, // Less movement
+      y: 10,
       opacity: 0,
     },
   };
-
-  const paintLayers = [
-    {
-      name: 'Clear Coat',
-      description: 'The transparent protective layer that provides gloss and protects the base paint from UV rays, chemicals, and environmental damage.',
-      color: '#3b82f6',
-      thickness: '0.002-0.003 inches',
-      icon: Shield
-    },
-    {
-      name: 'Base Paint',
-      description: 'The colored paint layer that gives your vehicle its color and appearance.',
-      color: '#8b5cf6',
-      thickness: '0.001-0.002 inches',
-      icon: Droplet
-    },
-    {
-      name: 'Primer',
-      description: 'The foundation layer that ensures proper adhesion between the metal and paint, preventing corrosion.',
-      color: '#f59e0b',
-      thickness: '0.001-0.002 inches',
-      icon: Layers
-    },
-    {
-      name: 'Metal/Base',
-      description: 'The vehicle body itself - the foundation that everything is built upon.',
-      color: '#64748b',
-      thickness: 'Varies',
-      icon: Layers
-    }
-  ];
-
-  const sealantFeatures = [
-    'Traditional synthetic protection',
-    'Typically lasts 3-6 months',
-    'Easy to apply and maintain',
-    'Provides good shine and water beading',
-    'Budget-friendly option',
-    'Can be layered for enhanced protection'
-  ];
-
-  const ceramicFeatures = [
-    'Advanced nano-ceramic technology',
-    'Lasts 2-5 years or longer',
-    'Superior UV and chemical resistance',
-    'Exceptional hardness and durability',
-    'Extreme water beading and self-cleaning',
-    'Bonds permanently to paint surface',
-    'Maintains gloss longer',
-    'Higher initial investment'
-  ];
 
   return (
     <section className="paint-protection-info">

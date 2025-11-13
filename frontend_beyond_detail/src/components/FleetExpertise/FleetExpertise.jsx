@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building2, Users, Award, Clock, Shield, TrendingUp, CheckCircle, Sparkles } from 'lucide-react';
+import { Building2, Users, Award, Clock, Shield, TrendingUp, CheckCircle } from 'lucide-react';
 import './FleetExpertise.scss';
 
 const expertiseItems = [

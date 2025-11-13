@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './HoverSlider.scss';
 import jQuery from 'jquery';
 
@@ -123,7 +123,7 @@ function HoverSlider() {
       <div className='section padding-top-bottom over-hide z-bigger'>
         <ul className='slide-buttons'>
           <li className=''>
-            <a href='#0' className='hover-target' data-hover='services'></a>
+            <a href='#0' className='hover-target' data-hover='services' aria-label="Services slide">services</a>
           </li>
           <li className=''>
             <a href='#0' className='hover-target' data-hover='travel'>

@@ -7,12 +7,10 @@ import {
   Zap, 
   Award, 
   CheckCircle2,
-  ArrowRight,
   Search,
   Wrench,
   Layers,
-  FileCheck,
-  Sparkle
+  FileCheck
 } from 'lucide-react';
 import './PaintCorrectionInfo.scss';
 

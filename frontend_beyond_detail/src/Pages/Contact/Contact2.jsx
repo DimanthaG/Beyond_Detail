@@ -2,14 +2,13 @@ import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { client } from '../../client';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Contact, Map, Loading, SEO } from '../../components';
+import { Map, Loading, SEO } from '../../components';
 import DatePicker from 'react-datepicker';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import '../../react-datepicker.css';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
-import images from '../../constants/images';
 import './Contact2.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));

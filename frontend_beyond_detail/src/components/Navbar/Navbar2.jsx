@@ -42,9 +42,16 @@ function Navbar2({ className = '' }) {
       ]
     },
     { name: 'About', path: '/about', className: 'list-about-active' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'FAQs', path: '/faqs' },
-    { name: 'Blog', path: '/blog' },
+    {
+      name: 'Resources',
+      path: '/gallery',
+      className: 'list-resources-active',
+      dropdown: [
+        { name: 'Gallery', path: '/gallery' },
+        { name: 'FAQs', path: '/faqs' },
+        { name: 'Blog', path: '/blog' }
+      ]
+    },
     { name: 'Contact', path: '/contact', className: 'list-contact-active' }
   ];
 
@@ -61,11 +68,15 @@ function Navbar2({ className = '' }) {
           <li key={index} className={link.className || ''} onClick={() => !link.dropdown && setNavActive(false)}>
             {link.dropdown ? (
               <div className="navbar__dropdown">
-                <div className="navbar__dropdown-link" onClick={(e) => { e.stopPropagation(); setOpenDropdown(openDropdown === 'services' ? null : 'services'); }}>
+                <div className="navbar__dropdown-link" onClick={(e) => { 
+                  e.stopPropagation(); 
+                  const dropdownKey = link.name.toLowerCase();
+                  setOpenDropdown(openDropdown === dropdownKey ? null : dropdownKey); 
+                }}>
                   <Link to={link.path} className="linkItem">{link.name}</Link>
-                  <ChevronDown className={`navbar__dropdown-icon ${openDropdown === 'services' ? 'navbar__dropdown-icon--open' : ''}`} size={16} />
+                  <ChevronDown className={`navbar__dropdown-icon ${openDropdown === link.name.toLowerCase() ? 'navbar__dropdown-icon--open' : ''}`} size={16} />
                 </div>
-                {openDropdown === 'services' && (
+                {openDropdown === link.name.toLowerCase() && (
                   <ul className="navbar__dropdown-menu">
                     {link.dropdown.map((item, idx) => (
                       <li key={idx} className="navbar__dropdown-item">

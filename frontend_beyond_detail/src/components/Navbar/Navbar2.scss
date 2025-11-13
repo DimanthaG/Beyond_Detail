@@ -6,10 +6,7 @@
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
   transition: all 0.4s linear;
-  position: fixed;
-  position: -webkit-fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 900;
   padding: 0 2rem;
   width: 100%;
@@ -514,6 +511,14 @@
 }
 
 .list-fleet-services-active {
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.35s;
+    transform: translateY(0);
+  }
+}
+
+.list-resources-active {
   @media screen and (max-width: 900px) {
     opacity: 1 !important;
     animation: navLinkFade 0.3s ease forwards 0.35s;

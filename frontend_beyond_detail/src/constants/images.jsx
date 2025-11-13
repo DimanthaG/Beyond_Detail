@@ -61,7 +61,7 @@ import menzerna_logo from '../assets/Partners/menzerna.png';
 import rupes_logo from '../assets/Partners/rupes.png';
 import uniglass_logo from '../assets/Partners/uniglass.png';
 
-export default {
+const images = {
   circle,
   logo,
   noise,
@@ -123,3 +123,5 @@ export default {
   rupes_logo,
   uniglass_logo,
 };
+
+export default images;

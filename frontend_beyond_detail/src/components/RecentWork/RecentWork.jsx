@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { urlFor, client } from '../../client';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -81,18 +81,18 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
     document.body.style.overflow = 'hidden';
   };
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setLightboxOpen(false);
     document.body.style.overflow = 'unset';
-  };
+  }, []);
 
-  const lightboxNext = () => {
+  const lightboxNext = useCallback(() => {
     setLightboxIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  }, [images.length]);
 
-  const lightboxPrev = () => {
+  const lightboxPrev = useCallback(() => {
     setLightboxIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
+  }, [images.length]);
 
   // Keyboard navigation for lightbox
   useEffect(() => {
@@ -115,7 +115,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxOpen, lightboxIndex, images.length]);
+  }, [lightboxOpen, lightboxIndex, images.length, closeLightbox, lightboxNext, lightboxPrev]);
 
   if (loading) {
     return (

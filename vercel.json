@@ -34,13 +34,11 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml|sitemaps\\.xml|robots\\.txt|favicon\\.ico|manifest\\.json|logo.*\\.png|static/).*)",
-      "destination": "/index.html"
-    },
-    {
       "source": "/sitemaps.xml",
       "destination": "/sitemap.xml"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
 
