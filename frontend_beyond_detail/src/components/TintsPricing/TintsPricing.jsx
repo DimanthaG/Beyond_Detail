@@ -323,7 +323,10 @@ function TintsPricing() {
                       style={{
                         borderColor: selectedProduct === index ? product.color : undefined,
                         background: selectedProduct === index 
-                          ? 'transparent' 
+                          ? `linear-gradient(135deg, ${product.color}15, ${product.color}08)` 
+                          : undefined,
+                        boxShadow: selectedProduct === index 
+                          ? `0 6px 25px ${product.color}40` 
                           : undefined,
                       }}
                     >
@@ -391,13 +394,25 @@ function TintsPricing() {
               variants={revealVariants}
               custom={4}
               className="tints-pricing__price-section"
+              style={{
+                borderColor: currentPrice > 0 ? `${currentProduct.color}40` : undefined,
+                boxShadow: currentPrice > 0 ? `0 8px 32px ${currentProduct.color}20` : undefined,
+              }}
             >
               <div className="tints-pricing__price-container">
-                <div className="tints-pricing__price-display">
-                  <span className="tints-pricing__price-currency">$</span>
+                <div className="tints-pricing__price-display" style={{
+                  borderColor: currentPrice > 0 ? `${currentProduct.color}30` : undefined,
+                }}>
+                  <span className="tints-pricing__price-currency" style={{
+                    color: currentPrice > 0 ? currentProduct.color : undefined,
+                    textShadow: currentPrice > 0 ? `0 2px 10px ${currentProduct.color}50` : undefined,
+                  }}>$</span>
                   <NumberFlow
                     value={currentPrice}
                     className="tints-pricing__price-value"
+                    style={{
+                      color: currentPrice > 0 ? currentProduct.color : undefined,
+                    }}
                   />
                 </div>
                 <span className="tints-pricing__price-note">

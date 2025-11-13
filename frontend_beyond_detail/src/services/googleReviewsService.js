@@ -44,11 +44,6 @@ export async function findPlaceByLocation(lat, lng, businessName) {
  * Get place details including reviews using Place Details API
  */
 export async function getGoogleReviews(placeId = null) {
-  if (!GOOGLE_PLACES_API_KEY) {
-    console.error('Google Places API key not found. Please set REACT_APP_GOOGLE_PLACES_API_KEY in your .env file');
-    return { reviews: [], rating: 0, totalReviews: 0, error: 'API key not configured' };
-  }
-
   let finalPlaceId = placeId || PLACE_ID;
 
   // If no Place ID, try to find it using business location
@@ -68,6 +63,10 @@ export async function getGoogleReviews(placeId = null) {
 
   // Helper: direct fetch via Google + CORS proxy (dev fallback)
   const fetchViaCorsProxy = async () => {
+    if (!GOOGLE_PLACES_API_KEY) {
+      console.error('Google Places API key not found. Please set REACT_APP_GOOGLE_PLACES_API_KEY in your .env file');
+      return { reviews: [], rating: 0, totalReviews: 0, error: 'API key not configured' };
+    }
     const fields = 'reviews,rating,user_ratings_total,name,formatted_address';
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${finalPlaceId}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
     const proxied = `https://corsproxy.io/?${encodeURIComponent(url)}`;

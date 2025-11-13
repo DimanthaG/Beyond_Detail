@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Sun, Droplets, Eye, Award, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
+import TintsPricing from '../TintsPricing/TintsPricing';
 import './TintBenefitsInfo.scss';
 
 function TintBenefitsInfo() {
@@ -52,54 +53,6 @@ function TintBenefitsInfo() {
       icon: <Sparkles className="tint-benefits-info__benefit-icon" />,
       title: "Enhanced Comfort",
       description: "Create a more comfortable driving environment by maintaining consistent temperatures and reducing the need for constant air conditioning adjustments. Your passengers will appreciate the difference."
-    }
-  ];
-
-  const filmTypes = [
-    {
-      title: "Dyed Film (Carbon Film)",
-      subtitle: "LLUMAR ATC",
-      benefits: [
-        "Cost-effective solution for basic protection",
-        "Excellent UV protection (blocks 99% of UV rays)",
-        "Non-reflective, factory-look finish",
-        "Color-stable and fade-resistant",
-        "Great for those seeking style and privacy on a budget",
-        "Available in multiple shades (5%, 15%, 20%, 30%)",
-        "Lifetime warranty backed by quality manufacturers"
-      ],
-      bestFor: "Daily drivers seeking reliable protection and style without premium pricing",
-      color: "#22c55e"
-    },
-    {
-      title: "Ceramic Film",
-      subtitle: "LLUMAR CTX",
-      benefits: [
-        "Advanced nano-ceramic technology for superior heat rejection",
-        "Blocks infrared heat and UV rays effectively",
-        "Zero interference with cell phones, GPS, Bluetooth, or keyless entry",
-        "Signal-safe technology preserves all your vehicle's electronic systems",
-        "Neutral charcoal tone reduces distortion",
-        "Superior clarity and visibility compared to dyed films",
-        "Long-lasting performance with fade resistance"
-      ],
-      bestFor: "Tech-savvy drivers who want heat rejection without signal interference",
-      color: "#3b82f6"
-    },
-    {
-      title: "Nano Ceramic Film",
-      subtitle: "LLUMAR IRX",
-      benefits: [
-        "Maximum infrared heat rejection technology",
-        "Premium nano-ceramic particles for ultimate performance",
-        "Blocks up to 99% of harmful UV rays",
-        "Superior heat reduction keeps interior significantly cooler",
-        "Exceptional clarity and visibility",
-        "Luxury-level performance and appearance",
-        "Longest-lasting protection with premium durability"
-      ],
-      bestFor: "Drivers who demand the absolute best in heat rejection and protection",
-      color: "#f59e0b"
     }
   ];
 
@@ -182,58 +135,8 @@ function TintBenefitsInfo() {
           </div>
         </motion.div>
 
-        {/* Film Types Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-          variants={revealVariants}
-          custom={7}
-          className="tint-benefits-info__section tint-benefits-info__section--film-types"
-        >
-          <div className="tint-benefits-info__section-header">
-            <h2 className="tint-benefits-info__main-title">
-              Understanding Film Types
-            </h2>
-            <p className="tint-benefits-info__main-description">
-              Not all window tint films are created equal. Understanding the differences between dyed (carbon), ceramic, and nano ceramic films helps you choose the right protection for your needs and budget.
-            </p>
-          </div>
-
-          <div className="tint-benefits-info__film-types-grid">
-            {filmTypes.map((film, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                variants={revealVariants}
-                custom={8 + index}
-                className="tint-benefits-info__film-card"
-              >
-                <div className="tint-benefits-info__film-card-header" style={{ borderTopColor: film.color }}>
-                  <h3 className="tint-benefits-info__film-title">{film.title}</h3>
-                  <p className="tint-benefits-info__film-subtitle" style={{ color: film.color }}>
-                    {film.subtitle}
-                  </p>
-                </div>
-                <div className="tint-benefits-info__film-content">
-                  <ul className="tint-benefits-info__film-benefits">
-                    {film.benefits.map((benefit, idx) => (
-                      <li key={idx} className="tint-benefits-info__film-benefit-item">
-                        <CheckCircle2 className="tint-benefits-info__film-check" style={{ color: film.color }} />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="tint-benefits-info__film-best-for">
-                    <strong>Best For:</strong> {film.bestFor}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Pricing Section */}
+        <TintsPricing />
 
         {/* Quality Matters Section */}
         <motion.div
@@ -241,7 +144,7 @@ function TintBenefitsInfo() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
           variants={revealVariants}
-          custom={11}
+          custom={7}
           className="tint-benefits-info__section tint-benefits-info__section--quality"
         >
           <div className="tint-benefits-info__section-header">
@@ -261,7 +164,7 @@ function TintBenefitsInfo() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 variants={revealVariants}
-                custom={12 + index}
+                custom={8 + index}
                 className="tint-benefits-info__quality-card"
               >
                 <div className="tint-benefits-info__quality-icon-wrapper">

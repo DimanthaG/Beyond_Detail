@@ -12,12 +12,9 @@ const TintBenefitsInfo = lazy(() => import('../../components/TintBenefitsInfo/Ti
 const TintSpecsChart = lazy(() => import('../../components/TintSpecsChart/TintSpecsChart'));
 const TintsPercentageTabs = lazy(() => import('../../components/TintsPercentageTabs/TintsPercentageTabs'));
 const TintsPercentage = lazy(() => import('../../components/TintsPercentage/TintsPercentage'));
-const TintsPricing = lazy(() => import('../../components/TintsPricing/TintsPricing'));
 const TintLawsChart = lazy(() => import('../../components/TintsLaws/TintLawsChart'));
 const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLawsExplanation'));
 const TintLawsSources = lazy(() => import('../../components/TintsLaws/TintLawsSources'));
-const RecentWork = lazy(() => import('../../components/RecentWork/RecentWork'));
-const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
@@ -51,17 +48,10 @@ function Tints() {
             <TintBenefitsInfo />
             <TintLawsExplanation />
             <TintSpecsChart />
-            <TintsPricing />
-            <Suspense fallback={null}>
-              <GoogleReviewsCarousel />
-            </Suspense>
             <TintsPercentageTabs />
             <TintLawsChart />
             <TintsPercentage />
             <TintLawsSources />
-            <Suspense fallback={null}>
-              <RecentWork serviceType="tint" title="WINDOW TINT" limit={6} />
-            </Suspense>
             <Contact />
           </div>
         </motion.div>

@@ -41,12 +41,12 @@ function Navbar2({ className = '' }) {
         { name: 'Fleet Services', path: '/fleet-services' }
       ]
     },
-    { name: 'About', path: '/about', className: 'list-about-active' },
     {
-      name: 'Resources',
-      path: '/gallery',
-      className: 'list-resources-active',
+      name: 'About Us',
+      path: '/about',
+      className: 'list-about-us-active',
       dropdown: [
+        { name: 'About', path: '/about' },
         { name: 'Gallery', path: '/gallery' },
         { name: 'FAQs', path: '/faqs' },
         { name: 'Blog', path: '/blog' }
