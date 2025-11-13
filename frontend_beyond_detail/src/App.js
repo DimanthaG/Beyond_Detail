@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { Footer, SocialIcons } from './components';
@@ -89,6 +89,7 @@ function App() {
           <Route path='/testimonials' element={<WrappedTestimonials />} />
           <Route path='/contact' element={<WrappedContact />} />
           <Route path='/contact-us' element={<WrappedContact />} />
+          <Route path='/sitemaps.xml' element={<Navigate to="/sitemap.xml" replace />} />
           <Route path='*' element={<WrappedError />} />
         </Routes>
       </AnimatePresence>

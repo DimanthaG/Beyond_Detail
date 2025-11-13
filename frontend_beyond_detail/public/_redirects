@@ -1,1 +1,5 @@
+# Exclude static files from SPA routing
+/sitemap.xml /sitemap.xml 200
+/sitemaps.xml /sitemap.xml 301
+/robots.txt /robots.txt 200
 /* /index.html 200

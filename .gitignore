@@ -1,13 +1,63 @@
 # Dependencies
-node_modules
-/backend_sanity/node_modules
-# Ignore frontend build/env files but track source
+node_modules/
+/backend_sanity/node_modules/
+/backend_sanity/dist/
+
+# Build outputs
 frontend_beyond_detail/build/
+frontend_beyond_detail/dist/
+
+# Environment variables
 frontend_beyond_detail/.env
 frontend_beyond_detail/.env.local
+frontend_beyond_detail/.env.development.local
+frontend_beyond_detail/.env.test.local
+frontend_beyond_detail/.env.production.local
 frontend_beyond_detail/.env.*.local
+backend_sanity/.env
+backend_sanity/.env.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 frontend_beyond_detail/npm-debug.log*
 frontend_beyond_detail/yarn-debug.log*
 frontend_beyond_detail/yarn-error.log*
-# Other
+newrelic_agent.log
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 .history
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Package manager locks (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock

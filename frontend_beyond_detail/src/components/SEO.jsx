@@ -200,6 +200,7 @@ export const SEO = ({
       <meta name='author' content={BUSINESS_INFO.name} />
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover' />
       <link rel='canonical' href={currentUrl} />
+      <link rel='sitemap' type='application/xml' href={`${BUSINESS_INFO.url}/sitemap.xml`} />
       
       {/* Robots */}
       <meta name='robots' content={noindex ? 'noindex, nofollow' : 'index, follow'} />

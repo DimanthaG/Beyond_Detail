@@ -94,19 +94,37 @@ function GoogleReviewsCarousel() {
     );
   }
 
-  // Show error message for debugging (development) or hide in production
+  // Hide component gracefully if API key is not configured (production)
+  // Only show error in development mode for debugging
   if (error) {
-    return (
-      <div className="google-reviews-carousel google-reviews-carousel--error">
-        <div className="google-reviews-carousel__error-message">
-          <p><strong>Unable to load Google Reviews</strong></p>
-          <p>{error}</p>
-          <p style={{ fontSize: '0.875rem', marginTop: '1rem', opacity: 0.8 }}>
-            Please check the browser console for more details.
-          </p>
+    const isApiKeyError = error === 'API key not configured' || error.includes('API key');
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    // In production, hide the component if API key is missing
+    if (isApiKeyError && !isDevelopment) {
+      return null;
+    }
+    
+    // In development, show error for debugging
+    if (isDevelopment) {
+      return (
+        <div className="google-reviews-carousel google-reviews-carousel--error">
+          <div className="google-reviews-carousel__error-message">
+            <p><strong>Unable to load Google Reviews</strong></p>
+            <p>{error}</p>
+            <p style={{ fontSize: '0.875rem', marginTop: '1rem', opacity: 0.8 }}>
+              Please check the browser console for more details.
+            </p>
+            <p style={{ fontSize: '0.75rem', marginTop: '0.5rem', opacity: 0.6 }}>
+              To fix: Add REACT_APP_GOOGLE_PLACES_API_KEY to your .env file
+            </p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    
+    // For other errors in production, hide gracefully
+    return null;
   }
 
   if (allReviews.length === 0 && !loading) {

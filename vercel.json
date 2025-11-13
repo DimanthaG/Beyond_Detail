@@ -3,6 +3,44 @@
   "outputDirectory": "build",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": "create-react-app",
-  "rootDirectory": "frontend_beyond_detail"
+  "rootDirectory": "frontend_beyond_detail",
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!sitemap\\.xml|sitemaps\\.xml|robots\\.txt|favicon\\.ico|manifest\\.json|logo.*\\.png|static/).*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sitemaps.xml",
+      "destination": "/sitemap.xml"
+    }
+  ]
 }
 
