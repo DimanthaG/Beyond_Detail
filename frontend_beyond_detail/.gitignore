@@ -1,15 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-node_modules
+node_modules/
 /.pnp
 .pnp.js
 
 # testing
 /coverage
+.nyc_output
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -18,14 +20,42 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+*.log
 
-# Lock files (regenerate with npm install)
-package-lock.json
-yarn.lock
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
 
 # Large media files (store separately or use CDN)
 *.mp4
