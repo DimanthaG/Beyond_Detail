@@ -6,7 +6,6 @@ import { HomeHero } from '../../components/HomeHero/HomeHero';
 
 import {
   HomeDetailSection,
-  Map,
   Contact,
 } from '../../components';
 import './Home.scss';
@@ -35,7 +34,6 @@ function Home() {
         <GoogleReviewsCarousel />
       </Suspense>
       <Contact />
-      <Map />
     </div>
   );
 }
