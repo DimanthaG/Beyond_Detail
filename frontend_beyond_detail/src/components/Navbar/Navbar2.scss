@@ -521,6 +521,14 @@
   }
 }
 
+.list-resources-active {
+  @media screen and (max-width: 900px) {
+    opacity: 1 !important;
+    animation: navLinkFade 0.3s ease forwards 0.35s;
+    transform: translateY(0);
+  }
+}
+
 .list-contact-active {
   @media screen and (max-width: 900px) {
     opacity: 1 !important;
