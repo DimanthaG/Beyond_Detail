@@ -92,7 +92,12 @@ export async function getGoogleReviews(placeId = null) {
         address: result.formatted_address,
       };
     }
-    return { reviews: [], rating: 0, totalReviews: 0, error: d.error_message || d.status || 'Failed to fetch' };
+    // Check for specific Google API errors
+    let errorMessage = d.error_message || d.status || 'Failed to fetch';
+    if (d.status === 'REQUEST_DENIED' || d.status === 'INVALID_REQUEST') {
+      errorMessage = d.error_message || 'The provided API key is invalid.';
+    }
+    return { reviews: [], rating: 0, totalReviews: 0, error: errorMessage };
   };
 
   try {

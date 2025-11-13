@@ -94,13 +94,19 @@ function GoogleReviewsCarousel() {
     );
   }
 
-  // Hide component gracefully if API key is not configured (production)
+  // Hide component gracefully if there are API errors (production)
   // Only show error in development mode for debugging
   if (error) {
-    const isApiKeyError = error === 'API key not configured' || error.includes('API key');
+    const isApiKeyError = 
+      error === 'API key not configured' || 
+      error.includes('API key') || 
+      error.includes('invalid') ||
+      error.includes('INVALID') ||
+      error.includes('REQUEST_DENIED') ||
+      error.includes('PERMISSION_DENIED');
     const isDevelopment = process.env.NODE_ENV === 'development';
     
-    // In production, hide the component if API key is missing
+    // In production, hide the component if there are API key issues
     if (isApiKeyError && !isDevelopment) {
       return null;
     }
@@ -116,7 +122,9 @@ function GoogleReviewsCarousel() {
               Please check the browser console for more details.
             </p>
             <p style={{ fontSize: '0.75rem', marginTop: '0.5rem', opacity: 0.6 }}>
-              To fix: Add REACT_APP_GOOGLE_PLACES_API_KEY to your .env file
+              {error.includes('invalid') || error.includes('INVALID') 
+                ? 'To fix: Verify your API key is valid and has Places API enabled in Google Cloud Console'
+                : 'To fix: Add REACT_APP_GOOGLE_PLACES_API_KEY to your .env file'}
             </p>
           </div>
         </div>
