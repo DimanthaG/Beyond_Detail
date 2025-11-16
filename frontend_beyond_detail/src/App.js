@@ -63,6 +63,7 @@ function App() {
       <div className='navEl'>
         <Navbar className='navbarEl' />
       </div>
+      <div className='navbar-spacer'></div>
       <SocialIcons />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

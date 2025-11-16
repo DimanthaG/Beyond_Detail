@@ -6,8 +6,11 @@
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
   transition: all 0.4s linear;
-  position: relative;
-  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
   padding: 0 2rem;
   width: 100%;
   -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
@@ -423,7 +426,7 @@
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    z-index: 998;
+    z-index: 9998;
     will-change: transform;
 
     li {
@@ -440,7 +443,7 @@
 
   .burger {
     display: block;
-    z-index: 999;
+    z-index: 10000;
   }
 }
 
