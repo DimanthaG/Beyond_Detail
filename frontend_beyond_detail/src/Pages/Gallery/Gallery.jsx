@@ -91,7 +91,7 @@ function Gallery() {
                 transition={{ duration: 2.0 }}
                 viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
               >
-                <h1>GALLERY</h1>
+                <h1>Auto Detailing Gallery - Toronto & Scarborough</h1>
               </motion.div>
               <motion.div
                 className='gallery__imageSlider__container'

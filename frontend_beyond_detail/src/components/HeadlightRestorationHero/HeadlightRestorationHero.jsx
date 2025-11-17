@@ -104,7 +104,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Restore Your
+                    Headlight Restoration in
                   </motion.span>
                   <motion.span 
                     className="headlight-restoration-hero__title-line headlight-restoration-hero__title-line--highlight"
@@ -112,7 +112,15 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    Headlights
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="headlight-restoration-hero__title-line headlight-restoration-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 

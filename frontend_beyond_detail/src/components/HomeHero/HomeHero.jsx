@@ -104,7 +104,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    You Love Your Car.
+                    Scarborough Auto Detailing
                   </motion.span>
                   <motion.span 
                     className="home-hero__title-line home-hero__title-line--highlight"
@@ -112,7 +112,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
-                    We'll Make It Show.
+                    You Love Your Car. We'll Make It Show.
                   </motion.span>
                 </motion.h1>
                 <motion.p 
@@ -121,7 +121,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Premium <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough, Toronto & the GTA. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
+                  Get that new-car feel with our professional vehicle care services in Scarborough and Toronto. We offer <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> to restore, protect, and elevate your ride. Our expert team uses premium products and provides lifetime warranties you can trust.
                 </motion.p>
 
                 {/* Feature Icons */}

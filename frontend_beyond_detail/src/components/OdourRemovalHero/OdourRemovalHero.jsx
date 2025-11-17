@@ -99,7 +99,7 @@ export function OdourRemovalHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Eliminate Odors
+                    Odour Removal in
                   </motion.span>
                   <motion.span 
                     className="odour-removal-hero__title-line odour-removal-hero__title-line--highlight"
@@ -107,7 +107,15 @@ export function OdourRemovalHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    Permanently
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="odour-removal-hero__title-line odour-removal-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 

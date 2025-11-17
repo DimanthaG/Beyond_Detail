@@ -6,6 +6,7 @@ import {
   HomeDetailSection,
   Contact,
 } from '../../components';
+import { HomeContent } from '../../components/HomeContent/HomeContent';
 import './Home.scss';
 
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -26,6 +27,7 @@ function Home() {
         keywords='car detailing Toronto, auto detailing Scarborough, window tinting Markham, paint correction Pickering, ceramic coating GTA'
       />
       <HomeHero />
+      <HomeContent />
       <div id="home-services"></div>
       <HomeDetailSection />
       <Suspense fallback={null}>

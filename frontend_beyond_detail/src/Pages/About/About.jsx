@@ -83,7 +83,7 @@ function About() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                 >
-                  <h1 className='about__hero-title'>About Us</h1>
+                  <h1 className='about__hero-title'>About Us - Auto Detailing Toronto & Scarborough</h1>
                   <p className='about__hero-description'>
                     Beyond Detail is Toronto and Scarborough's trusted automotive care specialists. We combine expert craftsmanship, premium products, and unwavering dedication to deliver exceptional results for every vehicle.
                   </p>

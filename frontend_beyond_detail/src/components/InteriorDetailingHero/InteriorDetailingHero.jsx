@@ -104,7 +104,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Deep Interior Care
+                    Interior Detailing in
                   </motion.span>
                   <motion.span 
                     className="interior-detailing-hero__title-line interior-detailing-hero__title-line--highlight"
@@ -112,7 +112,15 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    Like-New Freshness
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="interior-detailing-hero__title-line interior-detailing-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 

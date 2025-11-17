@@ -112,13 +112,21 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                   <motion.span 
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
                   >
                     for Lasting Protection
                   </motion.span>

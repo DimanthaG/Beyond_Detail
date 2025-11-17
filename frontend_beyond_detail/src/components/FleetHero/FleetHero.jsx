@@ -103,7 +103,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Professional Fleet
+                    Fleet Services in
                   </motion.span>
                   <motion.span 
                     className="fleet-hero__title-line fleet-hero__title-line--highlight"
@@ -111,7 +111,15 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    Services
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="fleet-hero__title-line fleet-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 

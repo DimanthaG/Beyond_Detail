@@ -89,7 +89,7 @@ function FAQs() {
         >
           <div className='faqs-page__wrapper'>
             <BackgroundPaths 
-              title="Frequently Asked Questions"
+              title="FAQs - Auto Detailing Toronto & Scarborough"
               scrollTarget="#faqs-content"
               description="Find answers to common questions about our professional auto detailing services in Toronto and Scarborough."
               hideAnimatedWords={true}
