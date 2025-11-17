@@ -19,7 +19,7 @@ const BUSINESS_INFO = {
   phone: '+1 (647) 689-6109',
   email: 'info@beyonddetail.ca',
   url: 'https://beyonddetail.ca',
-  description: 'Premium car detailing services in Toronto, Scarborough, Markham, and Pickering. Professional window tinting, paint correction, ceramic coating, and auto detailing.',
+  description: 'Get that new-car feel with Beyond Detail’s auto detailing, tinting & ceramic coating in Scarborough, Toronto.',
   services: [
     'Window Tinting',
     'Paint Correction',
@@ -46,7 +46,8 @@ export const SEO = ({
   noindex = false
 }) => {
   const location = useLocation();
-  const currentUrl = url || `${BUSINESS_INFO.url}${location.pathname}`;
+  const normalizedPath = location.pathname === '/' ? '' : location.pathname;
+  const currentUrl = url || `${BUSINESS_INFO.url}${normalizedPath}`;
   const pageTitle = title || `${BUSINESS_INFO.name} - Auto Detailing Services`;
   
   // Generate location-based keywords
@@ -75,9 +76,7 @@ export const SEO = ({
   ].filter(Boolean).join(', ');
 
   // Enhanced description with locations
-  const enhancedDescription = description 
-    ? `${description} Serving ${LOCATIONS_STRING} and surrounding GTA areas.`
-    : `${BUSINESS_INFO.description} Expert service in ${LOCATIONS_STRING}.`;
+  const enhancedDescription = description || BUSINESS_INFO.description;
 
   // Default OG image
   const ogImage = image || `${BUSINESS_INFO.url}/og-image.jpg`;

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone, Sparkles, Shield, Zap } from 'lucide-react';
 import PartnersCompact from '../Partners/PartnersCompact';
+import { ServiceLinker } from '../../utils/serviceLinker';
 import carImage from '../../assets/bd/bd-20.jpg';
 import './HomeHero.scss';
 
@@ -103,15 +104,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Experience Premium
-                  </motion.span>
-                  <motion.span 
-                    className="home-hero__title-line home-hero__title-line--white"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    Automotive Care
+                    You Love Your Car.
                   </motion.span>
                   <motion.span 
                     className="home-hero__title-line home-hero__title-line--highlight"
@@ -119,7 +112,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
-                    Beyond Detail
+                    We'll Make It Show.
                   </motion.span>
                 </motion.h1>
                 <motion.p 
@@ -128,7 +121,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Toronto's trusted automotive care specialists. From window tint installation to ceramic coating, paint correction, and comprehensive detailing — we deliver exceptional results that protect and enhance your vehicle's appearance and value.
+                  Premium <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough, Toronto & the GTA. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
                 </motion.p>
 
                 {/* Feature Icons */}

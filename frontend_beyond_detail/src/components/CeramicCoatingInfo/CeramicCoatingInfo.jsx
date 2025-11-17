@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Layers, Sparkles, Clock, AlertCircle, CheckCircle2, Wrench } from 'lucide-react';
+import { ServiceLinker } from '../../utils/serviceLinker';
 import './CeramicCoatingInfo.scss';
 
 function CeramicCoatingInfo() {
@@ -149,7 +150,7 @@ function CeramicCoatingInfo() {
                 <h4 className="ceramic-coating-info__step-title">Paint Correction</h4>
               </div>
               <p className="ceramic-coating-info__step-description">
-                The paint surface must be perfectly prepared through comprehensive paint correction. All swirl marks, scratches, oxidation, and imperfections must be removed, as the coating will permanently lock in any defects. This is why paint correction is included in every ceramic coating service.
+                The paint surface must be perfectly prepared through comprehensive <ServiceLinker text="paint correction" />. All swirl marks, scratches, oxidation, and imperfections must be removed, as the coating will permanently lock in any defects. This is why <ServiceLinker text="paint correction" /> is included in every <ServiceLinker text="ceramic coating" /> service.
               </p>
             </motion.div>
 

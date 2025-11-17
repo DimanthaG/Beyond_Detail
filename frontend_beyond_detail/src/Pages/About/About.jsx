@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, HomeProcess } from '../../components';
 import { Award, Users, Target, Shield, Sparkles, Phone, ArrowRight } from 'lucide-react';
+import { ServiceLinker } from '../../utils/serviceLinker';
 import './About.scss';
 
 // Lazy load heavy components to improve initial bundle size
@@ -124,7 +125,7 @@ function About() {
                       What started as a passion for automotive perfection has grown into a trusted business serving thousands of satisfied customers across the Greater Toronto Area. We understand that your vehicle is more than just transportation—it's an investment that deserves the highest level of care and protection.
                     </p>
                     <p>
-                      From professional window tint installation using LLUMAR films to comprehensive paint correction and ceramic coating services, we've expanded our expertise to cover every aspect of automotive detailing and protection. Our certified technicians bring years of experience and training to every service, ensuring professional-grade results on every vehicle.
+                      From professional <ServiceLinker text="window tint" /> installation using LLUMAR films to comprehensive <ServiceLinker text="paint correction" /> and <ServiceLinker text="ceramic coating" /> services, we've expanded our expertise to cover every aspect of automotive <ServiceLinker text="auto detailing" /> and protection. Our certified technicians bring years of experience and training to every service, ensuring professional-grade results on every vehicle.
                     </p>
                   </div>
                 </motion.div>

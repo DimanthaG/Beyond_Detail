@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Layers, AlertCircle } from 'lucide-react';
+import { ServiceLinker } from '../../utils/serviceLinker';
 import './PaintProtectionInfo.scss';
 
 function PaintProtectionInfo() {
@@ -66,7 +67,7 @@ function PaintProtectionInfo() {
                 Most swirl marks, light scratches, and imperfections you see on your vehicle are actually in the clear coat layer, not the base paint beneath. When you undergo paint correction, our technicians carefully remove the damaged clear coat layer to restore the smooth, glossy surface underneath. This process is precise and measured, removing only what's necessary to eliminate defects.
               </p>
               <p className="paint-protection-info__section-description">
-                Since paint correction removes a portion of your clear coat, protecting what remains becomes essential. This is where sealants and ceramic coatings come in—they create a protective barrier over the corrected clear coat, extending the life of your paint finish and preserving the results of your paint correction investment.
+                Since <ServiceLinker text="paint correction" /> removes a portion of your clear coat, protecting what remains becomes essential. This is where sealants and <ServiceLinker text="ceramic coating" /> come in—they create a protective barrier over the corrected clear coat, extending the life of your paint finish and preserving the results of your <ServiceLinker text="paint correction" /> investment.
               </p>
             </div>
           </div>

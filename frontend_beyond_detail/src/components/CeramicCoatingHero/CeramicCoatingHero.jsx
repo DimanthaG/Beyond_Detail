@@ -104,7 +104,7 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Ultimate Protection
+                    Ceramic Coating in
                   </motion.span>
                   <motion.span 
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--highlight"
@@ -112,7 +112,15 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    For Your Vehicle
+                    TORONTO
+                  </motion.span>
+                  <motion.span 
+                    className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    for Lasting Protection
                   </motion.span>
                 </motion.h1>
                 <motion.p 
@@ -121,7 +129,7 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Protect your vehicle with advanced nano-ceramic coating technology. Our premium ceramic coatings form a permanent bond with your paint, providing exceptional durability, UV protection, and a showroom-quality finish that lasts for years.
+                  Get long-lasting ceramic coating in Toronto & Scarborough. Our premium formula bonds to your paint for unmatched gloss, UV protection & years of durability.
                 </motion.p>
 
                 {/* Feature Icons */}

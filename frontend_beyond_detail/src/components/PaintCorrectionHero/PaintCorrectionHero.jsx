@@ -104,7 +104,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Restore Your Paint
+                    Professional Paint Correction in
                   </motion.span>
                   <motion.span 
                     className="paint-correction-hero__title-line paint-correction-hero__title-line--highlight"
@@ -112,7 +112,15 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    To Perfection
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="paint-correction-hero__title-line paint-correction-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 
@@ -121,7 +129,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Eliminate swirl marks, scratches, and oxidation to reveal your vehicle's true beauty. Our advanced paint correction techniques restore your paint to factory-fresh perfection, enhancing depth, clarity, and that showroom shine you've been missing.
+                  Remove scratches, swirls & oxidation with expert paint correction in Toronto & Scarborough. Restore gloss, depth & value — and love your car again.
                 </motion.p>
 
                 {/* Feature Icons */}

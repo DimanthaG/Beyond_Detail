@@ -104,7 +104,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Transform Your Vehicle
+                    LLUMAR Window Tinting in
                   </motion.span>
                   <motion.span 
                     className="tints-hero__title-line tints-hero__title-line--highlight"
@@ -112,7 +112,15 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    With LLUMAR
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="tints-hero__title-line tints-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 
@@ -121,7 +129,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Transform your vehicle with premium LLUMAR window tint installation. We're Toronto and Scarborough's trusted experts, delivering exceptional quality, professional installation, and manufacturer-backed lifetime warranties. Experience the perfect blend of style, privacy, and protection.
+                  LLUMAR-certified window tint installation in Toronto & Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves.
                 </motion.p>
 
                 {/* Feature Icons */}

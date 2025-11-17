@@ -103,15 +103,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    COMPLETE
-                  </motion.span>
-                  <motion.span 
-                    className="auto-detail-hero__title-line auto-detail-hero__title-line--white"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.55 }}
-                  >
-                    AUTO DETAILING
+                    Full-Service Auto Detailing in
                   </motion.span>
                   <motion.span 
                     className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
@@ -119,7 +111,15 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    INSIDE & OUT
+                    TORONTO &
+                  </motion.span>
+                  <motion.span 
+                    className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    SCARBOROUGH
                   </motion.span>
                 </motion.h1>
                 <motion.p 
@@ -128,7 +128,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Complete auto detailing that brings your vehicle back to showroom condition. From deep interior cleaning to exterior paint enhancement, we combine expert craftsmanship with premium products to deliver results that exceed expectations.
+                  Full-service auto detailing in the GTA. We deep-clean and sanitize every inch of your interior for a fresh, like-new feel—plus include a premium exterior hand wash for a spotless finish.
                 </motion.p>
 
                 {/* Feature Icons */}
