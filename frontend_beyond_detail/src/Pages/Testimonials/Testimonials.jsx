@@ -7,7 +7,10 @@ const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsC
 function Testimonials() {
   return (
     <div className="testimonials-page">
-      <div>Testimonials</div>
+      <div className="testimonials-header">
+        <h1>Customer Testimonials - Auto Detailing Toronto & Scarborough</h1>
+        <p className="testimonials-subtitle">See what our customers say about our professional auto detailing services</p>
+      </div>
       <Suspense fallback={null}>
         <GoogleReviewsCarousel />
       </Suspense>

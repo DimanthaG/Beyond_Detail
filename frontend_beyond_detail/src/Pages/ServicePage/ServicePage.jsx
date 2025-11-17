@@ -25,13 +25,17 @@ function ServicePage() {
   return (
     <div className="service-page">
       {/* Header Section */}
-      {service.headerImage && (
+      {service.headerImage ? (
         <div className="service-header">
           <img
             src={urlFor(service.headerImage).width(1200).url()}
             alt={service.title}
             className="header-image"
           />
+          <h1 className="header-title">{service.title}</h1>
+        </div>
+      ) : (
+        <div className="service-header service-header--no-image">
           <h1 className="header-title">{service.title}</h1>
         </div>
       )}

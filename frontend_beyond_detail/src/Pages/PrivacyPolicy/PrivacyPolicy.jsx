@@ -35,7 +35,7 @@ function PrivacyPolicy() {
             <div className='privacy-policy__content'>
               <div className='privacy-policy__container'>
                 <div className='privacy-policy__header'>
-                  <h1>Privacy Policy</h1>
+                  <h1>Privacy Policy - Beyond Detail Toronto & Scarborough</h1>
                   <p className='privacy-policy__last-updated'>Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                   <div className='privacy-policy__intro'>
                     <p>

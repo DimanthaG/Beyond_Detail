@@ -419,7 +419,7 @@ function Blog() {
       />
       <div className="blog-list">
         <div className="blog-list-header">
-        <h1>Our Blog</h1>
+        <h1>Auto Detailing Blog - Toronto & Scarborough</h1>
           <p className="blog-list-subtitle">
             Expert tips, guides, and insights on car detailing, paint protection, and vehicle maintenance
           </p>
