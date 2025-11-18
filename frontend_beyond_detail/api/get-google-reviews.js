@@ -11,12 +11,21 @@ export default async function handler(req, res) {
     const serverKey = process.env.GOOGLE_PLACES_SERVER_KEY;
     const placeId = req.query.placeId || process.env.GOOGLE_PLACE_ID;
 
+    // Better error messages for debugging
     if (!serverKey) {
-      res.status(500).json({ error: 'Server API key not configured' });
+      console.error('[get-google-reviews] Missing GOOGLE_PLACES_SERVER_KEY environment variable');
+      res.status(500).json({ 
+        error: 'Server API key not configured',
+        message: 'GOOGLE_PLACES_SERVER_KEY environment variable is missing. Please configure it in Vercel dashboard.'
+      });
       return;
     }
     if (!placeId) {
-      res.status(400).json({ error: 'Place ID not provided' });
+      console.error('[get-google-reviews] Missing Place ID. Query:', req.query, 'Env:', process.env.GOOGLE_PLACE_ID);
+      res.status(400).json({ 
+        error: 'Place ID not provided',
+        message: 'Please provide placeId query parameter or set GOOGLE_PLACE_ID environment variable.'
+      });
       return;
     }
 
@@ -31,12 +40,17 @@ export default async function handler(req, res) {
     // Check for Google API errors
     if (data.status && data.status !== 'OK') {
       const errorMsg = data.error_message || `Google API error: ${data.status}`;
-      console.error('Google Places API error:', data.status, errorMsg);
+      console.error('[get-google-reviews] Google Places API error:', {
+        status: data.status,
+        error_message: data.error_message,
+        placeId: placeId
+      });
       res.status(200).json({
         reviews: [],
         rating: 0,
         totalReviews: 0,
         error: errorMsg,
+        apiStatus: data.status,
       });
       return;
     }
@@ -76,7 +90,15 @@ export default async function handler(req, res) {
       error: data.error_message || data.status || 'Failed to fetch reviews',
     });
   } catch (err) {
-    res.status(500).json({ error: err.message || 'Unexpected server error' });
+    console.error('[get-google-reviews] Unexpected error:', {
+      message: err.message,
+      stack: err.stack,
+      name: err.name
+    });
+    res.status(500).json({ 
+      error: err.message || 'Unexpected server error',
+      message: 'An error occurred while fetching Google Reviews. Check server logs for details.'
+    });
   }
 }
 

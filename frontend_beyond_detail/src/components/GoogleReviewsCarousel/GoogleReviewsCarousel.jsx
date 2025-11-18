@@ -34,7 +34,15 @@ function GoogleReviewsCarousel() {
         
         if (data.error) {
           setError(data.error);
-          console.error('Google Reviews error:', data.error);
+          // Only log error once to reduce console noise
+          if (!window.__googleReviewsErrorShown) {
+            if (data.error.includes('npm run dev')) {
+              console.warn('Google Reviews:', data.error);
+            } else {
+              console.error('Google Reviews error:', data.error);
+            }
+            window.__googleReviewsErrorShown = true;
+          }
         } else {
           const reviewsList = data.reviews || [];
           // Shuffle reviews to show different ones each time page loads
@@ -94,50 +102,74 @@ function GoogleReviewsCarousel() {
     );
   }
 
-  // Hide component gracefully if there are API errors (production)
-  // Only show error in development mode for debugging
+  // Handle errors - log in production for debugging, show error UI in development
   if (error) {
     const isApiKeyError = 
       error === 'API key not configured' || 
+      error === 'Server API key not configured' ||
       error.includes('API key') || 
       error.includes('invalid') ||
       error.includes('INVALID') ||
       error.includes('REQUEST_DENIED') ||
       error.includes('PERMISSION_DENIED');
+    const isApiEndpointError = 
+      error.includes('API endpoint not available') ||
+      error.includes('npm run dev') ||
+      error.includes('server configuration');
     const isDevelopment = process.env.NODE_ENV === 'development';
     
-    // In production, hide the component if there are API key issues
-    if (isApiKeyError && !isDevelopment) {
+    // Always log errors to console for debugging (even in production)
+    console.error('[Google Reviews] Error:', error);
+    
+    // In production, show a minimal fallback instead of hiding completely
+    if (!isDevelopment) {
+      // For API endpoint errors (shouldn't happen in production), log and hide
+      if (isApiEndpointError) {
+        console.warn('[Google Reviews] API endpoint error in production - check Vercel function logs');
+        return null;
+      }
+      
+      // For API key errors, log detailed info and show fallback
+      if (isApiKeyError) {
+        console.error('[Google Reviews] API key configuration error:', {
+          error,
+          message: 'Check Vercel environment variables: GOOGLE_PLACES_SERVER_KEY and GOOGLE_PLACE_ID'
+        });
+        // Show a subtle fallback message instead of hiding completely
+        return (
+          <div className="google-reviews-carousel google-reviews-carousel--error" style={{ display: 'none' }}>
+            {/* Hidden but logged for debugging */}
+          </div>
+        );
+      }
+      
+      // For other errors, log and hide gracefully
+      console.error('[Google Reviews] Unknown error:', error);
       return null;
     }
     
-    // In development, show error for debugging
-    if (isDevelopment) {
-      const isProxyError = error.includes('server configuration') || error.includes('Unable to fetch');
-      return (
-        <div className="google-reviews-carousel google-reviews-carousel--error">
-          <div className="google-reviews-carousel__error-message">
-            <p><strong>Unable to load Google Reviews</strong></p>
-            <p>{error}</p>
-            <p style={{ fontSize: '0.875rem', marginTop: '1rem', opacity: 0.8 }}>
-              Please check the browser console for more details.
-            </p>
-            <p style={{ fontSize: '0.75rem', marginTop: '0.5rem', opacity: 0.6 }}>
-              {isProxyError
-                ? 'To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development'
-                : error.includes('invalid') || error.includes('INVALID') || error.includes('REQUEST_DENIED')
-                ? 'To fix: Verify your API key is valid and has Places API enabled in Google Cloud Console'
-                : error.includes('Server') || error.includes('server')
-                ? 'To fix: Configure GOOGLE_PLACES_SERVER_KEY and GOOGLE_PLACE_ID in your server environment variables (.env.local for local dev)'
-                : 'To fix: Configure the Google Reviews API endpoint on your server'}
-            </p>
-          </div>
+    // In development, show detailed error UI
+    const isProxyError = error.includes('server configuration') || error.includes('Unable to fetch') || isApiEndpointError;
+    return (
+      <div className="google-reviews-carousel google-reviews-carousel--error">
+        <div className="google-reviews-carousel__error-message">
+          <p><strong>Unable to load Google Reviews</strong></p>
+          <p>{error}</p>
+          <p style={{ fontSize: '0.875rem', marginTop: '1rem', opacity: 0.8 }}>
+            Please check the browser console for more details.
+          </p>
+          <p style={{ fontSize: '0.75rem', marginTop: '0.5rem', opacity: 0.6 }}>
+            {isProxyError
+              ? 'To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development'
+              : error.includes('invalid') || error.includes('INVALID') || error.includes('REQUEST_DENIED')
+              ? 'To fix: Verify your API key is valid and has Places API enabled in Google Cloud Console'
+              : error.includes('Server') || error.includes('server')
+              ? 'To fix: Configure GOOGLE_PLACES_SERVER_KEY and GOOGLE_PLACE_ID in your server environment variables (.env.local for local dev)'
+              : 'To fix: Configure the Google Reviews API endpoint on your server'}
+          </p>
         </div>
-      );
-    }
-    
-    // For other errors in production, hide gracefully
-    return null;
+      </div>
+    );
   }
 
   if (allReviews.length === 0 && !loading) {

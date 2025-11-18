@@ -49,7 +49,24 @@ export async function getGoogleReviews(placeId = null) {
   try {
     // Prefer serverless proxy endpoint to keep API key secret and avoid CORS
     const apiUrl = `/api/get-google-reviews?placeId=${encodeURIComponent(finalPlaceId)}`;
-    const response = await fetch(apiUrl);
+    
+    let response;
+    try {
+      response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (networkError) {
+      console.error('[Google Reviews] Network error:', networkError);
+      return { 
+        reviews: [], 
+        rating: 0, 
+        totalReviews: 0, 
+        error: 'Network error: Unable to reach API endpoint. Please check your connection.' 
+      };
+    }
     
     // Check if response is HTML (happens when API endpoint doesn't exist, e.g., using npm start instead of vercel dev)
     const contentType = response.headers.get('content-type');
@@ -61,8 +78,11 @@ export async function getGoogleReviews(placeId = null) {
         // Check if it's HTML by reading as text first
         const text = await response.text();
         if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<!doctype')) {
-          console.error('API endpoint not available. Received HTML instead of JSON.');
-          console.warn('To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development.');
+          // Only log once to reduce console noise
+          if (!window.__googleReviewsApiWarningShown) {
+            console.warn('Google Reviews API: Use "npm run dev" instead of "npm start" to enable API endpoints in development.');
+            window.__googleReviewsApiWarningShown = true;
+          }
           return { 
             reviews: [], 
             rating: 0, 
@@ -77,8 +97,11 @@ export async function getGoogleReviews(placeId = null) {
       }
     } catch (jsonErr) {
       // Likely received HTML (e.g., CRA dev server). Return error instead of exposing API key.
-      console.error('Proxy did not return JSON.', jsonErr);
-      console.warn('To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development.');
+      // Only log once to reduce console noise
+      if (!window.__googleReviewsApiWarningShown) {
+        console.warn('Google Reviews API: Use "npm run dev" instead of "npm start" to enable API endpoints in development.');
+        window.__googleReviewsApiWarningShown = true;
+      }
       return { 
         reviews: [], 
         rating: 0, 
@@ -87,7 +110,10 @@ export async function getGoogleReviews(placeId = null) {
       };
     }
 
-    console.log('Google Reviews - API Data (via proxy):', data);
+    // Log API response for debugging (only in development or if there's an error)
+    if (process.env.NODE_ENV === 'development' || data.error) {
+      console.log('Google Reviews - API Data (via proxy):', data);
+    }
 
     if (!data.error && (data.reviews || data.rating || data.totalReviews !== undefined)) {
       const result = {
