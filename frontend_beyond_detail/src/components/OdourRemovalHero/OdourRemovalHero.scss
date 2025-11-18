@@ -109,3 +109,82 @@
   }
 }
 
+// Trust Badges (inherited from FleetHero but adding explicit styles for clarity)
+.odour-removal-hero__trust-badges {
+  @extend .fleet-hero__trust-badges;
+}
+
+.odour-removal-hero__trust-badge {
+  @extend .fleet-hero__trust-badge;
+}
+
+.odour-removal-hero__trust-icon {
+  @extend .fleet-hero__trust-icon;
+}
+
+.odour-removal-hero__trust-rating {
+  @extend .fleet-hero__trust-rating;
+}
+
+.odour-removal-hero__trust-text {
+  @extend .fleet-hero__trust-text;
+}
+
+// Service Shortcuts
+.odour-removal-hero__service-shortcuts {
+  @extend .fleet-hero__service-shortcuts;
+}
+
+.odour-removal-hero__shortcuts-label {
+  @extend .fleet-hero__shortcuts-label;
+}
+
+.odour-removal-hero__shortcuts-list {
+  @extend .fleet-hero__shortcuts-list;
+}
+
+.odour-removal-hero__shortcut {
+  @extend .fleet-hero__shortcut;
+}
+
+// Live Reviews Section
+.odour-removal-hero__reviews-section {
+  @extend .fleet-hero__reviews-section;
+}
+
+.odour-removal-hero__reviews-header {
+  @extend .fleet-hero__reviews-header;
+}
+
+.odour-removal-hero__reviews-icon {
+  @extend .fleet-hero__reviews-icon;
+}
+
+.odour-removal-hero__reviews-list {
+  @extend .fleet-hero__reviews-list;
+}
+
+.odour-removal-hero__review-card {
+  @extend .fleet-hero__review-card;
+}
+
+.odour-removal-hero__review-header {
+  @extend .fleet-hero__review-header;
+}
+
+.odour-removal-hero__review-stars {
+  @extend .fleet-hero__review-stars;
+}
+
+.odour-removal-hero__review-star {
+  @extend .fleet-hero__review-star;
+}
+
+.odour-removal-hero__review-name {
+  @extend .fleet-hero__review-name;
+}
+
+.odour-removal-hero__review-text {
+  @extend .fleet-hero__review-text;
+}
+

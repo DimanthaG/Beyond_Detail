@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Phone, Shield, Sparkles, Award } from 'lucide-react';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Phone, Shield, Sparkles, Award, Star, Clock } from 'lucide-react';
+import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import PartnersCompact from '../Partners/PartnersCompact';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import carImage from '../../assets/bd/bd-26.jpg';
@@ -8,78 +10,78 @@ import './LeatherCleaningHero.scss';
 
 export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
   const heroRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
+  // Fetch Google Reviews for trust badges and live reviews
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-        setMousePosition({ x, y });
+    const fetchReviews = async () => {
+      try {
+        const data = await getCachedGoogleReviews();
+        if (data && !data.error) {
+          setReviews({
+            rating: data.rating || 0,
+            totalReviews: data.totalReviews || 0,
+            recentReviews: (data.reviews || []).slice(0, 2)
+          });
+        }
+      } catch (error) {
+        console.error('Error loading reviews:', error);
       }
     };
-
-    const hero = heroRef.current;
-    if (hero) {
-      hero.addEventListener('mousemove', handleMouseMove);
-      return () => hero.removeEventListener('mousemove', handleMouseMove);
-    }
+    fetchReviews();
   }, []);
 
   return (
     <>
       <div id="hero" className="leather-cleaning-hero" ref={heroRef}>
-        <motion.div 
-          className="leather-cleaning-hero__background"
-          style={{ y, opacity }}
-        >
-          <motion.div 
-            className="leather-cleaning-hero__background-image"
-            style={{
-              x: mousePosition.x * 15,
-              y: mousePosition.y * 15,
-            }}
-          >
-            <img src={carImage} alt="Leather cleaning service" />
-          </motion.div>
+        <div className="leather-cleaning-hero__background">
+          <div className="leather-cleaning-hero__background-image">
+            <img src={carImage} alt="Leather cleaning service" loading="eager" />
+          </div>
           <div className="leather-cleaning-hero__background-overlay"></div>
           <div className="leather-cleaning-hero__background-gradient"></div>
-        </motion.div>
+        </div>
 
         <div className="leather-cleaning-hero__content">
           <div className="leather-cleaning-hero__container">
+            {/* Trust Badges - Top Bar */}
+            <motion.div
+              className="leather-cleaning-hero__trust-badges"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {reviews.rating > 0 && (
+                <div className="leather-cleaning-hero__trust-badge">
+                  <Star className="leather-cleaning-hero__trust-icon" fill="currentColor" />
+                  <div>
+                    <span className="leather-cleaning-hero__trust-rating">{reviews.rating.toFixed(1)}</span>
+                    <span className="leather-cleaning-hero__trust-text">
+                      {reviews.totalReviews > 0 ? `${reviews.totalReviews}+ Reviews` : 'Rated'}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className="leather-cleaning-hero__trust-badge">
+                <Award className="leather-cleaning-hero__trust-icon" />
+                <span>Expert Certified</span>
+              </div>
+              <div className="leather-cleaning-hero__trust-badge">
+                <Shield className="leather-cleaning-hero__trust-icon" />
+                <span>Lifetime Warranty</span>
+              </div>
+              <div className="leather-cleaning-hero__trust-badge">
+                <Clock className="leather-cleaning-hero__trust-icon" />
+                <span>Same-Day Service</span>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="leather-cleaning-hero__inner"
             >
-              <motion.div 
-                className="leather-cleaning-hero__top-button-wrapper"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <a 
-                  href={scrollTarget} 
-                  className="leather-cleaning-hero__top-button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.querySelector(scrollTarget);
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                  }}
-                >
-                  <span>Get Quote</span>
-                  <ArrowRight className="leather-cleaning-hero__icon" />
-                </a>
-              </motion.div>
 
               <motion.div 
                 className="leather-cleaning-hero__title-section"
@@ -124,7 +126,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Restore your leather to luxurious condition and protect it for years to come. Our professional cleaning removes embedded dirt and stains, while premium conditioning treatments restore suppleness and create a protective barrier against UV damage, cracking, and wear.
+                  Tired of cracked, faded, or dirty leather seats? <strong>Restore your leather to luxurious condition</strong> and protect it for years to come. Our professional cleaning removes embedded dirt and stains, while premium conditioning treatments restore suppleness and create a protective barrier against UV damage, cracking, and wear.
                 </motion.p>
 
                 <motion.div 
@@ -159,6 +161,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                   </motion.div>
                 </motion.div>
 
+                {/* Fast CTAs - Primary Actions */}
                 <motion.div 
                   className="leather-cleaning-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
@@ -166,11 +169,11 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
                   <motion.a 
-                    href={scrollTarget} 
+                    href="#contact" 
                     className="leather-cleaning-hero__action-button leather-cleaning-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
-                      const element = document.querySelector(scrollTarget);
+                      const element = document.querySelector("#contact");
                       if (element) {
                         element.scrollIntoView({ behavior: "smooth", block: "start" });
                       }
@@ -178,7 +181,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Get Started</span>
+                    <span>Get Free Quote</span>
                     <ArrowRight className="leather-cleaning-hero__icon" />
                   </motion.a>
                   <motion.a 
@@ -188,9 +191,67 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Phone className="leather-cleaning-hero__icon" />
-                    <span>Call Now</span>
+                    <span>Call (647) 689-6109</span>
                   </motion.a>
                 </motion.div>
+
+                {/* Service Shortcuts - Quick Links */}
+                <motion.div 
+                  className="leather-cleaning-hero__service-shortcuts"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.5 }}
+                >
+                  <span className="leather-cleaning-hero__shortcuts-label">Related Services:</span>
+                  <div className="leather-cleaning-hero__shortcuts-list">
+                    <Link to="/interior-detailing" className="leather-cleaning-hero__shortcut">
+                      Interior Detailing
+                    </Link>
+                    <Link to="/auto-detail" className="leather-cleaning-hero__shortcut">
+                      Auto Detailing
+                    </Link>
+                    <Link to="/odour-removal" className="leather-cleaning-hero__shortcut">
+                      Odour Removal
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Live Reviews - Recent */}
+                {reviews.recentReviews.length > 0 && (
+                  <motion.div 
+                    className="leather-cleaning-hero__reviews-section"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.7 }}
+                  >
+                    <div className="leather-cleaning-hero__reviews-header">
+                      <Star className="leather-cleaning-hero__reviews-icon" fill="currentColor" />
+                      <span>Recent Reviews</span>
+                    </div>
+                    <div className="leather-cleaning-hero__reviews-list">
+                      {reviews.recentReviews.map((review, idx) => (
+                        <div key={idx} className="leather-cleaning-hero__review-card">
+                          <div className="leather-cleaning-hero__review-header">
+                            <div className="leather-cleaning-hero__review-stars">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`leather-cleaning-hero__review-star ${
+                                    i < (review.rating || 5) ? 'filled' : ''
+                                  }`}
+                                  size={12}
+                                  fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
+                                />
+                              ))}
+                            </div>
+                            <span className="leather-cleaning-hero__review-name">{review.name}</span>
+                          </div>
+                          <p className="leather-cleaning-hero__review-text">"{review.message?.substring(0, 80)}..."</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             </motion.div>
           </div>

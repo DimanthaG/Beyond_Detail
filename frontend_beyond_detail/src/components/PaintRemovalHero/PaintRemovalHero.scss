@@ -109,3 +109,82 @@
   }
 }
 
+// Trust Badges (inherited from FleetHero but adding explicit styles for clarity)
+.paint-removal-hero__trust-badges {
+  @extend .fleet-hero__trust-badges;
+}
+
+.paint-removal-hero__trust-badge {
+  @extend .fleet-hero__trust-badge;
+}
+
+.paint-removal-hero__trust-icon {
+  @extend .fleet-hero__trust-icon;
+}
+
+.paint-removal-hero__trust-rating {
+  @extend .fleet-hero__trust-rating;
+}
+
+.paint-removal-hero__trust-text {
+  @extend .fleet-hero__trust-text;
+}
+
+// Service Shortcuts
+.paint-removal-hero__service-shortcuts {
+  @extend .fleet-hero__service-shortcuts;
+}
+
+.paint-removal-hero__shortcuts-label {
+  @extend .fleet-hero__shortcuts-label;
+}
+
+.paint-removal-hero__shortcuts-list {
+  @extend .fleet-hero__shortcuts-list;
+}
+
+.paint-removal-hero__shortcut {
+  @extend .fleet-hero__shortcut;
+}
+
+// Live Reviews Section
+.paint-removal-hero__reviews-section {
+  @extend .fleet-hero__reviews-section;
+}
+
+.paint-removal-hero__reviews-header {
+  @extend .fleet-hero__reviews-header;
+}
+
+.paint-removal-hero__reviews-icon {
+  @extend .fleet-hero__reviews-icon;
+}
+
+.paint-removal-hero__reviews-list {
+  @extend .fleet-hero__reviews-list;
+}
+
+.paint-removal-hero__review-card {
+  @extend .fleet-hero__review-card;
+}
+
+.paint-removal-hero__review-header {
+  @extend .fleet-hero__review-header;
+}
+
+.paint-removal-hero__review-stars {
+  @extend .fleet-hero__review-stars;
+}
+
+.paint-removal-hero__review-star {
+  @extend .fleet-hero__review-star;
+}
+
+.paint-removal-hero__review-name {
+  @extend .fleet-hero__review-name;
+}
+
+.paint-removal-hero__review-text {
+  @extend .fleet-hero__review-text;
+}
+

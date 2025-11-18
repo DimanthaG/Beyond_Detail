@@ -109,3 +109,82 @@
   }
 }
 
+// Trust Badges (inherited from FleetHero but adding explicit styles for clarity)
+.leather-cleaning-hero__trust-badges {
+  @extend .fleet-hero__trust-badges;
+}
+
+.leather-cleaning-hero__trust-badge {
+  @extend .fleet-hero__trust-badge;
+}
+
+.leather-cleaning-hero__trust-icon {
+  @extend .fleet-hero__trust-icon;
+}
+
+.leather-cleaning-hero__trust-rating {
+  @extend .fleet-hero__trust-rating;
+}
+
+.leather-cleaning-hero__trust-text {
+  @extend .fleet-hero__trust-text;
+}
+
+// Service Shortcuts
+.leather-cleaning-hero__service-shortcuts {
+  @extend .fleet-hero__service-shortcuts;
+}
+
+.leather-cleaning-hero__shortcuts-label {
+  @extend .fleet-hero__shortcuts-label;
+}
+
+.leather-cleaning-hero__shortcuts-list {
+  @extend .fleet-hero__shortcuts-list;
+}
+
+.leather-cleaning-hero__shortcut {
+  @extend .fleet-hero__shortcut;
+}
+
+// Live Reviews Section
+.leather-cleaning-hero__reviews-section {
+  @extend .fleet-hero__reviews-section;
+}
+
+.leather-cleaning-hero__reviews-header {
+  @extend .fleet-hero__reviews-header;
+}
+
+.leather-cleaning-hero__reviews-icon {
+  @extend .fleet-hero__reviews-icon;
+}
+
+.leather-cleaning-hero__reviews-list {
+  @extend .fleet-hero__reviews-list;
+}
+
+.leather-cleaning-hero__review-card {
+  @extend .fleet-hero__review-card;
+}
+
+.leather-cleaning-hero__review-header {
+  @extend .fleet-hero__review-header;
+}
+
+.leather-cleaning-hero__review-stars {
+  @extend .fleet-hero__review-stars;
+}
+
+.leather-cleaning-hero__review-star {
+  @extend .fleet-hero__review-star;
+}
+
+.leather-cleaning-hero__review-name {
+  @extend .fleet-hero__review-name;
+}
+
+.leather-cleaning-hero__review-text {
+  @extend .fleet-hero__review-text;
+}
+

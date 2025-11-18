@@ -113,6 +113,7 @@ function GoogleReviewsCarousel() {
     
     // In development, show error for debugging
     if (isDevelopment) {
+      const isProxyError = error.includes('server configuration') || error.includes('Unable to fetch');
       return (
         <div className="google-reviews-carousel google-reviews-carousel--error">
           <div className="google-reviews-carousel__error-message">
@@ -122,9 +123,13 @@ function GoogleReviewsCarousel() {
               Please check the browser console for more details.
             </p>
             <p style={{ fontSize: '0.75rem', marginTop: '0.5rem', opacity: 0.6 }}>
-              {error.includes('invalid') || error.includes('INVALID') 
+              {isProxyError
+                ? 'To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development'
+                : error.includes('invalid') || error.includes('INVALID') || error.includes('REQUEST_DENIED')
                 ? 'To fix: Verify your API key is valid and has Places API enabled in Google Cloud Console'
-                : 'To fix: Add REACT_APP_GOOGLE_PLACES_API_KEY to your .env file'}
+                : error.includes('Server') || error.includes('server')
+                ? 'To fix: Configure GOOGLE_PLACES_SERVER_KEY and GOOGLE_PLACE_ID in your server environment variables (.env.local for local dev)'
+                : 'To fix: Configure the Google Reviews API endpoint on your server'}
             </p>
           </div>
         </div>

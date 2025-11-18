@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Phone, Sparkles, Award, TrendingUp } from 'lucide-react';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Phone, Sparkles, Award, TrendingUp, Star, Shield, Clock } from 'lucide-react';
+import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-24.jpg';
@@ -8,82 +10,79 @@ import './PaintCorrectionHero.scss';
 
 export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
   const heroRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
-  // Parallax scroll effect
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
-  // Mouse move parallax effect
+  // Fetch Google Reviews for trust badges and live reviews
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-        setMousePosition({ x, y });
+    const fetchReviews = async () => {
+      try {
+        const data = await getCachedGoogleReviews();
+        if (data && !data.error) {
+          setReviews({
+            rating: data.rating || 0,
+            totalReviews: data.totalReviews || 0,
+            recentReviews: (data.reviews || []).slice(0, 2)
+          });
+        }
+      } catch (error) {
+        console.error('Error loading reviews:', error);
       }
     };
-
-    const hero = heroRef.current;
-    if (hero) {
-      hero.addEventListener('mousemove', handleMouseMove);
-      return () => hero.removeEventListener('mousemove', handleMouseMove);
-    }
+    fetchReviews();
   }, []);
 
   return (
     <>
       <div id="hero" className="paint-correction-hero" ref={heroRef}>
-        {/* Car Image Background with Parallax */}
-        <motion.div 
-          className="paint-correction-hero__background"
-          style={{ y, opacity }}
-        >
-          <motion.div 
-            className="paint-correction-hero__background-image"
-            style={{
-              x: mousePosition.x * 15,
-              y: mousePosition.y * 15,
-            }}
-          >
-            <img src={carImage} alt="Paint correction service" />
-          </motion.div>
+        {/* Car Image Background - Optimized without heavy parallax */}
+        <div className="paint-correction-hero__background">
+          <div className="paint-correction-hero__background-image">
+            <img src={carImage} alt="Paint correction service" loading="eager" />
+          </div>
           <div className="paint-correction-hero__background-overlay"></div>
           <div className="paint-correction-hero__background-gradient"></div>
-        </motion.div>
+        </div>
 
         <div className="paint-correction-hero__content">
           <div className="paint-correction-hero__container">
+            {/* Trust Badges - Top Bar */}
+            <motion.div
+              className="paint-correction-hero__trust-badges"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {reviews.rating > 0 && (
+                <div className="paint-correction-hero__trust-badge">
+                  <Star className="paint-correction-hero__trust-icon" fill="currentColor" />
+                  <div>
+                    <span className="paint-correction-hero__trust-rating">{reviews.rating.toFixed(1)}</span>
+                    <span className="paint-correction-hero__trust-text">
+                      {reviews.totalReviews > 0 ? `${reviews.totalReviews}+ Reviews` : 'Rated'}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className="paint-correction-hero__trust-badge">
+                <Award className="paint-correction-hero__trust-icon" />
+                <span>Expert Certified</span>
+              </div>
+              <div className="paint-correction-hero__trust-badge">
+                <Shield className="paint-correction-hero__trust-icon" />
+                <span>Lifetime Warranty</span>
+              </div>
+              <div className="paint-correction-hero__trust-badge">
+                <Clock className="paint-correction-hero__trust-icon" />
+                <span>Same-Day Service</span>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="paint-correction-hero__inner"
             >
-              {/* Top Button */}
-              <motion.div 
-                className="paint-correction-hero__top-button-wrapper"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <a 
-                  href={scrollTarget} 
-                  className="paint-correction-hero__top-button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.querySelector(scrollTarget);
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                  }}
-                >
-                  <span>View Pricing Packages</span>
-                  <ArrowRight className="paint-correction-hero__icon" />
-                </a>
-              </motion.div>
 
               {/* Title Section */}
               <motion.div 
@@ -129,7 +128,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Remove scratches, swirls & oxidation with expert paint correction in Toronto & Scarborough. Restore gloss, depth & value — and love your car again.
+                  Tired of swirl marks, scratches, and dull paint? Remove imperfections with <strong>expert paint correction</strong> in Toronto & Scarborough. Restore gloss, depth & value — and love your car again.
                 </motion.p>
 
                 {/* Feature Icons */}
@@ -165,7 +164,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                   </motion.div>
                 </motion.div>
 
-                {/* Action Buttons */}
+                {/* Fast CTAs - Primary Actions */}
                 <motion.div 
                   className="paint-correction-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
@@ -173,11 +172,11 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
                   <motion.a 
-                    href={scrollTarget} 
+                    href="#contact" 
                     className="paint-correction-hero__action-button paint-correction-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
-                      const element = document.querySelector(scrollTarget);
+                      const element = document.querySelector("#contact");
                       if (element) {
                         element.scrollIntoView({ behavior: "smooth", block: "start" });
                       }
@@ -185,7 +184,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Get Started</span>
+                    <span>Get Free Quote</span>
                     <ArrowRight className="paint-correction-hero__icon" />
                   </motion.a>
                   <motion.a 
@@ -195,9 +194,67 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Phone className="paint-correction-hero__icon" />
-                    <span>Call Now</span>
+                    <span>Call (647) 689-6109</span>
                   </motion.a>
                 </motion.div>
+
+                {/* Service Shortcuts - Quick Links */}
+                <motion.div 
+                  className="paint-correction-hero__service-shortcuts"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.5 }}
+                >
+                  <span className="paint-correction-hero__shortcuts-label">Related Services:</span>
+                  <div className="paint-correction-hero__shortcuts-list">
+                    <Link to="/ceramic-coatings" className="paint-correction-hero__shortcut">
+                      Ceramic Coating
+                    </Link>
+                    <Link to="/tint" className="paint-correction-hero__shortcut">
+                      Window Tinting
+                    </Link>
+                    <Link to="/auto-detail" className="paint-correction-hero__shortcut">
+                      Auto Detailing
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Live Reviews - Recent */}
+                {reviews.recentReviews.length > 0 && (
+                  <motion.div 
+                    className="paint-correction-hero__reviews-section"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.7 }}
+                  >
+                    <div className="paint-correction-hero__reviews-header">
+                      <Star className="paint-correction-hero__reviews-icon" fill="currentColor" />
+                      <span>Recent Reviews</span>
+                    </div>
+                    <div className="paint-correction-hero__reviews-list">
+                      {reviews.recentReviews.map((review, idx) => (
+                        <div key={idx} className="paint-correction-hero__review-card">
+                          <div className="paint-correction-hero__review-header">
+                            <div className="paint-correction-hero__review-stars">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`paint-correction-hero__review-star ${
+                                    i < (review.rating || 5) ? 'filled' : ''
+                                  }`}
+                                  size={12}
+                                  fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
+                                />
+                              ))}
+                            </div>
+                            <span className="paint-correction-hero__review-name">{review.name}</span>
+                          </div>
+                          <p className="paint-correction-hero__review-text">"{review.message?.substring(0, 80)}..."</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             </motion.div>
           </div>

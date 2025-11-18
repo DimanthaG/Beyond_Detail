@@ -1,51 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './HoverSlider.scss';
-import jQuery from 'jquery';
 
 function HoverSlider() {
-  (function ($) {
-    $(document).ready(function () {
-      /* Hero Case study images */
+  const [activeSlide, setActiveSlide] = useState(0);
 
-      $('.slide-buttons li:nth-child(1)').on('mouseenter', function () {
-        $('.slide-buttons li.active').removeClass('active');
-        $('.hero-center-section.show').removeClass('show');
-        $('.hero-center-section:nth-child(1)').addClass('show');
-        $('.slide-buttons li:nth-child(1)').addClass('active');
-      });
-      $('.slide-buttons li:nth-child(2)').on('mouseenter', function () {
-        $('.slide-buttons li.active').removeClass('active');
-        $('.hero-center-section.show').removeClass('show');
-        $('.hero-center-section:nth-child(2)').addClass('show');
-        $('.slide-buttons li:nth-child(2)').addClass('active');
-      });
-      $('.slide-buttons li:nth-child(3)').on('mouseenter', function () {
-        $('.slide-buttons li.active').removeClass('active');
-        $('.hero-center-section.show').removeClass('show');
-        $('.hero-center-section:nth-child(3)').addClass('show');
-        $('.slide-buttons li:nth-child(3)').addClass('active');
-      });
-      $('.slide-buttons li:nth-child(4)').on('mouseenter', function () {
-        $('.slide-buttons li.active').removeClass('active');
-        $('.hero-center-section.show').removeClass('show');
-        $('.hero-center-section:nth-child(4)').addClass('show');
-        $('.slide-buttons li:nth-child(4)').addClass('active');
-      });
-      $('.slide-buttons li:nth-child(5)').on('mouseenter', function () {
-        $('.slide-buttons li.active').removeClass('active');
-        $('.hero-center-section.show').removeClass('show');
-        $('.hero-center-section:nth-child(5)').addClass('show');
-        $('.slide-buttons li:nth-child(5)').addClass('active');
-      });
-      $('.slide-buttons li:nth-child(6)').on('mouseenter', function () {
-        $('.slide-buttons li.active').removeClass('active');
-        $('.hero-center-section.show').removeClass('show');
-        $('.hero-center-section:nth-child(6)').addClass('show');
-        $('.slide-buttons li:nth-child(6)').addClass('active');
-      });
-      $('.slide-buttons li:nth-child(1)').trigger('mouseenter');
-    });
-  })(jQuery);
+  useEffect(() => {
+    // Set initial active slide
+    const buttons = document.querySelectorAll('.slide-buttons li');
+    const sections = document.querySelectorAll('.hero-center-section');
+    
+    if (buttons.length > 0 && sections.length > 0) {
+      buttons[0]?.classList.add('active');
+      sections[0]?.classList.add('show');
+    }
+  }, []);
+
+  const handleSlideHover = (index) => {
+    setActiveSlide(index);
+    
+    // Remove active class from all buttons and sections
+    const buttons = document.querySelectorAll('.slide-buttons li');
+    const sections = document.querySelectorAll('.hero-center-section');
+    
+    buttons.forEach(btn => btn.classList.remove('active'));
+    sections.forEach(section => section.classList.remove('show'));
+    
+    // Add active class to selected button and section
+    if (buttons[index]) buttons[index].classList.add('active');
+    if (sections[index]) sections[index].classList.add('show');
+  };
 
   return (
     <>
@@ -122,30 +105,30 @@ function HoverSlider() {
 
       <div className='section padding-top-bottom over-hide z-bigger'>
         <ul className='slide-buttons'>
-          <li className=''>
+          <li onMouseEnter={() => handleSlideHover(0)}>
             <a href='#0' className='hover-target' data-hover='services' aria-label="Services slide">services</a>
           </li>
-          <li className=''>
+          <li onMouseEnter={() => handleSlideHover(1)}>
             <a href='#0' className='hover-target' data-hover='travel'>
               travel
             </a>
           </li>
-          <li className=''>
+          <li onMouseEnter={() => handleSlideHover(2)}>
             <a href='#0' className='hover-target' data-hover='fashion'>
               fashion
             </a>
           </li>
-          <li className=''>
+          <li onMouseEnter={() => handleSlideHover(3)}>
             <a href='#0' className='hover-target' data-hover='animals'>
               animals
             </a>
           </li>
-          <li className=''>
+          <li onMouseEnter={() => handleSlideHover(4)}>
             <a href='#0' className='hover-target' data-hover='business'>
               business
             </a>
           </li>
-          <li className=''>
+          <li onMouseEnter={() => handleSlideHover(5)}>
             <a href='#0' className='hover-target' data-hover='art'>
               art
             </a>

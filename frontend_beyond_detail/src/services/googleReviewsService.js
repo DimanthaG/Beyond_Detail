@@ -8,7 +8,7 @@
  * 3. Add REACT_APP_GOOGLE_PLACE_ID to your .env file (get it from your Google Business profile)
  */
 
-const GOOGLE_PLACES_API_KEY = process.env.REACT_APP_GOOGLE_PLACES_API_KEY || process.env.REACT_APP_MAPS_KEY;
+// API key removed from frontend - now fetched from secure backend proxy
 // Fallback to known Place ID if env var is missing in runtime
 const PLACE_ID = process.env.REACT_APP_GOOGLE_PLACE_ID || 'ChIJFeApoP4d1YkRv0VpV6_h8sY';
 
@@ -17,27 +17,10 @@ const PLACE_ID = process.env.REACT_APP_GOOGLE_PLACE_ID || 'ChIJFeApoP4d1YkRv0VpV
  * Useful if you don't have the Place ID
  */
 export async function findPlaceByLocation(lat, lng, businessName) {
-  if (!GOOGLE_PLACES_API_KEY) {
-    console.error('Google Places API key not found');
-    return null;
-  }
-
-  try {
-    // Use Text Search to find the place
-    const searchUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(businessName)}&location=${lat},${lng}&radius=1000&key=${GOOGLE_PLACES_API_KEY}`;
-    
-    const response = await fetch(searchUrl);
-    const data = await response.json();
-    
-    if (data.results && data.results.length > 0) {
-      return data.results[0].place_id;
-    }
-    
-    return null;
-  } catch (error) {
-    console.error('Error finding place:', error);
-    return null;
-  }
+  // This function should use a backend proxy if needed
+  // For now, returning null as direct API calls expose keys
+  console.warn('findPlaceByLocation: Use backend proxy for place search to keep API keys secure');
+  return null;
 }
 
 /**
@@ -61,55 +44,47 @@ export async function getGoogleReviews(placeId = null) {
     }
   }
 
-  // Helper: direct fetch via Google + CORS proxy (dev fallback)
-  const fetchViaCorsProxy = async () => {
-    if (!GOOGLE_PLACES_API_KEY) {
-      console.error('Google Places API key not found. Please set REACT_APP_GOOGLE_PLACES_API_KEY in your .env file');
-      return { reviews: [], rating: 0, totalReviews: 0, error: 'API key not configured' };
-    }
-    const fields = 'reviews,rating,user_ratings_total,name,formatted_address';
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${finalPlaceId}&fields=${fields}&key=${GOOGLE_PLACES_API_KEY}`;
-    const proxied = `https://corsproxy.io/?${encodeURIComponent(url)}`;
-    const r = await fetch(proxied);
-    const d = await r.json();
-    if (d.status === 'OK' && d.result) {
-      const result = d.result;
-      const formattedReviews = (result.reviews || []).map((review) => ({
-        _id: review.time || Date.now() + Math.random(),
-        name: review.author_name,
-        message: review.text,
-        rating: review.rating,
-        time: review.time,
-        profilePhoto: review.profile_photo_url || null,
-        relativeTime: review.relative_time_description,
-      }));
-      return {
-        reviews: formattedReviews,
-        rating: result.rating || 0,
-        totalReviews: result.user_ratings_total || 0,
-        businessName: result.name,
-        address: result.formatted_address,
-      };
-    }
-    // Check for specific Google API errors
-    let errorMessage = d.error_message || d.status || 'Failed to fetch';
-    if (d.status === 'REQUEST_DENIED' || d.status === 'INVALID_REQUEST') {
-      errorMessage = d.error_message || 'The provided API key is invalid.';
-    }
-    return { reviews: [], rating: 0, totalReviews: 0, error: errorMessage };
-  };
+  // Removed direct API key usage - all requests now go through secure backend proxy
 
   try {
     // Prefer serverless proxy endpoint to keep API key secret and avoid CORS
     const apiUrl = `/api/get-google-reviews?placeId=${encodeURIComponent(finalPlaceId)}`;
     const response = await fetch(apiUrl);
+    
+    // Check if response is HTML (happens when API endpoint doesn't exist, e.g., using npm start instead of vercel dev)
+    const contentType = response.headers.get('content-type');
+    const isHtmlResponse = !contentType || !contentType.includes('application/json');
+    
     let data;
     try {
-      data = await response.json();
+      if (isHtmlResponse) {
+        // Check if it's HTML by reading as text first
+        const text = await response.text();
+        if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<!doctype')) {
+          console.error('API endpoint not available. Received HTML instead of JSON.');
+          console.warn('To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development.');
+          return { 
+            reviews: [], 
+            rating: 0, 
+            totalReviews: 0, 
+            error: 'API endpoint not available. Use "npm run dev" instead of "npm start" for local development.' 
+          };
+        }
+        // If not HTML, try to parse as JSON
+        data = JSON.parse(text);
+      } else {
+        data = await response.json();
+      }
     } catch (jsonErr) {
-      // Likely received HTML (e.g., CRA dev server). Fallback to direct fetch.
-      console.warn('Proxy did not return JSON; falling back to CORS proxy.', jsonErr);
-      return await fetchViaCorsProxy();
+      // Likely received HTML (e.g., CRA dev server). Return error instead of exposing API key.
+      console.error('Proxy did not return JSON.', jsonErr);
+      console.warn('To fix: Use "npm run dev" (or "vercel dev") instead of "npm start" to enable API endpoints in development.');
+      return { 
+        reviews: [], 
+        rating: 0, 
+        totalReviews: 0, 
+        error: 'API endpoint not available. Use "npm run dev" instead of "npm start" for local development.' 
+      };
     }
 
     console.log('Google Reviews - API Data (via proxy):', data);
@@ -143,12 +118,11 @@ export async function getGoogleReviews(placeId = null) {
       };
     } else {
       console.error('Google Reviews proxy error:', data.error);
-      // Fallback to direct fetch if proxy reports error
-      return await fetchViaCorsProxy();
+      return { reviews: [], rating: 0, totalReviews: 0, error: data.error || 'Failed to fetch reviews' };
     }
   } catch (error) {
-    console.error('Error fetching Google Reviews (proxy). Falling back to CORS proxy.', error);
-    return await fetchViaCorsProxy();
+    console.error('Error fetching Google Reviews:', error);
+    return { reviews: [], rating: 0, totalReviews: 0, error: error.message || 'Failed to fetch reviews' };
   }
 }
 

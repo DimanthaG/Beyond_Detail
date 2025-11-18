@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Phone, Shield, Sparkles, Award } from 'lucide-react';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Phone, Shield, Sparkles, Award, Star, Clock } from 'lucide-react';
+import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-48.jpg';
@@ -8,82 +10,79 @@ import './TintsHero.scss';
 
 export function TintsHero({ scrollTarget = "#pricing" }) {
   const heroRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
-  // Parallax scroll effect
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
-  // Mouse move parallax effect
+  // Fetch Google Reviews for trust badges and live reviews
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-        setMousePosition({ x, y });
+    const fetchReviews = async () => {
+      try {
+        const data = await getCachedGoogleReviews();
+        if (data && !data.error) {
+          setReviews({
+            rating: data.rating || 0,
+            totalReviews: data.totalReviews || 0,
+            recentReviews: (data.reviews || []).slice(0, 2)
+          });
+        }
+      } catch (error) {
+        console.error('Error loading reviews:', error);
       }
     };
-
-    const hero = heroRef.current;
-    if (hero) {
-      hero.addEventListener('mousemove', handleMouseMove);
-      return () => hero.removeEventListener('mousemove', handleMouseMove);
-    }
+    fetchReviews();
   }, []);
 
   return (
     <>
       <div id="hero" className="tints-hero" ref={heroRef}>
-        {/* Car Image Background with Parallax */}
-        <motion.div 
-          className="tints-hero__background"
-          style={{ y, opacity }}
-        >
-          <motion.div 
-            className="tints-hero__background-image"
-            style={{
-              x: mousePosition.x * 15,
-              y: mousePosition.y * 15,
-            }}
-          >
-            <img src={carImage} alt="Window tint service" />
-          </motion.div>
+        {/* Car Image Background - Optimized without heavy parallax */}
+        <div className="tints-hero__background">
+          <div className="tints-hero__background-image">
+            <img src={carImage} alt="Window tint service" loading="eager" />
+          </div>
           <div className="tints-hero__background-overlay"></div>
           <div className="tints-hero__background-gradient"></div>
-        </motion.div>
+        </div>
 
         <div className="tints-hero__content">
           <div className="tints-hero__container">
+            {/* Trust Badges - Top Bar */}
+            <motion.div
+              className="tints-hero__trust-badges"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {reviews.rating > 0 && (
+                <div className="tints-hero__trust-badge">
+                  <Star className="tints-hero__trust-icon" fill="currentColor" />
+                  <div>
+                    <span className="tints-hero__trust-rating">{reviews.rating.toFixed(1)}</span>
+                    <span className="tints-hero__trust-text">
+                      {reviews.totalReviews > 0 ? `${reviews.totalReviews}+ Reviews` : 'Rated'}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className="tints-hero__trust-badge">
+                <Award className="tints-hero__trust-icon" />
+                <span>LLUMAR Certified</span>
+              </div>
+              <div className="tints-hero__trust-badge">
+                <Shield className="tints-hero__trust-icon" />
+                <span>Lifetime Warranty</span>
+              </div>
+              <div className="tints-hero__trust-badge">
+                <Clock className="tints-hero__trust-icon" />
+                <span>Same-Day Service</span>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="tints-hero__inner"
             >
-              {/* Top Button */}
-              <motion.div 
-                className="tints-hero__top-button-wrapper"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <a 
-                  href={scrollTarget} 
-                  className="tints-hero__top-button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.querySelector(scrollTarget);
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }
-                  }}
-                >
-                  <span>View Pricing</span>
-                  <ArrowRight className="tints-hero__icon" />
-                </a>
-              </motion.div>
 
               {/* Title Section */}
               <motion.div 
@@ -129,7 +128,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  LLUMAR-certified window tint installation in Toronto & Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves.
+                  Tired of sun glare, faded interiors, and lack of privacy? Get <strong>professional LLUMAR window tinting</strong> in Toronto & Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves.
                 </motion.p>
 
                 {/* Feature Icons */}
@@ -165,7 +164,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                   </motion.div>
                 </motion.div>
 
-                {/* Action Buttons */}
+                {/* Fast CTAs - Primary Actions */}
                 <motion.div 
                   className="tints-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
@@ -173,11 +172,11 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
                   <motion.a 
-                    href={scrollTarget} 
+                    href="#contact" 
                     className="tints-hero__action-button tints-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
-                      const element = document.querySelector(scrollTarget);
+                      const element = document.querySelector("#contact");
                       if (element) {
                         element.scrollIntoView({ behavior: "smooth", block: "start" });
                       }
@@ -185,7 +184,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Get Started</span>
+                    <span>Get Free Quote</span>
                     <ArrowRight className="tints-hero__icon" />
                   </motion.a>
                   <motion.a 
@@ -195,9 +194,67 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Phone className="tints-hero__icon" />
-                    <span>Call Now</span>
+                    <span>Call (647) 689-6109</span>
                   </motion.a>
                 </motion.div>
+
+                {/* Service Shortcuts - Quick Links */}
+                <motion.div 
+                  className="tints-hero__service-shortcuts"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.5 }}
+                >
+                  <span className="tints-hero__shortcuts-label">Related Services:</span>
+                  <div className="tints-hero__shortcuts-list">
+                    <Link to="/ceramic-coatings" className="tints-hero__shortcut">
+                      Ceramic Coating
+                    </Link>
+                    <Link to="/paint-correction" className="tints-hero__shortcut">
+                      Paint Correction
+                    </Link>
+                    <Link to="/auto-detail" className="tints-hero__shortcut">
+                      Auto Detailing
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Live Reviews - Recent */}
+                {reviews.recentReviews.length > 0 && (
+                  <motion.div 
+                    className="tints-hero__reviews-section"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.7 }}
+                  >
+                    <div className="tints-hero__reviews-header">
+                      <Star className="tints-hero__reviews-icon" fill="currentColor" />
+                      <span>Recent Reviews</span>
+                    </div>
+                    <div className="tints-hero__reviews-list">
+                      {reviews.recentReviews.map((review, idx) => (
+                        <div key={idx} className="tints-hero__review-card">
+                          <div className="tints-hero__review-header">
+                            <div className="tints-hero__review-stars">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`tints-hero__review-star ${
+                                    i < (review.rating || 5) ? 'filled' : ''
+                                  }`}
+                                  size={12}
+                                  fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
+                                />
+                              ))}
+                            </div>
+                            <span className="tints-hero__review-name">{review.name}</span>
+                          </div>
+                          <p className="tints-hero__review-text">"{review.message?.substring(0, 80)}..."</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             </motion.div>
           </div>

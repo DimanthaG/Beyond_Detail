@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapStyles from './MapStyles';
 import images from '../../constants/images';
@@ -21,6 +21,8 @@ const AnyReactComponent = ({ text }) => (
 
 function Map() {
   const [mapError, setMapError] = useState(null);
+  const [apiKey, setApiKey] = useState(null);
+  const [loading, setLoading] = useState(true);
   const defaultProps = {
     center: {
       lat: 43.8195560984298,
@@ -29,13 +31,45 @@ function Map() {
     zoom: 14,
   };
 
-  const apiKey = process.env.REACT_APP_MAPS_KEY || process.env.REACT_APP_GOOGLE_PLACES_API_KEY;
+  // Fetch API key from secure backend proxy
+  useEffect(() => {
+    const fetchApiKey = async () => {
+      try {
+        const response = await fetch('/api/get-maps-key');
+        const data = await response.json();
+        
+        if (data.apiKey) {
+          setApiKey(data.apiKey);
+        } else {
+          setMapError(data.error || 'API key not available');
+        }
+      } catch (error) {
+        console.error('Error fetching Maps API key:', error);
+        setMapError('Unable to load map. Please check server configuration.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchApiKey();
+  }, []);
 
   // Handle map loading errors
   const handleMapError = (error) => {
     console.error('Google Maps error:', error);
     setMapError('Unable to load map. Please check your API key configuration.');
   };
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className='map__wrapper' style={{ height: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a1a1a' }}>
+        <div style={{ textAlign: 'center', color: '#fff', padding: '2rem' }}>
+          <p>Loading map...</p>
+        </div>
+      </div>
+    );
+  }
 
   // If no API key, show a message instead of the map
   if (!apiKey) {
@@ -44,7 +78,7 @@ function Map() {
         <div style={{ textAlign: 'center', color: '#fff', padding: '2rem' }}>
           <p>Map unavailable - API key not configured</p>
           <p style={{ fontSize: '0.875rem', opacity: 0.7, marginTop: '0.5rem' }}>
-            Add REACT_APP_MAPS_KEY to your .env file
+            {mapError || 'Please configure GOOGLE_MAPS_SERVER_KEY on the server'}
           </p>
         </div>
       </div>
