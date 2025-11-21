@@ -306,6 +306,7 @@ function ContactPage() {
 
                         <div className='vehicle-date__wrapper'>
                           <div lg='6' className='control-group'>
+                            <label htmlFor='vehicleType' className='visually-hidden'>Vehicle Type</label>
                             <h3>Vehicle Type: *</h3>
                             <div className='select'>
                               <select

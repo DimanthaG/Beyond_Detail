@@ -37,7 +37,15 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="ceramic-coating-hero__background">
           <div className="ceramic-coating-hero__background-image">
-            <img src={carImage} alt="Ceramic coating service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Ceramic coating service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="ceramic-coating-hero__background-overlay"></div>
           <div className="ceramic-coating-hero__background-gradient"></div>

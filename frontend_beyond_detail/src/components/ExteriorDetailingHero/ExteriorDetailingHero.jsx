@@ -37,7 +37,15 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="exterior-detailing-hero__background">
           <div className="exterior-detailing-hero__background-image">
-            <img src={carImage} alt="Exterior detailing service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Exterior detailing service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="exterior-detailing-hero__background-overlay"></div>
           <div className="exterior-detailing-hero__background-gradient"></div>

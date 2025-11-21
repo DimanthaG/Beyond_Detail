@@ -36,7 +36,15 @@ export function FleetHero({ scrollTarget = "#contact" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="fleet-hero__background">
           <div className="fleet-hero__background-image">
-            <img src={carImage} alt="Fleet services" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Fleet services" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="fleet-hero__background-overlay"></div>
           <div className="fleet-hero__background-gradient"></div>

@@ -37,7 +37,15 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="paint-correction-hero__background">
           <div className="paint-correction-hero__background-image">
-            <img src={carImage} alt="Paint correction service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Paint correction service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="paint-correction-hero__background-overlay"></div>
           <div className="paint-correction-hero__background-gradient"></div>

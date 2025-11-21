@@ -179,7 +179,14 @@ const renderContent = (content, blogSlug) => {
           imageIndex++;
           return (
             <div key={idx} className="blog-content-image">
-              <img src={imgSrc} alt={`Content illustration ${imageIndex}`} />
+              <img 
+                src={imgSrc} 
+                alt={`Content illustration ${imageIndex}`}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="600"
+              />
             </div>
           );
         }

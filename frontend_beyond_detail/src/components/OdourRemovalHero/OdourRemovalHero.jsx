@@ -36,7 +36,15 @@ export function OdourRemovalHero({ scrollTarget = "#contact" }) {
       <div id="hero" className="odour-removal-hero" ref={heroRef}>
         <div className="odour-removal-hero__background">
           <div className="odour-removal-hero__background-image">
-            <img src={carImage} alt="Odour removal service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Odour removal service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="odour-removal-hero__background-overlay"></div>
           <div className="odour-removal-hero__background-gradient"></div>

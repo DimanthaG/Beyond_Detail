@@ -37,7 +37,15 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="headlight-restoration-hero__background">
           <div className="headlight-restoration-hero__background-image">
-            <img src={carImage} alt="Headlight restoration service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Headlight restoration service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="headlight-restoration-hero__background-overlay"></div>
           <div className="headlight-restoration-hero__background-gradient"></div>

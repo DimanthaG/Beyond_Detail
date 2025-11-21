@@ -37,7 +37,15 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="interior-detailing-hero__background">
           <div className="interior-detailing-hero__background-image">
-            <img src={carImage} alt="Interior detailing service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Interior detailing service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="interior-detailing-hero__background-overlay"></div>
           <div className="interior-detailing-hero__background-gradient"></div>

@@ -36,7 +36,15 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
       <div id="hero" className="leather-cleaning-hero" ref={heroRef}>
         <div className="leather-cleaning-hero__background">
           <div className="leather-cleaning-hero__background-image">
-            <img src={carImage} alt="Leather cleaning service" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Leather cleaning service" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="leather-cleaning-hero__background-overlay"></div>
           <div className="leather-cleaning-hero__background-gradient"></div>
