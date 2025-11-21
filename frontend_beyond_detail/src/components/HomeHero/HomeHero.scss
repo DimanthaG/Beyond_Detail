@@ -383,6 +383,9 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  overflow: visible;
+  position: relative;
+  z-index: 20;
 
   @media screen and (min-width: 375px) {
     font-size: 3rem;
@@ -425,17 +428,28 @@
   &--highlight {
     color: #f07900;
     font-size: 0.85em;
-    white-space: nowrap;
+    white-space: normal;
     text-shadow: 0 4px 20px rgba(240, 121, 0, 0.4);
     font-weight: 800;
     letter-spacing: -0.04em;
+    display: block;
+    width: 100%;
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+
+    @media screen and (min-width: 640px) {
+      white-space: nowrap;
+    }
 
     @media screen and (min-width: 768px) {
       font-size: 0.85em;
+      white-space: nowrap;
     }
 
     @media screen and (min-width: 1024px) {
       font-size: 0.9em;
+      white-space: nowrap;
     }
   }
 }

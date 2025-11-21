@@ -189,7 +189,8 @@ export function HomeHero() {
                     className="home-hero__title-line home-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    style={{ display: 'block', visibility: 'visible' }}
                   >
                     You Love Your Car. We'll Make It Show.
                   </motion.span>
