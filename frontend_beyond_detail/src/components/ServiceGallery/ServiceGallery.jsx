@@ -201,6 +201,8 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                         alt={`Gallery image ${index + 1}`}
                         effect="blur"
                         className="service-gallery__image"
+                        width={800}
+                        height={600}
                         onError={(e) => {
                           console.error('[ServiceGallery] Image failed to load:', item.src || item.image);
                           console.error('[ServiceGallery] Image object:', item);

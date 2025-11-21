@@ -49,17 +49,21 @@ function TintsInfoSection() {
             <div className='tints__topRow__right_firstColumn'>
               <LazyLoadImage
                 src={urlFor(tintsInfoData[0].tintsInfoSection.image1)}
-                alt=''
+                alt={tintsInfoData[0].tintsInfoSection.heading || 'Window tint service'}
                 className='tints__topRow__right_firstColumn__topPic'
                 effect='blur'
+                width={600}
+                height={400}
               />
 
               <div className='tints__topRow__right_firstColumn__bottomPic__imgWrapper'>
                 <LazyLoadImage
                   src={urlFor(tintsInfoData[0].tintsInfoSection.image2.image)}
-                  alt=''
+                  alt={tintsInfoData[0].tintsInfoSection.image2.heading || 'Window tint feature'}
                   className='tints__topRow__right_firstColumn__bottomPic'
                   effect='blur'
+                  width={600}
+                  height={400}
                 />
                 <h1 className='tints__topRow__right_firstColumn__bottomPic__textHeading'>
                   {tintsInfoData[0].tintsInfoSection.image2.heading}
@@ -73,9 +77,11 @@ function TintsInfoSection() {
               <div className='tints__topRow__right_secondColumn__topPic__imgWrapper'>
                 <LazyLoadImage
                   src={urlFor(tintsInfoData[0].tintsInfoSection.image3.image)}
-                  alt=''
+                  alt={tintsInfoData[0].tintsInfoSection.image3.heading || 'Window tint feature'}
                   className='tints__topRow__right_secondColumn__topPic'
                   effect='blur'
+                  width={600}
+                  height={400}
                 />
                 <h1 className='tints__topRow__right_secondColumn__topPic__textHeading'>
                   {tintsInfoData[0].tintsInfoSection.image3.heading}
@@ -87,9 +93,11 @@ function TintsInfoSection() {
               <div className='tints__topRow__right_secondColumn__bottomPic__imgWrapper'>
                 <LazyLoadImage
                   src={urlFor(tintsInfoData[0].tintsInfoSection.image4.image)}
-                  alt=''
+                  alt={tintsInfoData[0].tintsInfoSection.image4.heading || 'Window tint feature'}
                   className='tints__topRow__right_secondColumn__bottomPic'
                   effect='blur'
+                  width={600}
+                  height={400}
                 />
                 <h1 className='tints__topRow__right_secondColumn__bottomPic__textHeading'>
                   {tintsInfoData[0].tintsInfoSection.image4.heading}

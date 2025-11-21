@@ -306,15 +306,16 @@ function ContactPage() {
 
                         <div className='vehicle-date__wrapper'>
                           <div lg='6' className='control-group'>
-                            <label htmlFor='vehicleType' className='visually-hidden'>Vehicle Type</label>
-                            <h3>Vehicle Type: *</h3>
+                            <label htmlFor='vehicleType'>
+                              <h3>Vehicle Type: *</h3>
+                            </label>
                             <div className='select'>
                               <select
                                 name='vehicleType'
                                 id='vehicleType'
                                 className='select__options'
                                 ref={optSelect}
-                                aria-label="Vehicle Type"
+                                aria-labelledby="vehicleType-label"
                               >
                                 <option value='Sedan'>Sedan</option>
                                 <option value='Hatchback'>Hatchback</option>

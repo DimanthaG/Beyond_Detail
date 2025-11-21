@@ -29,9 +29,11 @@ function TintsMaterials() {
               <div className='tintsMaterials__image'>
                 <LazyLoadImage
                   src={urlFor(tintsMaterialsData[0].tintsMaterials.image)}
-                  alt=''
+                  alt={tintsMaterialsData[0].tintsMaterials.heading || 'Window tint materials'}
                   effect='blur'
                   className='tintsMaterials__image__img'
+                  width={800}
+                  height={600}
                 />
               </div>
               <div className='tintsMaterials__description'>

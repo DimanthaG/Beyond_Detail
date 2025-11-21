@@ -182,6 +182,8 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
                       alt={item.title || `Recent work ${index + 1}`}
                       effect="blur"
                       className="recent-work__image"
+                      width={800}
+                      height={600}
                       onError={(e) => {
                         console.error('Image failed to load:', item.image);
                         e.target.style.display = 'none';
