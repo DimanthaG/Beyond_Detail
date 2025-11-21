@@ -159,6 +159,19 @@ function Contact() {
                       {contactData[0].bottomDescription}
                     </p>
                   </div>
+
+                  <div className="contact__map-embed" style={{ marginTop: '2rem', borderRadius: '8px', overflow: 'hidden' }}>
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.604401609489!2d-79.2340199238165!3d43.77640997109644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d06061099999%3A0x0!2s170%20Finchdene%20Sq%20Unit%2011%2C%20Scarborough%2C%20ON%20M1X%201B3!5e0!3m2!1sen!2sca!4v1635789000000!5m2!1sen!2sca"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Beyond Detail Location"
+                    ></iframe>
+                  </div>
                 </div>
 
                 <div className='socialIcons__container__navBar3'>
