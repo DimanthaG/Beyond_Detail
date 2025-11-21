@@ -155,7 +155,15 @@ export const SEO = ({
           name: service,
           provider: {
             '@type': 'LocalBusiness',
-            name: BUSINESS_INFO.name
+            name: BUSINESS_INFO.name,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: BUSINESS_INFO.address.streetAddress,
+              addressLocality: BUSINESS_INFO.address.addressLocality,
+              addressRegion: BUSINESS_INFO.address.addressRegion,
+              postalCode: BUSINESS_INFO.address.postalCode,
+              addressCountry: BUSINESS_INFO.address.addressCountry
+            }
           },
           areaServed: LOCATIONS.map(loc => ({
             '@type': 'City',
@@ -170,7 +178,15 @@ export const SEO = ({
         name: serviceType,
         provider: {
           '@type': 'LocalBusiness',
-          name: BUSINESS_INFO.name
+          name: BUSINESS_INFO.name,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: BUSINESS_INFO.address.streetAddress,
+            addressLocality: BUSINESS_INFO.address.addressLocality,
+            addressRegion: BUSINESS_INFO.address.addressRegion,
+            postalCode: BUSINESS_INFO.address.postalCode,
+            addressCountry: BUSINESS_INFO.address.addressCountry
+          }
         },
         areaServed: LOCATIONS.map(loc => ({
           '@type': 'City',
