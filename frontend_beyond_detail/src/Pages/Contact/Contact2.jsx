@@ -204,6 +204,7 @@ function ContactPage() {
                     <form className='contact__form' onSubmit={handleSubmit}>
                       <div className='mb-3'>
                         <div lg='6' className='form-group'>
+                          <label htmlFor='name' className='visually-hidden'>Name</label>
                           <input
                             className='form-control rounded-0'
                             id='name'
@@ -211,11 +212,13 @@ function ContactPage() {
                             placeholder='Name *'
                             type='text'
                             required
+                            aria-label='Name'
                             onChange={handleChangeInput}
                           />
                         </div>
 
                         <div lg='6' className='form-group'>
+                          <label htmlFor='email' className='visually-hidden'>Email</label>
                           <input
                             className='form-control rounded-0'
                             id='email'
@@ -223,11 +226,13 @@ function ContactPage() {
                             placeholder='Email *'
                             type='email'
                             required
+                            aria-label='Email'
                             onChange={handleChangeInput}
                           />
                         </div>
 
                         <div lg='6' className='form-group'>
+                          <label htmlFor='phone' className='visually-hidden'>Phone</label>
                           <input
                             className='form-control rounded-0'
                             id='phone'
@@ -236,6 +241,7 @@ function ContactPage() {
                             type='tel'
                             pattern='^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$'
                             required
+                            aria-label='Phone'
                             onChange={handleChangeInput}
                           />
                         </div>
@@ -340,11 +346,13 @@ function ContactPage() {
                           </div>
                         </div>
                       </div>
+                      <label htmlFor='message' className='visually-hidden'>Message</label>
                       <textarea
                         className='form-control rounded-0'
                         id='message'
                         name='message'
                         placeholder='Tell us about your project'
+                        aria-label='Message'
                         onChange={handleChangeInput}
                         rows='5'
                       ></textarea>

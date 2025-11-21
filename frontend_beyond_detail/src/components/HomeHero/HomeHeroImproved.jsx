@@ -13,6 +13,35 @@ export function HomeHeroImproved() {
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
   const [loadingReviews, setLoadingReviews] = useState(true);
 
+  // Preload hero image dynamically (works with webpack hashed filenames)
+  useEffect(() => {
+    // Create a temporary image to get the actual resolved path
+    const img = new Image();
+    img.src = carImage;
+    
+    // Once image path is resolved, add preload link
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = img.src;
+    link.type = 'image/webp';
+    link.setAttribute('fetchpriority', 'high');
+    
+    // Only add if not already present
+    const existingLink = document.querySelector(`link[href="${img.src}"]`);
+    if (!existingLink) {
+      document.head.appendChild(link);
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      const linkToRemove = document.querySelector(`link[href="${img.src}"]`);
+      if (linkToRemove && linkToRemove.rel === 'preload') {
+        linkToRemove.remove();
+      }
+    };
+  }, []);
+
   // Fetch Google Reviews for trust badges
   useEffect(() => {
     const fetchReviews = async () => {
@@ -33,15 +62,19 @@ export function HomeHeroImproved() {
     };
     fetchReviews();
   }, []);
-
+  
   return (
     <div className="home-hero-improved" ref={heroRef}>
-      {/* Background Image - Optimized without heavy parallax */}
+      {/* Background Image - Optimized */}
       <div className="home-hero-improved__background">
         <img
           src={carImage}
           alt="Premium car detailing"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          width="1920"
+          height="1080"
           className="home-hero-improved__background-image"
         />
         <div className="home-hero-improved__background-overlay"></div>
@@ -216,6 +249,7 @@ export function HomeHeroImproved() {
 }
 
 export default HomeHeroImproved;
+
 
 
 

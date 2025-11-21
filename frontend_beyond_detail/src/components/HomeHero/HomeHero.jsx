@@ -13,6 +13,35 @@ export function HomeHero() {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
+  // Preload hero image dynamically (works with webpack hashed filenames)
+  useEffect(() => {
+    // Create a temporary image to get the actual resolved path
+    const img = new Image();
+    img.src = carImage;
+    
+    // Once image path is resolved, add preload link
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = img.src;
+    link.type = 'image/webp';
+    link.setAttribute('fetchpriority', 'high');
+    
+    // Only add if not already present
+    const existingLink = document.querySelector(`link[href="${img.src}"]`);
+    if (!existingLink) {
+      document.head.appendChild(link);
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      const linkToRemove = document.querySelector(`link[href="${img.src}"]`);
+      if (linkToRemove && linkToRemove.rel === 'preload') {
+        linkToRemove.remove();
+      }
+    };
+  }, []);
+
   // Fetch Google Reviews for trust badges and live reviews
   useEffect(() => {
     const fetchReviews = async () => {
@@ -38,7 +67,15 @@ export function HomeHero() {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="home-hero__background">
           <div className="home-hero__background-image">
-            <img src={carImage} alt="Premium car detailing" loading="eager" />
+            <img 
+              src={carImage} 
+              alt="Premium car detailing" 
+              loading="eager" 
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
           </div>
           <div className="home-hero__background-overlay"></div>
           <div className="home-hero__background-gradient"></div>
