@@ -5,7 +5,7 @@ import { ArrowRight, Phone, Lightbulb, Shield, Sparkles, Star, Award, Clock } fr
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import PartnersCompact from '../Partners/PartnersCompact';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
-import carImage from '../../assets/bd/bd-24.jpg';
+import carImage from '../../assets/bd/bd-24.webp';
 import './HeadlightRestorationHero.scss';
 
 export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
@@ -85,19 +85,19 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
             >
 
               {/* Title Section */}
-              <motion.div 
+              <motion.div
                 className="headlight-restoration-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="headlight-restoration-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="headlight-restoration-hero__title-line headlight-restoration-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                   >
                     Headlight Restoration in
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="headlight-restoration-hero__title-line headlight-restoration-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -113,7 +113,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                   >
                     TORONTO &
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="headlight-restoration-hero__title-line headlight-restoration-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -122,7 +122,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                     SCARBOROUGH
                   </motion.span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="headlight-restoration-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -132,13 +132,13 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                 </motion.p>
 
                 {/* Feature Icons */}
-                <motion.div 
+                <motion.div
                   className="headlight-restoration-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="headlight-restoration-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -146,7 +146,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                     <Lightbulb className="headlight-restoration-hero__feature-icon" />
                     <span>Better Visibility</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="headlight-restoration-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -154,7 +154,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                     <Sparkles className="headlight-restoration-hero__feature-icon" />
                     <span>Crystal Clear</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="headlight-restoration-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -165,14 +165,14 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="headlight-restoration-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="headlight-restoration-hero__action-button headlight-restoration-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -187,7 +187,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                     <span>Get Free Quote</span>
                     <ArrowRight className="headlight-restoration-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="headlight-restoration-hero__action-button headlight-restoration-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -199,7 +199,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="headlight-restoration-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="headlight-restoration-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -239,9 +239,8 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`headlight-restoration-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`headlight-restoration-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />
