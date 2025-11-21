@@ -147,7 +147,7 @@ function PrivacyPolicy() {
                   <ul>
                     <li><strong>Email:</strong> support@beyonddetail.com</li>
                     <li><strong>Phone:</strong> (647) 689-6109</li>
-                    <li><strong>Address:</strong> Scarborough, Toronto, ON, Canada</li>
+                    <li><strong>Address:</strong> Unit 11, 170 Finchdene Square, Scarborough, ON M1X 1B3, Canada</li>
                   </ul>
                 </div>
               </div>

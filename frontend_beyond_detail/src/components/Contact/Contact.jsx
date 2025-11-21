@@ -139,8 +139,8 @@ function Contact() {
                     </p>
                     <p>
                       <strong>Phone :</strong>{' '}
-                      <a href='tel: +1 (289) 886-3045'>
-                        {contactData[0].phone}
+                      <a href='tel:+16476896109'>
+                        (647) 689-6109
                       </a>
                     </p>
                     <p>

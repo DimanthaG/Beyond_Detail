@@ -6,20 +6,29 @@ import { useLocation } from 'react-router-dom';
 const LOCATIONS = ['Toronto', 'Scarborough', 'Markham', 'Pickering'];
 const LOCATIONS_STRING = LOCATIONS.join(', ');
 
-// Default business information
+// Default business information - MUST match Google My Business exactly for SEO
 const BUSINESS_INFO = {
   name: 'Beyond Detail Toronto',
   address: {
-    streetAddress: 'Toronto, ON',
-    addressLocality: 'Toronto',
+    streetAddress: 'Unit 11, 170 Finchdene Square',
+    addressLocality: 'Scarborough',
     addressRegion: 'ON',
-    postalCode: '',
+    postalCode: 'M1X 1B3',
     addressCountry: 'CA'
   },
   phone: '+1 (647) 689-6109',
   email: 'info@beyonddetail.ca',
   url: 'https://beyonddetail.ca',
-  description: 'Get that new-car feel with Beyond Detail’s auto detailing, tinting & ceramic coating in Scarborough, Toronto.',
+  description: 'Get that new-car feel with Beyond Detail\'s auto detailing, tinting & ceramic coating in Scarborough, Toronto.',
+  hours: {
+    monday: { open: '08:00', close: '20:00' },
+    tuesday: { open: '08:00', close: '20:00' },
+    wednesday: { open: '08:00', close: '20:00' },
+    thursday: { open: '08:00', close: '20:00' },
+    friday: { open: '08:00', close: '20:00' },
+    saturday: { open: '09:00', close: '18:00' },
+    sunday: { open: null, close: null } // Closed
+  },
   services: [
     'Window Tinting',
     'Paint Correction',
@@ -34,10 +43,10 @@ const BUSINESS_INFO = {
   ]
 };
 
-export const SEO = ({ 
-  title, 
-  description, 
-  name = BUSINESS_INFO.name, 
+export const SEO = ({
+  title,
+  description,
+  name = BUSINESS_INFO.name,
   type = 'website',
   keywords,
   image,
@@ -49,14 +58,14 @@ export const SEO = ({
   const normalizedPath = location.pathname === '/' ? '' : location.pathname;
   const currentUrl = url || `${BUSINESS_INFO.url}${normalizedPath}`;
   const pageTitle = title || `${BUSINESS_INFO.name} - Auto Detailing Services`;
-  
+
   // Generate location-based keywords
-  const locationKeywords = LOCATIONS.map(loc => 
-    serviceType 
+  const locationKeywords = LOCATIONS.map(loc =>
+    serviceType
       ? `${serviceType} ${loc}, ${loc} ${serviceType}, ${serviceType} near ${loc}`
       : `car detailing ${loc}, auto detailing ${loc}, vehicle detailing ${loc}`
   ).join(', ');
-  
+
   // Combine all keywords
   const allKeywords = [
     ...(keywords ? [keywords] : []),
@@ -81,11 +90,21 @@ export const SEO = ({
   // Default OG image
   const ogImage = image || `${BUSINESS_INFO.url}/og-image.jpg`;
 
+  // Generate opening hours specification for schema
+  const openingHoursSpecification = Object.entries(BUSINESS_INFO.hours)
+    .filter(([day, hours]) => hours.open && hours.close)
+    .map(([day, hours]) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: day.charAt(0).toUpperCase() + day.slice(1),
+      opens: hours.open,
+      closes: hours.close
+    }));
+
   // Generate JSON-LD structured data for LocalBusiness
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': currentUrl,
+    '@type': 'AutomotiveBusiness',
+    '@id': BUSINESS_INFO.url,
     name: BUSINESS_INFO.name,
     image: ogImage,
     description: enhancedDescription,
@@ -94,10 +113,18 @@ export const SEO = ({
     email: BUSINESS_INFO.email,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: BUSINESS_INFO.address.streetAddress,
       addressLocality: BUSINESS_INFO.address.addressLocality,
       addressRegion: BUSINESS_INFO.address.addressRegion,
+      postalCode: BUSINESS_INFO.address.postalCode,
       addressCountry: BUSINESS_INFO.address.addressCountry
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 43.7764,
+      longitude: -79.2318
+    },
+    openingHoursSpecification: openingHoursSpecification,
     areaServed: [
       {
         '@type': 'City',
@@ -114,30 +141,14 @@ export const SEO = ({
       {
         '@type': 'City',
         name: 'Pickering'
-      },
-      {
-        '@type': 'City',
-        name: 'Greater Toronto Area'
       }
     ],
-    serviceArea: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: 43.6532,
-        longitude: -79.3832
-      },
-      radius: {
-        '@type': 'Distance',
-        value: 50,
-        unitCode: 'KM'
-      }
-    },
     priceRange: '$$',
+    paymentAccepted: 'Cash, Credit Card, Debit Card',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Auto Detailing Services',
-      itemListElement: BUSINESS_INFO.services.map((service, index) => ({
+      itemListElement: BUSINESS_INFO.services.map((service) => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
@@ -146,12 +157,11 @@ export const SEO = ({
             '@type': 'LocalBusiness',
             name: BUSINESS_INFO.name
           },
-          areaServed: {
+          areaServed: LOCATIONS.map(loc => ({
             '@type': 'City',
-            name: LOCATIONS
-          }
-        },
-        position: index + 1
+            name: loc
+          }))
+        }
       }))
     },
     ...(serviceType && {
@@ -190,6 +200,33 @@ export const SEO = ({
     ]
   };
 
+  // Organization structured data (separate from LocalBusiness)
+  const organizationData = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${BUSINESS_INFO.url}#organization`,
+    name: BUSINESS_INFO.name,
+    url: BUSINESS_INFO.url,
+    logo: `${BUSINESS_INFO.url}/logo192.png`,
+    image: ogImage,
+    description: enhancedDescription,
+    telephone: BUSINESS_INFO.phone,
+    email: BUSINESS_INFO.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: BUSINESS_INFO.address.streetAddress,
+      addressLocality: BUSINESS_INFO.address.addressLocality,
+      addressRegion: BUSINESS_INFO.address.addressRegion,
+      postalCode: BUSINESS_INFO.address.postalCode,
+      addressCountry: BUSINESS_INFO.address.addressCountry
+    },
+    sameAs: [
+      'https://www.instagram.com/beyonddetail.ca/',
+      'https://x.com/BeyondDetailca',
+      'https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/'
+    ]
+  };
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -200,17 +237,17 @@ export const SEO = ({
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover' />
       <link rel='canonical' href={currentUrl} />
       <link rel='sitemap' type='application/xml' href={`${BUSINESS_INFO.url}/sitemap.xml`} />
-      
+
       {/* Robots */}
       <meta name='robots' content={noindex ? 'noindex, nofollow' : 'index, follow'} />
       <meta name='googlebot' content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-      
+
       {/* Location Meta Tags */}
       <meta name='geo.region' content='CA-ON' />
       <meta name='geo.placename' content={LOCATIONS_STRING} />
-      <meta name='geo.position' content='43.6532;-79.3832' />
-      <meta name='ICBM' content='43.6532, -79.3832' />
-      
+      <meta name='geo.position' content='43.7764;-79.2318' />
+      <meta name='ICBM' content='43.7764, -79.2318' />
+
       {/* Open Graph / Facebook */}
       <meta property='og:type' content={type} />
       <meta property='og:url' content={currentUrl} />
@@ -224,7 +261,7 @@ export const SEO = ({
       <meta property='business:contact_data:region' content={BUSINESS_INFO.address.addressRegion} />
       <meta property='business:contact_data:postal_code' content={BUSINESS_INFO.address.postalCode} />
       <meta property='business:contact_data:country_name' content={BUSINESS_INFO.address.addressCountry} />
-      
+
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:url' content={currentUrl} />
@@ -233,24 +270,29 @@ export const SEO = ({
       <meta name='twitter:image' content={ogImage} />
       <meta name='twitter:creator' content={name} />
       <meta name='twitter:site' content={name} />
-      
+
       {/* Additional SEO Tags */}
       <meta name='theme-color' content='#000000' />
       <meta name='mobile-web-app-capable' content='yes' />
       <meta name='apple-mobile-web-app-capable' content='yes' />
       <meta name='apple-mobile-web-app-status-bar-style' content='black' />
-      
+
       {/* Structured Data - JSON-LD */}
       <script type='application/ld+json'>
         {JSON.stringify(structuredData)}
       </script>
-      
+
       {/* Breadcrumb Structured Data */}
       {location.pathname !== '/' && (
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbData)}
         </script>
       )}
+
+      {/* Organization Structured Data */}
+      <script type='application/ld+json'>
+        {JSON.stringify(organizationData)}
+      </script>
     </Helmet>
   );
 };
