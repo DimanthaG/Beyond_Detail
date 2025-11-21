@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Sparkles, 
-  Droplets, 
-  Shield, 
+import {
+  Sparkles,
+  Droplets,
+  Shield,
   Sun,
   Car
 } from 'lucide-react';
@@ -30,7 +30,7 @@ function HomeDetailSection() {
       icon: Sun,
       image: tintImage, // Window tint service image from gallery
       href: '/tint',
-      cta: 'Learn More',
+      cta: 'Learn More about Window Tinting',
       className: 'col-span-1',
     },
     {
@@ -40,7 +40,7 @@ function HomeDetailSection() {
       icon: Sparkles,
       image: paintCorrectionImage, // Paint correction service image from gallery
       href: '/paint-correction',
-      cta: 'Learn More',
+      cta: 'Learn More about Paint Correction',
       className: 'col-span-1',
     },
     {
@@ -50,7 +50,7 @@ function HomeDetailSection() {
       icon: Shield,
       image: ceramicCoatingImage, // Ceramic coating service image from gallery
       href: '/ceramic-coatings',
-      cta: 'Learn More',
+      cta: 'Learn More about Ceramic Coating',
       className: 'col-span-1',
     },
     {
@@ -60,7 +60,7 @@ function HomeDetailSection() {
       icon: Droplets,
       image: carWashImage, // Car wash/detailing service image from gallery
       href: '/auto-detail',
-      cta: 'Learn More',
+      cta: 'Learn More about Auto Detailing',
       className: 'col-span-2',
     },
     {
@@ -70,7 +70,7 @@ function HomeDetailSection() {
       icon: Car,
       image: headlightImage, // Headlight restoration service image from gallery
       href: '/headlight-restoration',
-      cta: 'Learn More',
+      cta: 'Learn More about Headlight Restoration',
       className: 'col-span-1',
     },
   ];

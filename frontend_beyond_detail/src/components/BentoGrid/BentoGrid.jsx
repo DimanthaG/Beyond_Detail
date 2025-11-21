@@ -42,7 +42,14 @@ const BentoCard = ({
   >
     {image ? (
       <div className="bento-card__background">
-        <img src={image} alt={name} className="bento-card__image" />
+        <img
+          src={image}
+          alt={name}
+          className="bento-card__image"
+          width="524"
+          height="350"
+          loading="lazy"
+        />
       </div>
     ) : (
       <div className="bento-card__background">{background}</div>
