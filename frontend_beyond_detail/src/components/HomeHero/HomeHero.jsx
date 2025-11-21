@@ -19,6 +19,7 @@ export function HomeHero() {
 
   // Preload hero image dynamically (works with webpack hashed filenames)
   // Preloads appropriate size based on viewport width for optimal LCP
+  // CRITICAL: Preload happens immediately, not after image loads
   useEffect(() => {
     // Determine which image size to preload based on viewport
     const getOptimalImage = () => {
@@ -30,33 +31,34 @@ export function HomeHero() {
       return carImage;
     };
     
-    // Create a temporary image to get the actual resolved path
-    const img = new Image();
-    img.src = getOptimalImage();
+    // Get the optimal image source immediately
+    const optimalImageSrc = getOptimalImage();
     
-    // Preload the optimal image immediately
-    img.onload = () => {
-      // Once image path is resolved, add preload link
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = img.src;
-      link.type = 'image/webp';
-      link.setAttribute('fetchpriority', 'high');
-      
-      // Only add if not already present
-      const existingLink = document.querySelector(`link[href="${img.src}"]`);
-      if (!existingLink) {
-        document.head.insertBefore(link, document.head.firstChild);
-      }
-    };
+    // Create preload link immediately (don't wait for image to load)
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = optimalImageSrc;
+    link.type = 'image/webp';
+    link.setAttribute('fetchpriority', 'high');
+    link.setAttribute('imagesrcset', `
+      ${carImage400w} 400w,
+      ${carImage800w} 800w,
+      ${carImage1200w} 1200w,
+      ${carImage1600w} 1600w,
+      ${carImage} 1920w
+    `);
+    link.setAttribute('imagesizes', '100vw');
     
-    // Start loading immediately
-    img.loading = 'eager';
+    // Only add if not already present
+    const existingLink = document.querySelector(`link[rel="preload"][as="image"]`);
+    if (!existingLink) {
+      document.head.insertBefore(link, document.head.firstChild);
+    }
     
     // Cleanup on unmount
     return () => {
-      const linkToRemove = document.querySelector(`link[href="${img.src}"]`);
+      const linkToRemove = document.querySelector(`link[href="${optimalImageSrc}"]`);
       if (linkToRemove && linkToRemove.rel === 'preload') {
         linkToRemove.remove();
       }
