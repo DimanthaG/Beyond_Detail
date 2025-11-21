@@ -51,6 +51,20 @@ export function HomeContent() {
             <p className="home-content__paragraph">
               We use only premium products and professional-grade equipment. Every service comes with lifetime warranties, and our certified technicians have years of experience. We're committed to delivering results that exceed your expectations.
             </p>
+
+            <div className="home-content__service-section">
+              <h3 className="home-content__subtitle">Serving the Greater Toronto Area</h3>
+              <p className="home-content__paragraph">
+                Beyond Detail proudly serves customers throughout Scarborough, Toronto, Markham, Pickering, and the entire GTA. Whether you need window tinting in Markham, paint correction in Pickering, or ceramic coating in Scarborough, we bring professional-grade auto detailing services directly to you. Our mobile detailing services ensure convenience without compromising on quality.
+              </p>
+            </div>
+
+            <div className="home-content__service-section">
+              <h3 className="home-content__subtitle">Premium Products & Lifetime Warranties</h3>
+              <p className="home-content__paragraph">
+                We partner with industry-leading brands including LLUMAR for window tinting, Ceramic Pro for protective coatings, and premium detailing products trusted by professionals worldwide. Every service includes comprehensive lifetime warranties, giving you peace of mind that your investment is protected. Our certified technicians undergo continuous training to stay current with the latest techniques and technologies in automotive care.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
