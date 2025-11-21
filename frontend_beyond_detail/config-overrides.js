@@ -28,22 +28,41 @@ module.exports = function override(config, env) {
       });
     }
     
-    // Add long-term caching for assets
+    // Add long-term caching for assets and optimize chunk splitting
     config.optimization = {
       ...config.optimization,
       splitChunks: {
         chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
         cacheGroups: {
           default: false,
           vendors: false,
-          // Vendor chunk
+          // Vendor chunk - large libraries
           vendor: {
             name: 'vendor',
             chunks: 'all',
             test: /[\\/]node_modules[\\/]/,
-            priority: 20
+            priority: 20,
+            reuseExistingChunk: true
           },
-          // Common chunk
+          // Framer Motion - large library, separate chunk
+          framerMotion: {
+            name: 'framer-motion',
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            chunks: 'all',
+            priority: 25,
+            reuseExistingChunk: true
+          },
+          // React and React DOM - core libraries
+          react: {
+            name: 'react',
+            test: /[\\/]node_modules[\\/](react|react-dom|react-router)[\\/]/,
+            chunks: 'all',
+            priority: 30,
+            reuseExistingChunk: true
+          },
+          // Common chunk - shared code
           common: {
             name: 'common',
             minChunks: 2,

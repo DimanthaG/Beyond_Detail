@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link rel="dns-prefetch" href="https://cdn.sanity.io">
+  <link rel="dns-prefetch" href="https://www.google.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   
   <!-- Load fonts asynchronously to reduce render-blocking -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -19,23 +21,21 @@
   <!-- Fallback for browsers that don't support onload -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
 
-  <!-- Google tag (gtag.js) - Deferred to improve FCP and TBT -->
+  <!-- Google tag (gtag.js) - Optimized: async loading with early dataLayer initialization -->
   <script>
-    // Initialize dataLayer immediately for early event capture
+    // Initialize dataLayer immediately for early event capture (non-blocking)
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    
-    // Defer Google Analytics script loading until after page load
+    gtag('js', new Date());
+    gtag('config', 'G-MY482XVRJ2', {
+      'send_page_view': false  // We'll send manually after page load
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY482XVRJ2"></script>
+  <script>
+    // Send page view after page is interactive (non-blocking)
     window.addEventListener('load', function() {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MY482XVRJ2';
-      document.head.appendChild(script);
-      
-      script.onload = function() {
-        gtag('js', new Date());
-        gtag('config', 'G-MY482XVRJ2');
-      };
+      gtag('event', 'page_view');
     });
   </script>
 

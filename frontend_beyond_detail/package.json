@@ -42,6 +42,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "build:analyze": "react-app-rewired build && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "dev": "vercel dev",
@@ -72,6 +73,7 @@
     "glob": "^13.0.0",
     "lighthouse": "^13.0.1",
     "react-app-rewired": "^2.2.1",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "webpack-bundle-analyzer": "^5.0.1"
   }
 }

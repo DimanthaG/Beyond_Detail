@@ -21,47 +21,58 @@ export function HomeHeroImproved() {
   // Preloads appropriate size based on viewport width for optimal LCP
   // CRITICAL: Preload happens immediately, not after image loads
   useEffect(() => {
-    // Determine which image size to preload based on viewport
-    const getOptimalImage = () => {
-      const width = window.innerWidth;
-      if (width <= 400) return carImage400w;
-      if (width <= 800) return carImage800w;
-      if (width <= 1200) return carImage1200w;
-      if (width <= 1600) return carImage1600w;
-      return carImage;
+    // Use requestIdleCallback for non-critical preload, but start immediately if available
+    const preloadImage = () => {
+      // Determine which image size to preload based on viewport
+      const getOptimalImage = () => {
+        const width = window.innerWidth;
+        if (width <= 400) return carImage400w;
+        if (width <= 800) return carImage800w;
+        if (width <= 1200) return carImage1200w;
+        if (width <= 1600) return carImage1600w;
+        return carImage;
+      };
+      
+      // Get the optimal image source immediately
+      const optimalImageSrc = getOptimalImage();
+      
+      // Check if preload already exists
+      const existingLink = document.querySelector(`link[rel="preload"][as="image"][href*="bd-20"]`);
+      if (existingLink) return;
+      
+      // Create preload link immediately
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = optimalImageSrc;
+      link.type = 'image/webp';
+      link.setAttribute('fetchpriority', 'high');
+      link.setAttribute('imagesrcset', `
+        ${carImage400w} 400w,
+        ${carImage800w} 800w,
+        ${carImage1200w} 1200w,
+        ${carImage1600w} 1600w,
+        ${carImage} 1920w
+      `);
+      link.setAttribute('imagesizes', '100vw');
+      
+      // Insert at the beginning of head for highest priority
+      document.head.insertBefore(link, document.head.firstChild);
+      
+      // Also preload the image using Image() API for better browser support
+      const img = new Image();
+      img.src = optimalImageSrc;
+      img.loading = 'eager';
+      img.fetchPriority = 'high';
     };
     
-    // Get the optimal image source immediately
-    const optimalImageSrc = getOptimalImage();
-    
-    // Create preload link immediately (don't wait for image to load)
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = optimalImageSrc;
-    link.type = 'image/webp';
-    link.setAttribute('fetchpriority', 'high');
-    link.setAttribute('imagesrcset', `
-      ${carImage400w} 400w,
-      ${carImage800w} 800w,
-      ${carImage1200w} 1200w,
-      ${carImage1600w} 1600w,
-      ${carImage} 1920w
-    `);
-    link.setAttribute('imagesizes', '100vw');
-    
-    // Only add if not already present
-    const existingLink = document.querySelector(`link[rel="preload"][as="image"]`);
-    if (!existingLink) {
-      document.head.insertBefore(link, document.head.firstChild);
-    }
+    // Execute immediately (don't wait)
+    preloadImage();
     
     // Cleanup on unmount
     return () => {
-      const linkToRemove = document.querySelector(`link[href="${optimalImageSrc}"]`);
-      if (linkToRemove && linkToRemove.rel === 'preload') {
-        linkToRemove.remove();
-      }
+      const linksToRemove = document.querySelectorAll(`link[rel="preload"][as="image"][href*="bd-20"]`);
+      linksToRemove.forEach(link => link.remove());
     };
   }, []);
 
