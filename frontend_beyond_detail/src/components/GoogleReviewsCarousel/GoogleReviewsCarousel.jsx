@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import './GoogleReviewsCarousel.scss';
@@ -11,6 +10,7 @@ function GoogleReviewsCarousel() {
   const [rating, setRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
   const [error, setError] = useState(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
   const carouselRef = useRef(null);
 
   // Shuffle array function to randomize reviews
@@ -23,8 +23,9 @@ function GoogleReviewsCarousel() {
     return shuffled;
   };
 
-  // Fetch reviews from Google Places API
+  // Fetch reviews from Google Places API (only after in-view)
   useEffect(() => {
+    if (!shouldLoad) return;
     const fetchReviews = async () => {
       setLoading(true);
       setError(null);
@@ -44,14 +45,14 @@ function GoogleReviewsCarousel() {
             window.__googleReviewsErrorShown = true;
           }
         } else {
-          const reviewsList = data.reviews || [];
+          const reviewsList = (data.reviews || []).slice(0, 6); // limit for perf
           // Shuffle reviews to show different ones each time page loads
           const shuffledReviews = shuffleArray(reviewsList);
           
           setAllReviews(shuffledReviews);
           setCurrentIndex(0);
           setRating(data.rating || 0);
-          setTotalReviews(data.totalReviews || 0);
+          setTotalReviews(data.totalReviews || shuffledReviews.length || 0);
         }
       } catch (err) {
         console.error('Error loading Google Reviews:', err);
@@ -62,15 +63,37 @@ function GoogleReviewsCarousel() {
     };
 
     fetchReviews();
+  }, [shouldLoad]);
+
+  // Lazy-init when carousel enters viewport
+  useEffect(() => {
+    const target = carouselRef.current;
+    if (!target || typeof IntersectionObserver === 'undefined') {
+      setShouldLoad(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoad(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
   }, []);
 
-  // Get visible reviews (3 at a time)
+  // Get visible reviews (2 at a time to reduce work)
   const getVisibleReviews = () => {
     if (allReviews.length === 0) return [];
     
-    // Always show 3 reviews, wrapping around if needed
+    // Show 2 reviews, wrapping around if needed
     const reviews = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       const index = (currentIndex + i) % allReviews.length;
       reviews.push(allReviews[index]);
     }
@@ -225,12 +248,9 @@ function GoogleReviewsCarousel() {
 
         <div className="google-reviews-carousel__track">
           {getVisibleReviews().map((review, index) => (
-            <motion.div
+            <div
               key={`${review._id || review.time}-${currentIndex}-${index}`}
               className="google-reviews-carousel__card"
-              initial={{ opacity: 0, x: index === 0 ? -20 : index === 2 ? 20 : 0 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div className="google-reviews-carousel__card-header">
                 {review.profilePhoto ? (
@@ -268,7 +288,7 @@ function GoogleReviewsCarousel() {
               {review.relativeTime && (
                 <p className="google-reviews-carousel__time">{review.relativeTime}</p>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -282,10 +302,10 @@ function GoogleReviewsCarousel() {
         </button>
       </div>
 
-      {allReviews.length > 3 && (
+      {allReviews.length > 2 && (
         <div className="google-reviews-carousel__progress">
           <p className="google-reviews-carousel__progress-text">
-            {currentIndex + 1} - {Math.min(currentIndex + 3, allReviews.length)} of {allReviews.length} reviews
+            {currentIndex + 1} - {Math.min(currentIndex + 2, allReviews.length)} of {allReviews.length} reviews
           </p>
         </div>
       )}
@@ -294,4 +314,3 @@ function GoogleReviewsCarousel() {
 }
 
 export default GoogleReviewsCarousel;
-
