@@ -6,6 +6,10 @@ import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-6.webp';
+import carImage400w from '../../assets/bd/bd-6-400w.webp';
+import carImage800w from '../../assets/bd/bd-6-800w.webp';
+import carImage1200w from '../../assets/bd/bd-6-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-6-1600w.webp';
 import './ExteriorDetailingHero.scss';
 
 export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
@@ -38,7 +42,15 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
         <div className="exterior-detailing-hero__background">
           <div className="exterior-detailing-hero__background-image">
             <img 
-              src={carImage} 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage1200w} 1200w,
+                ${carImage1600w} 1600w,
+                ${carImage} 1920w
+              `}
+              sizes="100vw"
               alt="Exterior detailing service" 
               loading="eager" 
               fetchPriority="high"

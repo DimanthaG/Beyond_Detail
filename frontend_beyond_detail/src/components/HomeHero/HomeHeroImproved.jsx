@@ -6,6 +6,10 @@ import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import Map from '../Map/Map';
 import carImage from '../../assets/bd/bd-20.webp';
+import carImage400w from '../../assets/bd/bd-20-400w.webp';
+import carImage800w from '../../assets/bd/bd-20-800w.webp';
+import carImage1200w from '../../assets/bd/bd-20-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-20-1600w.webp';
 import './HomeHeroImproved.scss';
 
 export function HomeHeroImproved() {
@@ -14,24 +18,41 @@ export function HomeHeroImproved() {
   const [loadingReviews, setLoadingReviews] = useState(true);
 
   // Preload hero image dynamically (works with webpack hashed filenames)
+  // Preloads appropriate size based on viewport width for optimal LCP
   useEffect(() => {
+    // Determine which image size to preload based on viewport
+    const getOptimalImage = () => {
+      const width = window.innerWidth;
+      if (width <= 400) return carImage400w;
+      if (width <= 800) return carImage800w;
+      if (width <= 1200) return carImage1200w;
+      if (width <= 1600) return carImage1600w;
+      return carImage;
+    };
+    
     // Create a temporary image to get the actual resolved path
     const img = new Image();
-    img.src = carImage;
+    img.src = getOptimalImage();
     
-    // Once image path is resolved, add preload link
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = img.src;
-    link.type = 'image/webp';
-    link.setAttribute('fetchpriority', 'high');
+    // Preload the optimal image immediately
+    img.onload = () => {
+      // Once image path is resolved, add preload link
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = img.src;
+      link.type = 'image/webp';
+      link.setAttribute('fetchpriority', 'high');
+      
+      // Only add if not already present
+      const existingLink = document.querySelector(`link[href="${img.src}"]`);
+      if (!existingLink) {
+        document.head.insertBefore(link, document.head.firstChild);
+      }
+    };
     
-    // Only add if not already present
-    const existingLink = document.querySelector(`link[href="${img.src}"]`);
-    if (!existingLink) {
-      document.head.appendChild(link);
-    }
+    // Start loading immediately
+    img.loading = 'eager';
     
     // Cleanup on unmount
     return () => {
@@ -69,6 +90,14 @@ export function HomeHeroImproved() {
       <div className="home-hero-improved__background">
         <img
           src={carImage}
+          srcSet={`
+            ${carImage400w} 400w,
+            ${carImage800w} 800w,
+            ${carImage1200w} 1200w,
+            ${carImage1600w} 1600w,
+            ${carImage} 1920w
+          `}
+          sizes="100vw"
           alt="Premium car detailing"
           loading="eager"
           fetchPriority="high"

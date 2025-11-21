@@ -5,7 +5,11 @@ import { ArrowRight, Phone, Sparkles, Shield, Award, Star, Clock } from 'lucide-
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
-import carImage from '../../assets/bd/bd-26.jpg';
+import carImage from '../../assets/bd/bd-26.webp';
+import carImage400w from '../../assets/bd/bd-26-400w.webp';
+import carImage800w from '../../assets/bd/bd-26-800w.webp';
+import carImage1200w from '../../assets/bd/bd-26-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-26-1600w.webp';
 import './InteriorDetailingHero.scss';
 
 export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
@@ -38,7 +42,15 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
         <div className="interior-detailing-hero__background">
           <div className="interior-detailing-hero__background-image">
             <img 
-              src={carImage} 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage1200w} 1200w,
+                ${carImage1600w} 1600w,
+                ${carImage} 1920w
+              `}
+              sizes="100vw"
               alt="Interior detailing service" 
               loading="eager" 
               fetchPriority="high"

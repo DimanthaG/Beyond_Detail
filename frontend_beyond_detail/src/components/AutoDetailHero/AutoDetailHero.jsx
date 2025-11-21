@@ -5,6 +5,10 @@ import { ArrowRight, Phone, Sparkles, Shield, Award, Star, Clock } from 'lucide-
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-32.webp';
+import carImage400w from '../../assets/bd/bd-32-400w.webp';
+import carImage800w from '../../assets/bd/bd-32-800w.webp';
+import carImage1200w from '../../assets/bd/bd-32-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-32-1600w.webp';
 import './AutoDetailHero.scss';
 
 export function AutoDetailHero({ scrollTarget = "#pricing" }) {
@@ -37,7 +41,15 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
         <div className="auto-detail-hero__background">
           <div className="auto-detail-hero__background-image">
             <img 
-              src={carImage} 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage1200w} 1200w,
+                ${carImage1600w} 1600w,
+                ${carImage} 1920w
+              `}
+              sizes="100vw"
               alt="Auto detailing service" 
               loading="eager" 
               fetchPriority="high"

@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Building2, Truck, Award, Star, Shield, Clock } from 'lucide-react';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import PartnersCompact from '../Partners/PartnersCompact';
-import carImage from '../../assets/bd/bd-32.jpg';
+import carImage from '../../assets/bd/bd-32.webp';
+import carImage400w from '../../assets/bd/bd-32-400w.webp';
+import carImage800w from '../../assets/bd/bd-32-800w.webp';
+import carImage1200w from '../../assets/bd/bd-32-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-32-1600w.webp';
 import './FleetHero.scss';
 
 export function FleetHero({ scrollTarget = "#contact" }) {
@@ -37,7 +41,15 @@ export function FleetHero({ scrollTarget = "#contact" }) {
         <div className="fleet-hero__background">
           <div className="fleet-hero__background-image">
             <img 
-              src={carImage} 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage1200w} 1200w,
+                ${carImage1600w} 1600w,
+                ${carImage} 1920w
+              `}
+              sizes="100vw"
               alt="Fleet services" 
               loading="eager" 
               fetchPriority="high"

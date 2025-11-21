@@ -6,6 +6,10 @@ import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import PartnersCompact from '../Partners/PartnersCompact';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import carImage from '../../assets/bd/bd-24.webp';
+import carImage400w from '../../assets/bd/bd-24-400w.webp';
+import carImage800w from '../../assets/bd/bd-24-800w.webp';
+import carImage1200w from '../../assets/bd/bd-24-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-24-1600w.webp';
 import './HeadlightRestorationHero.scss';
 
 export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
@@ -38,7 +42,15 @@ export function HeadlightRestorationHero({ scrollTarget = "#contact" }) {
         <div className="headlight-restoration-hero__background">
           <div className="headlight-restoration-hero__background-image">
             <img 
-              src={carImage} 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage1200w} 1200w,
+                ${carImage1600w} 1600w,
+                ${carImage} 1920w
+              `}
+              sizes="100vw"
               alt="Headlight restoration service" 
               loading="eager" 
               fetchPriority="high"

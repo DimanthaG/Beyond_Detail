@@ -6,6 +6,8 @@ import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
 import carImage from '../../assets/bd/bd-48.webp';
+import carImage400w from '../../assets/bd/bd-48-400w.webp';
+import carImage800w from '../../assets/bd/bd-48-800w.webp';
 import './TintsHero.scss';
 
 export function TintsHero({ scrollTarget = "#pricing" }) {
@@ -37,7 +39,21 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="tints-hero__background">
           <div className="tints-hero__background-image">
-            <img src={carImage} alt="Window tint service" loading="eager" />
+            <img 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage} 1200w
+              `}
+              sizes="100vw"
+              alt="Window tint service" 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width="1200"
+              height="800"
+            />
           </div>
           <div className="tints-hero__background-overlay"></div>
           <div className="tints-hero__background-gradient"></div>

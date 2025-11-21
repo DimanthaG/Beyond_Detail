@@ -7,6 +7,10 @@ import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import Map from '../Map/Map';
 import carImage from '../../assets/bd/bd-20.webp';
+import carImage400w from '../../assets/bd/bd-20-400w.webp';
+import carImage800w from '../../assets/bd/bd-20-800w.webp';
+import carImage1200w from '../../assets/bd/bd-20-1200w.webp';
+import carImage1600w from '../../assets/bd/bd-20-1600w.webp';
 import './HomeHero.scss';
 
 export function HomeHero() {
@@ -14,15 +18,25 @@ export function HomeHero() {
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
   // Preload hero image dynamically (works with webpack hashed filenames)
-  // This runs immediately on mount to start loading the image ASAP
+  // Preloads appropriate size based on viewport width for optimal LCP
   useEffect(() => {
+    // Determine which image size to preload based on viewport
+    const getOptimalImage = () => {
+      const width = window.innerWidth;
+      if (width <= 400) return carImage400w;
+      if (width <= 800) return carImage800w;
+      if (width <= 1200) return carImage1200w;
+      if (width <= 1600) return carImage1600w;
+      return carImage;
+    };
+    
     // Create a temporary image to get the actual resolved path
     const img = new Image();
-    img.src = carImage;
+    img.src = getOptimalImage();
     
-    // Preload the image immediately
+    // Preload the optimal image immediately
     img.onload = () => {
-      // Once image path is resolved, add preload link for future navigation
+      // Once image path is resolved, add preload link
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
@@ -75,7 +89,15 @@ export function HomeHero() {
         <div className="home-hero__background">
           <div className="home-hero__background-image">
             <img 
-              src={carImage} 
+              src={carImage}
+              srcSet={`
+                ${carImage400w} 400w,
+                ${carImage800w} 800w,
+                ${carImage1200w} 1200w,
+                ${carImage1600w} 1600w,
+                ${carImage} 1920w
+              `}
+              sizes="100vw"
               alt="Premium car detailing" 
               loading="eager" 
               fetchPriority="high"
