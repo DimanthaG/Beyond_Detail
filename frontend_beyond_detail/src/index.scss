@@ -1,5 +1,5 @@
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+/* Fonts are loaded asynchronously in index.html to reduce render-blocking */
+/* DM Sans font is loaded via link tag in HTML for better performance */
 // @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
 
 @custom-media --mediaDesktop (max-width: 2080px);

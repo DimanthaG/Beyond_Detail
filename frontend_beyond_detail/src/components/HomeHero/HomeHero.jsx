@@ -14,24 +14,31 @@ export function HomeHero() {
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
   // Preload hero image dynamically (works with webpack hashed filenames)
+  // This runs immediately on mount to start loading the image ASAP
   useEffect(() => {
     // Create a temporary image to get the actual resolved path
     const img = new Image();
     img.src = carImage;
     
-    // Once image path is resolved, add preload link
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = img.src;
-    link.type = 'image/webp';
-    link.setAttribute('fetchpriority', 'high');
+    // Preload the image immediately
+    img.onload = () => {
+      // Once image path is resolved, add preload link for future navigation
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = img.src;
+      link.type = 'image/webp';
+      link.setAttribute('fetchpriority', 'high');
+      
+      // Only add if not already present
+      const existingLink = document.querySelector(`link[href="${img.src}"]`);
+      if (!existingLink) {
+        document.head.insertBefore(link, document.head.firstChild);
+      }
+    };
     
-    // Only add if not already present
-    const existingLink = document.querySelector(`link[href="${img.src}"]`);
-    if (!existingLink) {
-      document.head.appendChild(link);
-    }
+    // Start loading immediately
+    img.loading = 'eager';
     
     // Cleanup on unmount
     return () => {
