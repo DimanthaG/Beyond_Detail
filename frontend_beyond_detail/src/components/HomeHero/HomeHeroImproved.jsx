@@ -63,7 +63,7 @@ export function HomeHeroImproved() {
       const img = new Image();
       img.src = optimalImageSrc;
       img.loading = 'eager';
-      img.fetchPriority = 'high';
+      img.setAttribute('fetchpriority', 'high');
     };
     
     // Execute immediately (don't wait)
@@ -113,7 +113,7 @@ export function HomeHeroImproved() {
           sizes="100vw"
           alt="Premium car detailing"
           loading="eager"
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           width="1920"
           height="1080"
