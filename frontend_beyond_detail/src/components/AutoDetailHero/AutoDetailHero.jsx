@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Sparkles, Shield, Award, Star, Clock } from 'lucide-react';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import PartnersCompact from '../Partners/PartnersCompact';
-import carImage from '../../assets/bd/bd-32.jpg';
+import carImage from '../../assets/bd/bd-32.webp';
 import './AutoDetailHero.scss';
 
 export function AutoDetailHero({ scrollTarget = "#pricing" }) {
@@ -84,19 +84,19 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
             >
 
               {/* Title Section */}
-              <motion.div 
+              <motion.div
                 className="auto-detail-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="auto-detail-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="auto-detail-hero__title-line auto-detail-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -104,7 +104,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                   >
                     Full-Service Auto Detailing in
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -112,7 +112,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                   >
                     TORONTO &
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -121,7 +121,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     SCARBOROUGH
                   </motion.span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="auto-detail-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -131,13 +131,13 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                 </motion.p>
 
                 {/* Feature Icons */}
-                <motion.div 
+                <motion.div
                   className="auto-detail-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="auto-detail-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -145,7 +145,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     <Shield className="auto-detail-hero__feature-icon" />
                     <span>Interior & Exterior</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="auto-detail-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -153,7 +153,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     <Sparkles className="auto-detail-hero__feature-icon" />
                     <span>Premium Products</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="auto-detail-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -164,14 +164,14 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="auto-detail-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="auto-detail-hero__action-button auto-detail-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -186,7 +186,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     <span>Get Free Quote</span>
                     <ArrowRight className="auto-detail-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="auto-detail-hero__action-button auto-detail-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -198,7 +198,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="auto-detail-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -220,7 +220,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="auto-detail-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -238,9 +238,8 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`auto-detail-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`auto-detail-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />

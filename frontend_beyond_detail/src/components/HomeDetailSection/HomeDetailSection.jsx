@@ -10,11 +10,11 @@ import {
 import { BentoCard, BentoGrid } from '../BentoGrid/BentoGrid';
 import { Loading } from '../../components';
 // Import images from gallery
-import tintImage from '../../assets/bd/bd-26.jpg'; // Window tint car image
-import paintCorrectionImage from '../../assets/bd/bd-20.jpg'; // Ceramic coating image (clean car)
-import ceramicCoatingImage from '../../assets/bd/bd-28.jpg'; // Ceramic coating image
-import carWashImage from '../../assets/bd/bd-3.jpg'; // Keep as is
-import headlightImage from '../../assets/bd/bd-4.jpg'; // Keep as is
+import tintImage from '../../assets/bd/bd-26.webp'; // Window tint car image
+import paintCorrectionImage from '../../assets/bd/bd-20.webp'; // Ceramic coating image (clean car)
+import ceramicCoatingImage from '../../assets/bd/bd-28.webp'; // Ceramic coating image
+import carWashImage from '../../assets/bd/bd-3.webp'; // Keep as is
+import headlightImage from '../../assets/bd/bd-4.webp'; // Keep as is
 import './HomeDetailSection.scss';
 
 function HomeDetailSection() {

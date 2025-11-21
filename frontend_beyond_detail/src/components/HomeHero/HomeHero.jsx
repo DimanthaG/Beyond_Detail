@@ -6,7 +6,7 @@ import PartnersCompact from '../Partners/PartnersCompact';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import Map from '../Map/Map';
-import carImage from '../../assets/bd/bd-20.jpg';
+import carImage from '../../assets/bd/bd-20.webp';
 import './HomeHero.scss';
 
 export function HomeHero() {
@@ -86,19 +86,19 @@ export function HomeHero() {
             >
 
               {/* Title Section */}
-              <motion.div 
+              <motion.div
                 className="home-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="home-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="home-hero__title-line home-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -106,7 +106,7 @@ export function HomeHero() {
                   >
                     Scarborough Auto Detailing
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="home-hero__title-line home-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -115,7 +115,7 @@ export function HomeHero() {
                     You Love Your Car. We'll Make It Show.
                   </motion.span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="home-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -125,13 +125,13 @@ export function HomeHero() {
                 </motion.p>
 
                 {/* Feature Icons */}
-                <motion.div 
+                <motion.div
                   className="home-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="home-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -139,7 +139,7 @@ export function HomeHero() {
                     <Shield className="home-hero__feature-icon" />
                     <span>Lifetime Warranties</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="home-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -147,7 +147,7 @@ export function HomeHero() {
                     <Sparkles className="home-hero__feature-icon" />
                     <span>Premium Products</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="home-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -158,14 +158,14 @@ export function HomeHero() {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="home-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="home-hero__action-button home-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -180,7 +180,7 @@ export function HomeHero() {
                     <span>Get Free Quote</span>
                     <ArrowRight className="home-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="home-hero__action-button home-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -192,7 +192,7 @@ export function HomeHero() {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="home-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -217,7 +217,7 @@ export function HomeHero() {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="home-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -235,9 +235,8 @@ export function HomeHero() {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`home-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`home-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />

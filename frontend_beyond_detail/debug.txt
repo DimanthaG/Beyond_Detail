@@ -1,0 +1,219 @@
+Script started
+Glob type: object
+Glob keys: escape,unescape,Glob,hasMagic,Ignore,streamSync,stream,iterateSync,iterate,sync,glob,globStreamSync,globStream,globSync,globIterateSync,globIterate
+Searching: public/**/*.{jpg,jpeg,png}
+Found: 2
+Searching: src/**/*.{jpg,jpeg,png}
+Found: 198
+Processing: public\logo512.png
+Processing: public\logo192.png
+Processing: src\assets\plus-icon2.png
+Processing: src\assets\plus-icon.png
+Processing: src\assets\pin.png
+Processing: src\assets\logo.png
+Processing: src\assets\droplet3.png
+Processing: src\assets\droplet2.png
+Processing: src\assets\droplet1.png
+Processing: src\assets\bgWhite.png
+Processing: src\assets\bgIMG.png
+Processing: src\assets\38606A5A.png
+Processing: src\assets\Tints\Car-Ceramic-No-Film.png
+Processing: src\assets\Tints\Car-Ceramic-50-Percent.png
+Processing: src\assets\Tints\Car-Ceramic-5-Percent.png
+Processing: src\assets\Tints\Car-Ceramic-35-Percent.png
+Processing: src\assets\Tints\Car-Ceramic-15-Percent.png
+Processing: src\assets\Partners\uniglass.png
+Processing: src\assets\Partners\sparco_logo.png
+Processing: src\assets\Partners\rupes.png
+Processing: src\assets\Partners\menzerna.png
+Processing: src\assets\Partners\Llumar.png
+Processing: src\assets\Partners\IWFA.png
+Processing: src\assets\Partners\igl_logo.png
+Processing: src\assets\Partners\huper_logo.png
+Processing: src\assets\Partners\feynlab.png
+Processing: src\assets\Partners\eastman.png
+Processing: src\assets\Partners\ceramic pro.png
+Processing: src\assets\Partners\Carstars.png
+Processing: src\assets\Partners\CancerFoundation.png
+Processing: src\assets\Partners\3m_logo.png
+Processing: src\assets\galleries\window-tint\XRQN5525.JPG
+Error optimizing src\assets\galleries\window-tint\XRQN5525.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\XRQN5525.JPG'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01.jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01.jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01.jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (17).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (17).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (17).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (16).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (16).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (16).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (15).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (15).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (15).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (14).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (14).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (14).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (13).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (13).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (13).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (12).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (12).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (12).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (11).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (11).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (11).jpeg'
+Processing: src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (10).jpeg
+Error optimizing src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (10).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\WhatsApp Image 2025-03-10 at 13.42.01 (10).jpeg'
+Processing: src\assets\galleries\window-tint\IMG_E5738.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_E5738.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_E5738.JPG'
+Processing: src\assets\galleries\window-tint\IMG_8019.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_8019.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_8019.JPG'
+Processing: src\assets\galleries\window-tint\IMG_8018.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_8018.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_8018.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7909.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7909.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7909.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7904.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7904.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7904.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7511.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7511.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7511.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7401.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7401.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7401.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7211.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7211.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7211.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7095.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7095.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7095.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7030.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7030.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7030.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7027.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7027.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7027.JPG'
+Processing: src\assets\galleries\window-tint\IMG_7025.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_7025.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_7025.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6949.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6949.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6949.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6928.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6928.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6928.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6911.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6911.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6911.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6669.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6669.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6669.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6551.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6551.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6551.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6524.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6524.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6524.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6418.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6418.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6418.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6276.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6276.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6276.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6115.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6115.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6115.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6014.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6014.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6014.JPG'
+Processing: src\assets\galleries\window-tint\IMG_6012.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_6012.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_6012.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5982.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5982.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5982.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5954.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5954.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5954.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5952.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5952.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5952.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5947.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5947.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5947.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5944.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5944.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5944.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5837.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5837.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5837.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5836.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5836.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5836.JPG'
+Processing: src\assets\galleries\window-tint\IMG_5826.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_5826.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_5826.JPG'
+Processing: src\assets\galleries\window-tint\IMG_3850.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_3850.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_3850.JPG'
+Processing: src\assets\galleries\window-tint\IMG_3295.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_3295.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_3295.JPG'
+Processing: src\assets\galleries\window-tint\IMG_2948.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_2948.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_2948.JPG'
+Processing: src\assets\galleries\window-tint\IMG_0142.JPG
+Error optimizing src\assets\galleries\window-tint\IMG_0142.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\IMG_0142.JPG'
+Processing: src\assets\galleries\window-tint\GTXW8108.JPG
+Error optimizing src\assets\galleries\window-tint\GTXW8108.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\window-tint\GTXW8108.JPG'
+Processing: src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (9).jpeg
+Error optimizing src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (9).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (9).jpeg'
+Processing: src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (8).jpeg
+Error optimizing src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (8).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (8).jpeg'
+Processing: src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (7).jpeg
+Error optimizing src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (7).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (7).jpeg'
+Processing: src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (5).jpeg
+Error optimizing src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (5).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (5).jpeg'
+Processing: src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (4).jpeg
+Error optimizing src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (4).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\WhatsApp Image 2025-03-10 at 13.42.01 (4).jpeg'
+Processing: src\assets\galleries\paint-correction\WhatsApp Image 2024-12-02 at 13.47.36.jpeg
+Error optimizing src\assets\galleries\paint-correction\WhatsApp Image 2024-12-02 at 13.47.36.jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\WhatsApp Image 2024-12-02 at 13.47.36.jpeg'
+Processing: src\assets\galleries\paint-correction\IMG_E5470.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_E5470.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_E5470.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_E5451.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_E5451.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_E5451.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6942.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6942.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6942.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6940.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6940.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6940.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6721.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6721.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6721.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6691.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6691.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6691.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6112.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6112.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6112.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6110.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6110.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6110.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6104.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6104.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6104.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_6095.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_6095.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_6095.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_5907.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_5907.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_5907.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_5257.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_5257.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_5257.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_5256.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_5256.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_5256.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_5027.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_5027.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_5027.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_5026.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_5026.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_5026.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_5024.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_5024.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_5024.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_4610.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_4610.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_4610.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3903.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3903.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3903.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3724.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3724.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3724.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3721.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3721.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3721.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3711.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3711.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3711.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3458.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3458.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3458.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3451.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3451.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3451.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3420.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3420.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3420.JPG'
+Processing: src\assets\galleries\paint-correction\IMG_3358.JPG
+Error optimizing src\assets\galleries\paint-correction\IMG_3358.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\IMG_3358.JPG'
+Processing: src\assets\galleries\paint-correction\cb9170b1-921b-49c8-b3bf-0188c6401739.JPG
+Error optimizing src\assets\galleries\paint-correction\cb9170b1-921b-49c8-b3bf-0188c6401739.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\cb9170b1-921b-49c8-b3bf-0188c6401739.JPG'
+Processing: src\assets\galleries\paint-correction\CB55462D-1558-4758-8FCA-D480370B8B12.jpeg
+Error optimizing src\assets\galleries\paint-correction\CB55462D-1558-4758-8FCA-D480370B8B12.jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\paint-correction\CB55462D-1558-4758-8FCA-D480370B8B12.jpeg'
+Processing: src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (9).jpeg
+Error optimizing src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (9).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (9).jpeg'
+Processing: src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (8).jpeg
+Error optimizing src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (8).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (8).jpeg'
+Processing: src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (7).jpeg
+Error optimizing src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (7).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (7).jpeg'
+Processing: src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (5).jpeg
+Error optimizing src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (5).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (5).jpeg'
+Processing: src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (4).jpeg
+Error optimizing src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (4).jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\WhatsApp Image 2025-03-10 at 13.42.01 (4).jpeg'
+Processing: src\assets\galleries\ceramic-coating\WhatsApp Image 2024-12-02 at 13.47.36.jpeg
+Error optimizing src\assets\galleries\ceramic-coating\WhatsApp Image 2024-12-02 at 13.47.36.jpeg: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\WhatsApp Image 2024-12-02 at 13.47.36.jpeg'
+Processing: src\assets\galleries\ceramic-coating\IMG_E5470.JPG
+Error optimizing src\assets\galleries\ceramic-coating\IMG_E5470.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\IMG_E5470.JPG'
+Processing: src\assets\galleries\ceramic-coating\IMG_E5451.JPG
+Error optimizing src\assets\galleries\ceramic-coating\IMG_E5451.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\IMG_E5451.JPG'
+Processing: src\assets\galleries\ceramic-coating\IMG_6942.JPG
+Error optimizing src\assets\galleries\ceramic-coating\IMG_6942.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\IMG_6942.JPG'
+Processing: src\assets\galleries\ceramic-coating\IMG_6940.JPG
+Error optimizing src\assets\galleries\ceramic-coating\IMG_6940.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\IMG_6940.JPG'
+Processing: src\assets\galleries\ceramic-coating\IMG_6721.JPG
+Error optimizing src\assets\galleries\ceramic-coating\IMG_6721.JPG: UNKNOWN: unknown error, open 'C:\Users\Pemina\Documents\Beyond Detail\WEBSITE\Beyond_Detail\frontend_beyond_detail\src\assets\galleries\ceramic-coating\IMG_6721.JPG'
+Processing: src\assets\galleries\ceramic-coating\IMG_6691.JPG

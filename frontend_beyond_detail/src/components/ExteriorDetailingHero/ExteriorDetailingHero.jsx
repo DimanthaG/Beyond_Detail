@@ -5,7 +5,7 @@ import { ArrowRight, Phone, Sparkles, Shield, Award, Star, Clock } from 'lucide-
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
-import carImage from '../../assets/bd/bd-6.jpg';
+import carImage from '../../assets/bd/bd-6.webp';
 import './ExteriorDetailingHero.scss';
 
 export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
@@ -85,19 +85,19 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
             >
 
               {/* Title Section */}
-              <motion.div 
+              <motion.div
                 className="exterior-detailing-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="exterior-detailing-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                   >
                     Exterior Detailing in
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -113,7 +113,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                   >
                     TORONTO &
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -122,7 +122,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     SCARBOROUGH
                   </motion.span>
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="exterior-detailing-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -132,13 +132,13 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 </motion.p>
 
                 {/* Feature Icons */}
-                <motion.div 
+                <motion.div
                   className="exterior-detailing-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="exterior-detailing-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -146,7 +146,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     <Shield className="exterior-detailing-hero__feature-icon" />
                     <span>Paint Protection</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="exterior-detailing-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -154,7 +154,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     <Sparkles className="exterior-detailing-hero__feature-icon" />
                     <span>Enhanced Shine</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="exterior-detailing-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -165,14 +165,14 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="exterior-detailing-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="exterior-detailing-hero__action-button exterior-detailing-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -187,7 +187,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     <span>Get Free Quote</span>
                     <ArrowRight className="exterior-detailing-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="exterior-detailing-hero__action-button exterior-detailing-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -199,7 +199,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="exterior-detailing-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="exterior-detailing-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -239,9 +239,8 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`exterior-detailing-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`exterior-detailing-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />

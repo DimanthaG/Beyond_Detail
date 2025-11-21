@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import Map from '../Map/Map';
-import carImage from '../../assets/bd/bd-20.jpg';
+import carImage from '../../assets/bd/bd-20.webp';
 import './HomeHeroImproved.scss';
 
 export function HomeHeroImproved() {
@@ -38,9 +38,9 @@ export function HomeHeroImproved() {
     <div className="home-hero-improved" ref={heroRef}>
       {/* Background Image - Optimized without heavy parallax */}
       <div className="home-hero-improved__background">
-        <img 
-          src={carImage} 
-          alt="Premium car detailing" 
+        <img
+          src={carImage}
+          alt="Premium car detailing"
           loading="eager"
           className="home-hero-improved__background-image"
         />
@@ -192,9 +192,8 @@ export function HomeHeroImproved() {
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`home-hero-improved__review-star ${
-                                  i < (review.rating || 5) ? 'filled' : ''
-                                }`}
+                                className={`home-hero-improved__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                  }`}
                                 size={12}
                                 fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                               />

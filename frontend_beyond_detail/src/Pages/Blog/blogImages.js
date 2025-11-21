@@ -6,26 +6,6 @@ import paintProtectionImg1 from '../../assets/galleries/paint-correction/IMG_335
 import paintProtectionImg2 from '../../assets/galleries/paint-correction/IMG_5024.JPG';
 import paintProtectionImg3 from '../../assets/galleries/ceramic-coating/IMG_3451.JPG';
 
-// Ceramic Coating - Use ceramic coating gallery images
-import ceramicCoatingImg1 from '../../assets/galleries/ceramic-coating/IMG_5026.JPG';
-import ceramicCoatingImg2 from '../../assets/galleries/ceramic-coating/IMG_5027.JPG';
-import ceramicCoatingImg3 from '../../assets/galleries/ceramic-coating/IMG_5256.JPG';
-
-// Winter Preparation - Use general bd images
-import winterPrepImg1 from '../../assets/bd/bd-1.jpg';
-import winterPrepImg2 from '../../assets/bd/bd-2.jpg';
-import winterPrepImg3 from '../../assets/bd/bd-3.jpg';
-
-// Interior Detailing - Use bd images
-import interiorImg1 from '../../assets/bd/bd-27.jpg';
-import interiorImg2 from '../../assets/bd/bd-28.jpg';
-import interiorImg3 from '../../assets/bd/bd-29.jpg';
-
-// Headlight Restoration - Use paint correction images that show front views with headlights
-import headlightImg1 from '../../assets/galleries/paint-correction/IMG_3721.JPG';
-import headlightImg2 from '../../assets/galleries/paint-correction/IMG_3903.JPG';
-import headlightImg3 from '../../assets/galleries/paint-correction/IMG_4610.JPG';
-
 // Paint Correction Process - Use paint correction gallery images
 import paintCorrectionImg1 from '../../assets/galleries/paint-correction/IMG_3420.JPG';
 import paintCorrectionImg2 from '../../assets/galleries/paint-correction/IMG_3458.JPG';
