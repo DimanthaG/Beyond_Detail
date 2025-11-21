@@ -95,7 +95,7 @@ function PartnersCompact() {
           </div>
         </div>
         <div className="partners-compact__title">
-          <h3 className="partners-compact__title-text">TRUSTED BRANDS</h3>
+          <h2 className="partners-compact__title-text">TRUSTED BRANDS</h2>
         </div>
       </div>
     </div>

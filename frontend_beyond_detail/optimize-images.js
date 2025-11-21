@@ -15,10 +15,20 @@
  *   node optimize-images.js
  */
 
+const fs = require('fs');
+try {
+    fs.writeFileSync('debug.log', 'Script started\n');
+} catch (e) { }
+
 const sharp = require('sharp');
 const glob = require('glob');
 const path = require('path');
-const fs = require('fs').promises;
+const fsPromises = require('fs').promises;
+
+try {
+    fs.appendFileSync('debug.log', 'Glob type: ' + typeof glob + '\n');
+    fs.appendFileSync('debug.log', 'Glob keys: ' + Object.keys(glob).join(',') + '\n');
+} catch (e) { }
 
 // Configuration
 const CONFIG = {
@@ -70,7 +80,7 @@ function formatBytes(bytes) {
  */
 async function getFileSize(filePath) {
     try {
-        const stats = await fs.stat(filePath);
+        const stats = await fsPromises.stat(filePath);
         return stats.size;
     } catch (error) {
         return 0;
@@ -87,8 +97,8 @@ async function backupImage(filePath) {
     const backupDir = path.dirname(backupPath);
 
     try {
-        await fs.mkdir(backupDir, { recursive: true });
-        await fs.copyFile(filePath, backupPath);
+        await fsPromises.mkdir(backupDir, { recursive: true });
+        await fsPromises.copyFile(filePath, backupPath);
         console.log(`  ✓ Backed up to: ${backupPath}`);
     } catch (error) {
         console.error(`  ✗ Backup failed: ${error.message}`);
@@ -99,6 +109,7 @@ async function backupImage(filePath) {
  * Optimize a single image
  */
 async function optimizeImage(filePath) {
+    fs.appendFileSync('debug.log', 'Processing: ' + filePath + '\n');
     console.log(`\nProcessing: ${filePath}`);
 
     try {
@@ -120,8 +131,9 @@ async function optimizeImage(filePath) {
         const baseName = path.basename(filePath, ext);
         const dir = path.dirname(filePath);
 
-        // Load image
-        const image = sharp(filePath);
+        // Load image from buffer to avoid file locking on Windows
+        const inputBuffer = await fsPromises.readFile(filePath);
+        const image = sharp(inputBuffer);
         const metadata = await image.metadata();
 
         console.log(`  Original: ${metadata.width}x${metadata.height}, ${formatBytes(originalSize)}`);
@@ -140,7 +152,7 @@ async function optimizeImage(filePath) {
 
         // Save optimized original
         if (optimizedBuffer) {
-            await fs.writeFile(filePath, optimizedBuffer);
+            await fsPromises.writeFile(filePath, optimizedBuffer);
             const optimizedSize = await getFileSize(filePath);
             const savings = originalSize - optimizedSize;
             const savingsPercent = Math.round((savings / originalSize) * 100);
@@ -151,7 +163,7 @@ async function optimizeImage(filePath) {
 
         // Generate WebP version
         const webpPath = path.join(dir, `${baseName}.webp`);
-        await sharp(filePath)
+        await sharp(inputBuffer)
             .webp({ quality: CONFIG.webpQuality })
             .toFile(webpPath);
 
@@ -167,7 +179,7 @@ async function optimizeImage(filePath) {
             for (const size of CONFIG.responsiveSizes) {
                 if (size < metadata.width) {
                     const responsivePath = path.join(dir, `${baseName}-${size}w.webp`);
-                    await sharp(filePath)
+                    await sharp(inputBuffer)
                         .resize(size, null, { withoutEnlargement: true })
                         .webp({ quality: CONFIG.webpQuality })
                         .toFile(responsivePath);
@@ -181,6 +193,7 @@ async function optimizeImage(filePath) {
         stats.optimized++;
 
     } catch (error) {
+        fs.appendFileSync('debug.log', 'Error optimizing ' + filePath + ': ' + error.message + '\n');
         console.error(`  ✗ Error: ${error.message}`);
         stats.errors++;
     }
@@ -193,8 +206,14 @@ async function findImages() {
     const images = [];
 
     for (const pattern of CONFIG.searchDirs) {
-        const files = glob.sync(pattern, { nodir: true });
-        images.push(...files);
+        try {
+            fs.appendFileSync('debug.log', 'Searching: ' + pattern + '\n');
+            const files = glob.globSync(pattern, { nodir: true });
+            fs.appendFileSync('debug.log', 'Found: ' + files.length + '\n');
+            images.push(...files);
+        } catch (e) {
+            fs.appendFileSync('debug.log', 'Error searching ' + pattern + ': ' + e.message + '\n');
+        }
     }
 
     return images;

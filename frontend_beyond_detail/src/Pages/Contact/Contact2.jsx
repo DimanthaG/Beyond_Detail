@@ -307,6 +307,7 @@ function ContactPage() {
                                 id='vehicleType'
                                 className='select__options'
                                 ref={optSelect}
+                                aria-label="Vehicle Type"
                               >
                                 <option value='Sedan'>Sedan</option>
                                 <option value='Hatchback'>Hatchback</option>
@@ -334,6 +335,7 @@ function ContactPage() {
                                 setHours(setMinutes(new Date(), 30), 17),
                               ]}
                               dateFormat='MMMM d, yyyy - h:mm aa'
+                              aria-label="Date and Time"
                             />
                           </div>
                         </div>
