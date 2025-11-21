@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { CheckCheck, Zap, Car } from "lucide-react";
-import NumberFlow from "@number-flow/react";
 import "./TintsPricing.scss";
+
+const NumberFlow = lazy(() => import("@number-flow/react"));
 
 const TintServiceSelector = ({ tintService, onSelect, options, disabledIndices = [] }) => {
   return (
@@ -85,6 +86,8 @@ function TintsPricing() {
   const [vehicleType, setVehicleType] = useState(0);
   const [selectedPercentage, setSelectedPercentage] = useState(30);
   const pricingRef = useRef(null);
+  const [showCounters, setShowCounters] = useState(false);
+  const countersRef = useRef(null);
 
   const tintServiceOptions = [
     "Two Front Windows",
@@ -119,6 +122,29 @@ function TintsPricing() {
       setSelectedProduct(1);
     }
   }, [tintService, selectedProduct]);
+
+  // Defer animated counters until visible to trim initial JS
+  useEffect(() => {
+    if (showCounters) return;
+    const el = countersRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setShowCounters(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowCounters(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [showCounters]);
 
   const products = [
     {
@@ -394,6 +420,7 @@ function TintsPricing() {
               variants={revealVariants}
               custom={4}
               className="tints-pricing__price-section"
+              ref={countersRef}
               style={{
                 borderColor: currentPrice > 0 ? `${currentProduct.color}40` : undefined,
                 boxShadow: currentPrice > 0 ? `0 8px 32px ${currentProduct.color}20` : undefined,
@@ -407,13 +434,19 @@ function TintsPricing() {
                     color: currentPrice > 0 ? currentProduct.color : undefined,
                     textShadow: currentPrice > 0 ? `0 2px 10px ${currentProduct.color}50` : undefined,
                   }}>$</span>
-                  <NumberFlow
-                    value={currentPrice}
-                    className="tints-pricing__price-value"
-                    style={{
-                      color: currentPrice > 0 ? currentProduct.color : undefined,
-                    }}
-                  />
+                  {showCounters ? (
+                    <Suspense fallback={<span className="tints-pricing__price-value">--</span>}>
+                      <NumberFlow
+                        value={currentPrice}
+                        className="tints-pricing__price-value"
+                        style={{
+                          color: currentPrice > 0 ? currentProduct.color : undefined,
+                        }}
+                      />
+                    </Suspense>
+                  ) : (
+                    <span className="tints-pricing__price-value">--</span>
+                  )}
                 </div>
                 <span className="tints-pricing__price-note">
                   {currentPrice === 0 

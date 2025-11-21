@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone, Star, MapPin, Clock, Shield, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
-import Map from '../Map/Map';
 import carImage from '../../assets/bd/bd-20.webp';
 import carImage400w from '../../assets/bd/bd-20-400w.webp';
 import carImage800w from '../../assets/bd/bd-20-800w.webp';
@@ -12,10 +11,14 @@ import carImage1200w from '../../assets/bd/bd-20-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-20-1600w.webp';
 import './HomeHeroImproved.scss';
 
+const LazyMap = lazy(() => import('../Map/Map'));
+
 export function HomeHeroImproved() {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
   const [loadingReviews, setLoadingReviews] = useState(true);
+  const [showMap, setShowMap] = useState(false);
+  const mapRef = useRef(null);
 
   // Preload hero image dynamically (works with webpack hashed filenames)
   // Preloads appropriate size based on viewport width for optimal LCP
@@ -96,6 +99,29 @@ export function HomeHeroImproved() {
     };
     fetchReviews();
   }, []);
+
+  // Defer map render until its container is near viewport to cut initial JS
+  useEffect(() => {
+    if (showMap) return;
+    const target = mapRef.current;
+    if (!target || typeof IntersectionObserver === 'undefined') {
+      setShowMap(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowMap(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [showMap]);
   
   return (
     <div className="home-hero-improved" ref={heroRef}>
@@ -110,7 +136,7 @@ export function HomeHeroImproved() {
             ${carImage1600w} 1600w,
             ${carImage} 1920w
           `}
-          sizes="100vw"
+          sizes="(min-width: 1280px) 1200px, 100vw"
           alt="Premium car detailing"
           loading="eager"
           fetchpriority="high"
@@ -234,6 +260,7 @@ export function HomeHeroImproved() {
               {/* Map Embed - Compact */}
               <motion.div
                 className="home-hero-improved__map-section"
+                ref={mapRef}
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -243,7 +270,13 @@ export function HomeHeroImproved() {
                   <span>Visit Us in Scarborough</span>
                 </div>
                 <div className="home-hero-improved__map-container">
-                  <Map />
+                  {showMap ? (
+                    <Suspense fallback={<div style={{ height: '280px', background: '#0f0f0f' }} />}>
+                      <LazyMap />
+                    </Suspense>
+                  ) : (
+                    <div style={{ height: '280px', background: '#0f0f0f' }} />
+                  )}
                 </div>
               </motion.div>
 

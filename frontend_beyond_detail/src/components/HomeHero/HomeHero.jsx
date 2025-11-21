@@ -110,7 +110,7 @@ export function HomeHero() {
                 ${carImage1600w} 1600w,
                 ${carImage} 1920w
               `}
-              sizes="100vw"
+              sizes="(min-width: 1280px) 1200px, 100vw"
               alt="Premium car detailing" 
               loading="eager" 
               fetchpriority="high"
@@ -345,4 +345,3 @@ export function HomeHero() {
 }
 
 export default HomeHero;
-

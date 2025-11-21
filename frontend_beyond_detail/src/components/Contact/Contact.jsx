@@ -31,16 +31,17 @@
  * - All styling is in Contact.scss and follows the site's design system
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, Suspense, lazy } from 'react';
 import { client } from '../../client';
 import { Loading } from '../../components';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
-import DatePicker from 'react-datepicker';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import '../../react-datepicker.css';
 import './Contact.scss';
+
+const DatePicker = lazy(() => import('react-datepicker'));
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -120,6 +121,31 @@ function Contact() {
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
   );
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const datePickerRef = useRef(null);
+
+  // Defer loading the date picker until visible to cut initial JS cost
+  useEffect(() => {
+    if (showDatePicker) return;
+    const el = datePickerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setShowDatePicker(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowDatePicker(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [showDatePicker]);
 
   return (
     <>
@@ -326,31 +352,42 @@ function Contact() {
                           </div>
                         </div>
 
-                        <div lg='6' className='control-group date__wrapper'>
+                        <div lg='6' className='control-group date__wrapper' ref={datePickerRef}>
                           <label htmlFor='bookingDate' className='visually-hidden'>
                             Preferred date and time
                           </label>
                           <h3 id='bookingDate-label'>Date & Time: *</h3>
-                          <DatePicker
-                            className='datePick'
-                            calendarClassName='calenderStyle'
-                            headerClassName='headerStyle'
-                            dayClassName={() => 'dayStyle'}
-                            timeClassName={() => 'timeStyle'}
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            showTimeSelect
-                            excludeTimes={[
-                              setHours(setMinutes(new Date(), 0), 17),
-                              setHours(setMinutes(new Date(), 30), 18),
-                              setHours(setMinutes(new Date(), 30), 19),
-                              setHours(setMinutes(new Date(), 30), 17),
-                            ]}
-                            dateFormat='MMMM d, yyyy - h:mm aa'
-                            aria-labelledby='bookingDate-label'
-                            aria-label='Preferred date and time'
-                            id='bookingDate'
-                          />
+                          {showDatePicker ? (
+                            <Suspense fallback={<input className='datePick' aria-label='Date picker loading' readOnly />}>
+                              <DatePicker
+                                className='datePick'
+                                calendarClassName='calenderStyle'
+                                headerClassName='headerStyle'
+                                dayClassName={() => 'dayStyle'}
+                                timeClassName={() => 'timeStyle'}
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
+                                showTimeSelect
+                                excludeTimes={[
+                                  setHours(setMinutes(new Date(), 0), 17),
+                                  setHours(setMinutes(new Date(), 30), 18),
+                                  setHours(setMinutes(new Date(), 30), 19),
+                                  setHours(setMinutes(new Date(), 30), 17),
+                                ]}
+                                dateFormat='MMMM d, yyyy - h:mm aa'
+                                aria-labelledby='bookingDate-label'
+                                aria-label='Preferred date and time'
+                                id='bookingDate'
+                              />
+                            </Suspense>
+                          ) : (
+                            <input
+                              className='datePick'
+                              placeholder='Select date & time'
+                              aria-label='Date picker placeholder'
+                              readOnly
+                            />
+                          )}
                         </div>
                       </div>
                     </div>

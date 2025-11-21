@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { client } from '../../client';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Map, Loading, SEO } from '../../components';
-import DatePicker from 'react-datepicker';
+import { Loading, SEO } from '../../components';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import '../../react-datepicker.css';
@@ -12,6 +11,8 @@ import { FaFacebookF } from 'react-icons/fa';
 import './Contact2.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const DatePicker = lazy(() => import('react-datepicker'));
+const LazyMap = lazy(() => import('../../components/Map/Map'));
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -24,6 +25,8 @@ function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState(false);
   const [contactData, setContactData] = useState([]);
+  const [showMap, setShowMap] = useState(false);
+  const mapRef = useRef(null);
 
   let interestedOptions = [];
 
@@ -95,6 +98,54 @@ function ContactPage() {
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
   );
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const datePickerRef = useRef(null);
+
+  // Defer date picker render until in view to reduce initial JS
+  useEffect(() => {
+    if (showDatePicker) return;
+    const el = datePickerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setShowDatePicker(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowDatePicker(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [showDatePicker]);
+
+  // Defer map render until visible
+  useEffect(() => {
+    if (showMap) return;
+    const target = mapRef.current;
+    if (!target || typeof IntersectionObserver === 'undefined') {
+      setShowMap(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowMap(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [showMap]);
 
   return (
     <>
@@ -326,31 +377,42 @@ function ContactPage() {
                             </div>
                           </div>
 
-                          <div lg='6' className='control-group date__wrapper'>
+                          <div lg='6' className='control-group date__wrapper' ref={datePickerRef}>
                             <label htmlFor='bookingDateContact' className='visually-hidden'>
                               Preferred date and time
                             </label>
                             <h3 id='bookingDateContact-label'>Date & Time: *</h3>
-                            <DatePicker
-                              className='datePick'
-                              calendarClassName='calenderStyle'
-                              headerClassName='headerStyle'
-                              dayClassName={() => 'dayStyle'}
-                              timeClassName={() => 'timeStyle'}
-                              selected={startDate}
-                              onChange={(date) => setStartDate(date)}
-                              showTimeSelect
-                              excludeTimes={[
-                                setHours(setMinutes(new Date(), 0), 17),
-                                setHours(setMinutes(new Date(), 30), 18),
-                                setHours(setMinutes(new Date(), 30), 19),
-                                setHours(setMinutes(new Date(), 30), 17),
-                              ]}
-                              dateFormat='MMMM d, yyyy - h:mm aa'
-                              aria-label='Preferred date and time'
-                              aria-labelledby='bookingDateContact-label'
-                              id='bookingDateContact'
-                            />
+                            {showDatePicker ? (
+                              <Suspense fallback={<input className='datePick' aria-label='Date picker loading' readOnly />}>
+                                <DatePicker
+                                  className='datePick'
+                                  calendarClassName='calenderStyle'
+                                  headerClassName='headerStyle'
+                                  dayClassName={() => 'dayStyle'}
+                                  timeClassName={() => 'timeStyle'}
+                                  selected={startDate}
+                                  onChange={(date) => setStartDate(date)}
+                                  showTimeSelect
+                                  excludeTimes={[
+                                    setHours(setMinutes(new Date(), 0), 17),
+                                    setHours(setMinutes(new Date(), 30), 18),
+                                    setHours(setMinutes(new Date(), 30), 19),
+                                    setHours(setMinutes(new Date(), 30), 17),
+                                  ]}
+                                  dateFormat='MMMM d, yyyy - h:mm aa'
+                                  aria-label='Preferred date and time'
+                                  aria-labelledby='bookingDateContact-label'
+                                  id='bookingDateContact'
+                                />
+                              </Suspense>
+                            ) : (
+                              <input
+                                className='datePick'
+                                placeholder='Select date & time'
+                                aria-label='Date picker placeholder'
+                                readOnly
+                              />
+                            )}
                           </div>
                         </div>
                       </div>
@@ -390,7 +452,15 @@ function ContactPage() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
-            <Map />
+            <div ref={mapRef}>
+              {showMap ? (
+                <Suspense fallback={<div style={{ height: '320px', background: '#0f0f0f' }} />}>
+                  <LazyMap />
+                </Suspense>
+              ) : (
+                <div style={{ height: '320px', background: '#0f0f0f' }} />
+              )}
+            </div>
           </>
         ) : (
           <Loading />
