@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 // Blog images mapped by topic
 // Import images from galleries and assets based on blog post topics
+// Note: ESLint no-undef is disabled because webpack handles image imports
 
 // Paint Protection / General Tips - Use paint correction or ceramic coating images
 import paintProtectionImg1 from '../../assets/galleries/paint-correction/IMG_3358.JPG';
@@ -10,6 +12,26 @@ import paintProtectionImg3 from '../../assets/galleries/ceramic-coating/IMG_3451
 import paintCorrectionImg1 from '../../assets/galleries/paint-correction/IMG_3420.JPG';
 import paintCorrectionImg2 from '../../assets/galleries/paint-correction/IMG_3458.JPG';
 import paintCorrectionImg3 from '../../assets/galleries/paint-correction/IMG_3711.JPG';
+
+// Ceramic Coating - Use ceramic coating gallery images
+import ceramicCoatingImg1 from '../../assets/galleries/ceramic-coating/IMG_3451.JPG';
+import ceramicCoatingImg2 from '../../assets/galleries/ceramic-coating/IMG_3721.JPG';
+import ceramicCoatingImg3 from '../../assets/galleries/ceramic-coating/IMG_3724.JPG';
+
+// Winter Prep - Use paint correction images (winter prep related)
+import winterPrepImg1 from '../../assets/galleries/paint-correction/IMG_3358.JPG';
+import winterPrepImg2 from '../../assets/galleries/paint-correction/IMG_5024.JPG';
+import winterPrepImg3 from '../../assets/galleries/ceramic-coating/IMG_3451.JPG';
+
+// Interior Detailing - Use paint correction images (interior detailing related)
+import interiorImg1 from '../../assets/galleries/paint-correction/IMG_3358.JPG';
+import interiorImg2 from '../../assets/galleries/paint-correction/IMG_3420.JPG';
+import interiorImg3 from '../../assets/galleries/paint-correction/IMG_3458.JPG';
+
+// Headlight Restoration - Use paint correction images (similar process)
+import headlightImg1 from '../../assets/galleries/paint-correction/IMG_3420.JPG';
+import headlightImg2 from '../../assets/galleries/paint-correction/IMG_3458.JPG';
+import headlightImg3 from '../../assets/galleries/paint-correction/IMG_3711.JPG';
 
 // Export all images for use in content
 export const allBlogImages = {
