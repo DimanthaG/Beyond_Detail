@@ -84,8 +84,11 @@ export const SEO = ({
     'mobile detailing'
   ].filter(Boolean).join(', ');
 
-  // Enhanced description with locations
-  const enhancedDescription = description || BUSINESS_INFO.description;
+  // Enhanced description with locations (limit to 155-160 chars for SEO)
+  const baseDescription = description || BUSINESS_INFO.description;
+  const enhancedDescription = baseDescription.length > 160 
+    ? baseDescription.substring(0, 157).trim() + '...'
+    : baseDescription;
 
   // Default OG image
   const ogImage = image || `${BUSINESS_INFO.url}/og-image.jpg`;

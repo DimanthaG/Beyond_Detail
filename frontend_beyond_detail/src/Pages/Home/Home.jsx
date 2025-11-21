@@ -20,8 +20,8 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Scarborough Auto Detailing & Window Tinting | Beyond Detail'
-        description='Get that new-car feel with Beyond Detail’s auto detailing, tinting & ceramic coating in Scarborough, Toronto.'
+        title='Auto Detailing Scarborough | Window Tinting Toronto | Beyond Detail'
+        description='Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction, interior/exterior detailing.'
         name='Beyond Detail Toronto'
         type='website'
         keywords='car detailing Toronto, auto detailing Scarborough, window tinting Markham, paint correction Pickering, ceramic coating GTA'
