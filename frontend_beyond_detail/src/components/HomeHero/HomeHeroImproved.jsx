@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Star, MapPin, Clock, Shield, Award } from 'lucide-re
 import { Link } from 'react-router-dom';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
+import carImageAvif from '../../assets/bd/bd-20.avif';
 import carImage from '../../assets/bd/bd-20.webp';
 import carImage400w from '../../assets/bd/bd-20-400w.webp';
 import carImage800w from '../../assets/bd/bd-20-800w.webp';
@@ -127,24 +128,42 @@ export function HomeHeroImproved() {
     <div className="home-hero-improved" ref={heroRef}>
       {/* Background Image - Optimized */}
       <div className="home-hero-improved__background">
+        <picture>
+          <source
+            type="image/avif"
+            srcSet={`${carImageAvif} 1600w`}
+            sizes="(min-width: 1280px) 1200px, 100vw"
+          />
+          <source
+            type="image/webp"
+            srcSet={`
+              ${carImage400w} 400w,
+              ${carImage800w} 800w,
+              ${carImage1200w} 1200w,
+              ${carImage1600w} 1600w,
+              ${carImage} 1920w
+            `}
+            sizes="(min-width: 1280px) 1200px, 100vw"
+          />
         <img
-          src={carImage}
-          srcSet={`
-            ${carImage400w} 400w,
-            ${carImage800w} 800w,
-            ${carImage1200w} 1200w,
-            ${carImage1600w} 1600w,
-            ${carImage} 1920w
-          `}
-          sizes="(min-width: 1280px) 1200px, 100vw"
-          alt="Premium car detailing"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width="1920"
-          height="1080"
-          className="home-hero-improved__background-image"
-        />
+            src={carImage}
+            srcSet={`
+              ${carImage400w} 400w,
+              ${carImage800w} 800w,
+              ${carImage1200w} 1200w,
+              ${carImage1600w} 1600w,
+              ${carImage} 1920w
+            `}
+            sizes="(min-width: 1280px) 1200px, 100vw"
+            alt="Premium car detailing"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
+            className="home-hero-improved__background-image"
+          />
+        </picture>
         <div className="home-hero-improved__background-overlay"></div>
       </div>
 

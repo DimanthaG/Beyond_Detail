@@ -2,15 +2,13 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { SEO } from '../../components';
 import { HomeHero } from '../../components/HomeHero/HomeHero';
 
-import {
-  HomeDetailSection,
-  Contact,
-} from '../../components';
-import { HomeContent } from '../../components/HomeContent/HomeContent';
 import { ShareButtons } from '../../components/ShareButtons/ShareButtons';
 import './Home.scss';
 
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const HomeContent = lazy(() => import('../../components/HomeContent/HomeContent'));
+const HomeDetailSection = lazy(() => import('../../components/HomeDetailSection/HomeDetailSection'));
+const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Home() {
   // scroll to top on page render
@@ -21,16 +19,20 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Auto Detailing Scarborough | Window Tinting Toronto | Beyond Detail'
-        description='Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction, interior/exterior detailing.'
-        name='Beyond Detail Toronto'
+        title='Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto'
+        description='Professional car detailing, window tinting, and ceramic coating in Scarborough & Toronto. We restore, protect, and enhance your vehicle with deep interior cleaning, stain and salt removal, paint correction, and UV-blocking ceramic tint.'
+        name='Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto'
         type='website'
         keywords='car detailing Toronto, auto detailing Scarborough, window tinting Markham, paint correction Pickering, ceramic coating GTA'
       />
       <HomeHero />
-      <HomeContent />
+      <Suspense fallback={null}>
+        <HomeContent />
+      </Suspense>
       <div id="home-services"></div>
-      <HomeDetailSection />
+      <Suspense fallback={null}>
+        <HomeDetailSection />
+      </Suspense>
       <Suspense fallback={null}>
         <GoogleReviewsCarousel />
       </Suspense>
@@ -40,7 +42,9 @@ function Home() {
           className="home-share-buttons"
         />
       </div>
-      <Contact />
+      <Suspense fallback={null}>
+        <Contact />
+      </Suspense>
     </div>
   );
 }

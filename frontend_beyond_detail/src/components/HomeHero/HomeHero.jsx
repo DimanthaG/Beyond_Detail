@@ -6,6 +6,7 @@ import PartnersCompact from '../Partners/PartnersCompact';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import Map from '../Map/Map';
+import carImageAvif from '../../assets/bd/bd-20.avif';
 import carImage from '../../assets/bd/bd-20.webp';
 import carImage400w from '../../assets/bd/bd-20-400w.webp';
 import carImage800w from '../../assets/bd/bd-20-800w.webp';
@@ -101,23 +102,41 @@ export function HomeHero() {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="home-hero__background">
           <div className="home-hero__background-image">
-            <img 
-              src={carImage}
-              srcSet={`
-                ${carImage400w} 400w,
-                ${carImage800w} 800w,
-                ${carImage1200w} 1200w,
-                ${carImage1600w} 1600w,
-                ${carImage} 1920w
-              `}
-              sizes="(min-width: 1280px) 1200px, 100vw"
-              alt="Premium car detailing" 
-              loading="eager" 
-              fetchpriority="high"
-              decoding="async"
-              width="1920"
-              height="1080"
-            />
+            <picture>
+              <source
+                type="image/avif"
+                srcSet={`${carImageAvif} 1600w`}
+                sizes="(min-width: 1280px) 1200px, 100vw"
+              />
+              <source
+                type="image/webp"
+                srcSet={`
+                  ${carImage400w} 400w,
+                  ${carImage800w} 800w,
+                  ${carImage1200w} 1200w,
+                  ${carImage1600w} 1600w,
+                  ${carImage} 1920w
+                `}
+                sizes="(min-width: 1280px) 1200px, 100vw"
+              />
+              <img 
+                src={carImage}
+                srcSet={`
+                  ${carImage400w} 400w,
+                  ${carImage800w} 800w,
+                  ${carImage1200w} 1200w,
+                  ${carImage1600w} 1600w,
+                  ${carImage} 1920w
+                `}
+                sizes="(min-width: 1280px) 1200px, 100vw"
+                alt="Premium car detailing" 
+                loading="eager" 
+                fetchpriority="high"
+                decoding="async"
+                width="1920"
+                height="1080"
+              />
+            </picture>
           </div>
           <div className="home-hero__background-overlay"></div>
           <div className="home-hero__background-gradient"></div>

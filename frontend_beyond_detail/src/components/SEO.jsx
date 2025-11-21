@@ -8,9 +8,9 @@ const LOCATIONS_STRING = LOCATIONS.join(', ');
 
 // Default business information - MUST match Google My Business exactly for SEO
 const BUSINESS_INFO = {
-  name: 'Beyond Detail Toronto',
+  name: 'Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto',
   address: {
-    streetAddress: 'Unit 11, 170 Finchdene Square',
+    streetAddress: '170 Finchdene Square unit 11',
     addressLocality: 'Scarborough',
     addressRegion: 'ON',
     postalCode: 'M1X 1B3',
@@ -19,7 +19,7 @@ const BUSINESS_INFO = {
   phone: '+1 (647) 689-6109',
   email: 'info@beyonddetail.ca',
   url: 'https://beyonddetail.ca',
-  description: 'Get that new-car feel with Beyond Detail\'s auto detailing, tinting & ceramic coating in Scarborough, Toronto.',
+  description: 'Professional car detailing, window tinting, and ceramic coating in Scarborough & Toronto. We restore, protect, and enhance your vehicle with deep interior cleaning, stain and salt removal, paint correction, and UV-blocking ceramic tint. Trusted by GTA drivers for quality results, lifetime warranty tint options, and expert service that keeps your car looking its best.',
   hours: {
     monday: { open: '08:00', close: '20:00' },
     tuesday: { open: '08:00', close: '20:00' },
@@ -30,16 +30,31 @@ const BUSINESS_INFO = {
     sunday: { open: null, close: null } // Closed
   },
   services: [
-    'Window Tinting',
-    'Paint Correction',
-    'Ceramic Coating',
-    'Auto Detailing',
-    'Interior Detailing',
-    'Exterior Detailing',
-    'Headlight Restoration',
-    'Odour Removal',
-    'Leather Cleaning',
-    'Fleet Services'
+    'Auto detailing',
+    'Interior detailing',
+    'Exterior detailing',
+    'Paint correction',
+    'Paint protection',
+    'Ceramic coating',
+    'Car window tinting',
+    'Ceramic window tint',
+    'Sun strip installation',
+    'Fleet & commercial tinting',
+    'SUV tint package',
+    'Sedan tint package',
+    'Auto interior vacuuming',
+    'Engine detailing',
+    'Headlight polishing',
+    'Seat shampooing',
+    'Steam cleaning',
+    'Wheel washing',
+    'Odor removal & ozone treatment',
+    'Pet hair removal',
+    'Interior sanitization',
+    'Leather conditioning & protection',
+    'Headliner cleaning',
+    'Disinfection & allergy treatment',
+    'Full interior shampoo package'
   ]
 };
 
