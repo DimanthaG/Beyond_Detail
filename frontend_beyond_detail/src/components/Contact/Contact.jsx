@@ -306,13 +306,17 @@ function Contact() {
 
                       <div className='vehicle-date__wrapper'>
                         <div lg='6' className='control-group'>
-                          <h3>Vehicle Type: *</h3>
+                          <label htmlFor='vehicleType' className='visually-hidden'>
+                            Vehicle Type
+                          </label>
+                          <h3 id='vehicleType-label'>Vehicle Type: *</h3>
                           <div className='select'>
                             <select
                               name='vehicleType'
                               id='vehicleType'
                               className='select__options'
                               ref={optSelect}
+                              aria-labelledby='vehicleType-label'
                             >
                               <option value='Sedan'>Sedan</option>
                               <option value='Hatchback'>Hatchback</option>
@@ -323,7 +327,10 @@ function Contact() {
                         </div>
 
                         <div lg='6' className='control-group date__wrapper'>
-                          <h3>Date & Time: *</h3>
+                          <label htmlFor='bookingDate' className='visually-hidden'>
+                            Preferred date and time
+                          </label>
+                          <h3 id='bookingDate-label'>Date & Time: *</h3>
                           <DatePicker
                             className='datePick'
                             calendarClassName='calenderStyle'
@@ -340,6 +347,9 @@ function Contact() {
                               setHours(setMinutes(new Date(), 30), 17),
                             ]}
                             dateFormat='MMMM d, yyyy - h:mm aa'
+                            aria-labelledby='bookingDate-label'
+                            aria-label='Preferred date and time'
+                            id='bookingDate'
                           />
                         </div>
                       </div>

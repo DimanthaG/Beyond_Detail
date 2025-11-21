@@ -306,27 +306,31 @@ function ContactPage() {
 
                         <div className='vehicle-date__wrapper'>
                           <div lg='6' className='control-group'>
-                            <label htmlFor='vehicleType'>
-                              <h3>Vehicle Type: *</h3>
-                            </label>
-                            <div className='select'>
-                              <select
-                                name='vehicleType'
-                                id='vehicleType'
-                                className='select__options'
-                                ref={optSelect}
-                                aria-labelledby="vehicleType-label"
-                              >
-                                <option value='Sedan'>Sedan</option>
-                                <option value='Hatchback'>Hatchback</option>
-                                <option value='SUV/Truck'>SUV/Truck</option>
-                              </select>
+                          <label htmlFor='vehicleType' className='visually-hidden'>
+                            Vehicle Type
+                          </label>
+                          <h3 id='vehicleType-label'>Vehicle Type: *</h3>
+                          <div className='select'>
+                            <select
+                              name='vehicleType'
+                              id='vehicleType'
+                              className='select__options'
+                              ref={optSelect}
+                              aria-labelledby='vehicleType-label'
+                            >
+                              <option value='Sedan'>Sedan</option>
+                              <option value='Hatchback'>Hatchback</option>
+                              <option value='SUV/Truck'>SUV/Truck</option>
+                            </select>
                               <div className='select__arrow'></div>
                             </div>
                           </div>
 
                           <div lg='6' className='control-group date__wrapper'>
-                            <h3>Date & Time: *</h3>
+                            <label htmlFor='bookingDateContact' className='visually-hidden'>
+                              Preferred date and time
+                            </label>
+                            <h3 id='bookingDateContact-label'>Date & Time: *</h3>
                             <DatePicker
                               className='datePick'
                               calendarClassName='calenderStyle'
@@ -343,7 +347,9 @@ function ContactPage() {
                                 setHours(setMinutes(new Date(), 30), 17),
                               ]}
                               dateFormat='MMMM d, yyyy - h:mm aa'
-                              aria-label="Date and Time"
+                              aria-label='Preferred date and time'
+                              aria-labelledby='bookingDateContact-label'
+                              id='bookingDateContact'
                             />
                           </div>
                         </div>

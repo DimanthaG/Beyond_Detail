@@ -91,7 +91,8 @@ export const SEO = ({
     : baseDescription;
 
   // Default OG image
-  const ogImage = image || `${BUSINESS_INFO.url}/og-image.jpg`;
+  // Default OG image (present in /public). Use a real file to avoid 404s.
+  const ogImage = image || `${BUSINESS_INFO.url}/og-image.webp`;
 
   // Generate opening hours specification for schema
   const openingHoursSpecification = Object.entries(BUSINESS_INFO.hours)
@@ -275,6 +276,9 @@ export const SEO = ({
       <meta property='og:image' content={ogImage} />
       <meta property='og:site_name' content={BUSINESS_INFO.name} />
       <meta property='og:locale' content='en_CA' />
+      <meta property='og:image:width' content='1200' />
+      <meta property='og:image:height' content='630' />
+      <meta property='og:image:alt' content={`${BUSINESS_INFO.name} - Auto Detailing in Scarborough & Toronto`} />
       <meta property='business:contact_data:street_address' content={BUSINESS_INFO.address.streetAddress} />
       <meta property='business:contact_data:locality' content={BUSINESS_INFO.address.addressLocality} />
       <meta property='business:contact_data:region' content={BUSINESS_INFO.address.addressRegion} />
@@ -287,6 +291,7 @@ export const SEO = ({
       <meta name='twitter:title' content={pageTitle} />
       <meta name='twitter:description' content={enhancedDescription} />
       <meta name='twitter:image' content={ogImage} />
+      <meta name='twitter:image:alt' content={`${BUSINESS_INFO.name} - Auto Detailing in Scarborough & Toronto`} />
       <meta name='twitter:creator' content={name} />
       <meta name='twitter:site' content={name} />
 

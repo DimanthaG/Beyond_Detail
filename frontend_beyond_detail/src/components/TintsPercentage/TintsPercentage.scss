@@ -62,7 +62,11 @@
     grid-template-rows: 380px;
     grid-template-areas: 'grid1 grid2 grid3 grid4';
 
-    background: url('../../assets/bd/bd-47.jpg');
+    background: image-set(
+      url('../../assets/bd/bd-47-800w.webp') type('image/webp') 1x,
+      url('../../assets/bd/bd-47.jpg') type('image/jpeg') 1x
+    );
+    background-image: url('../../assets/bd/bd-47-800w.webp');
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
