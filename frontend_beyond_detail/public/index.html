@@ -21,34 +21,13 @@
   <!-- Fallback for browsers that don't support onload -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
 
-  <!-- Google tag (gtag.js) - Deferred to reduce TBT: load after page is interactive -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNHK7NF9J5"></script>
   <script>
-    // Initialize dataLayer immediately (lightweight, non-blocking)
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    
-    // Defer all Google Analytics initialization until after page load
-    window.addEventListener('load', function() {
-      // Use requestIdleCallback if available, otherwise setTimeout
-      const initGA = function() {
-        gtag('js', new Date());
-        gtag('config', 'G-MY482XVRJ2', {
-          'send_page_view': true
-        });
-      };
-      
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(initGA, { timeout: 2000 });
-      } else {
-        setTimeout(initGA, 100);
-      }
-      
-      // Load script after initialization
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MY482XVRJ2';
-      document.head.appendChild(script);
-    });
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WNHK7NF9J5');
   </script>
 
   <meta name="google-site-verification" content="LvLQT4_GoK6meJl5_dMLK9Xh0-1rMKBNrHUz" />
