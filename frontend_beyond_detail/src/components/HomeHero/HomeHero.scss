@@ -429,6 +429,7 @@
     color: #f07900;
     font-size: 0.85em;
     white-space: normal;
+    text-wrap: balance;
     text-shadow: 0 4px 20px rgba(240, 121, 0, 0.4);
     font-weight: 800;
     letter-spacing: -0.04em;
@@ -438,18 +439,12 @@
     visibility: visible;
     opacity: 1;
 
-    @media screen and (min-width: 640px) {
-      white-space: nowrap;
-    }
-
     @media screen and (min-width: 768px) {
       font-size: 0.85em;
-      white-space: nowrap;
     }
 
     @media screen and (min-width: 1024px) {
       font-size: 0.9em;
-      white-space: nowrap;
     }
   }
 }
