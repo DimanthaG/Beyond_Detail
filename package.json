@@ -7,5 +7,8 @@
     "build:frontend": "cd frontend_beyond_detail && npm run build",
     "start:backend": "cd backend_sanity && npm start",
     "build:backend": "cd backend_sanity && npm build"
+  },
+  "dependencies": {
+    "@sanity/client": "^3.4.0"
   }
 }

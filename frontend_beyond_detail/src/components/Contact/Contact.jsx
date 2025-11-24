@@ -80,7 +80,7 @@ function Contact() {
   };
 
   // Form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoadingMessage(true);
 
@@ -101,7 +101,6 @@ function Contact() {
     }
 
     const contact = {
-      _type: 'contact',
       name: name,
       email: email,
       phone: phone,
@@ -111,10 +110,30 @@ function Contact() {
       bookingDate: startDate,
     };
 
-    client.create(contact).then(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contact),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit contact form');
+      }
+
+      const data = await response.json();
+      console.log('Contact form submitted successfully:', data);
+      
       setLoadingMessage(false);
       SetIsFormSubmitted(true);
-    });
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setLoadingMessage(false);
+      // You could add error state here to show user-friendly error message
+      alert('Sorry, there was an error submitting your form. Please try again or call us directly.');
+    }
   };
 
   // Date and time picker
