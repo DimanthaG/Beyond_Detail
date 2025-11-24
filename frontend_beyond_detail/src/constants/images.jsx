@@ -46,7 +46,7 @@ import dropletBg from '../assets/droplet1.png';
 import dropletBg2 from '../assets/droplet2.png';
 import dropletBg3 from '../assets/droplet3.png';
 // All logos from Partners folder
-import threeEm_logo from '../assets/Partners/3m_logo.png';
+import threeEm_logo from '../assets/Partners/3m_logo.webp';
 import sparco_logo from '../assets/Partners/sparco_logo.webp';
 import igl_logo from '../assets/Partners/igl_logo.webp';
 import huper_logo from '../assets/Partners/huper_logo.webp';

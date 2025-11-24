@@ -31,7 +31,7 @@
  * - All styling is in Contact.scss and follows the site's design system
  */
 
-import React, { useState, useEffect, useRef, useMemo, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { client } from '../../client';
 import { Loading } from '../../components';
 import { BsTwitter, BsInstagram } from 'react-icons/bs';
