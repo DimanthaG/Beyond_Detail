@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './HoverSlider.scss';
 
 function HoverSlider() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [, setActiveSlide] = useState(0);
 
   useEffect(() => {
     // Set initial active slide
