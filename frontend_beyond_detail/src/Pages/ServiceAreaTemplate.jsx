@@ -1,5 +1,7 @@
 import React from 'react';
 import { SEO } from '../components';
+import { Phone, MapPin, Clock } from 'lucide-react';
+import './ServiceAreaTemplate.scss';
 
 function ServiceAreaTemplate({ city, nearby, title, description, services }) {
   const pageTitle = `${title} | Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto`;
@@ -15,15 +17,26 @@ function ServiceAreaTemplate({ city, nearby, title, description, services }) {
       />
       <section className="service-area__hero">
         <div className="service-area__container">
-          <p className="service-area__eyebrow">Serving {city} &amp; nearby {nearby}</p>
+          <p className="service-area__eyebrow">Serving {city} & nearby {nearby}</p>
           <h1 className="service-area__title">{title}</h1>
           <p className="service-area__description">{description}</p>
+
           <div className="service-area__nap">
             <p><strong>Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto</strong></p>
-            <p>170 Finchdene Square unit 11, Scarborough, ON M1X 1B3</p>
-            <p><a href="tel:+16476896109">(647) 689-6109</a></p>
-            <p>Hours: Mon–Fri 8am–8pm, Sat 9am–6pm, Sun closed</p>
+            <p>
+              <MapPin size={16} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
+              170 Finchdene Square unit 11, Scarborough, ON M1X 1B3
+            </p>
+            <p>
+              <Phone size={16} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
+              <a href="tel:+16476896109">(647) 689-6109</a>
+            </p>
+            <p>
+              <Clock size={16} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
+              Mon–Fri 8am–8pm, Sat 9am–6pm, Sun closed
+            </p>
           </div>
+
           <div className="service-area__cta">
             <a className="service-area__button" href="/contact">Book an appointment</a>
             <a className="service-area__link" href="/tint">Window tinting</a>
@@ -32,6 +45,7 @@ function ServiceAreaTemplate({ city, nearby, title, description, services }) {
           </div>
         </div>
       </section>
+
       <section className="service-area__list">
         <div className="service-area__container">
           <h2 className="service-area__subtitle">Popular services in {city}</h2>
