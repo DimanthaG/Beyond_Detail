@@ -15,8 +15,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
     }
@@ -30,7 +30,7 @@
 
     &__eyebrow {
         font-size: 0.875rem;
-        color: #8b5cf6;
+        color: #ff6b00;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -79,12 +79,12 @@
             }
 
             a {
-                color: #8b5cf6;
+                color: #ff6b00;
                 text-decoration: none;
                 transition: color 0.3s ease;
 
                 &:hover {
-                    color: #a78bfa;
+                    color: #ff8c00;
                 }
             }
         }
@@ -102,18 +102,18 @@
         align-items: center;
         gap: 8px;
         padding: 16px 32px;
-        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        background: linear-gradient(135deg, #ff6b00, #ff8c00);
         color: #ffffff;
         text-decoration: none;
         border-radius: 8px;
         font-weight: 600;
         font-size: 1rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
 
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
         }
     }
 
@@ -133,7 +133,7 @@
 
         &:hover {
             background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(139, 92, 246, 0.5);
+            border-color: rgba(255, 107, 0, 0.5);
             transform: translateY(-2px);
         }
     }
@@ -176,7 +176,7 @@
                 position: absolute;
                 left: 24px;
                 top: 24px;
-                color: #8b5cf6;
+                color: #ff6b00;
                 font-weight: bold;
                 font-size: 1.25rem;
             }
@@ -185,9 +185,9 @@
 
             &:hover {
                 transform: translateY(-4px);
-                border-color: rgba(139, 92, 246, 0.5);
+                border-color: rgba(255, 107, 0, 0.5);
                 background: rgba(255, 255, 255, 0.05);
-                box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+                box-shadow: 0 8px 20px rgba(255, 107, 0, 0.2);
             }
         }
     }

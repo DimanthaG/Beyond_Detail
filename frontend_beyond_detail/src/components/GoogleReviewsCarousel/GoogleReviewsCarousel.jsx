@@ -3,64 +3,12 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import './GoogleReviewsCarousel.scss';
 
-// Static fallback reviews (real reviews from your Google Business Profile)
-const FALLBACK_REVIEWS = [
-  {
-    _id: 'fallback-1',
-    name: 'Dimanth Gunawardana',
-    rating: 5,
-    message: 'Excellent service! The team did an amazing job with my car detailing. The paint correction made my car look brand new. Highly recommend Beyond Detail!',
-    relativeTime: 'Recent review',
-    profilePhoto: null
-  },
-  {
-    _id: 'fallback-2',
-    name: 'Sarah M.',
-    rating: 5,
-    message: 'Best window tinting in Scarborough! Professional installation and the ceramic tint keeps my car so much cooler. Worth every penny.',
-    relativeTime: 'Recent review',
-    profilePhoto: null
-  },
-  {
-    _id: 'fallback-3',
-    name: 'Mike T.',
-    rating: 5,
-    message: 'Outstanding ceramic coating service. My car has never looked better and the protection is incredible. The team was professional and detail-oriented.',
-    relativeTime: 'Recent review',
-    profilePhoto: null
-  },
-  {
-    _id: 'fallback-4',
-    name: 'Jennifer L.',
-    rating: 5,
-    message: 'Amazing interior detailing! They removed stains I thought were permanent. My car smells fresh and looks spotless. Will definitely be back!',
-    relativeTime: 'Recent review',
-    profilePhoto: null
-  },
-  {
-    _id: 'fallback-5',
-    name: 'David K.',
-    rating: 5,
-    message: 'Top-notch paint correction and detailing. The swirl marks are completely gone and the shine is incredible. Highly professional service!',
-    relativeTime: 'Recent review',
-    profilePhoto: null
-  },
-  {
-    _id: 'fallback-6',
-    name: 'Lisa R.',
-    rating: 5,
-    message: 'Exceptional service from start to finish. The LLumar window tint looks perfect and the team explained everything clearly. Best in the GTA!',
-    relativeTime: 'Recent review',
-    profilePhoto: null
-  }
-];
-
 function GoogleReviewsCarousel() {
-  const [allReviews, setAllReviews] = useState(FALLBACK_REVIEWS); // Start with fallback
+  const [allReviews, setAllReviews] = useState([]); // Start empty - only show real reviews
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [rating, setRating] = useState(4.9); // Default rating
-  const [totalReviews, setTotalReviews] = useState(100); // Default count
+  const [rating, setRating] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
   const [error, setError] = useState(null);
   const [shouldLoad, setShouldLoad] = useState(false);
   const carouselRef = useRef(null);
