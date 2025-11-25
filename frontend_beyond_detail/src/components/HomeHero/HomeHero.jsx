@@ -33,14 +33,14 @@ export function HomeHero() {
         if (width <= 1600) return carImage1600w;
         return carImage;
       };
-      
+
       // Get the optimal image source immediately
       const optimalImageSrc = getOptimalImage();
-      
+
       // Check if preload already exists
       const existingLink = document.querySelector(`link[rel="preload"][as="image"][href*="bd-20"]`);
       if (existingLink) return;
-      
+
       // Create preload link immediately
       const link = document.createElement('link');
       link.rel = 'preload';
@@ -56,20 +56,20 @@ export function HomeHero() {
         ${carImage} 1920w
       `);
       link.setAttribute('imagesizes', '100vw');
-      
+
       // Insert at the beginning of head for highest priority
       document.head.insertBefore(link, document.head.firstChild);
-      
+
       // Also preload the image using Image() API for better browser support
       const img = new Image();
       img.src = optimalImageSrc;
       img.loading = 'eager';
       img.setAttribute('fetchpriority', 'high');
     };
-    
+
     // Execute immediately (don't wait)
     preloadImage();
-    
+
     // Cleanup on unmount
     return () => {
       const linksToRemove = document.querySelectorAll(`link[rel="preload"][as="image"][href*="bd-20"]`);
@@ -119,7 +119,7 @@ export function HomeHero() {
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
               />
-              <img 
+              <img
                 src={carImage}
                 srcSet={`
                   ${carImage400w} 400w,
@@ -129,8 +129,8 @@ export function HomeHero() {
                   ${carImage} 1920w
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
-                alt="Premium car detailing" 
-                loading="eager" 
+                alt="Premium car detailing"
+                loading="eager"
                 fetchpriority="high"
                 decoding="async"
                 width="1920"
@@ -220,7 +220,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough & Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
+                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> near you in Scarborough & Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
                 </motion.p>
 
                 {/* Feature Icons */}

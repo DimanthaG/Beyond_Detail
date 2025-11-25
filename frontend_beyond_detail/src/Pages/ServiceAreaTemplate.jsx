@@ -10,7 +10,7 @@ function ServiceAreaTemplate({ city, nearby, title, description, services }) {
       <SEO
         title={pageTitle}
         description={pageDescription}
-        keywords={`${city} auto detailing, ${city} window tinting, ${city} ceramic coating, ${city} paint correction, car detailing ${nearby}`}
+        keywords={`${city} auto detailing, ${city} window tinting, ${city} ceramic coating, ${city} paint correction, car detailing ${nearby}, ${city} window tinting near me, ${city} car detailing near me`}
         type="website"
       />
       <section className="service-area__hero">

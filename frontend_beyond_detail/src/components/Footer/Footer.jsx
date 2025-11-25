@@ -120,7 +120,23 @@ function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Business Hours */}
+          {/* Column 4: Areas Served */}
+          <div className='footer-column footer-areas'>
+            <h4 className='footer-heading'>AREAS SERVED</h4>
+            <div className='footer-links'>
+              <a href='/service-area/markham'>
+                MARKHAM
+              </a>
+              <a href='/service-area/pickering'>
+                PICKERING
+              </a>
+              <a href='/service-area/north-york'>
+                NORTH YORK
+              </a>
+            </div>
+          </div>
+
+          {/* Column 5: Business Hours */}
           <div className='footer-column footer-hours'>
             <h4 className='footer-heading'>HOURS</h4>
             <div className='footer-links'>
@@ -151,11 +167,7 @@ function Footer() {
           </p>
         </div>
       </footer>
-      <div className="footer-hidden-links" aria-hidden="true">
-        <a href="/service-area/pickering">Auto detailing in Pickering</a>
-        <a href="/service-area/markham">Auto detailing in Markham</a>
-        <a href="/service-area/north-york">Auto detailing in North York</a>
-      </div>
+
     </>
   );
 }

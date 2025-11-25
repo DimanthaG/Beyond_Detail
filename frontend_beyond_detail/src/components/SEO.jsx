@@ -96,17 +96,21 @@ export const SEO = ({
     'GTA',
     'Greater Toronto Area',
     'professional detailing',
-    'mobile detailing'
+    'mobile detailing',
+    'window tinting near me',
+    'car detailing near me',
+    'ceramic coating near me',
+    'auto detailing near me',
+    'paint correction near me'
   ].filter(Boolean).join(', ');
 
   // Enhanced description with locations (limit to 155-160 chars for SEO)
   const baseDescription = description || BUSINESS_INFO.description;
-  const enhancedDescription = baseDescription.length > 160 
+  const enhancedDescription = baseDescription.length > 160
     ? baseDescription.substring(0, 157).trim() + '...'
     : baseDescription;
 
   // Default OG image
-  // Default OG image (present in /public). Use a real file to avoid 404s.
   const ogImage = image || `${BUSINESS_INFO.url}/og-image.webp`;
 
   // Generate opening hours specification for schema
