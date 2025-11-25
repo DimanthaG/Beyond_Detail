@@ -23,3 +23,4 @@ export { default as TintLaws } from './TintsLaws/TintLaws';
 export { default as TintsPackages } from './TintsPackages/TintsPackages';
 export { default as SEO } from './SEO';
 export { ShareButtons } from './ShareButtons/ShareButtons';
+export { default as AreasServed } from './AreasServed/AreasServed';

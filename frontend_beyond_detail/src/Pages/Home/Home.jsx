@@ -8,6 +8,7 @@ import './Home.scss';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const HomeContent = lazy(() => import('../../components/HomeContent/HomeContent'));
 const HomeDetailSection = lazy(() => import('../../components/HomeDetailSection/HomeDetailSection'));
+const AreasServed = lazy(() => import('../../components/AreasServed/AreasServed'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Home() {
@@ -37,11 +38,14 @@ function Home() {
         <GoogleReviewsCarousel />
       </Suspense>
       <div style={{ padding: '40px 20px', textAlign: 'center', maxWidth: '1200px', margin: '0 auto' }}>
-        <ShareButtons 
+        <ShareButtons
           title="Beyond Detail - Professional Auto Detailing in Scarborough & Toronto"
           className="home-share-buttons"
         />
       </div>
+      <Suspense fallback={null}>
+        <AreasServed />
+      </Suspense>
       <Suspense fallback={null}>
         <Contact />
       </Suspense>
