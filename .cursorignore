@@ -1,0 +1,43 @@
+# Cursor ignore file to prevent indexing issues
+# Add files/directories that cause Cursor to hang
+
+# Large binary files
+*.pack
+*.idx
+*.rev
+
+# Build outputs
+**/build/
+**/dist/
+**/.next/
+**/out/
+
+# Dependencies (already in .gitignore but ensure Cursor ignores too)
+**/node_modules/
+**/.cache/
+
+# Large media files that don't need indexing
+**/*.webp
+**/*.JPG
+**/*.jpg
+**/*.png
+**/*.jpeg
+**/*.gif
+**/*.mp4
+**/*.mov
+**/*.avi
+
+# Logs
+*.log
+**/*.log
+
+# Temporary files
+*.tmp
+*.temp
+**/.DS_Store
+
+# Git objects (large pack files)
+.git/objects/pack/
+
+# Image backups
+**/image-backups/

@@ -125,7 +125,7 @@ export async function getGoogleReviews(placeId = null) {
       };
       
       // Format reviews to match our component structure
-      const formattedReviews = (result.reviews).map((review) => ({
+      const formattedReviews = (result.reviews || []).map((review) => ({
         _id: review.time || Date.now() + Math.random(), // Unique ID
         name: review.author_name,
         message: review.text,
