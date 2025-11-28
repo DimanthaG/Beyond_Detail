@@ -84,6 +84,36 @@ const CeramicCoatingWhitby = lazy(() => import('./Pages/Neighborhoods/CeramicCoa
 const PaintCorrectionOshawa = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionOshawa'));
 const PaintCorrectionWhitby = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionWhitby'));
 
+const PaintCorrectionPickering = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionPickering'));
+const WindowTintingPickering = lazy(() => import('./Pages/Neighborhoods/WindowTintingPickering'));
+const CeramicCoatingNorthYork = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingNorthYork'));
+const PaintCorrectionNorthYork = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionNorthYork'));
+const WindowTintingNorthYork = lazy(() => import('./Pages/Neighborhoods/WindowTintingNorthYork'));
+const CeramicCoatingAjax = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingAjax'));
+const PaintCorrectionAjax = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionAjax'));
+const WindowTintingAjax = lazy(() => import('./Pages/Neighborhoods/WindowTintingAjax'));
+const CeramicCoatingAgincourt = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingAgincourt'));
+const PaintCorrectionAgincourt = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionAgincourt'));
+const WindowTintingAgincourt = lazy(() => import('./Pages/Neighborhoods/WindowTintingAgincourt'));
+const CeramicCoatingMalvern = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingMalvern'));
+const PaintCorrectionMalvern = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionMalvern'));
+const WindowTintingMalvern = lazy(() => import('./Pages/Neighborhoods/WindowTintingMalvern'));
+const CeramicCoatingWestHill = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingWestHill'));
+const PaintCorrectionWestHill = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionWestHill'));
+const WindowTintingWestHill = lazy(() => import('./Pages/Neighborhoods/WindowTintingWestHill'));
+const CeramicCoatingWexford = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingWexford'));
+const PaintCorrectionWexford = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionWexford'));
+const WindowTintingWexford = lazy(() => import('./Pages/Neighborhoods/WindowTintingWexford'));
+const CeramicCoatingCliffside = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingCliffside'));
+const PaintCorrectionCliffside = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionCliffside'));
+const WindowTintingCliffside = lazy(() => import('./Pages/Neighborhoods/WindowTintingCliffside'));
+const CeramicCoatingRouge = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingRouge'));
+const PaintCorrectionRouge = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionRouge'));
+const WindowTintingRouge = lazy(() => import('./Pages/Neighborhoods/WindowTintingRouge'));
+const CeramicCoatingGuildwood = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingGuildwood'));
+const PaintCorrectionGuildwood = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionGuildwood'));
+const WindowTintingGuildwood = lazy(() => import('./Pages/Neighborhoods/WindowTintingGuildwood'));
+
 function App() {
   let location = useLocation();
   // routes
@@ -144,6 +174,35 @@ function App() {
             <Route path='/ceramic-coating-whitby' element={<CeramicCoatingWhitby />} />
             <Route path='/paint-correction-oshawa' element={<PaintCorrectionOshawa />} />
             <Route path='/paint-correction-whitby' element={<PaintCorrectionWhitby />} />
+            <Route path='/paint-correction-pickering' element={<PaintCorrectionPickering />} />
+            <Route path='/window-tinting-pickering' element={<WindowTintingPickering />} />
+            <Route path='/ceramic-coating-north-york' element={<CeramicCoatingNorthYork />} />
+            <Route path='/paint-correction-north-york' element={<PaintCorrectionNorthYork />} />
+            <Route path='/window-tinting-north-york' element={<WindowTintingNorthYork />} />
+            <Route path='/ceramic-coating-ajax' element={<CeramicCoatingAjax />} />
+            <Route path='/paint-correction-ajax' element={<PaintCorrectionAjax />} />
+            <Route path='/window-tinting-ajax' element={<WindowTintingAjax />} />
+            <Route path='/ceramic-coating-agincourt' element={<CeramicCoatingAgincourt />} />
+            <Route path='/paint-correction-agincourt' element={<PaintCorrectionAgincourt />} />
+            <Route path='/window-tinting-agincourt' element={<WindowTintingAgincourt />} />
+            <Route path='/ceramic-coating-malvern' element={<CeramicCoatingMalvern />} />
+            <Route path='/paint-correction-malvern' element={<PaintCorrectionMalvern />} />
+            <Route path='/window-tinting-malvern' element={<WindowTintingMalvern />} />
+            <Route path='/ceramic-coating-west-hill' element={<CeramicCoatingWestHill />} />
+            <Route path='/paint-correction-west-hill' element={<PaintCorrectionWestHill />} />
+            <Route path='/window-tinting-west-hill' element={<WindowTintingWestHill />} />
+            <Route path='/ceramic-coating-wexford' element={<CeramicCoatingWexford />} />
+            <Route path='/paint-correction-wexford' element={<PaintCorrectionWexford />} />
+            <Route path='/window-tinting-wexford' element={<WindowTintingWexford />} />
+            <Route path='/ceramic-coating-cliffside' element={<CeramicCoatingCliffside />} />
+            <Route path='/paint-correction-cliffside' element={<PaintCorrectionCliffside />} />
+            <Route path='/window-tinting-cliffside' element={<WindowTintingCliffside />} />
+            <Route path='/ceramic-coating-rouge' element={<CeramicCoatingRouge />} />
+            <Route path='/paint-correction-rouge' element={<PaintCorrectionRouge />} />
+            <Route path='/window-tinting-rouge' element={<WindowTintingRouge />} />
+            <Route path='/ceramic-coating-guildwood' element={<CeramicCoatingGuildwood />} />
+            <Route path='/paint-correction-guildwood' element={<PaintCorrectionGuildwood />} />
+            <Route path='/window-tinting-guildwood' element={<WindowTintingGuildwood />} />
             <Route path='/gallery' element={<WrappedGallery />} />
             <Route path='/faqs' element={<WrappedFAQs />} />
             <Route path='/privacy-policy' element={<WrappedPrivacyPolicy />} />

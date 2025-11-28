@@ -1,0 +1,144 @@
+import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { animationOne, transition } from '../../components/Transition';
+import { Loading } from '../../components';
+import CeramicCoatingInfo from '../../components/CeramicCoatingInfo/CeramicCoatingInfo';
+import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
+import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import '../CeramicCoating/CeramicCoating.scss';
+
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const SEO = lazy(() => import('../../components/SEO'));
+const CeramicCoatingHero = lazy(() => import('../../components/CeramicCoatingHero/CeramicCoatingHero'));
+const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
+const Contact = lazy(() => import('../../components/Contact/Contact'));
+
+function CeramicCoatingAgincourt() {
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <SEO
+          title="Ceramic Coating Agincourt | Paint Protection Scarborough"
+          description="Best Ceramic Coating in Agincourt. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          name="Beyond Detail Agincourt"
+          type="website"
+          keywords="ceramic coating agincourt, paint protection agincourt, ceramic pro agincourt, car coating agincourt, paint correction agincourt"
+          serviceType="Ceramic Coating"
+        />
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={{ ...transition, delay: 0 }}
+        >
+          <div className="ceramic-coating__wrapper">
+            <CeramicCoatingHero 
+              scrollTarget="#pricing"
+              titleLine1="Ceramic Coating in"
+              titleLine2="AGINCOURT &"
+              titleLine3="SCARBOROUGH"
+              subtitle="Protect your vehicle with the best <strong>ceramic coating in Agincourt</strong>. Beyond Detail offers certified installation of premium ceramic coatings for long-lasting protection."
+            />
+            
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="ceramic-coating"
+                title="Agincourt Ceramic Coating Projects"
+                forceLandscape
+              />
+            </Suspense>
+            
+            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
+                Beyond Detail serves Agincourt with <strong><Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>professional ceramic coating services</Link></strong>. 
+                Located nearby at 170 Finchdene Square, we provide meticulous <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> and protection.
+              </p>
+            </div>
+
+            <PaintCorrectionInfo
+              title="Professional Ceramic Coating Services"
+              description="Our ceramic coating service includes comprehensive paint correction to ensure your coating bonds perfectly."
+              benefits={[
+                { title: "Permanent Protection", description: "Durable protective layer that lasts for years." },
+                { title: "Ultra-Hard Surface", description: "Resistance to scratches and swirl marks." },
+                { title: "Exceptional Gloss", description: "Deep, mirror-like finish." },
+                { title: "UV Protection", description: "Blocks harmful UV rays." },
+                { title: "Hydrophobic", description: "Water beads up and rolls off effortlessly." },
+                { title: "Chemical Resistance", description: "Protects against environmental contaminants." }
+              ]}
+              process={[
+                { title: "Paint Correction", description: "Removal of imperfections before coating." },
+                { title: "Decontamination", description: "Thorough cleaning of the paint surface." },
+                { title: "Coating Application", description: "Professional application of ceramic layers." },
+                { title: "Curing", description: "Proper curing for maximum durability." },
+                { title: "Inspection", description: "Final quality check." }
+              ]}
+              features={[
+                "Paint correction included",
+                "Thorough decontamination",
+                "Professional application",
+                "Premium products",
+                "Warranty-backed protection",
+                "Maintenance instructions",
+                "Quality inspection",
+                "Certified installers"
+              ]}
+            />
+
+            <ServicePricing
+              title="Agincourt Ceramic Coating Packages"
+              packages={[
+                {
+                  name: "Single Stage + Ceramic Coating",
+                  priceRange: { start: 350, end: 450 },
+                  priceNote: "Pricing varies by vehicle size.",
+                  description: "Includes single-stage paint correction plus ceramic coating.",
+                  features: [
+                    "Paint inspection", "Decontamination", "Single-stage polish", "Ceramic coating application", "Exterior panels treated", "Superior protection"
+                  ],
+                  ctaText: "Book This Package"
+                },
+                {
+                  name: "Two Stage + Ceramic Coating",
+                  priceRange: { start: 600, end: 800 },
+                  priceNote: "Pricing varies by vehicle size.",
+                  description: "Includes two-stage paint correction plus ceramic coating.",
+                  features: [
+                    "Paint inspection", "Decontamination", "Two-stage polish", "Advanced finishing", "Ceramic coating application", "Enhanced gloss", "Superior protection"
+                  ],
+                  featured: true,
+                  ctaText: "Book This Package"
+                },
+                {
+                  name: "Three Stage + Ceramic Coating",
+                  priceRange: { start: 900, end: 1300 },
+                  priceNote: "Pricing varies by vehicle size.",
+                  description: "Includes three-stage paint correction plus ceramic coating.",
+                  features: [
+                    "Paint inspection", "Decontamination", "Multi-stage polish", "Advanced finishing", "Ceramic coating application", "Maximum gloss", "Superior protection"
+                  ],
+                  ctaText: "Book This Package"
+                }
+              ]}
+            />
+
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
+            
+            <CeramicCoatingInfo />
+            
+            <Suspense fallback={null}>
+              <Contact />
+            </Suspense>
+          </div>
+        </motion.div>
+      </Suspense>
+    </>
+  );
+}
+
+export default React.memo(CeramicCoatingAgincourt);
+
