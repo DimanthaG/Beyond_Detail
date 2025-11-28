@@ -153,8 +153,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
         isPlaceholder: true
       }));
   
-  console.log('Display images:', displayImages);
-  console.log('Valid images count:', validImages.length);
+  // Removed console.log statements for production
 
   return (
     <>
@@ -195,7 +194,15 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
                       onError={(e) => {
                         console.error('Image failed to load:', item.image);
                         e.target.style.display = 'none';
-                        e.target.parentElement.innerHTML = '<div class="recent-work__image-placeholder"><span>Image Not Available</span></div>';
+                        // Use React-safe approach instead of innerHTML
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'recent-work__image-placeholder';
+                        const span = document.createElement('span');
+                        span.textContent = 'Image Not Available';
+                        placeholder.appendChild(span);
+                        if (e.target.parentElement) {
+                          e.target.parentElement.appendChild(placeholder);
+                        }
                       }}
                     />
                   ) : (

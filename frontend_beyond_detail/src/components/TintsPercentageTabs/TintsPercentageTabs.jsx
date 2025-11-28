@@ -16,10 +16,15 @@ function TintsPercentageTabs() {
   useEffect(() => {
     const query = '*[_type == "tints"]';
 
-    client.fetch(query).then((data) => {
-      setTintsSimulatorData(data);
-      setLoading(true);
-    });
+    client.fetch(query)
+      .then((data) => {
+        setTintsSimulatorData(data);
+        setLoading(true);
+      })
+      .catch((error) => {
+        console.error('Error fetching tints simulator data:', error);
+        setLoading(false);
+      });
   }, []);
 
   const [tintClicked, setTintClicked] = useState([
@@ -192,15 +197,17 @@ function TintsPercentageTabs() {
     });
   }
 
+  const simulatorData = tintsSimulatorData[0]?.tintsSimulator;
+
   return (
     <>
-      {loading && tintsSimulatorData.length !== 0 ? (
+      {loading && simulatorData ? (
         <div className='tintsPercentageTabs__wrapper'>
           <h1 className='tintsPercentage__title'>
             Visualize Your Window Tint
           </h1>
           <hr className='tintsPercentage__divider' />
-          <p>{tintsSimulatorData[0].tintsSimulator.description}</p>
+          {simulatorData.description && <p>{simulatorData.description}</p>}
           <div className='tintsPercentageTabs__container'>
             <div className='tab-cont'>
               <button

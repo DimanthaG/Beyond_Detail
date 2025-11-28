@@ -13,34 +13,43 @@ function TintsMaterials() {
   useEffect(() => {
     const query = '*[_type == "tints"]';
 
-    client.fetch(query).then((data) => {
-      setTintsMaterialsData(data);
-      setLoading(true);
-    });
+    client.fetch(query)
+      .then((data) => {
+        setTintsMaterialsData(data);
+        setLoading(true);
+      })
+      .catch((error) => {
+        console.error('Error fetching tints materials data:', error);
+        setLoading(false);
+      });
   }, []);
+
+  const materialsData = tintsMaterialsData[0]?.tintsMaterials;
 
   return (
     <>
-      {loading && tintsMaterialsData.length !== 0 ? (
+      {loading && materialsData ? (
         <>
           <span className='anchor' id='tintsMaterials'></span>
           <div className='tintsMaterials__wrapper '>
             <div className='tintsMaterials__grid'>
               <div className='tintsMaterials__image'>
-                <LazyLoadImage
-                  src={urlFor(tintsMaterialsData[0].tintsMaterials.image)}
-                  alt={tintsMaterialsData[0].tintsMaterials.heading || 'Window tint materials'}
-                  effect='blur'
-                  className='tintsMaterials__image__img'
-                  width={800}
-                  height={600}
-                />
+                {materialsData.image && (
+                  <LazyLoadImage
+                    src={urlFor(materialsData.image)}
+                    alt={materialsData.heading || 'Window tint materials'}
+                    effect='blur'
+                    className='tintsMaterials__image__img'
+                    width={800}
+                    height={600}
+                  />
+                )}
               </div>
               <div className='tintsMaterials__description'>
                 <div className='tintsMaterials__description__inner'>
-                  <h3>{tintsMaterialsData[0].tintsMaterials.topText}</h3>
-                  <h1>{tintsMaterialsData[0].tintsMaterials.heading}</h1>
-                  <p>{tintsMaterialsData[0].tintsMaterials.description}</p>
+                  {materialsData.topText && <h3>{materialsData.topText}</h3>}
+                  {materialsData.heading && <h1>{materialsData.heading}</h1>}
+                  {materialsData.description && <p>{materialsData.description}</p>}
                 </div>
               </div>
             </div>

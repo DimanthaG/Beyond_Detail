@@ -15,8 +15,6 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
 
     useEffect(() => {
         // Fetch gallery images from Sanity CMS
-        console.log(`[ServiceGallery] Fetching gallery for serviceType: ${serviceType}`);
-
         const fetchGalleryImages = async () => {
             setLoading(true);
             try {
@@ -45,23 +43,13 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
         }`;
 
                 const result = await client.fetch(query, { serviceType: sanityServiceType });
-                console.log(`[ServiceGallery] Query: serviceType="${sanityServiceType}"`);
-                console.log(`[ServiceGallery] Received ${result.length} images from Sanity`);
                 
-                if (result.length === 0) {
+                if (result.length === 0 && process.env.NODE_ENV === 'development') {
                     console.warn(`[ServiceGallery] No images found! Check that images are published in Sanity with serviceType="${sanityServiceType}"`);
-                } else {
-                    console.log(`[ServiceGallery] Image details:`, result.map(img => ({
-                        id: img._id,
-                        title: img.title,
-                        hasImage: !!img.image,
-                        order: img.order
-                    })));
                 }
 
                 // Filter out items without images
                 const validImages = result.filter(item => item.image);
-                console.log(`[ServiceGallery] Valid images (with image data): ${validImages.length}`);
 
                 // Format images for the gallery
                 let formattedImages = validImages.map((item) => ({
@@ -310,12 +298,18 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                         className="service-gallery__lightbox-content"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <LazyLoadImage
-                            src={urlFor(images[lightboxIndex]?.image).width(1920).url()}
-                            alt={images[lightboxIndex]?.title || `Gallery image ${lightboxIndex + 1}`}
-                            effect="blur"
-                            className="service-gallery__lightbox-image"
-                        />
+                        {images[lightboxIndex]?.image ? (
+                            <LazyLoadImage
+                                src={urlFor(images[lightboxIndex].image).width(1920).url()}
+                                alt={images[lightboxIndex]?.title || `Gallery image ${lightboxIndex + 1}`}
+                                effect="blur"
+                                className="service-gallery__lightbox-image"
+                            />
+                        ) : (
+                            <div className="service-gallery__lightbox-placeholder">
+                                <span>Image not available</span>
+                            </div>
+                        )}
                         <div className="service-gallery__lightbox-counter">
                             {lightboxIndex + 1} / {images.length}
                         </div>
