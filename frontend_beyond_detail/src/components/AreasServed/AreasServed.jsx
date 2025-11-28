@@ -23,7 +23,7 @@ const serviceAreas = [
         link: '/car-detailing-pickering',
         highlights: [
             { name: 'Interior Detailing', link: '/car-detailing-pickering' },
-            { name: 'Paint Protection', link: '/car-detailing-pickering' },
+            { name: 'Ceramic Coating', link: '/ceramic-coating-pickering' },
             { name: 'Headlight Restoration', link: '/car-detailing-pickering' }
         ]
     },
@@ -36,6 +36,28 @@ const serviceAreas = [
             { name: 'Auto Detailing', link: '/car-detailing-north-york' },
             { name: 'LLumar Tint', link: '/car-detailing-north-york' },
             { name: 'Paint Correction', link: '/car-detailing-north-york' }
+        ]
+    },
+    {
+        name: 'Oshawa',
+        region: 'Durham Region',
+        description: 'Top-rated mobile and in-shop auto detailing services for Oshawa. Paint correction, ceramic coating, and window tinting experts.',
+        link: '/car-detailing-oshawa',
+        highlights: [
+            { name: 'Paint Correction', link: '/paint-correction-oshawa' },
+            { name: 'Ceramic Coating', link: '/ceramic-coating-oshawa' },
+            { name: 'Window Tinting', link: '/window-tinting-oshawa' }
+        ]
+    },
+    {
+        name: 'Whitby',
+        region: 'Durham Region',
+        description: 'Professional car care in Whitby. From deep interior cleaning to permanent paint protection, we cover all your detailing needs.',
+        link: '/car-detailing-whitby',
+        highlights: [
+            { name: 'Paint Correction', link: '/paint-correction-whitby' },
+            { name: 'Ceramic Coating', link: '/ceramic-coating-whitby' },
+            { name: 'Window Tinting', link: '/window-tinting-whitby' }
         ]
     }
 ];
