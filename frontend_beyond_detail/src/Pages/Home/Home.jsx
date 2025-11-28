@@ -20,11 +20,11 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto'
-        description='Professional car detailing, window tinting, and ceramic coating in Scarborough & Toronto. We restore, protect, and enhance your vehicle with deep interior cleaning, stain and salt removal, paint correction, and UV-blocking ceramic tint.'
-        name='Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto'
+        title='Car Detailing Scarborough | Window Tinting & Ceramic Coating Toronto | Beyond Detail'
+        description='#1 Car Detailing in Scarborough | Professional auto detailing, window tinting & ceramic coating. Serving Toronto, Markham & Pickering. ⭐ Lifetime Warranty | Call (647) 689-6109'
+        name='Beyond Detail | Car Detailing Scarborough | Window Tinting & Ceramic Coating'
         type='website'
-        keywords='car detailing Toronto, auto detailing Scarborough, window tinting Markham, paint correction Pickering, ceramic coating GTA'
+        keywords='car detailing Scarborough, auto detailing Toronto, window tinting Scarborough, ceramic coating Toronto, paint correction Markham, car detailing near me, ceramic coating near me'
       />
       <HomeHero />
       <Suspense fallback={null}>

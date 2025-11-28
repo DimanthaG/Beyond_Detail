@@ -9,22 +9,34 @@ const serviceAreas = [
         name: 'Markham',
         region: 'York Region',
         description: 'Premium auto detailing, window tinting & ceramic coating services for Markham residents.',
-        link: '/service-area/markham',
-        highlights: ['Paint Correction', 'Ceramic Coating', 'Window Tinting']
+        link: '/car-detailing-markham',
+        highlights: [
+            { name: 'Paint Correction', link: '/paint-correction-markham' },
+            { name: 'Ceramic Coating', link: '/ceramic-coating-markham' },
+            { name: 'Window Tinting', link: '/window-tinting-markham' }
+        ]
     },
     {
         name: 'Pickering',
         region: 'Durham Region',
         description: 'Expert car detailing and paint protection services serving Pickering and surrounding areas.',
-        link: '/service-area/pickering',
-        highlights: ['Interior Detailing', 'Paint Protection', 'Headlight Restoration']
+        link: '/car-detailing-pickering',
+        highlights: [
+            { name: 'Interior Detailing', link: '/car-detailing-pickering' },
+            { name: 'Paint Protection', link: '/car-detailing-pickering' },
+            { name: 'Headlight Restoration', link: '/car-detailing-pickering' }
+        ]
     },
     {
         name: 'North York',
         region: 'Toronto',
         description: 'Professional auto detailing and tinting services for North York & nearby Toronto areas.',
-        link: '/service-area/north-york',
-        highlights: ['Auto Detailing', 'LLumar Tint', 'Paint Correction']
+        link: '/car-detailing-north-york',
+        highlights: [
+            { name: 'Auto Detailing', link: '/car-detailing-north-york' },
+            { name: 'LLumar Tint', link: '/car-detailing-north-york' },
+            { name: 'Paint Correction', link: '/car-detailing-north-york' }
+        ]
     }
 ];
 
@@ -66,8 +78,8 @@ function AreasServed() {
                                 <p className="areas-served__card-description">{area.description}</p>
                                 <ul className="areas-served__card-highlights">
                                     {area.highlights.map((highlight) => (
-                                        <li key={highlight} className="areas-served__card-highlight">
-                                            {highlight}
+                                        <li key={highlight.name} className="areas-served__card-highlight">
+                                            <Link to={highlight.link}>{highlight.name}</Link>
                                         </li>
                                     ))}
                                 </ul>

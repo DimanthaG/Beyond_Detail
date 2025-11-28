@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
@@ -47,6 +48,22 @@ function Services() {
 
             <section className="package-info">
               <div className="package-info__container">
+                {/* Internal Linking Section */}
+                <motion.div 
+                  className="service-location-links"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  style={{ marginBottom: '3rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem auto' }}
+                >
+                  <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Professional Auto Detailing in Scarborough</h2>
+                  <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#ccc' }}>
+                    Looking for specific detailing services near you? We provide comprehensive <Link to="/car-detailing-scarborough" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>car detailing in Scarborough</Link> and surrounding areas. 
+                    Whether you're in <Link to="/car-detailing-malvern" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>Malvern</Link>, Agincourt, or anywhere in the GTA, 
+                    our team brings professional care to your vehicle. Check out our <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> and <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting</Link> options as well.
+                  </p>
+                </motion.div>
+
                 <motion.div
                   initial="hidden"
                   whileInView="visible"

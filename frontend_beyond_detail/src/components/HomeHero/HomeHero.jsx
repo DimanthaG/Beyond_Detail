@@ -188,7 +188,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Window Tinting & Auto Detailing Scarborough
+                    Professional Car Detailing
                   </motion.span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--highlight"
@@ -197,7 +197,7 @@ export function HomeHero() {
                     transition={{ duration: 0.6, delay: 0.5 }}
                     style={{ display: 'block', visibility: 'visible' }}
                   >
-                    You Love Your Car. We'll Make It Show.
+                    in Scarborough & Toronto
                   </motion.span>
                 </motion.h1>
                 <motion.p

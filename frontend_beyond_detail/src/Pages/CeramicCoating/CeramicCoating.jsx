@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
@@ -26,7 +27,7 @@ function CeramicCoating() {
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Ceramic Coating'
-          keywords='ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, nano ceramic coating scarborough'
+          keywords='ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, ceramic coating near me, nano ceramic coating scarborough'
         />
         <motion.div
           initial='out'
@@ -44,6 +45,17 @@ function CeramicCoating() {
                 forceLandscape
               />
             </Suspense>
+            
+            {/* Internal Linking Section */}
+            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
+                Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating in Scarborough</Link></strong>. 
+                Our packages include professional <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> to ensure a flawless finish before coating. 
+                Protect your vehicle's paint from Toronto's harsh weather with our lifetime warranty packages. 
+                We also offer <Link to="/auto-detail" style={{ color: '#f07900', textDecoration: 'none' }}>comprehensive auto detailing</Link> to keep your interior looking as good as your exterior.
+              </p>
+            </div>
+
             <PaintCorrectionInfo
               title="Professional Ceramic Coating Services"
               description="Our ceramic coating service includes comprehensive paint correction to ensure your coating bonds perfectly and performs at its best. Every package includes paint correction to remove imperfections before coating application."
@@ -176,4 +188,3 @@ function CeramicCoating() {
 }
 
 export default React.memo(CeramicCoating);
-

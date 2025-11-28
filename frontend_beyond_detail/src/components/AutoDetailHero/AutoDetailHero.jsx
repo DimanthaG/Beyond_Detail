@@ -11,7 +11,13 @@ import carImage1200w from '../../assets/bd/bd-32-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-32-1600w.webp';
 import './AutoDetailHero.scss';
 
-export function AutoDetailHero({ scrollTarget = "#pricing" }) {
+export function AutoDetailHero({ 
+  scrollTarget = "#pricing",
+  titleLine1 = "Full-Service Auto Detailing in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  subtitle = "Tired of dirty interiors, odors, and a dull exterior? Get <strong>full-service auto detailing</strong> in the GTA. We deep-clean and sanitize every inch of your interior for a fresh, like-new feel—plus include a premium exterior hand wash for a spotless finish."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -122,7 +128,7 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Full-Service Auto Detailing in
+                    {titleLine1}
                   </motion.span>
                   <motion.span
                     className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
@@ -130,24 +136,26 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span
-                    className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="auto-detail-hero__title-line auto-detail-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
                 </motion.h1>
                 <motion.p
                   className="auto-detail-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of dirty interiors, odors, and a dull exterior? Get <strong>full-service auto detailing</strong> in the GTA. We deep-clean and sanitize every inch of your interior for a fresh, like-new feel—plus include a premium exterior hand wash for a spotless finish.
                 </motion.p>
 
                 {/* Feature Icons */}
@@ -288,4 +296,3 @@ export function AutoDetailHero({ scrollTarget = "#pricing" }) {
 }
 
 export default AutoDetailHero;
-

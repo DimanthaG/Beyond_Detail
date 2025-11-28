@@ -29,6 +29,7 @@ function HomeDetailSection() {
       description: 'ENHANCE YOUR VEHICLE WITH PROFESSIONAL WINDOW TINTING TO ENJOY COOLER INTERIORS, REDUCED GLARE, INCREASED PRIVACY, AND PROTECTION FROM HARMFUL UV RAYS.',
       icon: Sun,
       image: tintImage, // Window tint service image from gallery
+      imgAlt: 'Professional window tinting service in Scarborough and Toronto',
       href: '/tint',
       cta: 'Learn More about Window Tinting',
       className: 'col-span-1',
@@ -39,6 +40,7 @@ function HomeDetailSection() {
       description: 'REVITALIZE YOUR VEHICLE\'S FINISH WITH OUR PROFESSIONAL PAINT CORRECTION, REMOVING SWIRLS AND SCRATCHES FOR A FLAWLESS, HIGH-GLOSS LOOK.',
       icon: Sparkles,
       image: paintCorrectionImage, // Paint correction service image from gallery
+      imgAlt: 'Car paint correction and scratch removal service in Scarborough',
       href: '/paint-correction',
       cta: 'Learn More about Paint Correction',
       className: 'col-span-1',
@@ -49,6 +51,7 @@ function HomeDetailSection() {
       description: 'PROTECT YOUR PAINT FROM SCRATCHES AND UV DAMAGE WITH OUR PREMIUM CERAMIC COATING SERVICES FOR LONG-LASTING PROTECTION.',
       icon: Shield,
       image: ceramicCoatingImage, // Ceramic coating service image from gallery
+      imgAlt: 'Ceramic Pro coating application for long lasting paint protection',
       href: '/ceramic-coatings',
       cta: 'Learn More about Ceramic Coating',
       className: 'col-span-1',
@@ -59,6 +62,7 @@ function HomeDetailSection() {
       description: 'ELEVATE YOUR VEHICLE WITH OUR COMPREHENSIVE CAR DETAILING SERVICES, RESTORING BOTH INTERIOR AND EXTERIOR TO PRISTINE CONDITION.',
       icon: Droplets,
       image: carWashImage, // Car wash/detailing service image from gallery
+      imgAlt: 'Full interior and exterior car detailing service in Scarborough',
       href: '/auto-detail',
       cta: 'Learn More about Auto Detailing',
       className: 'col-span-2',
@@ -69,6 +73,7 @@ function HomeDetailSection() {
       description: 'IMPROVE NIGHTTIME VISIBILITY AND ENHANCE YOUR CAR\'S APPEARANCE WITH OUR PROFESSIONAL HEADLIGHT RESTORATION SERVICES.',
       icon: Car,
       image: headlightImage, // Headlight restoration service image from gallery
+      imgAlt: 'Headlight restoration service to improve visibility and look',
       href: '/headlight-restoration',
       cta: 'Learn More about Headlight Restoration',
       className: 'col-span-1',
@@ -104,6 +109,7 @@ function HomeDetailSection() {
                   name={service.name}
                   className={service.className}
                   image={service.image}
+                  imgAlt={service.imgAlt}
                   Icon={service.icon}
                   description={service.description}
                   href={service.href}

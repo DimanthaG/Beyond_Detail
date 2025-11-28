@@ -38,7 +38,7 @@ function Footer() {
           {/* Column 1: Company Info */}
           <div className='footer-column footer-company'>
             <div className='footer-logo'>
-              <img src={images.logo2} alt='beyond detail logo' loading='lazy' />
+              <img src={images.logo2} alt='Beyond Detail Auto Detailing Scarborough Logo' loading='lazy' />
             </div>
             {footerData.length !== 0 && (
               <>

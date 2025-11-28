@@ -1,14 +1,17 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
-import { Link } from 'react-router-dom';
-import './NeighborhoodPage.scss';
+import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import '../../Pages/Services/Services.scss';
 
 const SEO = lazy(() => import('../../components/SEO'));
+const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
-const Contact = lazy(() => import('../../components/Contact/Contact'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function CarDetailingMalvern() {
     return (
@@ -28,359 +31,263 @@ function CarDetailingMalvern() {
                     variants={animationOne}
                     transition={{ ...transition, delay: 0 }}
                 >
-                    <div className="neighborhood-page">
-                        {/* Hero Section */}
-                        <section className="neighborhood-hero">
-                            <div className="neighborhood-hero__container">
-                                <div className="neighborhood-hero__content">
-                                    <h1 className="neighborhood-hero__title">
-                                        Car Detailing in Malvern, Scarborough
-                                    </h1>
-                                    <p className="neighborhood-hero__subtitle">
-                                        Professional Auto Detailing Services Serving Malvern & Surrounding Areas
-                                    </p>
-                                    <div className="neighborhood-hero__features">
-                                        <div className="feature-badge">⭐ 68 Five-Star Reviews</div>
-                                        <div className="feature-badge">🚗 Mobile Service Available</div>
-                                        <div className="feature-badge">🛡️ Lifetime Warranty</div>
-                                        <div className="feature-badge">📍 Just 3km from Malvern</div>
-                                    </div>
-                                    <div className="neighborhood-hero__cta">
-                                        <a href="tel:+16476896109" className="btn btn-primary">
-                                            Call (647) 689-6109
-                                        </a>
-                                        <Link to="/contact" className="btn btn-secondary">
-                                            Book Online
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                    <div className="auto-detail__wrapper">
+                        <AutoDetailHero 
+                            scrollTarget="#pricing"
+                            titleLine1="Professional Car Detailing in"
+                            titleLine2="MALVERN &"
+                            titleLine3="SCARBOROUGH"
+                            subtitle="Looking for professional car detailing in <strong>Malvern</strong>? Beyond Detail offers comprehensive auto detailing services right in your neighborhood. We're located just 3 minutes away at 170 Finchdene Square and proudly serve Malvern residents."
+                        />
 
-                        {/* Main Content */}
-                        <section className="neighborhood-content">
-                            <div className="neighborhood-content__container">
-                                <div className="neighborhood-content__intro">
-                                    <p>
-                                        Looking for professional car detailing in Malvern? Beyond Detail offers comprehensive
-                                        auto detailing services right in your neighborhood. We're located just 3 minutes away
-                                        at 170 Finchdene Square and proudly serve Malvern residents with both mobile and
-                                        in-shop services.
-                                    </p>
-                                    <p>
-                                        Whether you're near Malvern Town Centre, Morningside Park, or anywhere in the Malvern
-                                        community, we bring premium car detailing services directly to you. Our expert technicians
-                                        use professional-grade equipment and premium products to restore and protect your vehicle.
-                                    </p>
-                                </div>
-
-                                {/* Services Section */}
-                                <div className="neighborhood-services">
-                                    <h2>Our Car Detailing Services in Malvern</h2>
-                                    <div className="services-grid">
-                                        <div className="service-card">
-                                            <h3>Interior Detailing</h3>
-                                            <ul>
-                                                <li>Deep vacuum and steam cleaning</li>
-                                                <li>Leather conditioning and protection</li>
-                                                <li>Dashboard and console cleaning</li>
-                                                <li>Carpet and upholstery shampooing</li>
-                                                <li>Odor elimination</li>
-                                            </ul>
-                                            <Link to="/services/interior-detailing" className="service-link">
-                                                Learn More →
-                                            </Link>
-                                        </div>
-
-                                        <div className="service-card">
-                                            <h3>Exterior Detailing</h3>
-                                            <ul>
-                                                <li>Hand wash and dry</li>
-                                                <li>Clay bar treatment</li>
-                                                <li>Paint correction and polishing</li>
-                                                <li>Wheel and tire detailing</li>
-                                                <li>Trim restoration</li>
-                                            </ul>
-                                            <Link to="/services/exterior-detailing" className="service-link">
-                                                Learn More →
-                                            </Link>
-                                        </div>
-
-                                        <div className="service-card">
-                                            <h3>Ceramic Coating</h3>
-                                            <ul>
-                                                <li>Professional-grade Ceramic Pro coating</li>
-                                                <li>2-5 year protection</li>
-                                                <li>UV and chemical resistance</li>
-                                                <li>Hydrophobic properties</li>
-                                                <li>Enhanced gloss and shine</li>
-                                            </ul>
-                                            <Link to="/ceramic-coating" className="service-link">
-                                                Learn More →
-                                            </Link>
-                                        </div>
-
-                                        <div className="service-card">
-                                            <h3>Window Tinting</h3>
-                                            <ul>
-                                                <li>Premium LLUMAR films</li>
-                                                <li>UV protection (99%)</li>
-                                                <li>Heat rejection</li>
-                                                <li>Privacy and security</li>
-                                                <li>Lifetime warranty</li>
-                                            </ul>
-                                            <Link to="/window-tint" className="service-link">
-                                                Learn More →
-                                            </Link>
-                                        </div>
-
-                                        <div className="service-card">
-                                            <h3>Paint Correction</h3>
-                                            <ul>
-                                                <li>Swirl mark removal</li>
-                                                <li>Scratch removal</li>
-                                                <li>Oxidation correction</li>
-                                                <li>Multi-stage polishing</li>
-                                                <li>Showroom finish</li>
-                                            </ul>
-                                            <Link to="/paint-correction" className="service-link">
-                                                Learn More →
-                                            </Link>
-                                        </div>
-
-                                        <div className="service-card">
-                                            <h3>Full Detail Packages</h3>
-                                            <ul>
-                                                <li>Complete interior & exterior</li>
-                                                <li>Engine bay cleaning</li>
-                                                <li>Headlight restoration</li>
-                                                <li>Trim and tire dressing</li>
-                                                <li>Best value packages</li>
-                                            </ul>
-                                            <Link to="/services" className="service-link">
-                                                View Packages →
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Why Choose Us */}
-                                <div className="neighborhood-why-choose">
-                                    <h2>Why Choose Beyond Detail for Malvern Car Detailing?</h2>
-                                    <div className="why-choose-grid">
-                                        <div className="why-choose-item">
-                                            <div className="icon">⭐</div>
-                                            <h3>68 Five-Star Google Reviews</h3>
-                                            <p>
-                                                Our Malvern customers love us! We maintain a perfect 5.0 rating with
-                                                consistently excellent reviews from satisfied clients throughout Scarborough.
-                                            </p>
-                                        </div>
-
-                                        <div className="why-choose-item">
-                                            <div className="icon">🚗</div>
-                                            <h3>Mobile Service in Malvern</h3>
-                                            <p>
-                                                We come to you! Whether you're at home near Malvern Town Centre or at work,
-                                                our mobile detailing service brings professional results to your location.
-                                            </p>
-                                        </div>
-
-                                        <div className="why-choose-item">
-                                            <div className="icon">🛡️</div>
-                                            <h3>Lifetime Warranty</h3>
-                                            <p>
-                                                All our services come with a lifetime warranty. We stand behind our work
-                                                and guarantee your satisfaction with every detail.
-                                            </p>
-                                        </div>
-
-                                        <div className="why-choose-item">
-                                            <div className="icon">📍</div>
-                                            <h3>Just 3km from Malvern</h3>
-                                            <p>
-                                                Located at 170 Finchdene Square, we're your local car detailing experts.
-                                                Quick and convenient service for all Malvern residents.
-                                            </p>
-                                        </div>
-
-                                        <div className="why-choose-item">
-                                            <div className="icon">💎</div>
-                                            <h3>Premium Products</h3>
-                                            <p>
-                                                We use only the best: LLUMAR window films, Ceramic Pro coatings, and
-                                                professional-grade detailing products trusted by experts worldwide.
-                                            </p>
-                                        </div>
-
-                                        <div className="why-choose-item">
-                                            <div className="icon">⚡</div>
-                                            <h3>Same-Day Appointments</h3>
-                                            <p>
-                                                Need service today? We offer same-day appointments for Malvern residents.
-                                                Call us at (647) 689-6109 to check availability.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Serving Malvern Section */}
-                                <div className="neighborhood-serving">
-                                    <h2>Proudly Serving Malvern and Surrounding Areas</h2>
-                                    <p>
-                                        We provide professional car detailing services throughout Malvern and all
-                                        surrounding Scarborough neighborhoods including Morningside Heights, Milliken,
-                                        Rouge, and West Hill. Whether you're near Neilson Park Creative Centre, Malvern
-                                        Public Library, or anywhere in the community, we're your trusted auto detailing experts.
-                                    </p>
-                                    <div className="neighborhoods-list">
-                                        <h3>Areas We Serve:</h3>
-                                        <ul>
-                                            <li>Malvern (all areas)</li>
-                                            <li>Morningside Heights</li>
-                                            <li>Milliken</li>
-                                            <li>Rouge</li>
-                                            <li>West Hill</li>
-                                            <li>Agincourt</li>
-                                            <li>Woburn</li>
-                                            <li>Scarborough Village</li>
-                                            <li>All of Scarborough</li>
-                                            <li>Toronto</li>
-                                            <li>Markham</li>
-                                            <li>Pickering</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                {/* Directions Section */}
-                                <div className="neighborhood-directions">
-                                    <h2>How to Get to Beyond Detail from Malvern</h2>
-                                    <div className="directions-content">
-                                        <div className="directions-text">
-                                            <p>
-                                                <strong>From Malvern Town Centre:</strong> Head south on Morningside Avenue,
-                                                turn left on Finch Avenue East, then right on Finchdene Square. We're located
-                                                at unit 11. Just 3 minutes away!
-                                            </p>
-                                            <p>
-                                                <strong>Address:</strong> 170 Finchdene Square unit 11, Scarborough, ON M1X 1B3
-                                            </p>
-                                            <p>
-                                                <strong>Free parking available</strong> for all customers.
-                                            </p>
-                                            <p>
-                                                <strong>Prefer mobile service?</strong> We'll come to you anywhere in Malvern!
-                                            </p>
-                                        </div>
-                                        <div className="directions-cta">
-                                            <a
-                                                href="https://www.google.com/maps/dir//170+Finchdene+Square+unit+11,+Scarborough,+ON+M1X+1B3"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="btn btn-primary"
-                                            >
-                                                Get Directions
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Pricing Section */}
-                                <div className="neighborhood-pricing">
-                                    <h2>Car Detailing Pricing for Malvern Residents</h2>
-                                    <p className="pricing-intro">
-                                        We offer competitive pricing with exceptional value. All services include our
-                                        lifetime warranty and satisfaction guarantee.
-                                    </p>
-                                    <div className="pricing-grid">
-                                        <div className="pricing-card">
-                                            <h3>Interior Detail</h3>
-                                            <div className="price">Starting at $150</div>
-                                            <ul>
-                                                <li>Deep vacuum & steam clean</li>
-                                                <li>Dashboard & console detail</li>
-                                                <li>Leather conditioning</li>
-                                                <li>Window cleaning</li>
-                                                <li>Odor elimination</li>
-                                            </ul>
-                                        </div>
-
-                                        <div className="pricing-card">
-                                            <h3>Exterior Detail</h3>
-                                            <div className="price">Starting at $150</div>
-                                            <ul>
-                                                <li>Hand wash & dry</li>
-                                                <li>Clay bar treatment</li>
-                                                <li>Paint polish</li>
-                                                <li>Wheel & tire detail</li>
-                                                <li>Trim restoration</li>
-                                            </ul>
-                                        </div>
-
-                                        <div className="pricing-card featured">
-                                            <div className="popular-badge">Most Popular</div>
-                                            <h3>Full Detail</h3>
-                                            <div className="price">Starting at $250</div>
-                                            <ul>
-                                                <li>Complete interior & exterior</li>
-                                                <li>Engine bay cleaning</li>
-                                                <li>Headlight restoration</li>
-                                                <li>Paint correction (1-stage)</li>
-                                                <li>Best value!</li>
-                                            </ul>
-                                        </div>
-
-                                        <div className="pricing-card">
-                                            <h3>Ceramic Coating</h3>
-                                            <div className="price">Starting at $800</div>
-                                            <ul>
-                                                <li>Paint correction included</li>
-                                                <li>2-5 year protection</li>
-                                                <li>Ceramic Pro coating</li>
-                                                <li>Lifetime warranty</li>
-                                                <li>Hydrophobic finish</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <p className="pricing-note">
-                                        *Prices vary based on vehicle size and condition. Call for exact quote: (647) 689-6109
-                                    </p>
-                                </div>
-
-                                {/* CTA Section */}
-                                <div className="neighborhood-cta">
-                                    <h2>Book Your Car Detailing Appointment in Malvern</h2>
-                                    <p>
-                                        Ready to give your car the care it deserves? Call us at (647) 689-6109 or book
-                                        online. We offer flexible scheduling for Malvern residents, including evenings
-                                        and weekends. Mobile service available!
-                                    </p>
-                                    <div className="cta-buttons">
-                                        <a href="tel:+16476896109" className="btn btn-primary btn-large">
-                                            📞 Call (647) 689-6109
-                                        </a>
-                                        <Link to="/contact" className="btn btn-secondary btn-large">
-                                            📅 Book Online
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Gallery */}
                         <Suspense fallback={null}>
                             <ServiceGallery
                                 serviceType="auto-detail"
                                 title="Our Work in Malvern & Scarborough"
+                                forceLandscape
                             />
                         </Suspense>
 
-                        {/* Reviews */}
+                        <section className="package-info">
+                            <div className="package-info__container">
+                                <motion.div
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                                    variants={{
+                                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                                        hidden: { opacity: 0, y: 20 }
+                                    }}
+                                    className="package-info__header"
+                                >
+                                    <h2 className="package-info__title">Malvern Detailing Packages</h2>
+                                    <p className="package-info__subtitle">
+                                        Convenient, high-quality auto care for the Malvern community.
+                                    </p>
+                                </motion.div>
+
+                                <div className="package-info__grid">
+                  <motion.article
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          delay: 0.2,
+                          duration: 0.3,
+                          ease: [0.25, 0.1, 0.25, 1],
+                        },
+                      },
+                      hidden: {
+                        y: 10,
+                        opacity: 0,
+                      },
+                    }}
+                    className="package-info__card"
+                  >
+                    <div className="package-info__card-header">
+                      <h3 className="package-info__card-title">Express Detail</h3>
+                      <p className="package-info__card-subtitle">Quick & Affordable Car Cleaning</p>
+                    </div>
+                    <div className="package-info__card-content">
+                      <p className="package-info__card-description">
+                        Our Express Detail Package is designed for drivers who want their vehicle looking clean and refreshed without the long wait. This quick service includes a thorough interior vacuum, dusting, and window cleaning, along with an exterior hand wash and tire shine. It's perfect for maintaining your car's appearance between full details. Whether you're getting ready for a meeting, showing your vehicle for sale, or just want a cleaner ride, our Express Detail delivers quality and convenience.
+                      </p>
+                    </div>
+                  </motion.article>
+
+                  <motion.article
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          delay: 0.3,
+                          duration: 0.3,
+                          ease: [0.25, 0.1, 0.25, 1],
+                        },
+                      },
+                      hidden: {
+                        y: 10,
+                        opacity: 0,
+                      },
+                    }}
+                    className="package-info__card package-info__card--featured"
+                  >
+                    <div className="package-info__badge">Most Popular</div>
+                    <div className="package-info__card-header">
+                      <h3 className="package-info__card-title">Signature Detail</h3>
+                      <p className="package-info__card-subtitle">Deep Interior Cleaning & Sanitizing Service</p>
+                    </div>
+                    <div className="package-info__card-content">
+                      <p className="package-info__card-description">
+                        Our Signature Detail Package is the most popular choice at Beyond Detail for customers who want their car's interior fully cleaned and sanitized. This package includes steam cleaning of panels, vents, and trims, a full vacuum, window cleaning, and exterior hand wash. We also disinfect and sanitize every surface, ensuring a fresh and healthy cabin environment. It's perfect for families, daily drivers, and anyone wanting to remove built-up dirt and bacteria from their vehicle's interior.
+                      </p>
+                    </div>
+                  </motion.article>
+
+                  <motion.article
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          delay: 0.4,
+                          duration: 0.3,
+                          ease: [0.25, 0.1, 0.25, 1],
+                        },
+                      },
+                      hidden: {
+                        y: 10,
+                        opacity: 0,
+                      },
+                    }}
+                    className="package-info__card"
+                  >
+                    <div className="package-info__card-header">
+                      <h3 className="package-info__card-title">Premium Detail</h3>
+                      <p className="package-info__card-subtitle">Complete Full-Service Detailing Experience</p>
+                    </div>
+                    <div className="package-info__card-content">
+                      <p className="package-info__card-description">
+                        The Premium Detail Package is our top-tier full-service detailing experience. It combines everything from our Express and Signature packages with deep carpet and seat shampooing using professional extraction equipment. This service removes stubborn stains, grime, and odors while restoring your interior to like-new condition. We clean all panels, dashboards, and vents, followed by an exterior hand wash, tire shine, and door and trunk jamb cleaning. Perfect for heavily used vehicles, pre-sale prep, or seasonal deep cleans, the Premium Detail transforms your car from the inside out.
+                      </p>
+                    </div>
+                  </motion.article>
+                                </div>
+                            </div>
+                        </section>
+
                         <Suspense fallback={null}>
                             <GoogleReviewsCarousel />
                         </Suspense>
 
-                        {/* Contact Form */}
+                        <ServicePricing
+                            title="Malvern Detailing Pricing"
+                            packages={[
+                                {
+                                    name: "Express Detail",
+                                    priceRange: { start: 100 },
+                                    priceNote: "Starting price. Larger vehicles may cost extra.",
+                                    description: "Quick & affordable car cleaning designed for drivers who want their vehicle looking clean and refreshed without the long wait. Perfect for maintaining your car's appearance between full details.",
+                                    features: [
+                                        "Interior Vacuum & Dusting",
+                                        "Carpets, Seats & Floor Mats Vacuumed",
+                                        "Interior & Exterior Windows Cleaned",
+                                        "Windows and Mirrors Cleaned",
+                                        "Exterior Hand Wash",
+                                        "Tires & Rims Cleaned"
+                                    ],
+                                    ctaText: "Book This Package"
+                                },
+                                {
+                                    name: "Signature Detail",
+                                    priceRange: { start: 150 },
+                                    priceNote: "Starting price. Larger vehicles may cost extra.",
+                                    description: "Deep interior cleaning & sanitizing service. Our most popular package includes steam cleaning, full vacuum, window cleaning, and complete disinfection. Perfect for families and daily drivers.",
+                                    features: [
+                                        "Interior Vacuum & Dusting",
+                                        "Carpets, Seats & Floor Mats Vacuumed",
+                                        "Upholstery Surface Cleaning",
+                                        "Interior & Exterior Windows Cleaned",
+                                        "Windows and Mirrors Cleaned",
+                                        "Interior Sanitized & Disinfected",
+                                        "Exterior Hand Wash",
+                                        "Tires & Rims Cleaned"
+                                    ],
+                                    featured: true,
+                                    ctaText: "Book This Package"
+                                },
+                                {
+                                    name: "Premium Detail",
+                                    priceRange: { start: 200 },
+                                    priceNote: "Starting price. Larger vehicles may cost extra.",
+                                    description: "Top-tier full-service detailing experience with deep carpet and seat shampooing. Removes stubborn stains, grime, and odors while restoring your interior to like-new condition. Perfect for heavily used vehicles and pre-sale prep.",
+                                    features: [
+                                        "Full Interior Vacuum & Dusting",
+                                        "Dashboard, Console & Door Panels Detailed",
+                                        "Carpets, Seats & Floor Mats Vacuumed",
+                                        "Upholstery Deep Cleaned",
+                                        "Interior & Exterior Windows Cleaned",
+                                        "Windows and Mirrors Cleaned",
+                                        "Interior Sanitized & Disinfected",
+                                        "Exterior Hand Wash",
+                                        "Tires & Rims Cleaned",
+                                        "Door & Trunk Jambs Cleaned",
+                                        "Seats Shampooed / Extracted (Removes Deep Stains & Grime)",
+                                        "Carpets Shampooed / Extracted (Removes Deep Stains & Grime, Salt)"
+                                    ],
+                                    ctaText: "Book This Package"
+                                }
+                            ]}
+                        />
+
+                        <section className="detail-options">
+                            <div className="detail-options__container">
+                                <div className="detail-options__header">
+                                    <h2 className="detail-options__title">Individual Service Options</h2>
+                                    <p className="detail-options__subtitle">
+                                        Need just interior or exterior detailing? We offer focused services for specific areas of your vehicle.
+                                    </p>
+                                </div>
+                                <div className="detail-options__grid">
+                                    <div className="detail-options__card">
+                                        <h3 className="detail-options__card-title">Interior Only Detail</h3>
+                                        <div className="detail-options__price-section">
+                                            <div className="detail-options__price-range">
+                                                <span className="detail-options__price-label">Starting at</span>
+                                                <div className="detail-options__price">$60</div>
+                                            </div>
+                                            <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
+                                        </div>
+                                        <p className="detail-options__card-description">
+                                            Comprehensive interior cleaning focused on seats, carpets, upholstery, and all interior surfaces. Perfect when your exterior is already clean.
+                                        </p>
+                                        <ul className="detail-options__features-list">
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Vacuumed & Dusted</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Carpets, Seats, & Mats Vacuumed</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>All Upholstery Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Dashboard, Console & Doors Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Windows Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Sanitized & Disinfected</span></li>
+                                        </ul>
+                                        <button className="detail-options__cta-button" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Book Interior Only</button>
+                                    </div>
+                                    <div className="detail-options__card">
+                                        <h3 className="detail-options__card-title">Exterior Only Detail</h3>
+                                        <div className="detail-options__price-section">
+                                            <div className="detail-options__price-range">
+                                                <span className="detail-options__price-label">Starting at</span>
+                                                <div className="detail-options__price">$50</div>
+                                            </div>
+                                            <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
+                                        </div>
+                                        <p className="detail-options__card-description">
+                                            Complete exterior cleaning including hand wash, wheel cleaning, and door jam detailing. Ideal for maintaining your vehicle's exterior appearance.
+                                        </p>
+                                        <ul className="detail-options__features-list">
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Exterior Hand Wash</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Tire and Rims Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Door Jams Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Trunk Jams Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Exterior Windows Cleaned</span></li>
+                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>All Mirrors Cleaned</span></li>
+                                        </ul>
+                                        <button className="detail-options__cta-button" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Book Exterior Only</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                         <Suspense fallback={null}>
                             <Contact />
                         </Suspense>

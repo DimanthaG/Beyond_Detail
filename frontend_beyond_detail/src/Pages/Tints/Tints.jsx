@@ -1,4 +1,6 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
@@ -79,10 +81,11 @@ function Tints() {
     <>
       <Suspense fallback={<Loading />}>
         {/* Add FAQ Schema to head */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(faqSchema)}
+          </script>
+        </Helmet>
         <SEO
           title='Window Tinting Scarborough | LLUMAR Tint Installation | Starting at $250'
           description='Professional window tinting in Scarborough. ⭐ 68 Five-Star Reviews | Premium LLUMAR Films | Lifetime Warranty | Same-Day Service | Starting at $250 | Call (647) 689-6109'
@@ -106,6 +109,16 @@ function Tints() {
                 title="Window Tint Gallery"
               />
             </Suspense>
+
+            {/* Internal Linking Section */}
+            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
+                Beyond Detail provides premium <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting in Scarborough</Link></strong> using LLUMAR films. 
+                Combine your tint service with <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for ultimate protection. 
+                We also offer comprehensive <Link to="/auto-detail" style={{ color: '#f07900', textDecoration: 'none' }}>auto detailing</Link> to keep your car looking showroom new inside and out.
+              </p>
+            </div>
+
             <TintsFeatures />
             <TintBenefitsInfo />
             <TintLawsExplanation />

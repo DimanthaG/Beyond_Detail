@@ -147,6 +147,18 @@ export const SEO = ({
       latitude: 43.7764,
       longitude: -79.2318
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '68',
+      bestRating: '5',
+      worstRating: '1'
+    },
+    sameAs: [
+      'https://www.instagram.com/beyonddetail.ca/',
+      'https://x.com/BeyondDetailca',
+      'https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/'
+    ],
     openingHoursSpecification: openingHoursSpecification,
     areaServed: [
       {
@@ -220,6 +232,8 @@ export const SEO = ({
   };
 
   // Breadcrumb structured data
+  const pathSegments = location.pathname.split('/').filter(Boolean);
+  
   const breadcrumbData = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -230,12 +244,20 @@ export const SEO = ({
         name: 'Home',
         item: BUSINESS_INFO.url
       },
-      ...(location.pathname !== '/' ? [{
-        '@type': 'ListItem',
-        position: 2,
-        name: pageTitle,
-        item: currentUrl
-      }] : [])
+      ...pathSegments.map((segment, index) => {
+        const url = `${BUSINESS_INFO.url}/${pathSegments.slice(0, index + 1).join('/')}`;
+        // Format segment name: replace hyphens with spaces and capitalize
+        const name = segment
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, char => char.toUpperCase());
+          
+        return {
+          '@type': 'ListItem',
+          position: index + 2,
+          name: name,
+          item: url
+        };
+      })
     ]
   };
 

@@ -12,7 +12,14 @@ import carImage1200w from '../../assets/bd/bd-28-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-28-1600w.webp';
 import './CeramicCoatingHero.scss';
 
-export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
+export function CeramicCoatingHero({ 
+  scrollTarget = "#pricing",
+  titleLine1 = "Ceramic Coating in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = "for Lasting Protection",
+  subtitle = "Worried about paint fading, scratches, and UV damage? Get <strong>long-lasting ceramic coating</strong> in Toronto & Scarborough. Our premium formula bonds to your paint for unmatched gloss, UV protection & years of durability."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -123,7 +130,7 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Ceramic Coating in
+                    {titleLine1}
                   </motion.span>
                   <motion.span
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--highlight"
@@ -131,7 +138,7 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
                   <motion.span
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--highlight"
@@ -139,24 +146,26 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.7 }}
                   >
-                    SCARBOROUGH
+                    {titleLine3}
                   </motion.span>
-                  <motion.span
-                    className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    for Lasting Protection
-                  </motion.span>
+                  {titleLine4 && (
+                    <motion.span
+                      className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
                 <motion.p
                   className="ceramic-coating-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Worried about paint fading, scratches, and UV damage? Get <strong>long-lasting ceramic coating</strong> in Toronto & Scarborough. Our premium formula bonds to your paint for unmatched gloss, UV protection & years of durability.
                 </motion.p>
 
                 {/* Feature Icons */}
@@ -302,4 +311,3 @@ export function CeramicCoatingHero({ scrollTarget = "#pricing" }) {
 }
 
 export default CeramicCoatingHero;
-

@@ -55,10 +55,34 @@ const WrappedHeadlightRestoration = withRouteWrapper(HeadlightRestoration);
 const WrappedOdourRemoval = withRouteWrapper(OdourRemoval);
 const WrappedLeatherCleaning = withRouteWrapper(LeatherCleaning);
 const WrappedPaintRemoval = withRouteWrapper(PaintRemoval);
-const ServiceAreaPickering = lazy(() => import('./Pages/ServiceAreaPickering'));
-const ServiceAreaMarkham = lazy(() => import('./Pages/ServiceAreaMarkham'));
 const ServiceAreaNorthYork = lazy(() => import('./Pages/ServiceAreaNorthYork'));
 const CarDetailingMalvern = lazy(() => import('./Pages/Neighborhoods/CarDetailingMalvern'));
+const CarDetailingScarborough = lazy(() => import('./Pages/Neighborhoods/CarDetailingScarborough'));
+const CeramicCoatingScarborough = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingScarborough'));
+const CarDetailingAgincourt = lazy(() => import('./Pages/Neighborhoods/CarDetailingAgincourt'));
+const CarDetailingWestHill = lazy(() => import('./Pages/Neighborhoods/CarDetailingWestHill'));
+const CarDetailingPickering = lazy(() => import('./Pages/Neighborhoods/CarDetailingPickering'));
+const CarDetailingMarkham = lazy(() => import('./Pages/Neighborhoods/CarDetailingMarkham'));
+const CarDetailingNorthYork = lazy(() => import('./Pages/Neighborhoods/CarDetailingNorthYork'));
+const CarDetailingAjax = lazy(() => import('./Pages/Neighborhoods/CarDetailingAjax'));
+const CarDetailingWexford = lazy(() => import('./Pages/Neighborhoods/CarDetailingWexford'));
+const CarDetailingCliffside = lazy(() => import('./Pages/Neighborhoods/CarDetailingCliffside'));
+const CarDetailingRouge = lazy(() => import('./Pages/Neighborhoods/CarDetailingRouge'));
+const CarDetailingGuildwood = lazy(() => import('./Pages/Neighborhoods/CarDetailingGuildwood'));
+const WindowTintingScarborough = lazy(() => import('./Pages/Neighborhoods/WindowTintingScarborough'));
+const PaintCorrectionScarborough = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionScarborough'));
+const WindowTintingMarkham = lazy(() => import('./Pages/Neighborhoods/WindowTintingMarkham'));
+const CeramicCoatingMarkham = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingMarkham'));
+const PaintCorrectionMarkham = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionMarkham'));
+const CeramicCoatingPickering = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingPickering'));
+const CarDetailingOshawa = lazy(() => import('./Pages/Neighborhoods/CarDetailingOshawa'));
+const CarDetailingWhitby = lazy(() => import('./Pages/Neighborhoods/CarDetailingWhitby'));
+const WindowTintingOshawa = lazy(() => import('./Pages/Neighborhoods/WindowTintingOshawa'));
+const WindowTintingWhitby = lazy(() => import('./Pages/Neighborhoods/WindowTintingWhitby'));
+const CeramicCoatingOshawa = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingOshawa'));
+const CeramicCoatingWhitby = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingWhitby'));
+const PaintCorrectionOshawa = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionOshawa'));
+const PaintCorrectionWhitby = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionWhitby'));
 
 function App() {
   let location = useLocation();
@@ -89,10 +113,37 @@ function App() {
             <Route path='/leather-cleaning' element={<WrappedLeatherCleaning />} />
             <Route path='/paint-removal' element={<WrappedPaintRemoval />} />
             <Route path='/fleet-services' element={<WrappedFleetServices />} />
-            <Route path='/service-area/pickering' element={<ServiceAreaPickering />} />
-            <Route path='/service-area/markham' element={<ServiceAreaMarkham />} />
-            <Route path='/service-area/north-york' element={<ServiceAreaNorthYork />} />
+            <Route path='/service-area/pickering' element={<CarDetailingPickering />} />
+            <Route path='/car-detailing-pickering' element={<CarDetailingPickering />} />
+            <Route path='/service-area/markham' element={<CarDetailingMarkham />} />
+            <Route path='/car-detailing-markham' element={<CarDetailingMarkham />} />
+            <Route path='/service-area/north-york' element={<CarDetailingNorthYork />} />
+            <Route path='/car-detailing-north-york' element={<CarDetailingNorthYork />} />
             <Route path='/car-detailing-malvern' element={<CarDetailingMalvern />} />
+            <Route path='/car-detailing-agincourt' element={<CarDetailingAgincourt />} />
+            <Route path='/car-detailing-west-hill' element={<CarDetailingWestHill />} />
+            <Route path='/car-detailing-ajax' element={<CarDetailingAjax />} />
+            <Route path='/car-detailing-wexford' element={<CarDetailingWexford />} />
+            <Route path='/car-detailing-cliffside' element={<CarDetailingCliffside />} />
+            <Route path='/car-detailing-rouge' element={<CarDetailingRouge />} />
+            <Route path='/car-detailing-guildwood' element={<CarDetailingGuildwood />} />
+            <Route path='/car-detailing-scarborough' element={<CarDetailingScarborough />} />
+            <Route path='/auto-detailing-scarborough' element={<CarDetailingScarborough />} />
+            <Route path='/ceramic-coating-scarborough' element={<CeramicCoatingScarborough />} />
+            <Route path='/window-tinting-scarborough' element={<WindowTintingScarborough />} />
+            <Route path='/paint-correction-scarborough' element={<PaintCorrectionScarborough />} />
+            <Route path='/window-tinting-markham' element={<WindowTintingMarkham />} />
+            <Route path='/ceramic-coating-markham' element={<CeramicCoatingMarkham />} />
+            <Route path='/paint-correction-markham' element={<PaintCorrectionMarkham />} />
+            <Route path='/ceramic-coating-pickering' element={<CeramicCoatingPickering />} />
+            <Route path='/car-detailing-oshawa' element={<CarDetailingOshawa />} />
+            <Route path='/car-detailing-whitby' element={<CarDetailingWhitby />} />
+            <Route path='/window-tinting-oshawa' element={<WindowTintingOshawa />} />
+            <Route path='/window-tinting-whitby' element={<WindowTintingWhitby />} />
+            <Route path='/ceramic-coating-oshawa' element={<CeramicCoatingOshawa />} />
+            <Route path='/ceramic-coating-whitby' element={<CeramicCoatingWhitby />} />
+            <Route path='/paint-correction-oshawa' element={<PaintCorrectionOshawa />} />
+            <Route path='/paint-correction-whitby' element={<PaintCorrectionWhitby />} />
             <Route path='/gallery' element={<WrappedGallery />} />
             <Route path='/faqs' element={<WrappedFAQs />} />
             <Route path='/privacy-policy' element={<WrappedPrivacyPolicy />} />

@@ -248,7 +248,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                                         >
                                             <LazyLoadImage
                                                 src={item.src}
-                                                alt={item.title || `Gallery image ${index + 1}`}
+                                                alt={item.title || `${serviceType.replace(/-/g, ' ')} service in Scarborough gallery image ${index + 1}`}
                                                 effect="blur"
                                                 className="service-gallery__image"
                                                 width={800}
@@ -312,7 +312,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                     >
                         <LazyLoadImage
                             src={urlFor(images[lightboxIndex]?.image).width(1920).url()}
-                            alt={images[lightboxIndex]?.title || `Gallery image ${lightboxIndex + 1}`}
+                            alt={images[lightboxIndex]?.title || `${serviceType.replace(/-/g, ' ')} service in Scarborough gallery image ${lightboxIndex + 1}`}
                             effect="blur"
                             className="service-gallery__lightbox-image"
                         />

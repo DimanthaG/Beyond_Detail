@@ -22,6 +22,7 @@ const BentoCard = ({
   className = '',
   background,
   image,
+  imgAlt,
   Icon,
   description,
   href,
@@ -31,6 +32,7 @@ const BentoCard = ({
   className?: string;
   background?: ReactNode;
   image?: string;
+  imgAlt?: string;
   Icon: any;
   description: string;
   href: string;
@@ -44,7 +46,7 @@ const BentoCard = ({
       <div className="bento-card__background">
         <img
           src={image}
-          alt={name}
+          alt={imgAlt || name}
           className="bento-card__image"
           width="524"
           height="350"
