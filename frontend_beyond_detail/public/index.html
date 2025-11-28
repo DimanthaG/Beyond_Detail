@@ -14,22 +14,18 @@
   <link rel="dns-prefetch" href="https://cdn.sanity.io">
   <link rel="dns-prefetch" href="https://www.google.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
-
+  
   <!-- Load fonts asynchronously to reduce render-blocking -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
-  </noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"></noscript>
   <!-- Fallback for browsers that don't support onload -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-    media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNHK7NF9J5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-WNHK7NF9J5');
   </script>
@@ -39,91 +35,102 @@
   <meta name="description"
     content="Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction, interior/exterior detailing. Call (647) 689-6109"
     data-rh="true" />
-
-  <!-- Open Graph / Facebook -->
+  
+  <!-- Static Business Information for SEO Crawlers -->
+  <meta name="address" content="170 Finchdene Square unit 11, Scarborough, ON M1X 1B3, Canada" />
+  <meta name="telephone" content="+1 (647) 689-6109" />
+  <meta name="geo.region" content="CA-ON" />
+  <meta name="geo.placename" content="Scarborough, Toronto" />
+  <meta name="geo.position" content="43.7764;-79.2318" />
+  
+  <!-- Open Graph Tags (Static for Crawlers) -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://beyonddetail.ca/" />
-  <meta property="og:title" content="Auto Detailing Scarborough | Window Tinting Toronto | Beyond Detail" />
-  <meta property="og:description"
-    content="Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction, interior/exterior detailing. Call (647) 689-6109" />
-  <meta property="og:image" content="%PUBLIC_URL%/og-image.webp" />
-
-  <!-- Twitter -->
+  <meta property="og:url" content="https://beyonddetail.ca" />
+  <meta property="og:title" content="Window Tinting Scarborough | Ceramic Coating & Auto Detailing Toronto | Beyond Detail" />
+  <meta property="og:description" content="Professional window tinting in Scarborough & ceramic coating services across Toronto, Markham & Pickering. Expert auto detailing, paint correction & LLUMAR tint installation. Book your appointment today! (647) 689-6109" />
+  <meta property="og:image" content="https://beyonddetail.ca/og-image.webp" />
+  <meta property="og:site_name" content="Beyond Detail" />
+  <meta property="og:locale" content="en_CA" />
+  
+  <!-- Twitter Card Tags (Static for Crawlers) -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://beyonddetail.ca/" />
-  <meta name="twitter:title" content="Auto Detailing Scarborough | Window Tinting Toronto | Beyond Detail" />
-  <meta name="twitter:description"
-    content="Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction, interior/exterior detailing. Call (647) 689-6109" />
-  <meta name="twitter:image" content="%PUBLIC_URL%/og-image.webp" />
-
+  <meta name="twitter:url" content="https://beyonddetail.ca" />
+  <meta name="twitter:title" content="Window Tinting Scarborough | Ceramic Coating & Auto Detailing Toronto | Beyond Detail" />
+  <meta name="twitter:description" content="Professional window tinting in Scarborough & ceramic coating services across Toronto, Markham & Pickering. Expert auto detailing, paint correction & LLUMAR tint installation." />
+  <meta name="twitter:image" content="https://beyonddetail.ca/og-image.webp" />
+  
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "Beyond Detail",
+    "image": "https://beyonddetail.ca/og-image.webp",
+    "description": "Professional window tinting, auto detailing, and ceramic coating services in Scarborough, Toronto, Markham, and Pickering.",
+    "url": "https://beyonddetail.ca",
+    "telephone": "+1-647-689-6109",
+    "email": "info@beyonddetail.ca",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "170 Finchdene Square unit 11",
+      "addressLocality": "Scarborough",
+      "addressRegion": "ON",
+      "postalCode": "M1X 1B3",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.7764,
+      "longitude": -79.2318
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "areaServed": [
+      {"@type": "City", "name": "Toronto"},
+      {"@type": "City", "name": "Scarborough"},
+      {"@type": "City", "name": "Markham"},
+      {"@type": "City", "name": "Pickering"}
+    ],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/beyonddetail.ca/",
+      "https://x.com/BeyondDetailca",
+      "https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/"
+    ]
+  }
+  </script>
+  
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <link rel="sitemap" type="application/xml" href="%PUBLIC_URL%/sitemap.xml" />
-  <title>Auto Detailing Scarborough | Window Tinting Toronto | Beyond Detail</title>
-
-  <!-- Static JSON-LD for SEO (ensures schema is visible to non-JS crawlers) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutomotiveBusiness",
-      "@id": "https://beyonddetail.ca",
-      "name": "Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto",
-      "image": "https://beyonddetail.ca/og-image.webp",
-      "description": "Professional car detailing, window tinting, and ceramic coating in Scarborough & Toronto. We restore, protect, and enhance your vehicle with deep interior cleaning, stain and salt removal, paint correction, and UV-blocking ceramic tint.",
-      "url": "https://beyonddetail.ca",
-      "telephone": "+1 (647) 689-6109",
-      "email": "info@beyonddetail.ca",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "170 Finchdene Square unit 11",
-        "addressLocality": "Scarborough",
-        "addressRegion": "ON",
-        "postalCode": "M1X 1B3",
-        "addressCountry": "CA"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 43.7764,
-        "longitude": -79.2318
-      },
-      "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "20:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "08:00", "closes": "20:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "20:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "20:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "20:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" }
-      ],
-      "areaServed": [
-        { "@type": "City", "name": "Toronto" },
-        { "@type": "City", "name": "Scarborough" },
-        { "@type": "City", "name": "Markham" },
-        { "@type": "City", "name": "Pickering" }
-      ],
-      "priceRange": "$$",
-      "paymentAccepted": "Cash, Credit Card, Debit Card"
-    }
-  </script>
+  <title>Window Tinting Scarborough | Ceramic Coating & Auto Detailing Toronto | Beyond Detail</title>
 </head>
 
 <body>
   <noscript>
     <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
-      <h1>Scarborough Auto Detailing & Window Tinting | Beyond Detail</h1>
-      <p>Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction,
-        interior/exterior detailing.</p>
+      <h1>Window Tinting & Auto Detailing Scarborough | Beyond Detail</h1>
+      <p>Professional auto detailing, window tinting & ceramic coating in Scarborough, Toronto. Expert paint correction, interior/exterior detailing.</p>
+      <p><strong>Address:</strong> 170 Finchdene Square unit 11, Scarborough, ON M1X 1B3</p>
+      <p><strong>Phone:</strong> <a href="tel:+16476896109">(647) 689-6109</a></p>
+      <p><strong>Hours:</strong> Mon-Fri 8am-8pm, Sat 9am-6pm, Sun Closed</p>
       <p>Please enable JavaScript to view the full website.</p>
-      <p><a href="tel:+16476896109">Call (647) 689-6109</a></p>
     </div>
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      #root {
-        display: none;
-      }
+      body { margin: 0; padding: 0; }
+      #root { display: none; }
     </style>
   </noscript>
   <div id="root"></div>

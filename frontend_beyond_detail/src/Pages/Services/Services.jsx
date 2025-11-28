@@ -38,7 +38,11 @@ function Services() {
             <AutoDetailHero scrollTarget="#pricing" />
 
             <Suspense fallback={null}>
-              <ServiceGallery serviceType="auto-detail" title="Our Recent Auto Detailing Work" />
+              <ServiceGallery
+                serviceType="auto-detail"
+                title="Our Recent Auto Detailing Work"
+                forceLandscape
+              />
             </Suspense>
 
             <section className="package-info">

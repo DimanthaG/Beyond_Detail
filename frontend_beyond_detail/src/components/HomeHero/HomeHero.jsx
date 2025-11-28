@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Sparkles, Shield, Zap, Star, Award, Clock } from 'lucide-react';
+import { ArrowRight, Phone, Sparkles, Shield, Zap, Star, MapPin, Award, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PartnersCompact from '../Partners/PartnersCompact';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
-
+import Map from '../Map/Map';
 import carImageAvif from '../../assets/bd/bd-20.avif';
 import carImage from '../../assets/bd/bd-20.webp';
 import carImage400w from '../../assets/bd/bd-20-400w.webp';
@@ -24,52 +24,38 @@ export function HomeHero() {
   useEffect(() => {
     // Use requestIdleCallback for non-critical preload, but start immediately if available
     const preloadImage = () => {
-      // Determine which image size to preload based on viewport
-      const getOptimalImage = () => {
-        const width = window.innerWidth;
-        if (width <= 400) return carImage400w;
-        if (width <= 800) return carImage800w;
-        if (width <= 1200) return carImage1200w;
-        if (width <= 1600) return carImage1600w;
-        return carImage;
-      };
-
-      // Get the optimal image source immediately
-      const optimalImageSrc = getOptimalImage();
-
+      // Prefer AVIF hero for preload (smallest) – <picture> handles fallback
+      const optimalImageSrc = carImageAvif;
+      
       // Check if preload already exists
       const existingLink = document.querySelector(`link[rel="preload"][as="image"][href*="bd-20"]`);
       if (existingLink) return;
-
+      
       // Create preload link immediately
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
       link.href = optimalImageSrc;
-      link.type = 'image/webp';
+      link.type = 'image/avif';
       link.setAttribute('fetchpriority', 'high');
       link.setAttribute('imagesrcset', `
-        ${carImage400w} 400w,
-        ${carImage800w} 800w,
-        ${carImage1200w} 1200w,
-        ${carImage1600w} 1600w,
-        ${carImage} 1920w
+        ${carImageAvif} 1600w
       `);
       link.setAttribute('imagesizes', '100vw');
-
+      
       // Insert at the beginning of head for highest priority
       document.head.insertBefore(link, document.head.firstChild);
-
+      
       // Also preload the image using Image() API for better browser support
       const img = new Image();
       img.src = optimalImageSrc;
       img.loading = 'eager';
       img.setAttribute('fetchpriority', 'high');
     };
-
+    
     // Execute immediately (don't wait)
     preloadImage();
-
+    
     // Cleanup on unmount
     return () => {
       const linksToRemove = document.querySelectorAll(`link[rel="preload"][as="image"][href*="bd-20"]`);
@@ -119,7 +105,7 @@ export function HomeHero() {
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
               />
-              <img
+              <img 
                 src={carImage}
                 srcSet={`
                   ${carImage400w} 400w,
@@ -129,8 +115,8 @@ export function HomeHero() {
                   ${carImage} 1920w
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
-                alt="Premium car detailing"
-                loading="eager"
+                alt="Window tinting and auto detailing services in Scarborough, Toronto - Beyond Detail professional car care and ceramic coating" 
+                loading="eager" 
                 fetchpriority="high"
                 decoding="async"
                 width="1920"
@@ -202,7 +188,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Scarborough Auto Detailing
+                    Window Tinting & Auto Detailing Scarborough
                   </motion.span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--highlight"
@@ -220,7 +206,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> near you in Scarborough & Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
+                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough & Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
                 </motion.p>
 
                 {/* Feature Icons */}

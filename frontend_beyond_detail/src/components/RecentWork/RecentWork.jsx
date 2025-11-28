@@ -13,7 +13,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
 
   useEffect(() => {
     // First try to get service-specific gallery images
-    const serviceQuery = `*[_type == "serviceGallery" && serviceType == $serviceType] | order(order desc) [0...$limit] {
+    const serviceQuery = `*[_type == "serviceGallery" && serviceType == $serviceType] [0...$limit] {
       _id,
       title,
       image,
@@ -37,12 +37,20 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
           const validData = serviceData.filter(item => item.image);
           if (validData.length > 0) {
             // Map service gallery data to consistent format
+            // Randomize order for items without explicit order
             const formattedData = validData.map(item => ({
               _id: item._id,
               title: item.title || `${title} Installation`,
               image: item.image,
-              order: item.order || 0
+              order: item.order != null ? item.order : Math.random()
             }));
+            // Sort: items with order first, then randomized
+            formattedData.sort((a, b) => {
+              if (a.order != null && b.order != null) return b.order - a.order; // Descending
+              if (a.order != null) return -1;
+              if (b.order != null) return 1;
+              return Math.random() - 0.5;
+            });
             setImages(formattedData);
             setLoading(false);
             return;

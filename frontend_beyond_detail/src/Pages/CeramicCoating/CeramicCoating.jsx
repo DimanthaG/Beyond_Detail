@@ -38,7 +38,11 @@ function CeramicCoating() {
           <div className='ceramic-coating__wrapper'>
             <CeramicCoatingHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
-              <ServiceGallery serviceType="ceramic-coating" title="Ceramic Coating Gallery" />
+              <ServiceGallery
+                serviceType="ceramic-coating"
+                title="Ceramic Coating Gallery"
+                forceLandscape
+              />
             </Suspense>
             <PaintCorrectionInfo
               title="Professional Ceramic Coating Services"

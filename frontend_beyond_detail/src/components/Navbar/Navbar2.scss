@@ -191,8 +191,21 @@
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   
+  .linkItem {
+    color: var(--white-color);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+  
   &:hover {
-    color: var(--secondary-color);
+    .linkItem {
+      color: var(--secondary-color);
+    }
   }
 }
 

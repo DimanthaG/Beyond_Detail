@@ -42,7 +42,11 @@ function Tints() {
           <div className='tints__wrapper'>
                   <TintsHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
-              <ServiceGallery serviceType="window-tint" title="Window Tint Gallery" />
+              <ServiceGallery
+                serviceType="window-tint"
+                title="Window Tint Gallery"
+                forceLandscape
+              />
             </Suspense>
             <TintsFeatures />
             <TintBenefitsInfo />

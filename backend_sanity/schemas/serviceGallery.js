@@ -41,9 +41,9 @@ export default {
     },
     {
       name: 'order',
-      title: 'Display Order',
+      title: 'Display Order (Optional)',
       type: 'number',
-      description: 'Lower numbers appear first (e.g., 1, 2, 3...)',
+      description: 'Optional: Lower numbers appear first. If not set, images will be shown in random order.',
       validation: (Rule) => Rule.min(0).integer(),
     },
   ],
@@ -56,8 +56,8 @@ export default {
     },
     prepare({ title, serviceType, media, order }) {
       return {
-        title: title || `Image ${order || 'Untitled'}`,
-        subtitle: `Service: ${serviceType || 'Not specified'} - Order: ${order || 'N/A'}`,
+        title: title || 'Untitled Image',
+        subtitle: `Service: ${serviceType || 'Not specified'}${order != null ? ` - Order: ${order}` : ' - Random Order'}`,
         media: media,
       };
     },

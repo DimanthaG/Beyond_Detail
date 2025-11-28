@@ -37,7 +37,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
 
                 const sanityServiceType = serviceTypeMap[serviceType] || serviceType;
 
-                const query = `*[_type == "serviceGallery" && serviceType == $serviceType] {
+                const query = `*[_type == "serviceGallery" && serviceType == $serviceType] | order(order asc) {
           _id,
           title,
           image,
@@ -45,50 +45,15 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
         }`;
 
                 const result = await client.fetch(query, { serviceType: sanityServiceType });
-                console.log(`[ServiceGallery] Query: serviceType="${sanityServiceType}"`);
                 console.log(`[ServiceGallery] Received ${result.length} images from Sanity`);
-                
-                if (result.length === 0) {
-                    console.warn(`[ServiceGallery] No images found! Check that images are published in Sanity with serviceType="${sanityServiceType}"`);
-                } else {
-                    console.log(`[ServiceGallery] Image details:`, result.map(img => ({
-                        id: img._id,
-                        title: img.title,
-                        hasImage: !!img.image,
-                        order: img.order
-                    })));
-                }
-
-                // Filter out items without images
-                const validImages = result.filter(item => item.image);
-                console.log(`[ServiceGallery] Valid images (with image data): ${validImages.length}`);
 
                 // Format images for the gallery
-                let formattedImages = validImages.map((item) => ({
+                const formattedImages = result.map((item) => ({
                     _id: item._id,
                     src: urlFor(item.image).width(1200).url(),
                     title: item.title,
                     image: item.image, // Keep original for lightbox
-                    order: item.order, // Keep order for sorting
                 }));
-
-                // Sort: items with order first (by order), then items without order (randomized)
-                formattedImages.sort((a, b) => {
-                    // If both have order, sort by order
-                    if (a.order != null && b.order != null) {
-                        return a.order - b.order;
-                    }
-                    // If only a has order, a comes first
-                    if (a.order != null && b.order == null) {
-                        return -1;
-                    }
-                    // If only b has order, b comes first
-                    if (a.order == null && b.order != null) {
-                        return 1;
-                    }
-                    // If neither has order, randomize
-                    return Math.random() - 0.5;
-                });
 
                 setImages(formattedImages);
             } catch (error) {

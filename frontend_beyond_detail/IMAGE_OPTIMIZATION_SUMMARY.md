@@ -98,3 +98,10 @@ Converted from JPG to WebP for better compression:
 - **LCP:** 8.5s → 2-3s (target: <2.5s)
 - **Image Delivery:** 1,300 KiB savings → Should be significantly reduced
 
+
+
+
+
+
+
+

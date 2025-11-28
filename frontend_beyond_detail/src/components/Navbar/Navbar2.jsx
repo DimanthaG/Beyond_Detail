@@ -68,12 +68,17 @@ function Navbar2({ className = '' }) {
           <li key={index} className={link.className || ''} onClick={() => !link.dropdown && setNavActive(false)}>
             {link.dropdown ? (
               <div className="navbar__dropdown">
-                <div className="navbar__dropdown-link" onClick={(e) => { 
-                  e.stopPropagation(); 
-                  const dropdownKey = link.name.toLowerCase();
-                  setOpenDropdown(openDropdown === dropdownKey ? null : dropdownKey); 
-                }}>
-                  <Link to={link.path} className="linkItem">{link.name}</Link>
+                <div 
+                  className="navbar__dropdown-link" 
+                  onClick={(e) => { 
+                    e.preventDefault();
+                    e.stopPropagation(); 
+                    const dropdownKey = link.name.toLowerCase();
+                    setOpenDropdown(openDropdown === dropdownKey ? null : dropdownKey); 
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <span className="linkItem">{link.name}</span>
                   <ChevronDown className={`navbar__dropdown-icon ${openDropdown === link.name.toLowerCase() ? 'navbar__dropdown-icon--open' : ''}`} size={16} />
                 </div>
                 {openDropdown === link.name.toLowerCase() && (

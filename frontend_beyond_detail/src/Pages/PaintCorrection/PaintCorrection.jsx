@@ -38,7 +38,11 @@ function PaintCorrection() {
           <div className='paint-correction__wrapper'>
             <PaintCorrectionHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
-              <ServiceGallery serviceType="paint-correction" title="Paint Correction Gallery" />
+              <ServiceGallery
+                serviceType="paint-correction"
+                title="Paint Correction Gallery"
+                forceLandscape
+              />
             </Suspense>
             <PaintProtectionInfo />
             <PaintCorrectionInfo
