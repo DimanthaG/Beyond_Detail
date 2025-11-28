@@ -27,7 +27,7 @@ function WindowTintingWestHill() {
           name='Beyond Detail West Hill'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting west hill, car tint west hill, auto tinting west hill, ceramic tint west hill, mobile tinting west hill'
+          keywords='window tinting west hill, car tint west hill, auto tinting west hill, ceramic tint west hill'
         />
         <motion.div
           initial='out'

@@ -41,7 +41,7 @@ const serviceAreas = [
     {
         name: 'Oshawa',
         region: 'Durham Region',
-        description: 'Top-rated mobile and in-shop auto detailing services for Oshawa. Paint correction, ceramic coating, and window tinting experts.',
+        description: 'Top-rated in-shop auto detailing services for Oshawa. Paint correction, ceramic coating, and window tinting experts.',
         link: '/car-detailing-oshawa',
         highlights: [
             { name: 'Paint Correction', link: '/paint-correction-oshawa' },
@@ -122,7 +122,7 @@ function AreasServed() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                 >
                     <p className="areas-served__footer-text">
-                        Based in <strong>Scarborough</strong>, we proudly serve customers throughout the GTA with mobile and in-shop services.
+                        Based in <strong>Scarborough</strong>, we proudly serve customers throughout the GTA with premium in-shop services.
                     </p>
                     <Link to="/contact" className="areas-served__footer-cta" aria-label="Book your auto detailing service">
                         <span>Book Your Service</span>

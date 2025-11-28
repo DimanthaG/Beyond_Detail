@@ -24,7 +24,7 @@ function CeramicCoatingAjax() {
           description="Best Ceramic Coating in Ajax. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
           name="Beyond Detail Ajax"
           type="website"
-          keywords="ceramic coating ajax, paint protection ajax, ceramic pro ajax, car coating ajax, paint correction ajax, mobile ceramic coating ajax"
+          keywords="ceramic coating ajax, paint protection ajax, ceramic pro ajax, car coating ajax, paint correction ajax"
           serviceType="Ceramic Coating"
         />
         <motion.div

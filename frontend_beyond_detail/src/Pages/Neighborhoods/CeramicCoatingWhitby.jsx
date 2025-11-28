@@ -24,7 +24,7 @@ function CeramicCoatingWhitby() {
           description="Best Ceramic Coating in Whitby. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
           name="Beyond Detail Whitby"
           type="website"
-          keywords="ceramic coating whitby, paint protection whitby, ceramic pro whitby, car coating whitby, paint correction whitby, mobile ceramic coating whitby"
+          keywords="ceramic coating whitby, paint protection whitby, ceramic pro whitby, car coating whitby, paint correction whitby"
           serviceType="Ceramic Coating"
         />
         <motion.div

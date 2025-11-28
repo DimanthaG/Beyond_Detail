@@ -27,7 +27,7 @@ function WindowTintingMarkham() {
           name='Beyond Detail Markham'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting markham, car tint markham, auto tinting markham, ceramic tint markham, mobile tinting markham, window tint shop markham'
+          keywords='window tinting markham, car tint markham, auto tinting markham, ceramic tint markham, window tint shop markham'
         />
         <motion.div
           initial='out'
@@ -56,7 +56,7 @@ function WindowTintingMarkham() {
             <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
                 Beyond Detail is the trusted choice for <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting in Markham</Link></strong>. 
-                Whether you're in Unionville, Milliken, or Box Grove, our mobile team comes to you. Consider adding <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for complete protection.
+                Whether you're in Unionville, Milliken, or Box Grove, visit our convenient Scarborough location. Consider adding <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for complete protection.
               </p>
             </div>
 

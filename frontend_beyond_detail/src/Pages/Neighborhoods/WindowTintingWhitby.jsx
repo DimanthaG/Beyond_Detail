@@ -27,7 +27,7 @@ function WindowTintingWhitby() {
           name='Beyond Detail Whitby'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting whitby, car tint whitby, auto tinting whitby, ceramic tint whitby, mobile tinting whitby, tint shop whitby'
+          keywords='window tinting whitby, car tint whitby, auto tinting whitby, ceramic tint whitby, tint shop whitby'
         />
         <motion.div
           initial='out'

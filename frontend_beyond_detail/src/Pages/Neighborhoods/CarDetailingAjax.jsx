@@ -22,7 +22,7 @@ function CarDetailingAjax() {
                     description="Expert car detailing in Ajax & Durham Region. ⭐ Mobile Service, Window Tinting, Ceramic Coating. Lifetime Warranty. Call (647) 689-6109 for a Quote."
                     name="Beyond Detail Ajax"
                     type="website"
-                    keywords="car detailing ajax, auto detailing ajax, window tinting ajax, ceramic coating ajax, mobile detailing ajax, car wash ajax"
+                    keywords="car detailing ajax, auto detailing ajax, window tinting ajax, ceramic coating ajax, car wash ajax"
                 />
                 <motion.div
                     initial="out"
@@ -37,7 +37,7 @@ function CarDetailingAjax() {
                             titleLine1="Professional Car Detailing in"
                             titleLine2="AJAX &"
                             titleLine3="DURHAM"
-                            subtitle="<strong>Ajax</strong> drivers trust Beyond Detail for comprehensive vehicle care. We specialize in restoring and protecting vehicles against the harsh Canadian elements. Our mobile detailing service brings professional quality right to your driveway in Ajax."
+                            subtitle="<strong>Ajax</strong> drivers trust Beyond Detail for comprehensive vehicle care. We specialize in restoring and protecting vehicles against the harsh Canadian elements. Our dedicated shop brings professional quality to your vehicle, just a short drive from Ajax."
                         />
 
                         <Suspense fallback={null}>

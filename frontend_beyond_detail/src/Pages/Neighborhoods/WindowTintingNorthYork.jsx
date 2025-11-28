@@ -27,7 +27,7 @@ function WindowTintingNorthYork() {
           name='Beyond Detail North York'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting north york, car tint north york, auto tinting north york, ceramic tint north york, mobile tinting north york, tint shop north york'
+          keywords='window tinting north york, car tint north york, auto tinting north york, ceramic tint north york, tint shop north york'
         />
         <motion.div
           initial='out'

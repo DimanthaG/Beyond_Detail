@@ -18,11 +18,11 @@ function CarDetailingMarkham() {
         <>
             <Suspense fallback={<Loading />}>
                 <SEO
-                    title="Car Detailing Markham | Mobile Auto Detailing & Ceramic Coating"
-                    description="Premium car detailing in Markham. ⭐ Mobile Service Available. Window Tinting, Ceramic Coating & Paint Protection. Call (647) 689-6109"
+                    title="Car Detailing Markham | Auto Detailing & Ceramic Coating"
+                    description="Premium car detailing in Markham. ⭐ In-Shop Service. Window Tinting, Ceramic Coating & Paint Protection. Call (647) 689-6109"
                     name="Beyond Detail Markham"
                     type="website"
-                    keywords="car detailing markham, auto detailing markham, mobile detailing markham, ceramic coating markham, window tinting markham"
+                    keywords="car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham"
                 />
                 <motion.div
                     initial="out"
@@ -37,7 +37,7 @@ function CarDetailingMarkham() {
                             titleLine1="Premium Car Detailing in"
                             titleLine2="MARKHAM &"
                             titleLine3="GTA"
-                            subtitle="Looking for top-tier <strong>car detailing in Markham</strong>? We bring showroom quality directly to you with our mobile service, or visit our nearby shop. From Unionville to Box Grove, we serve the entire Markham community."
+                            subtitle="Looking for top-tier <strong>car detailing in Markham</strong>? Visit our professional shop for showroom quality results. From Unionville to Box Grove, we serve the entire Markham community with premium in-shop detailing."
                         />
 
                         <Suspense fallback={null}>
@@ -62,7 +62,7 @@ function CarDetailingMarkham() {
                                 >
                                     <h2 className="package-info__title">Markham Detailing Packages</h2>
                                     <p className="package-info__subtitle">
-                                        Exceptional auto care for Markham drivers. Mobile or in-shop service available.
+                                        Exceptional auto care for Markham drivers. Premium in-shop service available.
                                     </p>
                                 </motion.div>
 

@@ -27,7 +27,7 @@ function WindowTintingRouge() {
           name='Beyond Detail Rouge'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting rouge, car tint rouge, auto tinting rouge, ceramic tint rouge, mobile tinting rouge'
+          keywords='window tinting rouge, car tint rouge, auto tinting rouge, ceramic tint rouge'
         />
         <motion.div
           initial='out'

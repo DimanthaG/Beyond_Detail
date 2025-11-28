@@ -27,7 +27,7 @@ function WindowTintingMalvern() {
           name='Beyond Detail Malvern'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting malvern, car tint malvern, auto tinting malvern, ceramic tint malvern, mobile tinting malvern'
+          keywords='window tinting malvern, car tint malvern, auto tinting malvern, ceramic tint malvern'
         />
         <motion.div
           initial='out'

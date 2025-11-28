@@ -24,7 +24,7 @@ function CeramicCoatingNorthYork() {
           description="Best Ceramic Coating in North York. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
           name="Beyond Detail North York"
           type="website"
-          keywords="ceramic coating north york, paint protection north york, ceramic pro north york, car coating north york, paint correction north york, mobile ceramic coating north york"
+          keywords="ceramic coating north york, paint protection north york, ceramic pro north york, car coating north york, paint correction north york"
           serviceType="Ceramic Coating"
         />
         <motion.div

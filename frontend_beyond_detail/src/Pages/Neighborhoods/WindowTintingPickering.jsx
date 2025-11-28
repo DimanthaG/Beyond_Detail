@@ -27,7 +27,7 @@ function WindowTintingPickering() {
           name='Beyond Detail Pickering'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting pickering, car tint pickering, auto tinting pickering, ceramic tint pickering, mobile tinting pickering, tint shop pickering'
+          keywords='window tinting pickering, car tint pickering, auto tinting pickering, ceramic tint pickering, tint shop pickering'
         />
         <motion.div
           initial='out'

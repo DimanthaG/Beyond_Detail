@@ -24,7 +24,7 @@ function CeramicCoatingOshawa() {
           description="Best Ceramic Coating in Oshawa. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
           name="Beyond Detail Oshawa"
           type="website"
-          keywords="ceramic coating oshawa, paint protection oshawa, ceramic pro oshawa, car coating oshawa, paint correction oshawa, mobile ceramic coating oshawa"
+          keywords="ceramic coating oshawa, paint protection oshawa, ceramic pro oshawa, car coating oshawa, paint correction oshawa"
           serviceType="Ceramic Coating"
         />
         <motion.div

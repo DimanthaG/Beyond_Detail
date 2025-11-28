@@ -27,7 +27,7 @@ function WindowTintingAgincourt() {
           name='Beyond Detail Agincourt'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting agincourt, car tint agincourt, auto tinting agincourt, ceramic tint agincourt, mobile tinting agincourt'
+          keywords='window tinting agincourt, car tint agincourt, auto tinting agincourt, ceramic tint agincourt'
         />
         <motion.div
           initial='out'

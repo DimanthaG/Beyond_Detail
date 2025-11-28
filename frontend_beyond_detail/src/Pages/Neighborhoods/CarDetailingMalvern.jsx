@@ -22,7 +22,7 @@ function CarDetailingMalvern() {
                     description="Professional car detailing in Malvern, Scarborough. ⭐ 68 Five-Star Reviews | Mobile & In-Shop Service | Lifetime Warranty | Just 3km from Malvern | Call (647) 689-6109"
                     name="Beyond Detail Toronto"
                     type="website"
-                    keywords="car detailing malvern, auto detailing malvern, car detailing malvern scarborough, mobile detailing malvern, ceramic coating malvern, window tinting malvern"
+                    keywords="car detailing malvern, auto detailing malvern, car detailing malvern scarborough, ceramic coating malvern, window tinting malvern"
                 />
                 <motion.div
                     initial="out"

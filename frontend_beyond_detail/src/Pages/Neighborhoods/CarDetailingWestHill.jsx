@@ -24,7 +24,7 @@ function CarDetailingWestHill() {
           description="Premium car detailing in West Hill, Scarborough. ⭐ Window Tinting, Ceramic Coating & Paint Correction. Mobile Service Available. Lifetime Warranty. Call (647) 689-6109"
           name="Beyond Detail West Hill"
           type="website"
-          keywords="car detailing west hill, auto detailing west hill, window tinting west hill, ceramic coating west hill, car wash west hill, mobile detailing scarborough"
+          keywords="car detailing west hill, auto detailing west hill, window tinting west hill, ceramic coating west hill, car wash west hill"
         />
         <motion.div
           initial="out"

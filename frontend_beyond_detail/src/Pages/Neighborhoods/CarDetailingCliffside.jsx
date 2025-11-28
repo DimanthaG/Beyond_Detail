@@ -22,7 +22,7 @@ function CarDetailingCliffside() {
                     description="Professional car detailing in Cliffside & Birchcliffe. ⭐ Mobile Service Available. Interior Shampoo, Waxing & Ceramic Coating. Call (647) 689-6109"
                     name="Beyond Detail Cliffside"
                     type="website"
-                    keywords="car detailing cliffside, auto detailing cliffside, car wash cliffside, mobile detailing cliffside, ceramic coating cliffside, window tinting cliffside"
+                    keywords="car detailing cliffside, auto detailing cliffside, car wash cliffside, ceramic coating cliffside, window tinting cliffside"
                 />
                 <motion.div
                     initial="out"

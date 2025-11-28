@@ -27,7 +27,7 @@ function WindowTintingCliffside() {
           name='Beyond Detail Cliffside'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting cliffside, car tint cliffside, auto tinting cliffside, ceramic tint cliffside, mobile tinting cliffside'
+          keywords='window tinting cliffside, car tint cliffside, auto tinting cliffside, ceramic tint cliffside'
         />
         <motion.div
           initial='out'

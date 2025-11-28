@@ -22,7 +22,7 @@ function CarDetailingOshawa() {
                     description="Top-rated car detailing in Oshawa. ⭐ Professional Mobile Detailing & In-Shop Service. Ceramic Coating, Paint Correction & Window Tinting. Call (647) 689-6109"
                     name="Beyond Detail Oshawa"
                     type="website"
-                    keywords="car detailing oshawa, auto detailing oshawa, car wash oshawa, mobile detailing oshawa, ceramic coating oshawa, paint correction oshawa"
+                    keywords="car detailing oshawa, auto detailing oshawa, car wash oshawa, ceramic coating oshawa, paint correction oshawa"
                 />
                 <motion.div
                     initial="out"

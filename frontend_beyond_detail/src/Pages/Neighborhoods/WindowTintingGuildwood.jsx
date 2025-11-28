@@ -27,7 +27,7 @@ function WindowTintingGuildwood() {
           name='Beyond Detail Guildwood'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting guildwood, car tint guildwood, auto tinting guildwood, ceramic tint guildwood, mobile tinting guildwood'
+          keywords='window tinting guildwood, car tint guildwood, auto tinting guildwood, ceramic tint guildwood'
         />
         <motion.div
           initial='out'

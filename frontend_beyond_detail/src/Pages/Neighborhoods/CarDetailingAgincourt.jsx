@@ -22,7 +22,7 @@ function CarDetailingAgincourt() {
                     description="Professional car detailing in Agincourt. ⭐ Top-Rated Auto Detailing | Mobile & In-Shop Service | Window Tinting & Paint Correction | Call (647) 689-6109"
                     name="Beyond Detail Agincourt"
                     type="website"
-                    keywords="car detailing agincourt, auto detailing agincourt, window tinting agincourt, ceramic coating agincourt, mobile detailing agincourt, car wash agincourt"
+                    keywords="car detailing agincourt, auto detailing agincourt, window tinting agincourt, ceramic coating agincourt, car wash agincourt"
                 />
                 <motion.div
                     initial="out"

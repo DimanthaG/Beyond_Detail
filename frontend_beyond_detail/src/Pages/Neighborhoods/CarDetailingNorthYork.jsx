@@ -19,10 +19,10 @@ function CarDetailingNorthYork() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing North York | Premium Auto Detailing & Tinting"
-                    description="Best car detailing for North York residents. ⭐ Mobile Detailing & In-Shop Service. Window Tinting, Ceramic Coating & Paint Correction. Call (647) 689-6109."
+                    description="Best car detailing for North York residents. ⭐ Professional In-Shop Service. Window Tinting, Ceramic Coating & Paint Correction. Call (647) 689-6109."
                     name="Beyond Detail North York"
                     type="website"
-                    keywords="car detailing north york, auto detailing north york, window tinting north york, ceramic coating north york, mobile detailing north york, car wash north york"
+                    keywords="car detailing north york, auto detailing north york, window tinting north york, ceramic coating north york, car wash north york"
                 />
                 <motion.div
                     initial="out"
@@ -34,10 +34,10 @@ function CarDetailingNorthYork() {
                     <div className="auto-detail__wrapper">
                         <AutoDetailHero 
                             scrollTarget="#pricing"
-                            titleLine1="Mobile Car Detailing in"
+                            titleLine1="Professional Car Detailing in"
                             titleLine2="NORTH YORK &"
                             titleLine3="TORONTO"
-                            subtitle="<strong>North York</strong> drivers demand the best. Whether you're in Willowdale, Don Mills, or near Fairview Mall, our professional detailing services ensure your car looks its absolute best. We offer premium mobile detailing throughout North York."
+                            subtitle="<strong>North York</strong> drivers demand the best. Whether you're in Willowdale, Don Mills, or near Fairview Mall, our professional detailing services ensure your car looks its absolute best. We offer premium in-shop detailing for all North York residents."
                         />
 
                         <Suspense fallback={null}>
@@ -62,7 +62,7 @@ function CarDetailingNorthYork() {
                                 >
                                     <h2 className="package-info__title">North York Detailing Packages</h2>
                                     <p className="package-info__subtitle">
-                                        Premium auto care delivered to your door in North York. From maintenance washes to full paint correction.
+                                        Premium auto care for North York residents at our dedicated shop. From maintenance washes to full paint correction.
                                     </p>
                                 </motion.div>
 

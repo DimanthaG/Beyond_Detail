@@ -22,7 +22,7 @@ function CarDetailingRouge() {
                     description="Best car detailing near Rouge Park & Port Union. ⭐ Professional Auto Detailing | Interior & Exterior Cleaning | Ceramic Coating | Call (647) 689-6109"
                     name="Beyond Detail Rouge"
                     type="website"
-                    keywords="car detailing rouge, auto detailing rouge hill, car wash rouge park, mobile detailing rouge, ceramic coating rouge, paint protection rouge"
+                    keywords="car detailing rouge, auto detailing rouge hill, car wash rouge park, ceramic coating rouge, paint protection rouge"
                 />
                 <motion.div
                     initial="out"

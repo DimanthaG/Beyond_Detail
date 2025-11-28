@@ -22,7 +22,7 @@ function CarDetailingGuildwood() {
                     description="Premium car detailing for Guildwood Village. ⭐ Mobile Service & Shop Access. Paint Correction, Ceramic Coating & Deep Cleaning. Call (647) 689-6109"
                     name="Beyond Detail Guildwood"
                     type="website"
-                    keywords="car detailing guildwood, auto detailing guildwood village, car wash guildwood, mobile detailing guildwood, ceramic coating guildwood, paint correction guildwood"
+                    keywords="car detailing guildwood, auto detailing guildwood village, car wash guildwood, ceramic coating guildwood, paint correction guildwood"
                 />
                 <motion.div
                     initial="out"

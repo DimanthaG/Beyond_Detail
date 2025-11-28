@@ -96,7 +96,6 @@ export const SEO = ({
     'GTA',
     'Greater Toronto Area',
     'professional detailing',
-    'mobile detailing',
     'window tinting near me',
     'car detailing near me',
     'ceramic coating near me',

@@ -27,7 +27,7 @@ function WindowTintingOshawa() {
           name='Beyond Detail Oshawa'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting oshawa, car tint oshawa, auto tinting oshawa, ceramic tint oshawa, mobile tinting oshawa, best window tint oshawa'
+          keywords='window tinting oshawa, car tint oshawa, auto tinting oshawa, ceramic tint oshawa, best window tint oshawa'
         />
         <motion.div
           initial='out'

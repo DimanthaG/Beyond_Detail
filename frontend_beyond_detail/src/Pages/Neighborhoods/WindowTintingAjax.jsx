@@ -27,7 +27,7 @@ function WindowTintingAjax() {
           name='Beyond Detail Ajax'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting ajax, car tint ajax, auto tinting ajax, ceramic tint ajax, mobile tinting ajax, tint shop ajax'
+          keywords='window tinting ajax, car tint ajax, auto tinting ajax, ceramic tint ajax, tint shop ajax'
         />
         <motion.div
           initial='out'

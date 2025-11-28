@@ -18,11 +18,11 @@ function CarDetailingPickering() {
         <>
             <Suspense fallback={<Loading />}>
                 <SEO
-                    title="Car Detailing Pickering | Mobile Auto Detailing & Tinting"
-                    description="Professional car detailing in Pickering. ⭐ Mobile Service Available. Ceramic Coating, Window Tinting & Paint Correction. Lifetime Warranty. Call (647) 689-6109"
+                    title="Car Detailing Pickering | Professional Auto Detailing & Tinting"
+                    description="Professional car detailing in Pickering. ⭐ In-Shop Service. Ceramic Coating, Window Tinting & Paint Correction. Lifetime Warranty. Call (647) 689-6109"
                     name="Beyond Detail Pickering"
                     type="website"
-                    keywords="car detailing pickering, auto detailing pickering, mobile detailing pickering, ceramic coating pickering, window tinting pickering"
+                    keywords="car detailing pickering, auto detailing pickering, ceramic coating pickering, window tinting pickering"
                 />
                 <motion.div
                     initial="out"
@@ -37,7 +37,7 @@ function CarDetailingPickering() {
                             titleLine1="Car Detailing Services in"
                             titleLine2="PICKERING &"
                             titleLine3="DURHAM"
-                            subtitle="Beyond Detail brings premium <strong>car detailing to Pickering</strong>. Whether you're near Pickering Town Centre or the waterfront, our mobile units come to you. We also offer comprehensive services at our nearby shop."
+                            subtitle="Beyond Detail brings premium <strong>car detailing to Pickering</strong> residents. Located just a short drive away, our dedicated shop offers comprehensive services from basic detailing to advanced ceramic coatings."
                         />
 
                         <Suspense fallback={null}>

@@ -22,7 +22,7 @@ function CarDetailingWhitby() {
                     description="Best car detailing in Whitby. ⭐ Mobile & In-Shop Service. Expert Ceramic Coating, Paint Correction & Interior Shampoo. Call (647) 689-6109"
                     name="Beyond Detail Whitby"
                     type="website"
-                    keywords="car detailing whitby, auto detailing whitby, car wash whitby, mobile detailing whitby, ceramic coating whitby, paint correction whitby"
+                    keywords="car detailing whitby, auto detailing whitby, car wash whitby, ceramic coating whitby, paint correction whitby"
                 />
                 <motion.div
                     initial="out"

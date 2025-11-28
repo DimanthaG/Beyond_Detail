@@ -19,10 +19,10 @@ function CarDetailingWexford() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Wexford | Expert Auto Detailing Services"
-                    description="Top-rated car detailing in Wexford & Maryvale. ⭐ Professional Mobile Detailing | Interior Shampoo & Exterior Wax | Ceramic Coating. Call (647) 689-6109"
+                    description="Top-rated car detailing in Wexford & Maryvale. ⭐ Professional In-Shop Detailing | Interior Shampoo & Exterior Wax | Ceramic Coating. Call (647) 689-6109"
                     name="Beyond Detail Wexford"
                     type="website"
-                    keywords="car detailing wexford, auto detailing wexford, car wash wexford, mobile detailing wexford, ceramic coating wexford, paint correction wexford"
+                    keywords="car detailing wexford, auto detailing wexford, car wash wexford, ceramic coating wexford, paint correction wexford"
                 />
                 <motion.div
                     initial="out"
@@ -37,7 +37,7 @@ function CarDetailingWexford() {
                             titleLine1="Auto Detailing Services in"
                             titleLine2="WEXFORD &"
                             titleLine3="SCARBOROUGH"
-                            subtitle="From Lawrence to Victoria Park, we provide <strong>Wexford</strong> with superior car detailing. Our mobile team comes equipped to handle everything from basic washes to full paint restoration."
+                            subtitle="From Lawrence to Victoria Park, we provide <strong>Wexford</strong> with superior car detailing. Our expert team handles everything from basic washes to full paint restoration."
                         />
 
                         <Suspense fallback={null}>

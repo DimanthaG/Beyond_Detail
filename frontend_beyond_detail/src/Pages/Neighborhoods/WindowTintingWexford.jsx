@@ -27,7 +27,7 @@ function WindowTintingWexford() {
           name='Beyond Detail Wexford'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting wexford, car tint wexford, auto tinting wexford, ceramic tint wexford, mobile tinting wexford'
+          keywords='window tinting wexford, car tint wexford, auto tinting wexford, ceramic tint wexford'
         />
         <motion.div
           initial='out'

@@ -24,7 +24,7 @@ function CeramicCoatingPickering() {
           description="Best Ceramic Coating in Pickering. ⭐ Ceramic Pro Certified | 5-Year & Lifetime Warranty Packages | Hydrophobic Paint Protection | Mobile Service | Call (647) 689-6109"
           name="Beyond Detail Pickering"
           type="website"
-          keywords="ceramic coating pickering, paint protection pickering, ceramic pro pickering, car coating pickering, paint correction pickering, mobile ceramic coating pickering"
+          keywords="ceramic coating pickering, paint protection pickering, ceramic pro pickering, car coating pickering, paint correction pickering"
           serviceType="Ceramic Coating"
         />
         <motion.div

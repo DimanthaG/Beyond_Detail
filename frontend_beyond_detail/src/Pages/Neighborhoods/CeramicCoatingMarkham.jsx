@@ -24,7 +24,7 @@ function CeramicCoatingMarkham() {
           description="Best Ceramic Coating in Markham. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
           name="Beyond Detail Markham"
           type="website"
-          keywords="ceramic coating markham, paint protection markham, ceramic pro markham, car coating markham, paint correction markham, mobile ceramic coating markham"
+          keywords="ceramic coating markham, paint protection markham, ceramic pro markham, car coating markham, paint correction markham"
           serviceType="Ceramic Coating"
         />
         <motion.div
