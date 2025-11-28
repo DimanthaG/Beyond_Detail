@@ -1,0 +1,62 @@
+﻿On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   BULK_IMAGE_UPLOAD_GUIDE.md
+	new file:   BULK_UPLOAD_QUICK_START.md
+	new file:   FASTEST_UPLOAD_METHOD.md
+	new file:   QUICK_MULTIPLE_IMAGES_GUIDE.md
+	new file:   QUICK_UPLOAD_NOW.md
+	new file:   RANDOM_ORDER_UPDATE.md
+	new file:   SANITY_ACCESS_GUIDE.md
+	new file:   SANITY_GALLERY_GUIDE.md
+	new file:   SANITY_IMAGE_UPLOAD_GUIDE.md
+	new file:   SANITY_QUICK_START.md
+	new file:   SANITY_TEST_QUERIES.txt
+	new file:   SIMPLE_BULK_UPLOAD.md
+	new file:   SUPER_FAST_UPLOAD.md
+	new file:   TROUBLESHOOT_SINGLE_IMAGE.md
+	new file:   WORKING_BULK_UPLOAD.md
+	new file:   backend_sanity/package-lock.json
+	modified:   backend_sanity/package.json
+	modified:   backend_sanity/schemas/serviceGallery.js
+	new file:   backend_sanity/scripts/bulk-upload-complete.js
+	new file:   backend_sanity/scripts/bulk-upload-gallery.js
+	new file:   backend_sanity/scripts/quick-bulk-upload.js
+	new file:   backend_sanity/scripts/setup-and-upload.ps1
+	new file:   backend_sanity/scripts/test-connection.js
+	new file:   backend_sanity/scripts/upload-folder.bat
+	new file:   backend_sanity/scripts/upload-folder.ps1
+	modified:   backend_sanity/yarn.lock
+	modified:   frontend_beyond_detail/IMAGE_OPTIMIZATION_SUMMARY.md
+	modified:   frontend_beyond_detail/LIGHTHOUSE_90_PLUS_GUIDE.md
+	modified:   frontend_beyond_detail/public/index.html
+	modified:   frontend_beyond_detail/src/Pages/CeramicCoating/CeramicCoating.jsx
+	modified:   frontend_beyond_detail/src/Pages/PaintCorrection/PaintCorrection.jsx
+	modified:   frontend_beyond_detail/src/Pages/ServicePage/ServicePage.jsx
+	modified:   frontend_beyond_detail/src/Pages/Services/Services.jsx
+	modified:   frontend_beyond_detail/src/Pages/Tints/Tints.jsx
+	modified:   frontend_beyond_detail/src/components/HomeHero/HomeHero.jsx
+	modified:   frontend_beyond_detail/src/components/Navbar/Navbar2.jsx
+	modified:   frontend_beyond_detail/src/components/Navbar/Navbar2.scss
+	modified:   frontend_beyond_detail/src/components/RecentWork/RecentWork.jsx
+	modified:   frontend_beyond_detail/src/components/ServiceGallery/ServiceGallery.jsx
+	modified:   frontend_beyond_detail/src/components/ServiceGallery/ServiceGallery.scss
+	new file:   frontend_beyond_detail/src/components/ServiceGallery/ServiceGallery_LOCAL_BACKUP.jsx
+	new file:   frontend_beyond_detail/src/components/ServiceGallery/ServiceGallery_SANITY.jsx
+	modified:   package-lock.json
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   SANITY_IMAGE_UPLOAD_GUIDE.md
+	modified:   backend_sanity/package.json
+	modified:   backend_sanity/scripts/bulk-upload-complete.js
+	modified:   frontend_beyond_detail/src/Pages/ServicePage/ServicePage.jsx
+	modified:   frontend_beyond_detail/src/components/RecentWork/RecentWork.jsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_status.txt
+

@@ -5,7 +5,6 @@ import { Contact } from '../../components';
 import './ServicePage.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const ServiceGallery = React.lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 
 function ServicePage() {
   const { serviceType } = useParams();
@@ -67,14 +66,6 @@ function ServicePage() {
             </ul>
           </section>
         )}
-
-        {/* Service Gallery Section */}
-        <Suspense fallback={null}>
-          <ServiceGallery
-            serviceType={serviceType}
-            title={`${service.title} Gallery`}
-          />
-        </Suspense>
 
         {/* Pricing Section */}
         {service.pricing && service.pricing.length > 0 && (
