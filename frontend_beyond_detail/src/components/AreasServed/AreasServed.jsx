@@ -71,7 +71,7 @@ function AreasServed() {
                                         </li>
                                     ))}
                                 </ul>
-                                <Link to={area.link} className="areas-served__card-link">
+                                <Link to={area.link} className="areas-served__card-link" aria-label={`View auto detailing services in ${area.name}`}>
                                     <span>View Services</span>
                                     <ArrowRight className="areas-served__card-icon" />
                                 </Link>
@@ -90,7 +90,7 @@ function AreasServed() {
                     <p className="areas-served__footer-text">
                         Based in <strong>Scarborough</strong>, we proudly serve customers throughout the GTA with mobile and in-shop services.
                     </p>
-                    <Link to="/contact" className="areas-served__footer-cta">
+                    <Link to="/contact" className="areas-served__footer-cta" aria-label="Book your auto detailing service">
                         <span>Book Your Service</span>
                         <ArrowRight className="areas-served__footer-icon" />
                     </Link>

@@ -76,3 +76,4 @@ The script will:
 
 This method works without needing `sanity media import`. Just use the script directly! 🚀
 
+

@@ -21,12 +21,12 @@ function CeramicCoating() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Ceramic Coating Toronto, Scarborough, Markham, Pickering | Professional Paint Protection'
-          description='Professional ceramic coating services in Toronto, Scarborough, Markham, and Pickering. Premium nano-ceramic coatings with 5+ year protection, 9H hardness, and hydrophobic technology. Expert application across the GTA.'
+          title='Ceramic Coating Scarborough | Ceramic Pro Installation | Beyond Detail Toronto'
+          description='Professional ceramic coating in Scarborough. Ceramic Pro certified installer. 2-5 year protection. ⭐ 68 Five-Star Reviews | Paint correction included | Starting at $350 | Call (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Ceramic Coating'
-          keywords='ceramic coating Toronto, paint protection Scarborough, nano ceramic coating Markham, vehicle coating Pickering, car protection GTA'
+          keywords='ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, nano ceramic coating scarborough'
         />
         <motion.div
           initial='out'

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Image Diagnostic Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .status {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .status.loading {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .service-group {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .service-group h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .stat {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .stat.valid {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .stat.invalid {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .image-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #e9ecef;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-item.missing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8d7da;
+            color: #721c24;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .image-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-size: 0.8em;
+            text-align: center;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .warning-box ul {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .warning-box li {
+            margin-bottom: 5px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 Gallery Image Diagnostic Tool</h1>
+        <p class="subtitle">Checking all service gallery images from Sanity CMS...</p>
+
+        <div id="status" class="status loading">
+            ⏳ Loading gallery data...
+        </div>
+
+        <div id="results"></div>
+
+        <button onclick="location.reload()">🔄 Refresh Check</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@sanity/client@6.8.6/dist/index.browser.min.js"></script>
+    <script>
+        const client = sanityClient({
+            projectId: 'trp6l9ar',
+            dataset: 'production',
+            apiVersion: '2023-05-03',
+            useCdn: false,
+        });
+
+        async function checkGalleryImages() {
+            const statusEl = document.getElementById('status');
+            const resultsEl = document.getElementById('results');
+
+            try {
+                const query = `*[_type == "serviceGallery"] | order(serviceType asc, order asc) {
+                    _id,
+                    serviceType,
+                    title,
+                    "hasImage": defined(image),
+                    "imageUrl": image.asset->url,
+                    order,
+                    _createdAt
+                }`;
+
+                const results = await client.fetch(query);
+
+                // Group by service type
+                const byServiceType = {};
+                let totalValid = 0;
+                let totalInvalid = 0;
+
+                results.forEach(item => {
+                    if (!byServiceType[item.serviceType]) {
+                        byServiceType[item.serviceType] = [];
+                    }
+                    byServiceType[item.serviceType].push(item);
+
+                    if (item.hasImage && item.imageUrl) {
+                        totalValid++;
+                    } else {
+                        totalInvalid++;
+                    }
+                });
+
+                // Update status
+                if (totalInvalid === 0) {
+                    statusEl.className = 'status success';
+                    statusEl.innerHTML = `✅ All ${totalValid} gallery images are valid and published!`;
+                } else {
+                    statusEl.className = 'status error';
+                    statusEl.innerHTML = `⚠️ Found ${totalInvalid} missing or broken images out of ${results.length} total items`;
+                }
+
+                // Display results
+                let html = '';
+
+                Object.keys(byServiceType).sort().forEach(serviceType => {
+                    const items = byServiceType[serviceType];
+                    const validCount = items.filter(i => i.hasImage && i.imageUrl).length;
+                    const invalidCount = items.filter(i => !i.hasImage || !i.imageUrl).length;
+
+                    html += `
+                        <div class="service-group">
+                            <h2>${serviceType}</h2>
+                            <div class="stats">
+                                <div class="stat valid">✅ Valid: ${validCount}</div>
+                                ${invalidCount > 0 ? `<div class="stat invalid">❌ Missing: ${invalidCount}</div>` : ''}
+                            </div>
+                            <div class="image-grid">
+                    `;
+
+                    items.forEach(item => {
+                        if (item.hasImage && item.imageUrl) {
+                            html += `
+                                <div class="image-item">
+                                    <img src="${item.imageUrl}?w=300" alt="${item.title || 'Gallery image'}" loading="lazy">
+                                    <div class="image-title">${item.title || 'Untitled'}</div>
+                                </div>
+                            `;
+                        } else {
+                            html += `
+                                <div class="image-item missing">
+                                    ❌ Missing Image<br>
+                                    <small>${item.title || 'Untitled'}</small>
+                                </div>
+                            `;
+                        }
+                    });
+
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Add warning box if there are issues
+                if (totalInvalid > 0) {
+                    html += `
+                        <div class="warning-box">
+                            <h3>🔧 How to Fix Missing Images:</h3>
+                            <ul>
+                                <li>Open Sanity Studio at <a href="http://localhost:3333" target="_blank">http://localhost:3333</a></li>
+                                <li>Go to "Service Gallery" in the sidebar</li>
+                                <li>Find items marked as missing above</li>
+                                <li>Upload an image to each one</li>
+                                <li>Click "Publish" (not just Save)</li>
+                                <li>Wait 1-2 minutes, then refresh this page</li>
+                            </ul>
+                        </div>
+                    `;
+                }
+
+                resultsEl.innerHTML = html;
+
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.innerHTML = `❌ Error: ${error.message}`;
+                console.error('Error fetching gallery images:', error);
+            }
+        }
+
+        // Run check on page load
+        checkGalleryImages();
+    </script>
+</body>
+
+</html>

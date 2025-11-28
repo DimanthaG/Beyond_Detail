@@ -78,3 +78,4 @@
 
 The Media Plugin method is the easiest and works great for most cases. The script is there if you need to upload many images at once!
 
+

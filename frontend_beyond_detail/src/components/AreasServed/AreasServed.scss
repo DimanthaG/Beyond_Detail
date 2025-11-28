@@ -1,6 +1,6 @@
 .areas-served {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #000000;
     position: relative;
     overflow: hidden;
 
@@ -11,8 +11,8 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+        background: radial-gradient(circle at 20% 50%, rgba(240, 121, 0, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(211, 81, 0, 0.05) 0%, transparent 50%);
         pointer-events: none;
     }
 
@@ -42,7 +42,7 @@
     &__title-icon {
         width: 36px;
         height: 36px;
-        color: #8b5cf6;
+        color: #f07900;
     }
 
     &__subtitle {
@@ -81,7 +81,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            background: linear-gradient(90deg, #f07900, #d35100);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.3s ease;
@@ -89,15 +89,15 @@
 
         &:hover {
             transform: translateY(-8px);
-            border-color: rgba(139, 92, 246, 0.5);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+            border-color: rgba(240, 121, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(240, 121, 0, 0.2);
 
             &::before {
                 transform: scaleX(1);
             }
 
             .areas-served__card-link {
-                color: #8b5cf6;
+                color: #f07900;
                 gap: 12px;
             }
         }
@@ -124,7 +124,7 @@
 
     &__card-region {
         font-size: 0.875rem;
-        color: #8b5cf6;
+        color: #f07900;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -149,8 +149,8 @@
     &__card-highlight {
         font-size: 0.875rem;
         color: #d0d0d0;
-        background: rgba(139, 92, 246, 0.1);
-        border: 1px solid rgba(139, 92, 246, 0.3);
+        background: rgba(240, 121, 0, 0.1);
+        border: 1px solid rgba(240, 121, 0, 0.3);
         padding: 6px 12px;
         border-radius: 20px;
         font-weight: 500;
@@ -169,7 +169,7 @@
         align-self: flex-start;
 
         &:hover {
-            color: #8b5cf6;
+            color: #f07900;
         }
     }
 
@@ -198,7 +198,7 @@
         line-height: 1.6;
 
         strong {
-            color: #8b5cf6;
+            color: #f07900;
             font-weight: 600;
         }
     }
@@ -208,18 +208,18 @@
         align-items: center;
         gap: 8px;
         padding: 14px 32px;
-        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        background: linear-gradient(135deg, #f07900, #d35100);
         color: #ffffff;
         text-decoration: none;
         border-radius: 8px;
         font-weight: 600;
         font-size: 1rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        box-shadow: 0 4px 12px rgba(240, 121, 0, 0.3);
 
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 20px rgba(240, 121, 0, 0.4);
             gap: 12px;
         }
     }

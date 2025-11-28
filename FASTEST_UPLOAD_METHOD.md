@@ -235,3 +235,4 @@ This is the **fastest method** - upload an entire folder in one command and you'
 
 **Time saved:** Instead of 30-40 minutes for 20 images, it takes 2-3 minutes! ⚡
 
+

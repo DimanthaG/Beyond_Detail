@@ -21,12 +21,12 @@ function PaintCorrection() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Paint Correction Toronto, Scarborough, Markham, Pickering | Swirl Mark Removal'
-          description='Professional paint correction services in Toronto, Scarborough, Markham, and Pickering. Expert swirl mark removal, scratch repair, and paint restoration. Single, two, and three-stage correction available across the GTA.'
+          title='Paint Correction Scarborough | Remove Swirl Marks & Scratches | Beyond Detail'
+          description='Professional paint correction in Scarborough. Remove swirl marks, scratches & oxidation. ⭐ 68 Five-Star Reviews | 1-3 Stage Correction | Starting at $250 | Lifetime Warranty | Call (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Paint Correction'
-          keywords='paint correction Toronto, swirl mark removal Scarborough, paint restoration Markham, scratch repair Pickering, paint polishing GTA'
+          keywords='paint correction scarborough, swirl mark removal scarborough, scratch removal scarborough, paint polishing toronto, auto detailing scarborough, paint restoration scarborough'
         />
         <motion.div
           initial='out'

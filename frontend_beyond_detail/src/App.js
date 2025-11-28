@@ -58,6 +58,7 @@ const WrappedPaintRemoval = withRouteWrapper(PaintRemoval);
 const ServiceAreaPickering = lazy(() => import('./Pages/ServiceAreaPickering'));
 const ServiceAreaMarkham = lazy(() => import('./Pages/ServiceAreaMarkham'));
 const ServiceAreaNorthYork = lazy(() => import('./Pages/ServiceAreaNorthYork'));
+const CarDetailingMalvern = lazy(() => import('./Pages/Neighborhoods/CarDetailingMalvern'));
 
 function App() {
   let location = useLocation();
@@ -91,6 +92,7 @@ function App() {
             <Route path='/service-area/pickering' element={<ServiceAreaPickering />} />
             <Route path='/service-area/markham' element={<ServiceAreaMarkham />} />
             <Route path='/service-area/north-york' element={<ServiceAreaNorthYork />} />
+            <Route path='/car-detailing-malvern' element={<CarDetailingMalvern />} />
             <Route path='/gallery' element={<WrappedGallery />} />
             <Route path='/faqs' element={<WrappedFAQs />} />
             <Route path='/privacy-policy' element={<WrappedPrivacyPolicy />} />

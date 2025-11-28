@@ -19,18 +19,77 @@ const ServiceGallery = lazy(() => import('../../components/ServiceGallery/Servic
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Tints() {
-  // ScrollToTop component handles scrolling to hero section
+  // FAQ Schema for Featured Snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does window tinting cost in Scarborough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Window tinting in Scarborough typically ranges from $200-$600 depending on your vehicle type and film selection. At Beyond Detail, we offer premium LLUMAR tinting starting at $250 for sedans, with lifetime warranty included. Prices vary based on vehicle size (sedan, SUV, truck) and film type (ATC, CTX, or IRX series)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is window tinting legal in Ontario?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, window tinting is legal in Ontario with specific regulations. Front side windows must allow at least 70% light transmission (VLT). Rear side windows and back windshield can be any darkness. Windshield can only have tint on the top 127mm (5 inches). We ensure all installations comply with Ontario regulations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does window tint installation take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Professional window tint installation typically takes 2-4 hours depending on your vehicle type. Sedans usually take 2-3 hours, while larger SUVs or trucks may take 3-4 hours. We use computer-cut LLUMAR films for precise fit and faster installation. Same-day service available in Scarborough."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the best window tint for heat rejection in Toronto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For maximum heat rejection in Toronto's climate, we recommend LLUMAR IRX series ceramic tint. It blocks up to 97% of infrared heat while maintaining 70% visibility for front windows (legal in Ontario). IRX provides superior heat rejection without interfering with electronics, plus 99% UV protection and lifetime warranty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does window tint come with a warranty?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! All our LLUMAR window tint installations include a lifetime warranty covering fading, bubbling, peeling, and cracking. This manufacturer-backed warranty is transferable if you sell your vehicle, adding to its resale value. We also provide a satisfaction guarantee on all installations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I wash my car after window tinting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wait 3-5 days before washing your car after window tint installation. This allows the tint to fully cure and adhere to the glass. Avoid rolling down windows for 3-5 days as well. After the curing period, you can wash normally using soft cloths and ammonia-free cleaners. We provide detailed aftercare instructions."
+        }
+      }
+    ]
+  };
 
   return (
     <>
       <Suspense fallback={<Loading />}>
+        {/* Add FAQ Schema to head */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
         <SEO
-          title='Window Tinting Toronto, Scarborough, Markham, Pickering | LLUMAR Premium Films'
-          description='Professional window tinting services in Toronto, Scarborough, Markham, and Pickering. Premium LLUMAR ATC, CTX, and IRX films. Expert installation with lifetime warranty. Serving all GTA areas.'
+          title='Window Tinting Scarborough | LLUMAR Tint Installation | Starting at $250'
+          description='Professional window tinting in Scarborough. ⭐ 68 Five-Star Reviews | Premium LLUMAR Films | Lifetime Warranty | Same-Day Service | Starting at $250 | Call (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting Toronto, car tint Scarborough, LLUMAR tint Markham, window film Pickering, automotive tinting GTA'
+          keywords='window tinting scarborough, car tint scarborough, LLUMAR tint scarborough, window tint near me, ceramic tint scarborough, auto tinting scarborough'
         />
         <motion.div
           initial='out'
@@ -40,12 +99,11 @@ function Tints() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='tints__wrapper'>
-                  <TintsHero scrollTarget="#pricing" />
+            <TintsHero scrollTarget="#pricing" />
             <Suspense fallback={null}>
               <ServiceGallery
                 serviceType="window-tint"
                 title="Window Tint Gallery"
-                forceLandscape
               />
             </Suspense>
             <TintsFeatures />

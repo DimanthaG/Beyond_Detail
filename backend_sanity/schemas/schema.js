@@ -30,6 +30,7 @@ import leatherCleaning from './leatherCleaning';
 import paintRemoval from './paintRemoval';
 import faqs from './faqs';
 import blog from './blog';
+import blogPost from './blogPost';
 import fleetServices from './fleetServices';
 import serviceGallery from './serviceGallery';
 
@@ -67,6 +68,7 @@ export default createSchema({
     paintRemoval,
     faqs,
     blog,
+    blogPost,
     fleetServices,
     serviceGallery,
   ]),

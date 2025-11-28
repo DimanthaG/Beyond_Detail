@@ -128,3 +128,4 @@ Check:
 
 If all checks pass but still only seeing one image, the component should show all images. The carousel will only show navigation if there's more than 1 image.
 
+

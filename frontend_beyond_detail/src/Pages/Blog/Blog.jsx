@@ -1,204 +1,80 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Contact, SEO } from '../../components';
-import { blogImages, blogImageCollections } from './blogImages';
-import { formatContent, calculateReadingTime } from './blogContentFormatter';
+import { client, urlFor } from '../../client';
+import { calculateReadingTime } from './blogContentFormatter';
 import './Blog.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
-// Mock blog data with enhanced structure
-const mockBlogs = [
-  {
-    id: '1',
-    slug: '5-essential-tips-protect-vehicle-paint',
-    title: '5 Essential Tips to Protect Your Vehicle\'s Paint',
-    author: 'Beyond Detail Team',
-    publishedAt: '2025-01-15',
-    excerpt: 'Your vehicle\'s paint is constantly exposed to environmental hazards. Learn five professional tips from our detailing experts to keep your car\'s finish protected and looking new.',
-    mainImage: blogImages['5-essential-tips-protect-vehicle-paint'],
-    category: 'Paint Protection',
-    content: [
-      'Your vehicle\'s paint is under constant assault from UV rays, bird droppings, tree sap, road salt, and more. Protecting it requires a multi-faceted approach.',
-      'Here are five essential tips to keep your paint looking pristine:',
-      '1. Wash Regularly (Every 2 Weeks)',
-      'Regular washing removes contaminants before they etch into the paint. Use a two-bucket method to prevent swirl marks. Always use pH-balanced car wash soap and microfiber towels.',
-      '2. Use a Ceramic Coating',
-      'A professional ceramic coating creates a protective barrier that lasts 1-3 years. It repels water, UV rays, and contaminants while adding a deep, glossy shine to your vehicle.',
-      '3. Park in the Shade',
-      'UV rays fade paint over time. Whenever possible, park in a garage or under cover to minimize sun exposure. This simple habit can extend the life of your paint significantly.',
-      '4. Avoid Automatic Car Washes',
-      'Automatic brushes cause micro-scratches that damage your paint over time. Use touchless or hand washes instead. If you must use an automatic wash, choose the brushless option.',
-      '5. Get Professional Detail Regularly',
-      'Have your paint professionally corrected and protected 1-2 times per year. Our team can remove damage before it becomes permanent and apply protective coatings to maintain your vehicle\'s finish.'
-    ]
-  },
-  {
-    id: '2',
-    slug: 'ceramic-coating-vs-traditional-wax',
-    title: 'Ceramic Coating vs Traditional Wax: Which is Right for You?',
-    author: 'John Smith',
-    publishedAt: '2025-01-10',
-    excerpt: 'Understanding the differences between ceramic coatings and traditional wax can help you make the best choice for protecting your vehicle\'s paint.',
-    mainImage: blogImages['ceramic-coating-vs-traditional-wax'],
-    category: 'Ceramic Coating',
-    content: [
-      'When it comes to protecting your vehicle\'s paint, you have two main options: traditional wax and modern ceramic coatings. Each has its own benefits and drawbacks.',
-      'Traditional Wax:',
-      'Traditional car wax has been used for decades. It provides a temporary protective layer that typically lasts 1-3 months. Wax is affordable, easy to apply, and gives your car a nice shine. However, it requires frequent reapplication and doesn\'t offer the same level of protection as ceramic coatings.',
-      'Ceramic Coating:',
-      'Ceramic coatings are a newer technology that creates a semi-permanent bond with your paint. They can last 2-5 years with proper maintenance and offer superior protection against UV rays, chemical stains, and scratches. While more expensive upfront, they provide long-term value.',
-      'Which Should You Choose?',
-      'If you\'re looking for quick, affordable protection and don\'t mind reapplying every few months, traditional wax is a good option. However, if you want long-term protection and less maintenance, ceramic coating is the better investment.'
-    ]
-  },
-  {
-    id: '3',
-    slug: 'preparing-your-car-for-winter',
-    title: 'How to Prepare Your Vehicle for Winter Weather',
-    author: 'Beyond Detail Team',
-    publishedAt: '2025-01-05',
-    excerpt: 'Winter weather can be harsh on your vehicle. Follow these expert tips to protect your car during the cold months and keep it looking great.',
-    mainImage: blogImages['preparing-your-car-for-winter'],
-    category: 'Seasonal Care',
-    content: [
-      'Winter weather brings unique challenges for vehicle owners. Salt, ice, and freezing temperatures can take a toll on your car\'s exterior and interior.',
-      'Exterior Protection:',
-      'Before winter arrives, apply a quality ceramic coating or wax to protect your paint from salt and road grime. This barrier will make cleaning easier throughout the winter months.',
-      'Regular Cleaning:',
-      'Wash your vehicle regularly during winter to remove salt and chemicals that can corrode your paint and undercarriage. Use warm water and a quality car wash soap designed for winter conditions.',
-      'Interior Care:',
-      'Protect your interior with floor mats and seat covers. Salt and snow can damage carpets and upholstery. Vacuum regularly to remove debris and moisture.',
-      'Maintenance Tips:',
-      'Keep your vehicle in the garage when possible. If you don\'t have a garage, consider a car cover to protect against the elements. Also, ensure all seals are in good condition to prevent moisture intrusion.'
-    ]
-  },
-  {
-    id: '4',
-    slug: 'interior-detailing-guide',
-    title: 'The Complete Guide to Interior Detailing',
-    author: 'Sarah Johnson',
-    publishedAt: '2024-12-28',
-    excerpt: 'Learn professional techniques for deep cleaning and protecting your vehicle\'s interior to keep it looking and smelling like new.',
-    mainImage: blogImages['interior-detailing-guide'],
-    category: 'Interior Detailing',
-    content: [
-      'A clean interior not only looks great but also preserves the value of your vehicle. Here\'s a comprehensive guide to professional interior detailing.',
-      'Cleaning Steps:',
-      '- Remove all items and personal belongings',
-      '- Vacuum thoroughly, including under seats',
-      '- Clean dashboard and surfaces with appropriate cleaners',
-      '- Shampoo carpets and upholstery',
-      '- Clean windows from inside',
-      '- Apply protectants to vinyl and leather',
-      'Materials Needed:',
-      'Use quality microfiber towels, pH-balanced cleaners, and protectants designed specifically for automotive use. Avoid household cleaners that can damage materials.',
-      'Professional Services:',
-      'For best results, consider professional interior detailing services. Our team uses commercial-grade equipment and products to achieve results that last.'
-    ]
-  },
-  {
-    id: '5',
-    slug: 'headlight-restoration-benefits',
-    title: 'Why Headlight Restoration Matters for Your Safety',
-    author: 'Beyond Detail Team',
-    publishedAt: '2024-12-20',
-    excerpt: 'Cloudy or yellowed headlights don\'t just look bad—they can significantly reduce visibility and compromise your safety on the road.',
-    mainImage: blogImages['headlight-restoration-benefits'],
-    category: 'Safety',
-    content: [
-      'Over time, headlights become cloudy and yellowed due to UV damage, oxidation, and environmental factors. This reduces light output and can make nighttime driving dangerous.',
-      'Safety Impact:',
-      'Cloudy headlights can reduce light output by up to 80%, significantly decreasing visibility at night. This increases the risk of accidents and makes driving hazardous.',
-      'Restoration Process:',
-      '- Sanding away the damaged surface layer',
-      '- Polishing to restore clarity',
-      '- Applying UV-resistant protective coating',
-      '- Sealing to prevent future damage',
-      'Benefits:',
-      'Restored headlights improve visibility, enhance your vehicle\'s appearance, and can even increase your vehicle\'s resale value. The protective coating applied during restoration helps prevent future damage.'
-    ]
-  },
-  {
-    id: '6',
-    slug: 'paint-correction-process-explained',
-    title: 'Inside Look: Our Paint Correction Process',
-    author: 'Mike Chen',
-    publishedAt: '2024-12-15',
-    excerpt: 'Discover what happens during a professional paint correction service and how we restore your vehicle\'s finish to showroom condition.',
-    mainImage: blogImages['paint-correction-process-explained'],
-    category: 'Paint Correction',
-    content: [
-      'Paint correction is a meticulous process that removes swirl marks, scratches, and other imperfections from your vehicle\'s paint without damaging the original finish.',
-      'Step 1: Assessment',
-      'We start by thoroughly inspecting your vehicle\'s paint under different lighting conditions to identify all imperfections and determine the best approach.',
-      'Step 2: Preparation',
-      'Your vehicle is washed and clayed to remove surface contaminants. This ensures a clean surface for correction work.',
-      'Step 3: Correction',
-      'Using professional-grade compounds and polishing machines, we carefully remove imperfections layer by layer. Multiple stages may be required for severe damage.',
-      'Step 4: Polishing',
-      'After correction, the paint is polished to restore its gloss and clarity. This step enhances the shine and prepares the surface for protection.',
-      'Step 5: Protection',
-      'Finally, we apply a protective coating or sealant to preserve the corrected finish and protect against future damage.',
-      'The result is a flawless, mirror-like finish that makes your vehicle look brand new.'
-    ]
-  }
-];
+// Helper function to render Sanity block content
+const BlockContent = ({ blocks }) => {
+  if (!blocks || !Array.isArray(blocks)) return null;
 
-// Helper function to render content
-const renderContent = (content, blogSlug) => {
-  const formatted = formatContent(content, blogSlug);
-  const imageCollection = blogImageCollections[blogSlug] || [];
-  let imageIndex = 0;
+  return blocks.map((block, idx) => {
+    // Handle text blocks
+    if (block._type === 'block') {
+      // Handle different heading styles
+      if (block.style === 'h2') {
+        return <h2 key={idx} className="blog-heading">{block.children?.map(child => child.text).join('')}</h2>;
+      }
+      if (block.style === 'h3') {
+        return <h3 key={idx} className="blog-section-header">{block.children?.map(child => child.text).join('')}</h3>;
+      }
+      if (block.style === 'h4') {
+        return <h4 key={idx} className="blog-subsection-header">{block.children?.map(child => child.text).join('')}</h4>;
+      }
+      if (block.style === 'blockquote') {
+        return <blockquote key={idx} className="blog-quote">{block.children?.map(child => child.text).join('')}</blockquote>;
+      }
 
-  return formatted.map((item, idx) => {
-    switch (item.type) {
-      case 'heading':
-        return (
-          <h2 key={idx} className="blog-heading">
-            {item.text}
-          </h2>
-        );
-      case 'section-header':
-        return (
-          <h3 key={idx} className="blog-section-header">
-            {item.text}
-          </h3>
-        );
-      case 'list':
-        return (
-          <ul key={idx} className="blog-list-items">
-            {item.items.map((listItem, listIdx) => (
-              <li key={listIdx}>{listItem}</li>
-            ))}
-          </ul>
-        );
-      case 'image-placeholder':
-        if (imageCollection.length > 0 && imageIndex < imageCollection.length) {
-          const imgSrc = imageCollection[imageIndex];
-          imageIndex++;
-          return (
-            <div key={idx} className="blog-content-image">
-              <img 
-                src={imgSrc} 
-                alt={`Content illustration ${imageIndex}`}
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="600"
-              />
-            </div>
-          );
-        }
-        return null;
-      case 'paragraph':
-      default:
-        return (
-          <p key={idx} className="blog-paragraph">
-            {item.text}
-          </p>
-        );
+      // Handle lists
+      if (block.listItem === 'bullet') {
+        return <li key={idx}>{block.children?.map(child => child.text).join('')}</li>;
+      }
+      if (block.listItem === 'number') {
+        return <li key={idx}>{block.children?.map(child => child.text).join('')}</li>;
+      }
+
+      // Handle regular paragraphs with formatting
+      const renderChildren = (children) => {
+        if (!children) return '';
+        return children.map((child, childIdx) => {
+          let text = child.text;
+          if (child.marks?.includes('strong')) {
+            return <strong key={childIdx}>{text}</strong>;
+          }
+          if (child.marks?.includes('em')) {
+            return <em key={childIdx}>{text}</em>;
+          }
+          if (child.marks?.includes('code')) {
+            return <code key={childIdx}>{text}</code>;
+          }
+          return text;
+        });
+      };
+
+      return <p key={idx} className="blog-paragraph">{renderChildren(block.children)}</p>;
     }
+
+    // Handle images in content
+    if (block._type === 'image') {
+      return (
+        <div key={idx} className="blog-content-image">
+          <img
+            src={urlFor(block).width(800).url()}
+            alt={block.alt || 'Blog content image'}
+            loading="lazy"
+            decoding="async"
+            width="800"
+            height="600"
+          />
+          {block.caption && <p className="image-caption">{block.caption}</p>}
+        </div>
+      );
+    }
+
+    return null;
   });
 };
 
@@ -255,13 +131,13 @@ const ShareButtons = ({ title, url }) => {
 // Related posts component
 const RelatedPosts = ({ currentBlog, allBlogs }) => {
   const related = allBlogs
-    .filter(blog => blog.id !== currentBlog.id && blog.category === currentBlog.category)
+    .filter(blog => blog._id !== currentBlog._id && blog.category === currentBlog.category)
     .slice(0, 3);
 
   if (related.length === 0) {
     // If no same category, get latest posts
     const latest = allBlogs
-      .filter(blog => blog.id !== currentBlog.id)
+      .filter(blog => blog._id !== currentBlog._id)
       .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
       .slice(0, 3);
     return latest.length > 0 ? (
@@ -269,9 +145,13 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
         <h3>Latest Posts</h3>
         <div className="related-posts-grid">
           {latest.map((blog) => (
-            <Link key={blog.id} to={`/blog/${blog.slug}`} className="related-post-card">
+            <Link key={blog._id} to={`/blog/${blog.slug.current}`} className="related-post-card">
               {blog.mainImage && (
-                <img src={blog.mainImage} alt={blog.title} className="related-post-image" />
+                <img
+                  src={urlFor(blog.mainImage).width(400).url()}
+                  alt={blog.mainImage.alt || blog.title}
+                  className="related-post-image"
+                />
               )}
               <div className="related-post-content">
                 <h4>{blog.title}</h4>
@@ -289,9 +169,13 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
       <h3>Related Posts</h3>
       <div className="related-posts-grid">
         {related.map((blog) => (
-          <Link key={blog.id} to={`/blog/${blog.slug}`} className="related-post-card">
+          <Link key={blog._id} to={`/blog/${blog.slug.current}`} className="related-post-card">
             {blog.mainImage && (
-              <img src={blog.mainImage} alt={blog.title} className="related-post-image" />
+              <img
+                src={urlFor(blog.mainImage).width(400).url()}
+                alt={blog.mainImage.alt || blog.title}
+                className="related-post-image"
+              />
             )}
             <div className="related-post-content">
               <h4>{blog.title}</h4>
@@ -307,17 +191,69 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
 function Blog() {
   const { slug } = useParams();
   const [selectedBlog, setSelectedBlog] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [allBlogs, setAllBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      if (slug) {
-        const blog = mockBlogs.find(b => b.slug === slug);
-        setSelectedBlog(blog || null);
+    const fetchBlogs = async () => {
+      setLoading(true);
+      try {
+        if (slug) {
+          // Fetch single blog post
+          const query = `*[_type == "blogPost" && slug.current == $slug][0] {
+            _id,
+            title,
+            slug,
+            author,
+            publishedAt,
+            excerpt,
+            mainImage,
+            category,
+            content,
+            seoTitle,
+            seoDescription,
+            keywords
+          }`;
+          const blog = await client.fetch(query, { slug });
+          setSelectedBlog(blog);
+
+          // Also fetch all blogs for related posts
+          const allBlogsQuery = `*[_type == "blogPost"] | order(publishedAt desc) {
+            _id,
+            title,
+            slug,
+            author,
+            publishedAt,
+            excerpt,
+            mainImage,
+            category
+          }`;
+          const blogs = await client.fetch(allBlogsQuery);
+          setAllBlogs(blogs);
+        } else {
+          // Fetch all blog posts for list view
+          const query = `*[_type == "blogPost"] | order(publishedAt desc) {
+            _id,
+            title,
+            slug,
+            author,
+            publishedAt,
+            excerpt,
+            mainImage,
+            category,
+            content
+          }`;
+          const blogs = await client.fetch(query);
+          setAllBlogs(blogs);
+        }
+      } catch (error) {
+        console.error('[Blog] Error fetching blog posts:', error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
-    }, 300);
+    };
+
+    fetchBlogs();
   }, [slug]);
 
   if (loading) {
@@ -333,25 +269,30 @@ function Blog() {
   if (selectedBlog) {
     const readingTime = calculateReadingTime(selectedBlog.content);
     const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const blogUrl = `${currentUrl.split('/blog')[0]}/blog/${selectedBlog.slug}`;
+    const blogUrl = `${currentUrl.split('/blog')[0]}/blog/${selectedBlog.slug.current}`;
+    const seoTitle = selectedBlog.seoTitle || `${selectedBlog.title} | Beyond Detail Toronto Blog`;
+    const seoDescription = selectedBlog.seoDescription || selectedBlog.excerpt;
 
     return (
       <>
         <SEO
-          title={`${selectedBlog.title} | Beyond Detail Toronto Blog`}
-          description={selectedBlog.excerpt}
+          title={seoTitle}
+          description={seoDescription}
           name="Beyond Detail Toronto"
           type="article"
-          keywords={`${selectedBlog.category}, car detailing, auto detailing, Toronto, Scarborough, Markham, Pickering`}
-          image={selectedBlog.mainImage}
+          keywords={selectedBlog.keywords?.join(', ') || `${selectedBlog.category}, car detailing, auto detailing, Toronto, Scarborough, Markham, Pickering`}
+          image={selectedBlog.mainImage ? urlFor(selectedBlog.mainImage).width(1200).url() : undefined}
           url={blogUrl}
         />
-      <div className="blog-detail">
+        <div className="blog-detail">
           {/* Hero Section */}
           <div className="blog-hero">
-        {selectedBlog.mainImage && (
+            {selectedBlog.mainImage && (
               <div className="blog-hero-image">
-                <img src={selectedBlog.mainImage} alt={selectedBlog.title} />
+                <img
+                  src={urlFor(selectedBlog.mainImage).width(1200).url()}
+                  alt={selectedBlog.mainImage.alt || selectedBlog.title}
+                />
               </div>
             )}
             <div className="blog-hero-content">
@@ -361,13 +302,13 @@ function Blog() {
                 <div className="blog-author-info">
                   <span className="blog-author">{selectedBlog.author || 'Admin'}</span>
                   <span className="blog-date">
-              {new Date(selectedBlog.publishedAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </span>
-          </div>
+                    {new Date(selectedBlog.publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                </div>
                 <div className="blog-reading-time">
                   <span className="reading-time-icon">⏱️</span>
                   {readingTime} min read
@@ -386,7 +327,7 @@ function Blog() {
 
               {/* Article Content */}
               <div className="blog-article-content">
-                {renderContent(selectedBlog.content, selectedBlog.slug)}
+                <BlockContent blocks={selectedBlog.content} />
               </div>
             </div>
 
@@ -396,21 +337,21 @@ function Blog() {
             </div>
 
             {/* Related Posts */}
-            <RelatedPosts currentBlog={selectedBlog} allBlogs={mockBlogs} />
+            <RelatedPosts currentBlog={selectedBlog} allBlogs={allBlogs} />
 
             {/* Back to Blog */}
             <div className="blog-navigation">
               <Link to="/blog" className="back-to-blog-btn">
                 ← Back to All Posts
-        </Link>
+              </Link>
             </div>
           </article>
-      </div>
-      <Suspense fallback={null}>
-        <GoogleReviewsCarousel />
-      </Suspense>
-      <Contact />
-    </>
+        </div>
+        <Suspense fallback={null}>
+          <GoogleReviewsCarousel />
+        </Suspense>
+        <Contact />
+      </>
     );
   }
 
@@ -426,45 +367,55 @@ function Blog() {
       />
       <div className="blog-list">
         <div className="blog-list-header">
-        <h1>Auto Detailing Blog - Toronto & Scarborough</h1>
+          <h1>Auto Detailing Blog - Toronto & Scarborough</h1>
           <p className="blog-list-subtitle">
             Expert tips, guides, and insights on car detailing, paint protection, and vehicle maintenance
           </p>
         </div>
         <div className="blogs-grid">
-          {mockBlogs.map((blog) => (
-            <article key={blog.id} className="blog-card">
-              <Link to={`/blog/${blog.slug}`} className="blog-card-link">
-              {blog.mainImage && (
-                  <div className="blog-card-image-wrapper">
-                    <img src={blog.mainImage} alt={blog.title} className="blog-image" />
-                    {blog.category && (
-                      <span className="blog-card-category">{blog.category}</span>
-                    )}
+          {allBlogs.length === 0 ? (
+            <div className="no-blogs">
+              <p>No blog posts yet. Check back soon for expert car detailing tips and guides!</p>
+            </div>
+          ) : (
+            allBlogs.map((blog) => (
+              <article key={blog._id} className="blog-card">
+                <Link to={`/blog/${blog.slug.current}`} className="blog-card-link">
+                  {blog.mainImage && (
+                    <div className="blog-card-image-wrapper">
+                      <img
+                        src={urlFor(blog.mainImage).width(600).url()}
+                        alt={blog.mainImage.alt || blog.title}
+                        className="blog-image"
+                      />
+                      {blog.category && (
+                        <span className="blog-card-category">{blog.category}</span>
+                      )}
+                    </div>
+                  )}
+                  <div className="blog-info">
+                    <h2 className="blog-card-title">{blog.title}</h2>
+                    <p className="excerpt">{blog.excerpt}</p>
+                    <div className="blog-footer">
+                      <div className="blog-card-meta">
+                        <span className="author">{blog.author || 'Admin'}</span>
+                        <span className="date">
+                          {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                      <div className="blog-card-reading-time">
+                        {calculateReadingTime(blog.content)} min read
+                      </div>
+                    </div>
                   </div>
-              )}
-              <div className="blog-info">
-                  <h2 className="blog-card-title">{blog.title}</h2>
-                <p className="excerpt">{blog.excerpt}</p>
-                <div className="blog-footer">
-                    <div className="blog-card-meta">
-                  <span className="author">{blog.author || 'Admin'}</span>
-                  <span className="date">
-                    {new Date(blog.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </span>
-                    </div>
-                    <div className="blog-card-reading-time">
-                      {calculateReadingTime(blog.content)} min read
-                    </div>
-                </div>
-              </div>
-            </Link>
-            </article>
-          ))}
+                </Link>
+              </article>
+            ))
+          )}
         </div>
       </div>
       <Suspense fallback={null}>

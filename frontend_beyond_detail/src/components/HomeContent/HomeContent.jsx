@@ -55,7 +55,10 @@ export function HomeContent() {
             <div className="home-content__service-section">
               <h3 className="home-content__subtitle">Serving the Greater Toronto Area</h3>
               <p className="home-content__paragraph">
-                Beyond Detail proudly serves customers throughout Scarborough, Toronto, Markham, Pickering, and the entire GTA. Whether you need window tinting in Markham, paint correction in Pickering, or ceramic coating in Scarborough, we bring professional-grade auto detailing services directly to you. Our mobile detailing services ensure convenience without compromising on quality.
+                Searching for "car detailing near me" in Scarborough? You've found us! Beyond Detail is your local auto detailing expert, conveniently located at 170 Finchdene Square in Scarborough. We proudly serve customers throughout Scarborough, Toronto, Markham, Pickering, and the entire GTA. Whether you need window tinting in Markham, paint correction in Pickering, or ceramic coating in Scarborough, we bring professional-grade auto detailing services directly to you. Our mobile detailing services ensure convenience without compromising on quality.
+              </p>
+              <p className="home-content__paragraph">
+                <strong>Looking for car detailing near you?</strong> We serve all Scarborough neighborhoods including Malvern, Morningside Heights, Agincourt, Woburn, Scarborough Village, and more. Same-day appointments available! Call (647) 689-6109 or book online.
               </p>
             </div>
 
