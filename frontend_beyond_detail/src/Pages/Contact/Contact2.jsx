@@ -29,9 +29,17 @@ function ContactPage() {
   const [showMap, setShowMap] = useState(false);
   const mapRef = useRef(null);
 
-  const optTints = useRef();
-  const optWash = useRef();
-  const optPaint = useRef();
+  const optWindowTint = useRef();
+  const optPaintCorrection = useRef();
+  const optCeramicCoating = useRef();
+  const optAutoDetailing = useRef();
+  const optInteriorDetailing = useRef();
+  const optExteriorDetailing = useRef();
+  const optHeadlightRestoration = useRef();
+  const optOdourRemoval = useRef();
+  const optLeatherCleaning = useRef();
+  const optPaintRemoval = useRef();
+  const optFleetServices = useRef();
   const optOther = useRef();
   const optSelect = useRef();
 
@@ -66,18 +74,18 @@ function ContactPage() {
     // Reset and populate interestedOptions array for each submission
     const interestedOptions = [];
 
-    if (optTints.current.checked) {
-      interestedOptions.push(optTints.current.value);
-    }
-    if (optWash.current.checked) {
-      interestedOptions.push(optWash.current.value);
-    }
-    if (optPaint.current.checked) {
-      interestedOptions.push(optPaint.current.value);
-    }
-    if (optOther.current.checked) {
-      interestedOptions.push(optOther.current.value);
-    }
+    if (optWindowTint.current.checked) interestedOptions.push(optWindowTint.current.value);
+    if (optPaintCorrection.current.checked) interestedOptions.push(optPaintCorrection.current.value);
+    if (optCeramicCoating.current.checked) interestedOptions.push(optCeramicCoating.current.value);
+    if (optAutoDetailing.current.checked) interestedOptions.push(optAutoDetailing.current.value);
+    if (optInteriorDetailing.current.checked) interestedOptions.push(optInteriorDetailing.current.value);
+    if (optExteriorDetailing.current.checked) interestedOptions.push(optExteriorDetailing.current.value);
+    if (optHeadlightRestoration.current.checked) interestedOptions.push(optHeadlightRestoration.current.value);
+    if (optOdourRemoval.current.checked) interestedOptions.push(optOdourRemoval.current.value);
+    if (optLeatherCleaning.current.checked) interestedOptions.push(optLeatherCleaning.current.value);
+    if (optPaintRemoval.current.checked) interestedOptions.push(optPaintRemoval.current.value);
+    if (optFleetServices.current.checked) interestedOptions.push(optFleetServices.current.value);
+    if (optOther.current.checked) interestedOptions.push(optOther.current.value);
 
     const contact = {
       _type: 'contact',
@@ -345,54 +353,74 @@ function ContactPage() {
                           <h3>Interested In: *</h3>
                           <div className='cbContainer'>
                             <div className='servicesCB'>
-                              <label htmlFor='windowTints'>
-                                <input
-                                  type='checkbox'
-                                  id='windowTints'
-                                  name='windowTints'
-                                  value='Window Tints'
-                                  ref={optTints}
-                                  className='cbInterest'
-                                />
-                                <span>Window Tints</span>
+                              <label htmlFor='windowTint'>
+                                <input type='checkbox' id='windowTint' name='windowTint' value='Window Tint' ref={optWindowTint} className='cbInterest' />
+                                <span>Window Tint</span>
                               </label>
                             </div>
                             <div className='interestsCB'>
-                              <label htmlFor='carWash'>
-                                <input
-                                  type='checkbox'
-                                  id='carWash'
-                                  name='carWash'
-                                  value='Car Wash'
-                                  ref={optWash}
-                                  className='cbInterest'
-                                />
-                                <span>Car Wash</span>
+                              <label htmlFor='paintCorrection'>
+                                <input type='checkbox' id='paintCorrection' name='paintCorrection' value='Paint Correction' ref={optPaintCorrection} className='cbInterest' />
+                                <span>Paint Correction</span>
                               </label>
                             </div>
                             <div className='interestsCB'>
-                              <label htmlFor='paintProtection'>
-                                <input
-                                  type='checkbox'
-                                  id='paintProtection'
-                                  name='paintProtection'
-                                  value='Paint Protection'
-                                  ref={optPaint}
-                                  className='cbInterest'
-                                />
-                                <span>Paint Protection</span>
+                              <label htmlFor='ceramicCoating'>
+                                <input type='checkbox' id='ceramicCoating' name='ceramicCoating' value='Ceramic Coating' ref={optCeramicCoating} className='cbInterest' />
+                                <span>Ceramic Coating</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='autoDetailing'>
+                                <input type='checkbox' id='autoDetailing' name='autoDetailing' value='Auto Detailing' ref={optAutoDetailing} className='cbInterest' />
+                                <span>Auto Detailing</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='interiorDetailing'>
+                                <input type='checkbox' id='interiorDetailing' name='interiorDetailing' value='Interior Detailing' ref={optInteriorDetailing} className='cbInterest' />
+                                <span>Interior Detailing</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='exteriorDetailing'>
+                                <input type='checkbox' id='exteriorDetailing' name='exteriorDetailing' value='Exterior Detailing' ref={optExteriorDetailing} className='cbInterest' />
+                                <span>Exterior Detailing</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='headlightRestoration'>
+                                <input type='checkbox' id='headlightRestoration' name='headlightRestoration' value='Headlight Restoration' ref={optHeadlightRestoration} className='cbInterest' />
+                                <span>Headlight Restoration</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='odourRemoval'>
+                                <input type='checkbox' id='odourRemoval' name='odourRemoval' value='Odour Removal' ref={optOdourRemoval} className='cbInterest' />
+                                <span>Odour Removal</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='leatherCleaning'>
+                                <input type='checkbox' id='leatherCleaning' name='leatherCleaning' value='Leather Cleaning' ref={optLeatherCleaning} className='cbInterest' />
+                                <span>Leather Cleaning</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='paintRemoval'>
+                                <input type='checkbox' id='paintRemoval' name='paintRemoval' value='Paint Removal' ref={optPaintRemoval} className='cbInterest' />
+                                <span>Paint Removal</span>
+                              </label>
+                            </div>
+                            <div className='interestsCB'>
+                              <label htmlFor='fleetServices'>
+                                <input type='checkbox' id='fleetServices' name='fleetServices' value='Fleet Services' ref={optFleetServices} className='cbInterest' />
+                                <span>Fleet Services</span>
                               </label>
                             </div>
                             <div className='interestsCB'>
                               <label htmlFor='other'>
-                                <input
-                                  type='checkbox'
-                                  id='other'
-                                  name='other'
-                                  value='Other'
-                                  ref={optOther}
-                                  className='cbInterest'
-                                />
+                                <input type='checkbox' id='other' name='other' value='Other' ref={optOther} className='cbInterest' />
                                 <span>Other</span>
                               </label>
                             </div>
