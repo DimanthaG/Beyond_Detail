@@ -29,8 +29,6 @@ function ContactPage() {
   const [showMap, setShowMap] = useState(false);
   const mapRef = useRef(null);
 
-  let interestedOptions = [];
-
   const optTints = useRef();
   const optWash = useRef();
   const optPaint = useRef();
@@ -65,6 +63,9 @@ function ContactPage() {
     e.preventDefault();
     setLoadingMessage(true);
 
+    // Reset and populate interestedOptions array for each submission
+    const interestedOptions = [];
+
     if (optTints.current.checked) {
       interestedOptions.push(optTints.current.value);
     }
@@ -93,17 +94,15 @@ function ContactPage() {
     const sanityPromise = client.create(contact);
 
     // Send Email Notification via EmailJS
-    // TODO: Replace with your actual EmailJS Service ID, Template ID, and Public Key
-    // Sign up at https://www.emailjs.com/ to get these.
     const emailParams = {
       from_name: name,
       from_email: email,
       phone: phone,
-      message: message,
+      message: message || 'No message provided',
       vehicle_type: optSelect.current.value,
-      interested_in: interestedOptions.join(', '),
+      interested_in: interestedOptions.length > 0 ? interestedOptions.join(', ') : 'Not specified',
       booking_date: startDate.toLocaleString(),
-      to_email: 'info@beyonddetail.ca' // This variable needs to be in your EmailJS template
+      to_email: 'info@beyonddetail.ca'
     };
 
     const emailPromise = emailjs.send(
@@ -114,17 +113,28 @@ function ContactPage() {
     );
 
     Promise.all([sanityPromise, emailPromise])
-      .then(() => {
+      .then(([sanityResult, emailResult]) => {
+        console.log('✅ Form submitted successfully!');
+        console.log('Sanity ID:', sanityResult._id);
+        console.log('Email sent:', emailResult.status === 200 ? 'Success' : 'Failed');
+
         setLoadingMessage(false);
         SetIsFormSubmitted(true);
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
       })
       .catch((err) => {
-        console.error("Error submitting form:", err);
-        // Still show success if Sanity worked, even if email failed (optional choice)
-        // For now, we'll assume if one fails, we log it but might still show success if Sanity succeeded.
-        // Let's just rely on the finally block or simple success for user experience.
+        console.error("❌ Error submitting form:", err);
         setLoadingMessage(false);
-        SetIsFormSubmitted(true);
+
+        // Show user-friendly error
+        alert('There was an issue submitting your form. Please try again or call us at (647) 689-6109.');
       });
   };
 
