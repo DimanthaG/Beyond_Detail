@@ -7,7 +7,7 @@
   "author": "Burhan Jawed <burhanjawed@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
+    "start": "node scripts/custom-start.js",
     "build": "sanity build"
   },
   "keywords": [
@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "@sanity/base": "^2.35.0",
+    "@sanity/client": "^6.8.6",
     "@sanity/core": "^2.35.0",
     "@sanity/default-layout": "^2.35.0",
     "@sanity/default-login": "^2.35.0",
@@ -22,15 +23,16 @@
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/vision": "^2.35.0",
     "eslint": "^8.6.0",
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.7.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
     "sanity-plugin-media": "^1.4.4",
     "sanity-plugin-order-documents": "^0.0.22",
-    "styled-components": "^5.2.0",
-    "@sanity/client": "^6.8.6",
-    "form-data": "^4.0.0",
-    "node-fetch": "^2.7.0"
+    "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@sanity/cli": "^2.36.2"
+  }
 }
