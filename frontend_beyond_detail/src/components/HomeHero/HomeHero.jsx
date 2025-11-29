@@ -6,13 +6,23 @@ import PartnersCompact from '../Partners/PartnersCompact';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import Map from '../Map/Map';
-import carImageAvif from '../../assets/bd/bd-20.avif';
-import carImage from '../../assets/bd/bd-20.webp';
-import carImage400w from '../../assets/bd/bd-20-400w.webp';
-import carImage800w from '../../assets/bd/bd-20-800w.webp';
-import carImage1200w from '../../assets/bd/bd-20-1200w.webp';
-import carImage1600w from '../../assets/bd/bd-20-1600w.webp';
+// import carImageAvif from '../../assets/bd/bd-20.avif';
+// import carImage from '../../assets/bd/bd-20.webp';
+// import carImage400w from '../../assets/bd/bd-20-400w.webp';
+// import carImage800w from '../../assets/bd/bd-20-800w.webp';
+// import carImage1200w from '../../assets/bd/bd-20-1200w.webp';
+// import carImage1600w from '../../assets/bd/bd-20-1600w.webp';
 import './HomeHero.scss';
+
+// Use public folder images for faster LCP (matches index.html preload)
+const carImageAvif = '/images/hero-home.avif';
+const carImage = '/images/hero-home.webp'; // This will be the default/largest webp
+const carImage400w = '/images/hero-home-400w.webp';
+const carImage800w = '/images/hero-home-800w.webp';
+// Fallback for larger sizes if not copied, or reuse largest available
+const carImage1200w = '/images/hero-home.webp';
+const carImage1600w = '/images/hero-home.webp';
+
 
 export function HomeHero() {
   const heroRef = useRef(null);
@@ -26,11 +36,11 @@ export function HomeHero() {
     const preloadImage = () => {
       // Prefer AVIF hero for preload (smallest) – <picture> handles fallback
       const optimalImageSrc = carImageAvif;
-      
+
       // Check if preload already exists
       const existingLink = document.querySelector(`link[rel="preload"][as="image"][href*="bd-20"]`);
       if (existingLink) return;
-      
+
       // Create preload link immediately
       const link = document.createElement('link');
       link.rel = 'preload';
@@ -42,20 +52,20 @@ export function HomeHero() {
         ${carImageAvif} 1600w
       `);
       link.setAttribute('imagesizes', '100vw');
-      
+
       // Insert at the beginning of head for highest priority
       document.head.insertBefore(link, document.head.firstChild);
-      
+
       // Also preload the image using Image() API for better browser support
       const img = new Image();
       img.src = optimalImageSrc;
       img.loading = 'eager';
       img.setAttribute('fetchpriority', 'high');
     };
-    
+
     // Execute immediately (don't wait)
     preloadImage();
-    
+
     // Cleanup on unmount
     return () => {
       const linksToRemove = document.querySelectorAll(`link[rel="preload"][as="image"][href*="bd-20"]`);
@@ -105,7 +115,7 @@ export function HomeHero() {
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
               />
-              <img 
+              <img
                 src={carImage}
                 srcSet={`
                   ${carImage400w} 400w,
@@ -115,8 +125,8 @@ export function HomeHero() {
                   ${carImage} 1920w
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
-                alt="Window tinting and auto detailing services in Scarborough, Toronto - Beyond Detail professional car care and ceramic coating" 
-                loading="eager" 
+                alt="Window tinting and auto detailing services in Scarborough, Toronto - Beyond Detail professional car care and ceramic coating"
+                loading="eager"
                 fetchpriority="high"
                 decoding="async"
                 width="1920"
