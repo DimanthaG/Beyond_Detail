@@ -19,6 +19,22 @@ export default {
             type: 'string',
         },
         {
+            name: 'bookingDate',
+            title: 'Booking Date',
+            type: 'datetime',
+        },
+        {
+            name: 'interestedIn',
+            title: 'Interested In',
+            type: 'array',
+            of: [{ type: 'string' }],
+        },
+        {
+            name: 'vehicleType',
+            title: 'Vehicle Type',
+            type: 'string',
+        },
+        {
             name: 'subject',
             title: 'Subject',
             type: 'string',
