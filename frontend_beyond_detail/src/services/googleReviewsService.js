@@ -124,15 +124,15 @@ export async function getGoogleReviews(placeId = null) {
         formatted_address: data.address,
       };
       
-      // Format reviews to match our component structure
+      // Reviews are already formatted by the API, just pass them through
       const formattedReviews = (result.reviews).map((review) => ({
-        _id: review.time || Date.now() + Math.random(), // Unique ID
-        name: review.author_name,
-        message: review.text,
+        _id: review._id || review.time || Date.now() + Math.random(), // Unique ID
+        name: review.name || review.author_name,
+        message: review.message || review.text,
         rating: review.rating,
         time: review.time,
-        profilePhoto: review.profile_photo_url || null,
-        relativeTime: review.relative_time_description,
+        profilePhoto: review.profilePhoto || review.profile_photo_url || null,
+        relativeTime: review.relativeTime || review.relative_time_description,
       }));
 
       return {
