@@ -39,7 +39,7 @@ function GoogleReviewsCarousel() {
           console.warn('Google Reviews API error, using fallback reviews:', data.error);
           // Keep fallback reviews - don't clear them
         } else {
-          const reviewsList = (data.reviews || []).slice(0, 6); // limit for perf
+          const reviewsList = (data.reviews || []).slice(0, 9); // limit to 9 for 3 pages of 3
           if (reviewsList.length > 0) {
             // Shuffle reviews to show different ones each time page loads
             const shuffledReviews = shuffleArray(reviewsList);
@@ -85,30 +85,38 @@ function GoogleReviewsCarousel() {
     return () => observer.disconnect();
   }, []);
 
-  // Get visible reviews (2 at a time to reduce work)
+  // Number of reviews to show at once
+  const REVIEWS_PER_PAGE = 3;
+
+  // Get visible reviews (3 at a time, no repetitions)
   const getVisibleReviews = () => {
     if (allReviews.length === 0) return [];
 
-    // Show 2 reviews, wrapping around if needed
+    // Show up to 3 reviews starting from currentIndex
     const reviews = [];
-    for (let i = 0; i < 2; i++) {
-      const index = (currentIndex + i) % allReviews.length;
-      reviews.push(allReviews[index]);
+    for (let i = 0; i < REVIEWS_PER_PAGE; i++) {
+      const index = currentIndex + i;
+      if (index < allReviews.length) {
+        reviews.push(allReviews[index]);
+      }
     }
     return reviews;
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => {
-      // Wrap around to the end if at the beginning
-      return prev === 0 ? allReviews.length - 1 : prev - 1;
+      // Move back by REVIEWS_PER_PAGE, but don't go below 0
+      const newIndex = prev - REVIEWS_PER_PAGE;
+      return newIndex < 0 ? Math.max(0, allReviews.length - REVIEWS_PER_PAGE) : newIndex;
     });
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => {
-      // Wrap around to the beginning if at the end
-      return (prev + 1) % allReviews.length;
+      // Move forward by REVIEWS_PER_PAGE
+      const newIndex = prev + REVIEWS_PER_PAGE;
+      // If we've gone past the end, wrap to beginning
+      return newIndex >= allReviews.length ? 0 : newIndex;
     });
   };
 
@@ -290,10 +298,10 @@ function GoogleReviewsCarousel() {
         </button>
       </div>
 
-      {allReviews.length > 2 && (
+      {allReviews.length > REVIEWS_PER_PAGE && (
         <div className="google-reviews-carousel__progress">
           <p className="google-reviews-carousel__progress-text">
-            {currentIndex + 1} - {Math.min(currentIndex + 2, allReviews.length)} of {allReviews.length} reviews
+            {currentIndex + 1} - {Math.min(currentIndex + REVIEWS_PER_PAGE, allReviews.length)} of {allReviews.length} reviews
           </p>
         </div>
       )}
