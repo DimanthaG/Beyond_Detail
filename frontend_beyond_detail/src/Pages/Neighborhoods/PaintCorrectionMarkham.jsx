@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
@@ -24,7 +25,7 @@ function PaintCorrectionMarkham() {
           name='Beyond Detail Markham'
           type='website'
           serviceType='Paint Correction'
-          keywords='paint correction markham, scratch removal markham, car polishing markham, paint restoration markham, swirl mark removal markham'
+          keywords='paint correction markham, detailing markham, scratch removal markham, car polishing markham, paint restoration markham, swirl mark removal markham, paint correction unionville, paint correction box grove'
         />
         <motion.div
           initial='out'
@@ -49,6 +50,26 @@ function PaintCorrectionMarkham() {
                 forceLandscape
               />
             </Suspense>
+
+            {/* Markham Location-Specific Content */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Paint Correction in Markham - Expert Swirl Mark & Scratch Removal
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Beyond Detail provides professional <strong>paint correction services in Markham</strong>, serving customers throughout 
+                  York Region. Our expert technicians specialize in removing swirl marks, scratches, and paint defects to restore your 
+                  vehicle's showroom finish. Located in Scarborough, we're conveniently accessible for Markham residents.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Our paint correction services are perfect preparation for <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating in Markham</Link>. 
+                  We also offer complete <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>auto detailing services</Link> 
+                  and <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>. 
+                  ⭐ Trusted by Markham customers | Multi-Stage Correction Available | Lifetime Warranties | Call (647) 689-6109.
+                </p>
+              </div>
+            </section>
             
             <PaintProtectionInfo />
             

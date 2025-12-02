@@ -24,7 +24,7 @@ function CeramicCoatingMarkham() {
           description="Best Ceramic Coating in Markham. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
           name="Beyond Detail Markham"
           type="website"
-          keywords="ceramic coating markham, paint protection markham, ceramic pro markham, car coating markham, paint correction markham"
+          keywords="ceramic coating markham, detailing markham, paint protection markham, ceramic pro markham, car coating markham, paint correction markham, ceramic coating unionville, ceramic coating box grove"
           serviceType="Ceramic Coating"
         />
         <motion.div
@@ -51,12 +51,32 @@ function CeramicCoatingMarkham() {
               />
             </Suspense>
             
+            {/* Markham Location-Specific Content */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Ceramic Coating in Markham - Professional Paint Protection for York Region
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Beyond Detail provides professional <strong>ceramic coating services in Markham</strong>, serving customers throughout 
+                  York Region including Unionville, Box Grove, Markham Village, Cornell, and all Markham neighborhoods. 
+                  Our Ceramic Pro certified installation protects your vehicle from Markham's harsh winters, road salt, and UV damage.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Every ceramic coating package includes comprehensive <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> 
+                  to ensure optimal results. We also offer complete <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>auto detailing in Markham</Link> 
+                  and <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting services</Link>. 
+                  ⭐ Trusted by Markham customers with 68+ five-star reviews | Lifetime Warranties | Professional In-Shop Service.
+                </p>
+              </div>
+            </section>
+
             {/* Internal Linking Section */}
             <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
                 Beyond Detail serves the entire Markham area with <strong><Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>professional ceramic coating services</Link></strong>. 
-                We include meticulous <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> with every package to ensure a flawless finish. 
-                Protect your car from York Region winters with our <Link to="/auto-detail" style={{ color: '#f07900', textDecoration: 'none' }}>detailing solutions</Link>.
+                We include meticulous <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> with every package to ensure a flawless finish. 
+                Protect your car from York Region winters with our <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none' }}>detailing solutions in Markham</Link>.
               </p>
             </div>
 

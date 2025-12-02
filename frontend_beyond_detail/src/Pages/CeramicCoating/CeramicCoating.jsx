@@ -27,7 +27,7 @@ function CeramicCoating() {
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Ceramic Coating'
-          keywords='ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, ceramic coating near me, nano ceramic coating scarborough'
+          keywords='ceramic coating near me, ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, ceramic coating pickering, nano ceramic coating scarborough, ceramic coating GTA'
         />
         <motion.div
           initial='out'
@@ -46,8 +46,35 @@ function CeramicCoating() {
               />
             </Suspense>
             
+            {/* Near Me & Location-Specific Content */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Ceramic Coating Near Me - Serving Scarborough, Toronto, Markham & Pickering
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Looking for <strong>ceramic coating near me</strong>? Beyond Detail is your local Ceramic Pro certified installer, 
+                  serving customers throughout the Greater Toronto Area. Based in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>, 
+                  we're conveniently located to serve Scarborough, Toronto, Markham, Pickering, and surrounding GTA communities.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Our ceramic coating services are available for customers in <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>, 
+                  <Link to="/ceramic-coating-toronto" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Toronto</Link>, 
+                  <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>, 
+                  <Link to="/ceramic-coating-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>, 
+                  and throughout the GTA. Every ceramic coating package includes professional paint correction to ensure optimal results 
+                  and long-lasting protection for your vehicle.
+                </p>
+                <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
+                  <strong>Why choose Beyond Detail for ceramic coating?</strong> We're Ceramic Pro certified, offer 2-5 year protection packages, 
+                  include paint correction in every service, and provide lifetime warranty on all installations. 
+                  ⭐ Trusted by 68+ five-star reviews from satisfied GTA customers.
+                </p>
+              </div>
+            </section>
+
             {/* Internal Linking Section */}
-            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
                 Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating in Scarborough</Link></strong>. 
                 Our packages include professional <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> to ensure a flawless finish before coating. 

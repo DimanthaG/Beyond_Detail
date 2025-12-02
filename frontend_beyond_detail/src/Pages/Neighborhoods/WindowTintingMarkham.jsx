@@ -27,7 +27,7 @@ function WindowTintingMarkham() {
           name='Beyond Detail Markham'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting markham, car tint markham, auto tinting markham, ceramic tint markham, window tint shop markham'
+          keywords='window tinting markham, detailing markham, car tint markham, auto tinting markham, ceramic tint markham, window tint shop markham, window tinting unionville, window tinting box grove'
         />
         <motion.div
           initial='out'
@@ -52,11 +52,31 @@ function WindowTintingMarkham() {
               />
             </Suspense>
 
+            {/* Markham Location-Specific Content */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Window Tinting in Markham - Premium LLUMAR Installation for York Region
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Beyond Detail provides professional <strong>window tinting services in Markham</strong>, serving customers throughout 
+                  York Region including Unionville, Box Grove, Markham Village, Cornell, and all Markham neighborhoods. 
+                  Our expert technicians use premium LLUMAR films to provide maximum heat rejection, UV protection, and privacy.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Combine your window tint with our <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating services in Markham</Link> 
+                  for complete vehicle protection. We also offer <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>auto detailing</Link> 
+                  and <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>. 
+                  ⭐ Trusted by Markham customers | Lifetime Warranties | Professional Installation | Call (647) 689-6109.
+                </p>
+              </div>
+            </section>
+
             {/* Internal Linking Section */}
             <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
-                Beyond Detail is the trusted choice for <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting in Markham</Link></strong>. 
-                Whether you're in Unionville, Milliken, or Box Grove, visit our convenient Scarborough location. Consider adding <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for complete protection.
+                Beyond Detail is the trusted choice for <strong><Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting in Markham</Link></strong>. 
+                Whether you're in Unionville, Milliken, or Box Grove, visit our convenient Scarborough location. Consider adding <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for complete protection.
               </p>
             </div>
 

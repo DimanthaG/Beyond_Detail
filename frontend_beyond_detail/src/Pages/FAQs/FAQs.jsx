@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
@@ -70,6 +71,46 @@ function FAQs() {
     setExpandedFAQ(expandedFAQ === id ? null : id);
   };
 
+  // Generate FAQ Schema for SEO (Featured Snippets)
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs
+      .filter((faq) => faq.question) // Only include FAQs with questions
+      .map((faq) => {
+        // Extract text from answer blocks - safely handle undefined/null
+        let answerText = 'Please contact us for more information.';
+        
+        if (faq.answer && Array.isArray(faq.answer) && faq.answer.length > 0) {
+          const textParts = faq.answer
+            .map((block) => {
+              if (block && block.children && Array.isArray(block.children)) {
+                return block.children
+                  .map((c) => c?.text || '')
+                  .filter(Boolean)
+                  .join('');
+              }
+              return '';
+            })
+            .filter(Boolean);
+          
+          if (textParts.length > 0) {
+            answerText = textParts.join(' ');
+          }
+        }
+        
+        return {
+          '@type': 'Question',
+          name: faq.question || 'Question',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answerText
+          }
+        };
+      })
+      .filter((item) => item.name !== 'Question') // Remove items without valid questions
+  };
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -80,6 +121,14 @@ function FAQs() {
           type='website'
           keywords='auto detailing FAQs Toronto, car detailing questions Scarborough, detailing FAQ Markham, vehicle detailing answers Pickering, GTA car care FAQ'
         />
+        {/* FAQ Schema for Featured Snippets */}
+        {faqs.length > 0 && (
+          <Helmet>
+            <script type='application/ld+json'>
+              {JSON.stringify(faqSchema)}
+            </script>
+          </Helmet>
+        )}
         <motion.div
           initial='out'
           animate='in'

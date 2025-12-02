@@ -48,19 +48,30 @@ function Services() {
 
             <section className="package-info">
               <div className="package-info__container">
-                {/* Internal Linking Section */}
+                {/* Internal Linking Section - Enhanced for SEO */}
                 <motion.div 
                   className="service-location-links"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  style={{ marginBottom: '3rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem auto' }}
+                  style={{ marginBottom: '3rem', textAlign: 'center', maxWidth: '1000px', margin: '0 auto 3rem auto', padding: '30px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}
                 >
-                  <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Professional Auto Detailing in Scarborough</h2>
-                  <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#ccc' }}>
-                    Looking for specific detailing services near you? We provide comprehensive <Link to="/car-detailing-scarborough" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>car detailing in Scarborough</Link> and surrounding areas. 
-                    Whether you're in <Link to="/car-detailing-malvern" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>Malvern</Link>, Agincourt, or anywhere in the GTA, 
-                    our team brings professional care to your vehicle. Check out our <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> and <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting</Link> options as well.
+                  <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#f07900' }}>Auto Detailing Services Across the GTA</h2>
+                  <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', marginBottom: '1rem' }}>
+                    Looking for <strong>detailing near you</strong>? Beyond Detail provides professional auto detailing services throughout the Greater Toronto Area. 
+                    We serve customers in <Link to="/car-detailing-scarborough" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>Scarborough</Link>, 
+                    <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold', marginLeft: '0.5rem' }}>Markham</Link>, 
+                    <Link to="/car-detailing-pickering" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold', marginLeft: '0.5rem' }}>Pickering</Link>, 
+                    <Link to="/car-detailing-north-york" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold', marginLeft: '0.5rem' }}>North York</Link>, 
+                    and all GTA areas.
+                  </p>
+                  <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#d0d0d0' }}>
+                    Our comprehensive services include <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link>, 
+                    <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>, 
+                    <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>, 
+                    and complete auto detailing. For <strong>detailing in Markham</strong>, visit our <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>Markham detailing page</Link> 
+                    or check out <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating in Markham</Link> and 
+                    <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction services</Link>.
                   </p>
                 </motion.div>
 

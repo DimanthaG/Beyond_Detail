@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
@@ -26,7 +27,7 @@ function PaintCorrection() {
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Paint Correction'
-          keywords='paint correction scarborough, swirl mark removal scarborough, scratch removal scarborough, paint polishing toronto, auto detailing scarborough, paint restoration scarborough'
+          keywords='paint correction near me, paint correction scarborough, swirl mark removal scarborough, scratch removal scarborough, paint polishing toronto, auto detailing scarborough, paint restoration scarborough, paint correction markham, paint correction pickering'
         />
         <motion.div
           initial='out'
@@ -44,6 +45,34 @@ function PaintCorrection() {
                 forceLandscape
               />
             </Suspense>
+
+            {/* Near Me & Location-Specific Content */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Paint Correction Near Me - Professional Service in Scarborough & GTA
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Searching for <strong>paint correction near me</strong>? Beyond Detail provides professional paint correction services 
+                  in Scarborough and throughout the Greater Toronto Area. Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, 
+                  we're your local experts for removing swirl marks, scratches, and paint defects.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Our paint correction services are available for customers in <Link to="/paint-correction-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>, 
+                  <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>, 
+                  <Link to="/paint-correction-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>, 
+                  <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Toronto</Link>, 
+                  and all GTA areas. We offer 1-3 stage paint correction to restore your vehicle's paint to showroom condition, 
+                  preparing it perfectly for <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> protection.
+                </p>
+                <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
+                  <strong>Why choose Beyond Detail for paint correction?</strong> Expert technicians with years of experience, 
+                  premium products and equipment, comprehensive paint assessment, and satisfaction guarantee. 
+                  ⭐ Trusted by 68+ five-star reviews from satisfied customers across the GTA.
+                </p>
+              </div>
+            </section>
+
             <PaintProtectionInfo />
             <PaintCorrectionInfo
               title="Professional Paint Correction Services"

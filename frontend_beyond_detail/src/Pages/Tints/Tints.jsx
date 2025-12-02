@@ -92,7 +92,7 @@ function Tints() {
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Window Tinting'
-          keywords='window tinting scarborough, car tint scarborough, LLUMAR tint scarborough, window tint near me, ceramic tint scarborough, auto tinting scarborough'
+          keywords='window tinting scarborough, window tint scarborough, car tint scarborough, LLUMAR tint scarborough, window tint near me, ceramic tint scarborough, auto tinting scarborough, window tinting markham, window tinting pickering'
         />
         <motion.div
           initial='out'
@@ -109,6 +109,28 @@ function Tints() {
                 title="Window Tint Gallery"
               />
             </Suspense>
+
+            {/* Location-Specific Content: Window Tinting in Scarborough */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Professional Window Tinting in Scarborough
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Beyond Detail is Scarborough's trusted window tinting specialist, serving customers throughout the Greater Toronto Area. 
+                  Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLUMAR window tint installation 
+                  with same-day service available. Our expert technicians have installed thousands of window tints for Scarborough residents, 
+                  ensuring every installation meets Ontario's legal requirements while maximizing heat rejection and UV protection.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Whether you're in <Link to="/window-tinting-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>, 
+                  <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>, 
+                  <Link to="/window-tinting-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>, 
+                  or anywhere in the GTA, we're your local window tinting experts. 
+                  All installations include a <strong>lifetime warranty</strong> and professional service you can trust.
+                </p>
+              </div>
+            </section>
 
             {/* Internal Linking Section */}
             <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>

@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
@@ -17,11 +18,11 @@ function CarDetailingMarkham() {
         <>
             <Suspense fallback={<Loading />}>
                 <SEO
-                    title="Car Detailing Markham | Auto Detailing & Ceramic Coating"
-                    description="Premium car detailing in Markham. ⭐ In-Shop Service. Window Tinting, Ceramic Coating & Paint Protection. Call (647) 689-6109"
+                    title="Detailing Markham | Car Detailing & Auto Detailing Services | Beyond Detail"
+                    description="Professional detailing in Markham. ⭐ 68 Five-Star Reviews | In-Shop Service | Window Tinting, Ceramic Coating & Paint Protection | Serving Unionville, Box Grove & All Markham | Call (647) 689-6109"
                     name="Beyond Detail Markham"
                     type="website"
-                    keywords="car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham"
+                    keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove"
                 />
                 <motion.div
                     initial="out"
@@ -46,6 +47,34 @@ function CarDetailingMarkham() {
                                 forceLandscape
                             />
                         </Suspense>
+
+                        {/* Detailing Markham - High Priority SEO Section */}
+                        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+                            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                                Professional Detailing in Markham - Serving York Region
+                            </h2>
+                            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                                <p>
+                                    Beyond Detail is Markham's trusted auto detailing specialist, providing premium in-shop services 
+                                    for customers throughout York Region. Located in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>, 
+                                    we're conveniently accessible for Markham residents in Unionville, Box Grove, Markham Village, 
+                                    Cornell, and all Markham neighborhoods.
+                                </p>
+                                <p style={{ marginTop: '1rem' }}>
+                                    Our comprehensive <strong>detailing services in Markham</strong> include professional 
+                                    <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>ceramic coating</Link>, 
+                                    <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>, 
+                                    <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>, 
+                                    and complete <strong>auto detailing</strong>. Every service is performed at our professional facility 
+                                    with premium products and expert technicians. ⭐ Trusted by 68+ five-star reviews from satisfied Markham customers.
+                                </p>
+                                <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
+                                    <strong>Why choose Beyond Detail for detailing in Markham?</strong> Professional in-shop service, 
+                                    premium products (LLUMAR, Ceramic Pro), lifetime warranties, same-day appointments available, 
+                                    and convenient location serving all of York Region. Call (647) 689-6109 to book your Markham detailing service today.
+                                </p>
+                            </div>
+                        </section>
 
                         <section className="package-info">
                             <div className="package-info__container">
