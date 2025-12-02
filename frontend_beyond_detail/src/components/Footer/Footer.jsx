@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { client } from '../../client';
 import images from '../../constants/images';
-import { Loading } from '../../components';
 import './Footer.scss';
 
 function Footer() {

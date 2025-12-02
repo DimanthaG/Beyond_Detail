@@ -2,4 +2,13 @@
 /sitemap.xml /sitemap.xml 200
 /sitemaps.xml /sitemap.xml 301
 /robots.txt /robots.txt 200
+
+# Fix Soft 404 errors - redirect index.html to root
+/index.html / 301
+
+# Block invalid YouTube URLs (return 404)
+/youtube.com/ /404 404
+/youtube.com/youtube.com/ /404 404
+
+# SPA routing - must be last
 /* /index.html 200

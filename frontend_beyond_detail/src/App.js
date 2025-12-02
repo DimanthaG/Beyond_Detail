@@ -55,7 +55,6 @@ const WrappedHeadlightRestoration = withRouteWrapper(HeadlightRestoration);
 const WrappedOdourRemoval = withRouteWrapper(OdourRemoval);
 const WrappedLeatherCleaning = withRouteWrapper(LeatherCleaning);
 const WrappedPaintRemoval = withRouteWrapper(PaintRemoval);
-const ServiceAreaNorthYork = lazy(() => import('./Pages/ServiceAreaNorthYork'));
 const CarDetailingMalvern = lazy(() => import('./Pages/Neighborhoods/CarDetailingMalvern'));
 const CarDetailingScarborough = lazy(() => import('./Pages/Neighborhoods/CarDetailingScarborough'));
 const CeramicCoatingScarborough = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingScarborough'));

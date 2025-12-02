@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { client, urlFor } from '../../client';
-import { Contact } from '../../components';
+import { Contact, SEO } from '../../components';
 import './ServicePage.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -23,8 +23,22 @@ function ServicePage() {
   if (loading) return <div className="loading">Loading...</div>;
   if (!service) return <div className="error">Service not found</div>;
 
+  // Generate SEO-friendly title and description
+  const serviceTitle = service.title || serviceType;
+  const seoTitle = `${serviceTitle} - Professional Auto Detailing Toronto & Scarborough | Beyond Detail`;
+  const seoDescription = service.description 
+    ? `${service.description.substring(0, 150)}... Professional ${serviceTitle.toLowerCase()} services in Toronto, Scarborough, Markham & Pickering. ⭐ 68 Five-Star Reviews | Lifetime Warranty | Call (647) 689-6109`
+    : `Professional ${serviceTitle} services in Toronto, Scarborough, Markham & Pickering. ⭐ 68 Five-Star Reviews | Lifetime Warranty | Beyond Detail`;
+
   return (
     <div className="service-page">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        serviceType={serviceTitle}
+        keywords={`${serviceTitle}, ${serviceTitle} Toronto, ${serviceTitle} Scarborough, ${serviceTitle} Markham, ${serviceTitle} Pickering, car detailing, auto detailing`}
+        image={service.headerImage ? urlFor(service.headerImage).width(1200).url() : undefined}
+      />
       {/* Header Section */}
       {service.headerImage ? (
         <div className="service-header">

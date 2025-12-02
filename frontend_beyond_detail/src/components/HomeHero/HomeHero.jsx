@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Sparkles, Shield, Zap, Star, MapPin, Award, Clock } from 'lucide-react';
+import { ArrowRight, Phone, Sparkles, Shield, Zap, Star, Award, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PartnersCompact from '../Partners/PartnersCompact';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
-import Map from '../Map/Map';
 // import carImageAvif from '../../assets/bd/bd-20.avif';
 // import carImage from '../../assets/bd/bd-20.webp';
 // import carImage400w from '../../assets/bd/bd-20-400w.webp';

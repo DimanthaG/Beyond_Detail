@@ -56,8 +56,9 @@ function Contact() {
   const [contactData, setContactData] = useState([]);
 
   const optTints = useRef();
-  const optWash = useRef();
-  const optPaint = useRef();
+  const optCarDetailing = useRef();
+  const optCeramicCoating = useRef();
+  const optPaintCorrection = useRef();
   const optOther = useRef();
   const optSelect = useRef();
 
@@ -90,11 +91,14 @@ function Contact() {
     if (optTints.current.checked) {
       interestedOptions.push(optTints.current.value);
     }
-    if (optWash.current.checked) {
-      interestedOptions.push(optWash.current.value);
+    if (optCarDetailing.current.checked) {
+      interestedOptions.push(optCarDetailing.current.value);
     }
-    if (optPaint.current.checked) {
-      interestedOptions.push(optPaint.current.value);
+    if (optCeramicCoating.current.checked) {
+      interestedOptions.push(optCeramicCoating.current.value);
+    }
+    if (optPaintCorrection.current.checked) {
+      interestedOptions.push(optPaintCorrection.current.value);
     }
     if (optOther.current.checked) {
       interestedOptions.push(optOther.current.value);
@@ -300,7 +304,7 @@ function Contact() {
                                 type='checkbox'
                                 id='windowTints'
                                 name='windowTints'
-                                value='Window Tints'
+                                value='Window Tint'
                                 ref={optTints}
                                 className='cbInterest'
                               />
@@ -308,29 +312,42 @@ function Contact() {
                             </label>
                           </div>
                           <div className='interestsCB'>
-                            <label htmlFor='carWash'>
+                            <label htmlFor='carDetailing'>
                               <input
                                 type='checkbox'
-                                id='carWash'
-                                name='carWash'
-                                value='Car Wash'
-                                ref={optWash}
+                                id='carDetailing'
+                                name='carDetailing'
+                                value='Car Detailing'
+                                ref={optCarDetailing}
                                 className='cbInterest'
                               />
-                              <span>Car Wash</span>
+                              <span>Car Detailing</span>
                             </label>
                           </div>
                           <div className='interestsCB'>
-                            <label htmlFor='paintProtection'>
+                            <label htmlFor='ceramicCoating'>
                               <input
                                 type='checkbox'
-                                id='paintProtection'
-                                name='paintProtection'
-                                value='Paint Protection'
-                                ref={optPaint}
+                                id='ceramicCoating'
+                                name='ceramicCoating'
+                                value='Ceramic Coating'
+                                ref={optCeramicCoating}
                                 className='cbInterest'
                               />
-                              <span>Paint Protection</span>
+                              <span>Ceramic Coating</span>
+                            </label>
+                          </div>
+                          <div className='interestsCB'>
+                            <label htmlFor='paintCorrection'>
+                              <input
+                                type='checkbox'
+                                id='paintCorrection'
+                                name='paintCorrection'
+                                value='Paint Correction'
+                                ref={optPaintCorrection}
+                                className='cbInterest'
+                              />
+                              <span>Paint Correction</span>
                             </label>
                           </div>
                           <div className='interestsCB'>
@@ -363,9 +380,13 @@ function Contact() {
                               ref={optSelect}
                               aria-labelledby='vehicleType-label'
                             >
-                              <option value='Sedan'>Sedan</option>
+                              <option value='Car'>Car</option>
                               <option value='Hatchback'>Hatchback</option>
-                              <option value='SUV/Truck'>SUV/Truck</option>
+                              <option value='SUV'>SUV</option>
+                              <option value='pick up truck'>pick up truck</option>
+                              <option value='mini van'>mini van</option>
+                              <option value='cargo van'>cargo van</option>
+                              <option value='other'>other</option>
                             </select>
                             <div className='select__arrow'></div>
                           </div>
