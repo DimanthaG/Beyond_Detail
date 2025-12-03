@@ -50,7 +50,10 @@
     "dev:react": "react-app-rewired start",
     "update-galleries": "node scripts/updateGalleryImports.js",
     "prestart": "npm run update-galleries",
-    "prebuild": "npm run update-galleries"
+    "prebuild": "npm run update-galleries",
+    "seo:sitemap": "node generate-sitemap.js",
+    "seo:analyze": "node analyze-blogs.js",
+    "seo:update": "node update-blogs-seo.js"
   },
   "eslintConfig": {
     "extends": [

@@ -1,8 +1,10 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Contact, SEO } from '../../components';
 import { client, urlFor } from '../../client';
 import { calculateReadingTime } from './blogContentFormatter';
+import { BlogLinker } from '../../utils/blogLinker';
 import './Blog.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -36,41 +38,89 @@ const BlockContent = ({ blocks }) => {
         return <li key={idx}>{block.children?.map(child => child.text).join('')}</li>;
       }
 
-      // Handle regular paragraphs with formatting
-      const renderChildren = (children) => {
-        if (!children) return '';
-        return children.map((child, childIdx) => {
-          let text = child.text;
-          if (child.marks?.includes('strong')) {
-            return <strong key={childIdx}>{text}</strong>;
-          }
-          if (child.marks?.includes('em')) {
-            return <em key={childIdx}>{text}</em>;
-          }
-          if (child.marks?.includes('code')) {
-            return <code key={childIdx}>{text}</code>;
-          }
-          return text;
+      // Handle regular paragraphs with formatting and internal linking
+      // Extract full paragraph text first
+      const paragraphText = block.children?.map(child => child.text).join('') || '';
+      
+      if (!paragraphText) {
+        return null;
+      }
+      
+      // Process text with internal linking, preserving formatting
+      const processTextWithFormatting = (text, children) => {
+        const parts = [];
+        let lastIndex = 0;
+        
+        // Create a map of mark positions
+        const markPositions = [];
+        children.forEach((child, childIdx) => {
+          const start = lastIndex;
+          const end = start + child.text.length;
+          markPositions.push({
+            start,
+            end,
+            text: child.text,
+            marks: child.marks || [],
+            childIdx
+          });
+          lastIndex = end;
         });
+        
+        // Use BlogLinker on the full text, then apply formatting
+        // We'll split the linked result and apply marks
+        const linkedContent = <BlogLinker text={text} className="blog-internal-link" maxLinks={3} />;
+        
+        // For now, apply linking to full text and preserve basic structure
+        // This is a simplified approach - for more complex formatting, we'd need a more sophisticated parser
+        return (
+          <React.Fragment>
+            {children.map((child, childIdx) => {
+              const text = child.text;
+              const linkedText = <BlogLinker text={text} className="blog-internal-link" maxLinks={2} />;
+              
+              if (child.marks?.includes('strong')) {
+                return <strong key={childIdx}>{linkedText}</strong>;
+              }
+              if (child.marks?.includes('em')) {
+                return <em key={childIdx}>{linkedText}</em>;
+              }
+              if (child.marks?.includes('code')) {
+                return <code key={childIdx}>{text}</code>;
+              }
+              return <React.Fragment key={childIdx}>{linkedText}</React.Fragment>;
+            })}
+          </React.Fragment>
+        );
       };
-
-      return <p key={idx} className="blog-paragraph">{renderChildren(block.children)}</p>;
+      
+      return (
+        <p key={idx} className="blog-paragraph">
+          {processTextWithFormatting(paragraphText, block.children || [])}
+        </p>
+      );
     }
 
-    // Handle images in content
+    // Handle images in content with enhanced SEO
     if (block._type === 'image') {
+      const imageUrl = urlFor(block).width(1200).format('webp').quality(85).url();
+      const imageUrlFallback = urlFor(block).width(1200).url();
+      
       return (
-        <div key={idx} className="blog-content-image">
-          <img
-            src={urlFor(block).width(800).url()}
-            alt={block.alt || 'Blog content image'}
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          />
-          {block.caption && <p className="image-caption">{block.caption}</p>}
-        </div>
+        <figure key={idx} className="blog-content-image">
+          <picture>
+            <source srcSet={imageUrl} type="image/webp" />
+            <img
+              src={imageUrlFallback}
+              alt={block.alt || 'Blog content image'}
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="675"
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
+          </picture>
+          {block.caption && <figcaption className="image-caption">{block.caption}</figcaption>}
+        </figure>
       );
     }
 
@@ -199,7 +249,7 @@ function Blog() {
       setLoading(true);
       try {
         if (slug) {
-          // Fetch single blog post
+          // Fetch single blog post with related services
           const query = `*[_type == "blogPost" && slug.current == $slug][0] {
             _id,
             title,
@@ -212,7 +262,8 @@ function Blog() {
             content,
             seoTitle,
             seoDescription,
-            keywords
+            keywords,
+            relatedServices
           }`;
           const blog = await client.fetch(query, { slug });
           setSelectedBlog(blog);
@@ -272,6 +323,61 @@ function Blog() {
     const blogUrl = `${currentUrl.split('/blog')[0]}/blog/${selectedBlog.slug.current}`;
     const seoTitle = selectedBlog.seoTitle || `${selectedBlog.title} | Beyond Detail Toronto Blog`;
     const seoDescription = selectedBlog.seoDescription || selectedBlog.excerpt;
+    const publishedDate = new Date(selectedBlog.publishedAt).toISOString();
+    const modifiedDate = publishedDate; // Could be updated if blog has modifiedAt field
+    const mainImageUrl = selectedBlog.mainImage 
+      ? urlFor(selectedBlog.mainImage).width(1200).url() 
+      : undefined;
+
+    // Generate Article structured data
+    const articleSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': blogUrl,
+      headline: selectedBlog.title,
+      description: seoDescription,
+      image: mainImageUrl ? [mainImageUrl] : [],
+      datePublished: publishedDate,
+      dateModified: modifiedDate,
+      author: {
+        '@type': 'Organization',
+        name: selectedBlog.author || 'Beyond Detail Team',
+        url: 'https://beyonddetail.ca'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Beyond Detail',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://beyonddetail.ca/logo192.png'
+        }
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': blogUrl
+      },
+      articleSection: selectedBlog.category || 'Auto Detailing',
+      keywords: selectedBlog.keywords?.join(', ') || `${selectedBlog.category}, car detailing, auto detailing, Toronto, Scarborough, Markham, Pickering`,
+      wordCount: selectedBlog.content ? selectedBlog.content
+        .filter(block => block._type === 'block')
+        .map(block => block.children?.map(child => child.text).join('') || '')
+        .join(' ')
+        .split(/\s+/)
+        .filter(word => word.length > 0).length : 0,
+      timeRequired: `PT${readingTime}M`,
+      inLanguage: 'en-CA'
+    };
+
+    // Service route mapping
+    const serviceRouteMap = {
+      'window-tint': '/tint',
+      'auto-detail': '/auto-detail',
+      'paint-correction': '/paint-correction',
+      'ceramic-coating': '/ceramic-coatings',
+      'interior-detailing': '/interior-detailing',
+      'exterior-detailing': '/exterior-detailing',
+      'headlight-restoration': '/headlight-restoration'
+    };
 
     return (
       <>
@@ -281,18 +387,43 @@ function Blog() {
           name="Beyond Detail Toronto"
           type="article"
           keywords={selectedBlog.keywords?.join(', ') || `${selectedBlog.category}, car detailing, auto detailing, Toronto, Scarborough, Markham, Pickering`}
-          image={selectedBlog.mainImage ? urlFor(selectedBlog.mainImage).width(1200).url() : undefined}
+          image={mainImageUrl}
           url={blogUrl}
         />
+        <Helmet>
+          {/* Article-specific meta tags */}
+          <meta property="article:published_time" content={publishedDate} />
+          <meta property="article:modified_time" content={modifiedDate} />
+          <meta property="article:author" content={selectedBlog.author || 'Beyond Detail Team'} />
+          <meta property="article:section" content={selectedBlog.category || 'Auto Detailing'} />
+          {selectedBlog.keywords && selectedBlog.keywords.map((keyword, idx) => (
+            <meta key={idx} property="article:tag" content={keyword} />
+          ))}
+          
+          {/* Article structured data */}
+          <script type="application/ld+json">
+            {JSON.stringify(articleSchema)}
+          </script>
+        </Helmet>
         <div className="blog-detail">
           {/* Hero Section */}
           <div className="blog-hero">
             {selectedBlog.mainImage && (
               <div className="blog-hero-image">
-                <img
-                  src={urlFor(selectedBlog.mainImage).width(1200).url()}
-                  alt={selectedBlog.mainImage.alt || selectedBlog.title}
-                />
+                <picture>
+                  <source 
+                    srcSet={urlFor(selectedBlog.mainImage).width(1200).format('webp').quality(90).url()} 
+                    type="image/webp" 
+                  />
+                  <img
+                    src={urlFor(selectedBlog.mainImage).width(1200).quality(90).url()}
+                    alt={selectedBlog.mainImage.alt || selectedBlog.title}
+                    loading="eager"
+                    width="1200"
+                    height="675"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </picture>
               </div>
             )}
             <div className="blog-hero-content">
@@ -335,6 +466,59 @@ function Blog() {
             <div className="blog-share-bottom">
               <ShareButtons title={selectedBlog.title} url={blogUrl} />
             </div>
+
+            {/* Related Services Section */}
+            {selectedBlog.relatedServices && selectedBlog.relatedServices.length > 0 && (
+              <section className="blog-related-services" style={{ 
+                marginTop: '3rem', 
+                padding: '2rem', 
+                background: 'rgba(0,0,0,0.3)', 
+                borderRadius: '12px',
+                border: '1px solid rgba(240, 121, 0, 0.3)'
+              }}>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#f07900' }}>
+                  Related Services
+                </h3>
+                <p style={{ marginBottom: '1rem', color: '#e0e0e0' }}>
+                  Interested in our services? Check out these related offerings:
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                  {selectedBlog.relatedServices.map((service, idx) => {
+                    const route = serviceRouteMap[service] || '/auto-detail';
+                    const serviceName = service
+                      .split('-')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                      .join(' ');
+                    return (
+                      <Link
+                        key={idx}
+                        to={route}
+                        style={{
+                          display: 'inline-block',
+                          padding: '0.5rem 1rem',
+                          background: 'rgba(240, 121, 0, 0.2)',
+                          color: '#f07900',
+                          textDecoration: 'none',
+                          borderRadius: '6px',
+                          border: '1px solid rgba(240, 121, 0, 0.5)',
+                          transition: 'all 0.3s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.background = 'rgba(240, 121, 0, 0.3)';
+                          e.target.style.transform = 'translateY(-2px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.background = 'rgba(240, 121, 0, 0.2)';
+                          e.target.style.transform = 'translateY(0)';
+                        }}
+                      >
+                        {serviceName}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
 
             {/* Related Posts */}
             <RelatedPosts currentBlog={selectedBlog} allBlogs={allBlogs} />
