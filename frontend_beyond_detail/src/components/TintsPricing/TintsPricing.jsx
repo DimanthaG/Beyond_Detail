@@ -17,11 +17,9 @@ const TintServiceSelector = ({ tintService, onSelect, options, disabledIndices =
               key={index}
               onClick={() => !isDisabled && onSelect(index)}
               disabled={isDisabled}
-              className={`tints-pricing__service-option ${
-                tintService === index ? "tints-pricing__service-option--active" : ""
-              } ${
-                isDisabled ? "tints-pricing__service-option--disabled" : ""
-              }`}
+              className={`tints-pricing__service-option ${tintService === index ? "tints-pricing__service-option--active" : ""
+                } ${isDisabled ? "tints-pricing__service-option--disabled" : ""
+                }`}
             >
               {option}
             </button>
@@ -41,9 +39,8 @@ const VehicleTypeSelector = ({ vehicleType, onSelect, options }) => {
           <button
             key={index}
             onClick={() => onSelect(index)}
-            className={`tints-pricing__vehicle-option ${
-              vehicleType === index ? "tints-pricing__vehicle-option--active" : ""
-            }`}
+            className={`tints-pricing__vehicle-option ${vehicleType === index ? "tints-pricing__vehicle-option--active" : ""
+              }`}
           >
             {option}
           </button>
@@ -61,18 +58,16 @@ const PercentageSelector = ({ percentage, onSelect, options, isWindshield }) => 
         {options.map((option, index) => {
           const isDisabled = option === 50 && !isWindshield;
           return (
-          <button
-            key={index}
+            <button
+              key={index}
               onClick={() => !isDisabled && onSelect(option)}
               disabled={isDisabled}
-            className={`tints-pricing__percentage-option ${
-              percentage === option ? "tints-pricing__percentage-option--active" : ""
-              } ${
-                isDisabled ? "tints-pricing__percentage-option--disabled" : ""
-            }`}
-          >
-            {option}%
-          </button>
+              className={`tints-pricing__percentage-option ${percentage === option ? "tints-pricing__percentage-option--active" : ""
+                } ${isDisabled ? "tints-pricing__percentage-option--disabled" : ""
+                }`}
+            >
+              {option}%
+            </button>
           );
         })}
       </div>
@@ -149,7 +144,7 @@ function TintsPricing() {
   const products = [
     {
       name: "LLUMAR ATC",
-      subtitle: "DYED FILM",
+      subtitle: "Carbon Film",
       tagline: "Everyday Style, Trusted Protection",
       benefits: [
         "Blocks 99% of harmful UV rays",
@@ -219,7 +214,7 @@ function TintsPricing() {
   ];
 
   const currentProduct = products[selectedProduct];
-  
+
   // Calculate price based on tint service and vehicle type
   let currentPrice = 0;
   if (tintService === 2) {
@@ -335,34 +330,32 @@ function TintsPricing() {
                   {products.map((product, index) => {
                     const isDisabled = tintService === 2 && index === 0; // Disable ATC when windshield is selected
                     return (
-                    <button
-                      key={index}
+                      <button
+                        key={index}
                         onClick={() => !isDisabled && setSelectedProduct(index)}
                         disabled={isDisabled}
-                      className={`tints-pricing__product-button ${
-                        selectedProduct === index
-                          ? "tints-pricing__product-button--active"
-                          : ""
-                        } ${
-                          isDisabled ? "tints-pricing__product-button--disabled" : ""
-                      }`}
-                      style={{
-                        borderColor: selectedProduct === index ? product.color : undefined,
-                        background: selectedProduct === index 
-                          ? `linear-gradient(135deg, ${product.color}15, ${product.color}08)` 
-                          : undefined,
-                        boxShadow: selectedProduct === index 
-                          ? `0 6px 25px ${product.color}40` 
-                          : undefined,
-                      }}
-                    >
-                      {product.name}
-                      {product.badge && (
-                        <span className="tints-pricing__button-badge" style={{ color: product.color }}>
-                          {product.badge}
-                        </span>
-                      )}
-                    </button>
+                        className={`tints-pricing__product-button ${selectedProduct === index
+                            ? "tints-pricing__product-button--active"
+                            : ""
+                          } ${isDisabled ? "tints-pricing__product-button--disabled" : ""
+                          }`}
+                        style={{
+                          borderColor: selectedProduct === index ? product.color : undefined,
+                          background: selectedProduct === index
+                            ? `linear-gradient(135deg, ${product.color}15, ${product.color}08)`
+                            : undefined,
+                          boxShadow: selectedProduct === index
+                            ? `0 6px 25px ${product.color}40`
+                            : undefined,
+                        }}
+                      >
+                        {product.name}
+                        {product.badge && (
+                          <span className="tints-pricing__button-badge" style={{ color: product.color }}>
+                            {product.badge}
+                          </span>
+                        )}
+                      </button>
                     );
                   })}
                 </div>
@@ -449,7 +442,7 @@ function TintsPricing() {
                   )}
                 </div>
                 <span className="tints-pricing__price-note">
-                  {currentPrice === 0 
+                  {currentPrice === 0
                     ? "Not available for this service"
                     : `Starting price for ${tintServiceOptions[tintService]}${tintService === 2 ? ` (${selectedPercentage}% tint)` : vehicleType !== undefined ? ` - ${vehicleOptions[vehicleType]}` : ""}`
                   }

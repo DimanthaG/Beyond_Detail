@@ -5,7 +5,7 @@ import "./TintsFeatures.scss";
 const tintFeatures = [
   {
     title: "LLUMAR ATC",
-    meta: "DYED FILM",
+    meta: "Carbon Film",
     description:
       "Everyday Style, Trusted Protection - Llumar ATC is a high-performance dyed film that delivers sleek style, privacy, and protection without breaking the bank. It's color-stable, fade-resistant, and available in 5%, 15%, 20%, and 30% shades. Blocks 99% of harmful UV rays to help preserve your interior and protect your skin.",
     icon: <Shield className="tints-features__icon" />,
@@ -70,16 +70,14 @@ function TintsFeatures() {
               key={index}
               className={`tints-features__item ${getColSpanClass(
                 item.colSpan
-              )} ${
-                item.hasPersistentHover
+              )} ${item.hasPersistentHover
                   ? "tints-features__item--hover"
                   : ""
-              }`}
+                }`}
             >
               <div
-                className={`tints-features__pattern ${
-                  item.hasPersistentHover ? "tints-features__pattern--show" : ""
-                }`}
+                className={`tints-features__pattern ${item.hasPersistentHover ? "tints-features__pattern--show" : ""
+                  }`}
               />
 
               <div className="tints-features__content">
@@ -113,11 +111,10 @@ function TintsFeatures() {
               </div>
 
               <div
-                className={`tints-features__gradient-border ${
-                  item.hasPersistentHover
+                className={`tints-features__gradient-border ${item.hasPersistentHover
                     ? "tints-features__gradient-border--show"
                     : ""
-                }`}
+                  }`}
               />
             </div>
           ))}
