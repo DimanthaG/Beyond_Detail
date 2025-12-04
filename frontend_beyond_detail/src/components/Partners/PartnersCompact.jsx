@@ -105,6 +105,8 @@ function PartnersCompact() {
                       sizes={partner.sizes}
                       alt={`${partner.name} logo`}
                       className="partners-compact__logo-image"
+                      width="120"
+                      height="60"
                       loading="lazy"
                     />
                   ) : (

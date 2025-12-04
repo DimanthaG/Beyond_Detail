@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import './BentoGrid.scss';
@@ -6,9 +6,6 @@ import './BentoGrid.scss';
 const BentoGrid = ({
   children,
   className = '',
-}: {
-  children: ReactNode;
-  className?: string;
 }) => {
   return (
     <div className={`bento-grid ${className}`}>
@@ -27,16 +24,6 @@ const BentoCard = ({
   description,
   href,
   cta,
-}: {
-  name: string;
-  className?: string;
-  background?: ReactNode;
-  image?: string;
-  imgAlt?: string;
-  Icon: any;
-  description: string;
-  href: string;
-  cta: string;
 }) => (
   <div
     key={name}
@@ -51,6 +38,7 @@ const BentoCard = ({
           width="524"
           height="350"
           loading="lazy"
+          decoding="async"
         />
       </div>
     ) : (
