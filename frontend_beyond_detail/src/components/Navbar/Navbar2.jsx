@@ -112,11 +112,7 @@ function Navbar2({ className = '' }) {
             )}
           </li>
         ))}
-        {/* Mobile CTAs - Visible only on mobile menu */}
-        <li className="mobile-cta-item">
-          <a href="tel:+16476896109" className="mobile-cta-btn">Call Now</a>
-          <Link to="/contact" className="mobile-cta-btn outline" onClick={() => setNavActive(false)}>Request Callback</Link>
-        </li>
+
       </ul>
       <div className={`burger ${navActive ? 'toggle' : ''}`} onClick={() => setNavActive(!navActive)}>
         <div className="line1"></div>
