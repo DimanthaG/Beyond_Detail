@@ -10,7 +10,14 @@ import carImage400w from '../../assets/bd/bd-48-400w.webp';
 import carImage800w from '../../assets/bd/bd-48-800w.webp';
 import './TintsHero.scss';
 
-export function TintsHero({ scrollTarget = "#pricing" }) {
+export function TintsHero({
+  scrollTarget = "#pricing",
+  titleLine1 = "LLUMAR Window Tinting in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of sun glare, faded interiors, and lack of privacy? Get <strong>professional LLUMAR window tinting</strong> in Toronto & Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -39,7 +46,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="tints-hero__background">
           <div className="tints-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -47,7 +54,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                 ${carImage} 1200w
               `}
               sizes="100vw"
-              alt="Window tint service" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
               loading="eager"
               fetchpriority="high"
               decoding="async"
@@ -119,7 +126,7 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    LLUMAR Window Tinting in
+                    {titleLine1}
                   </motion.span>
                   <motion.span
                     className="tints-hero__title-line tints-hero__title-line--highlight"
@@ -127,24 +134,36 @@ export function TintsHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span
-                    className="tints-hero__title-line tints-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="tints-hero__title-line tints-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="tints-hero__title-line tints-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
                 <motion.p
                   className="tints-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of sun glare, faded interiors, and lack of privacy? Get <strong>professional LLUMAR window tinting</strong> in Toronto & Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves.
                 </motion.p>
 
                 {/* Feature Icons */}

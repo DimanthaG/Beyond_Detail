@@ -12,7 +12,14 @@ import carImage1200w from '../../assets/bd/bd-24-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-24-1600w.webp';
 import './PaintRemovalHero.scss';
 
-export function PaintRemovalHero({ scrollTarget = "#contact" }) {
+export function PaintRemovalHero({
+  scrollTarget = "#contact",
+  titleLine1 = "Paint Removal in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of paint overspray, contamination, or unwanted paint on your car? <strong>Safely remove unwanted paint</strong> without damaging your original finish. Our specialized techniques and premium products effectively eliminate paint defects while preserving your vehicle's surfaces—whether on paint, glass, chrome, or trim."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -40,7 +47,7 @@ export function PaintRemovalHero({ scrollTarget = "#contact" }) {
       <div id="hero" className="paint-removal-hero" ref={heroRef}>
         <div className="paint-removal-hero__background">
           <div className="paint-removal-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -50,8 +57,8 @@ export function PaintRemovalHero({ scrollTarget = "#contact" }) {
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Paint removal service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
@@ -121,7 +128,7 @@ export function PaintRemovalHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Paint Removal in
+                    {titleLine1}
                   </motion.span>
                   <motion.span
                     className="paint-removal-hero__title-line paint-removal-hero__title-line--highlight"
@@ -129,24 +136,36 @@ export function PaintRemovalHero({ scrollTarget = "#contact" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span
-                    className="paint-removal-hero__title-line paint-removal-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="paint-removal-hero__title-line paint-removal-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="paint-removal-hero__title-line paint-removal-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
                 <motion.p
                   className="paint-removal-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of paint overspray, contamination, or unwanted paint on your car? <strong>Safely remove unwanted paint</strong> without damaging your original finish. Our specialized techniques and premium products effectively eliminate paint defects while preserving your vehicle's surfaces—whether on paint, glass, chrome, or trim.
                 </motion.p>
 
                 <motion.div

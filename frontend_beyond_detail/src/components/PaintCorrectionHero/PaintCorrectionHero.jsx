@@ -12,7 +12,14 @@ import carImage1200w from '../../assets/bd/bd-24-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-24-1600w.webp';
 import './PaintCorrectionHero.scss';
 
-export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
+export function PaintCorrectionHero({
+  scrollTarget = "#pricing",
+  titleLine1 = "Professional Paint Correction in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of swirl marks, scratches, and dull paint? Remove imperfections with <strong>expert paint correction</strong> in Toronto & Scarborough. Restore gloss, depth & value — and love your car again."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -41,7 +48,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="paint-correction-hero__background">
           <div className="paint-correction-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -51,8 +58,8 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Paint correction service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
@@ -123,7 +130,7 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Professional Paint Correction in
+                    {titleLine1}
                   </motion.span>
                   <motion.span
                     className="paint-correction-hero__title-line paint-correction-hero__title-line--highlight"
@@ -131,24 +138,36 @@ export function PaintCorrectionHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span
-                    className="paint-correction-hero__title-line paint-correction-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="paint-correction-hero__title-line paint-correction-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="paint-correction-hero__title-line paint-correction-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
                 <motion.p
                   className="paint-correction-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of swirl marks, scratches, and dull paint? Remove imperfections with <strong>expert paint correction</strong> in Toronto & Scarborough. Restore gloss, depth & value — and love your car again.
                 </motion.p>
 
                 {/* Feature Icons */}

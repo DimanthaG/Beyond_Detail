@@ -12,7 +12,14 @@ import carImage1200w from '../../assets/bd/bd-26-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-26-1600w.webp';
 import './InteriorDetailingHero.scss';
 
-export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
+export function InteriorDetailingHero({
+  scrollTarget = "#pricing",
+  titleLine1 = "Interior Detailing in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of dirty seats, lingering odors, and a dull interior? <strong>Breathe new life into your vehicle's interior</strong>. Our deep cleaning services go beyond surface cleaning to remove embedded dirt, eliminate odors, and restore that like-new freshness. Professional shampoo extraction, leather conditioning, and meticulous attention to every detail."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -41,7 +48,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="interior-detailing-hero__background">
           <div className="interior-detailing-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -51,8 +58,8 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Interior detailing service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
@@ -105,60 +112,72 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
             >
 
               {/* Title Section */}
-              <motion.div 
+              <motion.div
                 className="interior-detailing-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="interior-detailing-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="interior-detailing-hero__title-line interior-detailing-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Interior Detailing in
+                    {titleLine1}
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="interior-detailing-hero__title-line interior-detailing-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span 
-                    className="interior-detailing-hero__title-line interior-detailing-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="interior-detailing-hero__title-line interior-detailing-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="interior-detailing-hero__title-line interior-detailing-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="interior-detailing-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of dirty seats, lingering odors, and a dull interior? <strong>Breathe new life into your vehicle's interior</strong>. Our deep cleaning services go beyond surface cleaning to remove embedded dirt, eliminate odors, and restore that like-new freshness. Professional shampoo extraction, leather conditioning, and meticulous attention to every detail.
                 </motion.p>
 
                 {/* Feature Icons */}
-                <motion.div 
+                <motion.div
                   className="interior-detailing-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="interior-detailing-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -166,7 +185,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     <Shield className="interior-detailing-hero__feature-icon" />
                     <span>Deep Cleaning</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="interior-detailing-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -174,7 +193,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     <Sparkles className="interior-detailing-hero__feature-icon" />
                     <span>Odor Elimination</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="interior-detailing-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -185,14 +204,14 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="interior-detailing-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="interior-detailing-hero__action-button interior-detailing-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -207,7 +226,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     <span>Get Free Quote</span>
                     <ArrowRight className="interior-detailing-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="interior-detailing-hero__action-button interior-detailing-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -219,7 +238,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="interior-detailing-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -241,7 +260,7 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="interior-detailing-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -259,9 +278,8 @@ export function InteriorDetailingHero({ scrollTarget = "#pricing" }) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`interior-detailing-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`interior-detailing-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />

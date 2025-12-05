@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { client } from '../../client';
 import images from '../../constants/images';
 import './Footer.scss';
@@ -37,7 +38,9 @@ function Footer() {
           {/* Column 1: Company Info */}
           <div className='footer-column footer-company'>
             <div className='footer-logo'>
-              <img src={images.logo2} alt='Beyond Detail Auto Detailing Scarborough Logo' loading='lazy' />
+              <Link to='/'>
+                <img src={images.logo2} alt='Beyond Detail Auto Detailing Scarborough Logo' loading='lazy' />
+              </Link>
             </div>
             {footerData.length !== 0 && (
               <>
@@ -88,9 +91,9 @@ function Footer() {
               >
                 INSTAGRAM
               </a>
-              <a href='/privacy-policy'>
+              <Link to='/privacy-policy'>
                 PRIVACY POLICY
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -98,24 +101,24 @@ function Footer() {
           <div className='footer-column footer-menu'>
             <h4 className='footer-heading'>MENU</h4>
             <div className='footer-links'>
-              <a href='/tint'>
+              <Link to='/tint'>
                 TINT
-              </a>
-              <a href='/about'>
+              </Link>
+              <Link to='/about'>
                 ABOUT US
-              </a>
-              <a href='/auto-detail'>
+              </Link>
+              <Link to='/auto-detail'>
                 AUTO DETAIL
-              </a>
-              <a href='/gallery'>
+              </Link>
+              <Link to='/gallery'>
                 GALLERY
-              </a>
-              <a href='/blog'>
+              </Link>
+              <Link to='/blog'>
                 BLOG
-              </a>
-              <a href='/contact'>
+              </Link>
+              <Link to='/contact'>
                 CONTACT
-              </a>
+              </Link>
             </div>
           </div>
 

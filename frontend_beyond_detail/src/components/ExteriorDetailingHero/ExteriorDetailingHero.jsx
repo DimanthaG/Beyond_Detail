@@ -12,7 +12,14 @@ import carImage1200w from '../../assets/bd/bd-6-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-6-1600w.webp';
 import './ExteriorDetailingHero.scss';
 
-export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
+export function ExteriorDetailingHero({
+  scrollTarget = "#pricing",
+  titleLine1 = "Exterior Detailing in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of dull paint, water spots, and fading? <strong>Restore and protect your vehicle's exterior</strong> to stunning condition. From paint enhancement to comprehensive protection, we transform your vehicle's appearance while defending it against weather, UV damage, and environmental hazards."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -41,7 +48,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="exterior-detailing-hero__background">
           <div className="exterior-detailing-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -51,8 +58,8 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Exterior detailing service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
@@ -123,7 +130,7 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Exterior Detailing in
+                    {titleLine1}
                   </motion.span>
                   <motion.span
                     className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--highlight"
@@ -131,24 +138,36 @@ export function ExteriorDetailingHero({ scrollTarget = "#pricing" }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span
-                    className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="exterior-detailing-hero__title-line exterior-detailing-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
                 <motion.p
                   className="exterior-detailing-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of dull paint, water spots, and fading? <strong>Restore and protect your vehicle's exterior</strong> to stunning condition. From paint enhancement to comprehensive protection, we transform your vehicle's appearance while defending it against weather, UV damage, and environmental hazards.
                 </motion.p>
 
                 {/* Feature Icons */}

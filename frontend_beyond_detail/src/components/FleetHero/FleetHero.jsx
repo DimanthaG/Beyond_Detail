@@ -11,7 +11,14 @@ import carImage1200w from '../../assets/bd/bd-32-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-32-1600w.webp';
 import './FleetHero.scss';
 
-export function FleetHero({ scrollTarget = "#contact" }) {
+export function FleetHero({
+  scrollTarget = "#contact",
+  titleLine1 = "Fleet Services in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of inconsistent quality and high costs for fleet maintenance? <strong>Keep your entire fleet looking professional</strong> while maximizing vehicle value. Specialized services for used car dealerships, retail dealerships, and commercial fleets. Flexible scheduling, volume discounts, and comprehensive packages designed for businesses of all sizes."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -40,7 +47,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="fleet-hero__background">
           <div className="fleet-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -50,8 +57,8 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Fleet services" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
@@ -104,60 +111,72 @@ export function FleetHero({ scrollTarget = "#contact" }) {
             >
 
               {/* Title Section */}
-              <motion.div 
+              <motion.div
                 className="fleet-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="fleet-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="fleet-hero__title-line fleet-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Fleet Services in
+                    {titleLine1}
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="fleet-hero__title-line fleet-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span 
-                    className="fleet-hero__title-line fleet-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="fleet-hero__title-line fleet-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="fleet-hero__title-line fleet-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="fleet-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of inconsistent quality and high costs for fleet maintenance? <strong>Keep your entire fleet looking professional</strong> while maximizing vehicle value. Specialized services for used car dealerships, retail dealerships, and commercial fleets. Flexible scheduling, volume discounts, and comprehensive packages designed for businesses of all sizes.
                 </motion.p>
 
                 {/* Feature Icons */}
-                <motion.div 
+                <motion.div
                   className="fleet-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="fleet-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -165,7 +184,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                     <Building2 className="fleet-hero__feature-icon" />
                     <span>Dealerships</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="fleet-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -173,7 +192,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                     <Truck className="fleet-hero__feature-icon" />
                     <span>Commercial Fleets</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="fleet-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -184,14 +203,14 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="fleet-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="fleet-hero__action-button fleet-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -206,7 +225,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                     <span>Get Free Quote</span>
                     <ArrowRight className="fleet-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="fleet-hero__action-button fleet-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -218,7 +237,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="fleet-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -240,7 +259,7 @@ export function FleetHero({ scrollTarget = "#contact" }) {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="fleet-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -258,9 +277,8 @@ export function FleetHero({ scrollTarget = "#contact" }) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`fleet-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`fleet-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />

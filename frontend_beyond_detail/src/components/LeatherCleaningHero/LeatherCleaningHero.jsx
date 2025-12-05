@@ -12,7 +12,14 @@ import carImage1200w from '../../assets/bd/bd-26-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-26-1600w.webp';
 import './LeatherCleaningHero.scss';
 
-export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
+export function LeatherCleaningHero({
+  scrollTarget = "#contact",
+  titleLine1 = "Leather Cleaning in",
+  titleLine2 = "TORONTO &",
+  titleLine3 = "SCARBOROUGH",
+  titleLine4 = null,
+  subtitle = "Tired of cracked, faded, or dirty leather seats? <strong>Restore your leather to luxurious condition</strong> and protect it for years to come. Our professional cleaning removes embedded dirt and stains, while premium conditioning treatments restore suppleness and create a protective barrier against UV damage, cracking, and wear."
+}) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
@@ -40,7 +47,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
       <div id="hero" className="leather-cleaning-hero" ref={heroRef}>
         <div className="leather-cleaning-hero__background">
           <div className="leather-cleaning-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -50,8 +57,8 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Leather cleaning service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
@@ -103,59 +110,71 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
               className="leather-cleaning-hero__inner"
             >
 
-              <motion.div 
+              <motion.div
                 className="leather-cleaning-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <motion.h1 
+                <motion.h1
                   className="leather-cleaning-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <motion.span 
+                  <motion.span
                     className="leather-cleaning-hero__title-line leather-cleaning-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Leather Cleaning in
+                    {titleLine1}
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="leather-cleaning-hero__title-line leather-cleaning-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
-                    TORONTO &
+                    {titleLine2}
                   </motion.span>
-                  <motion.span 
-                    className="leather-cleaning-hero__title-line leather-cleaning-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    SCARBOROUGH
-                  </motion.span>
+                  {titleLine3 && (
+                    <motion.span
+                      className="leather-cleaning-hero__title-line leather-cleaning-hero__title-line--highlight"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      {titleLine3}
+                    </motion.span>
+                  )}
+                  {titleLine4 && (
+                    <motion.span
+                      className="leather-cleaning-hero__title-line leather-cleaning-hero__title-line--white"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      {titleLine4}
+                    </motion.span>
+                  )}
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="leather-cleaning-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
+                  dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
-                  Tired of cracked, faded, or dirty leather seats? <strong>Restore your leather to luxurious condition</strong> and protect it for years to come. Our professional cleaning removes embedded dirt and stains, while premium conditioning treatments restore suppleness and create a protective barrier against UV damage, cracking, and wear.
                 </motion.p>
 
-                <motion.div 
+                <motion.div
                   className="leather-cleaning-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.1 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="leather-cleaning-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -163,7 +182,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                     <Award className="leather-cleaning-hero__feature-icon" />
                     <span>Restoration</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="leather-cleaning-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -171,7 +190,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                     <Shield className="leather-cleaning-hero__feature-icon" />
                     <span>Protection</span>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="leather-cleaning-hero__feature-item"
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -182,14 +201,14 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                 </motion.div>
 
                 {/* Fast CTAs - Primary Actions */}
-                <motion.div 
+                <motion.div
                   className="leather-cleaning-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.3 }}
                 >
-                  <motion.a 
-                    href="#contact" 
+                  <motion.a
+                    href="#contact"
                     className="leather-cleaning-hero__action-button leather-cleaning-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
@@ -204,7 +223,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                     <span>Get Free Quote</span>
                     <ArrowRight className="leather-cleaning-hero__icon" />
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     href="tel:16476896109"
                     className="leather-cleaning-hero__action-button leather-cleaning-hero__action-button--outline"
                     whileHover={{ scale: 1.05, y: -2 }}
@@ -216,7 +235,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
-                <motion.div 
+                <motion.div
                   className="leather-cleaning-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -238,7 +257,7 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
 
                 {/* Live Reviews - Recent */}
                 {reviews.recentReviews.length > 0 && (
-                  <motion.div 
+                  <motion.div
                     className="leather-cleaning-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -256,9 +275,8 @@ export function LeatherCleaningHero({ scrollTarget = "#contact" }) {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`leather-cleaning-hero__review-star ${
-                                    i < (review.rating || 5) ? 'filled' : ''
-                                  }`}
+                                  className={`leather-cleaning-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
+                                    }`}
                                   size={12}
                                   fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
                                 />

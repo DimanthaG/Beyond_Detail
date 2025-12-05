@@ -11,7 +11,7 @@ import carImage1200w from '../../assets/bd/bd-32-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-32-1600w.webp';
 import './AutoDetailHero.scss';
 
-export function AutoDetailHero({ 
+export function AutoDetailHero({
   scrollTarget = "#pricing",
   titleLine1 = "Full-Service Auto Detailing in",
   titleLine2 = "TORONTO &",
@@ -46,7 +46,7 @@ export function AutoDetailHero({
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="auto-detail-hero__background">
           <div className="auto-detail-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -56,8 +56,8 @@ export function AutoDetailHero({
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Auto detailing service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"

@@ -12,7 +12,7 @@ import carImage1200w from '../../assets/bd/bd-28-1200w.webp';
 import carImage1600w from '../../assets/bd/bd-28-1600w.webp';
 import './CeramicCoatingHero.scss';
 
-export function CeramicCoatingHero({ 
+export function CeramicCoatingHero({
   scrollTarget = "#pricing",
   titleLine1 = "Ceramic Coating in",
   titleLine2 = "TORONTO &",
@@ -48,7 +48,7 @@ export function CeramicCoatingHero({
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="ceramic-coating-hero__background">
           <div className="ceramic-coating-hero__background-image">
-            <img 
+            <img
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -58,8 +58,8 @@ export function CeramicCoatingHero({
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt="Ceramic coating service" 
-              loading="eager" 
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              loading="eager"
               fetchpriority="high"
               decoding="async"
               width="1920"
