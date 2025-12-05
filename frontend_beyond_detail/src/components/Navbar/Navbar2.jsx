@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import logo from '../../assets/logo_1.svg';
+import mobileLogo from '../../assets/logo_mobile_small.png';
 import './Navbar2.scss';
 
 function Navbar2({ className = '' }) {
@@ -60,21 +61,26 @@ function Navbar2({ className = '' }) {
       <Link to="/" className="app__navbar-logo">
         <img src={logo} alt="Beyond Detail Logo" />
       </Link>
-      <Link to="/" className="app__mobile-logo">
-        <img src={logo} alt="Beyond Detail Logo" />
-      </Link>
+      <div className="mobile-brand-container">
+        <Link to="/" className="mobile-logo-link">
+          <img src={mobileLogo} alt="Beyond Detail Logo" />
+        </Link>
+        <div className="mobile-brand-title">
+          BEYOND DETAIL <span>TORONTO</span>
+        </div>
+      </div>
       <ul className={`nav-links ${navActive ? 'nav-active' : ''}`}>
         {navLinks.map((link, index) => (
           <li key={index} className={link.className || ''} onClick={() => !link.dropdown && setNavActive(false)}>
             {link.dropdown ? (
               <div className="navbar__dropdown">
-                <div 
-                  className="navbar__dropdown-link" 
-                  onClick={(e) => { 
+                <div
+                  className="navbar__dropdown-link"
+                  onClick={(e) => {
                     e.preventDefault();
-                    e.stopPropagation(); 
+                    e.stopPropagation();
                     const dropdownKey = link.name.toLowerCase();
-                    setOpenDropdown(openDropdown === dropdownKey ? null : dropdownKey); 
+                    setOpenDropdown(openDropdown === dropdownKey ? null : dropdownKey);
                   }}
                   style={{ cursor: 'pointer' }}
                 >
@@ -85,8 +91,8 @@ function Navbar2({ className = '' }) {
                   <ul className="navbar__dropdown-menu">
                     {link.dropdown.map((item, idx) => (
                       <li key={idx} className="navbar__dropdown-item">
-                        <Link 
-                          to={item.path} 
+                        <Link
+                          to={item.path}
                           className="linkItem"
                           onClick={(e) => {
                             e.stopPropagation();
@@ -106,6 +112,11 @@ function Navbar2({ className = '' }) {
             )}
           </li>
         ))}
+        {/* Mobile CTAs - Visible only on mobile menu */}
+        <li className="mobile-cta-item">
+          <a href="tel:+16476896109" className="mobile-cta-btn">Call Now</a>
+          <Link to="/contact" className="mobile-cta-btn outline" onClick={() => setNavActive(false)}>Request Callback</Link>
+        </li>
       </ul>
       <div className={`burger ${navActive ? 'toggle' : ''}`} onClick={() => setNavActive(!navActive)}>
         <div className="line1"></div>

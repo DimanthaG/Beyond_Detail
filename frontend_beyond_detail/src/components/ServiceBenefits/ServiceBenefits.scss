@@ -1,7 +1,7 @@
 .service-benefits {
   width: 100%;
   padding: 5rem 1rem;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+  background: var(--background-color);
   position: relative;
 
   @media screen and (min-width: 768px) {
@@ -269,4 +269,3 @@
   color: var(--secondary-color);
   flex-shrink: 0;
 }
-

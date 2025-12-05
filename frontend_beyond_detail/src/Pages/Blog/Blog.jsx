@@ -41,16 +41,16 @@ const BlockContent = ({ blocks }) => {
       // Handle regular paragraphs with formatting and internal linking
       // Extract full paragraph text first
       const paragraphText = block.children?.map(child => child.text).join('') || '';
-      
+
       if (!paragraphText) {
         return null;
       }
-      
+
       // Process text with internal linking, preserving formatting
       const processTextWithFormatting = (text, children) => {
         const parts = [];
         let lastIndex = 0;
-        
+
         // Create a map of mark positions
         const markPositions = [];
         children.forEach((child, childIdx) => {
@@ -65,11 +65,11 @@ const BlockContent = ({ blocks }) => {
           });
           lastIndex = end;
         });
-        
+
         // Use BlogLinker on the full text, then apply formatting
         // We'll split the linked result and apply marks
         const linkedContent = <BlogLinker text={text} className="blog-internal-link" maxLinks={3} />;
-        
+
         // For now, apply linking to full text and preserve basic structure
         // This is a simplified approach - for more complex formatting, we'd need a more sophisticated parser
         return (
@@ -77,7 +77,7 @@ const BlockContent = ({ blocks }) => {
             {children.map((child, childIdx) => {
               const text = child.text;
               const linkedText = <BlogLinker text={text} className="blog-internal-link" maxLinks={2} />;
-              
+
               if (child.marks?.includes('strong')) {
                 return <strong key={childIdx}>{linkedText}</strong>;
               }
@@ -92,7 +92,7 @@ const BlockContent = ({ blocks }) => {
           </React.Fragment>
         );
       };
-      
+
       return (
         <p key={idx} className="blog-paragraph">
           {processTextWithFormatting(paragraphText, block.children || [])}
@@ -104,7 +104,7 @@ const BlockContent = ({ blocks }) => {
     if (block._type === 'image') {
       const imageUrl = urlFor(block).width(1200).format('webp').quality(85).url();
       const imageUrlFallback = urlFor(block).width(1200).url();
-      
+
       return (
         <figure key={idx} className="blog-content-image">
           <picture>
@@ -325,8 +325,8 @@ function Blog() {
     const seoDescription = selectedBlog.seoDescription || selectedBlog.excerpt;
     const publishedDate = new Date(selectedBlog.publishedAt).toISOString();
     const modifiedDate = publishedDate; // Could be updated if blog has modifiedAt field
-    const mainImageUrl = selectedBlog.mainImage 
-      ? urlFor(selectedBlog.mainImage).width(1200).url() 
+    const mainImageUrl = selectedBlog.mainImage
+      ? urlFor(selectedBlog.mainImage).width(1200).url()
       : undefined;
 
     // Generate Article structured data
@@ -399,7 +399,7 @@ function Blog() {
           {selectedBlog.keywords && selectedBlog.keywords.map((keyword, idx) => (
             <meta key={idx} property="article:tag" content={keyword} />
           ))}
-          
+
           {/* Article structured data */}
           <script type="application/ld+json">
             {JSON.stringify(articleSchema)}
@@ -411,17 +411,15 @@ function Blog() {
             {selectedBlog.mainImage && (
               <div className="blog-hero-image">
                 <picture>
-                  <source 
-                    srcSet={urlFor(selectedBlog.mainImage).width(1200).format('webp').quality(90).url()} 
-                    type="image/webp" 
+                  <source
+                    srcSet={urlFor(selectedBlog.mainImage).width(1200).format('webp').quality(90).url()}
+                    type="image/webp"
                   />
                   <img
                     src={urlFor(selectedBlog.mainImage).width(1200).quality(90).url()}
                     alt={selectedBlog.mainImage.alt || selectedBlog.title}
                     loading="eager"
-                    width="1200"
-                    height="675"
-                    style={{ width: '100%', height: 'auto' }}
+                    className="blog-hero-img"
                   />
                 </picture>
               </div>
@@ -468,57 +466,59 @@ function Blog() {
             </div>
 
             {/* Related Services Section */}
-            {selectedBlog.relatedServices && selectedBlog.relatedServices.length > 0 && (
-              <section className="blog-related-services" style={{ 
-                marginTop: '3rem', 
-                padding: '2rem', 
-                background: 'rgba(0,0,0,0.3)', 
-                borderRadius: '12px',
-                border: '1px solid rgba(240, 121, 0, 0.3)'
-              }}>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#f07900' }}>
-                  Related Services
-                </h3>
-                <p style={{ marginBottom: '1rem', color: '#e0e0e0' }}>
-                  Interested in our services? Check out these related offerings:
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                  {selectedBlog.relatedServices.map((service, idx) => {
-                    const route = serviceRouteMap[service] || '/auto-detail';
-                    const serviceName = service
-                      .split('-')
-                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                      .join(' ');
-                    return (
-                      <Link
-                        key={idx}
-                        to={route}
-                        style={{
-                          display: 'inline-block',
-                          padding: '0.5rem 1rem',
-                          background: 'rgba(240, 121, 0, 0.2)',
-                          color: '#f07900',
-                          textDecoration: 'none',
-                          borderRadius: '6px',
-                          border: '1px solid rgba(240, 121, 0, 0.5)',
-                          transition: 'all 0.3s ease'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.target.style.background = 'rgba(240, 121, 0, 0.3)';
-                          e.target.style.transform = 'translateY(-2px)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background = 'rgba(240, 121, 0, 0.2)';
-                          e.target.style.transform = 'translateY(0)';
-                        }}
-                      >
-                        {serviceName}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </section>
-            )}
+            {
+              selectedBlog.relatedServices && selectedBlog.relatedServices.length > 0 && (
+                <section className="blog-related-services" style={{
+                  marginTop: '3rem',
+                  padding: '2rem',
+                  background: 'rgba(0,0,0,0.3)',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(240, 121, 0, 0.3)'
+                }}>
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#f07900' }}>
+                    Related Services
+                  </h3>
+                  <p style={{ marginBottom: '1rem', color: '#e0e0e0' }}>
+                    Interested in our services? Check out these related offerings:
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                    {selectedBlog.relatedServices.map((service, idx) => {
+                      const route = serviceRouteMap[service] || '/auto-detail';
+                      const serviceName = service
+                        .split('-')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
+                      return (
+                        <Link
+                          key={idx}
+                          to={route}
+                          style={{
+                            display: 'inline-block',
+                            padding: '0.5rem 1rem',
+                            background: 'rgba(240, 121, 0, 0.2)',
+                            color: '#f07900',
+                            textDecoration: 'none',
+                            borderRadius: '6px',
+                            border: '1px solid rgba(240, 121, 0, 0.5)',
+                            transition: 'all 0.3s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'rgba(240, 121, 0, 0.3)';
+                            e.target.style.transform = 'translateY(-2px)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'rgba(240, 121, 0, 0.2)';
+                            e.target.style.transform = 'translateY(0)';
+                          }}
+                        >
+                          {serviceName}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </section>
+              )
+            }
 
             {/* Related Posts */}
             <RelatedPosts currentBlog={selectedBlog} allBlogs={allBlogs} />
@@ -529,8 +529,8 @@ function Blog() {
                 ← Back to All Posts
               </Link>
             </div>
-          </article>
-        </div>
+          </article >
+        </div >
         <Suspense fallback={null}>
           <GoogleReviewsCarousel />
         </Suspense>
@@ -551,56 +551,103 @@ function Blog() {
       />
       <div className="blog-list">
         <div className="blog-list-header">
-          <h1>Auto Detailing Blog - Toronto & Scarborough</h1>
-          <p className="blog-list-subtitle">
-            Expert tips, guides, and insights on car detailing, paint protection, and vehicle maintenance
-          </p>
+          <div className="header-content">
+            <h1>Auto Detailing Tips & Insights</h1>
+            <p className="blog-list-subtitle">
+              Expert advice on paint protection, ceramic coatings, and vehicle maintenance from Toronto's trusted detailing professionals.
+            </p>
+          </div>
+          <div className="header-background-effect"></div>
         </div>
-        <div className="blogs-grid">
-          {allBlogs.length === 0 ? (
-            <div className="no-blogs">
-              <p>No blog posts yet. Check back soon for expert car detailing tips and guides!</p>
-            </div>
-          ) : (
-            allBlogs.map((blog) => (
-              <article key={blog._id} className="blog-card">
-                <Link to={`/blog/${blog.slug.current}`} className="blog-card-link">
-                  {blog.mainImage && (
-                    <div className="blog-card-image-wrapper">
+
+        {allBlogs.length === 0 ? (
+          <div className="no-blogs">
+            <p>No blog posts yet. Check back soon for expert car detailing tips and guides!</p>
+          </div>
+        ) : (
+          <div className="blog-content-container">
+            {/* Featured Post - First Item */}
+            {allBlogs.length > 0 && (
+              <section className="featured-blog-section">
+                <Link to={`/blog/${allBlogs[0].slug.current}`} className="featured-blog-card">
+                  <div className="featured-image-wrapper">
+                    {allBlogs[0].mainImage && (
                       <img
-                        src={urlFor(blog.mainImage).width(600).url()}
-                        alt={blog.mainImage.alt || blog.title}
-                        className="blog-image"
+                        src={urlFor(allBlogs[0].mainImage).width(1200).height(600).url()}
+                        alt={allBlogs[0].mainImage.alt || allBlogs[0].title}
+                        className="featured-image"
                       />
-                      {blog.category && (
-                        <span className="blog-card-category">{blog.category}</span>
-                      )}
+                    )}
+                    {allBlogs[0].category && (
+                      <span className="blog-category-tag">{allBlogs[0].category}</span>
+                    )}
+                  </div>
+                  <div className="featured-content">
+                    <div className="featured-meta">
+                      <span className="date">
+                        {new Date(allBlogs[0].publishedAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </span>
+                      <span className="separator">•</span>
+                      <span className="read-time">{calculateReadingTime(allBlogs[0].content)} min read</span>
                     </div>
-                  )}
-                  <div className="blog-info">
-                    <h2 className="blog-card-title">{blog.title}</h2>
-                    <p className="excerpt">{blog.excerpt}</p>
-                    <div className="blog-footer">
-                      <div className="blog-card-meta">
-                        <span className="author">{blog.author || 'Admin'}</span>
-                        <span className="date">
-                          {new Date(blog.publishedAt).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                          })}
-                        </span>
-                      </div>
-                      <div className="blog-card-reading-time">
-                        {calculateReadingTime(blog.content)} min read
-                      </div>
-                    </div>
+                    <h2 className="featured-title">{allBlogs[0].title}</h2>
+                    <p className="featured-excerpt">{allBlogs[0].excerpt}</p>
+                    <span className="read-more-btn">
+                      Read Article <span className="arrow">→</span>
+                    </span>
                   </div>
                 </Link>
-              </article>
-            ))
-          )}
-        </div>
+              </section>
+            )}
+
+            {/* Remaining Posts Grid */}
+            {allBlogs.length > 1 && (
+              <div className="blogs-grid">
+                {allBlogs.slice(1).map((blog) => (
+                  <article key={blog._id} className="blog-card">
+                    <Link to={`/blog/${blog.slug.current}`} className="blog-card-link">
+                      <div className="blog-card-image-wrapper">
+                        {blog.mainImage && (
+                          <img
+                            src={urlFor(blog.mainImage).width(600).height(400).url()}
+                            alt={blog.mainImage.alt || blog.title}
+                            className="blog-image"
+                          />
+                        )}
+                        {blog.category && (
+                          <span className="blog-card-category">{blog.category}</span>
+                        )}
+                      </div>
+                      <div className="blog-info">
+                        <div className="blog-card-meta-top">
+                          <span className="date">
+                            {new Date(blog.publishedAt).toLocaleDateString('en-US', {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric'
+                            })}
+                          </span>
+                          <span className="read-time">{calculateReadingTime(blog.content)} min read</span>
+                        </div>
+                        <h2 className="blog-card-title">{blog.title}</h2>
+                        <p className="excerpt">{blog.excerpt}</p>
+                        <div className="blog-footer">
+                          <span className="read-more-link">
+                            Read More
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
       <Suspense fallback={null}>
         <GoogleReviewsCarousel />

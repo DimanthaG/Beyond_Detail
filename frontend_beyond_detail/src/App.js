@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import { Footer, SocialIcons } from './components';
+import { Footer, SocialIcons, MobileFixedFooter } from './components';
 import Navbar from './components/Navbar/Navbar2';
 import { AnimatePresence } from 'framer-motion';
 import { withRouteWrapper } from './components/RouteWrapper/RouteWrapper';
@@ -215,6 +215,7 @@ function App() {
         </Suspense>
       </AnimatePresence>
       <Footer />
+      <MobileFixedFooter />
     </div>
   );
 }

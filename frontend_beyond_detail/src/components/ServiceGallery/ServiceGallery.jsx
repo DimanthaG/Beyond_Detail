@@ -47,7 +47,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                 const result = await client.fetch(query, { serviceType: sanityServiceType });
                 console.log(`[ServiceGallery] Query: serviceType="${sanityServiceType}"`);
                 console.log(`[ServiceGallery] Received ${result.length} images from Sanity`);
-                
+
                 if (result.length === 0) {
                     console.warn(`[ServiceGallery] No images found! Check that images are published in Sanity with serviceType="${sanityServiceType}"`);
                 } else {
@@ -154,7 +154,6 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lightboxOpen, lightboxIndex]);
 
     // Auto-slide functionality (optional)

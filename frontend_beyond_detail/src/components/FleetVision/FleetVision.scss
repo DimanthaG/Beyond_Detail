@@ -1,7 +1,7 @@
 .fleet-vision {
   width: 100%;
   padding: 6rem 1rem;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+  background: var(--background-color);
   position: relative;
 
   @media screen and (min-width: 768px) {
@@ -316,4 +316,3 @@
     font-size: 1.0625rem;
   }
 }
-

@@ -22,16 +22,25 @@ root.render(
 
 // Register service worker for caching and offline support
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then((registration) => {
-        console.log('SW registered:', registration);
-      })
-      .catch((error) => {
-        console.log('SW registration failed:', error);
-      });
-  });
+  if (process.env.NODE_ENV === 'production') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => {
+          console.log('SW registered:', registration);
+        })
+        .catch((error) => {
+          console.log('SW registration failed:', error);
+        });
+    });
+  } else {
+    // In development, unregister any existing service workers
+    navigator.serviceWorker.ready.then((registration) => {
+      registration.unregister();
+    }).catch(error => {
+      console.error(error.message);
+    });
+  }
 }
 
 // If you want to start measuring performance in your app, pass a function

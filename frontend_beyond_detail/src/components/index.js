@@ -24,3 +24,4 @@ export { default as TintsPackages } from './TintsPackages/TintsPackages';
 export { default as SEO } from './SEO';
 export { ShareButtons } from './ShareButtons/ShareButtons';
 export { default as AreasServed } from './AreasServed/AreasServed';
+export { default as MobileFixedFooter } from './MobileFixedFooter/MobileFixedFooter';
