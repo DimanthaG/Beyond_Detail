@@ -7,8 +7,12 @@ import { Loading } from '../../components';
 import './Tints.scss';
 
 // Lazy load heavy components to improve initial bundle size
-const SEO = lazy(() => import('../../components/SEO'));
-const TintsHero = lazy(() => import('../../components/TintsHero/TintsHero'));
+import TintsHero from '../../components/TintsHero/TintsHero';
+import SEO from '../../components/SEO';
+
+// Lazy load heavy components to improve initial bundle size
+// const SEO = lazy(() => import('../../components/SEO'));
+// const TintsHero = lazy(() => import('../../components/TintsHero/TintsHero'));
 const TintsFeatures = lazy(() => import('../../components/TintsFeatures/TintsFeatures'));
 const TintBenefitsInfo = lazy(() => import('../../components/TintBenefitsInfo/TintBenefitsInfo'));
 const TintSpecsChart = lazy(() => import('../../components/TintSpecsChart/TintSpecsChart'));
@@ -79,68 +83,69 @@ function Tints() {
 
   return (
     <>
-      <Suspense fallback={<Loading />}>
-        {/* Add FAQ Schema to head */}
-        <Helmet>
-          <script type="application/ld+json">
-            {JSON.stringify(faqSchema)}
-          </script>
-        </Helmet>
-        <SEO
-          title='Window Tinting Scarborough | LLUMAR Tint Installation | Starting at $250'
-          description='Professional window tinting in Scarborough. ⭐ 68 Five-Star Reviews | Premium LLUMAR Films | Lifetime Warranty | Same-Day Service | Starting at $250 | Call (647) 689-6109'
-          name='Beyond Detail Toronto'
-          type='website'
-          serviceType='Window Tinting'
-          keywords='window tinting scarborough, window tint scarborough, car tint scarborough, LLUMAR tint scarborough, window tint near me, ceramic tint scarborough, auto tinting scarborough, window tinting markham, window tinting pickering'
-        />
-        <motion.div
-          initial='out'
-          animate='in'
-          exit='out'
-          variants={animationOne}
-          transition={{ ...transition, delay: 0 }}
-        >
-          <div className='tints__wrapper'>
-            <TintsHero scrollTarget="#pricing" />
-            <Suspense fallback={null}>
-              <ServiceGallery
-                serviceType="window-tint"
-                title="Window Tint Gallery"
-              />
-            </Suspense>
+      {/* Suspense fallback={<Loading />}>  REMOVED OUTER SUSPENSE */}
+      {/* Add FAQ Schema to head */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      </Helmet>
+      <SEO
+        title='Window Tinting Scarborough | LLUMAR Tint Installation | Starting at $250'
+        description='Professional window tinting in Scarborough. ⭐ 68 Five-Star Reviews | Premium LLUMAR Films | Lifetime Warranty | Same-Day Service | Starting at $250 | Call (647) 689-6109'
+        name='Beyond Detail Toronto'
+        type='website'
+        serviceType='Window Tinting'
+        keywords='window tinting scarborough, window tint scarborough, car tint scarborough, LLUMAR tint scarborough, window tint near me, ceramic tint scarborough, auto tinting scarborough, window tinting markham, window tinting pickering'
+      />
+      <motion.div
+        initial='out'
+        animate='in'
+        exit='out'
+        variants={animationOne}
+        transition={{ ...transition, delay: 0 }}
+      >
+        <div className='tints__wrapper'>
+          <TintsHero scrollTarget="#pricing" />
+          <Suspense fallback={null}>
+            <ServiceGallery
+              serviceType="window-tint"
+              title="Window Tint Gallery"
+            />
+          </Suspense>
 
-            {/* Location-Specific Content: Window Tinting in Scarborough */}
-            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
-                Professional Window Tinting in Scarborough
-              </h2>
-              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
-                <p>
-                  Beyond Detail is Scarborough's trusted window tinting specialist, serving customers throughout the Greater Toronto Area. 
-                  Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLUMAR window tint installation 
-                  with same-day service available. Our expert technicians have installed thousands of window tints for Scarborough residents, 
-                  ensuring every installation meets Ontario's legal requirements while maximizing heat rejection and UV protection.
-                </p>
-                <p style={{ marginTop: '1rem' }}>
-                  Whether you're in <Link to="/window-tinting-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>, 
-                  <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>, 
-                  <Link to="/window-tinting-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>, 
-                  or anywhere in the GTA, we're your local window tinting experts. 
-                  All installations include a <strong>lifetime warranty</strong> and professional service you can trust.
-                </p>
-              </div>
-            </section>
-
-            {/* Internal Linking Section */}
-            <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
-                Beyond Detail provides premium <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting in Scarborough</Link></strong> using LLUMAR films. 
-                Combine your tint service with <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for ultimate protection. 
-                We also offer comprehensive <Link to="/auto-detail" style={{ color: '#f07900', textDecoration: 'none' }}>auto detailing</Link> to keep your car looking showroom new inside and out.
+          {/* Location-Specific Content: Window Tinting in Scarborough */}
+          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+              Professional Window Tinting in Scarborough
+            </h2>
+            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+              <p>
+                Beyond Detail is Scarborough's trusted window tinting specialist, serving customers throughout the Greater Toronto Area.
+                Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLUMAR window tint installation
+                with same-day service available. Our expert technicians have installed thousands of window tints for Scarborough residents,
+                ensuring every installation meets Ontario's legal requirements while maximizing heat rejection and UV protection.
+              </p>
+              <p style={{ marginTop: '1rem' }}>
+                Whether you're in <Link to="/window-tinting-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>,
+                <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>,
+                <Link to="/window-tinting-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>,
+                or anywhere in the GTA, we're your local window tinting experts.
+                All installations include a <strong>lifetime warranty</strong> and professional service you can trust.
               </p>
             </div>
+          </section>
 
+          {/* Internal Linking Section */}
+          <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
+              Beyond Detail provides premium <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting in Scarborough</Link></strong> using LLUMAR films.
+              Combine your tint service with <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> for ultimate protection.
+              We also offer comprehensive <Link to="/auto-detail" style={{ color: '#f07900', textDecoration: 'none' }}>auto detailing</Link> to keep your car looking showroom new inside and out.
+            </p>
+          </div>
+
+          <Suspense fallback={<Loading />}>
             <TintsFeatures />
             <TintBenefitsInfo />
             <TintLawsExplanation />
@@ -150,9 +155,10 @@ function Tints() {
             <TintsPercentage />
             <TintLawsSources />
             <Contact />
-          </div>
-        </motion.div>
-      </Suspense>
+          </Suspense>
+        </div>
+      </motion.div>
+      {/* </Suspense> */}
     </>
   );
 }

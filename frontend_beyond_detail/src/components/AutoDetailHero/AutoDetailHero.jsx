@@ -56,7 +56,7 @@ export function AutoDetailHero({
                 ${carImage} 1920w
               `}
               sizes="100vw"
-              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''}`}
               loading="eager"
               fetchpriority="high"
               decoding="async"
