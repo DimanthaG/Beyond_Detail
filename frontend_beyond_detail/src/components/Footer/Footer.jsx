@@ -8,7 +8,7 @@ function Footer() {
   const defaultFooterData = [{
     number: '+1 (647) 689-6109',
     addressUnit: 'Unit 11',
-    address: '170 Finchdene Square, Scarborough, ON M1X 1B3',
+    address: '170 Finchdene Square, Scarborough, Toronto, ON M1X 1B3',
     hours: {
       hoursDay1: 'Monday - Friday',
       hours1: '8:00 AM - 8:00 PM',

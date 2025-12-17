@@ -11,7 +11,7 @@ const BUSINESS_INFO = {
   name: 'Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto',
   address: {
     streetAddress: '170 Finchdene Square unit 11',
-    addressLocality: 'Scarborough',
+    addressLocality: 'Scarborough, Toronto',
     addressRegion: 'ON',
     postalCode: 'M1X 1B3',
     addressCountry: 'CA'
