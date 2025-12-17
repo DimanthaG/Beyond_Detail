@@ -21,9 +21,9 @@ function Booking() {
         message: '',
     });
     const [isFormSubmitted, SetIsFormSubmitted] = useState(false);
-    const [loading, setLoading] = useState(false);
     const [loadingMessage, setLoadingMessage] = useState(false);
-    const [contactData, setContactData] = useState([]);
+    // Removed unused contactData and associated fetch to prevent blocking render
+    // const [contactData, setContactData] = useState([]);
 
     const optWindowTint = useRef();
     const optCarDetailing = useRef();
@@ -37,15 +37,8 @@ function Booking() {
         window.scrollTo(0, 0);
     }, []);
 
-    useEffect(() => {
-        // Re-use contactPage data for simplicity or create a new schema if needed
-        const query = '*[_type == "contactPage"]';
-
-        client.fetch(query).then((data) => {
-            setContactData(data);
-            setLoading(true);
-        });
-    }, []);
+    // Directly show content, no need for loading state for static form
+    const loading = true; // Renaming to 'isLoaded' logic would be better but keeping variable to minimize diff, setting to true so it renders content.
 
     const { name, email, phone, message } = formData;
 
