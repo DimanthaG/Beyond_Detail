@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, ErrorBoundary, FAQSection } from '../../components';
 import CeramicCoatingInfo from '../../components/CeramicCoatingInfo/CeramicCoatingInfo';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
@@ -19,7 +19,25 @@ const ServiceGallery = lazy(() => import('../../components/ServiceGallery/Servic
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function CeramicCoating() {
-  // ScrollToTop component handles scrolling to hero section
+  // FAQ Data
+  const ceramicCoatingFAQs = [
+    {
+      question: "How long does ceramic coating last?",
+      answer: "Our ceramic coating packages provide protection ranging from 2 to 5+ years, depending on the specific package chosen (Bronze, Silver, Gold). With proper maintenance, these coatings can even outlast their warranty period."
+    },
+    {
+      question: "Do I still need to wash my car after ceramic coating?",
+      answer: "Yes, you still need to wash your car, but it becomes much easier! The hydrophobic properties mean dirt and grime slide off easily. You'll never need to wax your car again, but regular safe washes are required to maintain the coating's performance."
+    },
+    {
+      question: "Is ceramic coating worth it for a new car?",
+      answer: "Absolutely. Applying ceramic coating to a new car preserves the factory paint in pristine condition, protects it from UV damage and oxidation, and significantly increases the vehicle's resale value. It's the best time to apply protection."
+    },
+    {
+      question: "What does ceramic coating protect against?",
+      answer: "Ceramic coating protects against UV rays (oxidation), chemical stains (bird droppings, bug splatter), light scratches and swirl marks, road salt, and dirt buildup. It creates a sacrificial layer that takes the abuse instead of your clear coat."
+    }
+  ];
 
   return (
     <>
@@ -31,6 +49,7 @@ function CeramicCoating() {
         type='website'
         serviceType='Ceramic Coating'
         keywords='ceramic coating near me, ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, ceramic coating pickering, nano ceramic coating scarborough, ceramic coating GTA'
+        faq={ceramicCoatingFAQs}
       />
       <motion.div
         initial='out'
@@ -41,13 +60,15 @@ function CeramicCoating() {
       >
         <div className='ceramic-coating__wrapper'>
           <CeramicCoatingHero scrollTarget="#pricing" />
-          <Suspense fallback={null}>
-            <ServiceGallery
-              serviceType="ceramic-coating"
-              title="Ceramic Coating Gallery"
-              forceLandscape
-            />
-          </Suspense>
+          <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="ceramic-coating"
+                title="Ceramic Coating Gallery"
+                forceLandscape
+              />
+            </Suspense>
+          </ErrorBoundary>
 
           {/* Near Me & Location-Specific Content */}
           <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
@@ -209,9 +230,13 @@ function CeramicCoating() {
             <GoogleReviewsCarousel />
           </Suspense>
           <CeramicCoatingInfo />
-          <Suspense fallback={<Loading />}>
-            <Contact />
-          </Suspense>
+          <FAQSection data={ceramicCoatingFAQs} title="Ceramic Coating FAQs" />
+
+          <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+              <Contact />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </motion.div>
       {/* </Suspense> */}

@@ -10,6 +10,7 @@ import './PaintCorrection.scss';
 
 import PaintCorrectionHero from '../../components/PaintCorrectionHero/PaintCorrectionHero';
 import SEO from '../../components/SEO';
+import { FAQSection, ErrorBoundary } from '../../components';
 
 // Lazy load heavy components to improve initial bundle size
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -21,6 +22,25 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function PaintCorrection() {
   // ScrollToTop component handles scrolling to hero section
 
+  const paintCorrectionFAQs = [
+    {
+      question: "What is paint correction?",
+      answer: "Paint correction is the process of permanently removing surface imperfections like swirl marks, scratches, oxidation, and etching from your vehicle's paint using machine polishers and specialized compounds. It restores the true gloss and depth of your paint."
+    },
+    {
+      question: "Will paint correction remove all scratches?",
+      answer: "Paint correction removes scratches that are in the clear coat layer. Deep scratches that have penetrated through the clear coat to the base coat or primer cannot be polished out and may require touch-up paint or repainting. We measure your paint depth to ensure safe correction."
+    },
+    {
+      question: "How long does paint correction take?",
+      answer: "A single-stage correction typically takes 4-6 hours. Two-stage correction takes 8-12 hours, and multi-stage correction can take 2+ days depending on the severity of defects and desired finish."
+    },
+    {
+      question: "Do I need ceramic coating after paint correction?",
+      answer: "While not mandatory, we highly recommend ceramic coating after paint correction. Since correction removes a tiny layer of clear coat to level defects, your paint needs strong protection. Ceramic coating locks in the flawless finish and protects against future marring."
+    }
+  ];
+
   return (
     <>
       {/* Outer Suspense removed for LCP */}
@@ -31,6 +51,7 @@ function PaintCorrection() {
         type='website'
         serviceType='Paint Correction'
         keywords='paint correction near me, paint correction scarborough, swirl mark removal scarborough, scratch removal scarborough, paint polishing toronto, auto detailing scarborough, paint restoration scarborough, paint correction markham, paint correction pickering'
+        faq={paintCorrectionFAQs}
       />
       <motion.div
         initial='out'
@@ -197,9 +218,13 @@ function PaintCorrection() {
           <Suspense fallback={null}>
             <GoogleReviewsCarousel />
           </Suspense>
-          <Suspense fallback={<Loading />}>
-            <Contact />
-          </Suspense>
+          <FAQSection data={paintCorrectionFAQs} title="Paint Correction FAQs" />
+
+          <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+              <Contact />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </motion.div>
       {/* </Suspense> */}

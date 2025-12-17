@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, ErrorBoundary } from '../../components';
+import { Loading, ErrorBoundary, FAQSection } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './Services.scss';
 
@@ -20,6 +20,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function Services() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data for Schema & UI
+  const autoDetailFAQs = [
+    {
+      question: "How much does auto detailing cost in Scarborough?",
+      answer: "Our auto detailing packages in Scarborough start at $150 for basic interior cleaning. Full interior detailing starts at $200, and comprehensive full-service detailing (interior + exterior) starts at $300. Prices vary based on vehicle size and condition."
+    },
+    {
+      question: "How long does a full auto detail take?",
+      answer: "A full auto detail typically takes between 3 to 6 hours, depending on the condition of the vehicle and the specific package chosen. We focus on quality and ensure every inch of your vehicle is spotless."
+    },
+    {
+      question: "Where are you located in Scarborough?",
+      answer: "Beyond Detail is located at 170 Finchdene Square, Unit 11, Scarborough, ON M1X 1B3. We serve clients from across Toronto, Markham, Pickering, and Durham Region."
+    },
+    {
+      question: "Do you offer mobile detailing?",
+      answer: "We primarily operate from our professional shop to ensure the highest quality results using our specialized equipment and lighting. However, please contact us for specific mobile fleet service inquiries."
+    }
+  ];
+
   return (
     <>
       {/* Outer Suspense removed to allow critical content to load immediately */}
@@ -30,6 +50,7 @@ function Services() {
         type='website'
         serviceType='Auto Detailing'
         keywords='auto detailing Toronto, express detail, signature detail, premium detail, car detailing Scarborough, vehicle detailing Markham, full service detailing Pickering, professional car wash GTA, interior exterior detailing'
+        faq={autoDetailFAQs}
       />
       <motion.div
         initial='out'
@@ -466,6 +487,8 @@ function Services() {
               </div>
             </div>
           </section>
+
+          <FAQSection data={autoDetailFAQs} title="Auto Detailing FAQs" />
 
           <ErrorBoundary>
             <Suspense fallback={<Loading />}>

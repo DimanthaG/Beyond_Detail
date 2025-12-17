@@ -67,7 +67,8 @@ export const SEO = ({
   image,
   url,
   serviceType,
-  noindex = false
+  noindex = false,
+  faq = []
 }) => {
   const location = useLocation();
   const normalizedPath = location.pathname === '/' ? '' : location.pathname;
@@ -232,7 +233,7 @@ export const SEO = ({
 
   // Breadcrumb structured data
   const pathSegments = location.pathname.split('/').filter(Boolean);
-  
+
   const breadcrumbData = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -249,7 +250,7 @@ export const SEO = ({
         const name = segment
           .replace(/-/g, ' ')
           .replace(/\b\w/g, char => char.toUpperCase());
-          
+
         return {
           '@type': 'ListItem',
           position: index + 2,
@@ -286,6 +287,20 @@ export const SEO = ({
       'https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/'
     ]
   };
+
+  // FAQ Structured Data
+  const faqData = faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  } : null;
 
   return (
     <Helmet>
@@ -357,6 +372,13 @@ export const SEO = ({
       <script type='application/ld+json'>
         {JSON.stringify(organizationData)}
       </script>
+
+      {/* FAQ Structured Data */}
+      {faqData && (
+        <script type='application/ld+json'>
+          {JSON.stringify(faqData)}
+        </script>
+      )}
     </Helmet>
   );
 };

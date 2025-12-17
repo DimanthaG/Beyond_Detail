@@ -26,3 +26,4 @@ export { ShareButtons } from './ShareButtons/ShareButtons';
 export { default as AreasServed } from './AreasServed/AreasServed';
 export { default as MobileFixedFooter } from './MobileFixedFooter/MobileFixedFooter';
 export { default as ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
+export { default as FAQSection } from './FAQSection/FAQSection';
