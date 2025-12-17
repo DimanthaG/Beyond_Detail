@@ -488,6 +488,27 @@ function Services() {
             </div>
           </section>
 
+          {/* Localized Service Area Content */}
+          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+              Full Service Auto Detailing in Scarborough & GTA
+            </h2>
+            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+              <p>
+                Beyond Detail is your premier destination for <strong>auto detailing in Scarborough</strong>.
+                Our professional detailing studio at <strong>170 Finchdene Square, Unit 11</strong> is fully equipped to handle everything from
+                interior shampooing and steam cleaning to exterior paint correction. Whether you're coming from
+                <strong>Markham, Pickering, Toronto</strong>, or right here in Scarborough, our detailers treat every vehicle with obsessive care.
+              </p>
+              <p style={{ marginTop: '1rem' }}>
+                We specialize in removing salt stains, pet hair, and odors—common issues for GTA drivers.
+                Our <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> and <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> services
+                are designed to protect your vehicle against Toronto's harsh seasons.
+                Book your appointment today and see why we have over 68 five-star reviews from satisfied local customers.
+              </p>
+            </div>
+          </section>
+
           <FAQSection data={autoDetailFAQs} title="Auto Detailing FAQs" />
 
           <ErrorBoundary>

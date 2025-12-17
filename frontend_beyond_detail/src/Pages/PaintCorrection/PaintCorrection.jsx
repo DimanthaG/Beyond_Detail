@@ -218,6 +218,25 @@ function PaintCorrection() {
           <Suspense fallback={null}>
             <GoogleReviewsCarousel />
           </Suspense>
+          {/* Localized Service Area Content */}
+          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+              Expert Paint Correction in Scarborough & Markham
+            </h2>
+            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+              <p>
+                Restore your vehicle's gloss and remove unsightly swirls with our <strong>paint correction services in Scarborough</strong>.
+                Located at 170 Finchdene Square, we are the go-to studio for car enthusiasts in <strong>Scarborough, Markham, Pickering, and Toronto</strong> who demand perfection.
+                Unlike quick "buff and polish" jobs, our multi-stage paint correction safely measures paint depth and permanently levels defects.
+              </p>
+              <p style={{ marginTop: '1rem' }}>
+                After correction, we highly recommend protecting your perfect finish with a <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> or
+                <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tint</Link> for heat protection.
+                Trust your vehicle to Beyond Detail—where we treat every car like our own.
+              </p>
+            </div>
+          </section>
+
           <FAQSection data={paintCorrectionFAQs} title="Paint Correction FAQs" />
 
           <ErrorBoundary>

@@ -131,6 +131,7 @@ function App() {
             <Route path='/home' element={<Home />} />
             <Route path='/about' element={<WrappedAbout />} />
             <Route path='/tint' element={<WrappedTints />} />
+            <Route path='/window-tinting' element={<WrappedTints />} />
             <Route path='/auto-detail' element={<WrappedServices />} />
             <Route path='/service/:serviceType' element={<WrappedServicePage />} />
             <Route path='/paint-correction' element={<WrappedPaintCorrection />} />
