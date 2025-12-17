@@ -7,6 +7,52 @@ import { calculateReadingTime } from './blogContentFormatter';
 import { BlogLinker } from '../../utils/blogLinker';
 import './Blog.scss';
 
+// Placeholder post for when CMS is empty or loading fails
+const PLACEHOLDER_POST = {
+  _id: 'placeholder-1',
+  title: 'Ultimate Guide to Winter Car Care in Toronto & Scarborough',
+  slug: { current: 'winter-car-care-toronto-scarborough' },
+  author: 'Beyond Detail Team',
+  publishedAt: new Date().toISOString(),
+  excerpt: 'Learn how to protect your vehicle from Toronto\'s harsh winter elements, road salt, and freezing temperatures with our expert detailing guide.',
+  category: 'Car Maintenance',
+  mainImage: {
+    asset: {
+      url: '/images/hero-home.avif' // Fallback to local image if needed, but urlFor structure requires object.
+      // We will handle this in rendering logic to avoid urlFor crashes
+    },
+    alt: 'Winter Car Detailing Toronto'
+  },
+  content: [
+    {
+      _type: 'block',
+      style: 'normal',
+      children: [{ _type: 'span', text: 'Toronto winters are tough on vehicles. From road salt to freezing temperatures, your car takes a beating. In this guide, we share essential tips to keep your car looking new throughout the season.' }]
+    },
+    {
+      _type: 'block',
+      style: 'h2',
+      children: [{ _type: 'span', text: '1. Protect Your Paint with Ceramic Coating' }]
+    },
+    {
+      _type: 'block',
+      style: 'normal',
+      children: [{ _type: 'span', text: 'Road salt is the number one enemy of your car\'s paint. A professional ceramic coating provides a durable shield against salt, preventing rust and corrosion.' }]
+    },
+    {
+      _type: 'block',
+      style: 'h2',
+      children: [{ _type: 'span', text: '2. Interior Protection is Key' }]
+    },
+    {
+      _type: 'block',
+      style: 'normal',
+      children: [{ _type: 'span', text: 'Salt stains on carpets can become permanent if not treated quickly. Our professional interior detailing removes salt and protects fabrics.' }]
+    }
+  ],
+  keywords: ['winter car care', 'rust protection', 'car detailing toronto', 'salt removal']
+};
+
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 // Helper function to render Sanity block content
@@ -307,6 +353,10 @@ function Blog() {
     fetchBlogs();
   }, [slug]);
 
+  // Use placeholder if no blogs found (Avoids "No blog posts yet" empty state for SEO)
+  const displayBlogs = allBlogs.length > 0 ? allBlogs : [PLACEHOLDER_POST];
+  const currentBlog = selectedBlog || (slug === PLACEHOLDER_POST.slug.current ? PLACEHOLDER_POST : null);
+
   if (loading) {
     return (
       <div className="blog-loading">
@@ -317,7 +367,8 @@ function Blog() {
   }
 
   // Single Blog View
-  if (selectedBlog) {
+  if (currentBlog) {
+    const selectedBlog = currentBlog; // Re-assign for cleaner diff
     const readingTime = calculateReadingTime(selectedBlog.content);
     const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
     const blogUrl = `${currentUrl.split('/blog')[0]}/blog/${selectedBlog.slug.current}`;
@@ -325,9 +376,12 @@ function Blog() {
     const seoDescription = selectedBlog.seoDescription || selectedBlog.excerpt;
     const publishedDate = new Date(selectedBlog.publishedAt).toISOString();
     const modifiedDate = publishedDate; // Could be updated if blog has modifiedAt field
-    const mainImageUrl = selectedBlog.mainImage
+
+    // Handle local image fallback for placeholder
+    const isPlaceholder = selectedBlog._id === 'placeholder-1';
+    const mainImageUrl = !isPlaceholder && selectedBlog.mainImage
       ? urlFor(selectedBlog.mainImage).width(1200).url()
-      : undefined;
+      : '/images/hero-home.avif';
 
     // Generate Article structured data
     const articleSchema = {
@@ -408,16 +462,18 @@ function Blog() {
         <div className="blog-detail">
           {/* Hero Section */}
           <div className="blog-hero">
-            {selectedBlog.mainImage && (
+            {mainImageUrl && (
               <div className="blog-hero-image">
                 <picture>
-                  <source
-                    srcSet={urlFor(selectedBlog.mainImage).width(1200).format('webp').quality(90).url()}
-                    type="image/webp"
-                  />
+                  {!isPlaceholder && (
+                    <source
+                      srcSet={urlFor(selectedBlog.mainImage).width(1200).format('webp').quality(90).url()}
+                      type="image/webp"
+                    />
+                  )}
                   <img
-                    src={urlFor(selectedBlog.mainImage).width(1200).quality(90).url()}
-                    alt={selectedBlog.mainImage.alt || selectedBlog.title}
+                    src={mainImageUrl}
+                    alt={selectedBlog.mainImage?.alt || selectedBlog.title}
                     loading="eager"
                     className="blog-hero-img"
                   />
@@ -560,42 +616,48 @@ function Blog() {
           <div className="header-background-effect"></div>
         </div>
 
-        {allBlogs.length === 0 ? (
+        {displayBlogs.length === 0 ? (
           <div className="no-blogs">
             <p>No blog posts yet. Check back soon for expert car detailing tips and guides!</p>
           </div>
         ) : (
           <div className="blog-content-container">
             {/* Featured Post - First Item */}
-            {allBlogs.length > 0 && (
+            {displayBlogs.length > 0 && (
               <section className="featured-blog-section">
-                <Link to={`/blog/${allBlogs[0].slug.current}`} className="featured-blog-card">
+                <Link to={`/blog/${displayBlogs[0].slug.current}`} className="featured-blog-card">
                   <div className="featured-image-wrapper">
-                    {allBlogs[0].mainImage && (
+                    {(allBlogs.length > 0 && displayBlogs[0].mainImage) ? (
                       <img
-                        src={urlFor(allBlogs[0].mainImage).width(1200).height(600).url()}
-                        alt={allBlogs[0].mainImage.alt || allBlogs[0].title}
+                        src={urlFor(displayBlogs[0].mainImage).width(1200).height(600).url()}
+                        alt={displayBlogs[0].mainImage.alt || displayBlogs[0].title}
+                        className="featured-image"
+                      />
+                    ) : (
+                      <img
+                        src="/images/hero-home.avif"
+                        alt={displayBlogs[0].title}
                         className="featured-image"
                       />
                     )}
-                    {allBlogs[0].category && (
-                      <span className="blog-category-tag">{allBlogs[0].category}</span>
+                    {displayBlogs[0].category && (
+                      <span className="blog-category-tag">{displayBlogs[0].category}</span>
                     )}
                   </div>
                   <div className="featured-content">
                     <div className="featured-meta">
                       <span className="date">
-                        {new Date(allBlogs[0].publishedAt).toLocaleDateString('en-US', {
+                        {new Date(displayBlogs[0].publishedAt).toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'long',
                           day: 'numeric'
                         })}
                       </span>
                       <span className="separator">•</span>
-                      <span className="read-time">{calculateReadingTime(allBlogs[0].content)} min read</span>
+                      <span className="read-time">{calculateReadingTime(displayBlogs[0].content)} min read</span>
                     </div>
-                    <h2 className="featured-title">{allBlogs[0].title}</h2>
-                    <p className="featured-excerpt">{allBlogs[0].excerpt}</p>
+                    <h2 className="featured-title">{displayBlogs[0].title}</h2>
+                    <p className="featured-excerpt">{displayBlogs[0].excerpt}</p>
                     <span className="read-more-btn">
                       Read Article <span className="arrow">→</span>
                     </span>
@@ -605,16 +667,22 @@ function Blog() {
             )}
 
             {/* Remaining Posts Grid */}
-            {allBlogs.length > 1 && (
+            {displayBlogs.length > 1 && (
               <div className="blogs-grid">
-                {allBlogs.slice(1).map((blog) => (
+                {displayBlogs.slice(1).map((blog) => (
                   <article key={blog._id} className="blog-card">
                     <Link to={`/blog/${blog.slug.current}`} className="blog-card-link">
                       <div className="blog-card-image-wrapper">
-                        {blog.mainImage && (
+                        {blog.mainImage ? (
                           <img
                             src={urlFor(blog.mainImage).width(600).height(400).url()}
                             alt={blog.mainImage.alt || blog.title}
+                            className="blog-image"
+                          />
+                        ) : (
+                          <img
+                            src="/images/hero-home.avif"
+                            alt={blog.title}
                             className="blog-image"
                           />
                         )}

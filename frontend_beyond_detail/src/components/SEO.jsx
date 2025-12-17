@@ -302,6 +302,55 @@ export const SEO = ({
     }))
   } : null;
 
+  // Dedicated Service Structured Data (for rich snippets)
+  const serviceSchema = serviceType ? {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: serviceType,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: BUSINESS_INFO.name,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: BUSINESS_INFO.address.streetAddress,
+        addressLocality: BUSINESS_INFO.address.addressLocality,
+        addressRegion: BUSINESS_INFO.address.addressRegion,
+        postalCode: BUSINESS_INFO.address.postalCode,
+        addressCountry: BUSINESS_INFO.address.addressCountry
+      },
+      priceRange: '$$'
+    },
+    areaServed: LOCATIONS.map(loc => ({
+      '@type': 'City',
+      name: loc
+    })),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: serviceType + ' Packages',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: `${serviceType} - Basic`
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: `${serviceType} - Premium`
+          }
+        }
+      ]
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      reviewCount: '68'
+    }
+  } : null;
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -377,6 +426,13 @@ export const SEO = ({
       {faqData && (
         <script type='application/ld+json'>
           {JSON.stringify(faqData)}
+        </script>
+      )}
+
+      {/* Dedicated Service Schema */}
+      {serviceSchema && (
+        <script type='application/ld+json'>
+          {JSON.stringify(serviceSchema)}
         </script>
       )}
     </Helmet>
