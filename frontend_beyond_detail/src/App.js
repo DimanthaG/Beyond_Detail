@@ -33,7 +33,7 @@ const HeadlightRestoration = lazy(() => import('./Pages').then(m => ({ default: 
 const OdourRemoval = lazy(() => import('./Pages').then(m => ({ default: m.OdourRemoval })));
 const LeatherCleaning = lazy(() => import('./Pages').then(m => ({ default: m.LeatherCleaning })));
 const PaintRemoval = lazy(() => import('./Pages').then(m => ({ default: m.PaintRemoval })));
-const Booking = lazy(() => import('./Pages').then(m => ({ default: m.Booking })));
+const Booking = lazy(() => import('./Pages/Booking/Booking'));
 
 // ... (other lazy imports)
 
