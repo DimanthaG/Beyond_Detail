@@ -19,3 +19,4 @@ export { default as HeadlightRestoration } from './HeadlightRestoration/Headligh
 export { default as OdourRemoval } from './OdourRemoval/OdourRemoval';
 export { default as LeatherCleaning } from './LeatherCleaning/LeatherCleaning';
 export { default as PaintRemoval } from './PaintRemoval/PaintRemoval';
+export { default as Booking } from './Booking/Booking';

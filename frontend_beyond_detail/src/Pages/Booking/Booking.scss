@@ -1,0 +1,125 @@
+.booking__wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--black-color);
+}
+
+.bookingHeader {
+    text-align: center;
+    padding-top: 4rem;
+
+    h1 {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 4px;
+        font-size: 40px;
+        color: var(--white-color);
+
+        @media screen and (max-width: 768px) {
+            font-size: 28px;
+        }
+    }
+}
+
+.sec_sp_booking {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.form__wrapper_booking {
+    width: 100%;
+
+    .contact__form .form-control {
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        color: #fff;
+        padding: 1rem;
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        &:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+    }
+}
+
+.vehicle-date__wrapper {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    >div {
+        flex: 1;
+        min-width: 250px;
+    }
+}
+
+// Reuse other styles from contact page if needed, but defining basics here for standalone usage
+.btn.ac_btn {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    background-color: var(--secondary-color); // Orange/Gold
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: #fff;
+        color: #000;
+    }
+}
+
+.cbContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2rem;
+
+    label {
+        cursor: pointer;
+
+        span {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        input:checked+span {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        input {
+            display: none;
+        }
+    }
+}
+
+.select__options {
+    width: 100%;
+    padding: 1rem;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.datePick {
+    width: 100%;
+    padding: 1rem;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+}
