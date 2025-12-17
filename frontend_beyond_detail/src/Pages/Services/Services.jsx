@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, ErrorBoundary } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './Services.scss';
 
@@ -41,13 +41,15 @@ function Services() {
         <div className='auto-detail__wrapper'>
           <AutoDetailHero scrollTarget="#pricing" />
 
-          <Suspense fallback={null}>
-            <ServiceGallery
-              serviceType="auto-detail"
-              title="Our Recent Auto Detailing Work"
-              forceLandscape
-            />
-          </Suspense>
+          <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="auto-detail"
+                title="Auto Detailing Gallery"
+                forceLandscape
+              />
+            </Suspense>
+          </ErrorBoundary>
 
           <section className="package-info">
             <div className="package-info__container">
@@ -465,10 +467,11 @@ function Services() {
             </div>
           </section>
 
-          <Suspense fallback={<Loading />}>
-            <Contact />
-
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+              <Contact />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </motion.div>
     </>
