@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, ErrorBoundary, FAQSection } from '../../components';
+import { Loading, ErrorBoundary, FAQSection, TrustBadges } from '../../components';
 import './Tints.scss';
 
 // Lazy load heavy components to improve initial bundle size
@@ -125,6 +125,7 @@ function Tints() {
               <TintLawsChart />
               <TintsPercentage />
               <TintLawsSources />
+              <TrustBadges />
               <FAQSection data={tintsFAQs} title="Window Tinting FAQs" />
               <Contact />
             </Suspense>

@@ -27,3 +27,4 @@ export { default as AreasServed } from './AreasServed/AreasServed';
 export { default as MobileFixedFooter } from './MobileFixedFooter/MobileFixedFooter';
 export { default as ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
 export { default as FAQSection } from './FAQSection/FAQSection';
+export { default as TrustBadges } from './TrustBadges/TrustBadges';
