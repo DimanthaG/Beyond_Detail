@@ -25,12 +25,15 @@ if ('serviceWorker' in navigator) {
   if (process.env.NODE_ENV === 'production') {
     window.addEventListener('load', () => {
       navigator.serviceWorker
-        .register('/service-worker.js')
-        .then((registration) => {
-          console.log('SW registered:', registration);
+        .getRegistrations()
+        .then((registrations) => {
+          for (let registration of registrations) {
+            registration.unregister();
+          }
+          console.log('SW unregistered to force update');
         })
         .catch((error) => {
-          console.log('SW registration failed:', error);
+          console.log('SW unregistration failed:', error);
         });
     });
   } else {

@@ -117,19 +117,27 @@ const WindowTintingGuildwood = lazy(() => import('./Pages/Neighborhoods/WindowTi
 
 function App() {
   let location = useLocation();
+  const hideNavFooterPaths = ['/booking', '/booking/'];
+  const showLayout = !hideNavFooterPaths.includes(location.pathname);
+
   // routes
   return (
     <div className='app'>
       <ScrollToTop />
-      <div className='navEl'>
-        <Navbar className='navbarEl' />
-      </div>
-      <div className='navbar-spacer'></div>
-      <SocialIcons />
+      {showLayout && (
+        <>
+          <div className='navEl'>
+            <Navbar className='navbarEl' />
+          </div>
+          <div className='navbar-spacer'></div>
+          <SocialIcons />
+        </>
+      )}
       <AnimatePresence mode="wait">
         <Suspense fallback={null}>
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
+            <Route path='/booking' element={<Booking />} />
             <Route path='/home' element={<Home />} />
             <Route path='/about' element={<WrappedAbout />} />
             <Route path='/tint' element={<WrappedTints />} />
@@ -217,8 +225,12 @@ function App() {
           </Routes>
         </Suspense>
       </AnimatePresence>
-      <Footer />
-      <MobileFixedFooter />
+      {showLayout && (
+        <>
+          <Footer />
+          <MobileFixedFooter />
+        </>
+      )}
     </div>
   );
 }
