@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import HeadlightRestorationHero from '../../components/HeadlightRestorationHero/HeadlightRestorationHero';
 import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
 import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
@@ -14,6 +14,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function HeadlightRestoration() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const headlightFAQs = [
+    {
+      question: "Why do headlights become yellow and cloudy?",
+      answer: "Headlights dull over time due to UV exposure from the sun, which breaks down the factory protective coating on the polycarbonate lens. Oxidation, road debris, and environmental contaminants also contribute to the yellowing and haziness."
+    },
+    {
+      question: "Is headlight restoration permanent?",
+      answer: "Restoration is a long-lasting solution, but not permanent forever as UV rays will eventually affect the plastic again. However, we apply a high-quality UV-resistant ceramic coating after restoration to protect the clarity for years, far longer than simple polishing kits."
+    },
+    {
+      question: "Does restoration improve night visibility?",
+      answer: "Yes, significantly. Cloudy headlights can reduce light output by up to 80%. Restoring them to crystal clarity allows your bulbs to project light properly, drastically improving your visibility and safety while driving at night."
+    },
+    {
+      question: "How long does the restoration process take?",
+      answer: "The professional headlight restoration process typically takes 1 to 1.5 hours. This includes multi-stage wet sanding, compound polishing, and the application of the protective ceramic coating layer."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -24,6 +44,7 @@ function HeadlightRestoration() {
           type='website'
           serviceType='Headlight Restoration'
           keywords='headlight restoration Toronto, cloudy headlight repair Scarborough, yellowed headlights Markham, headlight polishing Pickering, headlight restoration GTA'
+          faq={headlightFAQs}
         />
         <motion.div
           initial='out'
@@ -75,10 +96,11 @@ function HeadlightRestoration() {
                 "Maintenance recommendations"
               ]}
             />
-            <ServiceContactCTA 
+            <ServiceContactCTA
               title="READY TO RESTORE YOUR HEADLIGHTS?"
               description="Contact us today for a personalized quote and restore your headlights to crystal-clear perfection."
             />
+            <FAQSection data={headlightFAQs} title="Headlight Restoration FAQs" />
             <Contact />
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import PaintRemovalHero from '../../components/PaintRemovalHero/PaintRemovalHero';
 import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
 import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
@@ -14,6 +14,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function PaintRemoval() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const paintRemovalFAQs = [
+    {
+      question: "Does removing paint or overspray damage my clear coat?",
+      answer: "No, when performed by professionals, paint removal is safe. We use specialized clay bars, solvents, and mechanical polishing techniques designed to lift contaminants without abrading the clear coat underneath."
+    },
+    {
+      question: "Can you remove road paint splatter?",
+      answer: "Yes, we frequently remove road paint splatter from wheel wells, lower rocker panels, and side doors. It's best to treat this as soon as possible before it fully hardens, but even old road paint can be safely removed."
+    },
+    {
+      question: "Do you remove graffiti or vandalism?",
+      answer: "Yes, we can remove spray paint vandalism. In many cases, the graffiti sits on top of your factory clear coat and can be dissolved and polished away without needing a repaint."
+    },
+    {
+      question: "Will my paint be dull after removal?",
+      answer: "Often, the removal process can leave minor marring, which is why our service includes a machine polish afterwards to restore gloss and clarity, leaving the area looking better than before."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -24,6 +44,7 @@ function PaintRemoval() {
           type='website'
           serviceType='Paint Removal'
           keywords='paint removal Toronto, overspray removal Scarborough, paint defect removal Markham, vehicle paint stripping Pickering, automotive paint removal GTA'
+          faq={paintRemovalFAQs}
         />
         <motion.div
           initial='out'
@@ -75,10 +96,11 @@ function PaintRemoval() {
                 "Aftercare recommendations"
               ]}
             />
-            <ServiceContactCTA 
+            <ServiceContactCTA
               title="READY TO REMOVE UNWANTED PAINT?"
               description="Contact us today for a personalized quote and safely restore your vehicle's surfaces to pristine condition."
             />
+            <FAQSection data={paintRemovalFAQs} title="Paint Removal FAQs" />
             <Contact />
           </div>
         </motion.div>

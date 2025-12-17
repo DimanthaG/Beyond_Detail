@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import FleetHero from '../../components/FleetHero/FleetHero';
 import FleetExpertise from '../../components/FleetExpertise/FleetExpertise';
@@ -17,6 +17,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function FleetServices() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const fleetServicesFAQs = [
+    {
+      question: "Do you offer volume discounts for fleet vehicles?",
+      answer: "Yes, we offer tiered pricing models based on the number of vehicles in your fleet and the frequency of service. Contact us for a custom quote tailored to your business needs."
+    },
+    {
+      question: "Do you come to our location?",
+      answer: "We offer both mobile detailing at your facility (space and water permitting) and service at our fully equipped studio in Scarborough. For large fleets, we can arrange a schedule that works best for your logistics."
+    },
+    {
+      question: "Can you service large vans and trucks?",
+      answer: "Yes, our facility has high bay doors to accommodate Sprinter vans, work trucks, and commercial vehicles. Our mobile team is also equipped to handle larger vehicles on-site."
+    },
+    {
+      question: "Is corporate billing available?",
+      answer: "Yes, we offer monthly invoicing and account management for our corporate fleet clients to streamline the billing process."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -27,6 +47,7 @@ function FleetServices() {
           type='website'
           serviceType='Fleet Services'
           keywords='fleet services Toronto, commercial vehicle detailing Scarborough, fleet detailing Markham, company car detailing Pickering, commercial auto detailing GTA'
+          faq={fleetServicesFAQs}
         />
         <motion.div
           initial='out'
@@ -108,6 +129,7 @@ function FleetServices() {
             </Suspense>
             <FleetContactCTA />
             <FleetVision />
+            <FAQSection data={fleetServicesFAQs} title="Fleet Services FAQs" />
             <Contact />
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import OdourRemovalHero from '../../components/OdourRemovalHero/OdourRemovalHero';
 import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
 import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
@@ -14,6 +14,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function OdourRemoval() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const odourRemovalFAQs = [
+    {
+      question: "Can you remove cigarette smoke smell from my car?",
+      answer: "Yes, removing smoke odor is one of our specialties. We use a combination of deep steam cleaning for upholstery and an industrial-grade Ozone treatment that permeates the entire cabin to neutralize smoke molecules trapped in the headliner and ventilation system."
+    },
+    {
+      question: "How does the Ozone treatment work?",
+      answer: "Ozone (O3) is a gas that reacts with odor-causing bacteria and molecules to oxidize and eliminate them. We place an ozone generator in your vehicle for a specific duration to kill smells at the source, ensuring they don't return."
+    },
+    {
+      question: "Can you remove mold smells?",
+      answer: "Yes, we treat mold and mildew odors by first identifying and cleaning the moisture source. We then clean and sanitize the affected areas and use ozone treatment to kill any remaining spores in the air or fabric."
+    },
+    {
+      question: "How long does odor removal take?",
+      answer: "A complete odor removal service typically takes a full day (6-8 hours), as it includes a deep interior detail followed by the ozone treatment which requires several hours to run and then air out safely."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -24,6 +44,7 @@ function OdourRemoval() {
           type='website'
           serviceType='Odour Removal'
           keywords='odour removal Toronto, vehicle odor elimination Scarborough, car smell removal Markham, smoke odor removal Pickering, interior odor treatment GTA'
+          faq={odourRemovalFAQs}
         />
         <motion.div
           initial='out'
@@ -79,10 +100,11 @@ function OdourRemoval() {
                 "Quality assurance inspection"
               ]}
             />
-            <ServiceContactCTA 
+            <ServiceContactCTA
               title="READY TO ELIMINATE ODORS?"
               description="Contact us today for a personalized quote and permanently eliminate unpleasant odors from your vehicle."
             />
+            <FAQSection data={odourRemovalFAQs} title="Odour Removal FAQs" />
             <Contact />
           </div>
         </motion.div>

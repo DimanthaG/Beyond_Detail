@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './InteriorDetailing.scss';
@@ -15,6 +15,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function InteriorDetailing() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const interiorDetailingFAQs = [
+    {
+      question: "Does interior detailing remove bad odors?",
+      answer: "Yes, our interior detailing process is highly effective at removing odors. We deep clean all fabrics, shampoo carpets, and can use ozone treatment to neutralize persistent smells like cigarette smoke, pet odors, and mildew."
+    },
+    {
+      question: "How long does it take for seats to dry after shampooing?",
+      answer: "Typically, seats and carpets will be dry within 2-4 hours after shampoo extraction, depending on weather conditions. We use powerful extractors to remove most moisture during the process to ensure quick drying times."
+    },
+    {
+      question: "Do you remove pet hair?",
+      answer: "Absolutely. We specialize in pet hair removal using specialized tools and techniques to lift embedded hair from carpets and upholstery. This is included in our 'Premium' interior package or can be added to other services."
+    },
+    {
+      question: "Does interior detailing include the trunk?",
+      answer: "Yes, the trunk is included in all our interior detailing packages. We vacuum and clean the trunk area to the same high standard as the rest of the vehicle's cabin."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -25,6 +45,7 @@ function InteriorDetailing() {
           type='website'
           serviceType='Interior Detailing'
           keywords='interior detailing Toronto, car interior cleaning Scarborough, vehicle interior detailing Markham, upholstery cleaning Pickering, interior car wash GTA'
+          faq={interiorDetailingFAQs}
         />
         <motion.div
           initial='out'
@@ -168,6 +189,7 @@ function InteriorDetailing() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <FAQSection data={interiorDetailingFAQs} title="Interior Detailing FAQs" />
             <Contact />
           </div>
         </motion.div>

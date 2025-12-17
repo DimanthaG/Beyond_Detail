@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import LeatherCleaningHero from '../../components/LeatherCleaningHero/LeatherCleaningHero';
 import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
 import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
@@ -14,6 +14,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function LeatherCleaning() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const leatherCleaningFAQs = [
+    {
+      question: "How often should I condition my leather seats?",
+      answer: "We recommend cleaning and conditioning leather seats every 3-6 months. This prevents natural oils from evaporating, which causes the leather to dry out, stiffen, and eventually crack."
+    },
+    {
+      question: "Can proper cleaning fix cracked leather?",
+      answer: "Cleaning and conditioning can soften the leather and prevent further damage, but it cannot 'heal' cracks that have already formed. Cracked leather typically requires specialized restoration or repair, which is a different process than maintenance cleaning."
+    },
+    {
+      question: "Does leather cleaning remove jean dye transfer?",
+      answer: "Yes, our leather cleaning process is very effective at removing dye transfer from jeans, especially on light-colored leather. The sooner it is treated, the better the results."
+    },
+    {
+      question: "Is your leather cleaner safe for Nappa or ventilated seats?",
+      answer: "Absolutely. We use pH-neutral, water-based cleaners and conditioners that are safe for all automotive leathers, including delicate Nappa leather and perforated/ventilated seats. We ensure no product clogs the perforation holes."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -24,6 +44,7 @@ function LeatherCleaning() {
           type='website'
           serviceType='Leather Cleaning'
           keywords='leather cleaning Toronto, leather upholstery care Scarborough, car leather conditioning Markham, vehicle leather treatment Pickering, leather detailing GTA'
+          faq={leatherCleaningFAQs}
         />
         <motion.div
           initial='out'
@@ -79,10 +100,11 @@ function LeatherCleaning() {
                 "Maintenance recommendations"
               ]}
             />
-            <ServiceContactCTA 
+            <ServiceContactCTA
               title="READY TO RESTORE YOUR LEATHER?"
               description="Contact us today for a personalized quote and restore your leather to luxurious condition."
             />
+            <FAQSection data={leatherCleaningFAQs} title="Leather Cleaning FAQs" />
             <Contact />
           </div>
         </motion.div>

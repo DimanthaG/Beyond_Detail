@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, FAQSection } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './ExteriorDetailing.scss';
@@ -15,6 +15,26 @@ const Contact = lazy(() => import('../../components/Contact/Contact'));
 function ExteriorDetailing() {
   // ScrollToTop component handles scrolling to hero section
 
+  // FAQ Data
+  const exteriorDetailingFAQs = [
+    {
+      question: "What does exterior detailing include?",
+      answer: "Our exterior detailing service includes a thorough two-bucket hand wash, wheel and tire cleaning, clay bar decontamination to remove embedded grit, and application of a premium sealant for protection. Premium packages also include paint correction and ceramic coating options."
+    },
+    {
+      question: "Will exterior detailing remove scratches?",
+      answer: "Standard exterior detailing focuses on deep cleaning and protection. To remove scratches, swirl marks, and oxidation, you would need our 'Paint Correction' service, which can be added to any detailing package or booked as a standalone service."
+    },
+    {
+      question: "How often should I detail my car's exterior?",
+      answer: "We recommend a comprehensive exterior detail every 4-6 months to maintain your paint's condition and protection. However, regular maintenance washes should be done every 2 weeks to prevent dirt buildup and salt damage."
+    },
+    {
+      question: "What is the difference between wax and sealant?",
+      answer: "Waxes are typically natural products that offer a deep warm shine but last only 4-8 weeks. Sealants are synthetic, offering 4-6 months of durable protection against UV rays, road salts, and environmental contaminants. We use premium sealants for longer-lasting results."
+    }
+  ];
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -25,6 +45,7 @@ function ExteriorDetailing() {
           type='website'
           serviceType='Exterior Detailing'
           keywords='exterior detailing Toronto, car exterior cleaning Scarborough, vehicle exterior detailing Markham, paint protection Pickering, exterior car care GTA'
+          faq={exteriorDetailingFAQs}
         />
         <motion.div
           initial='out'
@@ -160,6 +181,7 @@ function ExteriorDetailing() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <FAQSection data={exteriorDetailingFAQs} title="Exterior Detailing FAQs" />
             <Contact />
           </div>
         </motion.div>
