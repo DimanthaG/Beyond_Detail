@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { client } from '../../client';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, SEO } from '../../components';
 import setHours from 'date-fns/setHours';
@@ -10,8 +10,17 @@ import './Booking.scss';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import images from '../../constants/images';
+import { Car, Droplets, SprayCan, Sun, Sparkles, HelpCircle, Phone, Calendar as CalendarIcon, Clock, CheckCircle, ChevronLeft } from 'lucide-react';
 
 const DatePicker = lazy(() => import('react-datepicker'));
+
+const servicesList = [
+    { id: 'windowTint', label: 'Window Tint', icon: <Sun size={24} />, value: 'Window Tint' },
+    { id: 'carDetailing', label: 'Car Detailing', icon: <Sparkles size={24} />, value: 'Car Detailing' },
+    { id: 'ceramicCoating', label: 'Ceramic Coating', icon: <Droplets size={24} />, value: 'Ceramic Coating' },
+    { id: 'paintCorrection', label: 'Paint Correction', icon: <SprayCan size={24} />, value: 'Paint Correction' },
+    { id: 'other', label: 'Other Services', icon: <HelpCircle size={24} />, value: 'Other' },
+];
 
 function Booking() {
     const [formData, setFormData] = useState({
@@ -19,34 +28,38 @@ function Booking() {
         email: '',
         phone: '',
         message: '',
+        vehicleType: 'Car',
     });
+    const [selectedServices, setSelectedServices] = useState([]);
     const [isFormSubmitted, SetIsFormSubmitted] = useState(false);
     const [loadingMessage, setLoadingMessage] = useState(false);
-    // Removed unused contactData and associated fetch to prevent blocking render
-    // const [contactData, setContactData] = useState([]);
 
-    const optWindowTint = useRef();
-    const optCarDetailing = useRef();
-    const optCeramicCoating = useRef();
-    const optPaintCorrection = useRef();
-    const optOther = useRef();
-    const optSelect = useRef();
+    // Date and time picker state
+    const [startDate, setStartDate] = useState(
+        setHours(setMinutes(new Date(), 30), 16)
+    );
 
     // scroll to top on page render
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Directly show content, no need for loading state for static form
-    const loading = true; // Renaming to 'isLoaded' logic would be better but keeping variable to minimize diff, setting to true so it renders content.
+    // Directly show content
+    const loading = true;
 
-    const { name, email, phone, message } = formData;
+    const { name, email, phone, message, vehicleType } = formData;
 
     const handleChangeInput = (e) => {
-        e.preventDefault();
         const { name, value } = e.target;
-
         setFormData({ ...formData, [name]: value });
+    };
+
+    const toggleService = (value) => {
+        if (selectedServices.includes(value)) {
+            setSelectedServices(selectedServices.filter(item => item !== value));
+        } else {
+            setSelectedServices([...selectedServices, value]);
+        }
     };
 
     // Form submission
@@ -54,23 +67,14 @@ function Booking() {
         e.preventDefault();
         setLoadingMessage(true);
 
-        // Reset and populate interestedOptions array for each submission
-        const interestedOptions = [];
-
-        if (optWindowTint.current.checked) interestedOptions.push(optWindowTint.current.value);
-        if (optCarDetailing.current.checked) interestedOptions.push(optCarDetailing.current.value);
-        if (optCeramicCoating.current.checked) interestedOptions.push(optCeramicCoating.current.value);
-        if (optPaintCorrection.current.checked) interestedOptions.push(optPaintCorrection.current.value);
-        if (optOther.current.checked) interestedOptions.push(optOther.current.value);
-
         const contact = {
             _type: 'contact',
             name: name,
             email: email,
             phone: phone,
             message: message,
-            interestedIn: interestedOptions,
-            vehicleType: optSelect.current.value,
+            interestedIn: selectedServices,
+            vehicleType: vehicleType,
             bookingDate: startDate,
         };
 
@@ -83,8 +87,8 @@ function Booking() {
             from_email: email,
             phone: phone,
             message: message || 'No message provided',
-            vehicle_type: optSelect.current.value,
-            interested_in: interestedOptions.length > 0 ? interestedOptions.join(', ') : 'Not specified',
+            vehicle_type: vehicleType,
+            interested_in: selectedServices.length > 0 ? selectedServices.join(', ') : 'Not specified',
             booking_date: startDate.toLocaleString(),
             to_email: 'info@beyonddetail.ca'
         };
@@ -97,18 +101,17 @@ function Booking() {
         );
 
         Promise.all([sanityPromise, emailPromise])
-            .then(([sanityResult, emailResult]) => {
-                console.log('✅ Form submitted successfully!');
+            .then(() => {
                 setLoadingMessage(false);
                 SetIsFormSubmitted(true);
-
-                // Reset form
                 setFormData({
                     name: '',
                     email: '',
                     phone: '',
                     message: '',
+                    vehicleType: 'Car'
                 });
+                setSelectedServices([]);
             })
             .catch((err) => {
                 console.error("❌ Error submitting form:", err);
@@ -117,230 +120,192 @@ function Booking() {
             });
     };
 
-    // Date and time picker
-    const [startDate, setStartDate] = useState(
-        setHours(setMinutes(new Date(), 30), 16)
-    );
-
     return (
-        <>
-            <motion.div
-                initial='out'
-                animate='in'
-                exit='out'
-                variants={animationOne}
-                transition={transition}
-            >
-                <SEO
-                    title='Book Appointment | Beyond Detail'
-                    description='Book your auto detailing appointment online. Select your services and preferred time.'
-                    name='Beyond Detail Booking'
-                    type='website'
-                    noindex={true}
-                />
-                {loading ? (
-                    <>
-                        <motion.div
-                            className='bookingHeader'
-                            whileInView={{ opacity: [0, 1] }}
-                            transition={{ duration: 2.0 }}
-                            viewport={{ once: true }}
-                        >
-                            <Link to="/">
-                                <img src={images.logo} alt="Beyond Detail Logo" style={{ width: '150px', marginBottom: '2rem' }} />
-                            </Link>
-                            <h1>Select Your Services</h1>
-                        </motion.div>
-                        <div className='booking__wrapper'>
-                            <motion.div
-                                className='sec_sp_booking'
-                                whileInView={{ y: [100, 0], opacity: [0, 1] }}
-                                transition={{ duration: 0.8 }}
-                                viewport={{ once: true }}
-                            >
-                                {!isFormSubmitted ? (
-                                    <div className='form__wrapper_booking'>
-                                        <form className='contact__form' onSubmit={handleSubmit}>
-                                            <div className='mb-3'>
-                                                <div lg='6' className='form-group'>
-                                                    <label htmlFor='name' className='visually-hidden'>Name</label>
-                                                    <input
-                                                        className='form-control rounded-0'
-                                                        id='name'
-                                                        name='name'
-                                                        placeholder='Name *'
-                                                        type='text'
-                                                        required
-                                                        aria-label='Name'
-                                                        onChange={handleChangeInput}
-                                                    />
-                                                </div>
+        <motion.div
+            initial='out'
+            animate='in'
+            exit='out'
+            variants={animationOne}
+            transition={transition}
+            className="booking-page-container"
+        >
+            <SEO
+                title='Book Appointment | Beyond Detail'
+                description='Book your auto detailing appointment online. Select your services and preferred time.'
+                name='Beyond Detail Booking'
+                type='website'
+                noindex={true}
+            />
 
-                                                <div lg='6' className='form-group'>
-                                                    <label htmlFor='email' className='visually-hidden'>Email</label>
-                                                    <input
-                                                        className='form-control rounded-0'
-                                                        id='email'
-                                                        name='email'
-                                                        placeholder='Email *'
-                                                        type='email'
-                                                        required
-                                                        aria-label='Email'
-                                                        onChange={handleChangeInput}
-                                                    />
-                                                </div>
+            <div className="booking-navbar">
+                <Link to="/" className="back-link">
+                    <ChevronLeft size={20} /> Back to Home
+                </Link>
+                <img src={images.logo} alt="Beyond Detail" className="nav-logo" />
+            </div>
 
-                                                <div lg='6' className='form-group'>
-                                                    <label htmlFor='phone' className='visually-hidden'>Phone</label>
-                                                    <input
-                                                        className='form-control rounded-0'
-                                                        id='phone'
-                                                        name='phone'
-                                                        placeholder='Phone *'
-                                                        type='tel'
-                                                        pattern='^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$'
-                                                        required
-                                                        aria-label='Phone'
-                                                        onChange={handleChangeInput}
-                                                    />
-                                                </div>
+            <div className='booking__wrapper'>
+                <motion.div
+                    className='booking-card'
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    {!isFormSubmitted ? (
+                        <>
+                            <header className="booking-header">
+                                <h1>Book Your Appointment</h1>
+                                <p>Select your services and a convenient time.</p>
+                            </header>
 
-                                                <div lg='6' className='form-group interestedCheckBox'>
-                                                    <h3>Interested In: *</h3>
-                                                    <div className='cbContainer'>
-                                                        <div className='servicesCB'>
-                                                            <label htmlFor='windowTint'>
-                                                                <input type='checkbox' id='windowTint' name='windowTint' value='Window Tint' ref={optWindowTint} className='cbInterest' />
-                                                                <span>Window Tint</span>
-                                                            </label>
-                                                        </div>
-                                                        <div className='interestsCB'>
-                                                            <label htmlFor='carDetailing'>
-                                                                <input type='checkbox' id='carDetailing' name='carDetailing' value='Car Detailing' ref={optCarDetailing} className='cbInterest' />
-                                                                <span>Car Detailing</span>
-                                                            </label>
-                                                        </div>
-                                                        <div className='interestsCB'>
-                                                            <label htmlFor='ceramicCoating'>
-                                                                <input type='checkbox' id='ceramicCoating' name='ceramicCoating' value='Ceramic Coating' ref={optCeramicCoating} className='cbInterest' />
-                                                                <span>Ceramic Coating</span>
-                                                            </label>
-                                                        </div>
-                                                        <div className='interestsCB'>
-                                                            <label htmlFor='paintCorrection'>
-                                                                <input type='checkbox' id='paintCorrection' name='paintCorrection' value='Paint Correction' ref={optPaintCorrection} className='cbInterest' />
-                                                                <span>Paint Correction</span>
-                                                            </label>
-                                                        </div>
-                                                        <div className='interestsCB'>
-                                                            <label htmlFor='other'>
-                                                                <input type='checkbox' id='other' name='other' value='Other' ref={optOther} className='cbInterest' />
-                                                                <span>Other</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <form className='booking-form' onSubmit={handleSubmit}>
 
-                                                <div className='vehicle-date__wrapper'>
-                                                    <div lg='6' className='control-group'>
-                                                        <label htmlFor='vehicleType' className='visually-hidden'>
-                                                            Vehicle Type
-                                                        </label>
-                                                        <h3 id='vehicleType-label'>Vehicle Type: *</h3>
-                                                        <div className='select'>
-                                                            <select
-                                                                name='vehicleType'
-                                                                id='vehicleType'
-                                                                className='select__options'
-                                                                ref={optSelect}
-                                                                aria-labelledby='vehicleType-label'
-                                                            >
-                                                                <option value='Car'>Car</option>
-                                                                <option value='Hatchback'>Hatchback</option>
-                                                                <option value='SUV'>SUV</option>
-                                                                <option value='pick up truck'>pick up truck</option>
-                                                                <option value='mini van'>mini van</option>
-                                                                <option value='cargo van'>cargo van</option>
-                                                                <option value='other'>other</option>
-                                                            </select>
-                                                            <div className='select__arrow'></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div lg='6' className='control-group date__wrapper'>
-                                                        <label htmlFor='bookingDateContact' className='visually-hidden'>
-                                                            Preferred date and time
-                                                        </label>
-                                                        <h3 id='bookingDateContact-label'>Date & Time: *</h3>
-                                                        <Suspense fallback={<input className='datePick' aria-label='Date picker loading' readOnly />}>
-                                                            <DatePicker
-                                                                className='datePick'
-                                                                calendarClassName='calenderStyle'
-                                                                headerClassName='headerStyle'
-                                                                dayClassName={() => 'dayStyle'}
-                                                                timeClassName={() => 'timeStyle'}
-                                                                selected={startDate}
-                                                                onChange={(date) => setStartDate(date)}
-                                                                showTimeSelect
-                                                                excludeTimes={[
-                                                                    setHours(setMinutes(new Date(), 0), 17),
-                                                                    setHours(setMinutes(new Date(), 30), 18),
-                                                                    setHours(setMinutes(new Date(), 30), 19),
-                                                                    setHours(setMinutes(new Date(), 30), 17),
-                                                                ]}
-                                                                dateFormat='MMMM d, yyyy - h:mm aa'
-                                                                aria-label='Preferred date and time'
-                                                                aria-labelledby='bookingDateContact-label'
-                                                                id='bookingDateContact'
-                                                            />
-                                                        </Suspense>
-                                                    </div>
-                                                </div>
+                                <div className="form-section">
+                                    <h3 className="section-title">1. Select Services</h3>
+                                    <div className="services-grid">
+                                        {servicesList.map((service) => (
+                                            <div
+                                                key={service.id}
+                                                className={`service-card ${selectedServices.includes(service.value) ? 'active' : ''}`}
+                                                onClick={() => toggleService(service.value)}
+                                            >
+                                                <div className="service-icon">{service.icon}</div>
+                                                <span>{service.label}</span>
+                                                {selectedServices.includes(service.value) && (
+                                                    <div className="check-mark"><CheckCircle size={16} /></div>
+                                                )}
                                             </div>
-                                            <label htmlFor='message' className='visually-hidden'>Message</label>
-                                            <textarea
-                                                className='form-control rounded-0'
-                                                id='message'
-                                                name='message'
-                                                placeholder='Tell us about your project or any questions you have'
-                                                aria-label='Message'
-                                                onChange={handleChangeInput}
-                                                rows='5'
-                                            ></textarea>
-                                            <br />
-                                            <div>
-                                                <div lg='12' className='form-group'>
-                                                    <button
-                                                        className='btn ac_btn rounded-0'
-                                                        type='submit'
-                                                        style={{ margin: '0 auto', display: 'block' }}
-                                                    >
-                                                        {loadingMessage ? 'Sending...' : 'Request Booking'}
-                                                    </button>
-                                                </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="form-section two-col">
+                                    <div>
+                                        <h3 className="section-title">2. Vehicle Details</h3>
+                                        <div className="input-group">
+                                            <label htmlFor="vehicleType">Vehicle Type</label>
+                                            <div className="select-wrapper">
+                                                <Car size={18} className="input-icon" />
+                                                <select
+                                                    name='vehicleType'
+                                                    id='vehicleType'
+                                                    value={vehicleType}
+                                                    onChange={handleChangeInput}
+                                                    className="styled-input"
+                                                >
+                                                    <option value='Car'>Car / Sedan</option>
+                                                    <option value='Hatchback'>Hatchback</option>
+                                                    <option value='SUV'>SUV / Crossover</option>
+                                                    <option value='Pick Up Truck'>Pick Up Truck</option>
+                                                    <option value='Mini Van'>Mini Van</option>
+                                                    <option value='Cargo Van'>Cargo Van</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
                                             </div>
-                                        </form>
-                                        <div style={{ textAlign: 'center', marginTop: '2rem', color: '#888' }}>
-                                            <p>Or call us directly at <a href="tel:6476896109" style={{ color: '#fff' }}>(647) 689-6109</a></p>
                                         </div>
                                     </div>
-                                ) : (
-                                    <div style={{ textAlign: 'center', padding: '4rem' }}>
-                                        <h3 className='head-text2'>
-                                            Thank you! We have received your booking request.<br />
-                                            We will contact you shortly to confirm your appointment.
-                                        </h3>
-                                        <Link to="/" style={{ color: '#f07900', marginTop: '2rem', display: 'inline-block' }}>Return Home</Link>
+                                    <div>
+                                        <h3 className="section-title">3. Preferred Date</h3>
+                                        <div className="input-group date-group">
+                                            <label>Date & Time</label>
+                                            <div className="date-input-wrapper">
+                                                <CalendarIcon size={18} className="input-icon" />
+                                                <Suspense fallback={<span>Loading...</span>}>
+                                                    <DatePicker
+                                                        className='styled-input date-input'
+                                                        selected={startDate}
+                                                        onChange={(date) => setStartDate(date)}
+                                                        showTimeSelect
+                                                        dateFormat='MMMM d, yyyy - h:mm aa'
+                                                        excludeTimes={[
+                                                            setHours(setMinutes(new Date(), 0), 17),
+                                                            setHours(setMinutes(new Date(), 30), 18),
+                                                            setHours(setMinutes(new Date(), 30), 19),
+                                                        ]}
+                                                    />
+                                                </Suspense>
+                                            </div>
+                                        </div>
                                     </div>
-                                )}
-                            </motion.div>
-                        </div>
-                    </>
-                ) : (
-                    <Loading />
-                )}
-            </motion.div>
-        </>
+                                </div>
+
+                                <div className="form-section">
+                                    <h3 className="section-title">4. Contact Info</h3>
+                                    <div className="contact-grid">
+                                        <div className="input-group">
+                                            <input
+                                                className='styled-input'
+                                                name='name'
+                                                placeholder='Your Name *'
+                                                value={name}
+                                                onChange={handleChangeInput}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="input-group">
+                                            <input
+                                                className='styled-input'
+                                                name='email'
+                                                type='email'
+                                                placeholder='Email Address *'
+                                                value={email}
+                                                onChange={handleChangeInput}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="input-group">
+                                            <input
+                                                className='styled-input'
+                                                name='phone'
+                                                type='tel'
+                                                placeholder='Phone Number *'
+                                                value={phone}
+                                                onChange={handleChangeInput}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="input-group mt-3">
+                                        <textarea
+                                            className='styled-input textarea'
+                                            name='message'
+                                            placeholder='Any specific requests or questions?'
+                                            value={message}
+                                            onChange={handleChangeInput}
+                                            rows='3'
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <button
+                                    className='submit-btn'
+                                    type='submit'
+                                    disabled={loadingMessage}
+                                >
+                                    {loadingMessage ? 'Submitting Request...' : 'Confirm Booking Request'}
+                                </button>
+
+                                <div className="phone-support">
+                                    <p>Need help? Call us directly</p>
+                                    <a href="tel:6476896109" className="phone-link"><Phone size={16} /> (647) 689-6109</a>
+                                </div>
+                            </form>
+                        </>
+                    ) : (
+                        <motion.div
+                            className="success-message"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                        >
+                            <CheckCircle size={64} color="#f07900" />
+                            <h2>Request Received!</h2>
+                            <p>Thank you for choosing Beyond Detail. We will confirm your appointment shortly.</p>
+                            <Link to="/" className="home-btn">Return to Home</Link>
+                        </motion.div>
+                    )}
+                </motion.div>
+            </div>
+        </motion.div>
     );
 }
 

@@ -1,125 +1,357 @@
-.booking__wrapper {
+@import '../../index.scss';
+
+.booking-page-container {
     min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
+
+    .back-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #aaa;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+
+    .nav-logo {
+        height: 40px;
+        object-fit: contain;
+    }
+}
+
+.booking__wrapper {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 2rem 0;
-    background-color: var(--black-color);
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    width: 100%;
 }
 
-.bookingHeader {
-    text-align: center;
-    padding-top: 4rem;
-
-    h1 {
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 4px;
-        font-size: 40px;
-        color: var(--white-color);
-
-        @media screen and (max-width: 768px) {
-            font-size: 28px;
-        }
-    }
-}
-
-.sec_sp_booking {
+.booking-card {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.form__wrapper_booking {
-    width: 100%;
-
-    .contact__form .form-control {
-        background-color: #1a1a1a;
-        border: 1px solid #333;
-        color: #fff;
-        padding: 1rem;
-        width: 100%;
-        margin-bottom: 1.5rem;
-
-        &:focus {
-            border-color: var(--secondary-color);
-            outline: none;
-        }
-    }
-}
-
-.vehicle-date__wrapper {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-
-    >div {
-        flex: 1;
-        min-width: 250px;
-    }
-}
-
-// Reuse other styles from contact page if needed, but defining basics here for standalone usage
-.btn.ac_btn {
-    padding: 1rem 3rem;
-    font-size: 1.1rem;
-    background-color: var(--secondary-color); // Orange/Gold
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: #fff;
-        color: #000;
-    }
-}
-
-.cbContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     margin-bottom: 2rem;
 
-    label {
-        cursor: pointer;
+    @media screen and (max-width: 768px) {
+        padding: 1.5rem;
+    }
+}
 
-        span {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #333;
-            color: #fff;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+.booking-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(45deg, #fff, #bbb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        color: #888;
+        font-size: 1rem;
+    }
+}
+
+.section-title {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+
+    &.two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
         }
+    }
+}
 
-        input:checked+span {
+/* Service Cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    .service-icon {
+        color: #888;
+        transition: color 0.3s;
+    }
+
+    span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+        color: #ccc;
+    }
+
+    .check-mark {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        color: var(--secondary-color);
+        animation: scaleIn 0.2s ease;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.06);
+        transform: translateY(-2px);
+
+        .service-icon {
+            color: #fff;
+        }
+    }
+
+    &.active {
+        background: rgba(240, 121, 0, 0.15); // Secondary color with low opacity
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 15px rgba(240, 121, 0, 0.1);
+
+        .service-icon,
+        span {
+            color: #fff;
+        }
+    }
+}
+
+/* Inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+
+    label {
+        font-size: 0.85rem;
+        color: #aaa;
+        font-weight: 500;
+    }
+}
+
+.styled-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s;
+    outline: none;
+
+    /* For icons inside input wrapper */
+    &.date-input {
+        padding-left: 1rem;
+    }
+
+    &:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 2px rgba(240, 121, 0, 0.1);
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    &::placeholder {
+        color: #555;
+    }
+}
+
+/* Select & Date Wrappers */
+.select-wrapper,
+.date-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input-icon {
+        position: absolute;
+        left: 12px;
+        color: #666;
+        z-index: 1;
+        opacity: 0.7;
+    }
+
+    // Adjust padding to make room for icon
+    .styled-input {
+        padding-left: 2.5rem;
+    }
+}
+
+.date-input-wrapper {
+    .react-datepicker-wrapper {
+        width: 100%;
+    }
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    .input-group:last-child {
+        grid-column: span 2;
+    }
+
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+
+        .input-group:last-child {
+            grid-column: span 1;
+        }
+    }
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--secondary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+
+    &:hover {
+        background: #ff8c00; // Slightly lighter orange
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(240, 121, 0, 0.3);
+    }
+
+    &:disabled {
+        background: #555;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+.phone-support {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    p {
+        color: #666;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .phone-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+}
+
+.success-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    h2 {
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    p {
+        color: #aaa;
+        max-width: 400px;
+        line-height: 1.6;
+    }
+
+    .home-btn {
+        margin-top: 1rem;
+        padding: 0.8rem 2rem;
+        border: 1px solid var(--secondary-color);
+        color: var(--secondary-color);
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s;
+
+        &:hover {
             background: var(--secondary-color);
             color: #fff;
         }
-
-        input {
-            display: none;
-        }
     }
 }
 
-.select__options {
-    width: 100%;
-    padding: 1rem;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
-    text-transform: uppercase;
-}
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
 
-.datePick {
-    width: 100%;
-    padding: 1rem;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
+    to {
+        transform: scale(1);
+    }
 }
