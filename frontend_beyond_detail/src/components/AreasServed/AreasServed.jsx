@@ -6,6 +6,28 @@ import './AreasServed.scss';
 
 const serviceAreas = [
     {
+        name: 'Toronto',
+        region: 'GTA',
+        description: 'Comprehensive car detailing services for downtown and greater Toronto. Mobile and studio options available.',
+        link: '/car-detailing-toronto',
+        highlights: [
+            { name: 'Mobile Detailing', link: '/mobile-car-detailing-toronto' },
+            { name: 'Ceramic Coating', link: '/ceramic-coating-toronto' }, // Assuming this redirects or exists, if not, map to main ceramic page
+            { name: 'Luxury Detailing', link: '/luxury-car-detailing-toronto' }
+        ]
+    },
+    {
+        name: 'Scarborough',
+        region: 'East End',
+        description: 'Our home base. The top-rated auto detailing studio serving all Scarborough neighborhoods with lifetime warranties.',
+        link: '/car-detailing-scarborough',
+        highlights: [
+            { name: 'Paint Correction', link: '/paint-correction-scarborough' },
+            { name: 'Window Tinting', link: '/window-tinting-scarborough' },
+            { name: 'Interior Detailing', link: '/interior-detailing' }
+        ]
+    },
+    {
         name: 'Markham',
         region: 'York Region',
         description: 'Premium auto detailing, window tinting & ceramic coating services for Markham residents.',
@@ -17,17 +39,6 @@ const serviceAreas = [
         ]
     },
     {
-        name: 'Pickering',
-        region: 'Durham Region',
-        description: 'Expert car detailing and paint protection services serving Pickering and surrounding areas.',
-        link: '/car-detailing-pickering',
-        highlights: [
-            { name: 'Interior Detailing', link: '/car-detailing-pickering' },
-            { name: 'Ceramic Coating', link: '/ceramic-coating-pickering' },
-            { name: 'Headlight Restoration', link: '/car-detailing-pickering' }
-        ]
-    },
-    {
         name: 'North York',
         region: 'Toronto',
         description: 'Professional auto detailing and tinting services for North York & nearby Toronto areas.',
@@ -36,6 +47,17 @@ const serviceAreas = [
             { name: 'Auto Detailing', link: '/car-detailing-north-york' },
             { name: 'LLumar Tint', link: '/car-detailing-north-york' },
             { name: 'Paint Correction', link: '/car-detailing-north-york' }
+        ]
+    },
+    {
+        name: 'Pickering',
+        region: 'Durham Region',
+        description: 'Expert car detailing and paint protection services serving Pickering and surrounding areas.',
+        link: '/car-detailing-pickering',
+        highlights: [
+            { name: 'Interior Detailing', link: '/car-detailing-pickering' },
+            { name: 'Ceramic Coating', link: '/ceramic-coating-pickering' },
+            { name: 'Headlight Restoration', link: '/car-detailing-pickering' }
         ]
     },
     {

@@ -8,7 +8,7 @@ const LOCATIONS_STRING = LOCATIONS.join(', ');
 
 // Default business information - MUST match Google My Business exactly for SEO
 const BUSINESS_INFO = {
-  name: 'Beyond Detail | Window Tint | Paint Correction | Ceramic Coatings in Toronto',
+  name: 'Beyond Detail',
   address: {
     streetAddress: '170 Finchdene Square unit 11',
     addressLocality: 'Scarborough, Toronto',

@@ -1,0 +1,16 @@
+Migration Log:
+Processing: Complete Guide to Car Detailing in Toronto
+  ERROR: transaction failed: Insufficient permissions; permission "create" required
+  Details: {"error":{"description":"transaction failed: Insufficient permissions; permission \"create\" required","items":[{"error":{"description":"Insufficient permissions; permission \"create\" required","permission":"create","type":"insufficientPermissionsError"},"index":0}],"type":"mutationError"}}
+Processing: Ceramic Coating vs. Traditional Wax: Toronto Car Owners Guide
+  ERROR: transaction failed: Insufficient permissions; permission "create" required
+  Details: {"error":{"description":"transaction failed: Insufficient permissions; permission \"create\" required","items":[{"error":{"description":"Insufficient permissions; permission \"create\" required","permission":"create","type":"insufficientPermissionsError"},"index":0}],"type":"mutationError"}}
+Processing: How Much Does Car Detailing Cost in Toronto? [2025 Pricing]
+  ERROR: transaction failed: Insufficient permissions; permission "create" required
+  Details: {"error":{"description":"transaction failed: Insufficient permissions; permission \"create\" required","items":[{"error":{"description":"Insufficient permissions; permission \"create\" required","permission":"create","type":"insufficientPermissionsError"},"index":0}],"type":"mutationError"}}
+Processing: Best Time to Detail Your Car in Toronto's Climate
+  ERROR: transaction failed: Insufficient permissions; permission "create" required
+  Details: {"error":{"description":"transaction failed: Insufficient permissions; permission \"create\" required","items":[{"error":{"description":"Insufficient permissions; permission \"create\" required","permission":"create","type":"insufficientPermissionsError"},"index":0}],"type":"mutationError"}}
+Processing: Mobile Car Detailing: Why Toronto Drivers Love It
+  ERROR: transaction failed: Insufficient permissions; permission "create" required
+  Details: {"error":{"description":"transaction failed: Insufficient permissions; permission \"create\" required","items":[{"error":{"description":"Insufficient permissions; permission \"create\" required","permission":"create","type":"insufficientPermissionsError"},"index":0}],"type":"mutationError"}}

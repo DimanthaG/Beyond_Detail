@@ -20,11 +20,11 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Car Detailing Scarborough | Window Tinting & Ceramic Coating Toronto | Beyond Detail'
-        description='#1 Car Detailing in Scarborough | Professional auto detailing, window tinting & ceramic coating. Serving Toronto, Markham & Pickering. ⭐ Lifetime Warranty | Call (647) 689-6109'
-        name='Beyond Detail | Car Detailing Scarborough | Window Tinting & Ceramic Coating'
+        title='Car Detailing Toronto & Scarborough | Window Tinting & Ceramic Coating | Beyond Detail'
+        description='Best Car Detailing in Toronto & Scarborough. Professional mobile auto detailing, ceramic coating, paint correction & window tinting. ⭐ Lifetime Warranty. Serving the entire GTA. Call (647) 689-6109'
+        name='Beyond Detail | Car Detailing Toronto & Scarborough'
         type='website'
-        keywords='car detailing Scarborough, auto detailing Toronto, window tinting Scarborough, ceramic coating Toronto, paint correction Markham, car detailing near me, ceramic coating near me'
+        keywords='car detailing toronto, car detailing scarborough, mobile car detailing toronto, ceramic coating toronto, window tinting toronto, paint correction toronto, auto detailing near me'
       />
       <HomeHero />
       <Suspense fallback={null}>

@@ -60,7 +60,7 @@ export default {
             title: 'Excerpt',
             type: 'text',
             rows: 3,
-            validation: (Rule) => Rule.required().min(100).max(200),
+            validation: (Rule) => Rule.required().max(300),
             description: 'Short summary of the post (100-200 characters) - shows in blog list',
         },
         {

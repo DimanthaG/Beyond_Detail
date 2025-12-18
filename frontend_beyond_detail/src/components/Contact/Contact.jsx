@@ -42,6 +42,7 @@ import '../../react-datepicker.css';
 import './Contact.scss';
 
 const DatePicker = lazy(() => import('react-datepicker'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -129,7 +130,7 @@ function Contact() {
 
       const data = await response.json();
       console.log('Contact form submitted successfully:', data);
-      
+
       setLoadingMessage(false);
       SetIsFormSubmitted(true);
     } catch (error) {
@@ -220,6 +221,27 @@ function Contact() {
                       referrerPolicy="no-referrer-when-downgrade"
                       title="Beyond Detail Location"
                     ></iframe>
+                  </div>
+
+                  {/* Google Reviews Widget & CTA */}
+                  <div style={{ marginTop: '3rem' }}>
+                    <Suspense fallback={null}>
+                      <GoogleReviewsCarousel />
+                    </Suspense>
+                    <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                      <p style={{ marginBottom: '1rem', color: '#edf2f8', fontSize: '0.95rem' }}>
+                        Have you visited us recently? We'd love to hear your feedback!
+                      </p>
+                      <a
+                        href="https://search.google.com/local/writereview?placeid=ChIJmZkJMWDQ1IkRnRUZBXKA0_Q"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn ac_btn"
+                        style={{ display: 'inline-block', padding: '0.6rem 1.5rem', fontSize: '0.9rem', textDecoration: 'none' }}
+                      >
+                        Leave us a Review
+                      </a>
+                    </div>
                   </div>
                 </div>
 

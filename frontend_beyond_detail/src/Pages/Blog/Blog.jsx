@@ -5,52 +5,35 @@ import { Contact, SEO } from '../../components';
 import { client, urlFor } from '../../client';
 import { calculateReadingTime } from './blogContentFormatter';
 import { BlogLinker } from '../../utils/blogLinker';
+import { LOCAL_BLOG_POSTS } from './LocalBlogContent';
 import './Blog.scss';
 
-// Placeholder post for when CMS is empty or loading fails
-const PLACEHOLDER_POST = {
-  _id: 'placeholder-1',
-  title: 'Ultimate Guide to Winter Car Care in Toronto & Scarborough',
-  slug: { current: 'winter-car-care-toronto-scarborough' },
-  author: 'Beyond Detail Team',
-  publishedAt: new Date().toISOString(),
-  excerpt: 'Learn how to protect your vehicle from Toronto\'s harsh winter elements, road salt, and freezing temperatures with our expert detailing guide.',
-  category: 'Car Maintenance',
-  mainImage: {
-    asset: {
-      url: '/images/hero-home.avif' // Fallback to local image if needed, but urlFor structure requires object.
-      // We will handle this in rendering logic to avoid urlFor crashes
-    },
-    alt: 'Winter Car Detailing Toronto'
-  },
-  content: [
-    {
-      _type: 'block',
-      style: 'normal',
-      children: [{ _type: 'span', text: 'Toronto winters are tough on vehicles. From road salt to freezing temperatures, your car takes a beating. In this guide, we share essential tips to keep your car looking new throughout the season.' }]
-    },
-    {
-      _type: 'block',
-      style: 'h2',
-      children: [{ _type: 'span', text: '1. Protect Your Paint with Ceramic Coating' }]
-    },
-    {
-      _type: 'block',
-      style: 'normal',
-      children: [{ _type: 'span', text: 'Road salt is the number one enemy of your car\'s paint. A professional ceramic coating provides a durable shield against salt, preventing rust and corrosion.' }]
-    },
-    {
-      _type: 'block',
-      style: 'h2',
-      children: [{ _type: 'span', text: '2. Interior Protection is Key' }]
-    },
-    {
-      _type: 'block',
-      style: 'normal',
-      children: [{ _type: 'span', text: 'Salt stains on carpets can become permanent if not treated quickly. Our professional interior detailing removes salt and protects fabrics.' }]
+// Placeholder post is now replaced by robust local content
+const PLACEHOLDER_POST = LOCAL_BLOG_POSTS[0];
+
+// Helper for safely generating image URLs
+const getImageUrl = (source, width, height) => {
+  if (!source || !source.asset) return '/images/hero-home.avif';
+
+  // Handle Sanity Image
+  if (source.asset._ref) {
+    try {
+      let imageBuilder = urlFor(source);
+      if (width) imageBuilder = imageBuilder.width(width);
+      if (height) imageBuilder = imageBuilder.height(height);
+      return imageBuilder.url();
+    } catch (e) {
+      console.warn('Error generating Sanity image URL:', e);
+      return '/images/hero-home.avif';
     }
-  ],
-  keywords: ['winter car care', 'rust protection', 'car detailing toronto', 'salt removal']
+  }
+
+  // Handle Local Image
+  if (source.asset.url) {
+    return source.asset.url;
+  }
+
+  return '/images/hero-home.avif';
 };
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -148,15 +131,13 @@ const BlockContent = ({ blocks }) => {
 
     // Handle images in content with enhanced SEO
     if (block._type === 'image') {
-      const imageUrl = urlFor(block).width(1200).format('webp').quality(85).url();
-      const imageUrlFallback = urlFor(block).width(1200).url();
+      const imageUrl = getImageUrl(block, 1200);
 
       return (
         <figure key={idx} className="blog-content-image">
           <picture>
-            <source srcSet={imageUrl} type="image/webp" />
             <img
-              src={imageUrlFallback}
+              src={imageUrl}
               alt={block.alt || 'Blog content image'}
               loading="lazy"
               decoding="async"
@@ -244,7 +225,7 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
             <Link key={blog._id} to={`/blog/${blog.slug.current}`} className="related-post-card">
               {blog.mainImage && (
                 <img
-                  src={urlFor(blog.mainImage).width(400).url()}
+                  src={getImageUrl(blog.mainImage, 400)}
                   alt={blog.mainImage.alt || blog.title}
                   className="related-post-image"
                 />
@@ -268,7 +249,7 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
           <Link key={blog._id} to={`/blog/${blog.slug.current}`} className="related-post-card">
             {blog.mainImage && (
               <img
-                src={urlFor(blog.mainImage).width(400).url()}
+                src={getImageUrl(blog.mainImage, 400)}
                 alt={blog.mainImage.alt || blog.title}
                 className="related-post-image"
               />
@@ -294,57 +275,63 @@ function Blog() {
     const fetchBlogs = async () => {
       setLoading(true);
       try {
-        if (slug) {
-          // Fetch single blog post with related services
-          const query = `*[_type == "blogPost" && slug.current == $slug][0] {
-            _id,
-            title,
-            slug,
-            author,
-            publishedAt,
-            excerpt,
-            mainImage,
-            category,
-            content,
-            seoTitle,
-            seoDescription,
-            keywords,
-            relatedServices
-          }`;
-          const blog = await client.fetch(query, { slug });
-          setSelectedBlog(blog);
+        let cmsBlogs = [];
+        try {
+          if (slug) {
+            const query = `*[_type == "blogPost" && slug.current == $slug][0] {
+              _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, seoTitle, seoDescription, keywords, relatedServices
+            }`;
+            const blog = await client.fetch(query, { slug });
+            if (blog) {
+              setSelectedBlog(blog);
+            } else {
+              // specific slug not found in CMS, check local
+              const localBlog = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+              if (localBlog) setSelectedBlog(localBlog);
+            }
 
-          // Also fetch all blogs for related posts
-          const allBlogsQuery = `*[_type == "blogPost"] | order(publishedAt desc) {
-            _id,
-            title,
-            slug,
-            author,
-            publishedAt,
-            excerpt,
-            mainImage,
-            category
-          }`;
-          const blogs = await client.fetch(allBlogsQuery);
-          setAllBlogs(blogs);
-        } else {
-          // Fetch all blog posts for list view
-          const query = `*[_type == "blogPost"] | order(publishedAt desc) {
-            _id,
-            title,
-            slug,
-            author,
-            publishedAt,
-            excerpt,
-            mainImage,
-            category,
-            content
-          }`;
-          const blogs = await client.fetch(query);
-          setAllBlogs(blogs);
+            const allBlogsQuery = `*[_type == "blogPost"] | order(publishedAt desc) {
+              _id, title, slug, author, publishedAt, excerpt, mainImage, category
+            }`;
+            cmsBlogs = await client.fetch(allBlogsQuery);
+          } else {
+            const query = `*[_type == "blogPost"] | order(publishedAt desc) {
+              _id, title, slug, author, publishedAt, excerpt, mainImage, category, content
+            }`;
+            cmsBlogs = await client.fetch(query);
+          }
+        } catch (cmsError) {
+          console.warn('CMS Fetch failed, falling back to local content', cmsError);
         }
+
+        // Merge CMS blogs with Local blogs, avoiding duplicates by slug
+        const allPosts = [...cmsBlogs];
+        LOCAL_BLOG_POSTS.forEach(localPost => {
+          if (!allPosts.some(p => p.slug.current === localPost.slug.current)) {
+            allPosts.push(localPost);
+          }
+        });
+
+        // Sort by date newest first
+        allPosts.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+
+        setAllBlogs(allPosts);
+
+        // If we are in slug mode and CMS failed or didn't have it, we might have set selectedBlog from local above.
+        // If not, try to find it in the merged list now (though logic above handles dedicated local search)
+        if (slug && !selectedBlog) { // e.g., if we refreshed
+          const found = allPosts.find(p => p.slug.current === slug);
+          if (found) setSelectedBlog(found);
+        }
+
       } catch (error) {
         console.error('[Blog] Error fetching blog posts:', error);
+        // Fallback entirely to local if something catastrophic happens
+        setAllBlogs(LOCAL_BLOG_POSTS);
+        if (slug) {
+          const found = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+          if (found) setSelectedBlog(found);
+        }
       } finally {
         setLoading(false);
       }
@@ -377,11 +364,8 @@ function Blog() {
     const publishedDate = new Date(selectedBlog.publishedAt).toISOString();
     const modifiedDate = publishedDate; // Could be updated if blog has modifiedAt field
 
-    // Handle local image fallback for placeholder
-    const isPlaceholder = selectedBlog._id === 'placeholder-1';
-    const mainImageUrl = !isPlaceholder && selectedBlog.mainImage
-      ? urlFor(selectedBlog.mainImage).width(1200).url()
-      : '/images/hero-home.avif';
+    // Handle local image fallback logic is now handled by getImageUrl
+    const mainImageUrl = getImageUrl(selectedBlog.mainImage, 1200);
 
     // Generate Article structured data
     const articleSchema = {
@@ -465,7 +449,7 @@ function Blog() {
             {mainImageUrl && (
               <div className="blog-hero-image">
                 <picture>
-                  {!isPlaceholder && (
+                  {selectedBlog.mainImage?.asset?._ref && (
                     <source
                       srcSet={urlFor(selectedBlog.mainImage).width(1200).format('webp').quality(90).url()}
                       type="image/webp"
@@ -627,9 +611,9 @@ function Blog() {
               <section className="featured-blog-section">
                 <Link to={`/blog/${displayBlogs[0].slug.current}`} className="featured-blog-card">
                   <div className="featured-image-wrapper">
-                    {(allBlogs.length > 0 && displayBlogs[0].mainImage) ? (
+                    {(displayBlogs[0].mainImage) ? (
                       <img
-                        src={urlFor(displayBlogs[0].mainImage).width(1200).height(600).url()}
+                        src={getImageUrl(displayBlogs[0].mainImage, 1200, 600)}
                         alt={displayBlogs[0].mainImage.alt || displayBlogs[0].title}
                         className="featured-image"
                       />
@@ -675,7 +659,7 @@ function Blog() {
                       <div className="blog-card-image-wrapper">
                         {blog.mainImage ? (
                           <img
-                            src={urlFor(blog.mainImage).width(600).height(400).url()}
+                            src={getImageUrl(blog.mainImage, 600, 400)}
                             alt={blog.mainImage.alt || blog.title}
                             className="blog-image"
                           />

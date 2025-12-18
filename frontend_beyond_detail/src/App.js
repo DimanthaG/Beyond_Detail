@@ -34,6 +34,8 @@ const OdourRemoval = lazy(() => import('./Pages').then(m => ({ default: m.OdourR
 const LeatherCleaning = lazy(() => import('./Pages').then(m => ({ default: m.LeatherCleaning })));
 const PaintRemoval = lazy(() => import('./Pages').then(m => ({ default: m.PaintRemoval })));
 const Booking = lazy(() => import('./Pages/Booking/Booking'));
+const MobileDetailing = lazy(() => import('./Pages/MobileDetailing/MobileDetailing'));
+const LuxuryDetailing = lazy(() => import('./Pages/LuxuryDetailing/LuxuryDetailing'));
 
 // ... (other lazy imports)
 
@@ -57,6 +59,9 @@ const WrappedHeadlightRestoration = withRouteWrapper(HeadlightRestoration);
 const WrappedOdourRemoval = withRouteWrapper(OdourRemoval);
 const WrappedLeatherCleaning = withRouteWrapper(LeatherCleaning);
 const WrappedPaintRemoval = withRouteWrapper(PaintRemoval);
+const WrappedMobileDetailing = withRouteWrapper(MobileDetailing);
+const WrappedLuxuryDetailing = withRouteWrapper(LuxuryDetailing);
+const CarDetailingToronto = lazy(() => import('./Pages/Neighborhoods/CarDetailingToronto'));
 const CarDetailingMalvern = lazy(() => import('./Pages/Neighborhoods/CarDetailingMalvern'));
 const CarDetailingScarborough = lazy(() => import('./Pages/Neighborhoods/CarDetailingScarborough'));
 const CeramicCoatingScarborough = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingScarborough'));
@@ -153,12 +158,17 @@ function App() {
             <Route path='/leather-cleaning' element={<WrappedLeatherCleaning />} />
             <Route path='/paint-removal' element={<WrappedPaintRemoval />} />
             <Route path='/fleet-services' element={<WrappedFleetServices />} />
+            <Route path='/mobile-car-detailing' element={<WrappedMobileDetailing />} />
+            <Route path='/mobile-car-detailing-toronto' element={<WrappedMobileDetailing />} />
+            <Route path='/luxury-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
+            <Route path='/exotic-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
             <Route path='/service-area/pickering' element={<CarDetailingPickering />} />
             <Route path='/car-detailing-pickering' element={<CarDetailingPickering />} />
             <Route path='/service-area/markham' element={<CarDetailingMarkham />} />
             <Route path='/car-detailing-markham' element={<CarDetailingMarkham />} />
             <Route path='/service-area/north-york' element={<CarDetailingNorthYork />} />
             <Route path='/car-detailing-north-york' element={<CarDetailingNorthYork />} />
+            <Route path='/car-detailing-toronto' element={<CarDetailingToronto />} />
             <Route path='/car-detailing-malvern' element={<CarDetailingMalvern />} />
             <Route path='/car-detailing-agincourt' element={<CarDetailingAgincourt />} />
             <Route path='/car-detailing-west-hill' element={<CarDetailingWestHill />} />

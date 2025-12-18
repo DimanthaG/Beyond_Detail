@@ -1,0 +1,8 @@
+.luxury-detailing__wrapper {
+    padding-top: 80px;
+
+    // Specific luxury detailing styles can go here
+    @media screen and (max-width: 768px) {
+        padding-top: 60px;
+    }
+}
