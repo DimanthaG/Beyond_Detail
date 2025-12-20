@@ -1,11 +1,11 @@
-import sanityClient from '@sanity/client';
+import { createClient } from '@sanity/client';
 
-const client = sanityClient({
+const client = createClient({
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID || 'trp6l9ar',
   dataset: 'production',
   apiVersion: '2022-02-01',
   useCdn: false,
-  token: process.env.REACT_APP_SANITY_TOKEN,
+  token: process.env.SANITY_API_TOKEN,
 });
 
 export default async function handler(req, res) {
@@ -35,17 +35,17 @@ export default async function handler(req, res) {
     };
 
     const result = await client.create(contact);
-    
-    res.status(200).json({ 
-      success: true, 
+
+    res.status(200).json({
+      success: true,
       id: result._id,
-      message: 'Contact form submitted successfully' 
+      message: 'Contact form submitted successfully'
     });
   } catch (err) {
     console.error('Error creating contact:', err);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to submit contact form',
-      details: err.message 
+      details: err.message
     });
   }
 }

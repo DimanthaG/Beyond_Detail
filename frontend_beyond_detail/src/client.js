@@ -1,13 +1,13 @@
-import sanityClient from '@sanity/client';
+import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
 // Sanity client for read-only operations (no token needed for public reads)
 // Token should only be used server-side for write operations
-export const client = sanityClient({
+export const client = createClient({
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID || 'trp6l9ar',
   dataset: 'production',
   apiVersion: '2022-02-01',
-  useCdn: true,
+  useCdn: false,
   // Token removed from frontend - should only be used server-side for write operations
   // If you need write operations, create a backend API endpoint
 });
@@ -27,10 +27,10 @@ export const urlFor = (source) => {
 export const urlForOptimized = (source, options = {}) => {
   const { width, height, quality = 85, format = 'webp' } = options;
   let imgBuilder = builder.image(source).quality(quality);
-  
+
   if (width) imgBuilder = imgBuilder.width(width);
   if (height) imgBuilder = imgBuilder.height(height);
   if (format) imgBuilder = imgBuilder.format(format);
-  
+
   return imgBuilder;
 };

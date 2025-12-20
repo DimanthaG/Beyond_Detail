@@ -1,0 +1,61 @@
+
+>>> RUNNING: git add .
+STDOUT: 
+STDERR: warning: in the working copy of 'backend_sanity/config/.checksums', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend_sanity/yarn.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend_sanity/blog_posts_list.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend_sanity/migration_debug_log.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'git_debug_log.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'git_status_check_final.txt', LF will be replaced by CRLF the next time Git touches it
+
+
+>>> RUNNING: git commit -m "Fix Sanity schema, add Migration tool plugin, and resolve validation errors"
+STDOUT: [master 02559fc] Fix Sanity schema, add Migration tool plugin, and resolve validation errors
+ 47 files changed, 2558 insertions(+), 125 deletions(-)
+ create mode 100644 backend_sanity/asset_id.txt
+ create mode 100644 backend_sanity/blog_posts_list.json
+ create mode 100644 backend_sanity/check_final.txt
+ create mode 100644 backend_sanity/check_output.txt
+ create mode 100644 backend_sanity/check_output_2.txt
+ create mode 100644 backend_sanity/check_output_3.txt
+ create mode 100644 backend_sanity/crash_log.txt
+ create mode 100644 backend_sanity/debug_output.txt
+ create mode 100644 backend_sanity/final_import_attempt.txt
+ create mode 100644 backend_sanity/migration_debug_log.txt
+ create mode 100644 backend_sanity/npx_output.txt
+ create mode 100644 backend_sanity/plugins/migration-tool/MigrationTool.js
+ create mode 100644 backend_sanity/plugins/migration-tool/index.js
+ create mode 100644 backend_sanity/plugins/migration-tool/sanity.json
+ create mode 100644 backend_sanity/posts_check_result.json
+ create mode 100644 backend_sanity/query_output.txt
+ create mode 100644 backend_sanity/scripts/check_blog_posts.js
+ create mode 100644 backend_sanity/scripts/check_posts.js
+ create mode 100644 backend_sanity/scripts/debug_sanity.js
+ create mode 100644 backend_sanity/scripts/delete_invalid_posts.js
+ create mode 100644 backend_sanity/scripts/get_asset.js
+ create mode 100644 backend_sanity/scripts/import_local_blogs.js
+ create mode 100644 backend_sanity/scripts/import_local_blogs_debug.js
+ create mode 100644 backend_sanity/scripts/test_connection.js
+ create mode 100644 backend_sanity/start_3334_log.txt
+ create mode 100644 backend_sanity/start_log.txt
+ create mode 100644 backend_sanity/start_log_2.txt
+ create mode 100644 backend_sanity/test_output.txt
+ create mode 100644 debug_git.js
+ create mode 100644 frontend_beyond_detail/src/Pages/Blog/LocalBlogContent.js
+ create mode 100644 frontend_beyond_detail/src/Pages/LuxuryDetailing/LuxuryDetailing.jsx
+ create mode 100644 frontend_beyond_detail/src/Pages/LuxuryDetailing/LuxuryDetailing.scss
+ create mode 100644 frontend_beyond_detail/src/Pages/MobileDetailing/MobileDetailing.jsx
+ create mode 100644 frontend_beyond_detail/src/Pages/MobileDetailing/MobileDetailing.scss
+ create mode 100644 frontend_beyond_detail/src/Pages/Neighborhoods/CarDetailingToronto.jsx
+ create mode 100644 git_debug_log.txt
+ create mode 100644 git_status.txt
+ create mode 100644 git_status_check_final.txt
+ create mode 100644 run_git_push.js
+
+STDERR: 
+
+>>> RUNNING: git push origin master
+STDOUT: 
+STDERR: To https://github.com/DimanthaG/Beyond_Detail.git
+   44e5df2..02559fc  master -> master
+
