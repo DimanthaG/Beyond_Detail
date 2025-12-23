@@ -1,7 +1,7 @@
-const sanityClient = require('@sanity/client');
+const { createClient } = require('@sanity/client');
 
 // Initialize Sanity client
-const client = sanityClient({
+const client = createClient({
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID || 'trp6l9ar',
   dataset: 'production',
   apiVersion: '2022-02-01',
@@ -34,7 +34,7 @@ const SERVICE_KEYWORD_MAP = {
  */
 function extractTextFromBlocks(blocks) {
   if (!blocks || !Array.isArray(blocks)) return '';
-  
+
   return blocks
     .map(block => {
       if (block._type === 'block' && block.children) {
@@ -54,9 +54,9 @@ function detectRelatedServices(blog) {
   const titleText = (blog.title || '').toLowerCase();
   const excerptText = (blog.excerpt || '').toLowerCase();
   const allText = `${titleText} ${excerptText} ${contentText.toLowerCase()}`;
-  
+
   const detectedServices = new Set();
-  
+
   // Check for service keywords
   Object.entries(SERVICE_KEYWORD_MAP).forEach(([keyword, service]) => {
     const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
@@ -64,7 +64,7 @@ function detectRelatedServices(blog) {
       detectedServices.add(service);
     }
   });
-  
+
   return Array.from(detectedServices);
 }
 
@@ -91,7 +91,7 @@ function generateSEORecommendations(blog) {
     issues: [],
     improvements: []
   };
-  
+
   // Check SEO title
   const currentTitle = blog.seoTitle || blog.title || '';
   if (currentTitle.length < 30) {
@@ -101,7 +101,7 @@ function generateSEORecommendations(blog) {
     recommendations.issues.push('SEO title too long (should be 30-60 chars)');
     recommendations.recommendations.seoTitle = currentTitle.substring(0, 57) + '...';
   }
-  
+
   // Check SEO description
   const currentDescription = blog.seoDescription || blog.excerpt || '';
   if (currentDescription.length < 120) {
@@ -112,7 +112,7 @@ function generateSEORecommendations(blog) {
     recommendations.issues.push('SEO description too long (should be 120-160 chars)');
     recommendations.recommendations.seoDescription = currentDescription.substring(0, 157) + '...';
   }
-  
+
   // Generate keywords if missing
   if (!blog.keywords || blog.keywords.length === 0) {
     recommendations.issues.push('No keywords specified');
@@ -130,7 +130,7 @@ function generateSEORecommendations(blog) {
     ].filter(Boolean).slice(0, 10);
     recommendations.recommendations.keywords = suggestedKeywords;
   }
-  
+
   // Detect related services
   const detectedServices = detectRelatedServices(blog);
   if (detectedServices.length > 0 && (!blog.relatedServices || blog.relatedServices.length === 0)) {
@@ -147,7 +147,7 @@ function generateSEORecommendations(blog) {
       ];
     }
   }
-  
+
   return recommendations;
 }
 
@@ -157,7 +157,7 @@ function generateSEORecommendations(blog) {
 async function analyzeAndRecommend() {
   try {
     console.log('🔍 Fetching blog posts from Sanity...\n');
-    
+
     const query = `*[_type == "blogPost"] | order(publishedAt desc) {
       _id,
       title,
@@ -173,65 +173,65 @@ async function analyzeAndRecommend() {
       keywords,
       relatedServices
     }`;
-    
+
     const blogs = await client.fetch(query);
-    
+
     if (blogs.length === 0) {
       console.log('❌ No blog posts found in Sanity CMS.');
       return;
     }
-    
+
     console.log(`✅ Found ${blogs.length} blog post(s)\n`);
     console.log('='.repeat(80));
     console.log('BLOG SEO OPTIMIZATION RECOMMENDATIONS');
     console.log('='.repeat(80));
     console.log();
-    
+
     const allRecommendations = blogs.map(blog => generateSEORecommendations(blog));
-    
+
     // Display recommendations
     allRecommendations.forEach((rec, index) => {
       console.log(`\n${index + 1}. ${rec.title}`);
       console.log(`   Slug: /blog/${rec.slug}`);
       console.log(`   ID: ${rec._id}`);
-      
+
       if (rec.issues.length > 0) {
         console.log(`   ❌ Issues:`);
         rec.issues.forEach(issue => console.log(`      - ${issue}`));
       }
-      
+
       if (rec.improvements.length > 0) {
         console.log(`   💡 Improvements:`);
         rec.improvements.forEach(improvement => console.log(`      - ${improvement}`));
       }
-      
+
       // Show recommendations
-      const hasRecommendations = 
+      const hasRecommendations =
         rec.recommendations.seoTitle ||
         rec.recommendations.seoDescription ||
         rec.recommendations.keywords.length > 0 ||
         rec.recommendations.relatedServices.length > 0;
-      
+
       if (hasRecommendations) {
         console.log(`   📝 Recommendations:`);
-        
+
         if (rec.recommendations.seoTitle) {
           console.log(`      SEO Title: "${rec.recommendations.seoTitle}"`);
         }
-        
+
         if (rec.recommendations.seoDescription) {
           console.log(`      SEO Description: "${rec.recommendations.seoDescription}"`);
         }
-        
+
         if (rec.recommendations.keywords.length > 0) {
           console.log(`      Keywords: ${rec.recommendations.keywords.join(', ')}`);
         }
-        
+
         if (rec.recommendations.relatedServices.length > 0) {
           console.log(`      Related Services: ${rec.recommendations.relatedServices.join(', ')}`);
         }
       }
-      
+
       // Generate Sanity update patch
       if (hasRecommendations) {
         console.log(`   🔧 Sanity Update Patch:`);
@@ -244,33 +244,33 @@ async function analyzeAndRecommend() {
         console.log(`      ${JSON.stringify(patch, null, 6)}`);
       }
     });
-    
+
     // Summary
     console.log('\n' + '='.repeat(80));
     console.log('SUMMARY');
     console.log('='.repeat(80));
     const blogsWithIssues = allRecommendations.filter(r => r.issues.length > 0).length;
     const blogsWithImprovements = allRecommendations.filter(r => r.improvements.length > 0).length;
-    const blogsNeedingUpdates = allRecommendations.filter(r => 
+    const blogsNeedingUpdates = allRecommendations.filter(r =>
       r.recommendations.seoTitle ||
       r.recommendations.seoDescription ||
       r.recommendations.keywords.length > 0 ||
       r.recommendations.relatedServices.length > 0
     ).length;
-    
+
     console.log(`Total Blogs: ${blogs.length}`);
     console.log(`Blogs with Issues: ${blogsWithIssues}`);
     console.log(`Blogs with Improvements: ${blogsWithImprovements}`);
     console.log(`Blogs Needing Updates: ${blogsNeedingUpdates}`);
     console.log();
-    
+
     console.log('📋 NEXT STEPS:');
     console.log('1. Review the recommendations above');
     console.log('2. Update blogs in Sanity Studio with the recommended values');
     console.log('3. Or use the Sanity API with write token to update programmatically');
     console.log('4. Re-run this script after updates to verify improvements');
     console.log();
-    
+
     // Export recommendations as JSON
     const fs = require('fs');
     const outputFile = 'blog-seo-recommendations.json';
@@ -281,7 +281,7 @@ async function analyzeAndRecommend() {
     );
     console.log(`✅ Recommendations exported to: ${outputFile}`);
     console.log('='.repeat(80));
-    
+
   } catch (error) {
     console.error('❌ Error analyzing blogs:', error);
     process.exit(1);

@@ -1,7 +1,7 @@
-const sanityClient = require('@sanity/client');
+const { createClient } = require('@sanity/client');
 
 // Initialize Sanity client (same config as frontend)
-const client = sanityClient({
+const client = createClient({
   projectId: process.env.REACT_APP_SANITY_PROJECT_ID || 'trp6l9ar',
   dataset: 'production',
   apiVersion: '2022-02-01',
@@ -11,7 +11,7 @@ const client = sanityClient({
 // Helper function to extract text from Sanity block content
 function extractTextFromBlocks(blocks) {
   if (!blocks || !Array.isArray(blocks)) return '';
-  
+
   return blocks
     .map(block => {
       if (block._type === 'block' && block.children) {
@@ -38,7 +38,7 @@ function analyzeBlogPost(blog) {
   const contentText = extractTextFromBlocks(blog.content);
   const wordCount = getWordCount(contentText);
   const readingTime = calculateReadingTime(wordCount);
-  
+
   const analysis = {
     _id: blog._id,
     title: blog.title || 'N/A',
@@ -47,7 +47,7 @@ function analyzeBlogPost(blog) {
     category: blog.category || 'N/A',
     author: blog.author || 'N/A',
     featured: blog.featured || false,
-    
+
     // SEO Analysis
     seo: {
       title: blog.seoTitle || blog.title || 'N/A',
@@ -60,7 +60,7 @@ function analyzeBlogPost(blog) {
       keywordsCount: (blog.keywords || []).length,
       hasKeywords: (blog.keywords || []).length > 0,
     },
-    
+
     // Content Analysis
     content: {
       excerpt: blog.excerpt || 'N/A',
@@ -73,15 +73,15 @@ function analyzeBlogPost(blog) {
       hasMainImageAlt: !!blog.mainImage?.alt,
       contentImagesCount: blog.contentImages?.length || 0,
     },
-    
+
     // Related Services
     relatedServices: blog.relatedServices || [],
-    
+
     // Issues/Warnings
     issues: [],
     warnings: [],
   };
-  
+
   // Check for issues
   if (!blog.title) analysis.issues.push('Missing title');
   if (!blog.slug?.current) analysis.issues.push('Missing slug');
@@ -91,7 +91,7 @@ function analyzeBlogPost(blog) {
   if (!blog.mainImage) analysis.issues.push('Missing main image');
   if (!blog.mainImage?.alt) analysis.issues.push('Missing main image alt text');
   if (!blog.content || blog.content.length === 0) analysis.issues.push('Missing or empty content');
-  
+
   // Check for warnings (SEO optimization)
   if (analysis.seo.titleLength < 30) analysis.warnings.push('SEO title too short (should be 30-60 chars)');
   if (analysis.seo.titleLength > 60) analysis.warnings.push('SEO title too long (should be 30-60 chars)');
@@ -102,7 +102,7 @@ function analyzeBlogPost(blog) {
   if (analysis.content.excerptLength > 200) analysis.warnings.push('Excerpt too long (should be 100-200 chars)');
   if (wordCount < 300) analysis.warnings.push('Content too short (less than 300 words)');
   if (wordCount > 3000) analysis.warnings.push('Content very long (over 3000 words - consider splitting)');
-  
+
   return analysis;
 }
 
@@ -110,7 +110,7 @@ function analyzeBlogPost(blog) {
 async function analyzeBlogs() {
   try {
     console.log('🔍 Fetching blog posts from Sanity...\n');
-    
+
     const query = `*[_type == "blogPost"] | order(publishedAt desc) {
       _id,
       title,
@@ -128,30 +128,30 @@ async function analyzeBlogs() {
       featured,
       order
     }`;
-    
+
     const blogs = await client.fetch(query);
-    
+
     if (blogs.length === 0) {
       console.log('❌ No blog posts found in Sanity CMS.');
       return;
     }
-    
+
     console.log(`✅ Found ${blogs.length} blog post(s)\n`);
     console.log('='.repeat(80));
     console.log('BLOG POSTS ANALYSIS REPORT');
     console.log('='.repeat(80));
     console.log();
-    
+
     // Analyze each blog
     const analyses = blogs.map(blog => analyzeBlogPost(blog));
-    
+
     // Sort by published date (most recent first)
     analyses.sort((a, b) => {
       const dateA = new Date(a.publishedAt);
       const dateB = new Date(b.publishedAt);
       return dateB - dateA;
     });
-    
+
     // Display summary
     console.log('📊 SUMMARY');
     console.log('-'.repeat(80));
@@ -162,7 +162,7 @@ async function analyzeBlogs() {
     console.log(`Average Word Count: ${Math.round(analyses.reduce((sum, a) => sum + a.content.wordCount, 0) / analyses.length)}`);
     console.log(`Average Reading Time: ${Math.round(analyses.reduce((sum, a) => sum + a.content.readingTime, 0) / analyses.length)} min`);
     console.log();
-    
+
     // Display recent posts (last 10)
     console.log('📝 RECENT POSTS (Last 10)');
     console.log('-'.repeat(80));
@@ -179,7 +179,7 @@ async function analyzeBlogs() {
       console.log(`   🔗 Slug: /blog/${analysis.slug}`);
       console.log(`   📊 Word Count: ${analysis.content.wordCount} words (${analysis.content.readingTime} min read)`);
       console.log(`   ⭐ Featured: ${analysis.featured ? 'Yes' : 'No'}`);
-      
+
       if (analysis.issues.length > 0) {
         console.log(`   ❌ Issues: ${analysis.issues.join(', ')}`);
       }
@@ -187,17 +187,17 @@ async function analyzeBlogs() {
         console.log(`   ⚠️  Warnings: ${analysis.warnings.join(', ')}`);
       }
     });
-    
+
     // SEO Analysis Summary
     console.log('\n\n🔍 SEO ANALYSIS SUMMARY');
     console.log('-'.repeat(80));
     const seoOptimal = analyses.filter(a => a.seo.titleOptimal && a.seo.descriptionOptimal && a.seo.hasKeywords);
     const seoNeedsWork = analyses.filter(a => !a.seo.titleOptimal || !a.seo.descriptionOptimal || !a.seo.hasKeywords);
-    
+
     console.log(`✅ SEO Optimized: ${seoOptimal.length} posts`);
     console.log(`⚠️  Needs SEO Work: ${seoNeedsWork.length} posts`);
     console.log();
-    
+
     if (seoNeedsWork.length > 0) {
       console.log('Posts needing SEO improvements:');
       seoNeedsWork.forEach(analysis => {
@@ -207,26 +207,26 @@ async function analyzeBlogs() {
         if (!analysis.seo.hasKeywords) console.log(`    → Missing keywords`);
       });
     }
-    
+
     // Content Quality Summary
     console.log('\n\n📖 CONTENT QUALITY SUMMARY');
     console.log('-'.repeat(80));
     const shortContent = analyses.filter(a => a.content.wordCount < 300);
     const optimalContent = analyses.filter(a => a.content.wordCount >= 300 && a.content.wordCount <= 2000);
     const longContent = analyses.filter(a => a.content.wordCount > 2000);
-    
+
     console.log(`📝 Short Content (< 300 words): ${shortContent.length} posts`);
     console.log(`✅ Optimal Content (300-2000 words): ${optimalContent.length} posts`);
     console.log(`📚 Long Content (> 2000 words): ${longContent.length} posts`);
     console.log();
-    
+
     if (shortContent.length > 0) {
       console.log('Posts with short content:');
       shortContent.forEach(analysis => {
         console.log(`  - ${analysis.title} (${analysis.content.wordCount} words)`);
       });
     }
-    
+
     // Category Distribution
     console.log('\n\n📂 CATEGORY DISTRIBUTION');
     console.log('-'.repeat(80));
@@ -239,7 +239,7 @@ async function analyzeBlogs() {
       .forEach(([category, count]) => {
         console.log(`  ${category}: ${count} post(s)`);
       });
-    
+
     // Keywords Analysis
     console.log('\n\n🏷️  KEYWORDS ANALYSIS');
     console.log('-'.repeat(80));
@@ -253,7 +253,7 @@ async function analyzeBlogs() {
     allKeywords.forEach(keyword => {
       keywordCount[keyword.toLowerCase()] = (keywordCount[keyword.toLowerCase()] || 0) + 1;
     });
-    
+
     if (Object.keys(keywordCount).length > 0) {
       console.log('Most used keywords:');
       Object.entries(keywordCount)
@@ -265,11 +265,11 @@ async function analyzeBlogs() {
     } else {
       console.log('⚠️  No keywords found in any posts');
     }
-    
+
     console.log('\n' + '='.repeat(80));
     console.log('Analysis Complete!');
     console.log('='.repeat(80));
-    
+
   } catch (error) {
     console.error('❌ Error analyzing blogs:', error);
     process.exit(1);

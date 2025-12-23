@@ -11,6 +11,7 @@ import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import images from '../../constants/images';
 import { Car, Droplets, SprayCan, Sun, Sparkles, HelpCircle, Phone, Calendar as CalendarIcon, Clock, CheckCircle, ChevronLeft } from 'lucide-react';
+import { BUSINESS_INFO } from '../../constants/businessInfo';
 
 const DatePicker = lazy(() => import('react-datepicker'));
 
@@ -287,7 +288,7 @@ function Booking() {
 
                                 <div className="phone-support">
                                     <p>Need help? Call us directly</p>
-                                    <a href="tel:6476896109" className="phone-link"><Phone size={16} /> (647) 689-6109</a>
+                                    <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`} className="phone-link"><Phone size={16} /> {BUSINESS_INFO.phone}</a>
                                 </div>
                             </form>
                         </>

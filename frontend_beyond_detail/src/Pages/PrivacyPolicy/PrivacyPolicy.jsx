@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
+import { BUSINESS_INFO } from '../../constants/businessInfo';
 import './PrivacyPolicy.scss';
 
 // Lazy load heavy components to improve initial bundle size
@@ -146,7 +147,7 @@ function PrivacyPolicy() {
                   </p>
                   <ul>
                     <li><strong>Email:</strong> support@beyonddetail.com</li>
-                    <li><strong>Phone:</strong> (647) 689-6109</li>
+                    <li><strong>Phone:</strong> {BUSINESS_INFO.phone}</li>
                     <li><strong>Address:</strong> Unit 11, 170 Finchdene Square, Scarborough, ON M1X 1B3, Canada</li>
                   </ul>
                 </div>

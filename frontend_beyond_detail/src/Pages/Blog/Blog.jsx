@@ -124,7 +124,15 @@ const BlockContent = ({ blocks }) => {
 
       return (
         <p key={idx} className="blog-paragraph">
-          {processTextWithFormatting(paragraphText, block.children || [])}
+          {(() => {
+            try {
+              return processTextWithFormatting(paragraphText, block.children || []);
+            } catch (err) {
+              console.error('Error processing text formatting:', err);
+              // Fallback to plain text
+              return paragraphText;
+            }
+          })()}
         </p>
       );
     }

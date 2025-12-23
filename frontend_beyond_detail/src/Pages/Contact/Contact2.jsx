@@ -11,7 +11,11 @@ import { FaFacebookF } from 'react-icons/fa';
 import './Contact2.scss';
 import emailjs from '@emailjs/browser';
 
-const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+import { BsTwitter, BsInstagram } from 'react-icons/bs';
+import { FaFacebookF } from 'react-icons/fa';
+import './Contact2.scss';
+import emailjs from '@emailjs/browser';
+import { BUSINESS_INFO } from '../../constants/businessInfo';
 const DatePicker = lazy(() => import('react-datepicker'));
 const LazyMap = lazy(() => import('../../components/Map/Map'));
 
@@ -227,14 +231,14 @@ function ContactPage() {
                       </p>
                       <p>
                         <strong>Phone :</strong>{' '}
-                        <a href='tel:+16476896109'>
-                          (647) 689-6109
+                        <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`}>
+                          {BUSINESS_INFO.phone}
                         </a>
                       </p>
                       <p>
                         <strong>Email :</strong>{' '}
-                        <a href='mailto:support@beyonddetail.com'>
-                          {contactData[0].email}
+                        <a href={`mailto:${BUSINESS_INFO.email}`}>
+                          {contactData[0].email || BUSINESS_INFO.email}
                         </a>
                       </p>
                       <p>
@@ -465,6 +469,20 @@ function ContactPage() {
                       Thank you for contacting us. We will get back to you
                       shortly.
                     </h3>
+                    <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                      <p style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>
+                        Enjoyed our service? Help us out by leaving a review!
+                      </p>
+                      <a
+                        href="https://search.google.com/local/writereview?placeid=ChIJFeApoP4d1YkRv0VpV6_h8sY"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn ac_btn rounded-0"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                      >
+                        Review us on Google
+                      </a>
+                    </div>
                   </div>
                 )}
               </motion.div>

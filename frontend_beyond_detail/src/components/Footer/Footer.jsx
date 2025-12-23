@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { client } from '../../client';
+
 import images from '../../constants/images';
 import './Footer.scss';
+import { BUSINESS_INFO } from '../../constants/businessInfo';
 
 function Footer() {
   const defaultFooterData = [{
-    number: '+1 (647) 689-6109',
-    addressUnit: 'Unit 11',
-    address: '170 Finchdene Square, Scarborough, Toronto, ON M1X 1B3',
+    number: BUSINESS_INFO.phone,
+    addressUnit: BUSINESS_INFO.address.streetAddress.split(' unit')[0] + ' Unit ' + BUSINESS_INFO.address.streetAddress.split(' unit ')[1],
+    address: `${BUSINESS_INFO.address.addressLocality}, ${BUSINESS_INFO.address.addressRegion} ${BUSINESS_INFO.address.postalCode}`,
     hours: {
       hoursDay1: 'Monday - Friday',
       hours1: '8:00 AM - 8:00 PM',

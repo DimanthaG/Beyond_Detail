@@ -1,9 +1,9 @@
-const sanityClient = require('@sanity/client');
+const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
 
 // Initialize Sanity client
-const client = sanityClient({
+const client = createClient({
   projectId: 'trp6l9ar',
   dataset: 'production',
   apiVersion: '2022-02-01',
@@ -31,7 +31,7 @@ const STATIC_PAGES = [
   { loc: '/blog', priority: 0.8, changefreq: 'weekly' },
   { loc: '/testimonials', priority: 0.7, changefreq: 'monthly' },
   { loc: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
-  
+
   // Service Pages
   { loc: '/tint', priority: 0.9, changefreq: 'monthly' },
   { loc: '/auto-detail', priority: 0.9, changefreq: 'monthly' },
@@ -44,12 +44,12 @@ const STATIC_PAGES = [
   { loc: '/leather-cleaning', priority: 0.8, changefreq: 'monthly' },
   { loc: '/paint-removal', priority: 0.8, changefreq: 'monthly' },
   { loc: '/fleet-services', priority: 0.8, changefreq: 'monthly' },
-  
+
   // Service Areas
   { loc: '/car-detailing-pickering', priority: 0.8, changefreq: 'weekly' },
   { loc: '/car-detailing-markham', priority: 0.8, changefreq: 'weekly' },
   { loc: '/service-area/north-york', priority: 0.6, changefreq: 'monthly' },
-  
+
   // Landing Pages - Scarborough
   { loc: '/car-detailing-scarborough', priority: 0.9, changefreq: 'weekly' },
   { loc: '/auto-detailing-scarborough', priority: 0.9, changefreq: 'weekly' },
@@ -65,17 +65,17 @@ const STATIC_PAGES = [
   { loc: '/car-detailing-guildwood', priority: 0.8, changefreq: 'weekly' },
   { loc: '/window-tinting-scarborough', priority: 0.9, changefreq: 'weekly' },
   { loc: '/paint-correction-scarborough', priority: 0.9, changefreq: 'weekly' },
-  
+
   // Landing Pages - Markham
   { loc: '/window-tinting-markham', priority: 0.8, changefreq: 'weekly' },
   { loc: '/ceramic-coating-markham', priority: 0.8, changefreq: 'weekly' },
   { loc: '/paint-correction-markham', priority: 0.8, changefreq: 'weekly' },
-  
+
   // Landing Pages - Pickering
   { loc: '/ceramic-coating-pickering', priority: 0.8, changefreq: 'weekly' },
   { loc: '/paint-correction-pickering', priority: 0.8, changefreq: 'weekly' },
   { loc: '/window-tinting-pickering', priority: 0.8, changefreq: 'weekly' },
-  
+
   // Landing Pages - Other Areas
   { loc: '/car-detailing-oshawa', priority: 0.8, changefreq: 'weekly' },
   { loc: '/car-detailing-whitby', priority: 0.8, changefreq: 'weekly' },
@@ -118,7 +118,7 @@ const STATIC_PAGES = [
 async function generateSitemap() {
   try {
     console.log('🗺️  Generating sitemap...\n');
-    
+
     // Fetch blog posts from Sanity
     console.log('📝 Fetching blog posts from Sanity...');
     const query = `*[_type == "blogPost"] | order(publishedAt desc) {
@@ -126,15 +126,15 @@ async function generateSitemap() {
       publishedAt,
       _updatedAt
     }`;
-    
+
     const blogPosts = await client.fetch(query);
     console.log(`✅ Found ${blogPosts.length} blog post(s)\n`);
-    
+
     // Start building XML
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n';
     xml += '  \n';
-    
+
     // Add static pages
     xml += '  <!-- Homepage -->\n';
     xml += `  <url>\n`;
@@ -144,7 +144,7 @@ async function generateSitemap() {
     xml += `    <priority>1.0</priority>\n`;
     xml += `  </url>\n`;
     xml += '  \n';
-    
+
     // Add main pages
     xml += '  <!-- Main Pages -->\n';
     STATIC_PAGES.slice(1, 9).forEach(page => {
@@ -156,7 +156,7 @@ async function generateSitemap() {
       xml += `  </url>\n`;
       if (page.loc === '/privacy-policy') xml += '  \n';
     });
-    
+
     // Add service pages
     xml += '  <!-- Service Pages -->\n';
     STATIC_PAGES.slice(9, 20).forEach(page => {
@@ -168,7 +168,7 @@ async function generateSitemap() {
       xml += `  </url>\n`;
     });
     xml += '\n';
-    
+
     // Add service areas
     xml += '  <!-- Service Areas -->\n';
     STATIC_PAGES.slice(20, 23).forEach(page => {
@@ -180,7 +180,7 @@ async function generateSitemap() {
       xml += `  </url>\n`;
     });
     xml += '  \n';
-    
+
     // Add landing pages
     xml += '  <!-- Landing Pages -->\n';
     STATIC_PAGES.slice(23).forEach(page => {
@@ -192,18 +192,18 @@ async function generateSitemap() {
       xml += `  </url>\n`;
     });
     xml += '  \n';
-    
+
     // Add blog posts
     if (blogPosts.length > 0) {
       xml += '  <!-- Blog Posts -->\n';
       blogPosts.forEach(post => {
         if (post.slug && post.slug.current) {
-          const lastmod = post._updatedAt 
+          const lastmod = post._updatedAt
             ? new Date(post._updatedAt).toISOString().split('T')[0]
-            : (post.publishedAt 
+            : (post.publishedAt
               ? new Date(post.publishedAt).toISOString().split('T')[0]
               : getTodayDate());
-          
+
           xml += `  <url>\n`;
           xml += `    <loc>${BASE_URL}/blog/${post.slug.current}</loc>\n`;
           xml += `    <lastmod>${lastmod}</lastmod>\n`;
@@ -214,20 +214,20 @@ async function generateSitemap() {
       });
       xml += '  \n';
     }
-    
+
     xml += '</urlset>\n';
-    
+
     // Write to file
     const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
     fs.writeFileSync(sitemapPath, xml);
-    
+
     console.log('✅ Sitemap generated successfully!');
     console.log(`📍 Location: ${sitemapPath}`);
     console.log(`📊 Total URLs: ${STATIC_PAGES.length + blogPosts.length}`);
     console.log(`   - Static pages: ${STATIC_PAGES.length}`);
     console.log(`   - Blog posts: ${blogPosts.length}`);
     console.log('\n🎉 Done!\n');
-    
+
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);
     process.exit(1);

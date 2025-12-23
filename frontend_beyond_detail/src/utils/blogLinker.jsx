@@ -116,15 +116,10 @@ export const BlogLinker = ({ text, className = 'blog-internal-link', maxLinks = 
 
   // Helper to add a link
   const addLink = (match, route, linkText) => {
-    if (linkCount.count >= maxLinks) {
-      parts.push(match[0]);
-      return;
-    }
-
+    // Check overlapping first to avoid processing same text twice
     const startIdx = match.index;
     const endIdx = match.index + match[0].length;
 
-    // Check if this range overlaps with already processed text
     let overlaps = false;
     for (const [start, end] of processedIndices) {
       if (!(endIdx <= start || startIdx >= end)) {
@@ -133,36 +128,50 @@ export const BlogLinker = ({ text, className = 'blog-internal-link', maxLinks = 
       }
     }
 
-    if (!overlaps) {
-      processedIndices.add([startIdx, endIdx]);
-      linkCount.count++;
+    if (overlaps) {
+      // If overlaps, we don't link, but we might need to catch up text if we haven't already.
+      // However, the main loop logic handles "gaps" by filling from lastIndex.
+      // We just skip this match entirely.
+      return;
+    }
 
-      // Add text before the match
-      if (startIdx > lastIndex) {
-        parts.push(text.substring(lastIndex, startIdx));
-      }
-
-      // Add the linked text
-      parts.push(
-        <Link
-          key={`link-${startIdx}-${linkCount.count}`}
-          to={route}
-          className={className}
-          onClick={() => window.scrollTo(0, 0)}
-        >
-          {linkText}
-        </Link>
-      );
-
-      lastIndex = endIdx;
-    } else {
-      // If overlaps, just add the text
+    // Valid non-overlapping match
+    if (linkCount.count >= maxLinks) {
+      // Limit reached: treat as normal text
+      // We don't increment linkCount, we just append text up to this point + the match text
       if (startIdx > lastIndex) {
         parts.push(text.substring(lastIndex, startIdx));
       }
       parts.push(match[0]);
       lastIndex = endIdx;
+
+      // Mark as processed so we don't try to link it again with a lower priority pattern
+      processedIndices.add([startIdx, endIdx]);
+      return;
     }
+
+    // Add link
+    processedIndices.add([startIdx, endIdx]);
+    linkCount.count++;
+
+    // Add text before the match
+    if (startIdx > lastIndex) {
+      parts.push(text.substring(lastIndex, startIdx));
+    }
+
+    // Add the linked text
+    parts.push(
+      <Link
+        key={`link-${startIdx}-${linkCount.count}`}
+        to={route}
+        className={className}
+        onClick={() => window.scrollTo(0, 0)}
+      >
+        {linkText}
+      </Link>
+    );
+
+    lastIndex = endIdx;
   };
 
   // Process Service + Location combinations first (highest priority)
