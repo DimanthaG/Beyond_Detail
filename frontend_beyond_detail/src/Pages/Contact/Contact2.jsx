@@ -11,13 +11,10 @@ import { FaFacebookF } from 'react-icons/fa';
 import './Contact2.scss';
 import emailjs from '@emailjs/browser';
 
-import { BsTwitter, BsInstagram } from 'react-icons/bs';
-import { FaFacebookF } from 'react-icons/fa';
-import './Contact2.scss';
-import emailjs from '@emailjs/browser';
 import { BUSINESS_INFO } from '../../constants/businessInfo';
 const DatePicker = lazy(() => import('react-datepicker'));
 const LazyMap = lazy(() => import('../../components/Map/Map'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -48,10 +45,35 @@ function ContactPage() {
   useEffect(() => {
     const query = '*[_type == "contactPage"]';
 
-    client.fetch(query).then((data) => {
-      setContactData(data);
-      setLoading(true);
-    });
+    client.fetch(query)
+      .then((data) => {
+        if (data && data.length > 0) {
+          setContactData(data);
+        } else {
+          console.warn('No contact data found, using fallback');
+          setContactData([{
+            topText: 'Contact Us',
+            address: '170 Finchdene Square unit 11, Scarborough, ON',
+            email: BUSINESS_INFO.email,
+            hours1: 'Monday - Friday: 8:00am - 8:00pm',
+            hours2: 'Saturday: 9:00am - 6:00pm',
+            bottomDescription: 'We are here to help with your vehicle needs.'
+          }]);
+        }
+        setLoading(true);
+      })
+      .catch((err) => {
+        console.warn("Sanity fetch warning:", err);
+        setContactData([{
+          topText: 'Contact Us',
+          address: '170 Finchdene Square unit 11, Scarborough, ON',
+          email: BUSINESS_INFO.email,
+          hours1: 'Monday - Friday: 8:00am - 8:00pm',
+          hours2: 'Saturday: 9:00am - 6:00pm',
+          bottomDescription: 'We are here to help with your vehicle needs.'
+        }]);
+        setLoading(true);
+      });
   }, []);
 
   const { name, email, phone, message } = formData;
