@@ -137,16 +137,7 @@ export const SEO = ({
           '@type': 'Service',
           name: service,
           provider: {
-            '@type': 'LocalBusiness',
-            name: BUSINESS_INFO.name,
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: BUSINESS_INFO.address.streetAddress,
-              addressLocality: BUSINESS_INFO.address.addressLocality,
-              addressRegion: BUSINESS_INFO.address.addressRegion,
-              postalCode: BUSINESS_INFO.address.postalCode,
-              addressCountry: BUSINESS_INFO.address.addressCountry
-            }
+            '@id': BUSINESS_INFO.url
           },
           areaServed: LOCATIONS.map(loc => ({
             '@type': 'City',
@@ -160,16 +151,7 @@ export const SEO = ({
         '@type': 'Service',
         name: serviceType,
         provider: {
-          '@type': 'LocalBusiness',
-          name: BUSINESS_INFO.name,
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: BUSINESS_INFO.address.streetAddress,
-            addressLocality: BUSINESS_INFO.address.addressLocality,
-            addressRegion: BUSINESS_INFO.address.addressRegion,
-            postalCode: BUSINESS_INFO.address.postalCode,
-            addressCountry: BUSINESS_INFO.address.addressCountry
-          }
+          '@id': BUSINESS_INFO.url
         },
         areaServed: LOCATIONS.map(loc => ({
           '@type': 'City',
@@ -256,17 +238,7 @@ export const SEO = ({
     '@type': 'Service',
     name: serviceType,
     provider: {
-      '@type': 'LocalBusiness',
-      name: BUSINESS_INFO.name,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: BUSINESS_INFO.address.streetAddress,
-        addressLocality: BUSINESS_INFO.address.addressLocality,
-        addressRegion: BUSINESS_INFO.address.addressRegion,
-        postalCode: BUSINESS_INFO.address.postalCode,
-        addressCountry: BUSINESS_INFO.address.addressCountry
-      },
-      priceRange: '$$'
+      '@id': BUSINESS_INFO.url
     },
     areaServed: LOCATIONS.map(loc => ({
       '@type': 'City',
@@ -383,6 +355,26 @@ export const SEO = ({
           {JSON.stringify(serviceSchema)}
         </script>
       )}
+
+      {/* ImageObject Schema for all images on the page */}
+      <script type='application/ld+json'>
+        {JSON.stringify({
+          '@context': 'https://schema.org/',
+          '@type': 'ImageObject',
+          'contentUrl': ogImage,
+          'url': ogImage,
+          'license': `${BUSINESS_INFO.url}/copyright`,
+          'acquireLicensePage': `${BUSINESS_INFO.url}/copyright`,
+          'creditText': BUSINESS_INFO.name,
+          'creator': {
+            '@type': 'Organization',
+            'name': BUSINESS_INFO.name,
+            'url': BUSINESS_INFO.url
+          },
+          'copyrightNotice': `© ${new Date().getFullYear()} ${BUSINESS_INFO.name}. All Rights Reserved.`,
+          'copyrightYear': new Date().getFullYear().toString()
+        })}
+      </script>
     </Helmet>
   );
 };
