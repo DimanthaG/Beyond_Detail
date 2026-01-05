@@ -218,19 +218,6 @@ export const SEO = ({
     ]
   };
 
-  // FAQ Structured Data
-  const faqData = faq.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map(item => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer
-      }
-    }))
-  } : null;
 
   // Dedicated Service Structured Data (for rich snippets)
   const serviceSchema = serviceType ? {
@@ -341,13 +328,6 @@ export const SEO = ({
       <script type='application/ld+json'>
         {JSON.stringify(organizationData)}
       </script>
-
-      {/* FAQ Structured Data */}
-      {faqData && (
-        <script type='application/ld+json'>
-          {JSON.stringify(faqData)}
-        </script>
-      )}
 
       {/* Dedicated Service Schema */}
       {serviceSchema && (

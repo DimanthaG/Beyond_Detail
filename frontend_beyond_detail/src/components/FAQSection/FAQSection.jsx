@@ -1,28 +1,50 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import './FAQSection.scss';
 
 const FAQSection = ({ title = "Frequently Asked Questions", data = [] }) => {
     if (!data || data.length === 0) return null;
 
+    // Generate FAQ structured data
+    const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.map(item => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer
+            }
+        }))
+    };
+
     return (
-        <section className="faq-section">
-            <div className="faq-section__container">
-                <h2 className="faq-section__title">{title}</h2>
-                <div className="faq-section__list">
-                    {data.map((item, index) => (
-                        <details key={index} className="faq-section__item">
-                            <summary className="faq-section__question">
-                                {item.question}
-                                <span className="faq-section__icon">+</span>
-                            </summary>
-                            <div className="faq-section__answer">
-                                <p>{item.answer}</p>
-                            </div>
-                        </details>
-                    ))}
+        <>
+            <Helmet>
+                <script type='application/ld+json'>
+                    {JSON.stringify(faqSchema)}
+                </script>
+            </Helmet>
+            <section className="faq-section">
+                <div className="faq-section__container">
+                    <h2 className="faq-section__title">{title}</h2>
+                    <div className="faq-section__list">
+                        {data.map((item, index) => (
+                            <details key={index} className="faq-section__item">
+                                <summary className="faq-section__question">
+                                    {item.question}
+                                    <span className="faq-section__icon">+</span>
+                                </summary>
+                                <div className="faq-section__answer">
+                                    <p>{item.answer}</p>
+                                </div>
+                            </details>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 
