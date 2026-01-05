@@ -28,3 +28,4 @@ export { default as MobileFixedFooter } from './MobileFixedFooter/MobileFixedFoo
 export { default as ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
 export { default as FAQSection } from './FAQSection/FAQSection';
 export { default as TrustBadges } from './TrustBadges/TrustBadges';
+export { default as FooterMap } from './FooterMap/FooterMap';

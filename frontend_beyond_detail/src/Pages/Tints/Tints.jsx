@@ -74,7 +74,12 @@ function Tints() {
         transition={{ ...transition, delay: 0 }}
       >
         <div className='tints__wrapper'>
-          <TintsHero scrollTarget="#pricing" />
+          <TintsHero
+            scrollTarget="#pricing"
+            titleLine1="Professional"
+            titleLine2="Window Tinting Services in"
+            titleLine3="Scarborough"
+          />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
               <ServiceGallery

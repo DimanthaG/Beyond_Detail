@@ -2,6 +2,133 @@
 // DO NOT EDIT MANUALLY IF YOU WANT TO KEEP SYNCED
 export const LOCAL_BLOG_POSTS = [
     {
+        "_id": "imported-post-car-detailing-cost-toronto-2025",
+        "author": "Beyond Detail Team",
+        "category": "Car Care Tips",
+        "content": [
+            {
+                "_key": "8vm1miuj8e",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "gg4r2qg3kd7",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "When shopping for car detailing in Toronto, prices can vary wildly. From $50 roadside washes to $2,000 paint correction packages, it can be confusing to know what you’re paying for. Here is a realistic guide to 2025 pricing."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "oraqms5q52",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "jq5u4cslc8",
+                        "_type": "span",
+                        "text": "Basic Maintenance Detail ($150 - $250)"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "khtxufnmwkd",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "gjt4sjftqhi",
+                        "_type": "span",
+                        "text": "A proper maintenance detail is not just a car wash. It should include a thorough hand wash, wheel cleaning, interior vacuum, wipe down, and window cleaning. At this price point, you are paying for the detailer’s time and quality products that won’t damage your finish."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "uydtrqvz4lg",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "dnin806ijii",
+                        "_type": "span",
+                        "text": "Full Interior Deep Clean ($250 - $400)"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "7fhdht3ubc4",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "r9vqcy9pfqf",
+                        "_type": "span",
+                        "text": "If you have salt stains, pet hair, or spilled coffee, you need a deep clean. This involves steam cleaning, shampoo extraction, and ozone treatment. The price varies based on the size of the vehicle and the severity of the condition."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "yojy8zulsw9",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "nw916dnctcf",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Paint Correction & Ceramic Coating ($1000+)"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "0si9c9pp8dm",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "j04o8upjjw",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "This is a restorative service. Removing swirl marks and scratches takes hours of machine polishing. Combined with a professional ceramic coating, this is an investment in your vehicle’s resale value. "
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            }
+        ],
+        "excerpt": "A transparent breakdown of auto detailing prices in the GTA. Understand what you get for your money.",
+        "keywords": [
+            "car detailing prices toronto",
+            "detailing cost gta",
+            "auto detailing packages"
+        ],
+        "mainImage": {
+            "alt": "Professional ceramic coating and paint correction on a luxury vehicle at Beyond Detail in Scarborough.",
+            "asset": {
+                "_ref": "image-95f0b50e2ee70e3804310fa63c6d5ddedd1359cf-4284x5712-jpg",
+                "_type": "reference"
+            }
+        },
+        "publishedAt": "2025-12-25T10:00:00.000Z",
+        "relatedServices": [
+            "window-tint",
+            "auto-detail",
+            "paint-correction",
+            "ceramic-coating",
+            "interior-detailing",
+            "exterior-detailing"
+        ],
+        "slug": {
+            "current": "how-much-does-car-detailing-cost-in-toronto-2026-pricing"
+        },
+        "title": "How Much Does Car Detailing Cost in Toronto? [2026 Pricing]"
+    },
+    {
         "_id": "b9dfe548-7a39-4db2-a5c7-6b4703ccde3f",
         "author": "Beyond Detail Team",
         "category": "Window Tinting",
@@ -11595,132 +11722,6 @@ export const LOCAL_BLOG_POSTS = [
             "current": "best-time-to-detail-car-toronto"
         },
         "title": "Best Time to Detail Your Car in Toronto's Climate"
-    },
-    {
-        "_id": "imported-post-car-detailing-cost-toronto-2025",
-        "author": "Beyond Detail Team",
-        "category": "Car Care Tips",
-        "content": [
-            {
-                "_key": "8vm1miuj8e",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "gg4r2qg3kd7",
-                        "_type": "span",
-                        "marks": [],
-                        "text": "When shopping for car detailing in Toronto, prices can vary wildly. From $50 roadside washes to $2,000 paint correction packages, it can be confusing to know what you’re paying for. Here is a realistic guide to 2025 pricing."
-                    }
-                ],
-                "markDefs": [],
-                "style": "normal"
-            },
-            {
-                "_key": "oraqms5q52",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "jq5u4cslc8",
-                        "_type": "span",
-                        "text": "Basic Maintenance Detail ($150 - $250)"
-                    }
-                ],
-                "markDefs": [],
-                "style": "h2"
-            },
-            {
-                "_key": "khtxufnmwkd",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "gjt4sjftqhi",
-                        "_type": "span",
-                        "text": "A proper maintenance detail is not just a car wash. It should include a thorough hand wash, wheel cleaning, interior vacuum, wipe down, and window cleaning. At this price point, you are paying for the detailer’s time and quality products that won’t damage your finish."
-                    }
-                ],
-                "markDefs": [],
-                "style": "normal"
-            },
-            {
-                "_key": "uydtrqvz4lg",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "dnin806ijii",
-                        "_type": "span",
-                        "text": "Full Interior Deep Clean ($250 - $400)"
-                    }
-                ],
-                "markDefs": [],
-                "style": "h2"
-            },
-            {
-                "_key": "7fhdht3ubc4",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "r9vqcy9pfqf",
-                        "_type": "span",
-                        "text": "If you have salt stains, pet hair, or spilled coffee, you need a deep clean. This involves steam cleaning, shampoo extraction, and ozone treatment. The price varies based on the size of the vehicle and the severity of the condition."
-                    }
-                ],
-                "markDefs": [],
-                "style": "normal"
-            },
-            {
-                "_key": "yojy8zulsw9",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "nw916dnctcf",
-                        "_type": "span",
-                        "text": "Paint Correction & Ceramic Coating ($800+)"
-                    }
-                ],
-                "markDefs": [],
-                "style": "h2"
-            },
-            {
-                "_key": "0si9c9pp8dm",
-                "_type": "block",
-                "children": [
-                    {
-                        "_key": "j04o8upjjw",
-                        "_type": "span",
-                        "marks": [],
-                        "text": "This is a restorative service. Removing swirl marks and scratches takes hours of machine polishing. Combined with a professional ceramic coating, this is an investment in your vehicle’s resale value. "
-                    }
-                ],
-                "markDefs": [],
-                "style": "normal"
-            }
-        ],
-        "excerpt": "A transparent breakdown of auto detailing prices in the GTA. Understand what you get for your money.",
-        "keywords": [
-            "car detailing prices toronto",
-            "detailing cost gta",
-            "auto detailing packages"
-        ],
-        "mainImage": {
-            "alt": "Professional ceramic coating and paint correction on a luxury vehicle at Beyond Detail in Scarborough.",
-            "asset": {
-                "_ref": "image-95f0b50e2ee70e3804310fa63c6d5ddedd1359cf-4284x5712-jpg",
-                "_type": "reference"
-            }
-        },
-        "publishedAt": "2025-06-10T09:00:00Z",
-        "relatedServices": [
-            "window-tint",
-            "auto-detail",
-            "paint-correction",
-            "ceramic-coating",
-            "interior-detailing",
-            "exterior-detailing"
-        ],
-        "slug": {
-            "current": "car-detailing-cost-toronto-2025"
-        },
-        "title": "How Much Does Car Detailing Cost in Toronto? [2025 Pricing]"
     },
     {
         "_id": "imported-post-ceramic-coating-vs-wax-toronto",

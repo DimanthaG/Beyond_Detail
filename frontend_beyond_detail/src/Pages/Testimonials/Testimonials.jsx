@@ -13,7 +13,7 @@ function Testimonials() {
         keywords="car detailing reviews, auto detailing testimonials, window tinting reviews, ceramic coating reviews, Toronto car detailing, Scarborough auto detailing"
       />
       <div className="testimonials-header">
-        <h1>Customer Testimonials - Auto Detailing Toronto & Scarborough</h1>
+        <h1>Customer Testimonials - Auto Detailing Scarborough</h1>
         <p className="testimonials-subtitle">See what our customers say about our professional auto detailing services</p>
       </div>
       <Suspense fallback={null}>

@@ -197,16 +197,24 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    Professional Car Detailing
+                    Professional
+                  </motion.span>
+                  <motion.span
+                    className="home-hero__title-line home-hero__title-line--white"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    Car Detailing Services
                   </motion.span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
                     style={{ display: 'block', visibility: 'visible' }}
                   >
-                    in Scarborough & Toronto
+                    in Scarborough
                   </motion.span>
                 </motion.h1>
                 <motion.p
@@ -215,7 +223,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough & Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
+                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
                 </motion.p>
 
                 {/* Feature Icons */}

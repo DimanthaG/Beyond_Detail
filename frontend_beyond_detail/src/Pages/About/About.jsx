@@ -83,19 +83,19 @@ function About() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                 >
-                  <h1 className='about__hero-title'>About Us - Auto Detailing Toronto & Scarborough</h1>
+                  <h1 className='about__hero-title'>About Us - Auto Detailing Scarborough</h1>
                   <p className='about__hero-description'>
                     Beyond Detail is Toronto and Scarborough's trusted automotive care specialists. We combine expert craftsmanship, premium products, and unwavering dedication to deliver exceptional results for every vehicle.
                   </p>
                   <div className='about__hero-buttons'>
-                    <button 
+                    <button
                       className='about__hero-button about__hero-button--primary'
                       onClick={handleBookCall}
                     >
                       <Phone size={20} />
                       Book a Call
                     </button>
-                    <button 
+                    <button
                       className='about__hero-button about__hero-button--secondary'
                       onClick={handleScrollToContact}
                     >
@@ -106,7 +106,7 @@ function About() {
                 </motion.div>
               </div>
             </section>
-            
+
             <section className='about__story'>
               <div className='about__story-container'>
                 <motion.div
@@ -151,7 +151,7 @@ function About() {
 
             <section className='about__values'>
               <div className='about__values-container'>
-                <motion.h2 
+                <motion.h2
                   className='about__values-title'
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ function About() {
                 >
                   Our Core Values
                 </motion.h2>
-                <motion.p 
+                <motion.p
                   className='about__values-subtitle'
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -209,14 +209,14 @@ function About() {
                     Get in touch with us today to discuss how we can help protect and enhance your vehicle.
                   </p>
                   <div className='about__cta-buttons'>
-                    <button 
+                    <button
                       className='about__cta-button about__cta-button--primary'
                       onClick={handleBookCall}
                     >
                       <Phone size={20} />
                       Book a Call
                     </button>
-                    <button 
+                    <button
                       className='about__cta-button about__cta-button--secondary'
                       onClick={handleScrollToContact}
                     >

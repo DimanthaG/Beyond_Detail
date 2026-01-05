@@ -13,10 +13,10 @@ import './TintsHero.scss';
 export function TintsHero({
   scrollTarget = "#pricing",
   titleLine1 = "LLUMAR Window Tinting in",
-  titleLine2 = "TORONTO &",
-  titleLine3 = "SCARBOROUGH",
+  titleLine2 = "SCARBOROUGH",
+  titleLine3 = null,
   titleLine4 = null,
-  subtitle = "Tired of sun glare, faded interiors, and lack of privacy? Get <strong>professional LLUMAR window tinting</strong> in Toronto & Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves."
+  subtitle = "Tired of sun glare, faded interiors, and lack of privacy? Get <strong>professional LLUMAR window tinting</strong> in Scarborough. Trusted experts. Premium films. Lifetime warranty. Get the style & protection your car deserves."
 }) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
@@ -129,7 +129,7 @@ export function TintsHero({
                     {titleLine1}
                   </motion.span>
                   <motion.span
-                    className="tints-hero__title-line tints-hero__title-line--highlight"
+                    className="tints-hero__title-line tints-hero__title-line--white"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}

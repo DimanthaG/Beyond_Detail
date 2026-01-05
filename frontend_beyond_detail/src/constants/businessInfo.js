@@ -6,7 +6,7 @@ export const BUSINESS_INFO = {
     name: 'Beyond Detail',
     address: {
         streetAddress: '170 Finchdene Square unit 11',
-        addressLocality: 'Scarborough, Toronto',
+        addressLocality: 'Scarborough',
         addressRegion: 'ON',
         postalCode: 'M1X 1B3',
         addressCountry: 'CA'

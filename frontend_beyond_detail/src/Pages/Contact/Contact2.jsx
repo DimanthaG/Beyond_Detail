@@ -235,7 +235,7 @@ function ContactPage() {
               transition={{ duration: 2.0 }}
               viewport={{ once: true }}
             >
-              <h1>Contact Us - Auto Detailing Toronto & Scarborough</h1>
+              <h1>Contact Us - Auto Detailing Scarborough</h1>
             </motion.div>
             <div className='contact__wrapper2'>
               <motion.div

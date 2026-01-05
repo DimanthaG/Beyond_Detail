@@ -42,18 +42,20 @@ const getImageUrl = (source, width, height) => {
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
-// Helper function to render Sanity block content
 const BlockContent = ({ blocks }) => {
   if (!blocks || !Array.isArray(blocks)) return null;
 
   return blocks.map((block, idx) => {
+    // console.log(`Processing block ${idx} of type ${block._type}`); // DEBUG LOG
+
     // Handle text blocks
     if (block._type === 'block') {
       const style = block.style || 'normal';
 
       // Handle different heading styles
       if (style === 'h2') {
-        return <h2 key={idx} className="blog-heading">{block.children?.map(child => child.text).join('')}</h2>;
+        const text = block.children?.map(child => child.text).join('') || '';
+        return <h2 key={idx} className="blog-heading">{text}</h2>;
       }
       if (style === 'h3') {
         return <h3 key={idx} className="blog-section-header">{block.children?.map(child => child.text).join('')}</h3>;
@@ -96,11 +98,8 @@ const BlockContent = ({ blocks }) => {
 
               let content = text;
               // Only try to link if we have the linker component and text is long enough
-              try {
-                content = <BlogLinker text={text} className="blog-internal-link" maxLinks={2} />;
-              } catch (e) {
-                content = text;
-              }
+              // BlogLinker temporarily disabled to ensure content visibility
+              content = text;
 
               if (child.marks?.includes('strong')) {
                 return <strong key={childIdx}>{content}</strong>;
@@ -139,6 +138,7 @@ const BlockContent = ({ blocks }) => {
     // Handle images in content with enhanced SEO
     if (block._type === 'image') {
       const imageUrl = getImageUrl(block, 1200);
+      // console.log('Rendering image block:', imageUrl);
 
       return (
         <figure key={idx} className="blog-content-image">
@@ -163,55 +163,7 @@ const BlockContent = ({ blocks }) => {
   });
 };
 
-// Share buttons component
-const ShareButtons = ({ title, url }) => {
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : url;
-  const encodedTitle = encodeURIComponent(title);
-  const encodedUrl = encodeURIComponent(shareUrl);
 
-  return (
-    <div className="blog-share-buttons">
-      <span className="share-label">Share:</span>
-      <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="share-btn share-facebook"
-        aria-label="Share on Facebook"
-      >
-        Facebook
-      </a>
-      <a
-        href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="share-btn share-twitter"
-        aria-label="Share on Twitter"
-      >
-        Twitter
-      </a>
-      <a
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="share-btn share-linkedin"
-        aria-label="Share on LinkedIn"
-      >
-        LinkedIn
-      </a>
-      <button
-        onClick={() => {
-          navigator.clipboard.writeText(shareUrl);
-          alert('Link copied to clipboard!');
-        }}
-        className="share-btn share-copy"
-        aria-label="Copy link"
-      >
-        Copy Link
-      </button>
-    </div>
-  );
-};
 
 // Related posts component
 const RelatedPosts = ({ currentBlog, allBlogs }) => {
@@ -286,25 +238,32 @@ function Blog() {
         let cmsBlogs = [];
         try {
           if (slug) {
-            const query = `*[_type == "blogPost" && slug.current == $slug][0] {
-              _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, seoTitle, seoDescription, keywords, relatedServices
-            }`;
-            const blog = await client.fetch(query, { slug });
-            if (blog) {
-              setSelectedBlog(blog);
+            // 1. Check local backup FIRST (Since Sanity data seems incomplete/outdated)
+            const localBlog = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+
+            if (localBlog) {
+              setSelectedBlog(localBlog);
             } else {
-              // specific slug not found in CMS, check local
-              const localBlog = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
-              if (localBlog) setSelectedBlog(localBlog);
+              // 2. Only if not found locally, try Sanity
+              try {
+                const query = `*[_type == "blogPost" && slug.current == $slug][0] {
+                  _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, body, seoTitle, seoDescription, keywords, relatedServices
+                }`;
+                const blog = await client.fetch(query, { slug });
+                if (blog) setSelectedBlog(blog);
+              } catch (e) {
+                console.warn('Sanity fetch failed:', e);
+              }
             }
 
+            // Always fetch list for "Related specific" or sidebar, but we prioritize local for the *current* view
             const allBlogsQuery = `*[_type == "blogPost"] | order(publishedAt desc) {
               _id, title, slug, author, publishedAt, excerpt, mainImage, category
             }`;
             cmsBlogs = await client.fetch(allBlogsQuery);
           } else {
             const query = `*[_type == "blogPost"] | order(publishedAt desc) {
-              _id, title, slug, author, publishedAt, excerpt, mainImage, category, content
+              _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, body
             }`;
             cmsBlogs = await client.fetch(query);
           }
@@ -364,7 +323,7 @@ function Blog() {
   // Single Blog View
   if (currentBlog) {
     const selectedBlog = currentBlog; // Re-assign for cleaner diff
-    const readingTime = calculateReadingTime(selectedBlog.content);
+    const readingTime = calculateReadingTime(selectedBlog.content || selectedBlog.body);
     const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
     const blogUrl = `${currentUrl.split('/blog')[0]}/blog/${selectedBlog.slug.current}`;
     const seoTitle = selectedBlog.seoTitle || `${selectedBlog.title} | Beyond Detail Toronto Blog`;
@@ -404,7 +363,7 @@ function Blog() {
       },
       articleSection: selectedBlog.category || 'Auto Detailing',
       keywords: selectedBlog.keywords?.join(', ') || `${selectedBlog.category}, car detailing, auto detailing, Toronto, Scarborough, Markham, Pickering`,
-      wordCount: selectedBlog.content ? selectedBlog.content
+      wordCount: (selectedBlog.content || selectedBlog.body) ? (selectedBlog.content || selectedBlog.body)
         .filter(block => block._type === 'block')
         .map(block => block.children?.map(child => child.text).join('') || '')
         .join(' ')
@@ -497,21 +456,15 @@ function Blog() {
           {/* Main Content */}
           <article className="blog-article">
             <div className="blog-content-wrapper">
-              {/* Share Buttons - Sticky */}
-              <div className="blog-share-sticky">
-                <ShareButtons title={selectedBlog.title} url={blogUrl} />
-              </div>
+
 
               {/* Article Content */}
               <div className="blog-article-content">
-                <BlockContent blocks={selectedBlog.content} />
+                <BlockContent blocks={selectedBlog.content || selectedBlog.body} />
               </div>
             </div>
 
-            {/* Share Buttons - Bottom */}
-            <div className="blog-share-bottom">
-              <ShareButtons title={selectedBlog.title} url={blogUrl} />
-            </div>
+
 
             {/* Related Services Section */}
             {

@@ -2,13 +2,10 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { SEO } from '../../components';
 import { HomeHero } from '../../components/HomeHero/HomeHero';
 
-import { ShareButtons } from '../../components/ShareButtons/ShareButtons';
 import './Home.scss';
 
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const HomeContent = lazy(() => import('../../components/HomeContent/HomeContent'));
 const HomeDetailSection = lazy(() => import('../../components/HomeDetailSection/HomeDetailSection'));
-const AreasServed = lazy(() => import('../../components/AreasServed/AreasServed'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Home() {
@@ -28,23 +25,14 @@ function Home() {
       />
       <HomeHero />
       <Suspense fallback={null}>
-        <HomeContent />
+        <GoogleReviewsCarousel />
       </Suspense>
+      <div className="services-section-header">
+        <h2 className="services-section-title">Discover our Professional Services:</h2>
+      </div>
       <div id="home-services"></div>
       <Suspense fallback={null}>
         <HomeDetailSection />
-      </Suspense>
-      <Suspense fallback={null}>
-        <GoogleReviewsCarousel />
-      </Suspense>
-      <div style={{ padding: '40px 20px', textAlign: 'center', maxWidth: '1200px', margin: '0 auto' }}>
-        <ShareButtons
-          title="Beyond Detail - Professional Auto Detailing in Scarborough & Toronto"
-          className="home-share-buttons"
-        />
-      </div>
-      <Suspense fallback={null}>
-        <AreasServed />
       </Suspense>
       <Suspense fallback={null}>
         <Contact />

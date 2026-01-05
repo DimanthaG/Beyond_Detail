@@ -18,4 +18,32 @@
 
     // background: linear-gradient(-90deg, #da0000 5%, transparent 40%);
   }
+
+  .services-section-header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+  }
+
+  .services-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white-color);
+    letter-spacing: 0.5px;
+    margin: 0;
+    font-family: var(--font-base);
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
 }

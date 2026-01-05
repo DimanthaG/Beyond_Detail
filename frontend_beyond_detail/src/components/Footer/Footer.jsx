@@ -54,7 +54,7 @@ function Footer() {
                 <div className='footer-address'>
                   <h4 className='footer-heading'>OUR ADDRESS</h4>
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${footerData[0].addressUnit} ${footerData[0].address}`)}`}
+                    href='https://maps.app.goo.gl/XfshhLecn5wS9Xd49'
                     target='_blank'
                     rel='noopener noreferrer'
                     className='footer-address-link'
@@ -64,6 +64,7 @@ function Footer() {
                     {footerData[0].address}
                   </a>
                 </div>
+
               </>
             )}
           </div>
@@ -96,6 +97,9 @@ function Footer() {
               <Link to='/privacy-policy'>
                 PRIVACY POLICY
               </Link>
+              <Link to='/copyright'>
+                COPYRIGHT & LICENSING
+              </Link>
             </div>
           </div>
 
@@ -108,6 +112,9 @@ function Footer() {
               </Link>
               <Link to='/about'>
                 ABOUT US
+              </Link>
+              <Link to='/service-areas'>
+                SERVICE AREAS
               </Link>
               <Link to='/auto-detail'>
                 AUTO DETAIL

@@ -15,10 +15,10 @@ import './PaintCorrectionHero.scss';
 export function PaintCorrectionHero({
   scrollTarget = "#pricing",
   titleLine1 = "Professional Paint Correction in",
-  titleLine2 = "TORONTO &",
-  titleLine3 = "SCARBOROUGH",
+  titleLine2 = "SCARBOROUGH",
+  titleLine3 = null,
   titleLine4 = null,
-  subtitle = "Tired of swirl marks, scratches, and dull paint? Remove imperfections with <strong>expert paint correction</strong> in Toronto & Scarborough. Restore gloss, depth & value — and love your car again."
+  subtitle = "Tired of swirl marks, scratches, and dull paint? Remove imperfections with <strong>expert paint correction</strong> in Scarborough. Restore gloss, depth & value — and love your car again."
 }) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });

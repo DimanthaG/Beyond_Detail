@@ -15,10 +15,10 @@ import './CeramicCoatingHero.scss';
 export function CeramicCoatingHero({
   scrollTarget = "#pricing",
   titleLine1 = "Ceramic Coating in",
-  titleLine2 = "TORONTO &",
-  titleLine3 = "SCARBOROUGH",
-  titleLine4 = "for Lasting Protection",
-  subtitle = "Worried about paint fading, scratches, and UV damage? Get <strong>long-lasting ceramic coating</strong> in Toronto & Scarborough. Our premium formula bonds to your paint for unmatched gloss, UV protection & years of durability."
+  titleLine2 = "SCARBOROUGH",
+  titleLine3 = "for Lasting Protection",
+  titleLine4 = null,
+  subtitle = "Worried about paint fading, scratches, and UV damage? Get <strong>long-lasting ceramic coating</strong> in Scarborough. Our premium formula bonds to your paint for unmatched gloss, UV protection & years of durability."
 }) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
@@ -133,7 +133,7 @@ export function CeramicCoatingHero({
                     {titleLine1}
                   </motion.span>
                   <motion.span
-                    className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--highlight"
+                    className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}

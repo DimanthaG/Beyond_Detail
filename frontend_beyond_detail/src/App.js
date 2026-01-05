@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import { Footer, SocialIcons, MobileFixedFooter } from './components';
+import { Footer, SocialIcons, MobileFixedFooter, FooterMap } from './components';
 import Navbar from './components/Navbar/Navbar2';
 import { AnimatePresence } from 'framer-motion';
 import { withRouteWrapper } from './components/RouteWrapper/RouteWrapper';
@@ -12,11 +12,16 @@ import ScrollToTop from './components/ScrollToTop';
 // Import Home page directly (critical for LCP)
 import { Home } from './Pages';
 
+const ServiceAreas = lazy(() => import('./Pages/ServiceAreas/ServiceAreas')); // Import new page
+
 // Lazy load non-critical pages for better performance
 const About = lazy(() => import('./Pages').then(m => ({ default: m.About })));
 const Contact2 = lazy(() => import('./Pages').then(m => ({ default: m.Contact2 })));
 const Gallery = lazy(() => import('./Pages').then(m => ({ default: m.Gallery })));
 const Services = lazy(() => import('./Pages').then(m => ({ default: m.Services })));
+
+const WrappedServiceAreas = withRouteWrapper(ServiceAreas); // Creating wrapped component
+
 const Testimonials = lazy(() => import('./Pages').then(m => ({ default: m.Testimonials })));
 const Error = lazy(() => import('./Pages').then(m => ({ default: m.Error })));
 const Tints = lazy(() => import('./Pages').then(m => ({ default: m.Tints })));
@@ -24,6 +29,7 @@ const ServicePage = lazy(() => import('./Pages').then(m => ({ default: m.Service
 const FAQs = lazy(() => import('./Pages').then(m => ({ default: m.FAQs })));
 const Blog = lazy(() => import('./Pages').then(m => ({ default: m.Blog })));
 const PrivacyPolicy = lazy(() => import('./Pages').then(m => ({ default: m.PrivacyPolicy })));
+const Copyright = lazy(() => import('./Pages/Copyright/Copyright'));
 const PaintCorrection = lazy(() => import('./Pages').then(m => ({ default: m.PaintCorrection })));
 const CeramicCoating = lazy(() => import('./Pages').then(m => ({ default: m.CeramicCoating })));
 const FleetServices = lazy(() => import('./Pages').then(m => ({ default: m.FleetServices })));
@@ -47,6 +53,7 @@ const WrappedGallery = withRouteWrapper(Gallery);
 const WrappedFAQs = withRouteWrapper(FAQs);
 const WrappedBlog = withRouteWrapper(Blog);
 const WrappedPrivacyPolicy = withRouteWrapper(PrivacyPolicy);
+const WrappedCopyright = withRouteWrapper(Copyright);
 const WrappedTestimonials = withRouteWrapper(Testimonials);
 const WrappedContact = withRouteWrapper(Contact2);
 const WrappedError = withRouteWrapper(Error);
@@ -162,6 +169,7 @@ function App() {
             <Route path='/mobile-car-detailing-toronto' element={<WrappedMobileDetailing />} />
             <Route path='/luxury-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
             <Route path='/exotic-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
+            <Route path='/service-areas' element={<WrappedServiceAreas />} />
             <Route path='/service-area/pickering' element={<CarDetailingPickering />} />
             <Route path='/car-detailing-pickering' element={<CarDetailingPickering />} />
             <Route path='/service-area/markham' element={<CarDetailingMarkham />} />
@@ -226,6 +234,8 @@ function App() {
             <Route path='/gallery' element={<WrappedGallery />} />
             <Route path='/faqs' element={<WrappedFAQs />} />
             <Route path='/privacy-policy' element={<WrappedPrivacyPolicy />} />
+            <Route path='/copyright' element={<WrappedCopyright />} />
+            <Route path='/image-licensing' element={<WrappedCopyright />} />
             <Route path='/blog' element={<WrappedBlog />} />
             <Route path='/blog/:slug' element={<WrappedBlog />} />
             <Route path='/testimonials' element={<WrappedTestimonials />} />
@@ -237,6 +247,7 @@ function App() {
       </AnimatePresence>
       {showLayout && (
         <>
+          <FooterMap />
           <Footer />
           <MobileFixedFooter />
         </>

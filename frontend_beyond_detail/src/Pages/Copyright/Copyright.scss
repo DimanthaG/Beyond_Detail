@@ -1,0 +1,224 @@
+.copyright-container {
+    min-height: 100vh;
+    background: var(--background-color);
+    padding: 6rem 2rem 4rem;
+
+    @media (max-width: 768px) {
+        padding: 5rem 1.5rem 3rem;
+    }
+}
+
+.copyright-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.copyright-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .copyright-icon {
+        color: var(--orange-color);
+        margin-bottom: 1.5rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--white-color);
+        margin-bottom: 1rem;
+        font-family: var(--font-base);
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    .copyright-subtitle {
+        font-size: 1.25rem;
+        color: var(--gray-color);
+    }
+}
+
+.copyright-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+
+    @media (max-width: 768px) {
+        padding: 1.5rem;
+    }
+
+    .section-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 107, 0, 0.1);
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+
+        svg {
+            color: var(--orange-color);
+        }
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--white-color);
+        margin-bottom: 1rem;
+        font-family: var(--font-base);
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--white-color);
+        margin: 1.5rem 0 1rem;
+    }
+
+    p {
+        font-size: 1.0625rem;
+        line-height: 1.8;
+        color: var(--gray-color);
+        margin-bottom: 1rem;
+
+        strong {
+            color: var(--white-color);
+        }
+
+        a {
+            color: var(--orange-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+                opacity: 0.8;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .copyright-year {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--orange-color);
+        margin-top: 1.5rem;
+    }
+}
+
+.usage-rules {
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--orange-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--gray-color);
+            font-size: 1rem;
+            line-height: 1.6;
+
+            &:before {
+                content: "•";
+                position: absolute;
+                left: 0.5rem;
+                color: var(--orange-color);
+                font-weight: 700;
+                font-size: 1.25rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.license-contact {
+    background: rgba(255, 107, 0, 0.05);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+
+    h3 {
+        margin-top: 0;
+        color: var(--orange-color);
+    }
+
+    p {
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.license-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--orange-color);
+    color: var(--white-color);
+    border: 2px solid var(--orange-color);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+
+    &:hover {
+        background: transparent;
+        color: var(--orange-color);
+        transform: translateY(-2px);
+    }
+}
+
+.copyright-footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+
+    p {
+        color: var(--gray-color);
+        font-size: 0.9375rem;
+        margin-bottom: 0.5rem;
+
+        a {
+            color: var(--orange-color);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .last-updated {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.4);
+    }
+}

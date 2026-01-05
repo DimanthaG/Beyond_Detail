@@ -59,7 +59,12 @@ function CeramicCoating() {
         transition={{ ...transition, delay: 0 }}
       >
         <div className='ceramic-coating__wrapper'>
-          <CeramicCoatingHero scrollTarget="#pricing" />
+          <CeramicCoatingHero
+            scrollTarget="#pricing"
+            titleLine1="Professional"
+            titleLine2="Ceramic Coating Services in"
+            titleLine3="Scarborough"
+          />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
               <ServiceGallery

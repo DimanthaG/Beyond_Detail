@@ -22,7 +22,7 @@ function CeramicCoatingScarborough() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Scarborough | Professional Paint Protection Toronto"
-          description="Best Ceramic Coating in Scarborough & Toronto. ⭐ Ceramic Pro Certified | 5-Year & Lifetime Warranty Packages | Hydrophobic Paint Protection | Call (647) 689-6109"
+          description="Best Ceramic Coating in Scarborough. ⭐ Ceramic Pro Certified | 5-Year & Lifetime Warranty Packages | Hydrophobic Paint Protection | Call (647) 689-6109"
           name="Beyond Detail Ceramic Coating"
           type="website"
           keywords="ceramic coating scarborough, ceramic coating toronto, ceramic coating markham, paint protection scarborough, ceramic pro scarborough, best ceramic coating"
@@ -36,14 +36,14 @@ function CeramicCoatingScarborough() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className="ceramic-coating__wrapper">
-            <CeramicCoatingHero 
+            <CeramicCoatingHero
               scrollTarget="#pricing"
               titleLine1="Ceramic Coating in"
               titleLine2="SCARBOROUGH &"
               titleLine3="TORONTO"
               subtitle="Looking for the best <strong>ceramic coating in Scarborough</strong>? Beyond Detail is your premier destination for professional paint protection. We are certified installers offering packages that provide up to a lifetime of protection for your vehicle."
             />
-            
+
             <Suspense fallback={null}>
               <ServiceGallery
                 serviceType="ceramic-coating"
@@ -51,12 +51,12 @@ function CeramicCoatingScarborough() {
                 forceLandscape
               />
             </Suspense>
-            
+
             {/* Internal Linking Section */}
             <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
-                Our shop at 170 Finchdene Square is fully equipped for <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>professional ceramic coating application</Link>. 
-                Unlike wax that lasts a few months, our coatings form a permanent bond. We also offer <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> to ensure a flawless finish. 
+                Our shop at 170 Finchdene Square is fully equipped for <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>professional ceramic coating application</Link>.
+                Unlike wax that lasts a few months, our coatings form a permanent bond. We also offer <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> to ensure a flawless finish.
                 Combine this with <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting</Link> for complete vehicle protection.
               </p>
             </div>
@@ -132,9 +132,9 @@ function CeramicCoatingScarborough() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
-            
+
             <CeramicCoatingInfo />
-            
+
             <Suspense fallback={null}>
               <Contact />
             </Suspense>
