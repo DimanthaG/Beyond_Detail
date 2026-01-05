@@ -8,6 +8,7 @@
   @media screen and (max-width: 400px) {
     height: 290px;
   }
+
   @media screen and (max-width: 696px) {
     height: 290px;
   }
@@ -75,42 +76,49 @@
     padding-right: 2rem;
     margin-top: 0;
   }
+
   @media screen and (min-width: 375px) {
     margin-bottom: 5em;
     padding-left: 2rem;
     padding-right: 2rem;
     margin-top: 0;
   }
+
   @media screen and (min-width: 696px) {
     margin-bottom: 5em;
     padding-left: 2rem;
     padding-right: 2rem;
     margin-top: 0;
   }
+
   @media screen and (min-width: 1300px) {
     margin-bottom: 20rem;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
   }
+
   @media screen and (min-width: 1420px) {
     margin-bottom: 20rem;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
   }
+
   @media screen and (min-width: 1600px) {
     margin-bottom: 20rem;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
   }
+
   @media screen and (min-width: 1900px) {
     margin-bottom: 20rem;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
   }
+
   @media screen and (min-width: 3000px) {
     margin-bottom: 20rem;
     padding-left: 0;
@@ -128,6 +136,7 @@
     @media screen and (max-width: 400px) {
       height: 290px;
     }
+
     @media screen and (max-width: 696px) {
       height: 290px;
     }
@@ -190,10 +199,12 @@
     @media screen and (max-width: 400px) {
       max-width: 385px;
     }
+
     @media screen and (max-width: 696px) {
       max-width: 385px;
     }
   }
+
   .glitchText__contact::before,
   .glitchText__contact::after {
     content: attr(data-text);
@@ -226,18 +237,23 @@
     0% {
       clip: rect(20px, 1200px, 76px, 0);
     }
+
     20% {
       clip: rect(19px, 1200px, 16px, 0);
     }
+
     40% {
       clip: rect(16px, 1200px, 3px, 0);
     }
+
     60% {
       clip: rect(62px, 1200px, 78px, 0);
     }
+
     80% {
       clip: rect(25px, 1200px, 13px, 0);
     }
+
     100% {
       clip: rect(53px, 1200px, 86px, 0);
     }
@@ -271,38 +287,44 @@
 
   .btn {
     color: var(--white-color);
-    border-bottom: 1px solid var(--secondary-color);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: #0c0c0c;
+    border: 1px solid var(--secondary-color);
+    background-color: transparent;
     font-family: var(--font-base);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 2px;
     font-size: 15px;
-    z-index: 0;
+    padding: 1rem 3rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 
-    @media screen and (min-width: 275px) {
-      margin-left: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--secondary-color);
+      transition: width 0.3s ease;
+      z-index: -1;
     }
-    @media screen and (min-width: 375px) {
-      margin-left: 0;
+
+    &:hover {
+      color: #fff;
+      box-shadow: 0 0 20px rgba(240, 121, 0, 0.4);
+      border-color: var(--secondary-color);
+
+      &::before {
+        width: 100%;
+      }
     }
-    @media screen and (min-width: 696px) {
-      margin-left: 0;
-    }
+
     @media screen and (min-width: 1300px) {
       margin-left: 2rem;
-    }
-    @media screen and (min-width: 1420px) {
-      margin-left: 2rem;
-    }
-    @media screen and (min-width: 1600px) {
-      margin-left: 0;
-    }
-    @media screen and (min-width: 1900px) {
-      margin-left: 0;
     }
   }
 
@@ -481,7 +503,8 @@
     letter-spacing: 2px;
     font-size: 15px;
     font-family: var(--font-base);
-    opacity: 1; /* Firefox */
+    opacity: 1;
+    /* Firefox */
   }
 
   :-ms-input-placeholder {
@@ -514,30 +537,37 @@
     display: flex;
     flex-direction: column;
   }
+
   @media screen and (min-width: 375px) {
     display: flex;
     flex-direction: column;
   }
+
   @media screen and (min-width: 696px) {
     display: flex;
     flex-direction: column;
   }
+
   @media screen and (min-width: 1300px) {
     display: grid;
     flex-direction: none;
   }
+
   @media screen and (min-width: 1420px) {
     display: grid;
     flex-direction: none;
   }
+
   @media screen and (min-width: 1600px) {
     display: grid;
     flex-direction: none;
   }
+
   @media screen and (min-width: 1900px) {
     display: grid;
     flex-direction: none;
   }
+
   @media screen and (min-width: 3000px) {
     display: grid;
     flex-direction: none;
@@ -550,64 +580,45 @@
   }
 
   .contact__form .form-control {
-    padding: 1.375rem 0.75rem;
+    padding: 1.375rem 1rem;
     line-height: 1.5;
     color: var(--white-color);
-    background-color: #0c0c0c;
-    border-radius: 0 !important;
-    border-bottom: 1px solid var(--secondary-color);
-    border-top: hidden;
-    border-left: hidden;
-    border-right: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px !important;
     width: 45rem;
     margin-bottom: 2em;
     outline: none;
     font-family: var(--font-base);
+    transition: all 0.3s ease;
 
-    @media screen and (min-width: 275px) {
+    @media screen and (max-width: 1024px) {
       width: 100%;
       margin-left: 0;
-      margin-bottom: 1em;
+      margin-bottom: 1.5em;
     }
-    @media screen and (min-width: 375px) {
-      margin-bottom: 1em;
-      margin-left: 0;
-      width: 100%;
-    }
-    @media screen and (min-width: 696px) {
-      margin-bottom: 1em;
-      margin-left: 0;
-      width: 100%;
-    }
+
     @media screen and (min-width: 1300px) {
-      margin-bottom: 2em;
-      margin-left: 2rem;
-      width: 35rem;
+      width: 40rem;
     }
-    @media screen and (min-width: 1420px) {
-      margin-bottom: 2em;
-      width: 35rem;
-      margin-left: 2rem;
-    }
+
     @media screen and (min-width: 1600px) {
-      margin-bottom: 2em;
-      margin-left: 0;
-      width: 45rem;
-    }
-    @media screen and (min-width: 1900px) {
-      margin-bottom: 2em;
-      margin-left: 0;
       width: 45rem;
     }
   }
 
   .contact__form .form-control:focus {
     outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 15px rgba(240, 121, 0, 0.2);
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .contact__form input.form-control {
     margin-bottom: 2em;
-    height: calc(2.5em + 0.75rem + 2px);
+    height: auto;
   }
 }
 
@@ -618,21 +629,27 @@
   @media screen and (min-width: 275px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 375px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 696px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 1300px) {
     margin-left: 2rem;
   }
+
   @media screen and (min-width: 1420px) {
     margin-left: 2rem;
   }
+
   @media screen and (min-width: 1600px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 1900px) {
     margin-left: 0;
   }
@@ -645,8 +662,7 @@
     font-weight: 500;
   }
 
-  input {
-  }
+
 }
 
 .socialIcons__icon__navBar2 {
@@ -698,21 +714,27 @@ textarea {
   @media screen and (min-width: 275px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 375px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 696px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 1300px) {
     margin-left: 2rem;
   }
+
   @media screen and (min-width: 1420px) {
     margin-left: 2rem;
   }
+
   @media screen and (min-width: 1600px) {
     margin-left: 0;
   }
+
   @media screen and (min-width: 1900px) {
     margin-left: 0;
   }
@@ -760,22 +782,32 @@ textarea {
 .cbContainer div label span {
   position: relative;
   display: inline-block;
-  background: var(--gray-color);
-  padding: 10px 10px;
-  color: (--white-color);
-  // border-radius: 30px;
-  transition: 0.5s;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 10px 15px;
+  color: var(--lightGray-color);
+  transition: all 0.3s ease;
   user-select: none;
   overflow: hidden;
   text-transform: uppercase;
   font-family: var(--font-base);
-  letter-spacing: 2px;
-  font-size: 14px;
+  letter-spacing: 1px;
+  font-size: 13px;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+  }
 }
 
-.cbContainer div label input[type='checkbox']:checked ~ span {
+.cbContainer div label input[type='checkbox']:checked~span {
   background: var(--secondary-color);
+  border-color: var(--secondary-color);
   color: white;
+  box-shadow: 0 0 15px rgba(240, 121, 0, 0.3);
 }
 
 .form__wrapper {
@@ -793,36 +825,42 @@ textarea {
       font-size: 11px;
       text-align: center;
     }
+
     @media screen and (min-width: 375px) {
       margin-left: 0;
       width: 100%;
       font-size: 11px;
       text-align: center;
     }
+
     @media screen and (min-width: 696px) {
       margin-left: 0;
       width: 100%;
       font-size: 11px;
       text-align: center;
     }
+
     @media screen and (min-width: 1300px) {
       margin-left: 2rem;
       width: 35rem;
       font-size: 13px;
       text-align: left;
     }
+
     @media screen and (min-width: 1420px) {
       width: 35rem;
       margin-left: 2rem;
       font-size: 13px;
       text-align: left;
     }
+
     @media screen and (min-width: 1600px) {
       margin-left: 0;
       width: 45rem;
       font-size: 13px;
       text-align: left;
     }
+
     @media screen and (min-width: 1900px) {
       margin-left: 0;
       width: 45rem;
@@ -843,6 +881,7 @@ textarea {
   @media screen and (max-width: 400px) {
     grid-template-columns: 1fr;
   }
+
   @media screen and (max-width: 696px) {
     grid-template-columns: 1fr;
   }
@@ -856,10 +895,12 @@ textarea {
     @media screen and (max-width: 400px) {
       width: 100%;
     }
+
     @media screen and (max-width: 696px) {
       width: 100%;
     }
   }
+
   .select select {
     display: inline-block;
     width: 100%;
@@ -879,14 +920,17 @@ textarea {
     letter-spacing: 1px;
     border-bottom: 1px solid var(--secondary-color);
   }
+
   .select select::-ms-expand {
     display: none;
   }
+
   .select select:hover,
   .select select:focus {
     color: var(--lightGray-color);
     background: #1a1a1a;
   }
+
   .select__arrow {
     position: absolute;
     top: 16px;
@@ -898,8 +942,9 @@ textarea {
     border-width: 8px 5px 0 5px;
     border-color: #7b7b7b transparent transparent transparent;
   }
-  .select select:hover ~ .select__arrow,
-  .select select:focus ~ .select__arrow {
+
+  .select select:hover~.select__arrow,
+  .select select:focus~.select__arrow {
     border-top-color: #000;
   }
 
@@ -907,6 +952,7 @@ textarea {
     @media screen and (max-width: 400px) {
       margin-bottom: 1rem;
     }
+
     @media screen and (max-width: 696px) {
       margin-bottom: 1rem;
     }
@@ -929,6 +975,7 @@ textarea {
       @media screen and (max-width: 400px) {
         width: 100%;
       }
+
       @media screen and (max-width: 696px) {
         width: 100%;
       }
@@ -966,11 +1013,7 @@ textarea {
     letter-spacing: 2px;
   }
 
-  .react-datepicker__time-container
-    .react-datepicker__time
-    .react-datepicker__time-box
-    ul.react-datepicker__time-list
-    li.react-datepicker__time-list-item--disabled {
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled {
     color: rgb(124, 124, 124);
     font-family: var(--font-base);
     text-transform: uppercase;
@@ -981,29 +1024,18 @@ textarea {
     background: #0c0c0c;
   }
 
-  .react-datepicker__time-container
-    .react-datepicker__time
-    .react-datepicker__time-box
-    ul.react-datepicker__time-list {
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
     color: white;
     font-family: var(--font-base);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
 
-  .react-datepicker__time-container
-    .react-datepicker__time
-    .react-datepicker__time-box
-    ul.react-datepicker__time-list
-    li.react-datepicker__time-list-item:hover {
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {
     background: var(--gray-color);
   }
 
-  .react-datepicker__time-container
-    .react-datepicker__time
-    .react-datepicker__time-box
-    ul.react-datepicker__time-list
-    li.react-datepicker__time-list-item--selected {
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
     background-color: var(--secondary-color);
     color: white;
   }

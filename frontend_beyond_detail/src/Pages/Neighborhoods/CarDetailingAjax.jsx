@@ -4,6 +4,7 @@ import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
 const SEO = lazy(() => import('../../components/SEO'));
@@ -130,30 +131,7 @@ function CarDetailingAjax() {
 
                         <ServicePricing
                             title="Ajax Detailing Pricing"
-                            packages={[
-                                {
-                                    name: "Express Detail",
-                                    priceRange: { start: 100 },
-                                    description: "Quick & affordable maintenance clean.",
-                                    features: ["Hand Wash", "Interior Vacuum", "Window Cleaning", "Tire Shine"],
-                                    ctaText: "Book Now"
-                                },
-                                {
-                                    name: "Signature Detail",
-                                    priceRange: { start: 150 },
-                                    featured: true,
-                                    description: "Deep clean with salt removal & steam.",
-                                    features: ["Steam Cleaning", "Salt Removal", "Interior Sanitization", "Exterior Wax"],
-                                    ctaText: "Book Now"
-                                },
-                                {
-                                    name: "Premium Detail",
-                                    priceRange: { start: 200 },
-                                    description: "Complete interior & exterior restoration.",
-                                    features: ["Shampoo Extraction", "Clay Bar", "Engine Detail", "Paint Sealant"],
-                                    ctaText: "Book Now"
-                                }
-                            ]}
+                            packages={AUTO_DETAIL_PACKAGES}
                         />
 
                         <section className="detail-options">

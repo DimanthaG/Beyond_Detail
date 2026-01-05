@@ -22,7 +22,7 @@ Here is the definitive guide to **Ontario Window Tint Laws for 2026**.
 This is where 90% of drivers get in trouble.
 
 **The Law:**
-The Highway Traffic Act (HTA) in Ontario states that the front left and right windows must allow the driver to be **clearly seen**. While there isn't a specific percentage written into the *statute* like in some US states, the widely accepted enforcement limit in 2026 is **30% Visible Light Transmission (VLT)**.
+The **Highway Traffic Act (HTA), Section 73** in Ontario states that the front left and right windows must allow the driver to be **clearly seen**. While there isn't a specific percentage written into the *statute* like in some US states, the widely accepted enforcement limit in 2026 is **30% Visible Light Transmission (VLT)**.
 
 *   **Legal:** 30% VLT or lighter (allows 30% of light in).
 *   **Risky:** 20% VLT (Factory Match). Some officers may let this slide, but it risks a fine.
@@ -45,7 +45,7 @@ For removing passengers and the rear windshield, **any darkness is legal** in On
 It is **illegal** to tint your entire windshield in Ontario.
 
 *   **Exception:** You *are* allowed to have a tint strip (known as an "eyebrow") on the top 3-6 inches of the windshield. This is excellent for blocking the sun without obstructing your view.
-*   **New Trend:** **70% Ceramic Air Blue**. Many tint shops (like us!) offer a virtually clear ceramic film for the windshield. It blocks heat and UV rays without darkening the glass, keeping you cool and legal.
+*   **New Trend:** **70% Ceramic "Ghost Tint"**. Many tint shops (like us!) offer a virtually clear ceramic film (Air Blue) for the windshield. It blocks heat and UV rays without darkening the glass, keeping you cool and legal. This is often called "Ghost Tint".
 
 ---
 

@@ -9,7 +9,7 @@ function Testimonials() {
     <div className="testimonials-page">
       <SEO
         title="Customer Testimonials - Auto Detailing Toronto & Scarborough | Beyond Detail"
-        description="Read customer reviews and testimonials for Beyond Detail's professional auto detailing, window tinting, and ceramic coating services in Toronto, Scarborough, Markham, and Pickering. ⭐ 68 Five-Star Reviews | Lifetime Warranty"
+        description="Read customer reviews and testimonials for Beyond Detail's professional auto detailing, window tinting, and ceramic coating services in Toronto, Scarborough, Markham, and Pickering. ⭐ 70+ Five-Star Reviews | Lifetime Warranty"
         keywords="car detailing reviews, auto detailing testimonials, window tinting reviews, ceramic coating reviews, Toronto car detailing, Scarborough auto detailing"
       />
       <div className="testimonials-header">

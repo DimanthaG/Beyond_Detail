@@ -1,0 +1,215 @@
+SEO AUDIT REPORT
+Generated: 2025-12-24T01:54:52.346Z
+
+SUMMARY:
+- Passed: 26
+- Warnings: 95
+- Errors: 78
+- Info: 28
+
+ERRORS:
+1. [blogContentFormatter.js] No H1 heading found
+2. [blogImages.js] No H1 heading found
+3. [LocalBlogContent.js] No H1 heading found
+4. [CeramicCoating.jsx] No H1 heading found
+5. [ExteriorDetailing.jsx] No H1 heading found
+6. [FAQs.jsx] No H1 heading found
+7. [FleetServices.jsx] No H1 heading found
+8. [HeadlightRestoration.jsx] No H1 heading found
+9. [Home.jsx] No H1 heading found
+10. [index.js] No H1 heading found
+11. [InteriorDetailing.jsx] No H1 heading found
+12. [LeatherCleaning.jsx] No H1 heading found
+13. [CarDetailingAgincourt.jsx] No H1 heading found
+14. [CarDetailingAjax.jsx] No H1 heading found
+15. [CarDetailingCliffside.jsx] No H1 heading found
+16. [CarDetailingGuildwood.jsx] No H1 heading found
+17. [CarDetailingMalvern.jsx] No H1 heading found
+18. [CarDetailingMarkham.jsx] No H1 heading found
+19. [CarDetailingNorthYork.jsx] No H1 heading found
+20. [CarDetailingOshawa.jsx] No H1 heading found
+21. [CarDetailingPickering.jsx] No H1 heading found
+22. [CarDetailingRouge.jsx] No H1 heading found
+23. [CarDetailingScarborough.jsx] No H1 heading found
+24. [CarDetailingToronto.jsx] No H1 heading found
+25. [CarDetailingWestHill.jsx] No H1 heading found
+26. [CarDetailingWexford.jsx] No H1 heading found
+27. [CarDetailingWhitby.jsx] No H1 heading found
+28. [CeramicCoatingAgincourt.jsx] No H1 heading found
+29. [CeramicCoatingAjax.jsx] No H1 heading found
+30. [CeramicCoatingCliffside.jsx] No H1 heading found
+31. [CeramicCoatingGuildwood.jsx] No H1 heading found
+32. [CeramicCoatingMalvern.jsx] No H1 heading found
+33. [CeramicCoatingMarkham.jsx] No H1 heading found
+34. [CeramicCoatingNorthYork.jsx] No H1 heading found
+35. [CeramicCoatingOshawa.jsx] No H1 heading found
+36. [CeramicCoatingPickering.jsx] No H1 heading found
+37. [CeramicCoatingRouge.jsx] No H1 heading found
+38. [CeramicCoatingScarborough.jsx] No H1 heading found
+39. [CeramicCoatingWestHill.jsx] No H1 heading found
+40. [CeramicCoatingWexford.jsx] No H1 heading found
+41. [CeramicCoatingWhitby.jsx] No H1 heading found
+42. [PaintCorrectionAgincourt.jsx] No H1 heading found
+43. [PaintCorrectionAjax.jsx] No H1 heading found
+44. [PaintCorrectionCliffside.jsx] No H1 heading found
+45. [PaintCorrectionGuildwood.jsx] No H1 heading found
+46. [PaintCorrectionMalvern.jsx] No H1 heading found
+47. [PaintCorrectionMarkham.jsx] No H1 heading found
+48. [PaintCorrectionNorthYork.jsx] No H1 heading found
+49. [PaintCorrectionOshawa.jsx] No H1 heading found
+50. [PaintCorrectionPickering.jsx] No H1 heading found
+51. [PaintCorrectionRouge.jsx] No H1 heading found
+52. [PaintCorrectionScarborough.jsx] No H1 heading found
+53. [PaintCorrectionWestHill.jsx] No H1 heading found
+54. [PaintCorrectionWexford.jsx] No H1 heading found
+55. [PaintCorrectionWhitby.jsx] No H1 heading found
+56. [WindowTintingAgincourt.jsx] No H1 heading found
+57. [WindowTintingAjax.jsx] No H1 heading found
+58. [WindowTintingCliffside.jsx] No H1 heading found
+59. [WindowTintingGuildwood.jsx] No H1 heading found
+60. [WindowTintingMalvern.jsx] No H1 heading found
+61. [WindowTintingMarkham.jsx] No H1 heading found
+62. [WindowTintingNorthYork.jsx] No H1 heading found
+63. [WindowTintingOshawa.jsx] No H1 heading found
+64. [WindowTintingPickering.jsx] No H1 heading found
+65. [WindowTintingRouge.jsx] No H1 heading found
+66. [WindowTintingScarborough.jsx] No H1 heading found
+67. [WindowTintingWestHill.jsx] No H1 heading found
+68. [WindowTintingWexford.jsx] No H1 heading found
+69. [WindowTintingWhitby.jsx] No H1 heading found
+70. [OdourRemoval.jsx] No H1 heading found
+71. [PaintCorrection.jsx] No H1 heading found
+72. [PaintRemoval.jsx] No H1 heading found
+73. [ServiceAreaMarkham.jsx] No H1 heading found
+74. [ServiceAreaNorthYork.jsx] No H1 heading found
+75. [ServiceAreaPickering.jsx] No H1 heading found
+76. [Services.jsx] No H1 heading found
+77. [Tints.jsx] No H1 heading found
+78. [PaintCorrectionScarborough.jsx, PaintCorrection.jsx] Duplicate title: "Paint Correction Scarborough | Remove Swirl Marks & Scratches | Beyond Detail"
+
+WARNINGS:
+1. [About.jsx] Title too long (74 chars, max 60)
+2. [About.jsx] Description too long (227 chars, max 160)
+3. [Blog.jsx] Title too long (66 chars, max 60)
+4. [Blog.jsx] Description too long (186 chars, max 160)
+5. [Blog.jsx] Multiple H1 headings found (2)
+6. [blogContentFormatter.js] No SEO component found
+7. [blogImages.js] No SEO component found
+8. [LocalBlogContent.js] No SEO component found
+9. [Booking.jsx] Description too short (85 chars, min 120)
+10. [CeramicCoating.jsx] Title too long (78 chars, max 60)
+11. [CeramicCoating.jsx] Description too long (191 chars, max 160)
+12. [Contact2.jsx] Title too long (68 chars, max 60)
+13. [Contact2.jsx] Description too long (207 chars, max 160)
+14. [Error.jsx] Description too short (72 chars, min 120)
+15. [ExteriorDetailing.jsx] Title too long (85 chars, max 60)
+16. [ExteriorDetailing.jsx] Description too long (200 chars, max 160)
+17. [FAQs.jsx] Title too long (72 chars, max 60)
+18. [FAQs.jsx] Description too long (220 chars, max 160)
+19. [FleetServices.jsx] Title too long (86 chars, max 60)
+20. [FleetServices.jsx] Description too long (204 chars, max 160)
+21. [Gallery.jsx] Title too long (70 chars, max 60)
+22. [Gallery.jsx] Description too long (212 chars, max 160)
+23. [HeadlightRestoration.jsx] Title too long (88 chars, max 60)
+24. [HeadlightRestoration.jsx] Description too long (194 chars, max 160)
+25. [Home.jsx] Title too long (86 chars, max 60)
+26. [Home.jsx] Description too long (197 chars, max 160)
+27. [index.js] No SEO component found
+28. [InteriorDetailing.jsx] Title too long (84 chars, max 60)
+29. [InteriorDetailing.jsx] Description too long (217 chars, max 160)
+30. [LeatherCleaning.jsx] Title too long (83 chars, max 60)
+31. [LeatherCleaning.jsx] Description too long (197 chars, max 160)
+32. [LuxuryDetailing.jsx] Title too long (66 chars, max 60)
+33. [LuxuryDetailing.jsx] Description too long (190 chars, max 160)
+34. [MobileDetailing.jsx] Title too long (61 chars, max 60)
+35. [MobileDetailing.jsx] Description too long (193 chars, max 160)
+36. [CarDetailingMalvern.jsx] Title too long (71 chars, max 60)
+37. [CarDetailingMalvern.jsx] Description too long (168 chars, max 160)
+38. [CarDetailingMarkham.jsx] Title too long (75 chars, max 60)
+39. [CarDetailingMarkham.jsx] Description too long (197 chars, max 160)
+40. [CarDetailingPickering.jsx] Title too long (63 chars, max 60)
+41. [CarDetailingPickering.jsx] Too few keywords (4, min 5)
+42. [CarDetailingScarborough.jsx] Title too long (64 chars, max 60)
+43. [CarDetailingScarborough.jsx] Description too long (182 chars, max 160)
+44. [CarDetailingToronto.jsx] Description too long (170 chars, max 160)
+45. [CarDetailingWestHill.jsx] Description too long (167 chars, max 160)
+46. [CeramicCoatingAjax.jsx] Title too long (61 chars, max 60)
+47. [CeramicCoatingMarkham.jsx] Title too long (64 chars, max 60)
+48. [CeramicCoatingNorthYork.jsx] Title too long (67 chars, max 60)
+49. [CeramicCoatingPickering.jsx] Description too long (166 chars, max 160)
+50. [CeramicCoatingScarborough.jsx] Title too long (67 chars, max 60)
+51. [CeramicCoatingScarborough.jsx] Description too long (161 chars, max 160)
+52. [CeramicCoatingWhitby.jsx] Title too long (63 chars, max 60)
+53. [PaintCorrectionAgincourt.jsx] Too few keywords (4, min 5)
+54. [PaintCorrectionCliffside.jsx] Too few keywords (4, min 5)
+55. [PaintCorrectionGuildwood.jsx] Too few keywords (4, min 5)
+56. [PaintCorrectionMalvern.jsx] Too few keywords (4, min 5)
+57. [PaintCorrectionNorthYork.jsx] Description too long (162 chars, max 160)
+58. [PaintCorrectionPickering.jsx] Description too long (161 chars, max 160)
+59. [PaintCorrectionRouge.jsx] Too few keywords (4, min 5)
+60. [PaintCorrectionScarborough.jsx] Title too long (77 chars, max 60)
+61. [PaintCorrectionScarborough.jsx] Description too long (196 chars, max 160)
+62. [PaintCorrectionWestHill.jsx] Too few keywords (4, min 5)
+63. [PaintCorrectionWexford.jsx] Too few keywords (4, min 5)
+64. [WindowTintingAgincourt.jsx] Too few keywords (4, min 5)
+65. [WindowTintingCliffside.jsx] Too few keywords (4, min 5)
+66. [WindowTintingGuildwood.jsx] Too few keywords (4, min 5)
+67. [WindowTintingMalvern.jsx] Too few keywords (4, min 5)
+68. [WindowTintingNorthYork.jsx] Title too long (61 chars, max 60)
+69. [WindowTintingNorthYork.jsx] Description too long (162 chars, max 160)
+70. [WindowTintingPickering.jsx] Description too long (161 chars, max 160)
+71. [WindowTintingRouge.jsx] Too few keywords (4, min 5)
+72. [WindowTintingScarborough.jsx] Title too long (65 chars, max 60)
+73. [WindowTintingWestHill.jsx] Too few keywords (4, min 5)
+74. [WindowTintingWexford.jsx] Too few keywords (4, min 5)
+75. [OdourRemoval.jsx] Title too long (81 chars, max 60)
+76. [OdourRemoval.jsx] Description too long (194 chars, max 160)
+77. [PaintCorrection.jsx] Title too long (77 chars, max 60)
+78. [PaintCorrection.jsx] Description too long (196 chars, max 160)
+79. [PaintRemoval.jsx] Title too long (89 chars, max 60)
+80. [PaintRemoval.jsx] Description too long (181 chars, max 160)
+81. [ServiceAreaMarkham.jsx] No SEO component found
+82. [ServiceAreaNorthYork.jsx] No SEO component found
+83. [ServiceAreaPickering.jsx] No SEO component found
+84. [ServiceAreaTemplate.jsx] Missing title tag
+85. [ServiceAreaTemplate.jsx] Missing description meta tag
+86. [ServicePage.jsx] Missing title tag
+87. [ServicePage.jsx] Missing description meta tag
+88. [ServicePage.jsx] Multiple H1 headings found (2)
+89. [Services.jsx] Title too long (95 chars, max 60)
+90. [Services.jsx] Description too long (283 chars, max 160)
+91. [Testimonials.jsx] Title too long (76 chars, max 60)
+92. [Testimonials.jsx] Description too short (56 chars, min 120)
+93. [Tints.jsx] Title too long (72 chars, max 60)
+94. [Tints.jsx] Description too long (170 chars, max 160)
+95. [PaintCorrectionScarborough.jsx, PaintCorrection.jsx] Duplicate description
+
+INFO:
+1. [Blog.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+2. [Blog.jsx] Heading hierarchy skip at position 9 (H1 to H3)
+3. [Booking.jsx] Heading hierarchy skip at position 2 (H1 to H3)
+4. [CeramicCoating.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+5. [Contact2.jsx] Heading hierarchy skip at position 2 (H1 to H3)
+6. [FAQs.jsx] Heading hierarchy skip at position 1 (H0 to H3)
+7. [CarDetailingAgincourt.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+8. [CarDetailingAjax.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+9. [CarDetailingCliffside.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+10. [CarDetailingGuildwood.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+11. [CarDetailingMalvern.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+12. [CarDetailingMarkham.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+13. [CarDetailingNorthYork.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+14. [CarDetailingOshawa.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+15. [CarDetailingPickering.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+16. [CarDetailingRouge.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+17. [CarDetailingScarborough.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+18. [CarDetailingToronto.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+19. [CarDetailingWestHill.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+20. [CarDetailingWexford.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+21. [CarDetailingWhitby.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+22. [CeramicCoatingMarkham.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+23. [PaintCorrectionMarkham.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+24. [WindowTintingMarkham.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+25. [PaintCorrection.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+26. [Services.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+27. [Tints.jsx] Heading hierarchy skip at position 1 (H0 to H2)
+28. [sitemap.xml] Contains 92 URLs

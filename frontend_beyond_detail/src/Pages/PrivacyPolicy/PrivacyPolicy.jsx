@@ -146,7 +146,7 @@ function PrivacyPolicy() {
                     If you have any questions about this Privacy Policy or our privacy practices, please contact us:
                   </p>
                   <ul>
-                    <li><strong>Email:</strong> support@beyonddetail.com</li>
+                    <li><strong>Email:</strong> support@beyonddetail.ca</li>
                     <li><strong>Phone:</strong> {BUSINESS_INFO.phone}</li>
                     <li><strong>Address:</strong> Unit 11, 170 Finchdene Square, Scarborough, ON M1X 1B3, Canada</li>
                   </ul>

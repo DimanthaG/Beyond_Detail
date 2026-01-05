@@ -44,11 +44,11 @@ function CeramicCoating() {
       {/* Suspense fallback={<Loading />}> REMOVED EXTERNAL SUSPENSE */}
       <SEO
         title='Ceramic Coating Scarborough | Ceramic Pro Installation | Beyond Detail Toronto'
-        description='Professional ceramic coating in Scarborough. Ceramic Pro certified installer. 2-5 year protection. ⭐ 68 Five-Star Reviews | Paint correction included | Starting at $350 | Call (647) 689-6109'
+        description='Professional ceramic coating in Scarborough. Ceramic Pro certified installer. 2-5 year protection. ⭐ 70+ Five-Star Reviews | Paint correction included | Starting at $350 | Call (647) 689-6109'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Ceramic Coating'
-        keywords='ceramic coating near me, ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham, ceramic coating pickering, nano ceramic coating scarborough, ceramic coating GTA'
+        keywords='ceramic coating near me, ceramic coating cost scarborough, ceramic coating price toronto, ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham'
         faq={ceramicCoatingFAQs}
       />
       <motion.div
@@ -71,39 +71,41 @@ function CeramicCoating() {
           </ErrorBoundary>
 
           {/* Near Me & Location-Specific Content */}
-          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <h2 className="seo-title">
               Ceramic Coating Near Me - Serving Scarborough, Toronto, Markham & Pickering
             </h2>
-            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
-              <p>
-                Looking for <strong>ceramic coating near me</strong>? Beyond Detail is your local Ceramic Pro certified installer,
-                serving customers throughout the Greater Toronto Area. Based in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>,
+            <div>
+              <p className="seo-text-lg">
+                Looking for <strong>ceramic coating near me</strong> with transparent pricing? Beyond Detail is your local Ceramic Pro certified installer,
+                serving customers throughout the Greater Toronto Area. We offer competitive <strong>ceramic coating costs</strong> without compromising quality.
+                Based in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>,
                 we're conveniently located to serve Scarborough, Toronto, Markham, Pickering, and surrounding GTA communities.
               </p>
-              <p style={{ marginTop: '1rem' }}>
-                Our ceramic coating services are available for customers in <Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>,
-                <Link to="/ceramic-coating-toronto" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Toronto</Link>,
-                <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>,
-                <Link to="/ceramic-coating-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>,
+              <p className="seo-text-lg">
+                Our ceramic coating services are available for customers in <Link to="/ceramic-coating-scarborough">Scarborough</Link>,{' '}
+                <Link to="/ceramic-coating-toronto">Toronto</Link>,{' '}
+                <Link to="/ceramic-coating-markham">Markham</Link>,{' '}
+                <Link to="/ceramic-coating-pickering">Pickering</Link>,
                 and throughout the GTA. Every ceramic coating package includes professional paint correction to ensure optimal results
                 and long-lasting protection for your vehicle.
               </p>
-              <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
+              <p className="seo-text-md">
                 <strong>Why choose Beyond Detail for ceramic coating?</strong> We're Ceramic Pro certified, offer 2-5 year protection packages,
                 include paint correction in every service, and provide lifetime warranty on all installations.
-                ⭐ Trusted by 68+ five-star reviews from satisfied GTA customers.
+                ⭐ Trusted by 70+ five-star reviews from satisfied GTA customers.
               </p>
             </div>
           </section>
 
           {/* Internal Linking Section */}
-          <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
-              Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating in Scarborough</Link></strong>.
-              Our packages include professional <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> to ensure a flawless finish before coating.
-              Protect your vehicle's paint from Toronto's harsh weather with our lifetime warranty packages.
-              We also offer <Link to="/auto-detail" style={{ color: '#f07900', textDecoration: 'none' }}>comprehensive auto detailing</Link> to keep your interior looking as good as your exterior.
+          <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            <p className="seo-text-lg">
+              Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough">ceramic coating in Scarborough</Link></strong>.
+              Our packages include professional <Link to="/paint-correction">paint correction</Link> to ensure a flawless finish before coating.
+              Protect your vehicle's paint from **Toronto's harsh winter** weather and road salt with our lifetime warranty packages.
+              Curious about the **cost**? We provide transparent pricing for all services.
+              We also offer <Link to="/auto-detail">comprehensive auto detailing</Link> to keep your interior looking as good as your exterior.
             </p>
           </div>
 

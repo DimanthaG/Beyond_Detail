@@ -5,6 +5,7 @@ import { Loading } from '../../components';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { PAINT_CORRECTION_PACKAGES } from '../../constants/servicePackages';
 import '../PaintCorrection/PaintCorrection.scss';
 
 // Lazy load heavy components
@@ -20,7 +21,7 @@ function PaintCorrectionScarborough() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Scarborough | Remove Swirl Marks & Scratches | Beyond Detail'
-          description='Professional paint correction in Scarborough. Remove swirl marks, scratches & oxidation. ⭐ 68 Five-Star Reviews | 1-3 Stage Correction | Starting at $250 | Lifetime Warranty | Call (647) 689-6109'
+          description='Professional paint correction in Scarborough. Remove swirl marks, scratches & oxidation. ⭐ 70+ Five-Star Reviews | 1-3 Stage Correction | Starting at $250 | Lifetime Warranty | Call (647) 689-6109'
           name='Beyond Detail Scarborough'
           type='website'
           serviceType='Paint Correction'
@@ -118,57 +119,7 @@ function PaintCorrectionScarborough() {
             
             <ServicePricing
               title="Scarborough Paint Correction Packages"
-              packages={[
-                {
-                  name: "Single Stage Correction",
-                  priceRange: { start: 250, end: 350 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Perfect for vehicles with light swirl marks and minor defects. Includes one-stage polishing to restore paint clarity and gloss.",
-                  features: [
-                    "Complete paint surface inspection",
-                    "Thorough decontamination (clay bar)",
-                    "Single-stage compound polishing",
-                    "Finishing polish application",
-                    "High-quality sealant protection",
-                    "All exterior panels treated"
-                  ],
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Two Stage Correction",
-                  priceRange: { start: 500, end: 700 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Ideal for moderate swirl marks, light scratches, and oxidation. Two-stage polishing ensures deeper defect removal.",
-                  features: [
-                    "Complete paint surface inspection",
-                    "Thorough decontamination (clay bar)",
-                    "Two-stage compound polishing",
-                    "Advanced finishing polish",
-                    "Premium sealant protection",
-                    "All exterior panels treated",
-                    "Enhanced gloss and depth"
-                  ],
-                  featured: true,
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Three Stage Correction",
-                  priceRange: { start: 800, end: 1200 },
-                  priceNote: "Pricing varies by vehicle size and condition",
-                  description: "Comprehensive correction for severe defects, deep scratches, and heavy oxidation. Three or more polishing stages achieve showroom-perfect results.",
-                  features: [
-                    "Complete paint surface inspection",
-                    "Thorough decontamination (clay bar)",
-                    "Multi-stage compound polishing (3+ stages)",
-                    "Advanced finishing polish",
-                    "Premium sealant or wax protection",
-                    "All exterior panels treated",
-                    "Maximum gloss and depth restoration",
-                    "Minor scratch repair (when applicable)"
-                  ],
-                  ctaText: "Book This Package"
-                }
-              ]}
+              packages={PAINT_CORRECTION_PACKAGES}
             />
             
             <Suspense fallback={null}>

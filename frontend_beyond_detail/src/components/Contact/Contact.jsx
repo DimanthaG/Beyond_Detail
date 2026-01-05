@@ -220,7 +220,7 @@ function Contact() {
                     </p>
                     <p>
                       <strong>Email :</strong>{' '}
-                      <a href='mailto:support@beyonddetail.com'>
+                      <a href='mailto:support@beyonddetail.ca'>
                         {contactData[0].email}
                       </a>
                     </p>
@@ -261,7 +261,7 @@ function Contact() {
                         href="https://search.google.com/local/writereview?placeid=ChIJmZkJMWDQ1IkRnRUZBXKA0_Q"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn ac_btn"
+                        className="btn-premium"
                         style={{ display: 'inline-block', padding: '0.6rem 1.5rem', fontSize: '0.9rem', textDecoration: 'none' }}
                       >
                         Leave us a Review
@@ -489,7 +489,7 @@ function Contact() {
                     <br />
                     <div>
                       <div lg='12' className='form-group'>
-                        <button className='btn ac_btn rounded-0' type='submit'>
+                        <button className='btn-premium' type='submit' style={{ width: '100%' }}>
                           {loadingMessage ? 'Booking' : 'Book Now'}
                         </button>
                       </div>

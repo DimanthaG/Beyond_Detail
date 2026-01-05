@@ -46,7 +46,7 @@ function PaintCorrection() {
       {/* Outer Suspense removed for LCP */}
       <SEO
         title='Paint Correction Scarborough | Remove Swirl Marks & Scratches | Beyond Detail'
-        description='Professional paint correction in Scarborough. Remove swirl marks, scratches & oxidation. ⭐ 68 Five-Star Reviews | 1-3 Stage Correction | Starting at $250 | Lifetime Warranty | Call (647) 689-6109'
+        description='Professional paint correction in Scarborough. Remove swirl marks, scratches & oxidation. ⭐ 70+ Five-Star Reviews | 1-3 Stage Correction | Starting at $250 | Lifetime Warranty | Call (647) 689-6109'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Paint Correction'
@@ -71,28 +71,28 @@ function PaintCorrection() {
           </Suspense>
 
           {/* Near Me & Location-Specific Content */}
-          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <h2 className="seo-title">
               Paint Correction Near Me - Professional Service in Scarborough & GTA
             </h2>
-            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
-              <p>
-                Searching for <strong>paint correction near me</strong>? Beyond Detail provides professional paint correction services
-                in Scarborough and throughout the Greater Toronto Area. Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>,
-                we're your local experts for removing swirl marks, scratches, and paint defects.
+            <div>
+              <p className="seo-text-lg">
+                Searching for the <strong>best paint correction near me</strong>? Beyond Detail provides professional paint correction services
+                in Scarborough with transparent <strong>paint correction costs</strong>. Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>,
+                we're your local experts for removing swirl marks and scratches at competitive prices.
               </p>
-              <p style={{ marginTop: '1rem' }}>
-                Our paint correction services are available for customers in <Link to="/paint-correction-scarborough" style={{ color: '#f07900', textDecoration: 'none' }}>Scarborough</Link>,
-                <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Markham</Link>,
-                <Link to="/paint-correction-pickering" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Pickering</Link>,
-                <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>Toronto</Link>,
+              <p className="seo-text-lg">
+                Our paint correction services are available for customers in <Link to="/paint-correction-scarborough">Scarborough</Link>,{' '}
+                <Link to="/paint-correction-markham">Markham</Link>,{' '}
+                <Link to="/paint-correction-pickering">Pickering</Link>,{' '}
+                <Link to="/paint-correction">Toronto</Link>,
                 and all GTA areas. We offer 1-3 stage paint correction to restore your vehicle's paint to showroom condition,
-                preparing it perfectly for <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> protection.
+                preparing it perfectly for <Link to="/ceramic-coatings">ceramic coating</Link> protection.
               </p>
-              <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
+              <p className="seo-text-md">
                 <strong>Why choose Beyond Detail for paint correction?</strong> Expert technicians with years of experience,
                 premium products and equipment, comprehensive paint assessment, and satisfaction guarantee.
-                ⭐ Trusted by 68+ five-star reviews from satisfied customers across the GTA.
+                ⭐ Trusted by 70+ five-star reviews from satisfied customers across the GTA.
               </p>
             </div>
           </section>
@@ -219,19 +219,19 @@ function PaintCorrection() {
             <GoogleReviewsCarousel />
           </Suspense>
           {/* Localized Service Area Content */}
-          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <h2 className="seo-title">
               Expert Paint Correction in Scarborough & Markham
             </h2>
-            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
-              <p>
+            <div>
+              <p className="seo-text-lg">
                 Restore your vehicle's gloss and remove unsightly swirls with our <strong>paint correction services in Scarborough</strong>.
                 Located at 170 Finchdene Square, we are the go-to studio for car enthusiasts in <strong>Scarborough, Markham, Pickering, and Toronto</strong> who demand perfection.
                 Unlike quick "buff and polish" jobs, our multi-stage paint correction safely measures paint depth and permanently levels defects.
               </p>
-              <p style={{ marginTop: '1rem' }}>
-                After correction, we highly recommend protecting your perfect finish with a <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> or
-                <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tint</Link> for heat protection.
+              <p className="seo-text-lg">
+                After correction, we highly recommend protecting your perfect finish with a <Link to="/ceramic-coatings">ceramic coating</Link> or{' '}
+                <Link to="/tint">window tint</Link> for heat protection.
                 Trust your vehicle to Beyond Detail—where we treat every car like our own.
               </p>
             </div>

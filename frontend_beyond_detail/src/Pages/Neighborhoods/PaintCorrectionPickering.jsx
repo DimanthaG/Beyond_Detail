@@ -5,6 +5,7 @@ import { Loading } from '../../components';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { PAINT_CORRECTION_PACKAGES } from '../../constants/servicePackages';
 import '../PaintCorrection/PaintCorrection.scss';
 
 // Lazy load heavy components
@@ -118,57 +119,7 @@ function PaintCorrectionPickering() {
             
             <ServicePricing
               title="Pickering Paint Correction Packages"
-              packages={[
-                {
-                  name: "Single Stage Correction",
-                  priceRange: { start: 250, end: 350 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Perfect for vehicles with light swirl marks. Includes one-stage polishing to restore clarity.",
-                  features: [
-                    "Paint inspection",
-                    "Decontamination (clay bar)",
-                    "Single-stage polishing",
-                    "Finishing polish",
-                    "Sealant protection",
-                    "All exterior panels"
-                  ],
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Two Stage Correction",
-                  priceRange: { start: 500, end: 700 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Ideal for moderate swirls and scratches. Two-stage polishing ensures deeper defect removal.",
-                  features: [
-                    "Paint inspection",
-                    "Decontamination (clay bar)",
-                    "Two-stage polishing",
-                    "Advanced finishing",
-                    "Premium sealant",
-                    "All exterior panels",
-                    "Enhanced depth"
-                  ],
-                  featured: true,
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Three Stage Correction",
-                  priceRange: { start: 800, end: 1200 },
-                  priceNote: "Pricing varies by vehicle size",
-                  description: "Comprehensive correction for severe defects. Three+ stages for showroom-perfect results.",
-                  features: [
-                    "Paint inspection",
-                    "Decontamination (clay bar)",
-                    "Multi-stage polishing",
-                    "Advanced finishing",
-                    "Premium protection",
-                    "All exterior panels",
-                    "Maximum gloss",
-                    "Scratch repair"
-                  ],
-                  ctaText: "Book This Package"
-                }
-              ]}
+              packages={PAINT_CORRECTION_PACKAGES}
             />
             
             <Suspense fallback={null}>

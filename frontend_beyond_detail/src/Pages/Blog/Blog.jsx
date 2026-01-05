@@ -13,7 +13,10 @@ const PLACEHOLDER_POST = LOCAL_BLOG_POSTS[0];
 
 // Helper for safely generating image URLs
 const getImageUrl = (source, width, height) => {
-  if (!source || !source.asset) return '/images/hero-home.avif';
+  if (!source || !source.asset) {
+    // console.warn('getImageUrl: No source or asset found', source);
+    return '/images/hero-home.avif';
+  }
 
   // Handle Sanity Image
   if (source.asset._ref) {
@@ -23,7 +26,7 @@ const getImageUrl = (source, width, height) => {
       if (height) imageBuilder = imageBuilder.height(height);
       return imageBuilder.url();
     } catch (e) {
-      console.warn('Error generating Sanity image URL:', e);
+      console.error('Error generating Sanity image URL:', e, source);
       return '/images/hero-home.avif';
     }
   }
@@ -33,6 +36,7 @@ const getImageUrl = (source, width, height) => {
     return source.asset.url;
   }
 
+  // console.warn('getImageUrl: Unhandled image source type', source);
   return '/images/hero-home.avif';
 };
 
@@ -45,78 +49,72 @@ const BlockContent = ({ blocks }) => {
   return blocks.map((block, idx) => {
     // Handle text blocks
     if (block._type === 'block') {
+      const style = block.style || 'normal';
+
       // Handle different heading styles
-      if (block.style === 'h2') {
+      if (style === 'h2') {
         return <h2 key={idx} className="blog-heading">{block.children?.map(child => child.text).join('')}</h2>;
       }
-      if (block.style === 'h3') {
+      if (style === 'h3') {
         return <h3 key={idx} className="blog-section-header">{block.children?.map(child => child.text).join('')}</h3>;
       }
-      if (block.style === 'h4') {
+      if (style === 'h4') {
         return <h4 key={idx} className="blog-subsection-header">{block.children?.map(child => child.text).join('')}</h4>;
       }
-      if (block.style === 'blockquote') {
+      if (style === 'blockquote') {
         return <blockquote key={idx} className="blog-quote">{block.children?.map(child => child.text).join('')}</blockquote>;
       }
 
       // Handle lists
       if (block.listItem === 'bullet') {
-        return <li key={idx}>{block.children?.map(child => child.text).join('')}</li>;
+        return <li key={idx} className="blog-list-item">{block.children?.map(child => child.text).join('')}</li>;
       }
       if (block.listItem === 'number') {
-        return <li key={idx}>{block.children?.map(child => child.text).join('')}</li>;
+        return <li key={idx} className="blog-list-item">{block.children?.map(child => child.text).join('')}</li>;
       }
 
       // Handle regular paragraphs with formatting and internal linking
       // Extract full paragraph text first
       const paragraphText = block.children?.map(child => child.text).join('') || '';
 
-      if (!paragraphText) {
-        return null;
+      // Render paragraph even if empty to maintain spacing, or skip?
+      // Sanity often sends empty blocks for spacing.
+      if (!paragraphText.trim()) {
+        return <br key={idx} />;
       }
 
       // Process text with internal linking, preserving formatting
       const processTextWithFormatting = (text, children) => {
-        const parts = [];
-        let lastIndex = 0;
-
-        // Create a map of mark positions
-        const markPositions = [];
-        children.forEach((child, childIdx) => {
-          const start = lastIndex;
-          const end = start + child.text.length;
-          markPositions.push({
-            start,
-            end,
-            text: child.text,
-            marks: child.marks || [],
-            childIdx
-          });
-          lastIndex = end;
-        });
-
         // Use BlogLinker on the full text, then apply formatting
         // We'll split the linked result and apply marks
-        const linkedContent = <BlogLinker text={text} className="blog-internal-link" maxLinks={3} />;
 
-        // For now, apply linking to full text and preserve basic structure
-        // This is a simplified approach - for more complex formatting, we'd need a more sophisticated parser
         return (
           <React.Fragment>
             {children.map((child, childIdx) => {
               const text = child.text;
-              const linkedText = <BlogLinker text={text} className="blog-internal-link" maxLinks={2} />;
+              if (!text) return null;
+
+              let content = text;
+              // Only try to link if we have the linker component and text is long enough
+              try {
+                content = <BlogLinker text={text} className="blog-internal-link" maxLinks={2} />;
+              } catch (e) {
+                content = text;
+              }
 
               if (child.marks?.includes('strong')) {
-                return <strong key={childIdx}>{linkedText}</strong>;
+                return <strong key={childIdx}>{content}</strong>;
               }
               if (child.marks?.includes('em')) {
-                return <em key={childIdx}>{linkedText}</em>;
+                return <em key={childIdx}>{content}</em>;
               }
               if (child.marks?.includes('code')) {
                 return <code key={childIdx}>{text}</code>;
               }
-              return <React.Fragment key={childIdx}>{linkedText}</React.Fragment>;
+              if (child.marks?.includes('underline')) {
+                return <u key={childIdx}>{content}</u>;
+              }
+              return <React.Fragment key={childIdx}>{content}</React.Fragment>;
             })}
           </React.Fragment>
         );
@@ -136,6 +134,7 @@ const BlockContent = ({ blocks }) => {
         </p>
       );
     }
+
 
     // Handle images in content with enhanced SEO
     if (block._type === 'image') {
@@ -159,6 +158,7 @@ const BlockContent = ({ blocks }) => {
       );
     }
 
+    // console.warn('Unknown block type:', block._type);
     return null;
   });
 };

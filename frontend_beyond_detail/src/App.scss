@@ -213,6 +213,7 @@
 }
 
 @media screen and (max-width: 500px) {
+
   .app__navigation,
   .app__social {
     display: none;
@@ -234,7 +235,7 @@
   height: 8vh;
   min-height: 60px;
   width: 100%;
-  
+
   @media screen and (max-width: 900px) {
     min-height: 50px;
   }
@@ -242,4 +243,105 @@
 
 .homeEl {
   z-index: -1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+/* --- Global Premium Styles --- */
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Premium Button Styles */
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3rem;
+  font-family: var(--font-base);
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--white-color);
+  background: transparent;
+  border: 1px solid var(--secondary-color);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+  text-decoration: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: var(--white-color);
+    box-shadow: 0 0 20px rgba(240, 121, 0, 0.4);
+    border-color: var(--secondary-color);
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(135deg, var(--secondary-color), #ff8c00);
+  color: var(--white-color);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(240, 121, 0, 0.3);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(240, 121, 0, 0.5);
+    background: linear-gradient(135deg, #ff8c00, var(--secondary-color));
+  }
 }

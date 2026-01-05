@@ -50,5 +50,10 @@ export const BUSINESS_INFO = {
         'Headliner cleaning',
         'Disinfection & allergy treatment',
         'Full interior shampoo package'
-    ]
+    ],
+    stats: {
+        rating: 5.0,
+        reviewCount: 70, // Updated 2026 estimate (was 68)
+        reviewCountText: '70+'
+    }
 };

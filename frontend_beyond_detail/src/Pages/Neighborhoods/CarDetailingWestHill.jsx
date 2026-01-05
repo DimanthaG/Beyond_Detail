@@ -4,6 +4,7 @@ import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 // Import Services SCSS to reuse the layout styles
 import '../../Pages/Services/Services.scss'; 
 
@@ -185,62 +186,7 @@ function CarDetailingWestHill() {
 
             <ServicePricing
               title="West Hill Detailing Packages"
-              packages={[
-                {
-                  name: "Express Detail",
-                  priceRange: { start: 100 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Quick & affordable car cleaning designed for drivers who want their vehicle looking clean and refreshed without the long wait. Perfect for maintaining your car's appearance between full details.",
-                  features: [
-                    "Interior Vacuum & Dusting",
-                    "Carpets, Seats & Floor Mats Vacuumed",
-                    "Interior & Exterior Windows Cleaned",
-                    "Windows and Mirrors Cleaned",
-                    "Exterior Hand Wash",
-                    "Tires & Rims Cleaned"
-                  ],
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Signature Detail",
-                  priceRange: { start: 150 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Deep interior cleaning & sanitizing service. Our most popular package includes steam cleaning, full vacuum, window cleaning, and complete disinfection. Perfect for families and daily drivers.",
-                  features: [
-                    "Interior Vacuum & Dusting",
-                    "Carpets, Seats & Floor Mats Vacuumed",
-                    "Upholstery Surface Cleaning",
-                    "Interior & Exterior Windows Cleaned",
-                    "Windows and Mirrors Cleaned",
-                    "Interior Sanitized & Disinfected",
-                    "Exterior Hand Wash",
-                    "Tires & Rims Cleaned"
-                  ],
-                  featured: true,
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Premium Detail",
-                  priceRange: { start: 200 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Top-tier full-service detailing experience with deep carpet and seat shampooing. Removes stubborn stains, grime, and odors while restoring your interior to like-new condition. Perfect for heavily used vehicles and pre-sale prep.",
-                  features: [
-                    "Full Interior Vacuum & Dusting",
-                    "Dashboard, Console & Door Panels Detailed",
-                    "Carpets, Seats & Floor Mats Vacuumed",
-                    "Upholstery Deep Cleaned",
-                    "Interior & Exterior Windows Cleaned",
-                    "Windows and Mirrors Cleaned",
-                    "Interior Sanitized & Disinfected",
-                    "Exterior Hand Wash",
-                    "Tires & Rims Cleaned",
-                    "Door & Trunk Jambs Cleaned",
-                    "Seats Shampooed / Extracted (Removes Deep Stains & Grime)",
-                    "Carpets Shampooed / Extracted (Removes Deep Stains & Grime, Salt)"
-                  ],
-                  ctaText: "Book This Package"
-                }
-              ]}
+              packages={AUTO_DETAIL_PACKAGES}
             />
 
             <section className="detail-options">

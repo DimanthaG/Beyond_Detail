@@ -5,6 +5,7 @@ import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, ErrorBoundary, FAQSection } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import './Services.scss';
 
 import AutoDetailHero from '../../components/AutoDetailHero/AutoDetailHero';
@@ -76,27 +77,27 @@ function Services() {
             <div className="package-info__container">
               {/* Internal Linking Section - Enhanced for SEO */}
               <motion.div
-                className="service-location-links"
+                className="seo-content-box"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                style={{ marginBottom: '3rem', textAlign: 'center', maxWidth: '1000px', margin: '0 auto 3rem auto', padding: '30px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px' }}
+                style={{ maxWidth: '1000px', margin: '0 auto 3rem auto' }}
               >
-                <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#f07900' }}>Auto Detailing Services Across the GTA</h2>
-                <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', marginBottom: '1rem' }}>
+                <h2 className="seo-title">Auto Detailing Services Across the GTA</h2>
+                <p className="seo-text-lg">
                   Looking for <strong>detailing near you</strong>? Beyond Detail provides professional auto detailing services throughout the Greater Toronto Area.
-                  We serve customers in <Link to="/car-detailing-scarborough" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>Scarborough</Link>,
-                  <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold', marginLeft: '0.5rem' }}>Markham</Link>,
-                  <Link to="/car-detailing-pickering" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold', marginLeft: '0.5rem' }}>Pickering</Link>,
-                  <Link to="/car-detailing-north-york" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold', marginLeft: '0.5rem' }}>North York</Link>,
+                  We serve customers in <Link to="/car-detailing-scarborough" style={{ fontWeight: 'bold' }}>Scarborough</Link>,{' '}
+                  <Link to="/car-detailing-markham" style={{ fontWeight: 'bold' }}>Markham</Link>,{' '}
+                  <Link to="/car-detailing-pickering" style={{ fontWeight: 'bold' }}>Pickering</Link>,{' '}
+                  <Link to="/car-detailing-north-york" style={{ fontWeight: 'bold' }}>North York</Link>,
                   and all GTA areas.
                 </p>
-                <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#d0d0d0' }}>
-                  Our comprehensive services include <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link>,
-                  <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>,
-                  <Link to="/tint" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>,
-                  and complete auto detailing. For <strong>detailing in Markham</strong>, visit our <Link to="/car-detailing-markham" style={{ color: '#f07900', textDecoration: 'none', fontWeight: 'bold' }}>Markham detailing page</Link>
-                  or check out <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating in Markham</Link> and
+                <p className="seo-text-md">
+                  Our comprehensive services include <Link to="/ceramic-coatings">ceramic coating</Link>,{' '}
+                  <Link to="/paint-correction">paint correction</Link>,{' '}
+                  <Link to="/tint">window tinting</Link>,
+                  and complete auto detailing. For <strong>detailing in Markham</strong>, visit our <Link to="/car-detailing-markham" style={{ fontWeight: 'bold' }}>Markham detailing page</Link>{' '}
+                  or check out <Link to="/ceramic-coating-markham">ceramic coating in Markham</Link> and
                   <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction services</Link>.
                 </p>
               </motion.div>
@@ -235,62 +236,7 @@ function Services() {
 
           <ServicePricing
             title="Auto Detailing Packages"
-            packages={[
-              {
-                name: "Express Detail",
-                priceRange: { start: 100 },
-                priceNote: "Starting price. Larger vehicles may cost extra.",
-                description: "Quick & affordable car cleaning designed for drivers who want their vehicle looking clean and refreshed without the long wait. Perfect for maintaining your car's appearance between full details.",
-                features: [
-                  "Interior Vacuum & Dusting",
-                  "Carpets, Seats & Floor Mats Vacuumed",
-                  "Interior & Exterior Windows Cleaned",
-                  "Windows and Mirrors Cleaned",
-                  "Exterior Hand Wash",
-                  "Tires & Rims Cleaned"
-                ],
-                ctaText: "Book This Package"
-              },
-              {
-                name: "Signature Detail",
-                priceRange: { start: 150 },
-                priceNote: "Starting price. Larger vehicles may cost extra.",
-                description: "Deep interior cleaning & sanitizing service. Our most popular package includes steam cleaning, full vacuum, window cleaning, and complete disinfection. Perfect for families and daily drivers.",
-                features: [
-                  "Interior Vacuum & Dusting",
-                  "Carpets, Seats & Floor Mats Vacuumed",
-                  "Upholstery Surface Cleaning",
-                  "Interior & Exterior Windows Cleaned",
-                  "Windows and Mirrors Cleaned",
-                  "Interior Sanitized & Disinfected",
-                  "Exterior Hand Wash",
-                  "Tires & Rims Cleaned"
-                ],
-                featured: true,
-                ctaText: "Book This Package"
-              },
-              {
-                name: "Premium Detail",
-                priceRange: { start: 200 },
-                priceNote: "Starting price. Larger vehicles may cost extra.",
-                description: "Top-tier full-service detailing experience with deep carpet and seat shampooing. Removes stubborn stains, grime, and odors while restoring your interior to like-new condition. Perfect for heavily used vehicles and pre-sale prep.",
-                features: [
-                  "Full Interior Vacuum & Dusting",
-                  "Dashboard, Console & Door Panels Detailed",
-                  "Carpets, Seats & Floor Mats Vacuumed",
-                  "Upholstery Deep Cleaned",
-                  "Interior & Exterior Windows Cleaned",
-                  "Windows and Mirrors Cleaned",
-                  "Interior Sanitized & Disinfected",
-                  "Exterior Hand Wash",
-                  "Tires & Rims Cleaned",
-                  "Door & Trunk Jambs Cleaned",
-                  "Seats Shampooed / Extracted (Removes Deep Stains & Grime)",
-                  "Carpets Shampooed / Extracted (Removes Deep Stains & Grime, Salt)"
-                ],
-                ctaText: "Book This Package"
-              }
-            ]}
+            packages={AUTO_DETAIL_PACKAGES}
           />
 
           <section className="detail-options">
@@ -504,7 +450,7 @@ function Services() {
                 We specialize in removing salt stains, pet hair, and odors—common issues for GTA drivers.
                 Our <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> and <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> services
                 are designed to protect your vehicle against Toronto's harsh seasons.
-                Book your appointment today and see why we have over 68 five-star reviews from satisfied local customers.
+                Book your appointment today and see why we have over 70+ five-star reviews from satisfied local customers.
               </p>
             </div>
           </section>

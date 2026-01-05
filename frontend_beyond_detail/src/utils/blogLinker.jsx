@@ -68,35 +68,42 @@ const SERVICE_LOCATION_ROUTES = {
  * Creates regex patterns for matching
  * Priority: Service+Location > Service > Location
  */
-const createPatterns = () => {
+// Utility to escape regex special characters
+const escapeRegExp = (string) => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+/**
+ * Creates regex patterns for matching
+ * Puts creation in a function to generate fresh instances
+ */
+const getPatternStrings = () => {
   // Service + Location (longest first)
   const serviceLocationKeys = Object.keys(SERVICE_LOCATION_ROUTES)
-    .sort((a, b) => b.length - a.length);
-  const serviceLocationPattern = new RegExp(
-    `\\b(${serviceLocationKeys.join('|')})\\b`,
-    'gi'
-  );
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp);
+
+  const serviceLocationPatternSrc = `\\b(${serviceLocationKeys.join('|')})\\b`;
 
   // Services (longest first)
   const serviceKeys = Object.keys(SERVICE_ROUTES)
-    .sort((a, b) => b.length - a.length);
-  const servicePattern = new RegExp(
-    `\\b(${serviceKeys.join('|')})\\b`,
-    'gi'
-  );
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp);
+
+  const servicePatternSrc = `\\b(${serviceKeys.join('|')})\\b`;
 
   // Locations (longest first)
   const locationKeys = Object.keys(LOCATION_ROUTES)
-    .sort((a, b) => b.length - a.length);
-  const locationPattern = new RegExp(
-    `\\b(${locationKeys.join('|')})\\b`,
-    'gi'
-  );
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp);
 
-  return { serviceLocationPattern, servicePattern, locationPattern };
+  const locationPatternSrc = `\\b(${locationKeys.join('|')})\\b`;
+
+  return { serviceLocationPatternSrc, servicePatternSrc, locationPatternSrc };
 };
 
-const PATTERNS = createPatterns();
+// Store the PATTERN STRINGS, not the RegExp objects
+const PATTERN_STRINGS = getPatternStrings();
 
 /**
  * Component that automatically converts keywords to internal links in blog content
@@ -174,18 +181,21 @@ export const BlogLinker = ({ text, className = 'blog-internal-link', maxLinks = 
     lastIndex = endIdx;
   };
 
+  // Create fresh regex instances for this render
+  const serviceLocationPattern = new RegExp(PATTERN_STRINGS.serviceLocationPatternSrc, 'gi');
+  const servicePattern = new RegExp(PATTERN_STRINGS.servicePatternSrc, 'gi');
+  const locationPattern = new RegExp(PATTERN_STRINGS.locationPatternSrc, 'gi');
+
   // Process Service + Location combinations first (highest priority)
-  PATTERNS.serviceLocationPattern.lastIndex = 0;
   const serviceLocationMatches = [];
   let match;
-  while ((match = PATTERNS.serviceLocationPattern.exec(text)) !== null) {
+  while ((match = serviceLocationPattern.exec(text)) !== null) {
     serviceLocationMatches.push(match);
   }
 
   // Process Service matches
-  PATTERNS.servicePattern.lastIndex = 0;
   const serviceMatches = [];
-  while ((match = PATTERNS.servicePattern.exec(text)) !== null) {
+  while ((match = servicePattern.exec(text)) !== null) {
     // Skip if already matched as service+location
     const isOverlapped = serviceLocationMatches.some(slMatch => {
       const slStart = slMatch.index;
@@ -200,9 +210,8 @@ export const BlogLinker = ({ text, className = 'blog-internal-link', maxLinks = 
   }
 
   // Process Location matches
-  PATTERNS.locationPattern.lastIndex = 0;
   const locationMatches = [];
-  while ((match = PATTERNS.locationPattern.exec(text)) !== null) {
+  while ((match = locationPattern.exec(text)) !== null) {
     // Skip if already matched as service+location
     const isOverlapped = serviceLocationMatches.some(slMatch => {
       const slStart = slMatch.index;

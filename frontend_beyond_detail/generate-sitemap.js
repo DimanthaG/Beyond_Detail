@@ -128,7 +128,54 @@ async function generateSitemap() {
     }`;
 
     const blogPosts = await client.fetch(query);
-    console.log(`✅ Found ${blogPosts.length} blog post(s)\n`);
+    console.log(`✅ Sanity returned ${blogPosts.length} blog post(s)`);
+
+    // Fetch Local Blog Posts
+    let localPosts = [];
+    try {
+      const localContentPath = path.join(__dirname, 'src', 'Pages', 'Blog', 'LocalBlogContent.js');
+      if (fs.existsSync(localContentPath)) {
+        const fileContent = fs.readFileSync(localContentPath, 'utf8');
+        // Regex to extract array
+        const match = fileContent.match(/export const LOCAL_BLOG_POSTS = (\[[\s\S]*?\]);/);
+        if (match) {
+          localPosts = JSON.parse(match[1]);
+          console.log(`✅ Found ${localPosts.length} local blog post(s)`);
+        }
+      }
+    } catch (err) {
+      console.warn('⚠️ Could not read local blog content:', err.message);
+    }
+
+    // Merge: Use Sanity post if available, otherwise local.
+    // Actually, in sitemap generation we just need the slug and dates.
+    // We want to avoid duplicates.
+    const allPostsMap = new Map();
+
+    // Add Sanity posts first
+    blogPosts.forEach(p => {
+      if (p.slug && p.slug.current) allPostsMap.set(p.slug.current, p);
+    });
+
+    // Add Local posts if not present
+    localPosts.forEach(p => {
+      if (p.slug && p.slug.current && !allPostsMap.has(p.slug.current)) {
+        // Map local post structure to sitemap expected structure
+        allPostsMap.set(p.slug.current, {
+          slug: p.slug,
+          publishedAt: p.publishedAt,
+          _updatedAt: p.publishedAt // Local doesn't track updated separately usually
+        });
+      }
+    });
+
+    const mergedPosts = Array.from(allPostsMap.values());
+    console.log(`✅ Total unique blog posts for sitemap: ${mergedPosts.length}\n`);
+
+    // Assign back to blogPosts variable for usage below (or use mergedPosts)
+    // We'll update the variable reference or change the loop below.
+    // Let's change the loop below to use mergedPosts.
+
 
     // Start building XML
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -194,9 +241,9 @@ async function generateSitemap() {
     xml += '  \n';
 
     // Add blog posts
-    if (blogPosts.length > 0) {
+    if (mergedPosts.length > 0) {
       xml += '  <!-- Blog Posts -->\n';
-      blogPosts.forEach(post => {
+      mergedPosts.forEach(post => {
         if (post.slug && post.slug.current) {
           const lastmod = post._updatedAt
             ? new Date(post._updatedAt).toISOString().split('T')[0]
@@ -223,9 +270,9 @@ async function generateSitemap() {
 
     console.log('✅ Sitemap generated successfully!');
     console.log(`📍 Location: ${sitemapPath}`);
-    console.log(`📊 Total URLs: ${STATIC_PAGES.length + blogPosts.length}`);
+    console.log(`📊 Total URLs: ${STATIC_PAGES.length + mergedPosts.length}`);
     console.log(`   - Static pages: ${STATIC_PAGES.length}`);
-    console.log(`   - Blog posts: ${blogPosts.length}`);
+    console.log(`   - Blog posts: ${mergedPosts.length}`);
     console.log('\n🎉 Done!\n');
 
   } catch (error) {

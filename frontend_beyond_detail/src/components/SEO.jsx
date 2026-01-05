@@ -56,7 +56,7 @@ export const SEO = ({
   const baseDescription = description || BUSINESS_INFO.description;
   const enhancedDescription = baseDescription.length > 160
     ? baseDescription.substring(0, 157).trim() + '...'
-    : baseDescription;
+    : baseDescription.replace('68 Five-Star Reviews', `${BUSINESS_INFO.stats.reviewCountText} Five-Star Reviews`);
 
   // Default OG image
   const ogImage = image || `${BUSINESS_INFO.url}/og-image.webp`;
@@ -97,8 +97,8 @@ export const SEO = ({
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '68',
+      ratingValue: `${BUSINESS_INFO.stats.rating}`,
+      reviewCount: `${BUSINESS_INFO.stats.reviewCount}`,
       bestRating: '5',
       worstRating: '1'
     },
@@ -294,8 +294,8 @@ export const SEO = ({
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '68'
+      ratingValue: `${BUSINESS_INFO.stats.rating}`,
+      reviewCount: `${BUSINESS_INFO.stats.reviewCount}`
     }
   } : null;
 

@@ -4,6 +4,7 @@ import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
 const SEO = lazy(() => import('../../components/SEO'));
@@ -13,59 +14,59 @@ const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsC
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function CarDetailingScarborough() {
-    return (
-        <>
-            <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Car Detailing Scarborough | Professional Auto Detailing Services"
-                    description="Professional car detailing in Scarborough. ⭐ Top-Rated Auto Detailing | Professional In-Shop Service | Lifetime Warranty | Serving All Scarborough Neighborhoods | Call (647) 689-6109"
-                    name="Beyond Detail Scarborough"
-                    type="website"
-                    keywords="car detailing scarborough, auto detailing scarborough, scarborough detailing, car wash scarborough, interior car cleaning scarborough"
-                />
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <SEO
+          title="Car Detailing Scarborough | Professional Auto Detailing Services"
+          description="Professional car detailing in Scarborough. ⭐ Top-Rated Auto Detailing | Professional In-Shop Service | Lifetime Warranty | Serving All Scarborough Neighborhoods | Call (647) 689-6109"
+          name="Beyond Detail Scarborough"
+          type="website"
+          keywords="car detailing scarborough, auto detailing scarborough, scarborough detailing, car wash scarborough, interior car cleaning scarborough"
+        />
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={{ ...transition, delay: 0 }}
+        >
+          <div className="auto-detail__wrapper">
+            <AutoDetailHero
+              scrollTarget="#pricing"
+              titleLine1="Professional Car Detailing in"
+              titleLine2="SCARBOROUGH &"
+              titleLine3="TORONTO"
+              subtitle="Looking for the best <strong>car detailing in Scarborough</strong>? Beyond Detail provides professional auto detailing services that restore your vehicle to showroom condition. Located centrally at 170 Finchdene Square, we serve all Scarborough neighborhoods."
+            />
+
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="auto-detail"
+                title="Our Scarborough Car Detailing Projects"
+                forceLandscape
+              />
+            </Suspense>
+
+            <section className="package-info">
+              <div className="package-info__container">
                 <motion.div
-                    initial="out"
-                    animate="in"
-                    exit="out"
-                    variants={animationOne}
-                    transition={{ ...transition, delay: 0 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                  variants={{
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                    hidden: { opacity: 0, y: 20 }
+                  }}
+                  className="package-info__header"
                 >
-                    <div className="auto-detail__wrapper">
-                        <AutoDetailHero 
-                            scrollTarget="#pricing"
-                            titleLine1="Professional Car Detailing in"
-                            titleLine2="SCARBOROUGH &"
-                            titleLine3="TORONTO"
-                            subtitle="Looking for the best <strong>car detailing in Scarborough</strong>? Beyond Detail provides professional auto detailing services that restore your vehicle to showroom condition. Located centrally at 170 Finchdene Square, we serve all Scarborough neighborhoods."
-                        />
+                  <h2 className="package-info__title">Scarborough Detailing Packages</h2>
+                  <p className="package-info__subtitle">
+                    Comprehensive auto care solutions for every vehicle in Scarborough.
+                  </p>
+                </motion.div>
 
-                        <Suspense fallback={null}>
-                            <ServiceGallery
-                                serviceType="auto-detail"
-                                title="Our Scarborough Car Detailing Projects"
-                                forceLandscape
-                            />
-                        </Suspense>
-
-                        <section className="package-info">
-                            <div className="package-info__container">
-                                <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                                    variants={{
-                                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-                                        hidden: { opacity: 0, y: 20 }
-                                    }}
-                                    className="package-info__header"
-                                >
-                                    <h2 className="package-info__title">Scarborough Detailing Packages</h2>
-                                    <p className="package-info__subtitle">
-                                        Comprehensive auto care solutions for every vehicle in Scarborough.
-                                    </p>
-                                </motion.div>
-
-                                <div className="package-info__grid">
+                <div className="package-info__grid">
                   <motion.article
                     initial="hidden"
                     whileInView="visible"
@@ -162,72 +163,17 @@ function CarDetailingScarborough() {
                       </p>
                     </div>
                   </motion.article>
-                                </div>
-                            </div>
-                        </section>
+                </div>
+              </div>
+            </section>
 
-                        <Suspense fallback={null}>
-                            <GoogleReviewsCarousel />
-                        </Suspense>
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
 
             <ServicePricing
               title="Scarborough Detailing Pricing"
-              packages={[
-                {
-                  name: "Express Detail",
-                  priceRange: { start: 100 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Quick & affordable car cleaning designed for drivers who want their vehicle looking clean and refreshed without the long wait. Perfect for maintaining your car's appearance between full details.",
-                  features: [
-                    "Interior Vacuum & Dusting",
-                    "Carpets, Seats & Floor Mats Vacuumed",
-                    "Interior & Exterior Windows Cleaned",
-                    "Windows and Mirrors Cleaned",
-                    "Exterior Hand Wash",
-                    "Tires & Rims Cleaned"
-                  ],
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Signature Detail",
-                  priceRange: { start: 150 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Deep interior cleaning & sanitizing service. Our most popular package includes steam cleaning, full vacuum, window cleaning, and complete disinfection. Perfect for families and daily drivers.",
-                  features: [
-                    "Interior Vacuum & Dusting",
-                    "Carpets, Seats & Floor Mats Vacuumed",
-                    "Upholstery Surface Cleaning",
-                    "Interior & Exterior Windows Cleaned",
-                    "Windows and Mirrors Cleaned",
-                    "Interior Sanitized & Disinfected",
-                    "Exterior Hand Wash",
-                    "Tires & Rims Cleaned"
-                  ],
-                  featured: true,
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Premium Detail",
-                  priceRange: { start: 200 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Top-tier full-service detailing experience with deep carpet and seat shampooing. Removes stubborn stains, grime, and odors while restoring your interior to like-new condition. Perfect for heavily used vehicles and pre-sale prep.",
-                  features: [
-                    "Full Interior Vacuum & Dusting",
-                    "Dashboard, Console & Door Panels Detailed",
-                    "Carpets, Seats & Floor Mats Vacuumed",
-                    "Upholstery Deep Cleaned",
-                    "Interior & Exterior Windows Cleaned",
-                    "Windows and Mirrors Cleaned",
-                    "Interior Sanitized & Disinfected",
-                    "Exterior Hand Wash",
-                    "Tires & Rims Cleaned",
-                    "Door & Trunk Jambs Cleaned",
-                    "Seats Shampooed / Extracted (Removes Deep Stains & Grime)",
-                    "Carpets Shampooed / Extracted (Removes Deep Stains & Grime, Salt)"
-                  ],
-                  ctaText: "Book This Package"
-                }
-              ]}
+              packages={AUTO_DETAIL_PACKAGES}
             />
 
             <section className="detail-options">
@@ -284,7 +230,7 @@ function CarDetailingScarborough() {
                     <div className="detail-options__card-header">
                       <h3 className="detail-options__card-title">Interior Only Detail</h3>
                     </div>
-                    
+
                     <div className="detail-options__price-section">
                       <div className="detail-options__price-range">
                         <span className="detail-options__price-label">Starting at</span>
@@ -365,7 +311,7 @@ function CarDetailingScarborough() {
                     <div className="detail-options__card-header">
                       <h3 className="detail-options__card-title">Exterior Only Detail</h3>
                     </div>
-                    
+
                     <div className="detail-options__price-section">
                       <div className="detail-options__price-range">
                         <span className="detail-options__price-label">Starting at</span>
@@ -425,14 +371,14 @@ function CarDetailingScarborough() {
               </div>
             </section>
 
-                        <Suspense fallback={null}>
-                            <Contact />
-                        </Suspense>
-                    </div>
-                </motion.div>
+            <Suspense fallback={null}>
+              <Contact />
             </Suspense>
-        </>
-    );
+          </div>
+        </motion.div>
+      </Suspense>
+    </>
+  );
 }
 
 export default React.memo(CarDetailingScarborough);

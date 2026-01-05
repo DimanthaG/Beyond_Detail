@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://beyonddetail.ca/</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,49 +12,49 @@
   <!-- Main Pages -->
   <url>
     <loc>https://beyonddetail.ca/about</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/contact</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/contact-us</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/gallery</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/faqs</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/testimonials</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/privacy-policy</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -62,67 +62,67 @@
   <!-- Service Pages -->
   <url>
     <loc>https://beyonddetail.ca/tint</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/auto-detail</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coatings</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/interior-detailing</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/exterior-detailing</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/headlight-restoration</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/odour-removal</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/leather-cleaning</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-removal</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/fleet-services</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -130,19 +130,19 @@
   <!-- Service Areas -->
   <url>
     <loc>https://beyonddetail.ca/car-detailing-pickering</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-markham</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/service-area/north-york</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -150,331 +150,331 @@
   <!-- Landing Pages -->
   <url>
     <loc>https://beyonddetail.ca/car-detailing-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/auto-detailing-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-malvern</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-agincourt</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-west-hill</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-north-york</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-ajax</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-wexford</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-cliffside</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-rouge</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-guildwood</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-markham</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-markham</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-markham</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-pickering</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-pickering</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-pickering</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-oshawa</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/car-detailing-whitby</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-oshawa</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-whitby</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-oshawa</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-whitby</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-oshawa</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-whitby</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-north-york</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-north-york</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-north-york</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-ajax</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-ajax</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-ajax</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-agincourt</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-agincourt</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-agincourt</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-malvern</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-malvern</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-malvern</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-west-hill</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-west-hill</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-west-hill</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-wexford</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-wexford</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-wexford</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-cliffside</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-cliffside</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-cliffside</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-rouge</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-rouge</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-rouge</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/ceramic-coating-guildwood</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/paint-correction-guildwood</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/window-tinting-guildwood</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -482,43 +482,85 @@
   <!-- Blog Posts -->
   <url>
     <loc>https://beyonddetail.ca/blog/what-determines-window-tint-prices-near-me-a-complete-guide-for-toronto-and-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog/what-determines-car-detailing-prices-near-me-complete-guide-for-toronto-and-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog/why-different-types-of-window-tint-matter-atc-vs-ctx-vs-irx-vs-ceramic-vs-carbon</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog/ceramic-coating-for-cars-what-it-is-how-it-works-and-why-it-s-worth-it</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog/how-to-choose-the-best-car-detailing-service-near-me</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog/how-to-choose-the-best-window-tint-shop-near-me-in-toronto-and-scarborough</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beyonddetail.ca/blog/exterior-hand-wash-vs-regular-car-wash-why-professional-detailing-gives-better-results</loc>
-    <lastmod>2025-12-03</lastmod>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/mobile-car-detailing-benefits-toronto</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/best-time-to-detail-car-toronto</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/car-detailing-cost-toronto-2025</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/ceramic-coating-vs-wax-toronto</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/complete-guide-car-detailing-toronto</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/ontario-window-tint-laws-2026</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/blog/ceramic-coating-cost-scarborough-2026</loc>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

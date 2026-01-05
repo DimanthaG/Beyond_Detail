@@ -26,9 +26,9 @@ function ServicePage() {
   // Generate SEO-friendly title and description
   const serviceTitle = service.title || serviceType;
   const seoTitle = `${serviceTitle} - Professional Auto Detailing Toronto & Scarborough | Beyond Detail`;
-  const seoDescription = service.description 
-    ? `${service.description.substring(0, 150)}... Professional ${serviceTitle.toLowerCase()} services in Toronto, Scarborough, Markham & Pickering. ⭐ 68 Five-Star Reviews | Lifetime Warranty | Call (647) 689-6109`
-    : `Professional ${serviceTitle} services in Toronto, Scarborough, Markham & Pickering. ⭐ 68 Five-Star Reviews | Lifetime Warranty | Beyond Detail`;
+  const seoDescription = service.description
+    ? `${service.description.substring(0, 150)}... Professional ${serviceTitle.toLowerCase()} services in Toronto, Scarborough, Markham & Pickering. ⭐ 70+ Five-Star Reviews | Lifetime Warranty | Call (647) 689-6109`
+    : `Professional ${serviceTitle} services in Toronto, Scarborough, Markham & Pickering. ⭐ 70+ Five-Star Reviews | Lifetime Warranty | Beyond Detail`;
 
   return (
     <div className="service-page">

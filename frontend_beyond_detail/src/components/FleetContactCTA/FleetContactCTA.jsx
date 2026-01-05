@@ -96,7 +96,7 @@ function FleetContactCTA() {
                 <span>Call Now</span>
               </motion.a>
               <motion.a
-                href="mailto:info@beyonddetail.com"
+                href="mailto:info@beyonddetail.ca"
                 className="fleet-contact-cta__button fleet-contact-cta__button--outline"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

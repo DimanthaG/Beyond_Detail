@@ -40,7 +40,7 @@ function MobileDetailing() {
                     name='Beyond Detail Mobile'
                     type='website'
                     serviceType='Mobile Car Detailing'
-                    keywords='mobile car detailing toronto, mobile auto detailing scarborough, mobile car wash gta, mobile interior detailing, mobile car detailing near me'
+                    keywords='mobile car detailing toronto, mobile auto detailing scarborough, mobile car wash scarborough, mobile car wash gta, mobile interior detailing, mobile car detailing near me, mobile detailing prices'
                     faq={mobileFAQs}
                 />
                 <motion.div
@@ -74,7 +74,7 @@ function MobileDetailing() {
                                     Mobile Car Detailing Toronto
                                 </h1>
                                 <p style={{ fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                                    Professional Detailing Services at Your Home or Office
+                                    Professional Detailing Services at Your Home or Office | Competitive Mobile Detailing Prices
                                 </p>
                                 <div style={{ marginTop: '2rem' }}>
                                     <a href="#contact" style={{

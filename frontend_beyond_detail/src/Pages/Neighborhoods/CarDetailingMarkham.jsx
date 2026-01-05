@@ -5,6 +5,7 @@ import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
 const SEO = lazy(() => import('../../components/SEO'));
@@ -14,87 +15,87 @@ const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsC
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function CarDetailingMarkham() {
-    return (
-        <>
-            <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Detailing Markham | Car Detailing & Auto Detailing Services | Beyond Detail"
-                    description="Professional detailing in Markham. ⭐ 68 Five-Star Reviews | In-Shop Service | Window Tinting, Ceramic Coating & Paint Protection | Serving Unionville, Box Grove & All Markham | Call (647) 689-6109"
-                    name="Beyond Detail Markham"
-                    type="website"
-                    keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove"
-                />
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <SEO
+          title="Detailing Markham | Car Detailing & Auto Detailing Services | Beyond Detail"
+          description="Professional detailing in Markham. ⭐ 70+ Five-Star Reviews | In-Shop Service | Window Tinting, Ceramic Coating & Paint Protection | Serving Unionville, Box Grove & All Markham | Call (647) 689-6109"
+          name="Beyond Detail Markham"
+          type="website"
+          keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove"
+        />
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={{ ...transition, delay: 0 }}
+        >
+          <div className="auto-detail__wrapper">
+            <AutoDetailHero
+              scrollTarget="#pricing"
+              titleLine1="Premium Car Detailing in"
+              titleLine2="MARKHAM &"
+              titleLine3="GTA"
+              subtitle="Looking for top-tier <strong>car detailing in Markham</strong>? Visit our professional shop for showroom quality results. From Unionville to Box Grove, we serve the entire Markham community with premium in-shop detailing."
+            />
+
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="auto-detail"
+                title="Our Work in Markham"
+                forceLandscape
+              />
+            </Suspense>
+
+            {/* Detailing Markham - High Priority SEO Section */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+                Professional Detailing in Markham - Serving York Region
+              </h2>
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+                <p>
+                  Beyond Detail is Markham's trusted auto detailing specialist, providing premium in-shop services
+                  for customers throughout York Region. Located in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>,
+                  we're conveniently accessible for Markham residents in Unionville, Box Grove, Markham Village,
+                  Cornell, and all Markham neighborhoods.
+                </p>
+                <p style={{ marginTop: '1rem' }}>
+                  Our comprehensive <strong>detailing services in Markham</strong> include professional
+                  <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>ceramic coating</Link>,
+                  <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>,
+                  <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>,
+                  and complete <strong>auto detailing</strong>. Every service is performed at our professional facility
+                  with premium products and expert technicians. ⭐ Trusted by 70+ five-star reviews from satisfied Markham customers.
+                </p>
+                <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
+                  <strong>Why choose Beyond Detail for detailing in Markham?</strong> Professional in-shop service,
+                  premium products (LLUMAR, Ceramic Pro), lifetime warranties, same-day appointments available,
+                  and convenient location serving all of York Region. Call (647) 689-6109 to book your Markham detailing service today.
+                </p>
+              </div>
+            </section>
+
+            <section className="package-info">
+              <div className="package-info__container">
                 <motion.div
-                    initial="out"
-                    animate="in"
-                    exit="out"
-                    variants={animationOne}
-                    transition={{ ...transition, delay: 0 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                  variants={{
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                    hidden: { opacity: 0, y: 20 }
+                  }}
+                  className="package-info__header"
                 >
-                    <div className="auto-detail__wrapper">
-                        <AutoDetailHero 
-                            scrollTarget="#pricing"
-                            titleLine1="Premium Car Detailing in"
-                            titleLine2="MARKHAM &"
-                            titleLine3="GTA"
-                            subtitle="Looking for top-tier <strong>car detailing in Markham</strong>? Visit our professional shop for showroom quality results. From Unionville to Box Grove, we serve the entire Markham community with premium in-shop detailing."
-                        />
+                  <h2 className="package-info__title">Markham Detailing Packages</h2>
+                  <p className="package-info__subtitle">
+                    Exceptional auto care for Markham drivers. Premium in-shop service available.
+                  </p>
+                </motion.div>
 
-                        <Suspense fallback={null}>
-                            <ServiceGallery
-                                serviceType="auto-detail"
-                                title="Our Work in Markham"
-                                forceLandscape
-                            />
-                        </Suspense>
-
-                        {/* Detailing Markham - High Priority SEO Section */}
-                        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
-                            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
-                                Professional Detailing in Markham - Serving York Region
-                            </h2>
-                            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
-                                <p>
-                                    Beyond Detail is Markham's trusted auto detailing specialist, providing premium in-shop services 
-                                    for customers throughout York Region. Located in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>, 
-                                    we're conveniently accessible for Markham residents in Unionville, Box Grove, Markham Village, 
-                                    Cornell, and all Markham neighborhoods.
-                                </p>
-                                <p style={{ marginTop: '1rem' }}>
-                                    Our comprehensive <strong>detailing services in Markham</strong> include professional 
-                                    <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>ceramic coating</Link>, 
-                                    <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>, 
-                                    <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>, 
-                                    and complete <strong>auto detailing</strong>. Every service is performed at our professional facility 
-                                    with premium products and expert technicians. ⭐ Trusted by 68+ five-star reviews from satisfied Markham customers.
-                                </p>
-                                <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
-                                    <strong>Why choose Beyond Detail for detailing in Markham?</strong> Professional in-shop service, 
-                                    premium products (LLUMAR, Ceramic Pro), lifetime warranties, same-day appointments available, 
-                                    and convenient location serving all of York Region. Call (647) 689-6109 to book your Markham detailing service today.
-                                </p>
-                            </div>
-                        </section>
-
-                        <section className="package-info">
-                            <div className="package-info__container">
-                                <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                                    variants={{
-                                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-                                        hidden: { opacity: 0, y: 20 }
-                                    }}
-                                    className="package-info__header"
-                                >
-                                    <h2 className="package-info__title">Markham Detailing Packages</h2>
-                                    <p className="package-info__subtitle">
-                                        Exceptional auto care for Markham drivers. Premium in-shop service available.
-                                    </p>
-                                </motion.div>
-
-                                <div className="package-info__grid">
+                <div className="package-info__grid">
                   <motion.article
                     initial="hidden"
                     whileInView="visible"
@@ -191,139 +192,84 @@ function CarDetailingMarkham() {
                       </p>
                     </div>
                   </motion.article>
-                                </div>
-                            </div>
-                        </section>
+                </div>
+              </div>
+            </section>
 
-                        <Suspense fallback={null}>
-                            <GoogleReviewsCarousel />
-                        </Suspense>
-
-                        <ServicePricing
-                            title="Markham Detailing Pricing"
-                            packages={[
-                                {
-                                    name: "Express Detail",
-                                    priceRange: { start: 100 },
-                                    priceNote: "Starting price. Larger vehicles may cost extra.",
-                                    description: "Quick & affordable car cleaning designed for drivers who want their vehicle looking clean and refreshed without the long wait. Perfect for maintaining your car's appearance between full details.",
-                                    features: [
-                                        "Interior Vacuum & Dusting",
-                                        "Carpets, Seats & Floor Mats Vacuumed",
-                                        "Interior & Exterior Windows Cleaned",
-                                        "Windows and Mirrors Cleaned",
-                                        "Exterior Hand Wash",
-                                        "Tires & Rims Cleaned"
-                                    ],
-                                    ctaText: "Book This Package"
-                                },
-                                {
-                                    name: "Signature Detail",
-                                    priceRange: { start: 150 },
-                                    priceNote: "Starting price. Larger vehicles may cost extra.",
-                                    description: "Deep interior cleaning & sanitizing service. Our most popular package includes steam cleaning, full vacuum, window cleaning, and complete disinfection. Perfect for families and daily drivers.",
-                                    features: [
-                                        "Interior Vacuum & Dusting",
-                                        "Carpets, Seats & Floor Mats Vacuumed",
-                                        "Upholstery Surface Cleaning",
-                                        "Interior & Exterior Windows Cleaned",
-                                        "Windows and Mirrors Cleaned",
-                                        "Interior Sanitized & Disinfected",
-                                        "Exterior Hand Wash",
-                                        "Tires & Rims Cleaned"
-                                    ],
-                                    featured: true,
-                                    ctaText: "Book This Package"
-                                },
-                                {
-                                    name: "Premium Detail",
-                                    priceRange: { start: 200 },
-                                    priceNote: "Starting price. Larger vehicles may cost extra.",
-                                    description: "Top-tier full-service detailing experience with deep carpet and seat shampooing. Removes stubborn stains, grime, and odors while restoring your interior to like-new condition. Perfect for heavily used vehicles and pre-sale prep.",
-                                    features: [
-                                        "Full Interior Vacuum & Dusting",
-                                        "Dashboard, Console & Door Panels Detailed",
-                                        "Carpets, Seats & Floor Mats Vacuumed",
-                                        "Upholstery Deep Cleaned",
-                                        "Interior & Exterior Windows Cleaned",
-                                        "Windows and Mirrors Cleaned",
-                                        "Interior Sanitized & Disinfected",
-                                        "Exterior Hand Wash",
-                                        "Tires & Rims Cleaned",
-                                        "Door & Trunk Jambs Cleaned",
-                                        "Seats Shampooed / Extracted (Removes Deep Stains & Grime)",
-                                        "Carpets Shampooed / Extracted (Removes Deep Stains & Grime, Salt)"
-                                    ],
-                                    ctaText: "Book This Package"
-                                }
-                            ]}
-                        />
-
-                        <section className="detail-options">
-                            <div className="detail-options__container">
-                                <div className="detail-options__header">
-                                    <h2 className="detail-options__title">Individual Service Options</h2>
-                                    <p className="detail-options__subtitle">
-                                        Need just interior or exterior detailing? We offer focused services for specific areas of your vehicle.
-                                    </p>
-                                </div>
-                                <div className="detail-options__grid">
-                                    <div className="detail-options__card">
-                                        <h3 className="detail-options__card-title">Interior Only Detail</h3>
-                                        <div className="detail-options__price-section">
-                                            <div className="detail-options__price-range">
-                                                <span className="detail-options__price-label">Starting at</span>
-                                                <div className="detail-options__price">$60</div>
-                                            </div>
-                                            <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
-                                        </div>
-                                        <p className="detail-options__card-description">
-                                            Comprehensive interior cleaning focused on seats, carpets, upholstery, and all interior surfaces. Perfect when your exterior is already clean.
-                                        </p>
-                                        <ul className="detail-options__features-list">
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Vacuumed & Dusted</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Carpets, Seats, & Mats Vacuumed</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>All Upholstery Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Dashboard, Console & Doors Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Windows Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Sanitized & Disinfected</span></li>
-                                        </ul>
-                                        <button className="detail-options__cta-button" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Book Interior Only</button>
-                                    </div>
-                                    <div className="detail-options__card">
-                                        <h3 className="detail-options__card-title">Exterior Only Detail</h3>
-                                        <div className="detail-options__price-section">
-                                            <div className="detail-options__price-range">
-                                                <span className="detail-options__price-label">Starting at</span>
-                                                <div className="detail-options__price">$50</div>
-                                            </div>
-                                            <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
-                                        </div>
-                                        <p className="detail-options__card-description">
-                                            Complete exterior cleaning including hand wash, wheel cleaning, and door jam detailing. Ideal for maintaining your vehicle's exterior appearance.
-                                        </p>
-                                        <ul className="detail-options__features-list">
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Exterior Hand Wash</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Tire and Rims Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Door Jams Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Trunk Jams Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Exterior Windows Cleaned</span></li>
-                                            <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>All Mirrors Cleaned</span></li>
-                                        </ul>
-                                        <button className="detail-options__cta-button" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Book Exterior Only</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <Suspense fallback={null}>
-                            <Contact />
-                        </Suspense>
-                    </div>
-                </motion.div>
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
             </Suspense>
-        </>
-    );
+
+            <ServicePricing
+              title="Markham Detailing Pricing"
+              packages={AUTO_DETAIL_PACKAGES}
+            />
+
+            <section className="detail-options">
+              <div className="detail-options__container">
+                <div className="detail-options__header">
+                  <h2 className="detail-options__title">Individual Service Options</h2>
+                  <p className="detail-options__subtitle">
+                    Need just interior or exterior detailing? We offer focused services for specific areas of your vehicle.
+                  </p>
+                </div>
+                <div className="detail-options__grid">
+                  <div className="detail-options__card">
+                    <h3 className="detail-options__card-title">Interior Only Detail</h3>
+                    <div className="detail-options__price-section">
+                      <div className="detail-options__price-range">
+                        <span className="detail-options__price-label">Starting at</span>
+                        <div className="detail-options__price">$60</div>
+                      </div>
+                      <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
+                    </div>
+                    <p className="detail-options__card-description">
+                      Comprehensive interior cleaning focused on seats, carpets, upholstery, and all interior surfaces. Perfect when your exterior is already clean.
+                    </p>
+                    <ul className="detail-options__features-list">
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Vacuumed & Dusted</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Carpets, Seats, & Mats Vacuumed</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>All Upholstery Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Dashboard, Console & Doors Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Windows Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Interior Sanitized & Disinfected</span></li>
+                    </ul>
+                    <button className="detail-options__cta-button" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Book Interior Only</button>
+                  </div>
+                  <div className="detail-options__card">
+                    <h3 className="detail-options__card-title">Exterior Only Detail</h3>
+                    <div className="detail-options__price-section">
+                      <div className="detail-options__price-range">
+                        <span className="detail-options__price-label">Starting at</span>
+                        <div className="detail-options__price">$50</div>
+                      </div>
+                      <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
+                    </div>
+                    <p className="detail-options__card-description">
+                      Complete exterior cleaning including hand wash, wheel cleaning, and door jam detailing. Ideal for maintaining your vehicle's exterior appearance.
+                    </p>
+                    <ul className="detail-options__features-list">
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Exterior Hand Wash</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Tire and Rims Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Door Jams Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Trunk Jams Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>Exterior Windows Cleaned</span></li>
+                      <li className="detail-options__feature-item"><CheckCircle className="detail-options__feature-icon" /><span>All Mirrors Cleaned</span></li>
+                    </ul>
+                    <button className="detail-options__cta-button" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Book Exterior Only</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <Suspense fallback={null}>
+              <Contact />
+            </Suspense>
+          </div>
+        </motion.div>
+      </Suspense>
+    </>
+  );
 }
 
 export default React.memo(CarDetailingMarkham);

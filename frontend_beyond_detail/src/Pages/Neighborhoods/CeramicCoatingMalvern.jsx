@@ -6,6 +6,7 @@ import { Loading } from '../../components';
 import CeramicCoatingInfo from '../../components/CeramicCoatingInfo/CeramicCoatingInfo';
 import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { CERAMIC_COATING_PACKAGES } from '../../constants/servicePackages';
 import '../CeramicCoating/CeramicCoating.scss';
 
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -89,39 +90,7 @@ function CeramicCoatingMalvern() {
 
             <ServicePricing
               title="Malvern Ceramic Coating Packages"
-              packages={[
-                {
-                  name: "Single Stage + Ceramic Coating",
-                  priceRange: { start: 350, end: 450 },
-                  priceNote: "Pricing varies by vehicle size.",
-                  description: "Includes single-stage paint correction plus ceramic coating.",
-                  features: [
-                    "Paint inspection", "Decontamination", "Single-stage polish", "Ceramic coating application", "Exterior panels treated", "Superior protection"
-                  ],
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Two Stage + Ceramic Coating",
-                  priceRange: { start: 600, end: 800 },
-                  priceNote: "Pricing varies by vehicle size.",
-                  description: "Includes two-stage paint correction plus ceramic coating.",
-                  features: [
-                    "Paint inspection", "Decontamination", "Two-stage polish", "Advanced finishing", "Ceramic coating application", "Enhanced gloss", "Superior protection"
-                  ],
-                  featured: true,
-                  ctaText: "Book This Package"
-                },
-                {
-                  name: "Three Stage + Ceramic Coating",
-                  priceRange: { start: 900, end: 1300 },
-                  priceNote: "Pricing varies by vehicle size.",
-                  description: "Includes three-stage paint correction plus ceramic coating.",
-                  features: [
-                    "Paint inspection", "Decontamination", "Multi-stage polish", "Advanced finishing", "Ceramic coating application", "Maximum gloss", "Superior protection"
-                  ],
-                  ctaText: "Book This Package"
-                }
-              ]}
+              packages={CERAMIC_COATING_PACKAGES}
             />
 
             <Suspense fallback={null}>

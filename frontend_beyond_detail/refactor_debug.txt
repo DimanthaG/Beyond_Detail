@@ -1,0 +1,126 @@
+Starting refactor...
+Found 58 files in directory.
+Match found in CarDetailingAgincourt.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingAgincourt.jsx
+  Saved CarDetailingAgincourt.jsx
+Match found in CarDetailingAjax.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingAjax.jsx
+  Saved CarDetailingAjax.jsx
+Match found in CarDetailingCliffside.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingCliffside.jsx
+  Saved CarDetailingCliffside.jsx
+Match found in CarDetailingGuildwood.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingGuildwood.jsx
+  Saved CarDetailingGuildwood.jsx
+Match found in CarDetailingMalvern.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingMalvern.jsx
+  Saved CarDetailingMalvern.jsx
+Match found in CarDetailingNorthYork.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingNorthYork.jsx
+  Saved CarDetailingNorthYork.jsx
+Match found in CarDetailingOshawa.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingOshawa.jsx
+  Saved CarDetailingOshawa.jsx
+Match found in CarDetailingPickering.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingPickering.jsx
+  Saved CarDetailingPickering.jsx
+Match found in CarDetailingRouge.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingRouge.jsx
+  Saved CarDetailingRouge.jsx
+Match found in CarDetailingToronto.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingToronto.jsx
+  Saved CarDetailingToronto.jsx
+Match found in CarDetailingWestHill.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingWestHill.jsx
+  Saved CarDetailingWestHill.jsx
+Match found in CarDetailingWexford.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingWexford.jsx
+  Saved CarDetailingWexford.jsx
+Match found in CarDetailingWhitby.jsx for AUTO_DETAIL_PACKAGES
+  Added import to CarDetailingWhitby.jsx
+  Saved CarDetailingWhitby.jsx
+Match found in CeramicCoatingAgincourt.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingAgincourt.jsx
+  Saved CeramicCoatingAgincourt.jsx
+Match found in CeramicCoatingAjax.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingAjax.jsx
+  Saved CeramicCoatingAjax.jsx
+Match found in CeramicCoatingCliffside.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingCliffside.jsx
+  Saved CeramicCoatingCliffside.jsx
+Match found in CeramicCoatingGuildwood.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingGuildwood.jsx
+  Saved CeramicCoatingGuildwood.jsx
+Match found in CeramicCoatingMalvern.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingMalvern.jsx
+  Saved CeramicCoatingMalvern.jsx
+Match found in CeramicCoatingMarkham.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingMarkham.jsx
+  Saved CeramicCoatingMarkham.jsx
+Match found in CeramicCoatingNorthYork.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingNorthYork.jsx
+  Saved CeramicCoatingNorthYork.jsx
+Match found in CeramicCoatingOshawa.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingOshawa.jsx
+  Saved CeramicCoatingOshawa.jsx
+Match found in CeramicCoatingPickering.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingPickering.jsx
+  Saved CeramicCoatingPickering.jsx
+Match found in CeramicCoatingRouge.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingRouge.jsx
+  Saved CeramicCoatingRouge.jsx
+Match found in CeramicCoatingScarborough.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingScarborough.jsx
+  Saved CeramicCoatingScarborough.jsx
+Match found in CeramicCoatingWestHill.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingWestHill.jsx
+  Saved CeramicCoatingWestHill.jsx
+Match found in CeramicCoatingWexford.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingWexford.jsx
+  Saved CeramicCoatingWexford.jsx
+Match found in CeramicCoatingWhitby.jsx for CERAMIC_COATING_PACKAGES
+  Added import to CeramicCoatingWhitby.jsx
+  Saved CeramicCoatingWhitby.jsx
+Match found in PaintCorrectionAgincourt.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionAgincourt.jsx
+  Saved PaintCorrectionAgincourt.jsx
+Match found in PaintCorrectionAjax.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionAjax.jsx
+  Saved PaintCorrectionAjax.jsx
+Match found in PaintCorrectionCliffside.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionCliffside.jsx
+  Saved PaintCorrectionCliffside.jsx
+Match found in PaintCorrectionGuildwood.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionGuildwood.jsx
+  Saved PaintCorrectionGuildwood.jsx
+Match found in PaintCorrectionMalvern.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionMalvern.jsx
+  Saved PaintCorrectionMalvern.jsx
+Match found in PaintCorrectionMarkham.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionMarkham.jsx
+  Saved PaintCorrectionMarkham.jsx
+Match found in PaintCorrectionNorthYork.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionNorthYork.jsx
+  Saved PaintCorrectionNorthYork.jsx
+Match found in PaintCorrectionOshawa.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionOshawa.jsx
+  Saved PaintCorrectionOshawa.jsx
+Match found in PaintCorrectionPickering.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionPickering.jsx
+  Saved PaintCorrectionPickering.jsx
+Match found in PaintCorrectionRouge.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionRouge.jsx
+  Saved PaintCorrectionRouge.jsx
+Match found in PaintCorrectionScarborough.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionScarborough.jsx
+  Saved PaintCorrectionScarborough.jsx
+Match found in PaintCorrectionWestHill.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionWestHill.jsx
+  Saved PaintCorrectionWestHill.jsx
+Match found in PaintCorrectionWexford.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionWexford.jsx
+  Saved PaintCorrectionWexford.jsx
+Match found in PaintCorrectionWhitby.jsx for PAINT_CORRECTION_PACKAGES
+  Added import to PaintCorrectionWhitby.jsx
+  Saved PaintCorrectionWhitby.jsx
+Refactored 41 files.
