@@ -28,6 +28,10 @@ function PaintCorrection() {
       answer: "Paint correction is the process of permanently removing surface imperfections like swirl marks, scratches, oxidation, and etching from your vehicle's paint using machine polishers and specialized compounds. It restores the true gloss and depth of your paint."
     },
     {
+      question: "Does car detailing remove scratches?",
+      answer: "Yes, expert car detailing with paint correction removes most clear coat scratches, swirl marks, and etching. Using machine polishers, we level the clear coat to permanently eliminate defects. However, deep scratches that penetrate the base coat require touch-up paint or repainting."
+    },
+    {
       question: "Will paint correction remove all scratches?",
       answer: "Paint correction removes scratches that are in the clear coat layer. Deep scratches that have penetrated through the clear coat to the base coat or primer cannot be polished out and may require touch-up paint or repainting. We measure your paint depth to ensure safe correction."
     },

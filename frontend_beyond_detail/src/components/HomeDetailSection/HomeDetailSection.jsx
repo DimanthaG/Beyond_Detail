@@ -25,8 +25,8 @@ function HomeDetailSection() {
   const serviceData = [
     {
       id: 'tint',
-      name: 'Window Tint',
-      description: 'ENHANCE YOUR VEHICLE WITH PROFESSIONAL WINDOW TINTING TO ENJOY COOLER INTERIORS, REDUCED GLARE, INCREASED PRIVACY, AND PROTECTION FROM HARMFUL UV RAYS.',
+      name: 'Window Tinting Scarborough',
+      description: 'Enhance your vehicle with professional window tinting in Scarborough. Enjoy cooler interiors, reduced glare, increased privacy, and protection from harmful UV rays.',
       icon: Sun,
       image: tintImage, // Window tint service image from gallery
       imgAlt: 'Professional window tinting service in Scarborough and Toronto',
@@ -36,8 +36,8 @@ function HomeDetailSection() {
     },
     {
       id: 'paint-correction',
-      name: 'Paint Correction',
-      description: 'REVITALIZE YOUR VEHICLE\'S FINISH WITH OUR PROFESSIONAL PAINT CORRECTION, REMOVING SWIRLS AND SCRATCHES FOR A FLAWLESS, HIGH-GLOSS LOOK.',
+      name: 'Paint Correction Near Me',
+      description: 'Revitalize your vehicle\'s finish with our professional paint correction services. We remove swirls and scratches for a flawless, high-gloss look in Scarborough.',
       icon: Sparkles,
       image: paintCorrectionImage, // Paint correction service image from gallery
       imgAlt: 'Car paint correction and scratch removal service in Scarborough',
@@ -47,8 +47,8 @@ function HomeDetailSection() {
     },
     {
       id: 'ceramic-coating',
-      name: 'Ceramic Coating',
-      description: 'PROTECT YOUR PAINT FROM SCRATCHES AND UV DAMAGE WITH OUR PREMIUM CERAMIC COATING SERVICES FOR LONG-LASTING PROTECTION.',
+      name: 'Ceramic Coating Scarborough',
+      description: 'Protect your paint from scratches and UV damage with our premium ceramic coating services in Scarborough. Get long-lasting protection and a showroom shine.',
       icon: Shield,
       image: ceramicCoatingImage, // Ceramic coating service image from gallery
       imgAlt: 'Ceramic Pro coating application for long lasting paint protection',
@@ -58,8 +58,8 @@ function HomeDetailSection() {
     },
     {
       id: 'auto-detail',
-      name: 'Car Wash & Detailing',
-      description: 'ELEVATE YOUR VEHICLE WITH OUR COMPREHENSIVE CAR DETAILING SERVICES, RESTORING BOTH INTERIOR AND EXTERIOR TO PRISTINE CONDITION.',
+      name: 'Car Detailing Scarborough',
+      description: 'Elevate your vehicle with our comprehensive auto detailing services in Scarborough. We restore both interior and exterior to pristine condition.',
       icon: Droplets,
       image: carWashImage, // Car wash/detailing service image from gallery
       imgAlt: 'Full interior and exterior car detailing service in Scarborough',
@@ -70,7 +70,7 @@ function HomeDetailSection() {
     {
       id: 'headlight-restoration',
       name: 'Headlight Restoration',
-      description: 'IMPROVE NIGHTTIME VISIBILITY AND ENHANCE YOUR CAR\'S APPEARANCE WITH OUR PROFESSIONAL HEADLIGHT RESTORATION SERVICES.',
+      description: 'Improve nighttime visibility and enhance your car\'s appearance with our professional headlight restoration services in Scarborough.',
       icon: Car,
       image: headlightImage, // Headlight restoration service image from gallery
       imgAlt: 'Headlight restoration service to improve visibility and look',

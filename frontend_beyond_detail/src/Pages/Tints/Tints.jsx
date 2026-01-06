@@ -58,12 +58,12 @@ function Tints() {
       {/* Suspense fallback={<Loading />}>  REMOVED OUTER SUSPENSE */}
       {/* FAQ Schema managed by SEO component now */}
       <SEO
-        title='Window Tinting Toronto | LLumar Window Tint & Heat Rejection'
-        description='Premium LLumar window tinting in Toronto & Scarborough. Superior heat rejection (IRX) and UV protection. Lifetime Warranty. Serving the GTA. Book your LLumar tint today.'
+        title='Window Tinting Scarborough | LLumar Window Tint & Heat Rejection'
+        description='Premium LLumar window tinting in Scarborough & Toronto. Superior heat rejection (IRX) and UV protection. Lifetime Warranty. Serving the GTA. Book your LLumar tint today.'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Window Tinting'
-        keywords='Window Tinting Toronto, LLumar Window Tint Toronto, Ceramic Window Tint, Heat Rejection Film, LLumar IRX, Glare Reduction, UV Protection'
+        keywords='Window Tinting Scarborough, Window Tinting Toronto, Ceramic Window Tint Scarborough, Heat Rejection Film, LLumar IRX'
         faq={tintsFAQs}
       />
       <motion.div
@@ -78,7 +78,7 @@ function Tints() {
             scrollTarget="#pricing"
             titleLine1="Professional Window Tinting &"
             titleLine2="Ceramic Tint in"
-            titleLine3="Toronto"
+            titleLine3="Scarborough"
           />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
@@ -112,7 +112,7 @@ function Tints() {
           </section>
 
           {/* Internal Linking Section */}
-          <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '3rem auto 0' }}>
             <p className="seo-text-lg">
               Beyond Detail provides premium <strong><Link to="/tint">window tinting in Toronto</Link></strong> using LLumar films.
               Combine your tint service with <Link to="/ceramic-coating-scarborough">ceramic coating</Link> for ultimate protection.

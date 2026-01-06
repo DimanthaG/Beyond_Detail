@@ -144,7 +144,7 @@ export function HomeHero() {
               className="home-hero__trust-badges"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
               {reviews.rating > 0 && (
                 <div className="home-hero__trust-badge">
@@ -174,7 +174,7 @@ export function HomeHero() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="home-hero__inner"
             >
 
@@ -183,45 +183,37 @@ export function HomeHero() {
                 className="home-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <motion.h1
                   className="home-hero__main-title"
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--white"
-                    initial={{ opacity: 0, x: -30 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    Professional
-                  </motion.span>
-                  <motion.span
-                    className="home-hero__title-line home-hero__title-line--white"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    Car Detailing Services
+                    Car Detailing
                   </motion.span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--highlight"
-                    initial={{ opacity: 0, x: 30 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                     style={{ display: 'block', visibility: 'visible' }}
                   >
-                    in Toronto
+                    Scarborough
                   </motion.span>
                 </motion.h1>
                 <motion.p
                   className="home-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
                 </motion.p>
@@ -231,7 +223,7 @@ export function HomeHero() {
                   className="home-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <motion.div
                     className="home-hero__feature-item"
@@ -264,7 +256,7 @@ export function HomeHero() {
                   className="home-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.3 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
                 >
                   <motion.a
                     href="#contact"
@@ -298,7 +290,7 @@ export function HomeHero() {
                   className="home-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.5 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
                 >
                   <span className="home-hero__shortcuts-label">Popular Services:</span>
                   <div className="home-hero__shortcuts-list">
@@ -323,7 +315,7 @@ export function HomeHero() {
                     className="home-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.7 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
                   >
                     <div className="home-hero__reviews-header">
                       <Star className="home-hero__reviews-icon" fill="currentColor" />

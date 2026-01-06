@@ -43,12 +43,12 @@ function CeramicCoating() {
     <>
       {/* Suspense fallback={<Loading />}> REMOVED EXTERNAL SUSPENSE */}
       <SEO
-        title='Ceramic Coating Toronto | Car Paint Protection & Correction'
-        description='Top-rated ceramic coating in Toronto. Protect your car with localized 9H Nano Coating and hydrophobic protection. Includes paint correction. Book now for long-lasting shine.'
+        title='Ceramic Coating Scarborough | Car Paint Protection & Correction'
+        description='Top-rated ceramic coating in Scarborough & Toronto. Protect your car with localized 9H Nano Coating and hydrophobic protection. Includes paint correction. Book now.'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Ceramic Coating'
-        keywords='Ceramic Coating Toronto, Car Paint Protection Toronto, 9H Nano Coating, Hydrophobic Coating, Permanent Wax Alternative, Wheel Coating'
+        keywords='Ceramic Coating Scarborough, Ceramic Coating Toronto, Car Paint Protection Scarborough, 9H Nano Coating, Hydrophobic Coating, Permanent Wax Alternative'
         faq={ceramicCoatingFAQs}
       />
       <motion.div
@@ -63,7 +63,7 @@ function CeramicCoating() {
             scrollTarget="#pricing"
             titleLine1="Professional Ceramic Coating &"
             titleLine2="Paint Protection in"
-            titleLine3="Toronto"
+            titleLine3="Scarborough"
           />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
@@ -104,7 +104,7 @@ function CeramicCoating() {
           </section>
 
           {/* Internal Linking Section */}
-          <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '3rem auto 0' }}>
             <p className="seo-text-lg">
               Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough">ceramic coating in Toronto</Link></strong>.
               Our packages include professional <Link to="/paint-correction">paint correction</Link> to ensure a flawless finish before coating.

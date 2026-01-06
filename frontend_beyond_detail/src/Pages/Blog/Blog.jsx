@@ -216,21 +216,16 @@ function Blog() {
             // 2. Resolve Content
 
             if (blogFromSanity) {
-              console.log('Sanity blog found:', blogFromSanity.title);
-
-              // Normalize content/body
-              if (!blogFromSanity.content && blogFromSanity.body) {
-                blogFromSanity.content = blogFromSanity.body;
+              // Enhanced Merge: Prioritize Local Backup for Content & Metadata (2026 Updates)
+              const localBackup = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+              if (localBackup) {
+                console.log('Merging local content updates for:', slug);
+                blogFromSanity = { ...blogFromSanity, ...localBackup };
               }
 
-              // Fallback: If Sanity has no content, try to find local content for the same slug
-              if (!blogFromSanity.content || (Array.isArray(blogFromSanity.content) && blogFromSanity.content.length === 0)) {
-                console.warn('Sanity blog has no content. Checking local backup for content match.');
-                const localBackup = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
-                if (localBackup && localBackup.content) {
-                  // console.log('Merged local content into Sanity metadata.');
-                  blogFromSanity.content = localBackup.content;
-                }
+              // Normalize content/body (if not already handled by merge)
+              if (!blogFromSanity.content && blogFromSanity.body) {
+                blogFromSanity.content = blogFromSanity.body;
               }
 
               setSelectedBlog(blogFromSanity);
@@ -264,8 +259,12 @@ function Blog() {
           console.warn('CMS Fetch failed, falling back to local content', cmsError);
         }
 
-        // Merge CMS blogs with Local blogs, avoiding duplicates by slug
-        const allPosts = [...cmsBlogs];
+        // Merge CMS blogs with Local blogs, preferring Local content for 2026 updates
+        const allPosts = cmsBlogs.map(cmsPost => {
+          const localMatch = LOCAL_BLOG_POSTS.find(p => p.slug.current === cmsPost.slug.current);
+          return localMatch ? { ...cmsPost, ...localMatch } : cmsPost;
+        });
+
         LOCAL_BLOG_POSTS.forEach(localPost => {
           if (!allPosts.some(p => p.slug.current === localPost.slug.current)) {
             allPosts.push(localPost);

@@ -1,0 +1,16 @@
+## Lighthouse Audit Results
+| Category | Score |
+| --- | --- |
+| Performance | 39 |
+| Accessibility | 96 |
+| Best Practices | 96 |
+| SEO | 100 |
+
+## Core Web Vitals
+| Metric | Value |
+| --- | --- |
+| LCP | 16.8 s |
+| CLS | 0 |
+| TBT | 1,290 ms |
+| FCP | 2.0 s |
+| Speed Index | 11.2 s |
