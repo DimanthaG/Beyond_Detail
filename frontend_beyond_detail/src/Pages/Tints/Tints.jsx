@@ -36,12 +36,16 @@ function Tints() {
       answer: "Yes, window tinting is legal in Ontario with specific regulations. Front side windows must allow at least 70% light transmission (VLT). Rear side windows and back windshield can be any darkness. Windshield can only have tint on the top 127mm (5 inches). We ensure all installations comply with Ontario regulations."
     },
     {
+      question: "Are ceramic tints legal in Ontario?",
+      answer: "Yes, ceramic tints like LLumar IRX are fully legal in Ontario as long as they meet VLT (Visible Light Transmission) requirements. Since ceramic films are available in clear or light shades (like 70% or 80%), you can get maximum heat rejection legally on front windows without breaking the law."
+    },
+    {
       question: "How long does window tint installation take?",
       answer: "Professional window tint installation typically takes 2-4 hours depending on your vehicle type. Sedans usually take 2-3 hours, while larger SUVs or trucks may take 3-4 hours. We use computer-cut LLUMAR films for precise fit and faster installation. Same-day service available in Scarborough."
     },
     {
-      question: "What's the best window tint for heat rejection in Toronto?",
-      answer: "For maximum heat rejection in Toronto's climate, we recommend LLUMAR IRX series ceramic tint. It blocks up to 97% of infrared heat while maintaining 70% visibility for front windows (legal in Ontario). IRX provides superior heat rejection without interfering with electronics, plus 99% UV protection and lifetime warranty."
+      question: "What is the best window tint for Scarborough summers?",
+      answer: "For maximum heat rejection during Scarborough summers, we recommend **LLumar IRX Series Ceramic Tint**. It blocks up to **97% of infrared heat** and 99% of UV rays, keeping your car significantly cooler than standard dyed films. It's the ultimate choice for comfort in the GTA."
     },
     {
       question: "Does window tint come with a warranty?",

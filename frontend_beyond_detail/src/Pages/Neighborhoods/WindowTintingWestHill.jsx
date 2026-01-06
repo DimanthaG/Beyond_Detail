@@ -22,8 +22,8 @@ function WindowTintingWestHill() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Window Tinting West Hill | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in West Hill. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          title='Llumar Window Tinting West Hill | Authorized Professional Installer'
+          description='Professional Llumar window tinting in West Hill by authorized installers. Reasonable pricing for 2026. Reduce heat & glare with lifetime warranty. Book Your 2026 Protection.'
           name='Beyond Detail West Hill'
           type='website'
           serviceType='Window Tinting'
@@ -37,14 +37,14 @@ function WindowTintingWestHill() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='tints__wrapper'>
-            <TintsHero 
+            <TintsHero
               scrollTarget="#pricing"
               titleLine1="Expert Window Tinting in"
               titleLine2="WEST HILL &"
               titleLine3="SCARBOROUGH"
               subtitle="Upgrade your ride with professional <strong>window tinting in West Hill</strong>. Our LLUMAR films offer maximum heat rejection and style."
             />
-            
+
             <Suspense fallback={null}>
               <ServiceGallery
                 serviceType="window-tint"
@@ -54,7 +54,7 @@ function WindowTintingWestHill() {
 
             <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0' }}>
-                Beyond Detail serves West Hill with premium <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting</Link></strong>. 
+                Beyond Detail serves West Hill with premium <strong><Link to="/tint" style={{ color: '#f07900', textDecoration: 'none' }}>window tinting</Link></strong>.
                 We ensure perfect installation every time.
               </p>
             </div>

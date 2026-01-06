@@ -43,8 +43,8 @@ function CeramicCoating() {
     <>
       {/* Suspense fallback={<Loading />}> REMOVED EXTERNAL SUSPENSE */}
       <SEO
-        title='Ceramic Coating Scarborough | Car Paint Protection & Correction'
-        description='Top-rated ceramic coating in Scarborough & Toronto. Protect your car with localized 9H Nano Coating and hydrophobic protection. Includes paint correction. Book now.'
+        title='Ceramic Coating Scarborough | Authorized Installer | Reasonable Pricing'
+        description='Professional ceramic coating in Scarborough by authorized installers. Reasonable pricing on 9H protection & paint correction. Book Your 2026 Protection today!'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Ceramic Coating'
