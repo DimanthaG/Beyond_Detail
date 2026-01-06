@@ -85,7 +85,7 @@ function About() {
                 >
                   <h1 className='about__hero-title'>About Us - Auto Detailing Scarborough</h1>
                   <p className='about__hero-description'>
-                    Beyond Detail is Toronto and Scarborough's trusted automotive care specialists. We combine expert craftsmanship, premium products, and unwavering dedication to deliver exceptional results for every vehicle.
+                    Serving Toronto, Scarborough, and the GTA, Beyond Detail is your trusted automotive care specialist. We combine expert craftsmanship, premium products, and unwavering dedication to deliver exceptional results for every vehicle.
                   </p>
                   <div className='about__hero-buttons'>
                     <button

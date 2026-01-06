@@ -214,7 +214,7 @@ export function HomeHero() {
                     transition={{ duration: 0.6, delay: 0.7 }}
                     style={{ display: 'block', visibility: 'visible' }}
                   >
-                    in Scarborough
+                    in Toronto
                   </motion.span>
                 </motion.h1>
                 <motion.p
@@ -223,7 +223,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Scarborough. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
+                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
                 </motion.p>
 
                 {/* Feature Icons */}

@@ -594,7 +594,7 @@ export const LOCAL_BLOG_POSTS = [
                         "marks": [
                             "strong"
                         ],
-                        "text": "Llumar, SUNTEK, and XPEL"
+                        "text": "Llumar and SUNTEK"
                     },
                     {
                         "_key": "ea81d57d9dd12",

@@ -15,8 +15,8 @@ import './InteriorDetailingHero.scss';
 export function InteriorDetailingHero({
   scrollTarget = "#pricing",
   titleLine1 = "Interior Detailing in",
-  titleLine2 = "TORONTO &",
-  titleLine3 = "SCARBOROUGH",
+  titleLine2 = "TORONTO",
+  titleLine3 = null,
   titleLine4 = null,
   subtitle = "Tired of dirty seats, lingering odors, and a dull interior? <strong>Breathe new life into your vehicle's interior</strong>. Our deep cleaning services go beyond surface cleaning to remove embedded dirt, eliminate odors, and restore that like-new freshness. Professional shampoo extraction, leather conditioning, and meticulous attention to every detail."
 }) {

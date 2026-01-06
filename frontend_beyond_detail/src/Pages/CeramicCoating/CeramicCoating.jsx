@@ -43,12 +43,12 @@ function CeramicCoating() {
     <>
       {/* Suspense fallback={<Loading />}> REMOVED EXTERNAL SUSPENSE */}
       <SEO
-        title='Ceramic Coating Scarborough | Ceramic Pro Installation | Beyond Detail Toronto'
-        description='Professional ceramic coating in Scarborough. Ceramic Pro certified installer. 2-5 year protection. ⭐ 70+ Five-Star Reviews | Paint correction included | Starting at $350 | Call (647) 689-6109'
+        title='Ceramic Coating Toronto | Car Paint Protection & Correction'
+        description='Top-rated ceramic coating in Toronto. Protect your car with localized 9H Nano Coating and hydrophobic protection. Includes paint correction. Book now for long-lasting shine.'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Ceramic Coating'
-        keywords='ceramic coating near me, ceramic coating cost scarborough, ceramic coating price toronto, ceramic coating scarborough, ceramic pro scarborough, paint protection scarborough, ceramic coating toronto, ceramic coating markham'
+        keywords='Ceramic Coating Toronto, Car Paint Protection Toronto, 9H Nano Coating, Hydrophobic Coating, Permanent Wax Alternative, Wheel Coating'
         faq={ceramicCoatingFAQs}
       />
       <motion.div
@@ -61,9 +61,9 @@ function CeramicCoating() {
         <div className='ceramic-coating__wrapper'>
           <CeramicCoatingHero
             scrollTarget="#pricing"
-            titleLine1="Professional"
-            titleLine2="Ceramic Coating Services in"
-            titleLine3="Scarborough"
+            titleLine1="Professional Ceramic Coating &"
+            titleLine2="Paint Protection in"
+            titleLine3="Toronto"
           />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
@@ -78,7 +78,7 @@ function CeramicCoating() {
           {/* Near Me & Location-Specific Content */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 className="seo-title">
-              Ceramic Coating Near Me - Serving Scarborough, Toronto, Markham & Pickering
+              Permanent 9H Nano Coating Services in the GTA
             </h2>
             <div>
               <p className="seo-text-lg">
@@ -106,7 +106,7 @@ function CeramicCoating() {
           {/* Internal Linking Section */}
           <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <p className="seo-text-lg">
-              Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough">ceramic coating in Scarborough</Link></strong>.
+              Beyond Detail offers the best <strong><Link to="/ceramic-coating-scarborough">ceramic coating in Toronto</Link></strong>.
               Our packages include professional <Link to="/paint-correction">paint correction</Link> to ensure a flawless finish before coating.
               Protect your vehicle's paint from **Toronto's harsh winter** weather and road salt with our lifetime warranty packages.
               Curious about the **cost**? We provide transparent pricing for all services.

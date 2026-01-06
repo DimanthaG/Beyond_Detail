@@ -71,8 +71,19 @@ export const formatContent = (content, blogSlug) => {
 
 export const calculateReadingTime = (content) => {
   if (!Array.isArray(content)) return 2;
-  const words = content.join(' ').split(/\s+/).length;
-  const readingTime = Math.ceil(words / 200); // Average reading speed: 200 words per minute
+
+  let wordCount = 0;
+  content.forEach(block => {
+    if (block._type === 'block' && block.children) {
+      block.children.forEach(child => {
+        if (child.text) {
+          wordCount += child.text.split(/\s+/).length;
+        }
+      });
+    }
+  });
+
+  const readingTime = Math.ceil(wordCount / 200); // 200 wpm
   return Math.max(1, readingTime);
 };
 

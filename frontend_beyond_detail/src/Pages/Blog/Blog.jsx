@@ -46,100 +46,61 @@ const BlockContent = ({ blocks }) => {
   if (!blocks || !Array.isArray(blocks)) return null;
 
   return blocks.map((block, idx) => {
-    // console.log(`Processing block ${idx} of type ${block._type}`); // DEBUG LOG
-
     // Handle text blocks
     if (block._type === 'block') {
       const style = block.style || 'normal';
 
+      // Helper to render children with marks
+      const renderChildren = (children) => {
+        if (!children) return null;
+        return children.map((child, childIdx) => {
+          let text = child.text || '';
+          if (!text) return null;
+
+          if (child.marks && Array.isArray(child.marks)) {
+            if (child.marks.includes('strong')) text = <strong key={childIdx}>{text}</strong>;
+            else if (child.marks.includes('em')) text = <em key={childIdx}>{text}</em>;
+            else if (child.marks.includes('code')) text = <code key={childIdx}>{text}</code>;
+            else if (child.marks.includes('underline')) text = <u key={childIdx}>{text}</u>;
+            else return <span key={childIdx}>{text}</span>;
+          }
+          return typeof text === 'string' ? <span key={childIdx}>{text}</span> : text;
+        });
+      };
+
       // Handle different heading styles
       if (style === 'h2') {
-        const text = block.children?.map(child => child.text).join('') || '';
-        return <h2 key={idx} className="blog-heading">{text}</h2>;
+        return <h2 key={idx} className="blog-heading">{renderChildren(block.children)}</h2>;
       }
       if (style === 'h3') {
-        return <h3 key={idx} className="blog-section-header">{block.children?.map(child => child.text).join('')}</h3>;
+        return <h3 key={idx} className="blog-section-header">{renderChildren(block.children)}</h3>;
       }
       if (style === 'h4') {
-        return <h4 key={idx} className="blog-subsection-header">{block.children?.map(child => child.text).join('')}</h4>;
+        return <h4 key={idx} className="blog-subsection-header">{renderChildren(block.children)}</h4>;
       }
       if (style === 'blockquote') {
-        return <blockquote key={idx} className="blog-quote">{block.children?.map(child => child.text).join('')}</blockquote>;
+        return <blockquote key={idx} className="blog-quote">{renderChildren(block.children)}</blockquote>;
       }
 
       // Handle lists
       if (block.listItem === 'bullet') {
-        return <li key={idx} className="blog-list-item">{block.children?.map(child => child.text).join('')}</li>;
+        return <li key={idx} className="blog-list-item">{renderChildren(block.children)}</li>;
       }
       if (block.listItem === 'number') {
-        return <li key={idx} className="blog-list-item">{block.children?.map(child => child.text).join('')}</li>;
+        return <li key={idx} className="blog-list-item">{renderChildren(block.children)}</li>;
       }
 
-      // Handle regular paragraphs with formatting and internal linking
-      // Extract full paragraph text first
-      const paragraphText = block.children?.map(child => child.text).join('') || '';
+      // Regular Paragraphs
+      const content = renderChildren(block.children);
+      // Only render if there is content (avoid empty p tags which cause layout shifts)
+      if (!content || (Array.isArray(content) && content.every(c => !c))) return <br key={idx} />;
 
-      // Render paragraph even if empty to maintain spacing, or skip?
-      // Sanity often sends empty blocks for spacing.
-      if (!paragraphText.trim()) {
-        return <br key={idx} />;
-      }
-
-      // Process text with internal linking, preserving formatting
-      const processTextWithFormatting = (text, children) => {
-        // Use BlogLinker on the full text, then apply formatting
-        // We'll split the linked result and apply marks
-
-        return (
-          <React.Fragment>
-            {children.map((child, childIdx) => {
-              const text = child.text;
-              if (!text) return null;
-
-              let content = text;
-              // Only try to link if we have the linker component and text is long enough
-              // BlogLinker temporarily disabled to ensure content visibility
-              content = text;
-
-              if (child.marks?.includes('strong')) {
-                return <strong key={childIdx}>{content}</strong>;
-              }
-              if (child.marks?.includes('em')) {
-                return <em key={childIdx}>{content}</em>;
-              }
-              if (child.marks?.includes('code')) {
-                return <code key={childIdx}>{text}</code>;
-              }
-              if (child.marks?.includes('underline')) {
-                return <u key={childIdx}>{content}</u>;
-              }
-              return <React.Fragment key={childIdx}>{content}</React.Fragment>;
-            })}
-          </React.Fragment>
-        );
-      };
-
-      return (
-        <p key={idx} className="blog-paragraph">
-          {(() => {
-            try {
-              return processTextWithFormatting(paragraphText, block.children || []);
-            } catch (err) {
-              console.error('Error processing text formatting:', err);
-              // Fallback to plain text
-              return paragraphText;
-            }
-          })()}
-        </p>
-      );
+      return <p key={idx} className="blog-paragraph">{content}</p>;
     }
 
-
-    // Handle images in content with enhanced SEO
+    // Handle images
     if (block._type === 'image') {
       const imageUrl = getImageUrl(block, 1200);
-      // console.log('Rendering image block:', imageUrl);
-
       return (
         <figure key={idx} className="blog-content-image">
           <picture>
@@ -158,11 +119,9 @@ const BlockContent = ({ blocks }) => {
       );
     }
 
-    // console.warn('Unknown block type:', block._type);
     return null;
   });
 };
-
 
 
 // Related posts component
@@ -225,6 +184,7 @@ const RelatedPosts = ({ currentBlog, allBlogs }) => {
   );
 };
 
+
 function Blog() {
   const { slug } = useParams();
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -236,32 +196,65 @@ function Blog() {
       setLoading(true);
       try {
         let cmsBlogs = [];
+        let detailedBlogFound = false; // Hoisted to function scope
+
         try {
           if (slug) {
-            // 1. Check local backup FIRST (Since Sanity data seems incomplete/outdated)
-            const localBlog = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+            // 1. Try Sanity FIRST
+            let blogFromSanity = null;
 
-            if (localBlog) {
-              setSelectedBlog(localBlog);
+            try {
+              console.log('Fetching blog from Sanity:', slug);
+              const query = `*[_type == "blogPost" && slug.current == $slug][0] {
+                _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, body, seoTitle, seoDescription, keywords, relatedServices
+              }`;
+              blogFromSanity = await client.fetch(query, { slug });
+            } catch (e) {
+              console.warn('Sanity fetch failed, checking local backup:', e);
+            }
+
+            // 2. Resolve Content
+
+            if (blogFromSanity) {
+              console.log('Sanity blog found:', blogFromSanity.title);
+
+              // Normalize content/body
+              if (!blogFromSanity.content && blogFromSanity.body) {
+                blogFromSanity.content = blogFromSanity.body;
+              }
+
+              // Fallback: If Sanity has no content, try to find local content for the same slug
+              if (!blogFromSanity.content || (Array.isArray(blogFromSanity.content) && blogFromSanity.content.length === 0)) {
+                console.warn('Sanity blog has no content. Checking local backup for content match.');
+                const localBackup = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+                if (localBackup && localBackup.content) {
+                  // console.log('Merged local content into Sanity metadata.');
+                  blogFromSanity.content = localBackup.content;
+                }
+              }
+
+              setSelectedBlog(blogFromSanity);
+              detailedBlogFound = true;
             } else {
-              // 2. Only if not found locally, try Sanity
-              try {
-                const query = `*[_type == "blogPost" && slug.current == $slug][0] {
-                  _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, body, seoTitle, seoDescription, keywords, relatedServices
-                }`;
-                const blog = await client.fetch(query, { slug });
-                if (blog) setSelectedBlog(blog);
-              } catch (e) {
-                console.warn('Sanity fetch failed:', e);
+              // 3. Fallback to Local Backup if Sanity completely failed to find the post
+              const localBlog = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
+              if (localBlog) {
+                console.log('Using local blog backup for:', slug);
+                setSelectedBlog(localBlog);
+                detailedBlogFound = true;
+              } else {
+                console.error('Blog not found locally or on Sanity:', slug);
               }
             }
 
-            // Always fetch list for "Related specific" or sidebar, but we prioritize local for the *current* view
+            // Allow loading the list in background for sidebar
             const allBlogsQuery = `*[_type == "blogPost"] | order(publishedAt desc) {
               _id, title, slug, author, publishedAt, excerpt, mainImage, category
             }`;
             cmsBlogs = await client.fetch(allBlogsQuery);
+
           } else {
+            // List View Fetch
             const query = `*[_type == "blogPost"] | order(publishedAt desc) {
               _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, body
             }`;
@@ -286,7 +279,7 @@ function Blog() {
 
         // If we are in slug mode and CMS failed or didn't have it, we might have set selectedBlog from local above.
         // If not, try to find it in the merged list now (though logic above handles dedicated local search)
-        if (slug && !selectedBlog) { // e.g., if we refreshed
+        if (slug && !selectedBlog && !detailedBlogFound) { // e.g., if we refreshed
           const found = allPosts.find(p => p.slug.current === slug);
           if (found) setSelectedBlog(found);
         }
@@ -456,72 +449,89 @@ function Blog() {
           {/* Main Content */}
           <article className="blog-article">
             <div className="blog-content-wrapper">
-
+              {/* Left Share Sticky */}
+              <div className="blog-share-sticky">
+                <div className="blog-share-buttons" style={{ flexDirection: 'column' }}>
+                  <a href="#" className="share-btn share-facebook" title="Share on Facebook">
+                    <span style={{ fontSize: '1.2rem' }}>f</span>
+                  </a>
+                  <a href="#" className="share-btn share-twitter" title="Share on Twitter">
+                    <span style={{ fontSize: '1.2rem' }}>𝕏</span>
+                  </a>
+                  <a href="#" className="share-btn share-linkedin" title="Share on LinkedIn">
+                    <span style={{ fontSize: '1.2rem' }}>in</span>
+                  </a>
+                </div>
+              </div>
 
               {/* Article Content */}
               <div className="blog-article-content">
                 <BlockContent blocks={selectedBlog.content || selectedBlog.body} />
+
+                {/* Mobile-only Related Services (Hidden on Desktop via CSS) */}
+                <div className="mobile-related-services">
+                  {selectedBlog.relatedServices && selectedBlog.relatedServices.length > 0 && (
+                    <section className="blog-related-services">
+                      <h3>Related Services</h3>
+                      <div className="services-tags">
+                        {selectedBlog.relatedServices.map((service, idx) => {
+                          const route = serviceRouteMap[service] || '/auto-detail';
+                          const serviceName = service.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                          return <Link key={idx} to={route}>{serviceName}</Link>;
+                        })}
+                      </div>
+                    </section>
+                  )}
+                </div>
               </div>
+
+              {/* Right Sidebar (Desktop) */}
+              <aside className="blog-sidebar">
+                {/* Sidebar: Related Services */}
+                {selectedBlog.relatedServices && selectedBlog.relatedServices.length > 0 && (
+                  <div className="sidebar-widget services-widget">
+                    <h3>Related Services</h3>
+                    <div className="services-list">
+                      {selectedBlog.relatedServices.map((service, idx) => {
+                        const route = serviceRouteMap[service] || '/auto-detail';
+                        const serviceName = service.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                        return (
+                          <Link key={idx} to={route} className="service-link">
+                            <span className="arrow">→</span> {serviceName}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Sidebar: Recent/Related Posts */}
+                <div className="sidebar-widget recent-posts-widget">
+                  <h3>Recent Posts</h3>
+                  <div className="sidebar-posts-list">
+                    {allBlogs
+                      .filter(b => b._id !== selectedBlog._id)
+                      .slice(0, 4)
+                      .map(post => (
+                        <Link key={post._id} to={`/blog/${post.slug.current}`} className="sidebar-post-item">
+                          <div className="sidebar-post-image">
+                            {post.mainImage ? (
+                              <img src={getImageUrl(post.mainImage, 100, 100)} alt={post.title} />
+                            ) : <div className="placeholder-img" />}
+                          </div>
+                          <div className="sidebar-post-info">
+                            <h4>{post.title}</h4>
+                            <span className="date">{new Date(post.publishedAt).toLocaleDateString()}</span>
+                          </div>
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+              </aside>
             </div>
 
 
-
-            {/* Related Services Section */}
-            {
-              selectedBlog.relatedServices && selectedBlog.relatedServices.length > 0 && (
-                <section className="blog-related-services" style={{
-                  marginTop: '3rem',
-                  padding: '2rem',
-                  background: 'rgba(0,0,0,0.3)',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(240, 121, 0, 0.3)'
-                }}>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#f07900' }}>
-                    Related Services
-                  </h3>
-                  <p style={{ marginBottom: '1rem', color: '#e0e0e0' }}>
-                    Interested in our services? Check out these related offerings:
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                    {selectedBlog.relatedServices.map((service, idx) => {
-                      const route = serviceRouteMap[service] || '/auto-detail';
-                      const serviceName = service
-                        .split('-')
-                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                        .join(' ');
-                      return (
-                        <Link
-                          key={idx}
-                          to={route}
-                          style={{
-                            display: 'inline-block',
-                            padding: '0.5rem 1rem',
-                            background: 'rgba(240, 121, 0, 0.2)',
-                            color: '#f07900',
-                            textDecoration: 'none',
-                            borderRadius: '6px',
-                            border: '1px solid rgba(240, 121, 0, 0.5)',
-                            transition: 'all 0.3s ease'
-                          }}
-                          onMouseEnter={(e) => {
-                            e.target.style.background = 'rgba(240, 121, 0, 0.3)';
-                            e.target.style.transform = 'translateY(-2px)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.background = 'rgba(240, 121, 0, 0.2)';
-                            e.target.style.transform = 'translateY(0)';
-                          }}
-                        >
-                          {serviceName}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </section>
-              )
-            }
-
-            {/* Related Posts */}
+            {/* Bottom Related Posts (Grid) */}
             <RelatedPosts currentBlog={selectedBlog} allBlogs={allBlogs} />
 
             {/* Back to Blog */}

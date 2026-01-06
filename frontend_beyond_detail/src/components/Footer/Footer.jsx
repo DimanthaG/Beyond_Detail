@@ -46,6 +46,9 @@ function Footer() {
             </div>
             {footerData.length !== 0 && (
               <>
+                <div className='footer-service-area' style={{ marginBottom: '1rem', color: '#ccc', fontSize: '0.9rem' }}>
+                  <p>Serving Toronto, Scarborough, and the GTA</p>
+                </div>
                 <div className='footer-phone'>
                   <a href={`tel:${footerData[0].number?.replace(/\s/g, '')}`}>
                     {footerData[0].number}

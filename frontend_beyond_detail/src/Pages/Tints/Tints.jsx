@@ -58,12 +58,12 @@ function Tints() {
       {/* Suspense fallback={<Loading />}>  REMOVED OUTER SUSPENSE */}
       {/* FAQ Schema managed by SEO component now */}
       <SEO
-        title='Window Tinting Scarborough | LLUMAR Tint Installation | Starting at $250'
-        description='Professional window tinting in Scarborough. ⭐ 70+ Five-Star Reviews | Premium LLUMAR Films | Lifetime Warranty | Same-Day Service | Starting at $250 | Call (647) 689-6109'
+        title='Window Tinting Toronto | LLumar Window Tint & Heat Rejection'
+        description='Premium LLumar window tinting in Toronto & Scarborough. Superior heat rejection (IRX) and UV protection. Lifetime Warranty. Serving the GTA. Book your LLumar tint today.'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Window Tinting'
-        keywords='window tinting scarborough, legal window tint ontario, window tint scarborough, car tint scarborough, LLUMAR tint scarborough, window tint near me, ceramic tint heat rejection, auto tinting scarborough, window tinting markham'
+        keywords='Window Tinting Toronto, LLumar Window Tint Toronto, Ceramic Window Tint, Heat Rejection Film, LLumar IRX, Glare Reduction, UV Protection'
         faq={tintsFAQs}
       />
       <motion.div
@@ -76,9 +76,9 @@ function Tints() {
         <div className='tints__wrapper'>
           <TintsHero
             scrollTarget="#pricing"
-            titleLine1="Professional"
-            titleLine2="Window Tinting Services in"
-            titleLine3="Scarborough"
+            titleLine1="Professional Window Tinting &"
+            titleLine2="Ceramic Tint in"
+            titleLine3="Toronto"
           />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
@@ -92,12 +92,12 @@ function Tints() {
           {/* Location-Specific Content: Window Tinting in Scarborough */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 className="seo-title">
-              Professional Window Tinting in Scarborough
+              Advanced LLumar Ceramic Tinting in Scarborough
             </h2>
             <div>
               <p className="seo-text-lg">
-                Looking for competitive <strong>window tinting prices in Scarborough</strong>? Beyond Detail is your trusted specialist, serving customers throughout the Greater Toronto Area.
-                Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLUMAR window tint installation
+                Looking for competitive <strong>window tinting prices in Toronto and Scarborough</strong>? Beyond Detail is your trusted specialist, serving customers throughout the Greater Toronto Area.
+                Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLumar window tint installation
                 with same-day service available. Our expert technicians have installed thousands of window tints,
                 offering superior <strong>Infrared</strong> heat rejection, transparent <strong>costs</strong>, and ensuring every installation meets Ontario's legal requirements.
               </p>
@@ -114,7 +114,7 @@ function Tints() {
           {/* Internal Linking Section */}
           <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <p className="seo-text-lg">
-              Beyond Detail provides premium <strong><Link to="/tint">window tinting in Scarborough</Link></strong> using LLUMAR films.
+              Beyond Detail provides premium <strong><Link to="/tint">window tinting in Toronto</Link></strong> using LLumar films.
               Combine your tint service with <Link to="/ceramic-coating-scarborough">ceramic coating</Link> for ultimate protection.
               We also offer comprehensive <Link to="/auto-detail">auto detailing</Link> to keep your car looking showroom new inside and out.
             </p>

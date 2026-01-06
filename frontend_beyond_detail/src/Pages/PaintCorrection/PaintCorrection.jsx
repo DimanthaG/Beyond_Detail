@@ -45,12 +45,12 @@ function PaintCorrection() {
     <>
       {/* Outer Suspense removed for LCP */}
       <SEO
-        title='Paint Correction Scarborough | Remove Swirl Marks & Scratches | Beyond Detail'
-        description='Professional paint correction in Scarborough. Remove swirl marks, scratches & oxidation. ⭐ 70+ Five-Star Reviews | 1-3 Stage Correction | Starting at $250 | Lifetime Warranty | Call (647) 689-6109'
+        title='Car Detailing & Paint Correction Toronto | Swirl Mark Removal'
+        description="Expert car detailing and paint correction in Toronto. Remove swirl marks, scratches, and salt stains. Stage 1-3 polishing available. Restore your vehicle's showroom finish today."
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Paint Correction'
-        keywords='paint correction near me, paint correction scarborough, swirl mark removal scarborough, scratch removal scarborough, paint polishing toronto, auto detailing scarborough, paint restoration scarborough, paint correction markham, paint correction pickering'
+        keywords='Car Detailing Toronto, Paint Correction Toronto, Swirl Mark Removal, Stage 1 Polishing, Interior Steam Cleaning, Salt Stain Removal, Lease Return Detailing'
         faq={paintCorrectionFAQs}
       />
       <motion.div
@@ -61,7 +61,12 @@ function PaintCorrection() {
         transition={{ ...transition, delay: 0 }}
       >
         <div className='paint-correction__wrapper'>
-          <PaintCorrectionHero scrollTarget="#pricing" />
+          <PaintCorrectionHero
+            scrollTarget="#pricing"
+            titleLine1="Car Detailing &"
+            titleLine2="Paint Correction"
+            titleLine3="TORONTO"
+          />
           <Suspense fallback={null}>
             <ServiceGallery
               serviceType="paint-correction"

@@ -14,8 +14,8 @@ import './AutoDetailHero.scss';
 export function AutoDetailHero({
   scrollTarget = "#pricing",
   titleLine1 = "Full-Service Auto Detailing in",
-  titleLine2 = "TORONTO &",
-  titleLine3 = "SCARBOROUGH",
+  titleLine2 = "TORONTO",
+  titleLine3 = null,
   subtitle = "Tired of dirty interiors, odors, and a dull exterior? Get <strong>full-service auto detailing</strong> in the GTA. We deep-clean and sanitize every inch of your interior for a fresh, like-new feel—plus include a premium exterior hand wash for a spotless finish."
 }) {
   const heroRef = useRef(null);
