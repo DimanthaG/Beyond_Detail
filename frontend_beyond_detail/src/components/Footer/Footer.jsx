@@ -47,7 +47,10 @@ function Footer() {
             {footerData.length !== 0 && (
               <>
                 <div className='footer-service-area' style={{ marginBottom: '1rem', color: '#ccc', fontSize: '0.9rem' }}>
-                  <p>Serving Toronto, Scarborough, and the GTA</p>
+                  <p>Serving Scarborough & Toronto</p>
+                  <p style={{ fontSize: '0.8rem', opacity: 0.8, marginTop: '4px' }}>
+                    Near <strong>Finchdene Square</strong>, <strong>Markham Road</strong> & <strong>Nugget Avenue</strong>
+                  </p>
                 </div>
                 <div className='footer-phone'>
                   <a href={`tel:${footerData[0].number?.replace(/\s/g, '')}`}>

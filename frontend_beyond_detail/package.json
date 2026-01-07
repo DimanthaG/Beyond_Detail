@@ -50,8 +50,6 @@
     "dev:react": "react-app-rewired start",
     "update-galleries": "node scripts/updateGalleryImports.js",
     "sync:blog": "node scripts/sync_blog.js",
-    "prestart": "npm run update-galleries && npm run sync:blog",
-    "prebuild": "npm run update-galleries && npm run sync:blog",
     "seo:sitemap": "node generate-sitemap.js",
     "seo:analyze": "node analyze-blogs.js",
     "seo:update": "node update-blogs-seo.js",

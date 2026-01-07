@@ -17,7 +17,7 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Car Detailing Scarborough | Window Tinting & Ceramic Coating | Beyond Detail'
+        title='Car Detailing Scarborough | Auto Detailing & Tinting | Beyond Detail'
         description='Best Car Detailing in Scarborough & Toronto. Professional mobile auto detailing, ceramic coating, paint correction & window tinting. ⭐ Lifetime Warranty. Call (647) 689-6109'
         name='Beyond Detail | Car Detailing Scarborough'
         type='website'

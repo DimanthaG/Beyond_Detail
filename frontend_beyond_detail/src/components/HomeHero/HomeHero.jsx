@@ -191,6 +191,7 @@ export function HomeHero() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
+                  <span className="sr-only">Car Detailing Scarborough</span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--white"
                     initial={{ opacity: 0, x: -20 }}

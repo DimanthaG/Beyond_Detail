@@ -96,14 +96,30 @@ function Tints() {
           {/* Location-Specific Content: Window Tinting in Scarborough */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 className="seo-title">
+              Why is LLumar the best window tint for Scarborough summers?
+            </h2>
+            <div>
+              <p className="seo-text-lg">
+                <strong>LLumar IRX Ceramic Tint</strong> is engineered specifically to handle high-contrast climates like Toronto and Scarborough.
+                It blocks **97% of infrared heat** and **99% of UV rays**, which is critical for reducing cabin temperatures during humid GTA summers.
+                Unlike standard dyed films that turn purple, LLumar uses nano-ceramic technology that enables **crystal clear visibility** while rejecting significantly more heat.
+              </p>
+              <p className="seo-text-lg">
+                Most importantly for Scarborough drivers, LLumar films come with a <strong>manufacturer-backed lifetime warranty</strong> against bubbling, peeling, and color change,
+                ensuring your investment lasts as long as you own your car.
+              </p>
+            </div>
+          </section>
+
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '2rem auto 0' }}>
+            <h2 className="seo-title">
               Advanced LLumar Ceramic Tinting in Scarborough
             </h2>
             <div>
               <p className="seo-text-lg">
-                Looking for competitive <strong>window tinting prices in Toronto and Scarborough</strong>? Beyond Detail is your trusted specialist, serving customers throughout the Greater Toronto Area.
+                Looking for competitive <strong>window tinting prices in Toronto and Scarborough</strong>? Beyond Detail is your trusted specialist.
                 Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLumar window tint installation
-                with same-day service available. Our expert technicians have installed thousands of window tints,
-                offering superior <strong>Infrared</strong> heat rejection, transparent <strong>costs</strong>, and ensuring every installation meets Ontario's legal requirements.
+                with same-day service available. Transparency is key: our professional tint packages <strong>start at $250</strong> for sedans, with no hidden fees.
               </p>
               <p className="seo-text-lg">
                 Whether you're in <Link to="/window-tinting-scarborough">Scarborough</Link>,{' '}
