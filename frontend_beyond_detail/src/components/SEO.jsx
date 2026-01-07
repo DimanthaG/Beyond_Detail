@@ -250,12 +250,23 @@ export const SEO = ({
           }
         }
       ]
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: `${BUSINESS_INFO.stats.rating}`,
-      reviewCount: `${BUSINESS_INFO.stats.reviewCount}`
     }
+  } : null;
+
+
+
+  // FAQ Structure Data
+  const faqSchema = faq && faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
   } : null;
 
   return (
@@ -333,6 +344,13 @@ export const SEO = ({
       {serviceSchema && (
         <script type='application/ld+json'>
           {JSON.stringify(serviceSchema)}
+        </script>
+      )}
+
+      {/* FAQ Schema */}
+      {faqSchema && (
+        <script type='application/ld+json'>
+          {JSON.stringify(faqSchema)}
         </script>
       )}
 
