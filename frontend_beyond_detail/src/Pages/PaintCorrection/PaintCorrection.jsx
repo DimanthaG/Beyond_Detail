@@ -68,8 +68,9 @@ function PaintCorrection() {
           <PaintCorrectionHero
             scrollTarget="#pricing"
             titleLine1="Car Detailing &"
-            titleLine2="Paint Correction"
+            titleLine2="Scratch Repair"
             titleLine3="TORONTO"
+            subtitle="Expert <strong>paint correction</strong> and <strong>scratch repair</strong> to restore your vehicle's showroom shine. We permanently remove swirls, scratches, and oxidation."
           />
           <Suspense fallback={null}>
             <ServiceGallery
@@ -82,7 +83,7 @@ function PaintCorrection() {
           {/* Near Me & Location-Specific Content */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 className="seo-title">
-              Paint Correction Near Me - Professional Service in Scarborough & GTA
+              Paint Correction, Scratch Removal & Swirl Mark Repair
             </h2>
             <div>
               <p className="seo-text-lg">

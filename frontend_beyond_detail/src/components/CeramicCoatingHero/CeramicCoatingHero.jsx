@@ -116,19 +116,19 @@ export function CeramicCoatingHero({
                 className="ceramic-coating-hero__title-section"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
               >
                 <motion.h1
                   className="ceramic-coating-hero__main-title"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <motion.span
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     {titleLine1}
                   </motion.span>
@@ -136,7 +136,7 @@ export function CeramicCoatingHero({
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     {titleLine2}
                   </motion.span>
@@ -144,7 +144,7 @@ export function CeramicCoatingHero({
                     className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--highlight"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
                   >
                     {titleLine3}
                   </motion.span>
@@ -153,7 +153,7 @@ export function CeramicCoatingHero({
                       className="ceramic-coating-hero__title-line ceramic-coating-hero__title-line--white"
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
                     >
                       {titleLine4}
                     </motion.span>
@@ -163,7 +163,7 @@ export function CeramicCoatingHero({
                   className="ceramic-coating-hero__description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
                   dangerouslySetInnerHTML={{ __html: subtitle }}
                 >
                 </motion.p>
@@ -173,7 +173,7 @@ export function CeramicCoatingHero({
                   className="ceramic-coating-hero__features"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.1 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
                 >
                   <motion.div
                     className="ceramic-coating-hero__feature-item"
@@ -206,7 +206,7 @@ export function CeramicCoatingHero({
                   className="ceramic-coating-hero__actions"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.3 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
                 >
                   <motion.a
                     href="#contact"
@@ -240,7 +240,7 @@ export function CeramicCoatingHero({
                   className="ceramic-coating-hero__service-shortcuts"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.5 }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
                 >
                   <span className="ceramic-coating-hero__shortcuts-label">Related Services:</span>
                   <div className="ceramic-coating-hero__shortcuts-list">
@@ -262,7 +262,7 @@ export function CeramicCoatingHero({
                     className="ceramic-coating-hero__reviews-section"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.7 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
                   >
                     <div className="ceramic-coating-hero__reviews-header">
                       <Star className="ceramic-coating-hero__reviews-icon" fill="currentColor" />

@@ -71,6 +71,7 @@ const WrappedLuxuryDetailing = withRouteWrapper(LuxuryDetailing);
 const CarDetailingToronto = lazy(() => import('./Pages/Neighborhoods/CarDetailingToronto'));
 const CarDetailingMalvern = lazy(() => import('./Pages/Neighborhoods/CarDetailingMalvern'));
 const CarDetailingScarborough = lazy(() => import('./Pages/Neighborhoods/CarDetailingScarborough'));
+const CeramicCoatingToronto = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingToronto'));
 const CeramicCoatingScarborough = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingScarborough'));
 const CarDetailingAgincourt = lazy(() => import('./Pages/Neighborhoods/CarDetailingAgincourt'));
 const CarDetailingWestHill = lazy(() => import('./Pages/Neighborhoods/CarDetailingWestHill'));
@@ -188,6 +189,7 @@ function App() {
             <Route path='/car-detailing-guildwood' element={<CarDetailingGuildwood />} />
             <Route path='/car-detailing-scarborough' element={<CarDetailingScarborough />} />
             <Route path='/auto-detailing-scarborough' element={<CarDetailingScarborough />} />
+            <Route path='/ceramic-coating-toronto' element={<CeramicCoatingToronto />} />
             <Route path='/ceramic-coating-scarborough' element={<CeramicCoatingScarborough />} />
             <Route path='/window-tinting-scarborough' element={<WindowTintingScarborough />} />
             <Route path='/paint-correction-scarborough' element={<PaintCorrectionScarborough />} />

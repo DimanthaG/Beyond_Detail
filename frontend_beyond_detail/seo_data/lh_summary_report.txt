@@ -1,0 +1,4 @@
+Page                           | Perf  | SEO   | Access | Best P | LCP       
+-------------------------------------------------------------------------------------
+Ceramic Coating Toronto        | 11    | 100   | 96     | 96     | 18.4 s    
+Car Detailing Markham Road     | 11    | 100   | 93     | 92     | 20.5 s    

@@ -23,6 +23,7 @@ const getTodayDate = () => {
 const STATIC_PAGES = [
   // Main Pages
   { loc: '/', priority: 1.0, changefreq: 'weekly' },
+  { loc: '/ceramic-coating-toronto', priority: 0.9, changefreq: 'weekly' },
   { loc: '/about', priority: 0.8, changefreq: 'monthly' },
   { loc: '/contact', priority: 0.9, changefreq: 'monthly' },
   { loc: '/contact-us', priority: 0.9, changefreq: 'monthly' },

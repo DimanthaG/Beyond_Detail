@@ -102,6 +102,43 @@ function HeadlightRestoration() {
             />
             <FAQSection data={headlightFAQs} title="Headlight Restoration FAQs" />
             <Contact />
+
+            {/* Mobile Sticky CTA */}
+            <div className="mobile-sticky-cta" style={{
+              position: 'fixed',
+              bottom: '80px', // Raised to sit above global footer nav if present
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: 999,
+              width: '90%',
+              textAlign: 'center',
+              display: 'none'
+            }}>
+              <style>{`
+                @media (max-width: 768px) {
+                  .mobile-sticky-cta { display: block !important; }
+                }
+              `}</style>
+              <a href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }}
+                style={{
+                  display: 'block',
+                  background: '#f07900',
+                  color: '#fff',
+                  padding: '14px 20px',
+                  borderRadius: '50px',
+                  fontWeight: 'bold',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                  fontSize: '1rem',
+                  letterSpacing: '0.5px'
+                }}>
+                Book Headlight Restoration
+              </a>
+            </div>
           </div>
         </motion.div>
       </Suspense>
