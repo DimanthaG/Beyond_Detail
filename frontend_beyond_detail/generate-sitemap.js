@@ -70,6 +70,7 @@ const STATIC_PAGES = [
   { loc: '/window-tinting-markham', priority: 0.8, changefreq: 'weekly' },
   { loc: '/ceramic-coating-markham', priority: 0.8, changefreq: 'weekly' },
   { loc: '/paint-correction-markham', priority: 0.8, changefreq: 'weekly' },
+  { loc: '/car-detailing-markham-road', priority: 0.9, changefreq: 'weekly' },
 
   // Landing Pages - Pickering
   { loc: '/ceramic-coating-pickering', priority: 0.8, changefreq: 'weekly' },

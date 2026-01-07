@@ -126,6 +126,7 @@ const WindowTintingRouge = lazy(() => import('./Pages/Neighborhoods/WindowTintin
 const CeramicCoatingGuildwood = lazy(() => import('./Pages/Neighborhoods/CeramicCoatingGuildwood'));
 const PaintCorrectionGuildwood = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionGuildwood'));
 const WindowTintingGuildwood = lazy(() => import('./Pages/Neighborhoods/WindowTintingGuildwood'));
+const CarDetailingMarkhamRoad = lazy(() => import('./Pages/Neighborhoods/CarDetailingMarkhamRoad'));
 
 function App() {
   let location = useLocation();
@@ -231,6 +232,7 @@ function App() {
             <Route path='/ceramic-coating-guildwood' element={<CeramicCoatingGuildwood />} />
             <Route path='/paint-correction-guildwood' element={<PaintCorrectionGuildwood />} />
             <Route path='/window-tinting-guildwood' element={<WindowTintingGuildwood />} />
+            <Route path='/car-detailing-markham-road' element={<CarDetailingMarkhamRoad />} />
             <Route path='/gallery' element={<WrappedGallery />} />
             <Route path='/faqs' element={<WrappedFAQs />} />
             <Route path='/privacy-policy' element={<WrappedPrivacyPolicy />} />
