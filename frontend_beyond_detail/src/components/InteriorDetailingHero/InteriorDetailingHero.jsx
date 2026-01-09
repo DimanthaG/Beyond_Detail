@@ -14,11 +14,11 @@ import './InteriorDetailingHero.scss';
 
 export function InteriorDetailingHero({
   scrollTarget = "#pricing",
-  titleLine1 = "Interior Detailing in",
-  titleLine2 = "TORONTO",
-  titleLine3 = null,
+  titleLine1 = "Interior Detailing",
+  titleLine2 = "Scarborough",
+  titleLine3 = "Starting at $149",
   titleLine4 = null,
-  subtitle = "Tired of dirty seats, lingering odors, and a dull interior? <strong>Breathe new life into your vehicle's interior</strong>. Our deep cleaning services go beyond surface cleaning to remove embedded dirt, eliminate odors, and restore that like-new freshness. Professional shampoo extraction, leather conditioning, and meticulous attention to every detail."
+  subtitle = "Tired of dirty seats, lingering odors, and stubborn salt stains? <strong>Deep cleaning for Scarborough winters</strong>. Professional shampoo extraction, leather conditioning, and ozone treatment. Remove salt stains, pet hair, and eliminate smoke odors. Same-day appointments available."
 }) {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });

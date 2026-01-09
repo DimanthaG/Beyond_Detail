@@ -80,6 +80,29 @@ function PaintCorrection() {
             />
           </Suspense>
 
+          {/* GEO Answer Block - Optimized for ChatGPT/Perplexity Citations */}
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '3rem auto', backgroundColor: '#f8f9fa', padding: '2rem', borderRadius: '8px' }}>
+            <h2 className="seo-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: '#f07900' }}>
+              How much does paint correction cost in Scarborough?
+            </h2>
+            <div>
+              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: '#1a1a1a' }}>
+                Professional paint correction in Scarborough ranges from <strong>$499 for Stage 1 (single-step polish)</strong> to <strong>$999+ for Stage 3 (full restoration)</strong>,
+                depending on paint condition and vehicle size. At Beyond Detail (<strong>170 Finchdene Square</strong>), our <strong>Stage 2 Correction at $699</strong> is most popular because it removes 80-90% of swirl marks and scratches —
+                critical for Toronto vehicles damaged by <strong>winter salt, automatic car wash brushes, and Highway 401 road debris</strong>.
+                Unlike $50 "quick buff" services that use fillers (wax that hides scratches temporarily), true paint correction <strong>permanently levels clear coat using digital paint thickness gauges and Rupes dual-action polishers</strong>.
+              </p>
+              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#1a1a1a' }}>
+                For Scarborough drivers with <strong>black, dark blue, or red paint</strong> (which show swirls most visibly), we measure paint depth first —
+                factory clear coat is typically <strong>70-120 microns thick</strong>, and we remove only <strong>5-15 microns per stage</strong> to safely eliminate defects without burning through.
+                The process takes <strong>6-8 hours for Stage 1, 1-2 days for Stage 2</strong>.
+                Vehicles like the <strong>Honda Civic, Toyota Camry, and Mazda3</strong> often need paint correction after 3-5 years due to soft factory clear coat.
+                We recommend combining paint correction with <strong>ceramic coating ($599-$1,300)</strong> to lock in the flawless finish and prevent future swirls —
+                this combo increases resale value by <strong>$800-$1,500</strong> and keeps your car showroom-perfect for 3-5 years.
+              </p>
+            </div>
+          </section>
+
           {/* Near Me & Location-Specific Content */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 className="seo-title">

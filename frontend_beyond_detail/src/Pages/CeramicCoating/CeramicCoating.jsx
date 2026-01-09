@@ -81,17 +81,17 @@ function CeramicCoating() {
 
           {/* GEO Direct Answer Section - Optimized for ChatGPT/Perplexity Citations */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '2rem auto 0', backgroundColor: '#f8f9fa', padding: '2rem', borderRadius: '8px' }}>
-            <h2 className="seo-title">
+            <h2 className="seo-title" style={{ color: '#f07900', fontSize: '1.8rem', marginBottom: '1.5rem' }}>
               Is ceramic coating worth it for Toronto winters?
             </h2>
             <div>
-              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: '#1a1a1a' }}>
                 Yes. Ceramic coating creates a <strong>9H hardness barrier</strong> that protects against Toronto's <strong>road salt, freeze-thaw cycles, and Highway 401 salt spray</strong>.
                 Unlike traditional wax which dissolves in winter conditions within 2-4 weeks, ceramic coating <strong>bonds to paint at the molecular level</strong>,
                 preventing corrosion and salt etching that causes rust spots and paint oxidation. For Scarborough drivers facing constant exposure to <strong>construction dust from Highway 401 expansion and Markham Road repairs</strong>,
                 ceramic coating's hydrophobic properties make salt removal 80% easier during weekly winter washes.
               </p>
-              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#1a1a1a' }}>
                 We use professional-grade <strong>9H nano-ceramic coatings with 2-5 year warranties</strong>, installed at our <strong>170 Finchdene Square</strong> facility.
                 Starting at <strong>$599-$1,300</strong> depending on package, it extends paint life by 5+ years —
                 critical for Tesla Model Y and Model 3 owners whose soft factory paint is especially vulnerable to salt damage.
