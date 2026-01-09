@@ -39,12 +39,12 @@ function ExteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Exterior Detailing Toronto, Scarborough, Markham, Pickering | Paint Protection & Wash'
-          description='Professional exterior detailing services in Toronto, Scarborough, Markham, and Pickering. Expert exterior wash, paint correction, ceramic coating, and protection. Premium exterior care across the GTA.'
-          name='Beyond Detail Toronto'
+          title='Exterior Car Detailing Scarborough | Hand Wash, Clay Bar & Wheel Detailing'
+          description='Premium exterior detailing in Scarborough. Safe two-bucket hand wash, iron decontamination, clay bar treatment, and rim detailing. Revitalize your paint today.'
+          name='Beyond Detail Exterior'
           type='website'
           serviceType='Exterior Detailing'
-          keywords='exterior detailing Toronto, car exterior cleaning Scarborough, vehicle exterior detailing Markham, paint protection Pickering, exterior car care GTA'
+          keywords='exterior cleaning scarborough, hand car wash scarborough, clay bar treatment, car rim detailing, tough dirt removal, scratch free car wash'
           faq={exteriorDetailingFAQs}
         />
         <motion.div
@@ -58,32 +58,32 @@ function ExteriorDetailing() {
             <ExteriorDetailingHero scrollTarget="#pricing" />
             <ServiceInfoSection
               title="Exterior Detailing Services"
-              subtitle="Premium Exterior Care"
-              description="Our exterior detailing services provide comprehensive cleaning, protection, and enhancement of your vehicle's exterior. From basic hand washing to advanced paint correction and ceramic coating, we restore and protect your vehicle's exterior while defending against environmental damage, road debris, and harsh weather conditions."
+              subtitle="Safe Wash & Paint Decontamination"
+              description="Our exterior detailing goes far beyond a tunnel car wash. We use safe, manual techniques to remove bonded contaminants that regular washing misses, restoring smoothness and gloss to your paint without adding scratches."
               benefits={[
                 {
-                  title: "Restored Paint Finish",
-                  description: "Professional cleaning and polishing removes oxidation, light scratches, and surface imperfections to reveal your vehicle's true color and shine."
+                  title: "Safe Hand Wash Process",
+                  description: "We strictly use the 'Two-Bucket Method' with grit guards and premium microfiber mitts to capture dirt safely and prevent swirl marks on your paint."
                 },
                 {
-                  title: "Environmental Protection",
-                  description: "Sealants and ceramic coatings shield your paint from UV rays, acid rain, bird droppings, tree sap, road salt, and other contaminants that cause damage over time."
+                  title: "Chemical Decontamination",
+                  description: "We use specialized Iron Removers to dissolve purple-bleeding brake dust particles and industrial fallout embedded in your clear coat."
                 },
                 {
-                  title: "Enhanced Appearance",
-                  description: "Transform your vehicle's exterior with a deep, glossy finish that makes it look brand new and maintains its showroom-quality appearance."
+                  title: "Clay Bar Treatment",
+                  description: "Mechanical decontamination using a clay bar pulls out stubborn bonded contaminants (tar, tree sap, overspray) to leave your paint glass-smooth."
                 },
                 {
-                  title: "Extended Paint Life",
-                  description: "Regular professional detailing and protection extends the life of your paint, helping maintain your vehicle's value and appearance."
+                  title: "Wheel, Rim & Caliper Detailing",
+                  description: "We reach deep into the wheel barrels and cleaning brake calipers to remove baked-on brake dust, not just cleaning the face of the rim."
                 },
                 {
-                  title: "Protection Against Elements",
-                  description: "Advanced sealants protect against harsh weather conditions, road salt, environmental hazards, and daily wear and tear."
+                  title: "Trim Restoration",
+                  description: "We clean and dress exterior plastics and rubber seals to prevent fading/whitening, restoring a rich satin black appearance."
                 },
                 {
-                  title: "Comprehensive Care",
-                  description: "From paint to trim, wheels to glass, every exterior surface receives meticulous attention and professional care."
+                  title: "Hydrophobic Paint Protection",
+                  description: "Every detail concludes with a silica spray sealant or high-grade carnauba wax to repel water, dirt, and UV rays for months."
                 }
               ]}
               process={[
@@ -129,35 +129,34 @@ function ExteriorDetailing() {
               title="Exterior Detailing Packages"
               packages={[
                 {
-                  name: "Express Wash",
-                  priceRange: { start: 50 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Essential exterior cleaning perfect for regular maintenance. Keeps your vehicle looking fresh and clean.",
+                  name: "Express Exterior Wash",
+                  priceRange: { start: 60 },
+                  priceNote: "Starting price.",
+                  description: "A specialized safe hand-wash. Includes deep wheel cleaning, door jambs, and spray wax. No clay bar or heavy decon.",
                   features: [
-                    "Exterior Hand Wash",
-                    "Tire and Rims Cleaned",
-                    "Exterior Windows Cleaned",
-                    "All Mirrors Cleaned"
+                    "Safe Two-Bucket Hand Wash",
+                    "Deep Wheel Face Cleaning",
+                    "Spray Wax Application",
+                    "Tire Dressing",
+                    "Windows Cleaned"
                   ],
-                  ctaText: "Book This Package"
+                  ctaText: "Book Express Wash"
                 },
                 {
-                  name: "Signature Wash",
-                  priceRange: { start: 150 },
-                  priceNote: "Starting price. Larger vehicles may cost extra.",
-                  description: "Enhanced exterior cleaning with decontamination and sealant protection. Ideal for vehicles that need deeper cleaning and protection.",
+                  name: "Full Exterior Detail (Deep Clean)",
+                  priceRange: { start: 160 },
+                  priceNote: "Starting price.",
+                  description: "The complete reset. Includes Iron Removal, Clay Bar Treatment, and 6-month Sealant to make your paint smooth and protected.",
                   features: [
-                    "Exterior Hand Wash",
-                    "Tire and Rims Cleaned",
-                    "Door Jams Cleaned",
-                    "Trunk Jams Cleaned",
-                    "Exterior Windows Cleaned",
-                    "All Mirrors Cleaned",
-                    "Clay Bar Decontamination",
-                    "Premium Sealant Application"
+                    "Safe Hand Wash",
+                    "Deep Wheel Barrel & Caliper Cleaning",
+                    "Iron Decontamination (Chemical)",
+                    "Clay Bar Treatment (Mechanical)",
+                    "Exterior Trim Dressing",
+                    "Premium Silica Sealant (6-Month Protection)"
                   ],
                   featured: true,
-                  ctaText: "Book This Package"
+                  ctaText: "Book Full Detail"
                 },
                 {
                   name: "Premium Exterior Service",

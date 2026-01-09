@@ -168,6 +168,7 @@ function App() {
             <Route path='/paint-removal' element={<WrappedPaintRemoval />} />
             <Route path='/fleet-services' element={<WrappedFleetServices />} />
             <Route path='/mobile-car-detailing' element={<WrappedMobileDetailing />} />
+            <Route path='/mobile-detailing' element={<WrappedMobileDetailing />} />
             <Route path='/mobile-car-detailing-toronto' element={<WrappedMobileDetailing />} />
             <Route path='/luxury-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
             <Route path='/exotic-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />

@@ -47,9 +47,9 @@ function Footer() {
             {footerData.length !== 0 && (
               <>
                 <div className='footer-service-area' style={{ marginBottom: '1rem', color: '#ccc', fontSize: '0.9rem' }}>
-                  <p>Serving Scarborough & Toronto</p>
+                  <p><strong>Mobile Service & Studio</strong> in Scarborough</p>
                   <p style={{ fontSize: '0.8rem', opacity: 0.8, marginTop: '4px' }}>
-                    Near <strong>Finchdene Square</strong>, <strong>Markham Road</strong> & <strong>Nugget Avenue</strong>
+                    Near <strong>Finchdene Square</strong>, <strong>Markham Road</strong>, <strong>Nugget Avenue</strong> & <strong>Scarborough Town Centre</strong>
                   </p>
                 </div>
                 <div className='footer-phone'>
@@ -113,26 +113,26 @@ function Footer() {
           <div className='footer-column footer-menu'>
             <h4 className='footer-heading'>MENU</h4>
             <div className='footer-links'>
+              <Link to='/mobile-detailing'>
+                MOBILE DETAILING
+              </Link>
+              <Link to='/ceramic-coating-scarborough'>
+                CERAMIC COATING
+              </Link>
+              <Link to='/paint-correction'>
+                PAINT CORRECTION
+              </Link>
               <Link to='/tint'>
-                TINT
-              </Link>
-              <Link to='/about'>
-                ABOUT US
-              </Link>
-              <Link to='/service-areas'>
-                SERVICE AREAS
+                WINDOW TINT
               </Link>
               <Link to='/auto-detail'>
-                AUTO DETAIL
+                INTERIOR DETAILING
               </Link>
               <Link to='/gallery'>
                 GALLERY
               </Link>
-              <Link to='/blog'>
-                BLOG
-              </Link>
               <Link to='/contact'>
-                CONTACT
+                CONTACT US
               </Link>
             </div>
           </div>

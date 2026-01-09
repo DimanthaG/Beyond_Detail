@@ -1,4 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, HomeProcess } from '../../components';
@@ -119,13 +120,13 @@ function About() {
                   <h2 className='about__story-title'>Our Story</h2>
                   <div className='about__story-text'>
                     <p>
-                      Beyond Detail was founded with a simple mission: to provide exceptional automotive care services that protect and enhance your vehicle's appearance, value, and longevity. Based in Toronto and Scarborough, we've built our reputation on delivering showroom-quality results through expert craftsmanship, premium products, and unwavering dedication.
+                      Beyond Detail was founded with a simple mission: to provide <strong style={{ color: '#22c55e' }}>Flexible & Professional</strong> automotive care. Based in Scarborough, we recognized that while some clients need the convenience of <Link to="/mobile-detailing" style={{ color: 'inherit', textDecoration: 'underline' }}>Mobile Detailing</Link> at their driveway, others require the controlled environment of a shop for advanced <Link to="/paint-correction" style={{ color: 'inherit', textDecoration: 'underline' }}>Paint Correction</Link> and <Link to="/ceramic-coating-scarborough" style={{ color: 'inherit', textDecoration: 'underline' }}>Ceramic Coating</Link>.
                     </p>
                     <p>
-                      What started as a passion for automotive perfection has grown into a trusted business serving thousands of satisfied customers across the Greater Toronto Area. We understand that your vehicle is more than just transportation—it's an investment that deserves the highest level of care and protection.
+                      Today, we offer the best of both worlds. Our fully equipped mobile units service the entire GTA for unparalleled convenience, while our state-of-the-art facility at <strong>170 Finchdene Square</strong> handles heavy-duty restoration work that requires clinical precision.
                     </p>
                     <p>
-                      From professional <ServiceLinker text="window tint" /> installation using LLUMAR films to comprehensive <ServiceLinker text="paint correction" /> and <ServiceLinker text="ceramic coating" /> services, we've expanded our expertise to cover every aspect of automotive <ServiceLinker text="auto detailing" /> and protection. Our certified technicians bring years of experience and training to every service, ensuring professional-grade results on every vehicle.
+                      Our team consists of IDA-Certified technicians who are passionate about perfection. Whether we are visiting your home for a maintenance wash or restoring your vehicle's paint in our studio, you receive the same level of dedication, transparency, and premium quality that has earned us 70+ 5-star reviews.
                     </p>
                   </div>
                 </motion.div>

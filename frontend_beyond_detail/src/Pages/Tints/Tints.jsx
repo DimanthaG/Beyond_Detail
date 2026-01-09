@@ -62,12 +62,12 @@ function Tints() {
       {/* Suspense fallback={<Loading />}>  REMOVED OUTER SUSPENSE */}
       {/* FAQ Schema managed by SEO component now */}
       <SEO
-        title='Window Tinting Scarborough | LLumar Window Tint & Heat Rejection'
-        description='Premium LLumar window tinting in Scarborough & Toronto. Superior heat rejection (IRX) and UV protection. Lifetime Warranty. Serving the GTA. Book your LLumar tint today.'
-        name='Beyond Detail Toronto'
+        title='Llumar Window Tinting Scarborough | Starting at $250 | Lifetime Warranty'
+        description='Llumar authorized dealer in Scarborough. Professional window tinting with 97% heat rejection (IRX), UV protection, and lifetime warranty. Serving Toronto & GTA. Same-day service available.'
+        name='Beyond Detail Scarborough'
         type='website'
         serviceType='Window Tinting'
-        keywords='Window Tinting Scarborough, Window Tinting Toronto, Ceramic Window Tint Scarborough, Heat Rejection Film, LLumar IRX'
+        keywords='Llumar Window Tinting Scarborough, Window Tinting Scarborough, Ceramic Window Tint Scarborough, Llumar Authorized Dealer, Heat Rejection Film Scarborough, IRX Window Tint'
         faq={tintsFAQs}
       />
       <motion.div
@@ -80,9 +80,9 @@ function Tints() {
         <div className='tints__wrapper'>
           <TintsHero
             scrollTarget="#pricing"
-            titleLine1="Professional Window Tinting &"
-            titleLine2="Ceramic Tint in"
-            titleLine3="Scarborough"
+            titleLine1="Llumar Window Tinting"
+            titleLine2="Scarborough"
+            titleLine3="Starting at $250"
           />
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
@@ -93,20 +93,19 @@ function Tints() {
             </Suspense>
           </ErrorBoundary>
 
-          {/* Location-Specific Content: Window Tinting in Scarborough */}
-          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          {/* GEO Answer Block - Optimized for ChatGPT/Perplexity Citations */}
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto', backgroundColor: '#f8f9fa', padding: '2rem', borderRadius: '8px' }}>
             <h2 className="seo-title">
-              Why is LLumar the best window tint for Scarborough summers?
+              Why is Llumar the best window tint for Scarborough summers?
             </h2>
             <div>
-              <p className="seo-text-lg">
-                <strong>LLumar IRX Ceramic Tint</strong> is engineered specifically to handle high-contrast climates like Toronto and Scarborough.
-                It blocks **97% of infrared heat** and **99% of UV rays**, which is critical for reducing cabin temperatures during humid GTA summers.
-                Unlike standard dyed films that turn purple, LLumar uses nano-ceramic technology that enables **crystal clear visibility** while rejecting significantly more heat.
-              </p>
-              <p className="seo-text-lg">
-                Most importantly for Scarborough drivers, LLumar films come with a <strong>manufacturer-backed lifetime warranty</strong> against bubbling, peeling, and color change,
-                ensuring your investment lasts as long as you own your car.
+              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+                Llumar IRX ceramic tint is the superior choice for Scarborough drivers because it <strong>blocks 97% of infrared heat</strong> and <strong>99.9% of UV rays</strong>,
+                which is critical during humid GTA summers when cabin temperatures can exceed 140°F. Unlike standard dyed films that fade purple within 3 years,
+                Llumar's nano-ceramic technology maintains crystal-clear visibility for safer driving on Highway 401 and Markham Road while preventing dashboard cracking and seat fading.
+                As an <strong>authorized Llumar dealer at 170 Finchdene Square</strong>, we install IRX film with a <strong>lifetime manufacturer warranty</strong> against bubbling, peeling, and color change.
+                Starting at $250 for sedans, you get same-day installation and heat rejection that keeps your car 60% cooler than factory glass —
+                essential for comfort during Toronto's increasingly intense heatwaves.
               </p>
             </div>
           </section>

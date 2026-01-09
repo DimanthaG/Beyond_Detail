@@ -129,6 +129,11 @@ export const SEO = ({
     ],
     priceRange: '$$',
     paymentAccepted: 'Cash, Credit Card, Debit Card',
+    brand: {
+      '@type': 'Brand',
+      'name': 'Llumar',
+      'logo': 'https://www.llumar.com/content/dam/cf-llumar-new/logos/llumar-logo.svg'
+    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Auto Detailing Services',

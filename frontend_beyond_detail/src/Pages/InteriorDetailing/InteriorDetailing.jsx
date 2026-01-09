@@ -39,12 +39,12 @@ function InteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Interior Detailing Toronto, Scarborough, Markham, Pickering | Deep Interior Cleaning'
-          description='Professional interior detailing services in Toronto, Scarborough, Markham, and Pickering. Deep interior cleaning, pet hair removal, stain removal, steam cleaning, and sanitization. Expert interior care across the GTA.'
-          name='Beyond Detail Toronto'
+          title='Interior Car Detailing Scarborough | Shampoo, Steam Clean & Odor Removal'
+          description='Deep interior cleaning in Scarborough. Specialized in salt stain removal, hot water extraction, pet hair removal, and ozone odor treatment. Book your interior fresh start today.'
+          name='Beyond Detail Interior'
           type='website'
           serviceType='Interior Detailing'
-          keywords='interior detailing Toronto, car interior cleaning Scarborough, vehicle interior detailing Markham, upholstery cleaning Pickering, interior car wash GTA'
+          keywords='interior car detailing scarborough, steam cleaning car, car upholstery cleaner, ozone treatment car, pet hair removal car, car salt stain removal'
           faq={interiorDetailingFAQs}
         />
         <motion.div
@@ -57,33 +57,33 @@ function InteriorDetailing() {
           <div className='interior-detailing__wrapper'>
             <InteriorDetailingHero scrollTarget="#pricing" />
             <ServiceInfoSection
-              title="Interior Detailing Services"
-              subtitle="Deep Cleaning & Restoration"
-              description="Our interior detailing services specialize in comprehensive deep cleaning of your vehicle's interior. From removing pet hair and stubborn stains to professional shampoo extraction and sanitization, we restore your interior to like-new condition using proven techniques and professional-grade equipment."
+              title="Comprehensive Interior Restoration Services"
+              subtitle="Steam, Shampoo, and Sanitize"
+              description="Our interior detailing services specialize in correcting the wear and tear of daily driving. From removing pet hair and stubborn salt stains to professional shampoo extraction, we restore your interior to like-new condition."
               benefits={[
                 {
-                  title: "Deep Stain Removal",
-                  description: "Professional shampoo extraction and steam cleaning removes deeply embedded stains including pet hair, salt stains, fabric stains, and other contaminants that regular cleaning cannot eliminate."
+                  title: "Steam Cleaning & Sanitization",
+                  description: "We use high-temperature steam to kill bacteria and deep clean high-touch areas like vents, cup holders, and steering wheels without harsh chemicals."
                 },
                 {
-                  title: "Odor Elimination",
-                  description: "Deep cleaning removes the source of unpleasant odors including smoke smell, pet odors, and food odors, leaving your interior fresh and clean."
+                  title: "Hot Water Extraction (Shampoo)",
+                  description: "Our heated extractors inject solution and vacuum it out instantly to lift heavy salt stains, coffee spills, and deep grime from carpets and cloth seats."
                 },
                 {
-                  title: "Sanitized Environment",
-                  description: "Thorough sanitization eliminates bacteria, allergens, and germs, creating a healthier environment for you and your passengers."
+                  title: "Leather Cleaning & Conditioning",
+                  description: "We gently agitate leather pores to remove dirt, then apply a premium conditioner to prevent cracking and restore a natural matte finish (non-greasy)."
                 },
                 {
-                  title: "Restored Appearance",
-                  description: "Remove years of accumulated dirt, grime, and wear to restore your vehicle's interior to showroom condition."
+                  title: "Odor Removal (Ozone Treatment)",
+                  description: "For persistent smells like smoke or mold, we use an Ozone Generator that neutralizes odor particles at the molecular level rather than just masking them."
                 },
                 {
-                  title: "Enhanced Resale Value",
-                  description: "A professionally detailed interior significantly increases your vehicle's resale value and appeal to potential buyers."
+                  title: "Pet Hair Removal",
+                  description: "We use specialized rubber brushes, air purging, and static-combating tools to extract stubborn dog or cat hair from every crevice of your upholstery."
                 },
                 {
-                  title: "Protection & Conditioning",
-                  description: "Premium conditioners protect leather, vinyl, and plastic surfaces from cracking, fading, and premature aging."
+                  title: "Salt Stain Removal",
+                  description: "Living in Scarborough means winter salt. We dissolve and extract hardened white salt crusts to save your carpets from permanent rotting."
                 }
               ]}
               process={[
@@ -137,8 +137,8 @@ function InteriorDetailing() {
               title="Interior Detailing Packages"
               packages={[
                 {
-                  name: "Express Interior Detail",
-                  priceRange: { start: 80 },
+                  name: "Interior Refresh Package",
+                  priceRange: { start: 149 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Essential interior cleaning for regular maintenance. Perfect for keeping your vehicle's interior fresh and clean.",
                   features: [
@@ -151,8 +151,8 @@ function InteriorDetailing() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Signature Interior Detail",
-                  priceRange: { start: 130 },
+                  name: "Full Interior Deep Clean (Most Popular)",
+                  priceRange: { start: 249 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Enhanced interior cleaning with sanitization. Ideal for vehicles that need deeper cleaning and odor elimination.",
                   features: [
@@ -167,8 +167,8 @@ function InteriorDetailing() {
                   ctaText: "Book This Package"
                 },
                 {
-                  name: "Premium Interior Detail",
-                  priceRange: { start: 180 },
+                  name: "Premium Interior + Ozone",
+                  priceRange: { start: 299 },
                   priceNote: "Starting price. Larger vehicles may cost extra.",
                   description: "Comprehensive deep cleaning with professional shampoo extraction. Removes embedded stains, pet hair, salt deposits, and deeply embedded dirt.",
                   features: [

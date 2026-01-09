@@ -11,6 +11,8 @@ const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsC
 const SEO = lazy(() => import('../../components/SEO'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
+import carImage from '../../assets/bd/bd-32.webp';
+
 function MobileDetailing() {
     const mobileFAQs = [
         {
@@ -53,7 +55,7 @@ function MobileDetailing() {
                     <div className='mobile-detailing__wrapper'>
                         {/* Temporary Hero Section using inline styles until a dedicated component is built */}
                         <div className="mobile-hero" style={{
-                            backgroundImage: 'url("https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+                            backgroundImage: `url(${carImage})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             height: '60vh',
@@ -71,10 +73,10 @@ function MobileDetailing() {
                             }}></div>
                             <div style={{ position: 'relative', zIndex: 2, padding: '0 20px' }}>
                                 <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', marginBottom: '1rem', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                                    Mobile Car Detailing Toronto
+                                    Car Detailing Scarborough: Mobile & In-Shop
                                 </h1>
                                 <p style={{ fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                                    Professional Detailing Services at Your Home or Office | Competitive Mobile Detailing Prices
+                                    Professional Detailing Services at Your Home or Our Shop | Competitive Prices
                                 </p>
                                 <div style={{ marginTop: '2rem' }}>
                                     <a href="#contact" style={{
@@ -90,121 +92,61 @@ function MobileDetailing() {
                             </div>
                         </div>
 
-                        <ServiceInfoSection
-                            title="Why Choose Mobile Detailing?"
-                            subtitle="Convenience Without Compromise"
-                            description="Our mobile auto detailing service brings the professional car care experience directly to your driveway or workplace. Save time and hassle by letting us come to you, equipped with everything needed to restore your vehicle to showroom condition."
-                            benefits={[
-                                {
-                                    title: "We Come To You",
-                                    description: "No need to drive to a shop or wait in a lounge. We service your vehicle at your home or office while you work or relax."
-                                },
-                                {
-                                    title: "Fully Equipped",
-                                    description: "Our mobile units carry their own water, electricity, and professional tools, ensuring a complete detailing service anywhere."
-                                },
-                                {
-                                    title: "Save Time",
-                                    description: "Maximize your productivity by eliminating travel time and waiting time. Perfect for busy professionals and families."
-                                },
-                                {
-                                    title: "Contactless Service",
-                                    description: "We offer contactless payment and key handover options for your safety and convenience."
-                                }
-                            ]}
-                            process={[
-                                {
-                                    title: "Book Your Appointment",
-                                    description: "Choose your package and preferred time. We'll confirm the details and location."
-                                },
-                                {
-                                    title: "We Arrive On Site",
-                                    description: "Our professional detailer arrives at your specified location fully equipped."
-                                },
-                                {
-                                    title: "Vehicle Assessment",
-                                    description: "We inspect your vehicle and confirm the services to be performed."
-                                },
-                                {
-                                    title: "Professional Detailing",
-                                    description: "We perform the detailing service with meticulous care and attention to detail."
-                                },
-                                {
-                                    title: "Final Walkthrough",
-                                    description: "We review the results with you to ensure your complete satisfaction."
-                                }
-                            ]}
-                            features={[
-                                "Mobile Interior Deep Cleaning",
-                                "Mobile Exterior Wash & Wax",
-                                "Mobile Engine Bay Cleaning",
-                                "Mobile Headlight Restoration",
-                                "Odor Removal at Your Location",
-                                "Fabric Extraction & Shampoo",
-                                "Leather Cleaning & Conditioning",
-                                "Pet Hair Removal",
-                                "Fully Self-Contained Units",
-                                "Servicing Entire GTA"
-                            ]}
-                        />
-
-                        <ServicePricing
-                            title="Mobile Detailing Packages"
-                            packages={[
-                                {
-                                    name: "Mobile Bronze",
-                                    priceRange: { start: 150 },
-                                    priceNote: "Starting price. Size dependent.",
-                                    description: "Essential maintenance detail to keep your daily driver clean and protected.",
-                                    features: [
-                                        "Exterior Hand Wash",
-                                        "Wheel & Tire Cleaning",
-                                        "Interior Vacuum",
-                                        "Wipe Down of Surfaces",
-                                        "Windows Cleaned",
-                                        "Tire Shine"
-                                    ],
-                                    ctaText: "Book Bronze Pkg"
-                                },
-                                {
-                                    name: "Mobile Silver (Best Value)",
-                                    priceRange: { start: 220 },
-                                    priceNote: "Starting price. Size dependent.",
-                                    description: "Comprehensive clean for interior and exterior. Our most popular mobile package.",
-                                    features: [
-                                        "Everything in Bronze",
-                                        "Clay Bar Decontamination",
-                                        "6-Month Spray Sealant",
-                                        "Interior Steam Cleaning",
-                                        "Leather Conditioner",
-                                        "Floor Mat Shampoo"
-                                    ],
-                                    featured: true,
-                                    ctaText: "Book Silver Pkg"
-                                },
-                                {
-                                    name: "Mobile Gold",
-                                    priceRange: { start: 300 },
-                                    priceNote: "Starting price. Size dependent.",
-                                    description: "The ultimate transformation. Deep cleaning and long-term protection.",
-                                    features: [
-                                        "Everything in Silver",
-                                        "Full Carpet & Seat Shampoo",
-                                        "Deep Stain Removal",
-                                        "Ozone Odor Treatment",
-                                        "1-Year Ceramic Sealant",
-                                        "Engine Bay Detail"
-                                    ],
-                                    ctaText: "Book Gold Pkg"
-                                }
-                            ]}
-                        />
-
                         <Suspense fallback={null}>
                             <GoogleReviewsCarousel />
                         </Suspense>
 
-                        <FAQSection data={mobileFAQs} title="Mobile Detailing FAQs" />
+                        <ServiceInfoSection
+                            title="Mobile Service vs In-Shop: Which is Right for You?"
+                            subtitle="We Bring the Shop to You, or You Visit Us"
+                            description="Deciding between mobile detailing and visiting our shop? Mobile is perfect for convenience and standard maintenance, while our shop at 170 Finchdene Square offers a controlled environment for advanced paint correction and ceramic coatings."
+                            benefits={[
+                                {
+                                    title: "Mobile: What We Bring",
+                                    description: "We arrive fully equipped with our own water, electricity, professional lighting, and premium chemicals. We just need your vehicle key."
+                                },
+                                {
+                                    title: "Mobile: What We Need",
+                                    description: "A safe place to park (driveway or authorized office lot) and enough space to open vehicle doors. Access to a power outlet is helpful but not mandatory."
+                                },
+                                {
+                                    title: "In-Shop: Controlled Environment",
+                                    description: "Our shop offers climate control and specialized lighting essential for high-end Paint Correction and Ceramic Coating curing, regardless of weather."
+                                },
+                                {
+                                    title: "Ideal Use Cases",
+                                    description: "Choose MOBILE for: Maintenance washes, Interior details, Lease returns. Choose SHOP for: Ceramic Coatings, Paint Correction, Window Tinting."
+                                }
+                            ]}
+                            process={[
+                                {
+                                    title: "1. Choose Your Service Mode",
+                                    description: "Select 'Mobile' for us to come to you, or 'In-Shop' to drop off your vehicle at our Scarborough studio."
+                                },
+                                {
+                                    title: "2. We Pre-Check Logistics",
+                                    description: "For mobile, we confirm parking/access. For shop, we schedule your drop-off and pickup times."
+                                },
+                                {
+                                    title: "3. Professional Execution",
+                                    description: "Whether in your driveway or our bay, you get the same IDA-certified technicians and premium products."
+                                },
+                                {
+                                    title: "4. Final Inspection",
+                                    description: "We walk you through the results to ensure 100% satisfaction before handing back the keys."
+                                }
+                            ]}
+                            features={[
+                                "Mobile: We Bring Water & Power",
+                                "Mobile: Contactless Service",
+                                "Shop: Climate Controlled",
+                                "Shop: Best for Ceramic Coatings",
+                                "Shop: Window Tinting Available",
+                                "Both: IDA Certified Detailers",
+                                "Both: Premium Products",
+                                "Both: Satisfaction Guarantee"
+                            ]}
+                        />
 
                         <Contact />
                     </div>

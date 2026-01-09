@@ -213,7 +213,7 @@ function Contact() {
                       <strong>Address :</strong> {contactData[0].address}
                     </p>
                     <p>
-                      <strong>Phone :</strong>{' '}
+                      <strong>Phone (Call/Text) :</strong>{' '}
                       <a href='tel:+16476896109'>
                         (647) 689-6109
                       </a>
@@ -465,6 +465,10 @@ function Contact() {
                       </div>
                     </div>
                   </form>
+                  <p style={{ textAlign: "center", marginTop: "1rem", fontSize: "0.9rem", color: "#888" }}>
+                    <span style={{ color: "#22c55e", marginRight: "5px" }}>✓</span>
+                    No payment required until the job is done. 100% Satisfaction Guarantee.
+                  </p>
                 </div>
               ) : (
                 <div>

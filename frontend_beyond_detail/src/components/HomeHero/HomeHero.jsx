@@ -191,7 +191,6 @@ export function HomeHero() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <span className="sr-only">Car Detailing Scarborough</span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--white"
                     initial={{ opacity: 0, x: -20 }}
@@ -208,6 +207,15 @@ export function HomeHero() {
                     style={{ display: 'block', visibility: 'visible' }}
                   >
                     Scarborough
+                  </motion.span>
+                  <motion.span
+                    className="home-hero__title-line home-hero__title-line--white"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    style={{ fontSize: '0.6em', opacity: 0.9 }}
+                  >
+                    (Mobile & In-Shop)
                   </motion.span>
                 </motion.h1>
                 <motion.p

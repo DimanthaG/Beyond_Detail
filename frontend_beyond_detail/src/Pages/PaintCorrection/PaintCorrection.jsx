@@ -49,12 +49,12 @@ function PaintCorrection() {
     <>
       {/* Outer Suspense removed for LCP */}
       <SEO
-        title='Car Detailing & Paint Correction Toronto | Swirl Mark Removal'
-        description="Expert car detailing and paint correction in Toronto. Remove swirl marks, scratches, and salt stains. Stage 1-3 polishing available. Restore your vehicle's showroom finish today."
-        name='Beyond Detail Toronto'
+        title='Paint Correction Scarborough | Scratch Removal & Car Polishing'
+        description='Expert paint correction in Scarborough. Permanently remove swirl marks, scratches, and oxidation. 1-Stage polish and multi-stage restoration available. Book a free paint inspection.'
+        name='Beyond Detail Paint Correction'
         type='website'
         serviceType='Paint Correction'
-        keywords='Car Detailing Toronto, Paint Correction Toronto, Swirl Mark Removal, Stage 1 Polishing, Interior Steam Cleaning, Salt Stain Removal, Lease Return Detailing'
+        keywords='paint correction scarborough, car scratch removal, swirl mark removal, car polishing toronto, cut and polish car, buffing car scratches'
         faq={paintCorrectionFAQs}
       />
       <motion.div
@@ -140,24 +140,24 @@ function PaintCorrection() {
             ]}
             process={[
               {
-                title: "Comprehensive Assessment",
-                description: "We begin with a thorough inspection using specialized lighting to identify all surface imperfections, including swirl marks, scratches, oxidation, and other defects."
+                title: "Step 1: Scientific Inspection",
+                description: "We don't guess. We measure your paint thickness using a digital gauge to ensure enough clear coat exists for safe correction. We map out every defect under specialized 5000K inspection lights."
               },
               {
-                title: "Decontamination & Preparation",
-                description: "The paint surface is thoroughly cleaned and decontaminated using clay bar treatments and iron fallout removers to eliminate embedded contaminants that could interfere with the correction process."
+                title: "Step 2: Decontamination",
+                description: "Before polishing, we strip all old wax, iron deposits, and embedded road tar using chemical and mechanical clay bar treatments to ensure a surgically clean surface."
               },
               {
-                title: "Multi-Stage Polishing",
-                description: "Depending on the severity of imperfections, we perform one or more polishing stages using professional-grade compounds and pads to gradually refine the paint surface."
+                title: "Step 3: The Correction",
+                description: "Using Rupes polishers and specific pad/compound combinations, we level the clear coat to permanently remove below-surface defects like swirls and scratches."
               },
               {
-                title: "Final Refinement",
-                description: "A finishing polish removes any hazing or micro-scratches, leaving behind a flawless, mirror-like finish that enhances gloss and clarity."
+                title: "Step 4: Refinement (Jeweling)",
+                description: "For Stage 2 and 3 packages, we follow heavy cutting with a fine polish to 'jewel' the paint, creating a deep, wet-looking gloss that maximizes clarity."
               },
               {
-                title: "Protection Application",
-                description: "To preserve the corrected paint, we apply a high-quality sealant or wax, providing a protective barrier against future damage and environmental contaminants."
+                title: "Step 5: Isopropyl Wipe & Protect",
+                description: "We strip polishing oils to verify the results are permanent (not filled), then lock in the perfection with a silica sealant or Ceramic Coating."
               }
             ]}
             features={[
@@ -175,53 +175,50 @@ function PaintCorrection() {
             title="Paint Correction Packages"
             packages={[
               {
-                name: "Single Stage Correction",
-                priceRange: { start: 250, end: 350 },
-                priceNote: "Pricing varies by vehicle size",
-                description: "Perfect for vehicles with light swirl marks and minor defects. Includes one-stage polishing to restore paint clarity and gloss.",
+                name: "Stage 1 Polish (Gloss Enhance)",
+                priceRange: { start: 499 },
+                priceNote: "Starting price. Est. 5-7 Hours",
+                description: "A single-step machine polish to remove wash marring, light swirls, and oxidation. Significantly increases gloss and clarity. Includes 6-month sealant.",
                 features: [
-                  "Complete paint surface inspection",
-                  "Thorough decontamination (clay bar)",
-                  "Single-stage compound polishing",
-                  "Finishing polish application",
-                  "High-quality sealant protection",
-                  "All exterior panels treated"
+                  "Paint Thickness Measurement",
+                  "Iron & Clay Decontamination",
+                  "1-Step Machine Polish",
+                  "Removes Light Swirls & Haze",
+                  "Deep Gloss Enhancement",
+                  "6-Month Silica Sealant"
                 ],
-                ctaText: "Book This Package"
+                ctaText: "Book Stage 1"
               },
               {
-                name: "Two Stage Correction",
-                priceRange: { start: 500, end: 700 },
-                priceNote: "Pricing varies by vehicle size",
-                description: "Ideal for moderate swirl marks, light scratches, and oxidation. Two-stage polishing ensures deeper defect removal.",
+                name: "Stage 2 Correction (Defect Removal)",
+                priceRange: { start: 699 },
+                priceNote: "Starting price. Est. 1-2 Days",
+                description: "Our most popular package. Compound stage to remove deep swirls/scratches, followed by Polish stage for maximum clarity. Eliminates the majority of imperfections.",
                 features: [
-                  "Complete paint surface inspection",
-                  "Thorough decontamination (clay bar)",
-                  "Two-stage compound polishing",
-                  "Advanced finishing polish",
-                  "Premium sealant protection",
-                  "All exterior panels treated",
-                  "Enhanced gloss and depth"
+                  "Paint Thickness Measurement",
+                  "Heavy Compound Stage",
+                  "Fine Polish Refinement",
+                  "Removes Deep Swirls & Scratches",
+                  "Showroom Clarity",
+                  "Ideal for Ceramic Coating Prep"
                 ],
                 featured: true,
-                ctaText: "Book This Package"
+                ctaText: "Book Stage 2"
               },
               {
-                name: "Three Stage Correction",
-                priceRange: { start: 800, end: 1200 },
-                priceNote: "Pricing varies by vehicle size and condition",
-                description: "Comprehensive correction for severe defects, deep scratches, and heavy oxidation. Three or more polishing stages achieve showroom-perfect results.",
+                name: "Stage 3 Restoration (Showroom Finish)",
+                priceRange: { start: 999 },
+                priceNote: "Starting price. Est. 2-3 Days",
+                description: "The pursuit of perfection. Wet sanding (if required), heavy compounding, and multiple refining stages for a practically flawless finish.",
                 features: [
-                  "Complete paint surface inspection",
-                  "Thorough decontamination (clay bar)",
-                  "Multi-stage compound polishing (3+ stages)",
-                  "Advanced finishing polish",
-                  "Premium sealant or wax protection",
-                  "All exterior panels treated",
-                  "Maximum gloss and depth restoration",
-                  "Minor scratch repair (when applicable)"
+                  "Detailed Paint Mapping",
+                  "Wet Sanding (Isolated Scratches)",
+                  "Multi-Stage Compounding",
+                  "Jeweling Polish Step",
+                  "Maximized Defect Removal",
+                  "Concours Level Finish"
                 ],
-                ctaText: "Book This Package"
+                ctaText: "Book Stage 3"
               }
             ]}
           />
