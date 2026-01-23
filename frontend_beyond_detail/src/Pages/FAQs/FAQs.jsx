@@ -115,17 +115,78 @@ function FAQs() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='FAQs - Auto Detailing Questions Toronto, Scarborough, Markham, Pickering'
-          description='Frequently asked questions about our auto detailing services in Toronto, Scarborough, Markham, and Pickering. Get answers about paint correction, ceramic coating, window tint, interior detailing, and more across the GTA.'
-          name='Beyond Detail Toronto'
-          type='website'
-          keywords='auto detailing FAQs Toronto, car detailing questions Scarborough, detailing FAQ Markham, vehicle detailing answers Pickering, GTA car care FAQ'
+          title='FAQs - Car Detailing Questions Answered | Toronto, Scarborough, Markham | Beyond Detail'
+          description='Get expert answers to your auto detailing questions. Learn about ceramic coating, paint correction, window tinting, interior detailing, pricing, and booking. Serving Toronto, Scarborough, Markham, Ajax, Pickering, Whitby, Oshawa & GTA. 70+ 5-star reviews.'
+          name='Beyond Detail - Auto Detailing FAQs'
+          type='FAQPage'
+          keywords='car detailing FAQs Toronto, auto detailing questions Scarborough, ceramic coating FAQ Markham, paint correction questions, window tinting FAQ, detailing prices Toronto, how much does detailing cost, best car detailing near me, mobile detailing FAQ, luxury car detailing questions, fleet detailing FAQ GTA'
         />
         {/* FAQ Schema for Featured Snippets */}
         {faqs.length > 0 && (
           <Helmet>
             <script type='application/ld+json'>
               {JSON.stringify(faqSchema)}
+            </script>
+            {/* Breadcrumb Schema */}
+            <script type='application/ld+json'>
+              {JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://www.beyonddetail.ca/'
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'FAQs',
+                    item: 'https://www.beyonddetail.ca/faqs'
+                  }
+                ]
+              })}
+            </script>
+            {/* Organization Schema */}
+            <script type='application/ld+json'>
+              {JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'AutoRepair',
+                name: 'Beyond Detail',
+                description: 'Professional auto detailing services in Toronto and Scarborough',
+                url: 'https://www.beyonddetail.ca',
+                telephone: '+1-647-689-6109',
+                address: {
+                  '@type': 'PostalAddress',
+                  streetAddress: '170 Finchdene Square',
+                  addressLocality: 'Scarborough',
+                  addressRegion: 'ON',
+                  postalCode: 'M1X 1B7',
+                  addressCountry: 'CA'
+                },
+                geo: {
+                  '@type': 'GeoCoordinates',
+                  latitude: 43.8361,
+                  longitude: -79.1847
+                },
+                areaServed: [
+                  'Toronto',
+                  'Scarborough',
+                  'Markham',
+                  'North York',
+                  'Ajax',
+                  'Pickering',
+                  'Whitby',
+                  'Oshawa'
+                ],
+                priceRange: '$$',
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: '4.9',
+                  reviewCount: '70'
+                }
+              })}
             </script>
           </Helmet>
         )}
@@ -216,7 +277,7 @@ function FAQs() {
                                     <span key={i}>
                                       {c.text}
                                     </span>
-                                  )).join('')}
+                                  ))}
                                 </p>
                               ))}
                               {!faq.answer || faq.answer.length === 0 ? (

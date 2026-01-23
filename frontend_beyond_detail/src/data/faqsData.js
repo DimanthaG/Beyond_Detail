@@ -68,7 +68,7 @@ export const fallbackFAQs = [
     ],
     order: 5
   },
-  
+
   // Services Category
   {
     _id: 'faq-services-1',
@@ -161,7 +161,7 @@ export const fallbackFAQs = [
     ],
     order: 7
   },
-  
+
   // Pricing Category
   {
     _id: 'faq-pricing-1',
@@ -215,7 +215,7 @@ export const fallbackFAQs = [
     ],
     order: 4
   },
-  
+
   // Booking Category
   {
     _id: 'faq-booking-1',
@@ -281,6 +281,196 @@ export const fallbackFAQs = [
       }
     ],
     order: 5
+  },
+
+  // Additional General FAQs
+  {
+    _id: 'faq-general-6',
+    category: 'general',
+    question: 'Where are you located and what areas do you serve?',
+    answer: [
+      {
+        children: [
+          { text: "We're located at 170 Finchdene Square in Scarborough, Ontario. We proudly serve Scarborough, Markham, North York, Ajax, Pickering, Whitby, Oshawa, and all surrounding GTA areas. We offer both in-shop services at our facility and mobile detailing services that come to your location. Our central Scarborough location makes us easily accessible from Highway 401 and major roads throughout the GTA." }
+        ]
+      }
+    ],
+    order: 6
+  },
+  {
+    _id: 'faq-general-7',
+    category: 'general',
+    question: 'Are you insured and certified?',
+    answer: [
+      {
+        children: [
+          { text: "Yes, we are fully insured with comprehensive liability coverage to protect your vehicle while in our care. Our technicians are IDA (International Detailing Association) certified and continuously trained on the latest techniques and products. We use only professional-grade equipment and products from trusted brands. Your vehicle's safety and our quality standards are our top priorities." }
+        ]
+      }
+    ],
+    order: 7
+  },
+  {
+    _id: 'faq-general-8',
+    category: 'general',
+    question: 'What makes Beyond Detail different from other detailing shops?',
+    answer: [
+      {
+        children: [
+          { text: "Beyond Detail stands out through our commitment to excellence, certified technicians, premium products, and lifetime warranties on select services. We focus on education, transparency, and customer satisfaction. Unlike quick-service car washes, we take the time to properly clean, restore, and protect your vehicle. We offer free consultations, detailed before/after documentation, and personalized service recommendations. Our 70+ five-star Google reviews reflect our dedication to quality." }
+        ]
+      }
+    ],
+    order: 8
+  },
+
+  // Additional Services FAQs
+  {
+    _id: 'faq-services-8',
+    category: 'services',
+    question: 'How do I maintain my ceramic coating?',
+    answer: [
+      {
+        children: [
+          { text: "Ceramic coating maintenance is simple: wash your vehicle regularly (every 2 weeks) using pH-neutral car shampoo and the two-bucket method, avoid automatic car washes with harsh brushes, use microfiber towels for drying, and apply a ceramic coating booster spray every 3-6 months. Avoid waxing over ceramic coating as it can reduce its hydrophobic properties. We provide detailed maintenance instructions and recommended products with every ceramic coating installation." }
+        ]
+      }
+    ],
+    order: 8
+  },
+  {
+    _id: 'faq-services-9',
+    category: 'services',
+    question: 'Do you offer fleet detailing services?',
+    answer: [
+      {
+        children: [
+          { text: "Yes, we specialize in fleet detailing for businesses of all sizes. We offer customized maintenance programs, volume discounts, flexible scheduling (including after-hours and weekends), and on-site mobile services. Whether you have 5 vehicles or 50, we can create a tailored program to keep your fleet looking professional and well-maintained. Fleet services include regular washing, interior cleaning, and protective coatings. Contact us for a custom fleet quote." }
+        ]
+      }
+    ],
+    order: 9
+  },
+  {
+    _id: 'faq-services-10',
+    category: 'services',
+    question: 'Can you remove pet hair and odors?',
+    answer: [
+      {
+        children: [
+          { text: "Absolutely! We have specialized tools and techniques for pet hair removal, including high-powered vacuums, rubber brushes, and compressed air. For odor elimination, we use professional ozone treatment and enzymatic cleaners that neutralize odors at the molecular level rather than just masking them. We can tackle even the toughest pet-related challenges including embedded hair in upholstery, carpets, and air vents. This service is included in our interior detailing packages." }
+        ]
+      }
+    ],
+    order: 10
+  },
+  {
+    _id: 'faq-services-11',
+    category: 'services',
+    question: 'What is the difference between single-stage and multi-stage paint correction?',
+    answer: [
+      {
+        children: [
+          { text: "Single-stage paint correction uses one polishing step to remove light imperfections and swirl marks, typically achieving 60-70% defect removal. Two-stage correction uses a cutting compound followed by a finishing polish, removing 80-90% of defects. Three-stage correction adds an ultra-fine polishing step for show-car quality results, removing 95%+ of defects. The right option depends on your paint's condition, your goals, and your budget. We'll inspect your vehicle and recommend the appropriate level." }
+        ]
+      }
+    ],
+    order: 11
+  },
+  {
+    _id: 'faq-services-12',
+    category: 'services',
+    question: 'Do you work on luxury or exotic vehicles?',
+    answer: [
+      {
+        children: [
+          { text: "Yes, we specialize in luxury and exotic vehicle detailing. Our technicians have experience with high-end brands including Mercedes-Benz, BMW, Audi, Porsche, Tesla, Lamborghini, Ferrari, and more. We understand the unique requirements of luxury vehicles including delicate paint finishes, specialized interior materials, and advanced technology features. We use only the finest products and techniques suitable for premium vehicles. Many of our clients trust us with their six-figure investments." }
+        ]
+      }
+    ],
+    order: 12
+  },
+
+  // Additional Pricing FAQs
+  {
+    _id: 'faq-pricing-5',
+    category: 'pricing',
+    question: 'Do you offer warranties on your services?',
+    answer: [
+      {
+        children: [
+          { text: "Yes, we stand behind our work with comprehensive warranties. Ceramic coatings come with manufacturer-backed warranties ranging from 2 years to lifetime depending on the product chosen. Window tinting includes a lifetime warranty against bubbling, peeling, or fading. Paint correction work is guaranteed for 30 days. If you're not satisfied with any service, contact us within the warranty period and we'll make it right. Warranty details are provided with each service." }
+        ]
+      }
+    ],
+    order: 5
+  },
+  {
+    _id: 'faq-pricing-6',
+    category: 'pricing',
+    question: 'Is there an additional charge for larger vehicles?',
+    answer: [
+      {
+        children: [
+          { text: "Yes, pricing varies by vehicle size due to the additional time and materials required. Compact cars and sedans are priced at our base rates. Mid-size SUVs typically add $50-$100, full-size SUVs/trucks add $100-$200, and oversized vehicles (extended vans, large trucks) may add $200+. The exact pricing depends on the service package. We'll provide a specific quote based on your vehicle's make and model when you contact us." }
+        ]
+      }
+    ],
+    order: 6
+  },
+  {
+    _id: 'faq-pricing-7',
+    category: 'pricing',
+    question: 'Do you charge extra for heavily soiled vehicles?',
+    answer: [
+      {
+        children: [
+          { text: "If your vehicle requires significantly more time due to excessive dirt, pet hair, stains, or neglect, there may be an additional charge. We'll assess the condition during drop-off and provide an updated quote before starting work. Most vehicles fall within our standard pricing. We believe in transparent pricing and will never surprise you with hidden fees. Heavily soiled vehicles may add $50-$150 depending on the extra time required." }
+        ]
+      }
+    ],
+    order: 7
+  },
+
+  // Additional Booking FAQs
+  {
+    _id: 'faq-booking-6',
+    category: 'booking',
+    question: 'Do I need to be present during the service?',
+    answer: [
+      {
+        children: [
+          { text: "No, you don't need to be present. Most customers prefer to drop off their vehicle and return when notified. We'll contact you if we discover any issues or have questions during the service. For mobile detailing, you can leave your keys in a secure location and we'll lock up when finished. We treat every vehicle with the utmost care and respect, whether you're present or not. We'll provide photo updates for extensive services like paint correction or ceramic coating." }
+        ]
+      }
+    ],
+    order: 6
+  },
+  {
+    _id: 'faq-booking-7',
+    category: 'booking',
+    question: 'What happens if it rains after my detail?',
+    answer: [
+      {
+        children: [
+          { text: "Rain won't damage your freshly detailed vehicle—in fact, if you have a ceramic coating or sealant, you'll see the water bead up beautifully! However, we recommend avoiding driving through puddles or muddy conditions for 24-48 hours after service to allow products to fully cure. If rain is forecasted, we can reschedule exterior services or keep your vehicle in our covered facility until the weather clears. Ceramic coatings require 24 hours of dry time before exposure to water." }
+        ]
+      }
+    ],
+    order: 7
+  },
+  {
+    _id: 'faq-booking-8',
+    category: 'booking',
+    question: 'Can I get a quote before booking?',
+    answer: [
+      {
+        children: [
+          { text: "Absolutely! We encourage you to request a quote before booking. You can call us, fill out our online contact form, or message us on social media with your vehicle details (year, make, model) and desired services. We'll provide a detailed quote including all costs with no obligation to book. For complex services like paint correction, we may recommend a free in-person inspection to provide the most accurate quote. All quotes are valid for 30 days." }
+        ]
+      }
+    ],
+    order: 8
   }
 ];
 
