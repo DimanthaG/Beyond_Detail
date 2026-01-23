@@ -1,15 +1,16 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, FAQSection } from '../../components';
+import { Loading, FAQSection, TrustBadges, SkillShowcase } from '../../components';
 import HeadlightRestorationHero from '../../components/HeadlightRestorationHero/HeadlightRestorationHero';
 import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
 import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
 import './HeadlightRestoration.scss';
 
 // Lazy load heavy components to improve initial bundle size
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function HeadlightRestoration() {
   // ScrollToTop component handles scrolling to hero section
@@ -55,6 +56,17 @@ function HeadlightRestoration() {
         >
           <div className='headlight-restoration__wrapper'>
             <HeadlightRestorationHero scrollTarget="#contact" />
+
+            {/* Premium Overview */}
+            <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 className="seo-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Crystal Clear Headlights</h2>
+                <p className="seo-text-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                  Cloudy, yellowed headlights reduce visibility by up to 80%. Our professional restoration process removes oxidation
+                  and applies <strong>UV-resistant ceramic coating</strong> for long-lasting clarity and safety.
+                </p>
+              </div>
+            </section>
             <ServiceBenefits
               title="EXPERT HEADLIGHT RESTORATION"
               subtitle="Crystal Clear Results"
@@ -100,6 +112,11 @@ function HeadlightRestoration() {
               title="READY TO RESTORE YOUR HEADLIGHTS?"
               description="Contact us today for a personalized quote and restore your headlights to crystal-clear perfection."
             />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <FAQSection data={headlightFAQs} title="Headlight Restoration FAQs" />
             <Contact />
 

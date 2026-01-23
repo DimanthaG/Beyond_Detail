@@ -1,15 +1,16 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, FAQSection } from '../../components';
+import { Loading, FAQSection, SkillShowcase, TrustBadges, ErrorBoundary } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './ExteriorDetailing.scss';
 
 // Lazy load heavy components to improve initial bundle size
+import SEO from '../../components/SEO';
+import ExteriorDetailingHero from '../../components/ExteriorDetailingHero/ExteriorDetailingHero';
+
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
-const ExteriorDetailingHero = lazy(() => import('../../components/ExteriorDetailingHero/ExteriorDetailingHero'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function ExteriorDetailing() {
@@ -56,6 +57,17 @@ function ExteriorDetailing() {
         >
           <div className='exterior-detailing__wrapper'>
             <ExteriorDetailingHero scrollTarget="#pricing" />
+
+            {/* Premium Overview */}
+            <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 className="seo-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Professional Exterior Care</h2>
+                <p className="seo-text-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                  Our exterior detailing goes beyond a basic wash. We use <strong>safe hand-wash techniques</strong>, clay bar decontamination,
+                  and premium sealants to protect your paint from the elements.
+                </p>
+              </div>
+            </section>
             <ServiceInfoSection
               title="Exterior Detailing Services"
               subtitle="Safe Wash & Paint Decontamination"
@@ -180,6 +192,8 @@ function ExteriorDetailing() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <FAQSection data={exteriorDetailingFAQs} title="Exterior Detailing FAQs" />
             <Contact />
           </div>

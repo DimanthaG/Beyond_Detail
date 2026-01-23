@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, ErrorBoundary, FAQSection } from '../../components';
+import { Loading, ErrorBoundary, FAQSection, SkillShowcase, TrustBadges } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import './Services.scss';
@@ -11,16 +11,11 @@ import './Services.scss';
 import AutoDetailHero from '../../components/AutoDetailHero/AutoDetailHero';
 import SEO from '../../components/SEO';
 
-// Lazy load heavy components to improve initial bundle size
-// const SEO = lazy(() => import('../../components/SEO')); // Imported directly
-// const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero')); // Imported directly
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Services() {
-  // ScrollToTop component handles scrolling to hero section
-
   // FAQ Data for Schema & UI
   const autoDetailFAQs = [
     {
@@ -43,7 +38,6 @@ function Services() {
 
   return (
     <>
-      {/* Outer Suspense removed to allow critical content to load immediately */}
       <SEO
         title='Auto Detailing Toronto, Scarborough, Markham, Pickering | Express, Signature & Premium Packages'
         description='Complete auto detailing services in Toronto, Scarborough, Markham, and Pickering. Choose from Express Detail (quick & affordable), Signature Detail (deep cleaning & sanitizing), or Premium Detail (full-service experience). Professional interior and exterior detailing across the GTA.'
@@ -73,369 +67,25 @@ function Services() {
             </Suspense>
           </ErrorBoundary>
 
-          <section className="package-info">
-            <div className="package-info__container">
-              {/* Internal Linking Section - Enhanced for SEO */}
-              <motion.div
-                className="seo-content-box"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                style={{ maxWidth: '1000px', margin: '0 auto 3rem auto' }}
-              >
-                <h2 className="seo-title">Auto Detailing Services Across the GTA</h2>
-                <p className="seo-text-lg">
-                  Looking for <strong>detailing near you</strong>? Beyond Detail provides professional auto detailing services throughout the Greater Toronto Area.
-                  We serve customers in <Link to="/car-detailing-scarborough" style={{ fontWeight: 'bold' }}>Scarborough</Link>,{' '}
-                  <Link to="/car-detailing-markham" style={{ fontWeight: 'bold' }}>Markham</Link>,{' '}
-                  <Link to="/car-detailing-pickering" style={{ fontWeight: 'bold' }}>Pickering</Link>,{' '}
-                  <Link to="/car-detailing-north-york" style={{ fontWeight: 'bold' }}>North York</Link>,
-                  and all GTA areas.
-                </p>
-                <p className="seo-text-md">
-                  Our comprehensive services include <Link to="/ceramic-coatings">ceramic coating</Link>,{' '}
-                  <Link to="/paint-correction">paint correction</Link>,{' '}
-                  <Link to="/tint">window tinting</Link>,
-                  and complete auto detailing. For <strong>detailing in Markham</strong>, visit our <Link to="/car-detailing-markham" style={{ fontWeight: 'bold' }}>Markham detailing page</Link>{' '}
-                  or check out <Link to="/ceramic-coating-markham">ceramic coating in Markham</Link> and
-                  <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction services</Link>.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                variants={{
-                  visible: {
-                    y: 0,
-                    opacity: 1,
-                    transition: {
-                      delay: 0.1,
-                      duration: 0.3,
-                      ease: [0.25, 0.1, 0.25, 1],
-                    },
-                  },
-                  hidden: {
-                    y: 10,
-                    opacity: 0,
-                  },
-                }}
-                className="package-info__header"
-              >
-                <h2 className="package-info__title">Our Auto Detailing Packages</h2>
-                <p className="package-info__subtitle">
-                  Choose the perfect detailing package for your vehicle. From quick refresh to comprehensive deep cleaning, we have options for every need and budget.
-                </p>
-              </motion.div>
-
-              <div className="package-info__grid">
-                <motion.article
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                  variants={{
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        delay: 0.2,
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      },
-                    },
-                    hidden: {
-                      y: 10,
-                      opacity: 0,
-                    },
-                  }}
-                  className="package-info__card"
-                >
-                  <div className="package-info__card-header">
-                    <h3 className="package-info__card-title">Express Detail</h3>
-                    <p className="package-info__card-subtitle">Quick & Affordable Car Cleaning</p>
-                  </div>
-                  <div className="package-info__card-content">
-                    <p className="package-info__card-description">
-                      Our Express Detail Package is designed for drivers who want their vehicle looking clean and refreshed without the long wait. This quick service includes a thorough interior vacuum, dusting, and window cleaning, along with an exterior hand wash and tire shine. It's perfect for maintaining your car's appearance between full details. Whether you're getting ready for a meeting, showing your vehicle for sale, or just want a cleaner ride, our Express Detail delivers quality and convenience.
-                    </p>
-                  </div>
-                </motion.article>
-
-                <motion.article
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                  variants={{
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        delay: 0.3,
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      },
-                    },
-                    hidden: {
-                      y: 10,
-                      opacity: 0,
-                    },
-                  }}
-                  className="package-info__card package-info__card--featured"
-                >
-                  <div className="package-info__badge">Most Popular</div>
-                  <div className="package-info__card-header">
-                    <h3 className="package-info__card-title">Signature Detail</h3>
-                    <p className="package-info__card-subtitle">Deep Interior Cleaning & Sanitizing Service</p>
-                  </div>
-                  <div className="package-info__card-content">
-                    <p className="package-info__card-description">
-                      Our Signature Detail Package is the most popular choice at Beyond Detail for customers who want their car's interior fully cleaned and sanitized. This package includes steam cleaning of panels, vents, and trims, a full vacuum, window cleaning, and exterior hand wash. We also disinfect and sanitize every surface, ensuring a fresh and healthy cabin environment. It's perfect for families, daily drivers, and anyone wanting to remove built-up dirt and bacteria from their vehicle's interior.
-                    </p>
-                  </div>
-                </motion.article>
-
-                <motion.article
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                  variants={{
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        delay: 0.4,
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      },
-                    },
-                    hidden: {
-                      y: 10,
-                      opacity: 0,
-                    },
-                  }}
-                  className="package-info__card"
-                >
-                  <div className="package-info__card-header">
-                    <h3 className="package-info__card-title">Premium Detail</h3>
-                    <p className="package-info__card-subtitle">Complete Full-Service Detailing Experience</p>
-                  </div>
-                  <div className="package-info__card-content">
-                    <p className="package-info__card-description">
-                      The Premium Detail Package is our top-tier full-service detailing experience. It combines everything from our Express and Signature packages with deep carpet and seat shampooing using professional extraction equipment. This service removes stubborn stains, grime, and odors while restoring your interior to like-new condition. We clean all panels, dashboards, and vents, followed by an exterior hand wash, tire shine, and door and trunk jamb cleaning. Perfect for heavily used vehicles, pre-sale prep, or seasonal deep cleans, the Premium Detail transforms your car from the inside out.
-                    </p>
-                  </div>
-                </motion.article>
-              </div>
+          {/* Premium Overview */}
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <h2 className="seo-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Masterful Auto Detailing</h2>
+              <p className="seo-text-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                Beyond Detail provides professional auto detailing services throughout the Greater Toronto Area.
+                Whether you need a quick refresh or a deep restoration, our packages are designed to bring your vehicle back to showroom condition.
+              </p>
             </div>
           </section>
 
-          <Suspense fallback={null}>
-            <GoogleReviewsCarousel />
-          </Suspense>
+          <div id="pricing">
+            <ServicePricing
+              title="Our Detailing Packages"
+              packages={AUTO_DETAIL_PACKAGES}
+            />
+          </div>
 
-          <ServicePricing
-            title="Auto Detailing Packages"
-            packages={AUTO_DETAIL_PACKAGES}
-          />
-
-          <section className="detail-options">
-            <div className="detail-options__container">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                variants={{
-                  visible: {
-                    y: 0,
-                    opacity: 1,
-                    transition: {
-                      delay: 0.1,
-                      duration: 0.3,
-                      ease: [0.25, 0.1, 0.25, 1],
-                    },
-                  },
-                  hidden: {
-                    y: 10,
-                    opacity: 0,
-                  },
-                }}
-                className="detail-options__header"
-              >
-                <h2 className="detail-options__title">Individual Service Options</h2>
-                <p className="detail-options__subtitle">
-                  Need just interior or exterior detailing? We offer focused services for specific areas of your vehicle.
-                </p>
-              </motion.div>
-
-              <div className="detail-options__grid">
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                  variants={{
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        delay: 0.2,
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      },
-                    },
-                    hidden: {
-                      y: 10,
-                      opacity: 0,
-                    },
-                  }}
-                  className="detail-options__card"
-                >
-                  <div className="detail-options__card-header">
-                    <h3 className="detail-options__card-title">Interior Only Detail</h3>
-                  </div>
-
-                  <div className="detail-options__price-section">
-                    <div className="detail-options__price-range">
-                      <span className="detail-options__price-label">Starting at</span>
-                      <div className="detail-options__price">
-                        $60
-                      </div>
-                    </div>
-                    <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
-                  </div>
-
-                  <p className="detail-options__card-description">
-                    Comprehensive interior cleaning focused on seats, carpets, upholstery, and all interior surfaces. Perfect when your exterior is already clean.
-                  </p>
-
-                  <ul className="detail-options__features-list">
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Interior Vacuumed & Dusted</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Carpets, Seats, & Mats Vacuumed</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>All Upholstery Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Dashboard, Console & Doors Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Interior Windows Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Interior Sanitized & Disinfected</span>
-                    </li>
-                  </ul>
-
-                  <motion.button
-                    className="detail-options__cta-button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      const contactSection = document.getElementById('contact');
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  >
-                    Book Interior Only
-                  </motion.button>
-                </motion.div>
-
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                  variants={{
-                    visible: {
-                      y: 0,
-                      opacity: 1,
-                      transition: {
-                        delay: 0.3,
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      },
-                    },
-                    hidden: {
-                      y: 10,
-                      opacity: 0,
-                    },
-                  }}
-                  className="detail-options__card"
-                >
-                  <div className="detail-options__card-header">
-                    <h3 className="detail-options__card-title">Exterior Only Detail</h3>
-                  </div>
-
-                  <div className="detail-options__price-section">
-                    <div className="detail-options__price-range">
-                      <span className="detail-options__price-label">Starting at</span>
-                      <div className="detail-options__price">
-                        $50
-                      </div>
-                    </div>
-                    <p className="detail-options__price-note">Starting price. Larger vehicles may cost extra.</p>
-                  </div>
-
-                  <p className="detail-options__card-description">
-                    Complete exterior cleaning including hand wash, wheel cleaning, and door jam detailing. Ideal for maintaining your vehicle's exterior appearance.
-                  </p>
-
-                  <ul className="detail-options__features-list">
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Exterior Hand Wash</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Tire and Rims Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Door Jams Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Trunk Jams Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>Exterior Windows Cleaned</span>
-                    </li>
-                    <li className="detail-options__feature-item">
-                      <CheckCircle className="detail-options__feature-icon" />
-                      <span>All Mirrors Cleaned</span>
-                    </li>
-                  </ul>
-
-                  <motion.button
-                    className="detail-options__cta-button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      const contactSection = document.getElementById('contact');
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  >
-                    Book Exterior Only
-                  </motion.button>
-                </motion.div>
-              </div>
-            </div>
-          </section>
-
-          {/* Localized Service Area Content */}
-          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '3rem' }}>
+          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'var(--glass-bg)', backdropFilter: 'blur(10px)', borderRadius: '12px', marginBottom: '3rem', border: '1px solid var(--glass-border)' }}>
             <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
               Full Service Auto Detailing in Scarborough & GTA
             </h2>
@@ -450,11 +100,20 @@ function Services() {
                 We specialize in removing salt stains, pet hair, and odors—common issues for GTA drivers.
                 Our <Link to="/paint-correction" style={{ color: '#f07900', textDecoration: 'none' }}>paint correction</Link> and <Link to="/ceramic-coatings" style={{ color: '#f07900', textDecoration: 'none' }}>ceramic coating</Link> services
                 are designed to protect your vehicle against Toronto's harsh seasons.
-                Book your appointment today and see why we have over 70+ five-star reviews from satisfied local customers.
               </p>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '2rem' }}>
+              <Link to="/interior-detailing" className="btn-premium">Interior Only</Link>
+              <Link to="/exterior-detailing" className="btn-premium">Exterior Only</Link>
             </div>
           </section>
 
+          <Suspense fallback={null}>
+            <GoogleReviewsCarousel />
+          </Suspense>
+
+          <TrustBadges />
+          <SkillShowcase />
           <FAQSection data={autoDetailFAQs} title="Auto Detailing FAQs" />
 
           <ErrorBoundary>

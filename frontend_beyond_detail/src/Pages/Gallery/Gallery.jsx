@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { Contact, Loading, SEO } from '../../components';
+import { Contact, Loading, SEO, SkillShowcase, TrustBadges } from '../../components';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { urlFor, client } from '../../client';
@@ -122,9 +122,11 @@ function Gallery() {
               </div>
               <div className='image__wrapper'>{galleryImages}</div>
             </div>
+            <SkillShowcase />
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <TrustBadges />
             <Contact />
           </motion.div>
         </>

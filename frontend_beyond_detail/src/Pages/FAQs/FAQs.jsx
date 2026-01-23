@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
+import { Loading, TrustBadges, SkillShowcase } from '../../components';
 import { client } from '../../client';
 import { ChevronDown } from 'lucide-react';
 import BackgroundPaths from '../../components/BackgroundPaths/BackgroundPaths';
@@ -10,7 +10,7 @@ import Contact from '../../components/Contact/Contact';
 import { fallbackFAQs } from '../../data/faqsData';
 import './FAQs.scss';
 
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 const categories = [
@@ -80,7 +80,7 @@ function FAQs() {
       .map((faq) => {
         // Extract text from answer blocks - safely handle undefined/null
         let answerText = 'Please contact us for more information.';
-        
+
         if (faq.answer && Array.isArray(faq.answer) && faq.answer.length > 0) {
           const textParts = faq.answer
             .map((block) => {
@@ -93,12 +93,12 @@ function FAQs() {
               return '';
             })
             .filter(Boolean);
-          
+
           if (textParts.length > 0) {
             answerText = textParts.join(' ');
           }
         }
-        
+
         return {
           '@type': 'Question',
           name: faq.question || 'Question',
@@ -137,13 +137,13 @@ function FAQs() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='faqs-page__wrapper'>
-            <BackgroundPaths 
+            <BackgroundPaths
               title="FAQs - Auto Detailing Toronto & Scarborough"
               scrollTarget="#faqs-content"
               description="Find answers to common questions about our professional auto detailing services in Toronto and Scarborough."
               hideAnimatedWords={true}
             />
-            
+
             <section id="faqs-content" className="faqs-content">
               <div className="faqs-content__container">
                 {/* Category Filter */}
@@ -239,7 +239,7 @@ function FAQs() {
                 >
                   <h3 className="faqs-cta-title">Still have questions?</h3>
                   <p className="faqs-cta-text">
-                    Can't find what you're looking for? Our team is here to help. 
+                    Can't find what you're looking for? Our team is here to help.
                     Get in touch with us and we'll answer any questions you may have.
                   </p>
                 </motion.div>
@@ -249,6 +249,8 @@ function FAQs() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <Contact />
           </div>
         </motion.div>

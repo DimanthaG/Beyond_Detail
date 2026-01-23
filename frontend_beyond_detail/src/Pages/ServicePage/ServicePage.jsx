@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { client, urlFor } from '../../client';
-import { Contact, SEO } from '../../components';
+import { Contact, SEO, SkillShowcase } from '../../components';
 import './ServicePage.scss';
 
 const GoogleReviewsCarousel = React.lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -109,6 +109,8 @@ function ServicePage() {
           />
         </Suspense>
       </div>
+
+      <SkillShowcase />
 
       {/* Contact Form Section */}
       <section className="contact-section">

@@ -5,7 +5,8 @@ import { HomeHero } from '../../components/HomeHero/HomeHero';
 import './Home.scss';
 
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const HomeDetailSection = lazy(() => import('../../components/HomeDetailSection/HomeDetailSection'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Home() {
@@ -27,13 +28,14 @@ function Home() {
       <Suspense fallback={null}>
         <GoogleReviewsCarousel />
       </Suspense>
-      <div className="services-section-header">
-        <h2 className="services-section-title">Car Detailing Scarborough: Choose Mobile Service or Visit Our Shop</h2>
+      <div id="home-services">
+        <Suspense fallback={null}>
+          <TrustBadges />
+        </Suspense>
+        <Suspense fallback={null}>
+          <SkillShowcase />
+        </Suspense>
       </div>
-      <div id="home-services"></div>
-      <Suspense fallback={null}>
-        <HomeDetailSection />
-      </Suspense>
       <Suspense fallback={null}>
         <Contact />
       </Suspense>

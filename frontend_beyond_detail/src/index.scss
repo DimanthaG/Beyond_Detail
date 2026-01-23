@@ -10,7 +10,7 @@
 :root {
   --font-base: 'Montserrat', sans-serif;
 
-  --background-color: rgb(0, 0, 0);
+  --background-color: #050505;
   --primary-color: #edf2f8;
   --secondary-color: #f07900;
   --darkOrange-color: #d35100;
@@ -21,6 +21,16 @@
   --gray-color: #454545;
   --brown-color: #46364a;
   --white-color: #ffffff;
+
+  /* Premium Accents */
+  --accent-cyan: #00d2ff;
+  --accent-red: #ff4d4d;
+  --accent-gold: #ffd700;
+  --accent-purple: #a855f7;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(20, 20, 20, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 * {

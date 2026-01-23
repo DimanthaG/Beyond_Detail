@@ -12,6 +12,8 @@ import SEO from '../../components/SEO';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function CeramicCoatingToronto() {
 
@@ -115,6 +117,15 @@ function CeramicCoatingToronto() {
 
                     <Suspense fallback={null}>
                         <GoogleReviewsCarousel />
+            <Suspense fallback={null}>
+              <TrustBadges />
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <SkillShowcase />
+            </Suspense>
+
+
                         <Contact />
                     </Suspense>
                 </div>

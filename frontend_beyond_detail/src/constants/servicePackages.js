@@ -161,3 +161,49 @@ export const CERAMIC_COATING_PACKAGES = [
         ctaText: "Book This Package"
     }
 ];
+
+export const WINDOW_TINT_PACKAGES = [
+    {
+        name: "Standard Carbon Tint (ATC)",
+        priceRange: { start: 250 },
+        priceNote: "Starting price for Sedans. SUVs/Trucks extra.",
+        description: "A quality dyed-film solution that provides privacy and style with standard heat rejection. Matte black charcoal finish.",
+        features: [
+            "Good Heat Rejection",
+            "99% UV Ray Protection",
+            "Charcoal Black Finish",
+            "Non-Metalized (No Signal Interference)",
+            "Lifetime Warranty"
+        ],
+        ctaText: "Book Carbon Tint"
+    },
+    {
+        name: "Premium Ceramic Tint (CTX)",
+        priceRange: { start: 350 },
+        priceNote: "Starting price for Sedans. SUVs/Trucks extra.",
+        description: "Advanced nano-ceramic technology offering superior heat rejection without darkening your view unnecessarily. The popular choice.",
+        features: [
+            "Superior Heat Rejection (Up to 70%)",
+            "99% UV Ray Protection",
+            "Scratch-Resistant Coating",
+            "High Visibility Clarity",
+            "Lifetime Warranty"
+        ],
+        featured: true,
+        ctaText: "Book Ceramic Tint"
+    },
+    {
+        name: "Ultimate IRX Ceramic Tint",
+        priceRange: { start: 450 },
+        priceNote: "Starting price for Sedans. SUVs/Trucks extra.",
+        description: "Top-of-the-line infrared rejection technology. Blocks up to 97% of heat-producing IR rays for maximum comfort.",
+        features: [
+            "Maximum Heat Rejection (97% IR)",
+            "Coolest Cabin Experience",
+            "99% UV Protection",
+            "Premium Color Stability",
+            "Lifetime Warranty"
+        ],
+        ctaText: "Book IRX Tint"
+    }
+];

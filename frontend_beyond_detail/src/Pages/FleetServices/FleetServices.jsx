@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, FAQSection } from '../../components';
+import { Loading, FAQSection, TrustBadges, SkillShowcase } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import FleetHero from '../../components/FleetHero/FleetHero';
 import FleetExpertise from '../../components/FleetExpertise/FleetExpertise';
@@ -10,8 +10,8 @@ import FleetVision from '../../components/FleetVision/FleetVision';
 import './FleetServices.scss';
 
 // Lazy load heavy components to improve initial bundle size
+import SEO from '../../components/SEO';
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function FleetServices() {
@@ -127,6 +127,8 @@ function FleetServices() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <FleetContactCTA />
             <FleetVision />
             <FAQSection data={fleetServicesFAQs} title="Fleet Services FAQs" />

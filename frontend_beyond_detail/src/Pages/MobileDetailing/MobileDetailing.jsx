@@ -2,13 +2,15 @@ import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, FAQSection } from '../../components';
+import SEO from '../../components/SEO';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './MobileDetailing.scss';
 
-// Reuse components
+// Lazy load heavy components
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 import carImage from '../../assets/bd/bd-32.webp';
@@ -35,16 +37,17 @@ function MobileDetailing() {
 
     return (
         <>
+            <SEO
+                title='Mobile Car Detailing Toronto | We Come To You | Beyond Detail'
+                description='Premium mobile car detailing in Toronto, Scarborough & GTA. We come to your home or office. specialized in interior deep cleaning, exterior wash & wax. ⭐ 68+ 5-Star Reviews. Call (647) 689-6109'
+                name='Beyond Detail Mobile'
+                type='website'
+                serviceType='Mobile Car Detailing'
+                keywords='mobile car detailing toronto, mobile auto detailing scarborough, mobile car wash scarborough, mobile car wash gta, mobile interior detailing, mobile car detailing near me, mobile detailing prices'
+                faq={mobileFAQs}
+            />
             <Suspense fallback={<Loading />}>
-                <SEO
-                    title='Mobile Car Detailing Toronto | We Come To You | Beyond Detail'
-                    description='Premium mobile car detailing in Toronto, Scarborough & GTA. We come to your home or office. specialized in interior deep cleaning, exterior wash & wax. ⭐ 68+ 5-Star Reviews. Call (647) 689-6109'
-                    name='Beyond Detail Mobile'
-                    type='website'
-                    serviceType='Mobile Car Detailing'
-                    keywords='mobile car detailing toronto, mobile auto detailing scarborough, mobile car wash scarborough, mobile car wash gta, mobile interior detailing, mobile car detailing near me, mobile detailing prices'
-                    faq={mobileFAQs}
-                />
+
                 <motion.div
                     initial='out'
                     animate='in'
@@ -95,6 +98,54 @@ function MobileDetailing() {
                         <Suspense fallback={null}>
                             <GoogleReviewsCarousel />
                         </Suspense>
+
+                        {/* Premium Overview Section */}
+                        <motion.div
+                            className="premium-overview"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            style={{
+                                background: 'var(--glass-bg)',
+                                backdropFilter: 'blur(20px)',
+                                border: '1px solid var(--glass-border)',
+                                borderRadius: '16px',
+                                padding: '3rem',
+                                margin: '4rem auto',
+                                maxWidth: '1200px'
+                            }}
+                        >
+                            <h2 style={{
+                                fontSize: '2.5rem',
+                                marginBottom: '1.5rem',
+                                background: 'linear-gradient(135deg, #fff 0%, #f07900 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                fontFamily: 'var(--font-base)'
+                            }}>
+                                Mobile Detailing: The Ultimate Convenience
+                            </h2>
+                            <p style={{
+                                fontSize: '1.1rem',
+                                lineHeight: '1.8',
+                                color: 'var(--text-secondary)',
+                                marginBottom: '1.5rem'
+                            }}>
+                                Why drive to a shop when we can bring professional-grade detailing directly to your driveway, office, or condo?
+                                Our mobile service in <strong>Scarborough, Markham, and the GTA</strong> is perfect for busy professionals who value
+                                their time. We arrive fully equipped with water, power, and premium products—you just provide the keys.
+                            </p>
+                            <p style={{
+                                fontSize: '1.1rem',
+                                lineHeight: '1.8',
+                                color: 'var(--text-secondary)'
+                            }}>
+                                From maintenance washes to deep interior cleaning, our mobile team delivers the same IDA-certified expertise
+                                you'd get at our <strong>170 Finchdene Square</strong> studio. For advanced services like ceramic coating or
+                                multi-stage paint correction, we recommend our climate-controlled shop for optimal results.
+                            </p>
+                        </motion.div>
 
                         <ServiceInfoSection
                             title="Mobile Service vs In-Shop: Which is Right for You?"
@@ -147,6 +198,16 @@ function MobileDetailing() {
                                 "Both: Satisfaction Guarantee"
                             ]}
                         />
+
+                        <FAQSection data={mobileFAQs} title="Mobile Detailing FAQs" />
+
+                        <Suspense fallback={null}>
+                            <TrustBadges />
+                        </Suspense>
+
+                        <Suspense fallback={null}>
+                            <SkillShowcase />
+                        </Suspense>
 
                         <Contact />
                     </div>

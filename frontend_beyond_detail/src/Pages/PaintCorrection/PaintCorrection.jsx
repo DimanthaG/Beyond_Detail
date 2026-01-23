@@ -2,26 +2,19 @@ import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading } from '../../components';
-import PaintCorrectionInfo from '../../components/PaintCorrectionInfo/PaintCorrectionInfo';
-import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
+import { Loading, ErrorBoundary, FAQSection, SkillShowcase, TrustBadges } from '../../components';
+import { PAINT_CORRECTION_PACKAGES } from '../../constants/servicePackages';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import PaintProtectionInfo from '../../components/PaintProtectionInfo/PaintProtectionInfo';
 import './PaintCorrection.scss';
-
 import PaintCorrectionHero from '../../components/PaintCorrectionHero/PaintCorrectionHero';
 import SEO from '../../components/SEO';
-import { FAQSection, ErrorBoundary } from '../../components';
 
-// Lazy load heavy components to improve initial bundle size
-const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-// const SEO = lazy(() => import('../../components/SEO'));
-// const PaintCorrectionHero = lazy(() => import('../../components/PaintCorrectionHero/PaintCorrectionHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function PaintCorrection() {
-  // ScrollToTop component handles scrolling to hero section
-
   const paintCorrectionFAQs = [
     {
       question: "What is paint correction?",
@@ -30,10 +23,6 @@ function PaintCorrection() {
     {
       question: "Does car detailing remove scratches?",
       answer: "Yes, expert car detailing with paint correction removes most clear coat scratches, swirl marks, and etching. Using machine polishers, we level the clear coat to permanently eliminate defects. However, deep scratches that penetrate the base coat require touch-up paint or repainting."
-    },
-    {
-      question: "Will paint correction remove all scratches?",
-      answer: "Paint correction removes scratches that are in the clear coat layer. Deep scratches that have penetrated through the clear coat to the base coat or primer cannot be polished out and may require touch-up paint or repainting. We measure your paint depth to ensure safe correction."
     },
     {
       question: "How long does paint correction take?",
@@ -47,7 +36,6 @@ function PaintCorrection() {
 
   return (
     <>
-      {/* Outer Suspense removed for LCP */}
       <SEO
         title='Paint Correction Scarborough | Scratch Removal & Car Polishing'
         description='Expert paint correction in Scarborough. Permanently remove swirl marks, scratches, and oxidation. 1-Stage polish and multi-stage restoration available. Book a free paint inspection.'
@@ -70,202 +58,62 @@ function PaintCorrection() {
             titleLine1="Car Detailing &"
             titleLine2="Scratch Repair"
             titleLine3="TORONTO"
-            subtitle="Expert <strong>paint correction</strong> and <strong>scratch repair</strong> to restore your vehicle's showroom shine. We permanently remove swirls, scratches, and oxidation."
+            subtitle="Expert <strong>paint correction</strong> to restore your vehicle's showroom shine."
           />
-          <Suspense fallback={null}>
-            <ServiceGallery
-              serviceType="paint-correction"
-              title="Paint Correction Gallery"
-              forceLandscape
-            />
-          </Suspense>
 
-          {/* GEO Answer Block - Optimized for ChatGPT/Perplexity Citations */}
-          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '3rem auto', backgroundColor: '#f8f9fa', padding: '2rem', borderRadius: '8px' }}>
-            <h2 className="seo-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: '#f07900' }}>
-              How much does paint correction cost in Scarborough?
-            </h2>
-            <div>
-              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: '#1a1a1a' }}>
-                Professional paint correction in Scarborough ranges from <strong>$499 for Stage 1 (single-step polish)</strong> to <strong>$999+ for Stage 3 (full restoration)</strong>,
-                depending on paint condition and vehicle size. At Beyond Detail (<strong>170 Finchdene Square</strong>), our <strong>Stage 2 Correction at $699</strong> is most popular because it removes 80-90% of swirl marks and scratches —
-                critical for Toronto vehicles damaged by <strong>winter salt, automatic car wash brushes, and Highway 401 road debris</strong>.
-                Unlike $50 "quick buff" services that use fillers (wax that hides scratches temporarily), true paint correction <strong>permanently levels clear coat using digital paint thickness gauges and Rupes dual-action polishers</strong>.
-              </p>
-              <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#1a1a1a' }}>
-                For Scarborough drivers with <strong>black, dark blue, or red paint</strong> (which show swirls most visibly), we measure paint depth first —
-                factory clear coat is typically <strong>70-120 microns thick</strong>, and we remove only <strong>5-15 microns per stage</strong> to safely eliminate defects without burning through.
-                The process takes <strong>6-8 hours for Stage 1, 1-2 days for Stage 2</strong>.
-                Vehicles like the <strong>Honda Civic, Toyota Camry, and Mazda3</strong> often need paint correction after 3-5 years due to soft factory clear coat.
-                We recommend combining paint correction with <strong>ceramic coating ($599-$1,300)</strong> to lock in the flawless finish and prevent future swirls —
-                this combo increases resale value by <strong>$800-$1,500</strong> and keeps your car showroom-perfect for 3-5 years.
-              </p>
-            </div>
-          </section>
+          <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="paint-correction"
+                title="Paint Correction Gallery"
+                forceLandscape
+              />
+            </Suspense>
+          </ErrorBoundary>
 
-          {/* Near Me & Location-Specific Content */}
-          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <h2 className="seo-title">
-              Paint Correction, Scratch Removal & Swirl Mark Repair
-            </h2>
-            <div>
-              <p className="seo-text-lg">
-                Searching for the <strong>best paint correction near me</strong>? Beyond Detail provides professional paint correction services
-                in Scarborough with transparent <strong>paint correction costs</strong>. Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>,
-                we're your local experts for removing swirl marks and scratches at competitive prices.
-              </p>
-              <p className="seo-text-lg">
-                Our paint correction services are available for customers in <Link to="/paint-correction-scarborough">Scarborough</Link>,{' '}
-                <Link to="/paint-correction-markham">Markham</Link>,{' '}
-                <Link to="/paint-correction-pickering">Pickering</Link>,{' '}
-                <Link to="/paint-correction">Toronto</Link>,
-                and all GTA areas. We offer 1-3 stage paint correction to restore your vehicle's paint to showroom condition,
-                preparing it perfectly for <Link to="/ceramic-coatings">ceramic coating</Link> protection.
-              </p>
-              <p className="seo-text-md">
-                <strong>Why choose Beyond Detail for paint correction?</strong> Expert technicians with years of experience,
-                premium products and equipment, comprehensive paint assessment, and satisfaction guarantee.
-                ⭐ Trusted by 70+ five-star reviews from satisfied customers across the GTA.
+          {/* Premium Overview */}
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <h2 className="seo-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Restoring Perfection</h2>
+              <p className="seo-text-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                Swirl marks, scratches, and oxidation dull your vehicle's finish.
+                Our <strong>Paint Correction</strong> process safely removes these defects, revealing the true depth and gloss of your paint.
+                We use precision tools to measure your paint depth before we touch it, ensuring a safe and permanent result.
               </p>
             </div>
           </section>
 
           <PaintProtectionInfo />
-          <PaintCorrectionInfo
-            title="Professional Paint Correction Services"
-            subtitle="Advanced Restoration"
-            description="Paint correction is an intensive process designed to eliminate imperfections such as swirl marks, scratches, oxidation, and other surface defects. Our expert technicians use advanced techniques and premium products to restore your vehicle's paint to its original flawless condition."
-            benefits={[
-              {
-                title: "Eliminates Surface Imperfections",
-                description: "Remove swirl marks, light scratches, and oxidation that dull your vehicle's appearance and reduce its value."
-              },
-              {
-                title: "Restores Showroom Shine",
-                description: "Bring back the deep, glossy finish that your vehicle had when it first left the factory floor."
-              },
-              {
-                title: "Enhances Paint Depth & Clarity",
-                description: "Reveal the true color and depth of your paint by removing years of accumulated defects and contaminants."
-              },
-              {
-                title: "Increases Vehicle Value",
-                description: "A properly corrected paint finish significantly enhances your vehicle's resale value and aesthetic appeal."
-              },
-              {
-                title: "Prepares for Protection",
-                description: "Perfect foundation for ceramic coatings or other protective treatments, ensuring optimal adhesion and longevity."
-              },
-              {
-                title: "Professional Expertise",
-                description: "Trained technicians with extensive experience in automotive paint systems and correction techniques."
-              }
-            ]}
-            process={[
-              {
-                title: "Step 1: Scientific Inspection",
-                description: "We don't guess. We measure your paint thickness using a digital gauge to ensure enough clear coat exists for safe correction. We map out every defect under specialized 5000K inspection lights."
-              },
-              {
-                title: "Step 2: Decontamination",
-                description: "Before polishing, we strip all old wax, iron deposits, and embedded road tar using chemical and mechanical clay bar treatments to ensure a surgically clean surface."
-              },
-              {
-                title: "Step 3: The Correction",
-                description: "Using Rupes polishers and specific pad/compound combinations, we level the clear coat to permanently remove below-surface defects like swirls and scratches."
-              },
-              {
-                title: "Step 4: Refinement (Jeweling)",
-                description: "For Stage 2 and 3 packages, we follow heavy cutting with a fine polish to 'jewel' the paint, creating a deep, wet-looking gloss that maximizes clarity."
-              },
-              {
-                title: "Step 5: Isopropyl Wipe & Protect",
-                description: "We strip polishing oils to verify the results are permanent (not filled), then lock in the perfection with a silica sealant or Ceramic Coating."
-              }
-            ]}
-            features={[
-              "Complete paint surface inspection and assessment",
-              "Thorough decontamination (clay bar treatment)",
-              "Multi-stage compound polishing",
-              "Advanced finishing polish",
-              "High-quality sealant or wax application",
-              "All panels corrected and refined",
-              "Interior protection during service",
-              "Final quality inspection"
-            ]}
-          />
-          <ServicePricing
-            title="Paint Correction Packages"
-            packages={[
-              {
-                name: "Stage 1 Polish (Gloss Enhance)",
-                priceRange: { start: 499 },
-                priceNote: "Starting price. Est. 5-7 Hours",
-                description: "A single-step machine polish to remove wash marring, light swirls, and oxidation. Significantly increases gloss and clarity. Includes 6-month sealant.",
-                features: [
-                  "Paint Thickness Measurement",
-                  "Iron & Clay Decontamination",
-                  "1-Step Machine Polish",
-                  "Removes Light Swirls & Haze",
-                  "Deep Gloss Enhancement",
-                  "6-Month Silica Sealant"
-                ],
-                ctaText: "Book Stage 1"
-              },
-              {
-                name: "Stage 2 Correction (Defect Removal)",
-                priceRange: { start: 699 },
-                priceNote: "Starting price. Est. 1-2 Days",
-                description: "Our most popular package. Compound stage to remove deep swirls/scratches, followed by Polish stage for maximum clarity. Eliminates the majority of imperfections.",
-                features: [
-                  "Paint Thickness Measurement",
-                  "Heavy Compound Stage",
-                  "Fine Polish Refinement",
-                  "Removes Deep Swirls & Scratches",
-                  "Showroom Clarity",
-                  "Ideal for Ceramic Coating Prep"
-                ],
-                featured: true,
-                ctaText: "Book Stage 2"
-              },
-              {
-                name: "Stage 3 Restoration (Showroom Finish)",
-                priceRange: { start: 999 },
-                priceNote: "Starting price. Est. 2-3 Days",
-                description: "The pursuit of perfection. Wet sanding (if required), heavy compounding, and multiple refining stages for a practically flawless finish.",
-                features: [
-                  "Detailed Paint Mapping",
-                  "Wet Sanding (Isolated Scratches)",
-                  "Multi-Stage Compounding",
-                  "Jeweling Polish Step",
-                  "Maximized Defect Removal",
-                  "Concours Level Finish"
-                ],
-                ctaText: "Book Stage 3"
-              }
-            ]}
-          />
-          <Suspense fallback={null}>
-            <GoogleReviewsCarousel />
-          </Suspense>
-          {/* Localized Service Area Content */}
-          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <h2 className="seo-title">
-              Expert Paint Correction in Scarborough & Markham
+
+          <div id="pricing">
+            <ServicePricing
+              title="Paint Correction Packages"
+              packages={PAINT_CORRECTION_PACKAGES}
+            />
+          </div>
+
+          <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', background: 'var(--glass-bg)', backdropFilter: 'blur(10px)', borderRadius: '12px', marginBottom: '3rem', border: '1px solid var(--glass-border)' }}>
+            <h2 style={{ fontSize: '2rem', color: '#f07900', marginBottom: '1rem', textAlign: 'center' }}>
+              Expert Correction in Scarborough
             </h2>
-            <div>
-              <p className="seo-text-lg">
-                Restore your vehicle's gloss and remove unsightly swirls with our <strong>paint correction services in Scarborough</strong>.
-                Located at 170 Finchdene Square, we are the go-to studio for car enthusiasts in <strong>Scarborough, Markham, Pickering, and Toronto</strong> who demand perfection.
-                Unlike quick "buff and polish" jobs, our multi-stage paint correction safely measures paint depth and permanently levels defects.
+            <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
+              <p>
+                Located at <strong>170 Finchdene Square</strong>, we are the choice for enthusiasts in <Link to="/car-detailing-scarborough" style={{ fontWeight: 'bold' }}>Scarborough</Link>, <Link to="/car-detailing-markham" style={{ fontWeight: 'bold' }}>Markham</Link>, and Toronto.
+                Typically, vehicles like the <strong>Honda Civic</strong> or <strong>Tesla Model 3</strong> have softness in their factory clear coat that scratches easily.
+                We fix this permanently.
               </p>
-              <p className="seo-text-lg">
-                After correction, we highly recommend protecting your perfect finish with a <Link to="/ceramic-coatings">ceramic coating</Link> or{' '}
-                <Link to="/tint">window tint</Link> for heat protection.
-                Trust your vehicle to Beyond Detail—where we treat every car like our own.
+              <p style={{ marginTop: '1rem' }}>
+                After correction, lock in that shine with a <Link to="/ceramic-coatings" style={{ color: '#f07900' }}>Ceramic Coating</Link> for years of protection.
               </p>
             </div>
           </section>
+
+          <Suspense fallback={null}>
+            <GoogleReviewsCarousel />
+          </Suspense>
+
+          <TrustBadges />
+          <SkillShowcase />
 
           <FAQSection data={paintCorrectionFAQs} title="Paint Correction FAQs" />
 
@@ -276,7 +124,6 @@ function PaintCorrection() {
           </ErrorBoundary>
         </div>
       </motion.div>
-      {/* </Suspense> */}
     </>
   );
 }

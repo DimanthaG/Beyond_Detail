@@ -15,6 +15,8 @@ const SEO = lazy(() => import('../../components/SEO'));
 const CeramicCoatingHero = lazy(() => import('../../components/CeramicCoatingHero/CeramicCoatingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function CeramicCoatingOshawa() {
   return (
@@ -134,6 +136,15 @@ function CeramicCoatingOshawa() {
             </Suspense>
             
             <CeramicCoatingInfo />
+            <Suspense fallback={null}>
+              <TrustBadges />
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <SkillShowcase />
+            </Suspense>
+
+
             
             <Suspense fallback={null}>
               <Contact />

@@ -12,6 +12,8 @@ const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDe
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function CarDetailingMarkhamRoad() {
     return (
@@ -162,6 +164,15 @@ function CarDetailingMarkhamRoad() {
                             title="Markham Road Detailing Prices"
                             packages={AUTO_DETAIL_PACKAGES}
                         />
+            <Suspense fallback={null}>
+              <TrustBadges />
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <SkillShowcase />
+            </Suspense>
+
+
 
                         <Suspense fallback={null}>
                             <Contact />

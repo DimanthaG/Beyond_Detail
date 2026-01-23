@@ -1,15 +1,16 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, FAQSection } from '../../components';
+import { Loading, FAQSection, TrustBadges, SkillShowcase } from '../../components';
 import LeatherCleaningHero from '../../components/LeatherCleaningHero/LeatherCleaningHero';
 import ServiceBenefits from '../../components/ServiceBenefits/ServiceBenefits';
 import ServiceContactCTA from '../../components/ServiceContactCTA/ServiceContactCTA';
 import './LeatherCleaning.scss';
 
 // Lazy load heavy components to improve initial bundle size
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
 
 function LeatherCleaning() {
   // ScrollToTop component handles scrolling to hero section
@@ -55,6 +56,17 @@ function LeatherCleaning() {
         >
           <div className='leather-cleaning__wrapper'>
             <LeatherCleaningHero scrollTarget="#contact" />
+
+            {/* Premium Overview */}
+            <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 className="seo-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Luxury Leather Care</h2>
+                <p className="seo-text-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                  Leather requires specialized care to maintain its supple feel and prevent cracking. Our professional cleaning and conditioning
+                  services use <strong>pH-neutral products</strong> safe for all automotive leather types.
+                </p>
+              </div>
+            </section>
             <ServiceBenefits
               title="EXPERT LEATHER CARE SERVICES"
               subtitle="Restoration & Protection"
@@ -104,6 +116,11 @@ function LeatherCleaning() {
               title="READY TO RESTORE YOUR LEATHER?"
               description="Contact us today for a personalized quote and restore your leather to luxurious condition."
             />
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <FAQSection data={leatherCleaningFAQs} title="Leather Cleaning FAQs" />
             <Contact />
           </div>

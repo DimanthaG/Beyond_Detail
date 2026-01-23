@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { client } from '../../client';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, SEO } from '../../components';
+import { Loading, SEO, SkillShowcase } from '../../components';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import '../../react-datepicker.css';
@@ -509,6 +509,7 @@ function ContactPage() {
                 )}
               </motion.div>
             </div>
+            <SkillShowcase />
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>

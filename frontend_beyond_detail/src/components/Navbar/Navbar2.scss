@@ -3,9 +3,10 @@
   justify-content: space-between;
   align-items: center;
   min-height: 8vh;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(6px);
-  transition: all 0.4s linear;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: fixed;
   top: 0;
   left: 0;
@@ -13,13 +14,11 @@
   z-index: 9999;
   padding: 0 2rem;
   width: 100%;
-  -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
   @media screen and (max-width: 900px) {
     padding: 0 1rem;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(12px);
   }
 }
 
@@ -278,29 +277,30 @@
 
 .navbar__dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% + 0.75rem);
   left: 0;
   margin-top: 0;
-  background: rgba(0, 0, 0, 0.98);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(240, 121, 0, 0.3);
-  border-radius: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
   list-style: none;
-  padding: 0.75rem 0;
-  min-width: 200px;
+  padding: 0.5rem;
+  min-width: 220px;
   z-index: 1000;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 10px rgba(240, 121, 0, 0.1);
-  animation: dropdownFadeIn 0.2s ease-out;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  animation: dropdownFadeIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   pointer-events: auto;
 
   // Create an invisible top area to catch mouse events before menu
   &::before {
     content: '';
     position: absolute;
-    top: -0.5rem;
+    top: -0.75rem;
     left: 0;
     right: 0;
-    height: 0.5rem;
+    height: 0.75rem;
     background: transparent;
     pointer-events: auto;
   }
@@ -374,6 +374,7 @@
 
     &:hover {
       color: var(--secondary-color);
+      transform: translateX(3px);
     }
   }
 

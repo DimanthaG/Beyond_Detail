@@ -2,7 +2,7 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, HomeProcess } from '../../components';
+import { Loading, HomeProcess, SkillShowcase, TrustBadges } from '../../components';
 import { Award, Users, Target, Shield, Sparkles, Phone, ArrowRight } from 'lucide-react';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import './About.scss';
@@ -196,6 +196,9 @@ function About() {
 
             <HomeProcess />
 
+            <SkillShowcase />
+
+
             <section className='about__cta'>
               <div className='about__cta-container'>
                 <motion.div
@@ -232,6 +235,8 @@ function About() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <Contact />
           </div>
         </motion.div>

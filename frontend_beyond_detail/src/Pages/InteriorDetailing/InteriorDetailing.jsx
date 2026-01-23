@@ -1,15 +1,16 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, FAQSection } from '../../components';
+import { Loading, FAQSection, SkillShowcase, TrustBadges, ErrorBoundary } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './InteriorDetailing.scss';
 
 // Lazy load heavy components to improve initial bundle size
+import SEO from '../../components/SEO';
+import InteriorDetailingHero from '../../components/InteriorDetailingHero/InteriorDetailingHero';
+
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
-const InteriorDetailingHero = lazy(() => import('../../components/InteriorDetailingHero/InteriorDetailingHero'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function InteriorDetailing() {
@@ -57,22 +58,13 @@ function InteriorDetailing() {
           <div className='interior-detailing__wrapper'>
             <InteriorDetailingHero scrollTarget="#pricing" />
 
-            {/* GEO Answer Block - Optimized for ChatGPT/Perplexity Citations */}
-            <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '3rem auto', backgroundColor: '#f8f9fa', padding: '2rem', borderRadius: '8px' }}>
-              <h2 className="seo-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: '#f07900' }}>
-                How to remove road salt stains from car seats in Toronto?
-              </h2>
-              <div>
-                <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1.5rem', color: '#1a1a1a' }}>
-                  Road salt stains require <strong>professional hot water extraction</strong> (steam cleaning) to fully remove without damaging fabric.
-                  At Beyond Detail in Scarborough, we use <strong>heated extractors that inject pH-balanced solution at 200°F</strong>, breaking down crystallized salt deposits that regular vacuuming can't reach.
-                  DIY methods like household cleaners often spread salt deeper into foam padding, causing permanent white rings and fabric rot.
-                </p>
-                <p className="seo-text-lg" style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#1a1a1a' }}>
-                  For Scarborough and Toronto drivers dealing with <strong>Highway 401 slush and Markham Road winter conditions</strong>, we recommend professional extraction every 4-6 weeks during winter months (December-March).
-                  Our <strong>$149-$299 interior packages</strong> at <strong>170 Finchdene Square</strong> include salt stain removal, carpet shampooing, and fabric protection to prevent future damage.
-                  The process takes 2-4 hours and seats are <strong>80% dry within 3 hours</strong> — critical during Toronto's freeze-thaw cycles that can cause mold if seats stay wet overnight.
-                  Left untreated, salt stains corrode seat foam and reduce resale value by $500-$1,500 on vehicles like the <strong>Honda CR-V and Toyota RAV4</strong>, which have particularly absorbent factory cloth.
+            {/* Premium Overview */}
+            <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 className="seo-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Deep Interior Restoration</h2>
+                <p className="seo-text-lg" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                  From salt stains to pet hair, our interior detailing tackles the toughest challenges.
+                  We use <strong>hot water extraction</strong> and professional-grade steam cleaners to restore your cabin to showroom condition.
                 </p>
               </div>
             </section>
@@ -209,6 +201,8 @@ function InteriorDetailing() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <TrustBadges />
+            <SkillShowcase />
             <FAQSection data={interiorDetailingFAQs} title="Interior Detailing FAQs" />
             <Contact />
           </div>

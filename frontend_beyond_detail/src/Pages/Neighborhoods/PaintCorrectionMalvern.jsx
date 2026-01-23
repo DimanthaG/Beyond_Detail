@@ -13,6 +13,8 @@ const SEO = lazy(() => import('../../components/SEO'));
 const PaintCorrectionHero = lazy(() => import('../../components/PaintCorrectionHero/PaintCorrectionHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function PaintCorrectionMalvern() {
   return (
@@ -84,6 +86,15 @@ function PaintCorrectionMalvern() {
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>
+            <Suspense fallback={null}>
+              <TrustBadges />
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <SkillShowcase />
+            </Suspense>
+
+
             
             <Contact />
           </div>

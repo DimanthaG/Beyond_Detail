@@ -3,24 +3,16 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, ErrorBoundary, FAQSection, TrustBadges } from '../../components';
+import { Loading, ErrorBoundary, FAQSection, TrustBadges, SkillShowcase } from '../../components';
+import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { WINDOW_TINT_PACKAGES } from '../../constants/servicePackages';
 import './Tints.scss';
 
 // Lazy load heavy components to improve initial bundle size
 import TintsHero from '../../components/TintsHero/TintsHero';
 import SEO from '../../components/SEO';
 
-// Lazy load heavy components to improve initial bundle size
-// const SEO = lazy(() => import('../../components/SEO'));
-// const TintsHero = lazy(() => import('../../components/TintsHero/TintsHero'));
-const TintsFeatures = lazy(() => import('../../components/TintsFeatures/TintsFeatures'));
-const TintBenefitsInfo = lazy(() => import('../../components/TintBenefitsInfo/TintBenefitsInfo'));
-const TintSpecsChart = lazy(() => import('../../components/TintSpecsChart/TintSpecsChart'));
 const TintsPercentageTabs = lazy(() => import('../../components/TintsPercentageTabs/TintsPercentageTabs'));
-const TintsPercentage = lazy(() => import('../../components/TintsPercentage/TintsPercentage'));
-const TintLawsChart = lazy(() => import('../../components/TintsLaws/TintLawsChart'));
-const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLawsExplanation'));
-const TintLawsSources = lazy(() => import('../../components/TintsLaws/TintLawsSources'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
@@ -59,8 +51,6 @@ function Tints() {
 
   return (
     <>
-      {/* Suspense fallback={<Loading />}>  REMOVED OUTER SUSPENSE */}
-      {/* FAQ Schema managed by SEO component now */}
       <SEO
         title='Llumar Window Tinting Scarborough | Starting at $250 | Lifetime Warranty'
         description='Llumar authorized dealer in Scarborough. Professional window tinting with 97% heat rejection (IRX), UV protection, and lifetime warranty. Serving Toronto & GTA. Same-day service available.'
@@ -84,6 +74,7 @@ function Tints() {
             titleLine2="Scarborough"
             titleLine3="Starting at $250"
           />
+
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
             <Suspense fallback={null}>
               <ServiceGallery
@@ -93,55 +84,48 @@ function Tints() {
             </Suspense>
           </ErrorBoundary>
 
-
-
-          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '2rem auto 0' }}>
-            <h2 className="seo-title">
-              Advanced LLumar Ceramic Tinting in Scarborough
+          {/* Premium Overview Section */}
+          <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
+            <h2 className="seo-title" style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '2rem' }}>
+              Advanced LLumar Ceramic Content
             </h2>
-            <div>
-              <p className="seo-text-lg">
-                Looking for competitive <strong>window tinting prices in Toronto and Scarborough</strong>? Beyond Detail is your trusted specialist.
-                Located at <strong>170 Finchdene Square, Unit 11, Scarborough</strong>, we provide premium LLumar window tint installation
-                with same-day service available. Transparency is key: our professional tint packages <strong>start at $250</strong> for sedans, with no hidden fees.
-              </p>
-              <p className="seo-text-lg">
-                Whether you're in <Link to="/window-tinting-scarborough">Scarborough</Link>,{' '}
-                <Link to="/window-tinting-markham">Markham</Link>,{' '}
-                <Link to="/window-tinting-pickering">Pickering</Link>,
-                or anywhere in the GTA, we're your local window tinting experts.
-                All installations include a <strong>lifetime warranty</strong> and professional service you can trust.
-              </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+              <div>
+                <h3 style={{ color: '#f07900', fontSize: '1.5rem', marginBottom: '1rem' }}>Why Choose Ceramic Tint?</h3>
+                <p className="seo-text-lg">
+                  Standard carbon tints only provide privacy. <strong>Ceramic tint</strong> blocks <strong>heat</strong>.
+                  Our LLumar IRX films use nano-ceramic technology to reject up to <strong>97% of infrared heat</strong>, keeping your cabin significantly cooler in Scarborough summers.
+                  It also blocks 99% of harmful UV rays, protecting your skin and preventing your dashboard from cracking.
+                </p>
+              </div>
+              <div>
+                <h3 style={{ color: '#f07900', fontSize: '1.5rem', marginBottom: '1rem' }}>Lifetime Warranty</h3>
+                <p className="seo-text-lg">
+                  We are an authorized LLumar dealer. Every installation comes with a <strong>manufacturer-backed lifetime warranty</strong> against bubbling, peeling, fading, or turning purple.
+                  Located at <strong>170 Finchdene Square</strong>, we provide same-day service for clients across Toronto, Markham, and Pickering.
+                </p>
+              </div>
             </div>
           </section>
 
-          {/* Internal Linking Section */}
-          <div className="seo-content-box" style={{ maxWidth: '1000px', margin: '3rem auto 0' }}>
-            <p className="seo-text-lg">
-              Beyond Detail provides premium <strong><Link to="/tint">window tinting in Toronto</Link></strong> using LLumar films.
-              Combine your tint service with <Link to="/ceramic-coating-scarborough">ceramic coating</Link> for ultimate protection.
-              We also offer comprehensive <Link to="/auto-detail">auto detailing</Link> to keep your car looking showroom new inside and out.
-            </p>
-          </div>
+          <ServicePricing
+            title="Window Tint Packages"
+            packages={WINDOW_TINT_PACKAGES}
+          />
 
-          <ErrorBoundary>
-            <Suspense fallback={<Loading />}>
-              <TintsFeatures />
-              <TintBenefitsInfo />
-              <TintLawsExplanation />
-              <TintSpecsChart />
+          {/* Consolidated Technical Info */}
+          <Suspense fallback={<Loading />}>
+            <section style={{ margin: '4rem 0' }}>
               <TintsPercentageTabs />
-              <TintLawsChart />
-              <TintsPercentage />
-              <TintLawsSources />
-              <TrustBadges />
-              <FAQSection data={tintsFAQs} title="Window Tinting FAQs" />
-              <Contact />
-            </Suspense>
-          </ErrorBoundary>
+            </section>
+
+            <TrustBadges />
+            <SkillShowcase />
+            <FAQSection data={tintsFAQs} title="Window Tinting FAQs" />
+            <Contact />
+          </Suspense>
         </div>
       </motion.div>
-      {/* </Suspense> */}
     </>
   );
 }

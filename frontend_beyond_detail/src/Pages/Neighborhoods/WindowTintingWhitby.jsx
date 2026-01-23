@@ -16,6 +16,8 @@ const TintLawsChart = lazy(() => import('../../components/TintsLaws/TintLawsChar
 const TintLawsExplanation = lazy(() => import('../../components/TintsLaws/TintLawsExplanation'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function WindowTintingWhitby() {
   return (
@@ -67,6 +69,15 @@ function WindowTintingWhitby() {
             <TintsPercentageTabs />
             <TintLawsChart />
             <TintsPercentage />
+            <Suspense fallback={null}>
+              <TrustBadges />
+            </Suspense>
+
+            <Suspense fallback={null}>
+              <SkillShowcase />
+            </Suspense>
+
+
             <Contact />
           </div>
         </motion.div>

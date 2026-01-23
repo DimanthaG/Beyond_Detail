@@ -2,13 +2,15 @@ import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, FAQSection } from '../../components';
+import SEO from '../../components/SEO';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './LuxuryDetailing.scss';
 
-// Reuse components
+// Lazy load heavy components
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
+const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
+const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function LuxuryDetailing() {
@@ -33,16 +35,17 @@ function LuxuryDetailing() {
 
     return (
         <>
+            <SEO
+                title='Luxury Car Detailing Toronto | Exotics & Supercars | Beyond Detail'
+                description='Premier luxury car detailing in Toronto. Specialized care for exotics, supercars, and classic vehicles. Paint correction, ceramic coating, and bespoke detailing services. Call (647) 689-6109'
+                name='Beyond Detail Luxury'
+                type='website'
+                serviceType='Luxury Car Detailing'
+                keywords='luxury car detailing toronto, exotic car detailing toronto, supercar detailing, paint correction exotics, high end car detailing, matte paint care'
+                faq={luxuryFAQs}
+            />
             <Suspense fallback={<Loading />}>
-                <SEO
-                    title='Luxury Car Detailing Toronto | Exotics & Supercars | Beyond Detail'
-                    description='Premier luxury car detailing in Toronto. Specialized care for exotics, supercars, and classic vehicles. Paint correction, ceramic coating, and bespoke detailing services. Call (647) 689-6109'
-                    name='Beyond Detail Luxury'
-                    type='website'
-                    serviceType='Luxury Car Detailing'
-                    keywords='luxury car detailing toronto, exotic car detailing toronto, supercar detailing, paint correction exotics, high end car detailing, matte paint care'
-                    faq={luxuryFAQs}
-                />
+
                 <motion.div
                     initial='out'
                     animate='in'
@@ -91,6 +94,55 @@ function LuxuryDetailing() {
                                 </div>
                             </div>
                         </div>
+
+                        {/* Premium Overview Section */}
+                        <motion.div
+                            className="premium-overview"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            style={{
+                                background: 'var(--glass-bg)',
+                                backdropFilter: 'blur(20px)',
+                                border: '1px solid var(--glass-border)',
+                                borderRadius: '16px',
+                                padding: '3rem',
+                                margin: '4rem auto',
+                                maxWidth: '1200px'
+                            }}
+                        >
+                            <h2 style={{
+                                fontSize: '2.5rem',
+                                marginBottom: '1.5rem',
+                                background: 'linear-gradient(135deg, #f07900 0%, #ffd700 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                fontFamily: 'var(--font-base)',
+                                letterSpacing: '1px'
+                            }}>
+                                Uncompromising Excellence for Discerning Collectors
+                            </h2>
+                            <p style={{
+                                fontSize: '1.1rem',
+                                lineHeight: '1.8',
+                                color: 'var(--text-secondary)',
+                                marginBottom: '1.5rem'
+                            }}>
+                                Your <strong>Ferrari, Lamborghini, Porsche, or McLaren</strong> deserves more than a standard detail.
+                                Our luxury division specializes in the meticulous care required for exotic and high-performance vehicles.
+                                From correcting soft Italian paint to protecting carbon fiber trim, we understand the nuances of your investment.
+                            </p>
+                            <p style={{
+                                fontSize: '1.1rem',
+                                lineHeight: '1.8',
+                                color: 'var(--text-secondary)'
+                            }}>
+                                With <strong>IDA certification</strong>, comprehensive insurance for high-value vehicles, and expertise in matte/satin finishes,
+                                we offer concours-level preparation and white-glove concierge service. Every detail is executed with precision,
+                                patience, and an unwavering commitment to perfection.
+                            </p>
+                        </motion.div>
 
                         <ServiceInfoSection
                             title="Bespoke Automotive Care"
@@ -203,6 +255,14 @@ function LuxuryDetailing() {
                         </Suspense>
 
                         <FAQSection data={luxuryFAQs} title="Luxury Detailing FAQs" />
+
+                        <Suspense fallback={null}>
+                            <TrustBadges />
+                        </Suspense>
+
+                        <Suspense fallback={null}>
+                            <SkillShowcase />
+                        </Suspense>
 
                         <Contact />
                     </div>
