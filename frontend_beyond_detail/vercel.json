@@ -4,14 +4,14 @@
   "public": false,
   "redirects": [
     {
-      "source": "/",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "beyonddetail.ca"
         }
       ],
-      "destination": "https://www.beyonddetail.ca",
+      "destination": "https://www.beyonddetail.ca/:path*",
       "permanent": true
     }
   ],
