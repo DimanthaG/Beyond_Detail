@@ -27,8 +27,8 @@ function CarDetailingMorningside() {
     return (
         <>
             <SEO
-                title="Car Detailing Morningside | 10-Year Warranty | Beyond Detail"
-                description="Professional car detailing in Morningside. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving U of T Scarborough & Military Trail areas."
+                title="Car Detailing Morningside | 5+ Year Protection | Beyond Detail"
+                description="Professional car detailing in Morningside. 5+ Year Protection, Free Consultation, Same-Day Service. Serving U of T Scarborough & Military Trail areas."
                 name="Beyond Detail Morningside"
                 type="website"
                 keywords="car detailing morningside, auto detailing morningside, window tinting morningside, ceramic coating morningside, car wash morningside"
@@ -48,7 +48,7 @@ function CarDetailingMorningside() {
                             titleLine1="Professional Car Detailing"
                             titleLine2="in MORNINGSIDE"
                             titleLine3=""
-                            subtitle="<strong>10-Year Warranty</strong> | <strong>3D Design Included</strong> | <strong>Same-Day Service</strong>.<br/><br/>Whether you're near <strong>Morningside Park</strong>, the <strong>University of Toronto Scarborough campus</strong>, or along <strong>Military Trail</strong>, we bring expert detailing to your doorstep."
+                            subtitle="<strong>5+ Year Protection</strong> | <strong>Free Consultation</strong> | <strong>Same-Day Service</strong>.<br/><br/>Whether you're near <strong>Morningside Park</strong>, the <strong>University of Toronto Scarborough campus</strong>, or along <strong>Military Trail</strong>, we bring expert detailing to your doorstep."
                         />
 
                         <Suspense fallback={null}>

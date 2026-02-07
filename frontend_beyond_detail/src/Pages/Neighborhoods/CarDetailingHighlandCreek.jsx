@@ -27,8 +27,8 @@ function CarDetailingHighlandCreek() {
     return (
         <>
             <SEO
-                title="Car Detailing Highland Creek | 10-Year Warranty | Beyond Detail"
-                description="Expert Auto Detailing in Highland Creek. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Highland Creek Village & Rouge River areas."
+                title="Car Detailing Highland Creek | 5+ Year Protection | Beyond Detail"
+                description="Expert Auto Detailing in Highland Creek. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Highland Creek Village & Rouge River areas."
                 name="Beyond Detail Highland Creek"
                 type="website"
                 keywords="car detailing highland creek, auto detailing highland creek, window tinting highland creek, ceramic coating highland creek, car wash highland creek"
@@ -48,7 +48,7 @@ function CarDetailingHighlandCreek() {
                             titleLine1="Expert Auto Detailing"
                             titleLine2="in HIGHLAND CREEK"
                             titleLine3=""
-                            subtitle="<strong>10-Year Warranty</strong> | <strong>3D Design Included</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Highland Creek Village</strong> to the areas near the <strong>Rouge River</strong>, we service all of Highland Creek with premium detailing."
+                            subtitle="<strong>5+ Year Protection</strong> | <strong>Free Consultation</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Highland Creek Village</strong> to the areas near the <strong>Rouge River</strong>, we service all of Highland Creek with premium detailing."
                         />
 
                         <Suspense fallback={null}>

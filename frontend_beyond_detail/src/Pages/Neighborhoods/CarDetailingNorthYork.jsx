@@ -29,8 +29,8 @@ function CarDetailingNorthYork() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title="Car Detailing North York | 10-Year Warranty | Beyond Detail"
-          description="Professional car detailing in North York. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Willowdale & Don Mills areas."
+          title="Car Detailing North York | 5+ Year Protection | Beyond Detail"
+          description="Professional car detailing in North York. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Willowdale & Don Mills areas."
           name="Beyond Detail North York"
           type="website"
           keywords="car detailing north york, auto detailing north york, window tinting north york, ceramic coating north york, car wash north york"
@@ -49,7 +49,7 @@ function CarDetailingNorthYork() {
               titleLine1="Professional Car Detailing"
               titleLine2="in NORTH YORK"
               titleLine3=""
-              subtitle="<strong>10-Year Warranty</strong> | <strong>3D Design Included</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Willowdale</strong> to <strong>Don Mills</strong>, we bring expert detailing services to all of North York."
+              subtitle="<strong>5+ Year Protection</strong> | <strong>Free Consultation</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Willowdale</strong> to <strong>Don Mills</strong>, we bring expert detailing services to all of North York."
             />
 
             <Suspense fallback={null}>

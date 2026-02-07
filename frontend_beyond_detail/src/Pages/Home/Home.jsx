@@ -55,7 +55,7 @@ function Home() {
     <div className='home__container'>
       <SEO
         title='Car Detailing Scarborough | #1 Auto Detailing Near Me'
-        description='Best car detailing in Scarborough. Ceramic coating, paint correction, window tinting. 10-year warranty, 3D design included. Book online today!'
+        description='Best car detailing in Scarborough. Ceramic coating, paint correction, window tinting. 5+ Year Protection, free consultation. Book online today!'
         name='Beyond Detail | Car Detailing Scarborough'
         type='website'
         keywords='Car Detailing Scarborough, Mobile Car Detailing Scarborough, Auto Detailing Packages, Ceramic Coating Scarborough, Paint Correction Scarborough, Interior Detailing Toronto'

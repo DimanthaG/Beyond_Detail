@@ -156,7 +156,9 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<Home />} />
             <Route path='/booking' element={<Booking />} />
+            <Route path='/book' element={<Booking />} />
             <Route path='/home' element={<Home />} />
+            <Route path='/services' element={<WrappedServices />} />
             <Route path='/about' element={<WrappedAbout />} />
             <Route path='/tint' element={<WrappedTints />} />
             <Route path='/window-tinting' element={<WrappedTints />} />
@@ -181,6 +183,7 @@ function App() {
             <Route path='/car-detailing-pickering' element={<CarDetailingPickering />} />
             <Route path='/service-area/markham' element={<CarDetailingMarkham />} />
             <Route path='/car-detailing-markham' element={<CarDetailingMarkham />} />
+            <Route path='/markham' element={<CarDetailingMarkham />} />
             <Route path='/service-area/north-york' element={<CarDetailingNorthYork />} />
             <Route path='/car-detailing-north-york' element={<CarDetailingNorthYork />} />
             <Route path='/car-detailing-toronto' element={<CarDetailingToronto />} />

@@ -29,8 +29,8 @@ function CarDetailingPickering() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title="Car Detailing Pickering | 10-Year Warranty | Beyond Detail"
-          description="Professional car detailing in Pickering. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Durham Region & GTA."
+          title="Car Detailing Pickering | 5+ Year Protection | Beyond Detail"
+          description="Professional car detailing in Pickering. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Durham Region & GTA."
           name="Beyond Detail Pickering"
           type="website"
           keywords="car detailing pickering, auto detailing pickering, window tinting pickering, ceramic coating pickering, car wash pickering"
@@ -49,7 +49,7 @@ function CarDetailingPickering() {
               titleLine1="Professional Car Detailing"
               titleLine2="in PICKERING"
               titleLine3=""
-              subtitle="<strong>10-Year Warranty</strong> | <strong>3D Design Included</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Rouge Park</strong> to <strong>Liverpool</strong>, we bring expert detailing services to all of Pickering."
+              subtitle="<strong>5+ Year Protection</strong> | <strong>Free Consultation</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Rouge Park</strong> to <strong>Liverpool</strong>, we bring expert detailing services to all of Pickering."
             />
 
             <Suspense fallback={null}>

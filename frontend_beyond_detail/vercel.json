@@ -19,6 +19,58 @@
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
+    },
+    {
+      "source": "/window-tinting-scarborough",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ceramic-coating-scarborough",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/paint-correction-scarborough",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/markham",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/book",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/car-detailing-woburn",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/car-detailing-morningside",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/car-detailing-highland-creek",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [

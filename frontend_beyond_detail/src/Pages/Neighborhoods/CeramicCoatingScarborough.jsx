@@ -35,8 +35,8 @@ function CeramicCoatingScarborough() {
   return (
     <>
       <SEO
-        title="Ceramic Coating Scarborough | 10-Year Warranty | Beyond Detail"
-        description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 10-year warranty, 3D design included. Serving Toronto & North York. Get quote today!"
+        title="Ceramic Coating Scarborough | 5+ Year Protection | Beyond Detail"
+        description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 5+ year protection, free consultation. Serving Toronto & North York. Get quote today!"
         name="Beyond Detail Ceramic Coating"
         type="website"
         keywords="ceramic coating scarborough, ceramic coating near me, ceramic coating north york, paint protection scarborough, best ceramic coating scarborough"
@@ -56,8 +56,8 @@ function CeramicCoatingScarborough() {
               scrollTarget="#pricing"
               titleLine1="Ceramic Coating"
               titleLine2="That Lasts"
-              titleLine3="10 Years"
-              subtitle="Professional-grade nano-ceramic protection for your vehicle in Scarborough. Includes free 3D design consultation."
+              titleLine3="5+ Years"
+              subtitle="Professional-grade nano-ceramic protection for your vehicle in Scarborough. Includes comprehensive consultation."
             />
 
             <Suspense fallback={null}>
@@ -86,7 +86,7 @@ function CeramicCoatingScarborough() {
                   <div style={{ background: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '15px' }}>
                     <span style={{ fontSize: '4rem', color: '#f07900', fontWeight: 'bold', display: 'block', marginBottom: '1rem' }}>3</span>
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Enjoy</h3>
-                    <p style={{ color: '#ccc' }}>Drive with peace of mind knowing your paint is protected for 10 years.</p>
+                    <p style={{ color: '#ccc' }}>Drive with peace of mind knowing your paint is protected for 5+ years.</p>
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@ function CeramicCoatingScarborough() {
                   description: "Wash less often and maintain that showroom look with minimal effort."
                 },
                 {
-                  title: "10-Year Warranty",
+                  title: "5+ Year Protection",
                   description: "We stand behind our work with an industry-leading guarantee for long-term peace of mind."
                 }
               ]}
@@ -155,8 +155,8 @@ function CeramicCoatingScarborough() {
                 "Thorough decontamination process",
                 "Professional ceramic coating application",
                 "Premium nano-ceramic coating products",
-                "10-Year Warranty-backed protection",
-                "3D Design Included",
+                "5+ Year Protection",
+                "Free Consultation",
               ]}
             />
 

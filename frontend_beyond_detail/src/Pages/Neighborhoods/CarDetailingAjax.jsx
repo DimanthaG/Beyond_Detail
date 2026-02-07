@@ -29,8 +29,8 @@ function CarDetailingAjax() {
         <>
             <Suspense fallback={<Loading />}>
                 <SEO
-                    title="Car Detailing Ajax | 10-Year Warranty | Beyond Detail"
-                    description="Professional car detailing in Ajax. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Durham Region & GTA."
+                    title="Car Detailing Ajax | 5+ Year Protection | Beyond Detail"
+                    description="Professional car detailing in Ajax. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Durham Region & GTA."
                     name="Beyond Detail Ajax"
                     type="website"
                     keywords="car detailing ajax, auto detailing ajax, window tinting ajax, ceramic coating ajax, car wash ajax"
@@ -49,7 +49,7 @@ function CarDetailingAjax() {
                             titleLine1="Professional Car Detailing"
                             titleLine2="in AJAX"
                             titleLine3=""
-                            subtitle="<strong>10-Year Warranty</strong> | <strong>3D Design Included</strong> | <strong>Same-Day Service</strong>.<br/><br/>From the <strong>Waterfront</strong> to <strong>Taunton</strong>, we bring expert detailing services to all of Ajax."
+                            subtitle="<strong>5+ Year Protection</strong> | <strong>Free Consultation</strong> | <strong>Same-Day Service</strong>.<br/><br/>From the <strong>Waterfront</strong> to <strong>Taunton</strong>, we bring expert detailing services to all of Ajax."
                         />
 
                         <Suspense fallback={null}>

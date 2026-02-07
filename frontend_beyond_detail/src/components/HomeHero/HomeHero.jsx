@@ -240,7 +240,7 @@ export function HomeHero() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Shield className="home-hero__feature-icon" />
-                    <span>10-Year Warranty</span>
+                    <span>5+ Year Protection</span>
                   </motion.div>
                   <motion.div
                     className="home-hero__feature-item"
@@ -248,7 +248,7 @@ export function HomeHero() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Sparkles className="home-hero__feature-icon" />
-                    <span>3D Design Included</span>
+                    <span>Free Consultation</span>
                   </motion.div>
                   <motion.div
                     className="home-hero__feature-item"
