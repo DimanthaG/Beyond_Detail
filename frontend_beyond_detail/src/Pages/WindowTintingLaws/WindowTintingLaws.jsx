@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import SEO from '../../components/SEO';
 import { Loading } from '../../components';
 import { animationOne, transition } from '../../components/Transition';
-import { Shield, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { Shield, AlertTriangle, CheckCircle, Info, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Contact = lazy(() => import('../../components/Contact/Contact'));
