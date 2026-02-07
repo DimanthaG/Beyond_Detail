@@ -377,7 +377,7 @@ function CarDetailingPickering() {
                 <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Ajax</span>
                 <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Whitby</span>
                 <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Oshawa</span>
-                <a href="/car-detailing-scarborough" style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px', color: 'inherit', textDecoration: 'none' }}>Scarborough</a>
+                <Link to="/car-detailing-scarborough" style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px', color: 'inherit', textDecoration: 'none' }}>Scarborough</Link>
               </div>
             </section>
 

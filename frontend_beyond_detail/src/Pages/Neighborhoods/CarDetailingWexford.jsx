@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
@@ -16,59 +17,68 @@ const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'
 const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function CarDetailingWexford() {
-    return (
-        <>
-            <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Car Detailing Wexford | Expert Auto Detailing Services"
-                    description="Top-rated car detailing in Wexford & Maryvale. ⭐ Professional In-Shop Detailing | Interior Shampoo & Exterior Wax | Ceramic Coating. Call (647) 689-6109"
-                    name="Beyond Detail Wexford"
-                    type="website"
-                    keywords="car detailing wexford, auto detailing wexford, car wash wexford, ceramic coating wexford, paint correction wexford"
-                />
+  // Voice Search Optimized FAQ Schema
+  const wexfordFAQ = [
+    {
+      question: "Do you offer mobile detailing in Wexford?",
+      answer: "Yes! We provide mobile car detailing across Wexford and Scarborough, as well as premium in-shop services just a short drive away."
+    }
+  ];
+
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <SEO
+          title="Car Detailing Wexford | Expert Auto Detailing Services"
+          description="Top-rated car detailing in Wexford & Maryvale. ⭐ Professional In-Shop Detailing | Interior Shampoo & Exterior Wax | Ceramic Coating. Call (647) 689-6109"
+          name="Beyond Detail Wexford"
+          type="website"
+          keywords="car detailing wexford, auto detailing wexford, car wash wexford, ceramic coating wexford, paint correction wexford"
+          faq={wexfordFAQ}
+        />
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={{ ...transition, delay: 0 }}
+        >
+          <div className="auto-detail__wrapper">
+            <AutoDetailHero
+              scrollTarget="#pricing"
+              titleLine1="Auto Detailing Services in"
+              titleLine2="WEXFORD &"
+              titleLine3="SCARBOROUGH"
+              subtitle="From Lawrence to Victoria Park, we provide <strong>Wexford</strong> with superior car detailing. Our expert team handles everything from basic washes to full paint restoration."
+            />
+
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="auto-detail"
+                title="Wexford Detailing Projects"
+                forceLandscape
+              />
+            </Suspense>
+
+            <section className="package-info">
+              <div className="package-info__container">
                 <motion.div
-                    initial="out"
-                    animate="in"
-                    exit="out"
-                    variants={animationOne}
-                    transition={{ ...transition, delay: 0 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                  variants={{
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                    hidden: { opacity: 0, y: 20 }
+                  }}
+                  className="package-info__header"
                 >
-                    <div className="auto-detail__wrapper">
-                        <AutoDetailHero 
-                            scrollTarget="#pricing"
-                            titleLine1="Auto Detailing Services in"
-                            titleLine2="WEXFORD &"
-                            titleLine3="SCARBOROUGH"
-                            subtitle="From Lawrence to Victoria Park, we provide <strong>Wexford</strong> with superior car detailing. Our expert team handles everything from basic washes to full paint restoration."
-                        />
+                  <h2 className="package-info__title">Wexford Detailing Packages</h2>
+                  <p className="package-info__subtitle">
+                    Reliable and professional detailing for Wexford car owners.
+                  </p>
+                </motion.div>
 
-                        <Suspense fallback={null}>
-                            <ServiceGallery
-                                serviceType="auto-detail"
-                                title="Wexford Detailing Projects"
-                                forceLandscape
-                            />
-                        </Suspense>
-
-                        <section className="package-info">
-                            <div className="package-info__container">
-                                <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                                    variants={{
-                                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-                                        hidden: { opacity: 0, y: 20 }
-                                    }}
-                                    className="package-info__header"
-                                >
-                                    <h2 className="package-info__title">Wexford Detailing Packages</h2>
-                                    <p className="package-info__subtitle">
-                                        Reliable and professional detailing for Wexford car owners.
-                                    </p>
-                                </motion.div>
-
-                                <div className="package-info__grid">
+                <div className="package-info__grid">
                   <motion.article
                     initial="hidden"
                     whileInView="visible"
@@ -165,13 +175,13 @@ function CarDetailingWexford() {
                       </p>
                     </div>
                   </motion.article>
-                                </div>
-                            </div>
-                        </section>
+                </div>
+              </div>
+            </section>
 
-                        <Suspense fallback={null}>
-                            <GoogleReviewsCarousel />
-                        </Suspense>
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
 
             <ServicePricing
               title="Wexford Detailing Pricing"
@@ -197,7 +207,7 @@ function CarDetailingWexford() {
                     hidden: {
                       y: 10,
                       opacity: 0,
-                      },
+                    },
                   }}
                   className="detail-options__header"
                 >
@@ -232,7 +242,7 @@ function CarDetailingWexford() {
                     <div className="detail-options__card-header">
                       <h3 className="detail-options__card-title">Interior Only Detail</h3>
                     </div>
-                    
+
                     <div className="detail-options__price-section">
                       <div className="detail-options__price-range">
                         <span className="detail-options__price-label">Starting at</span>
@@ -313,7 +323,7 @@ function CarDetailingWexford() {
                     <div className="detail-options__card-header">
                       <h3 className="detail-options__card-title">Exterior Only Detail</h3>
                     </div>
-                    
+
                     <div className="detail-options__price-section">
                       <div className="detail-options__price-range">
                         <span className="detail-options__price-label">Starting at</span>
@@ -382,14 +392,38 @@ function CarDetailingWexford() {
 
 
 
-                        <Suspense fallback={null}>
-                            <Contact />
-                        </Suspense>
-                    </div>
-                </motion.div>
+            {/* Also Serving Section */}
+            <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '4rem' }}>
+              <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>Proudly Serving Wexford & Scarborough</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', marginBottom: '1rem' }}>
+                Beyond Detail provides premium mobile detailing services throughout <strong>Wexford</strong>.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+                <span style={{ background: '#f07900', color: 'white', padding: '8px 16px', borderRadius: '50px', fontWeight: '600' }}>Wexford</span>
+                <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Scarborough</span>
+                <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>North York</span>
+                <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Pickering</span>
+                <Link to="/car-detailing-scarborough" style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px', color: 'inherit', textDecoration: 'none' }}>Scarborough</Link>
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px', marginBottom: '4rem' }}>
+              <h3 style={{ textAlign: 'center', fontSize: '1.8rem', marginBottom: '2rem' }}>Common Questions in Wexford</h3>
+              <div style={{ background: '#111', padding: '2rem', borderRadius: '12px' }}>
+                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: '#fff' }}>Do you provide mobile detailing in Wexford?</h4>
+                <p style={{ color: '#ccc', lineHeight: '1.6' }}>Yes! We offer both <strong>mobile detailing</strong> services directly to your home in Wexford (Lawrence, Victoria Park, etc.) and premium in-shop services just a short drive away.</p>
+              </div>
+            </section>
+
+            <Suspense fallback={null}>
+              <Contact />
             </Suspense>
-        </>
-    );
+          </div>
+        </motion.div>
+      </Suspense>
+    </>
+  );
 }
 
 export default React.memo(CarDetailingWexford);
