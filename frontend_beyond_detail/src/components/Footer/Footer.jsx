@@ -128,6 +128,15 @@ function Footer() {
               <Link to='/auto-detail'>
                 INTERIOR DETAILING
               </Link>
+              <Link to='/pricing'>
+                PRICING
+              </Link>
+              <Link to='/areas-we-serve'>
+                AREAS WE SERVE
+              </Link>
+              <Link to='/window-tinting-laws-ontario'>
+                TINT LAWS
+              </Link>
               <Link to='/gallery'>
                 GALLERY
               </Link>

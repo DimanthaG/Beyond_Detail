@@ -12,7 +12,8 @@ import ScrollToTop from './components/ScrollToTop';
 // Import Home page directly (critical for LCP)
 import { Home } from './Pages';
 
-const ServiceAreas = lazy(() => import('./Pages/ServiceAreas/ServiceAreas')); // Import new page
+const ServiceAreas = lazy(() => import('./Pages/ServiceAreas/ServiceAreas'));
+const AreasWeServe = lazy(() => import('./Pages/ServiceAreas/AreasWeServe'));
 
 // Lazy load non-critical pages for better performance
 const About = lazy(() => import('./Pages').then(m => ({ default: m.About })));
@@ -131,6 +132,10 @@ const CarDetailingMarkhamRoad = lazy(() => import('./Pages/Neighborhoods/CarDeta
 const CarDetailingWoburn = lazy(() => import('./Pages/Neighborhoods/CarDetailingWoburn'));
 const CarDetailingMorningside = lazy(() => import('./Pages/Neighborhoods/CarDetailingMorningside'));
 const CarDetailingHighlandCreek = lazy(() => import('./Pages/Neighborhoods/CarDetailingHighlandCreek'));
+const Pricing = lazy(() => import('./Pages/Pricing/Pricing'));
+const WindowTintingLaws = lazy(() => import('./Pages/WindowTintingLaws/WindowTintingLaws'));
+const TailLightTintingScarborough = lazy(() => import('./Pages/Neighborhoods/TailLightTintingScarborough'));
+const HeadlightRestorationScarborough = lazy(() => import('./Pages/Neighborhoods/HeadlightRestorationScarborough'));
 const ExitIntentPopup = lazy(() => import('./components/ExitIntentPopup/ExitIntentPopup'));
 
 function App() {
@@ -179,6 +184,7 @@ function App() {
             <Route path='/luxury-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
             <Route path='/exotic-car-detailing-toronto' element={<WrappedLuxuryDetailing />} />
             <Route path='/service-areas' element={<WrappedServiceAreas />} />
+            <Route path='/areas-we-serve' element={<AreasWeServe />} />
             <Route path='/service-area/pickering' element={<CarDetailingPickering />} />
             <Route path='/car-detailing-pickering' element={<CarDetailingPickering />} />
             <Route path='/service-area/markham' element={<CarDetailingMarkham />} />
@@ -256,6 +262,12 @@ function App() {
             <Route path='/testimonials' element={<WrappedTestimonials />} />
             <Route path='/contact' element={<WrappedContact />} />
             <Route path='/contact-us' element={<WrappedContact />} />
+            <Route path='/pricing' element={<Pricing />} />
+            <Route path='/window-tinting-laws-ontario' element={<WindowTintingLaws />} />
+            <Route path='/ontariowindowtintinglaw' element={<WindowTintingLaws />} />
+            <Route path='/tail-light-tinting' element={<TailLightTintingScarborough />} />
+            <Route path='/tail-light-tinting-scarborough' element={<TailLightTintingScarborough />} />
+            <Route path='/headlight-restoration-scarborough' element={<HeadlightRestorationScarborough />} />
             <Route path='*' element={<WrappedError />} />
           </Routes>
         </Suspense>

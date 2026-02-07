@@ -57,6 +57,34 @@
       "destination": "/index.html"
     },
     {
+      "source": "/pricing",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/window-tinting-laws-ontario",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ontariowindowtintinglaw",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tail-light-tinting",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tail-light-tinting-scarborough",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/headlight-restoration-scarborough",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/areas-we-serve",
+      "destination": "/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/index.html"
     },

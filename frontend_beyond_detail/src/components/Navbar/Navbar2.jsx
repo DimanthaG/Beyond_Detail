@@ -27,6 +27,7 @@ function Navbar2({ className = '' }) {
     { name: 'Window Tint', path: '/tint', className: 'list-tints-active' },
     { name: 'Paint Correction', path: '/paint-correction', className: 'list-paint-correction-active' },
     { name: 'Ceramic Coating', path: '/ceramic-coatings', className: 'list-ceramic-coating-active' },
+    { name: 'Pricing', path: '/pricing', className: 'list-pricing-active' },
     {
       name: 'Services',
       path: '/auto-detail',
@@ -49,6 +50,8 @@ function Navbar2({ className = '' }) {
       dropdown: [
         { name: 'About', path: '/about' },
         { name: 'Gallery', path: '/gallery' },
+        { name: 'Areas We Serve', path: '/areas-we-serve' },
+        { name: 'Tint Laws', path: '/window-tinting-laws-ontario' },
         { name: 'FAQs', path: '/faqs' },
         { name: 'Blog', path: '/blog' }
       ]
