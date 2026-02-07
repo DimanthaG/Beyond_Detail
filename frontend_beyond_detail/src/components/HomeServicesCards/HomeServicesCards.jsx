@@ -62,6 +62,18 @@ function HomeServicesCards() {
                       >
                         {cards[0].cardOne.buttonLabel}
                       </span>
+                      <span
+                        style={{
+                          border: '2px solid #f07900',
+                          background: 'transparent',
+                          color: '#fff',
+                          marginLeft: '1rem',
+                          padding: '0 10px'
+                        }}
+                        onClick={() => navigate('/pricing')}
+                      >
+                        View Pricing
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -99,6 +111,18 @@ function HomeServicesCards() {
                         }}
                       >
                         {cards[0].cardTwo.buttonLabel}
+                      </span>
+                      <span
+                        style={{
+                          border: '2px solid #f07900',
+                          background: 'transparent',
+                          color: '#fff',
+                          marginLeft: '1rem',
+                          padding: '0 10px'
+                        }}
+                        onClick={() => navigate('/pricing')}
+                      >
+                        View Pricing
                       </span>
                     </div>
                   </div>
@@ -138,6 +162,18 @@ function HomeServicesCards() {
                         }}
                       >
                         {cards[0].cardThree.buttonLabel}
+                      </span>
+                      <span
+                        style={{
+                          border: '2px solid #f07900',
+                          background: 'transparent',
+                          color: '#fff',
+                          marginLeft: '1rem',
+                          padding: '0 10px'
+                        }}
+                        onClick={() => navigate('/pricing')}
+                      >
+                        View Pricing
                       </span>
                     </div>
                   </div>

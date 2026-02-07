@@ -292,6 +292,13 @@ export function HomeHero() {
                     <Phone className="home-hero__icon" />
                     <span>Call (647) 689-6109</span>
                   </motion.a>
+                  <Link
+                    to="/pricing"
+                    className="home-hero__action-button home-hero__action-button--outline"
+                    style={{ textDecoration: 'none', border: '2px solid #f07900', color: 'white' }}
+                  >
+                    <span>View Pricing</span>
+                  </Link>
                 </motion.div>
 
                 {/* Service Shortcuts - Quick Links */}
