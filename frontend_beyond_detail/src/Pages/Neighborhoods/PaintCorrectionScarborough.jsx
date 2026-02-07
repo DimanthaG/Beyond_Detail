@@ -36,7 +36,7 @@ function PaintCorrectionScarborough() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Paint Correction Scarborough | Scratch & Swirl Removal | Beyond Detail'
+          title='Paint Correction Scarborough | Scratch Removal | Beyond Detail'
           description='Expert paint correction in Scarborough. Remove swirl marks, scratches & oxidation to restore showroom shine. Multi-stage polishing. Lifetime warranty. Book today!'
           name='Beyond Detail Scarborough'
           type='website'

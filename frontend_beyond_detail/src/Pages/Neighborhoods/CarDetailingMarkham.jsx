@@ -21,7 +21,7 @@ function CarDetailingMarkham() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title="Car Detailing Markham | Premium Auto Spa & Ceramic Coating | Beyond Detail"
+          title="Car Detailing Markham | Auto Detailing Near Me | Beyond Detail"
           description="Top-rated car detailing in Markham. Serving Unionville, Cornell, & Markville. Specialist in Ceramic Coating, Paint Correction, and Interior Detailing. Book your appointment!"
           name="Beyond Detail Markham"
           type="website"
@@ -61,7 +61,7 @@ function CarDetailingMarkham() {
                   Beyond Detail is Markham's trusted auto detailing specialist, providing premium in-shop services
                   for customers throughout York Region. Located just minutes away at <strong>170 Finchdene Square</strong>,
                   we are the go-to choice for car enthusiasts from <strong>Main Street Unionville</strong>, <strong>Markville Mall</strong> area,
-                  and the <strong>Cornell</strong> community.
+                  <strong>Milliken</strong>, and the <strong>Cornell</strong> community.
                 </p>
                 <p style={{ marginTop: '1rem' }}>
                   Whether you commute along <strong>Highway 7</strong> or the <strong>407</strong>, our comprehensive <strong>detailing services in Markham</strong>

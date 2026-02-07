@@ -75,17 +75,17 @@ function CeramicCoatingScarborough() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
                   <div style={{ background: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '15px' }}>
                     <span style={{ fontSize: '4rem', color: '#f07900', fontWeight: 'bold', display: 'block', marginBottom: '1rem' }}>1</span>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Quote - Free Consultation</h3>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Quote</h3>
                     <p style={{ color: '#ccc' }}>Get a free 3D design consultation and quote for your vehicle.</p>
                   </div>
                   <div style={{ background: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '15px' }}>
                     <span style={{ fontSize: '4rem', color: '#f07900', fontWeight: 'bold', display: 'block', marginBottom: '1rem' }}>2</span>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Work - Professional Application</h3>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Work</h3>
                     <p style={{ color: '#ccc' }}>Our certified installers apply the premium nano-ceramic protection.</p>
                   </div>
                   <div style={{ background: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '15px' }}>
                     <span style={{ fontSize: '4rem', color: '#f07900', fontWeight: 'bold', display: 'block', marginBottom: '1rem' }}>3</span>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Enjoy - Drive Protected</h3>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Enjoy</h3>
                     <p style={{ color: '#ccc' }}>Drive with peace of mind knowing your paint is protected for 10 years.</p>
                   </div>
                 </div>

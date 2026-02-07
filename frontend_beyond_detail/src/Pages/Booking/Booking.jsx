@@ -40,6 +40,8 @@ function Booking() {
         setHours(setMinutes(new Date(), 30), 16)
     );
 
+    const [formErrors, setFormErrors] = useState({});
+
     // scroll to top on page render
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -50,9 +52,30 @@ function Booking() {
 
     const { name, email, phone, message, vehicleType } = formData;
 
+    const validateField = (name, value) => {
+        let error = '';
+        if (name === 'name' && !value.trim()) error = 'Name is required';
+        if (name === 'phone') {
+            if (!value.trim()) error = 'Phone number is required';
+            else if (!/^\d{10,}$/.test(value.replace(/\D/g, ''))) error = 'Enter a valid 10-digit phone number';
+        }
+        return error;
+    };
+
     const handleChangeInput = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+
+        // Real-time validation if error exists
+        if (formErrors[name]) {
+            setFormErrors(prev => ({ ...prev, [name]: validateField(name, value) }));
+        }
+    };
+
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        const error = validateField(name, value);
+        setFormErrors(prev => ({ ...prev, [name]: error }));
     };
 
     const toggleService = (value) => {
@@ -66,6 +89,19 @@ function Booking() {
     // Form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Final Validation check
+        const errors = {};
+        if (!name.trim()) errors.name = 'Name is required';
+        if (!phone.trim()) errors.phone = 'Phone is required';
+        else if (!/^\d{10,}$/.test(phone.replace(/\D/g, ''))) errors.phone = 'Enter a valid 10-digit phone number';
+        if (selectedServices.length === 0) errors.service = 'Please select a service';
+
+        if (Object.keys(errors).length > 0) {
+            setFormErrors(errors);
+            return;
+        }
+
         setLoadingMessage(true);
 
         const contact = {
@@ -164,142 +200,102 @@ function Booking() {
                                     <span style={{ color: '#fff', marginLeft: '5px' }}>Join 2,000+ happy customers</span>
                                 </div>
                                 <h1>Book Your Appointment</h1>
-                                <p>Select your services and a convenient time.</p>
+                                <p>Simple. Fast. Professional.</p>
+
+                                {/* How It Works Micro-Section */}
+                                <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', margin: '2rem 0', fontSize: '0.9rem', color: '#ccc' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        <div style={{ background: '#333', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.5rem', fontWeight: 'bold', border: '1px solid #f07900', color: '#f07900' }}>1</div>
+                                        <span>Quote</span>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        <div style={{ background: '#333', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.5rem', fontWeight: 'bold', border: '1px solid #f07900', color: '#f07900' }}>2</div>
+                                        <span>Work</span>
+                                    </div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                        <div style={{ background: '#333', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.5rem', fontWeight: 'bold', border: '1px solid #f07900', color: '#f07900' }}>3</div>
+                                        <span>Enjoy</span>
+                                    </div>
+                                </div>
                             </header>
 
-                            <form className='booking-form' onSubmit={handleSubmit}>
+                            <form className='booking-form' onSubmit={handleSubmit} style={{ maxWidth: '500px', margin: '0 auto' }} noValidate>
 
                                 <div className="form-section">
-                                    <h3 className="section-title">1. Select Services</h3>
-                                    <div className="services-grid">
-                                        {servicesList.map((service) => (
-                                            <div
-                                                key={service.id}
-                                                className={`service-card ${selectedServices.includes(service.value) ? 'active' : ''}`}
-                                                onClick={() => toggleService(service.value)}
+                                    <h3 className="section-title" style={{ textAlign: 'center' }}>Tell us what you need</h3>
+
+                                    <div className="input-group">
+                                        <label>Service Needed <span style={{ color: 'red' }}>*</span></label>
+                                        <div className={`select-wrapper ${formErrors.service ? 'input-error' : ''}`}>
+                                            <Sparkles size={18} className="input-icon" />
+                                            <select
+                                                className="styled-input"
+                                                value={selectedServices[0] || ''}
+                                                onChange={(e) => {
+                                                    setSelectedServices([e.target.value]);
+                                                    if (e.target.value) setFormErrors(prev => ({ ...prev, service: '' }));
+                                                }}
+                                                onBlur={() => {
+                                                    if (selectedServices.length === 0) setFormErrors(prev => ({ ...prev, service: 'Please select a service' }));
+                                                }}
                                             >
-                                                <div className="service-icon">{service.icon}</div>
-                                                <span>{service.label}</span>
-                                                {selectedServices.includes(service.value) && (
-                                                    <div className="check-mark"><CheckCircle size={16} /></div>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div className="form-section two-col">
-                                    <div>
-                                        <h3 className="section-title">2. Vehicle Details</h3>
-                                        <div className="input-group">
-                                            <label htmlFor="vehicleType">Vehicle Type</label>
-                                            <div className="select-wrapper">
-                                                <Car size={18} className="input-icon" />
-                                                <select
-                                                    name='vehicleType'
-                                                    id='vehicleType'
-                                                    value={vehicleType}
-                                                    onChange={handleChangeInput}
-                                                    className="styled-input"
-                                                >
-                                                    <option value='Car'>Car / Sedan</option>
-                                                    <option value='Hatchback'>Hatchback</option>
-                                                    <option value='SUV'>SUV / Crossover</option>
-                                                    <option value='Pick Up Truck'>Pick Up Truck</option>
-                                                    <option value='Mini Van'>Mini Van</option>
-                                                    <option value='Cargo Van'>Cargo Van</option>
-                                                    <option value='Other'>Other</option>
-                                                </select>
-                                            </div>
+                                                <option value="" disabled>Select a Service</option>
+                                                <option value="Window Tinting">Window Tinting</option>
+                                                <option value="Ceramic Coating">Ceramic Coating</option>
+                                                <option value="Paint Correction">Paint Correction</option>
+                                                <option value="Car Detailing">Car Detailing</option>
+                                                <option value="Other">Other</option>
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="section-title">3. Preferred Date</h3>
-                                        <div className="input-group date-group">
-                                            <label>Date & Time</label>
-                                            <div className="date-input-wrapper">
-                                                <CalendarIcon size={18} className="input-icon" />
-                                                <Suspense fallback={<span>Loading...</span>}>
-                                                    <DatePicker
-                                                        className='styled-input date-input'
-                                                        selected={startDate}
-                                                        onChange={(date) => setStartDate(date)}
-                                                        showTimeSelect
-                                                        dateFormat='MMMM d, yyyy - h:mm aa'
-                                                        excludeTimes={[
-                                                            setHours(setMinutes(new Date(), 0), 17),
-                                                            setHours(setMinutes(new Date(), 30), 18),
-                                                            setHours(setMinutes(new Date(), 30), 19),
-                                                        ]}
-                                                    />
-                                                </Suspense>
-                                            </div>
-                                        </div>
+                                        {formErrors.service && <span className="error-message">{formErrors.service}</span>}
                                     </div>
                                 </div>
 
                                 <div className="form-section">
-                                    <h3 className="section-title">4. Contact Info</h3>
-                                    <div className="contact-grid">
+                                    <div className="contact-grid" style={{ gridTemplateColumns: '1fr', gap: '1rem' }}>
                                         <div className="input-group">
                                             <input
-                                                className='styled-input'
+                                                className={`styled-input ${formErrors.name ? 'input-error' : ''}`}
                                                 name='name'
                                                 placeholder='Your Name *'
                                                 value={name}
                                                 onChange={handleChangeInput}
+                                                onBlur={handleBlur}
                                                 required
                                             />
+                                            {formErrors.name && <span className="error-message">{formErrors.name}</span>}
                                         </div>
                                         <div className="input-group">
                                             <input
-                                                className='styled-input'
-                                                name='email'
-                                                type='email'
-                                                placeholder='Email Address *'
-                                                value={email}
-                                                onChange={handleChangeInput}
-                                                required
-                                            />
-                                        </div>
-                                        <div className="input-group">
-                                            <input
-                                                className='styled-input'
+                                                className={`styled-input ${formErrors.phone ? 'input-error' : ''}`}
                                                 name='phone'
                                                 type='tel'
                                                 placeholder='Phone Number *'
                                                 value={phone}
                                                 onChange={handleChangeInput}
+                                                onBlur={handleBlur}
                                                 required
                                             />
+                                            {formErrors.phone && <span className="error-message">{formErrors.phone}</span>}
                                         </div>
-                                    </div>
-                                    <div className="input-group mt-3">
-                                        <textarea
-                                            className='styled-input textarea'
-                                            name='message'
-                                            placeholder='Any specific requests or questions?'
-                                            value={message}
-                                            onChange={handleChangeInput}
-                                            rows='3'
-                                        ></textarea>
                                     </div>
                                 </div>
 
-                                <div style={{ textAlign: 'center', marginBottom: '1rem', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                                    <Lock size={14} /> No Credit Card Required
+                                <div style={{ textAlign: 'center', marginBottom: '1rem', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.9rem' }}>
+                                    <Lock size={14} /> No Payment Required Now
                                 </div>
 
                                 <button
                                     className='submit-btn'
                                     type='submit'
                                     disabled={loadingMessage}
+                                    style={{ width: '100%' }}
                                 >
-                                    {loadingMessage ? 'Submitting Request...' : 'Confirm Booking Request'}
+                                    {loadingMessage ? 'Sending...' : 'Get My Free Quote'}
                                 </button>
 
-                                <div className="phone-support">
-                                    <p>Prefer to book by phone?</p>
+                                <div className="phone-support" style={{ marginTop: '1.5rem' }}>
+                                    <p>Need immediate help?</p>
                                     <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`} className="phone-link"><Phone size={16} /> Call {BUSINESS_INFO.phone}</a>
                                 </div>
                             </form>

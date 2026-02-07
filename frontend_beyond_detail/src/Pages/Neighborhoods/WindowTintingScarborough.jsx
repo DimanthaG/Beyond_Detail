@@ -61,7 +61,7 @@ function WindowTintingScarborough() {
               titleLine1="LLUMAR Window Tinting"
               titleLine2="in Scarborough"
               titleLine3=""
-              subtitle="Professional <strong>LLUMAR window film</strong> installation in Scarborough with a <strong>Lifetime Warranty</strong>. Block 99% of harmful UV rays, reduce heat, and enhance your vehicle's privacy with our premium ceramic and carbon films."
+              subtitle="Professional <strong>LLUMAR window film</strong> installation in Scarborough. <br/><span style='color:#f07900'>✓ Lifetime Warranty</span> &nbsp; <span style='color:#f07900'>✓ 99% UV Block</span> &nbsp; <span style='color:#f07900'>✓ Heat Reduction</span>"
             />
 
             <Suspense fallback={null}>

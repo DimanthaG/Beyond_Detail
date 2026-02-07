@@ -128,6 +128,10 @@ const CeramicCoatingGuildwood = lazy(() => import('./Pages/Neighborhoods/Ceramic
 const PaintCorrectionGuildwood = lazy(() => import('./Pages/Neighborhoods/PaintCorrectionGuildwood'));
 const WindowTintingGuildwood = lazy(() => import('./Pages/Neighborhoods/WindowTintingGuildwood'));
 const CarDetailingMarkhamRoad = lazy(() => import('./Pages/Neighborhoods/CarDetailingMarkhamRoad'));
+const CarDetailingWoburn = lazy(() => import('./Pages/Neighborhoods/CarDetailingWoburn'));
+const CarDetailingMorningside = lazy(() => import('./Pages/Neighborhoods/CarDetailingMorningside'));
+const CarDetailingHighlandCreek = lazy(() => import('./Pages/Neighborhoods/CarDetailingHighlandCreek'));
+const ExitIntentPopup = lazy(() => import('./components/ExitIntentPopup/ExitIntentPopup'));
 
 function App() {
   let location = useLocation();
@@ -189,6 +193,9 @@ function App() {
             <Route path='/car-detailing-rouge' element={<CarDetailingRouge />} />
             <Route path='/car-detailing-guildwood' element={<CarDetailingGuildwood />} />
             <Route path='/car-detailing-scarborough' element={<CarDetailingScarborough />} />
+            <Route path='/car-detailing-woburn' element={<CarDetailingWoburn />} />
+            <Route path='/car-detailing-morningside' element={<CarDetailingMorningside />} />
+            <Route path='/car-detailing-highland-creek' element={<CarDetailingHighlandCreek />} />
             <Route path='/auto-detailing-scarborough' element={<CarDetailingScarborough />} />
             <Route path='/ceramic-coating-toronto' element={<CeramicCoatingToronto />} />
             <Route path='/ceramic-coating-scarborough' element={<CeramicCoatingScarborough />} />
@@ -255,6 +262,7 @@ function App() {
           <FooterMap />
           <Footer />
           <MobileFixedFooter />
+          <ExitIntentPopup />
         </>
       )}
     </div>

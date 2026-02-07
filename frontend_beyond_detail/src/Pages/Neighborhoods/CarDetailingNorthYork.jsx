@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
@@ -16,59 +17,68 @@ const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'
 const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 
 function CarDetailingNorthYork() {
-    return (
-        <>
-            <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Car Detailing North York | Premium Auto Detailing & Tinting"
-                    description="Best car detailing for North York residents. ⭐ Professional In-Shop Service. Window Tinting, Ceramic Coating & Paint Correction. Call (647) 689-6109."
-                    name="Beyond Detail North York"
-                    type="website"
-                    keywords="car detailing north york, auto detailing north york, window tinting north york, ceramic coating north york, car wash north york"
-                />
+  // Voice Search Optimized FAQ Schema
+  const northYorkFAQ = [
+    {
+      question: "Do you offer mobile detailing in North York?",
+      answer: "Yes! We provide mobile car detailing across North York, including Willowdale, Don Mills, and York Mills, as well as in-shop services at our nearby location."
+    }
+  ];
+
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <SEO
+          title="Car Detailing North York | 10-Year Warranty | Beyond Detail"
+          description="Professional car detailing in North York. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Willowdale & Don Mills areas."
+          name="Beyond Detail North York"
+          type="website"
+          keywords="car detailing north york, auto detailing north york, window tinting north york, ceramic coating north york, car wash north york"
+          faq={northYorkFAQ}
+        />
+        <motion.div
+          initial="out"
+          animate="in"
+          exit="out"
+          variants={animationOne}
+          transition={{ ...transition, delay: 0 }}
+        >
+          <div className="auto-detail__wrapper">
+            <AutoDetailHero
+              scrollTarget="#pricing"
+              titleLine1="Professional Car Detailing"
+              titleLine2="in NORTH YORK"
+              titleLine3=""
+              subtitle="<strong>10-Year Warranty</strong> | <strong>3D Design Included</strong> | <strong>Same-Day Service</strong>.<br/><br/>From <strong>Willowdale</strong> to <strong>Don Mills</strong>, we bring expert detailing services to all of North York."
+            />
+
+            <Suspense fallback={null}>
+              <ServiceGallery
+                serviceType="auto-detail"
+                title="Our Work in North York"
+                forceLandscape
+              />
+            </Suspense>
+
+            <section className="package-info">
+              <div className="package-info__container">
                 <motion.div
-                    initial="out"
-                    animate="in"
-                    exit="out"
-                    variants={animationOne}
-                    transition={{ ...transition, delay: 0 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                  variants={{
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                    hidden: { opacity: 0, y: 20 }
+                  }}
+                  className="package-info__header"
                 >
-                    <div className="auto-detail__wrapper">
-                        <AutoDetailHero 
-                            scrollTarget="#pricing"
-                            titleLine1="Professional Car Detailing in"
-                            titleLine2="NORTH YORK &"
-                            titleLine3="TORONTO"
-                            subtitle="<strong>North York</strong> drivers demand the best. Whether you're in Willowdale, Don Mills, or near Fairview Mall, our professional detailing services ensure your car looks its absolute best. We offer premium in-shop detailing for all North York residents."
-                        />
+                  <h2 className="package-info__title">North York Detailing Packages</h2>
+                  <p className="package-info__subtitle">
+                    Premium auto care for North York residents. From maintenance washes to full paint correction.
+                  </p>
+                </motion.div>
 
-                        <Suspense fallback={null}>
-                            <ServiceGallery
-                                serviceType="auto-detail"
-                                title="Our Work in North York"
-                                forceLandscape
-                            />
-                        </Suspense>
-
-                        <section className="package-info">
-                            <div className="package-info__container">
-                                <motion.div
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-                                    variants={{
-                                        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-                                        hidden: { opacity: 0, y: 20 }
-                                    }}
-                                    className="package-info__header"
-                                >
-                                    <h2 className="package-info__title">North York Detailing Packages</h2>
-                                    <p className="package-info__subtitle">
-                                        Premium auto care for North York residents at our dedicated shop. From maintenance washes to full paint correction.
-                                    </p>
-                                </motion.div>
-
-                                <div className="package-info__grid">
+                <div className="package-info__grid">
                   <motion.article
                     initial="hidden"
                     whileInView="visible"
@@ -96,7 +106,7 @@ function CarDetailingNorthYork() {
                     </div>
                     <div className="package-info__card-content">
                       <p className="package-info__card-description">
-                        Our Express Detail Package is designed for drivers who want their vehicle looking clean and refreshed without the long wait. This quick service includes a thorough interior vacuum, dusting, and window cleaning, along with an exterior hand wash and tire shine. It's perfect for maintaining your car's appearance between full details. Whether you're getting ready for a meeting, showing your vehicle for sale, or just want a cleaner ride, our Express Detail delivers quality and convenience.
+                        Fast and effective cleaning for North York drivers. Includes interior vacuum, wipe-down, and exterior hand wash. Perfect for regular maintenance.
                       </p>
                     </div>
                   </motion.article>
@@ -129,7 +139,7 @@ function CarDetailingNorthYork() {
                     </div>
                     <div className="package-info__card-content">
                       <p className="package-info__card-description">
-                        Our Signature Detail Package is the most popular choice at Beyond Detail for customers who want their car's interior fully cleaned and sanitized. This package includes steam cleaning of panels, vents, and trims, a full vacuum, window cleaning, and exterior hand wash. We also disinfect and sanitize every surface, ensuring a fresh and healthy cabin environment. It's perfect for families, daily drivers, and anyone wanting to remove built-up dirt and bacteria from their vehicle's interior.
+                        Our most requested service in North York. Steam cleaning, shampooing, and full sanitization for a fresh, like-new interior.
                       </p>
                     </div>
                   </motion.article>
@@ -161,17 +171,17 @@ function CarDetailingNorthYork() {
                     </div>
                     <div className="package-info__card-content">
                       <p className="package-info__card-description">
-                        The Premium Detail Package is our top-tier full-service detailing experience. It combines everything from our Express and Signature packages with deep carpet and seat shampooing using professional extraction equipment. This service removes stubborn stains, grime, and odors while restoring your interior to like-new condition. We clean all panels, dashboards, and vents, followed by an exterior hand wash, tire shine, and door and trunk jamb cleaning. Perfect for heavily used vehicles, pre-sale prep, or seasonal deep cleans, the Premium Detail transforms your car from the inside out.
+                        The ultimate treatment. Deep extraction, steam cleaning, and extensive exterior detailing. The best choice for luxury vehicles in North York.
                       </p>
                     </div>
                   </motion.article>
-                                </div>
-                            </div>
-                        </section>
+                </div>
+              </div>
+            </section>
 
-                        <Suspense fallback={null}>
-                            <GoogleReviewsCarousel />
-                        </Suspense>
+            <Suspense fallback={null}>
+              <GoogleReviewsCarousel />
+            </Suspense>
 
             <ServicePricing
               title="North York Detailing Pricing"
@@ -203,7 +213,7 @@ function CarDetailingNorthYork() {
                 >
                   <h2 className="detail-options__title">Individual Service Options</h2>
                   <p className="detail-options__subtitle">
-                    Need just interior or exterior detailing? We offer focused services for specific areas of your vehicle.
+                    Focused interior or exterior services for your specific needs.
                   </p>
                 </motion.div>
 
@@ -232,7 +242,7 @@ function CarDetailingNorthYork() {
                     <div className="detail-options__card-header">
                       <h3 className="detail-options__card-title">Interior Only Detail</h3>
                     </div>
-                    
+
                     <div className="detail-options__price-section">
                       <div className="detail-options__price-range">
                         <span className="detail-options__price-label">Starting at</span>
@@ -244,7 +254,7 @@ function CarDetailingNorthYork() {
                     </div>
 
                     <p className="detail-options__card-description">
-                      Comprehensive interior cleaning focused on seats, carpets, upholstery, and all interior surfaces. Perfect when your exterior is already clean.
+                      Deep clean for your car's interior. Vacuuming, steam cleaning, and sanitization.
                     </p>
 
                     <ul className="detail-options__features-list">
@@ -254,23 +264,11 @@ function CarDetailingNorthYork() {
                       </li>
                       <li className="detail-options__feature-item">
                         <CheckCircle className="detail-options__feature-icon" />
-                        <span>Carpets, Seats, & Mats Vacuumed</span>
+                        <span>Carpets & Seats Cleaned</span>
                       </li>
                       <li className="detail-options__feature-item">
                         <CheckCircle className="detail-options__feature-icon" />
-                        <span>All Upholstery Cleaned</span>
-                      </li>
-                      <li className="detail-options__feature-item">
-                        <CheckCircle className="detail-options__feature-icon" />
-                        <span>Dashboard, Console & Doors Cleaned</span>
-                      </li>
-                      <li className="detail-options__feature-item">
-                        <CheckCircle className="detail-options__feature-icon" />
-                        <span>Interior Windows Cleaned</span>
-                      </li>
-                      <li className="detail-options__feature-item">
-                        <CheckCircle className="detail-options__feature-icon" />
-                        <span>Interior Sanitized & Disinfected</span>
+                        <span>Interior Sanitized</span>
                       </li>
                     </ul>
 
@@ -313,7 +311,7 @@ function CarDetailingNorthYork() {
                     <div className="detail-options__card-header">
                       <h3 className="detail-options__card-title">Exterior Only Detail</h3>
                     </div>
-                    
+
                     <div className="detail-options__price-section">
                       <div className="detail-options__price-range">
                         <span className="detail-options__price-label">Starting at</span>
@@ -325,7 +323,7 @@ function CarDetailingNorthYork() {
                     </div>
 
                     <p className="detail-options__card-description">
-                      Complete exterior cleaning including hand wash, wheel cleaning, and door jam detailing. Ideal for maintaining your vehicle's exterior appearance.
+                      Hand wash and wax to make your car shine. Includes wheel cleaning and door jambs.
                     </p>
 
                     <ul className="detail-options__features-list">
@@ -335,23 +333,11 @@ function CarDetailingNorthYork() {
                       </li>
                       <li className="detail-options__feature-item">
                         <CheckCircle className="detail-options__feature-icon" />
-                        <span>Tire and Rims Cleaned</span>
+                        <span>Wheels & Tires Cleaned</span>
                       </li>
                       <li className="detail-options__feature-item">
                         <CheckCircle className="detail-options__feature-icon" />
-                        <span>Door Jams Cleaned</span>
-                      </li>
-                      <li className="detail-options__feature-item">
-                        <CheckCircle className="detail-options__feature-icon" />
-                        <span>Trunk Jams Cleaned</span>
-                      </li>
-                      <li className="detail-options__feature-item">
-                        <CheckCircle className="detail-options__feature-icon" />
-                        <span>Exterior Windows Cleaned</span>
-                      </li>
-                      <li className="detail-options__feature-item">
-                        <CheckCircle className="detail-options__feature-icon" />
-                        <span>All Mirrors Cleaned</span>
+                        <span>Spray Wax Application</span>
                       </li>
                     </ul>
 
@@ -380,16 +366,38 @@ function CarDetailingNorthYork() {
               <SkillShowcase />
             </Suspense>
 
+            {/* Also Serving Section */}
+            <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '4rem' }}>
+              <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>Proudly Serving North York & GTA</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', marginBottom: '1rem' }}>
+                Beyond Detail provides premium mobile detailing services throughout <strong>North York</strong>.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+                <span style={{ background: '#f07900', color: 'white', padding: '8px 16px', borderRadius: '50px', fontWeight: '600' }}>North York</span>
+                <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Willowdale</span>
+                <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>Don Mills</span>
+                <span style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px' }}>York Mills</span>
+                <a href="/car-detailing-toronto" style={{ border: '1px solid #555', padding: '8px 16px', borderRadius: '50px', color: 'inherit', textDecoration: 'none' }}>Toronto</a>
+              </div>
+            </section>
 
+            {/* FAQ Section */}
+            <section style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px', marginBottom: '4rem' }}>
+              <h3 style={{ textAlign: 'center', fontSize: '1.8rem', marginBottom: '2rem' }}>Common Questions in North York</h3>
+              <div style={{ background: '#111', padding: '2rem', borderRadius: '12px' }}>
+                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: '#fff' }}>Do you provide mobile detailing in North York?</h4>
+                <p style={{ color: '#ccc', lineHeight: '1.6' }}>Yes! We offer both <strong>mobile detailing</strong> services directly to your home in North York (Willowdale, Don Mills, etc.) and premium in-shop services at our nearby location.</p>
+              </div>
+            </section>
 
-                        <Suspense fallback={null}>
-                            <Contact />
-                        </Suspense>
-                    </div>
-                </motion.div>
+            <Suspense fallback={null}>
+              <Contact />
             </Suspense>
-        </>
-    );
+          </div>
+        </motion.div>
+      </Suspense>
+    </>
+  );
 }
 
 export default React.memo(CarDetailingNorthYork);
