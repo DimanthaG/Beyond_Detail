@@ -8,7 +8,7 @@ import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -19,14 +19,14 @@ const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillSho
 function CarDetailingMarkham() {
   return (
     <>
+      <SEO
+        title="Car Detailing Markham | Auto Detailing Near Me | Beyond Detail"
+        description="Top-rated car detailing in Markham. Serving Unionville, Cornell, & Markville. Specialist in Ceramic Coating, Paint Correction, and Interior Detailing. Book your appointment!"
+        name="Beyond Detail Markham"
+        type="website"
+        keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove, car wash markham"
+      />
       <Suspense fallback={<Loading />}>
-        <SEO
-          title="Car Detailing Markham | Auto Detailing Near Me | Beyond Detail"
-          description="Top-rated car detailing in Markham. Serving Unionville, Cornell, & Markville. Specialist in Ceramic Coating, Paint Correction, and Interior Detailing. Book your appointment!"
-          name="Beyond Detail Markham"
-          type="website"
-          keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove, car wash markham"
-        />
         <motion.div
           initial="out"
           animate="in"

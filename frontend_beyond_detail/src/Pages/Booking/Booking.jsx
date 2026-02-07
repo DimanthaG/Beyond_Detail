@@ -2,7 +2,8 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { client } from '../../client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
-import { Loading, SEO } from '../../components';
+import { Loading } from '../../components';
+import SEO from '../../components/SEO';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import '../../react-datepicker.css';
@@ -167,7 +168,7 @@ function Booking() {
             className="booking-page-container"
         >
             <SEO
-                title='Book Appointment | Beyond Detail'
+                title='Book Car Detailing Scarborough | Get 10% Off | Beyond Detail'
                 description='Book your auto detailing appointment online. Select your services and preferred time.'
                 name='Beyond Detail Booking'
                 type='website'

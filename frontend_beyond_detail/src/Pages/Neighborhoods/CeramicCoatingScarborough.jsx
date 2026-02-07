@@ -10,7 +10,7 @@ import '../../Pages/CeramicCoating/CeramicCoating.scss';
 
 // Lazy load heavy components
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const CeramicCoatingHero = lazy(() => import('../../components/CeramicCoatingHero/CeramicCoatingHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
@@ -34,16 +34,16 @@ function CeramicCoatingScarborough() {
 
   return (
     <>
+      <SEO
+        title="Ceramic Coating Scarborough | 10-Year Warranty | Beyond Detail"
+        description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 10-year warranty, 3D design included. Serving Toronto & North York. Get quote today!"
+        name="Beyond Detail Ceramic Coating"
+        type="website"
+        keywords="ceramic coating scarborough, ceramic coating near me, ceramic coating north york, paint protection scarborough, best ceramic coating scarborough"
+        serviceType="Ceramic Coating"
+        faq={ceramicCoatingFAQs}
+      />
       <Suspense fallback={<Loading />}>
-        <SEO
-          title="Ceramic Coating Scarborough | 10-Year Warranty | Beyond Detail"
-          description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 10-year warranty, 3D design included. Serving Toronto & North York. Get quote today!"
-          name="Beyond Detail Ceramic Coating"
-          type="website"
-          keywords="ceramic coating scarborough, ceramic coating near me, ceramic coating north york, paint protection scarborough, best ceramic coating scarborough"
-          serviceType="Ceramic Coating"
-          faq={ceramicCoatingFAQs}
-        />
         <motion.div
           initial="out"
           animate="in"

@@ -5,7 +5,7 @@ import { animationOne, transition } from '../../components/Transition';
 import { Loading } from '../../components';
 import '../Tints/Tints.scss';
 
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const TintsHero = lazy(() => import('../../components/TintsHero/TintsHero'));
 const TintsFeatures = lazy(() => import('../../components/TintsFeatures/TintsFeatures'));
 const TintBenefitsInfo = lazy(() => import('../../components/TintBenefitsInfo/TintBenefitsInfo'));
@@ -38,16 +38,16 @@ function WindowTintingScarborough() {
 
   return (
     <>
+      <SEO
+        title='Window Tinting Scarborough | LLUMAR Certified | Beyond Detail'
+        description='Best window tinting in Scarborough. Official LLUMAR SelectPro dealer. Lifetime warranty on all installs. Heat rejection & privacy films. Book now!'
+        name='Beyond Detail Scarborough'
+        type='website'
+        serviceType='Window Tinting'
+        keywords='window tinting scarborough, llumar tint scarborough, ceramic tint scarborough, car window tinting, heat rejection tint'
+        faq={windowTintingFAQs}
+      />
       <Suspense fallback={<Loading />}>
-        <SEO
-          title='Window Tinting Scarborough | LLUMAR Certified | Beyond Detail'
-          description='Best window tinting in Scarborough. Official LLUMAR SelectPro dealer. Lifetime warranty on all installs. Heat rejection & privacy films. Book now!'
-          name='Beyond Detail Scarborough'
-          type='website'
-          serviceType='Window Tinting'
-          keywords='window tinting scarborough, llumar tint scarborough, ceramic tint scarborough, car window tinting, heat rejection tint'
-          faq={windowTintingFAQs}
-        />
         <motion.div
           initial='out'
           animate='in'

@@ -11,7 +11,7 @@ import '../PaintCorrection/PaintCorrection.scss';
 
 // Lazy load heavy components
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const PaintCorrectionHero = lazy(() => import('../../components/PaintCorrectionHero/PaintCorrectionHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
@@ -34,16 +34,16 @@ function PaintCorrectionScarborough() {
 
   return (
     <>
+      <SEO
+        title='Paint Correction Scarborough | Scratch Removal | Beyond Detail'
+        description='Expert paint correction in Scarborough. Remove swirl marks, scratches & oxidation to restore showroom shine. Multi-stage polishing. Lifetime warranty. Book today!'
+        name='Beyond Detail Scarborough'
+        type='website'
+        serviceType='Paint Correction'
+        keywords='paint correction scarborough, car scratch removal scarborough, swirl removal scarborough, auto detailing scarborough, paint polishing'
+        faq={paintCorrectionFAQs}
+      />
       <Suspense fallback={<Loading />}>
-        <SEO
-          title='Paint Correction Scarborough | Scratch Removal | Beyond Detail'
-          description='Expert paint correction in Scarborough. Remove swirl marks, scratches & oxidation to restore showroom shine. Multi-stage polishing. Lifetime warranty. Book today!'
-          name='Beyond Detail Scarborough'
-          type='website'
-          serviceType='Paint Correction'
-          keywords='paint correction scarborough, car scratch removal scarborough, swirl removal scarborough, auto detailing scarborough, paint polishing'
-          faq={paintCorrectionFAQs}
-        />
         <motion.div
           initial='out'
           animate='in'

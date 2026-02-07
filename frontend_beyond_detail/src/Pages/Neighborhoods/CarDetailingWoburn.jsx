@@ -7,7 +7,7 @@ import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -18,14 +18,14 @@ const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillSho
 function CarDetailingWoburn() {
     return (
         <>
+            <SEO
+                title="Car Detailing Woburn | Auto Detailing & Ceramic Coating | Beyond Detail"
+                description="Professional car detailing in Woburn, Scarborough. ⭐ Top-Rated Auto Detailing | Mobile & In-Shop Service | Paint Correction & Ceramic Coating | Call (647) 689-6109"
+                name="Beyond Detail Woburn"
+                type="website"
+                keywords="car detailing woburn, auto detailing woburn, window tinting woburn, ceramic coating woburn, car wash woburn"
+            />
             <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Car Detailing Woburn | Auto Detailing & Ceramic Coating | Beyond Detail"
-                    description="Professional car detailing in Woburn, Scarborough. ⭐ Top-Rated Auto Detailing | Mobile & In-Shop Service | Paint Correction & Ceramic Coating | Call (647) 689-6109"
-                    name="Beyond Detail Woburn"
-                    type="website"
-                    keywords="car detailing woburn, auto detailing woburn, window tinting woburn, ceramic coating woburn, car wash woburn"
-                />
                 <motion.div
                     initial="out"
                     animate="in"

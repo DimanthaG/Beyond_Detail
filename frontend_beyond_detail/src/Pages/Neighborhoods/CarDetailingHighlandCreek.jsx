@@ -7,7 +7,7 @@ import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -26,15 +26,15 @@ function CarDetailingHighlandCreek() {
 
     return (
         <>
+            <SEO
+                title="Car Detailing Highland Creek | 10-Year Warranty | Beyond Detail"
+                description="Expert Auto Detailing in Highland Creek. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Highland Creek Village & Rouge River areas."
+                name="Beyond Detail Highland Creek"
+                type="website"
+                keywords="car detailing highland creek, auto detailing highland creek, window tinting highland creek, ceramic coating highland creek, car wash highland creek"
+                faq={highlandCreekFAQ}
+            />
             <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Car Detailing Highland Creek | 10-Year Warranty | Beyond Detail"
-                    description="Expert Auto Detailing in Highland Creek. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving Highland Creek Village & Rouge River areas."
-                    name="Beyond Detail Highland Creek"
-                    type="website"
-                    keywords="car detailing highland creek, auto detailing highland creek, window tinting highland creek, ceramic coating highland creek, car wash highland creek"
-                    faq={highlandCreekFAQ}
-                />
                 <motion.div
                     initial="out"
                     animate="in"

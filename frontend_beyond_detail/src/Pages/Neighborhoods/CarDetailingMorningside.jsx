@@ -7,7 +7,7 @@ import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 import '../../Pages/Services/Services.scss';
 
-const SEO = lazy(() => import('../../components/SEO'));
+import SEO from '../../components/SEO';
 const AutoDetailHero = lazy(() => import('../../components/AutoDetailHero/AutoDetailHero'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -26,15 +26,15 @@ function CarDetailingMorningside() {
 
     return (
         <>
+            <SEO
+                title="Car Detailing Morningside | 10-Year Warranty | Beyond Detail"
+                description="Professional car detailing in Morningside. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving U of T Scarborough & Military Trail areas."
+                name="Beyond Detail Morningside"
+                type="website"
+                keywords="car detailing morningside, auto detailing morningside, window tinting morningside, ceramic coating morningside, car wash morningside"
+                faq={morningsideFAQ}
+            />
             <Suspense fallback={<Loading />}>
-                <SEO
-                    title="Car Detailing Morningside | 10-Year Warranty | Beyond Detail"
-                    description="Professional car detailing in Morningside. 10-Year Warranty, 3D Design Included, Same-Day Service. Serving U of T Scarborough & Military Trail areas."
-                    name="Beyond Detail Morningside"
-                    type="website"
-                    keywords="car detailing morningside, auto detailing morningside, window tinting morningside, ceramic coating morningside, car wash morningside"
-                    faq={morningsideFAQ}
-                />
                 <motion.div
                     initial="out"
                     animate="in"
