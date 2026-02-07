@@ -212,10 +212,10 @@ export function HomeHeroImproved() {
                 {/* Main Headline - Customer-Focused */}
                 <h1 className="home-hero-improved__title">
                   <span className="home-hero-improved__title-line home-hero-improved__title-line--white">
-                    Scarborough Auto Detailing
+                    Car Detailing Scarborough
                   </span>
                   <span className="home-hero-improved__title-line home-hero-improved__title-line--highlight">
-                    You Love Your Car. We'll Make It Show.
+                    #1 Auto Detailing Near Me
                   </span>
                 </h1>
 

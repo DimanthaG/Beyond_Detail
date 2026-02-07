@@ -197,7 +197,7 @@ export function HomeHero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    Car Detailing
+                    #1 Car Detailing
                   </motion.span>
                   <motion.span
                     className="home-hero__title-line home-hero__title-line--highlight"
@@ -206,16 +206,16 @@ export function HomeHero() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     style={{ display: 'block', visibility: 'visible' }}
                   >
-                    Scarborough
+                    in Scarborough
                   </motion.span>
                   <motion.span
-                    className="home-hero__title-line home-hero__title-line--white"
+                    className="home-hero__title-line home-hero__title-line--white" // using style to make it smaller as secondary
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    style={{ fontSize: '0.6em', opacity: 0.9 }}
+                    style={{ fontSize: '0.5em', opacity: 0.8, marginTop: '0.5rem', display: 'block' }}
                   >
-                    (Mobile & In-Shop)
+                    Also Serving Markham, North York & Pickering
                   </motion.span>
                 </motion.h1>
                 <motion.p
@@ -224,10 +224,10 @@ export function HomeHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  Tired of swirl marks, faded paint, and a dull finish? Get that <strong>new-car feel</strong> with our professional <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" />, <ServiceLinker text="paint correction" />, and <ServiceLinker text="window tinting" /> in Toronto. We restore, protect, and elevate your ride — with expert installation, premium products, and lifetime warranties you can count on.
+                  Premium <ServiceLinker text="auto detailing" />, <ServiceLinker text="ceramic coating" /> & <ServiceLinker text="window tinting" />. Trusted by 2000+ customers in Scarborough.
                 </motion.p>
 
-                {/* Feature Icons */}
+                {/* Feature Icons - Updated Benefits */}
                 <motion.div
                   className="home-hero__features"
                   initial={{ opacity: 0, y: 20 }}
@@ -240,7 +240,7 @@ export function HomeHero() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Shield className="home-hero__feature-icon" />
-                    <span>Lifetime Warranties</span>
+                    <span>10-Year Warranty</span>
                   </motion.div>
                   <motion.div
                     className="home-hero__feature-item"
@@ -248,7 +248,7 @@ export function HomeHero() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Sparkles className="home-hero__feature-icon" />
-                    <span>Premium Products</span>
+                    <span>3D Design Included</span>
                   </motion.div>
                   <motion.div
                     className="home-hero__feature-item"
@@ -256,7 +256,7 @@ export function HomeHero() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <Zap className="home-hero__feature-icon" />
-                    <span>Expert Installation</span>
+                    <span>No Contracts Required</span>
                   </motion.div>
                 </motion.div>
 
@@ -280,7 +280,7 @@ export function HomeHero() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Get Free Quote</span>
+                    <span>Book Online - Get 10% Off</span>
                     <ArrowRight className="home-hero__icon" />
                   </motion.a>
                   <motion.a
@@ -303,17 +303,20 @@ export function HomeHero() {
                 >
                   <span className="home-hero__shortcuts-label">Popular Services:</span>
                   <div className="home-hero__shortcuts-list">
-                    <Link to="/tint" className="home-hero__shortcut">
-                      Window Tinting
+                    <Link to="/ceramic-coating-scarborough" className="home-hero__shortcut">
+                      Ceramic Coating Scarborough
                     </Link>
-                    <Link to="/ceramic-coatings" className="home-hero__shortcut">
-                      Ceramic Coating
+                    <Link to="/window-tinting-scarborough" className="home-hero__shortcut">
+                      Window Tinting Scarborough
                     </Link>
-                    <Link to="/paint-correction" className="home-hero__shortcut">
+                    <Link to="/paint-correction-scarborough" className="home-hero__shortcut">
                       Paint Correction
                     </Link>
-                    <Link to="/auto-detail" className="home-hero__shortcut">
-                      Auto Detailing
+                    <Link to="/auto-detailing-markham" className="home-hero__shortcut">
+                      Markham
+                    </Link>
+                    <Link to="/car-detailing-north-york" className="home-hero__shortcut">
+                      North York
                     </Link>
                   </div>
                 </motion.div>

@@ -21,11 +21,11 @@ function CarDetailingMarkham() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title="Detailing Markham | Car Detailing & Auto Detailing Services | Beyond Detail"
-          description="Professional detailing in Markham. ⭐ 70+ Five-Star Reviews | In-Shop Service | Window Tinting, Ceramic Coating & Paint Protection | Serving Unionville, Box Grove & All Markham | Call (647) 689-6109"
+          title="Car Detailing Markham | Premium Auto Spa & Ceramic Coating | Beyond Detail"
+          description="Top-rated car detailing in Markham. Serving Unionville, Cornell, & Markville. Specialist in Ceramic Coating, Paint Correction, and Interior Detailing. Book your appointment!"
           name="Beyond Detail Markham"
           type="website"
-          keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove"
+          keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove, car wash markham"
         />
         <motion.div
           initial="out"
@@ -59,17 +59,17 @@ function CarDetailingMarkham() {
               <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#e0e0e0', textAlign: 'center', marginBottom: '1.5rem' }}>
                 <p>
                   Beyond Detail is Markham's trusted auto detailing specialist, providing premium in-shop services
-                  for customers throughout York Region. Located in <strong>Scarborough at 170 Finchdene Square, Unit 11</strong>,
-                  we're conveniently accessible for Markham residents in Unionville, Box Grove, Markham Village,
-                  Cornell, and all Markham neighborhoods.
+                  for customers throughout York Region. Located just minutes away at <strong>170 Finchdene Square</strong>,
+                  we are the go-to choice for car enthusiasts from <strong>Main Street Unionville</strong>, <strong>Markville Mall</strong> area,
+                  and the <strong>Cornell</strong> community.
                 </p>
                 <p style={{ marginTop: '1rem' }}>
-                  Our comprehensive <strong>detailing services in Markham</strong> include professional
+                  Whether you commute along <strong>Highway 7</strong> or the <strong>407</strong>, our comprehensive <strong>detailing services in Markham</strong>
+                  keep your vehicle protected. We specialize in professional
                   <Link to="/ceramic-coating-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>ceramic coating</Link>,
                   <Link to="/paint-correction-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>paint correction</Link>,
                   <Link to="/window-tinting-markham" style={{ color: '#f07900', textDecoration: 'none', marginLeft: '0.5rem' }}>window tinting</Link>,
-                  and complete <strong>auto detailing</strong>. Every service is performed at our professional facility
-                  with premium products and expert technicians. ⭐ Trusted by 70+ five-star reviews from satisfied Markham customers.
+                  and complete <strong>auto detailing</strong>. ⭐ Trusted by 70+ five-star reviews from satisfied Markham customers.
                 </p>
                 <p style={{ marginTop: '1rem', fontSize: '1rem', color: '#b0b0b0' }}>
                   <strong>Why choose Beyond Detail for detailing in Markham?</strong> Professional in-shop service,

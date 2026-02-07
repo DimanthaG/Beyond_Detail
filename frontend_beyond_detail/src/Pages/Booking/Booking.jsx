@@ -10,7 +10,7 @@ import './Booking.scss';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import images from '../../constants/images';
-import { Car, Droplets, SprayCan, Sun, Sparkles, HelpCircle, Phone, Calendar as CalendarIcon, Clock, CheckCircle, ChevronLeft } from 'lucide-react';
+import { Car, Droplets, SprayCan, Sun, Sparkles, HelpCircle, Phone, Calendar as CalendarIcon, Clock, CheckCircle, ChevronLeft, Lock, Star } from 'lucide-react';
 import { BUSINESS_INFO } from '../../constants/businessInfo';
 
 const DatePicker = lazy(() => import('react-datepicker'));
@@ -155,6 +155,14 @@ function Booking() {
                     {!isFormSubmitted ? (
                         <>
                             <header className="booking-header">
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px', marginBottom: '10px', color: '#f07900', fontWeight: 'bold' }}>
+                                    <Star size={16} fill="currentColor" />
+                                    <Star size={16} fill="currentColor" />
+                                    <Star size={16} fill="currentColor" />
+                                    <Star size={16} fill="currentColor" />
+                                    <Star size={16} fill="currentColor" />
+                                    <span style={{ color: '#fff', marginLeft: '5px' }}>Join 2,000+ happy customers</span>
+                                </div>
                                 <h1>Book Your Appointment</h1>
                                 <p>Select your services and a convenient time.</p>
                             </header>
@@ -278,6 +286,10 @@ function Booking() {
                                     </div>
                                 </div>
 
+                                <div style={{ textAlign: 'center', marginBottom: '1rem', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                    <Lock size={14} /> No Credit Card Required
+                                </div>
+
                                 <button
                                     className='submit-btn'
                                     type='submit'
@@ -287,8 +299,8 @@ function Booking() {
                                 </button>
 
                                 <div className="phone-support">
-                                    <p>Need help? Call us directly</p>
-                                    <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`} className="phone-link"><Phone size={16} /> {BUSINESS_INFO.phone}</a>
+                                    <p>Prefer to book by phone?</p>
+                                    <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`} className="phone-link"><Phone size={16} /> Call {BUSINESS_INFO.phone}</a>
                                 </div>
                             </form>
                         </>
