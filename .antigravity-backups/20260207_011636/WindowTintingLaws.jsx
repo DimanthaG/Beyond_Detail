@@ -23,10 +23,6 @@ const WindowTintingLaws = () => {
         {
             question: "Can I tint my rear windows as dark as I want?",
             answer: "Yes. For passenger vehicles, there is no limit on the darkness for rear side windows and the rear windshield, provided you have functional side mirrors."
-        },
-        {
-            question: "Are there medical exemptions for window tint in Ontario?",
-            answer: "Yes. Drivers with specific medical conditions (like Lupus or photosensitivity) may be eligible for darker tint exemptions. You must carry a signed certificate from a qualified physician. Always check with local authorities for the latest exemption rules."
         }
     ];
 
@@ -57,18 +53,10 @@ const WindowTintingLaws = () => {
                             <p style={{ fontSize: '1.2rem', color: '#ccc', lineHeight: '1.6' }}>
                                 Confused about what's legal? We break down the Highway Traffic Act regulations so you can ride with style and peace of mind.
                             </p>
-                            {/* Legal Disclaimer */}
-                            <div style={{ background: "#1a1a1a", border: "1px solid #333", padding: "20px", borderRadius: "8px", margin: "20px auto", maxWidth: "1000px" }}>
-                                <p style={{ fontSize: "0.9rem", color: "#888", margin: 0 }}>
-                                    <Info size={16} style={{ marginRight: "8px", verticalAlign: "text-bottom" }} />
-                                    <strong>Disclaimer:</strong> This information is for reference only and does not constitute legal advice.
-                                    Laws may change. Always consult the <a href="https://www.ontario.ca/laws/statute/90h08" target="_blank" rel="noopener noreferrer" style={{ color: "#f07900" }}>Official Ontario Highway Traffic Act</a>
-                                    or contact the Ministry of Transportation for current regulations.
-                                </p>
-                            </div>
                         </div>
                     </div>
 
+                    {/* Main Content */}
                     <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '40px 20px' }}>
 
                         {/* Legal Limits Card */}
@@ -147,48 +135,6 @@ const WindowTintingLaws = () => {
                     </Suspense>
                 </motion.div>
             </Suspense>
-
-            {/* FAQ Schema for Rich Snippets */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "Can I tint my front windshield in Ontario?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "No. In Ontario, you cannot tint the full front windshield. You are only allowed to have a glare strip on the top 75mm (approx 3 inches) of the windshield per the Highway Traffic Act."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "What is the darkest legal tint for front side windows in Ontario?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "The law requires front side windows to allow at least 70% of light in (30% tint darkness maximum). This is measured as VLT (Visible Light Transmission) and is enforced under Ontario's Highway Traffic Act."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can I tint my rear windows as dark as I want in Ontario?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes. For passenger vehicles, there is no legal limit on the darkness for rear side windows and the rear windshield in Ontario, provided you have functional side mirrors on both sides."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Are there medical exemptions for window tint in Ontario?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes. Drivers with specific medical conditions (such as Lupus, photosensitivity disorders, or certain skin conditions) may be eligible for window tint exemptions. A signed certificate from a qualified physician is required, and you must carry it while driving. Check with MTO for current exemption rules."
-                            }
-                        }
-                    ]
-                })
-            }} />
         </>
     );
 };

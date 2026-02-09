@@ -39,6 +39,15 @@
     &__question {
         padding: 1.5rem;
         cursor: pointer;
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
         font-weight: 600;
         font-size: 1.1rem;
         display: flex;

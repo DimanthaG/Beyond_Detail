@@ -13,7 +13,7 @@ const FAQSection = ({ title = "Frequently Asked Questions", data = [] }) => {
                     {data.map((item, index) => (
                         <details key={index} className="faq-section__item">
                             <summary className="faq-section__question">
-                                {item.question}
+                                <h3>{item.question}</h3>
                                 <span className="faq-section__icon">+</span>
                             </summary>
                             <div className="faq-section__answer">

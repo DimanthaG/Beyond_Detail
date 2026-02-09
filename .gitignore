@@ -58,6 +58,9 @@ coverage/
 *.temp
 .cache/
 
+# ClawdMan prompts and documentation
+ANTIGRAVITY-prompts/
+
 # Package manager locks (optional - uncomment if you want to ignore)
 # package-lock.json
 # yarn.lock

@@ -13,36 +13,16 @@ const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'
 const Pricing = () => {
     const pricingFAQs = [
         {
-            question: "How long does ceramic coating last?",
-            answer: "Our professional ceramic coating lasts 2-5 years depending on the package you choose and how well you maintain your vehicle. We offer packages ranging from 2-year entry-level protection to 5-year premium coverage with regular maintenance included."
+            question: "Why don't you list exact prices online?",
+            answer: "Every vehicle is different in terms of size, condition, and specific needs. To provide an accurate and fair quote, we assess these factors. This ensures you only pay for what you need."
         },
         {
-            question: "What is paint correction and do I need it?",
-            answer: "Paint correction removes swirl marks, scratches, and oxidation from your car's clear coat, restoring the original gloss and shine. If your vehicle has visible scratches, water spots, or a dull finish, paint correction will significantly improve the appearance before applying ceramic coating."
+            question: "Do you offer bundle packages?",
+            answer: "Yes! We offer significant savings when you combine services like Ceramic Coating and Paint Correction, or Window Tinting and Interior Detailing."
         },
         {
-            question: "How long does ceramic coating installation take?",
-            answer: "Full ceramic coating installation takes 1-3 business days depending on your vehicle size and service package. This includes paint preparation, paint correction (if needed), coating application, and proper curing time to ensure maximum durability."
-        },
-        {
-            question: "What are Ontario's window tinting laws?",
-            answer: "In Ontario, front side windows must allow at least 70% of light through. Rear side windows and back windows can be any darkness. We ensure all our window tinting installations comply with Ontario Highway Traffic Act regulations."
-        },
-        {
-            question: "Can ceramic coating remove scratches?",
-            answer: "No, ceramic coating does not remove existing scratches. It protects against future damage. We recommend paint correction before ceramic coating to remove existing swirl marks and scratches, then the coating seals and protects the corrected finish."
-        },
-        {
-            question: "How much does ceramic coating cost in Scarborough?",
-            answer: "Ceramic coating packages range from $800 to $2,500+ depending on vehicle size, paint condition, and protection level. We offer free quotes based on your specific vehicle and needs. Contact us for exact pricing."
-        },
-        {
-            question: "Do you offer mobile ceramic coating service?",
-            answer: "No, ceramic coating requires a controlled environment free from dust, debris, and weather elements. All our ceramic coating and paint correction services are done at our professional facility in Scarborough to ensure the highest quality results."
-        },
-        {
-            question: "How do I maintain ceramic coating?",
-            answer: "Avoid automatic car washes with brushes. Use pH-neutral soap and microfiber wash mitts. We provide a complimentary maintenance kit with every ceramic coating package and offer maintenance washes to keep your coating performing at its best."
+            question: "Is financing available?",
+            answer: "We accept all major credit cards and offer flexible payment options for our premium ceramic coating packages."
         }
     ];
 
@@ -203,80 +183,6 @@ const Pricing = () => {
                     </div>
                 </motion.div>
             </Suspense>
-
-            {/* Pricing FAQ Schema for Voice Search */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "How long does ceramic coating last?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Our professional ceramic coating lasts 2-5 years depending on the package you choose and how well you maintain your vehicle. We offer packages ranging from 2-year entry-level protection to 5-year premium coverage with regular maintenance included."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "What is paint correction and do I need it?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Paint correction removes swirl marks, scratches, and oxidation from your car's clear coat, restoring the original gloss and shine. If your vehicle has visible scratches, water spots, or a dull finish, paint correction will significantly improve the appearance before applying ceramic coating."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "How long does ceramic coating installation take?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Full ceramic coating installation takes 1-3 business days depending on your vehicle size and service package. This includes paint preparation, paint correction (if needed), coating application, and proper curing time to ensure maximum durability."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "What are Ontario's window tinting laws?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "In Ontario, front side windows must allow at least 70% of light through. Rear side windows and back windows can be any darkness. We ensure all our window tinting installations comply with Ontario Highway Traffic Act regulations."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can ceramic coating remove scratches?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "No, ceramic coating does not remove existing scratches. It protects against future damage. We recommend paint correction before ceramic coating to remove existing swirl marks and scratches, then the coating seals and protects the corrected finish."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "How much does ceramic coating cost in Scarborough?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Ceramic coating packages range from $800 to $2,500+ depending on vehicle size, paint condition, and protection level. We offer free quotes based on your specific vehicle and needs. Contact us for exact pricing."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Do you offer mobile ceramic coating service?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "No, ceramic coating requires a controlled environment free from dust, debris, and weather elements. All our ceramic coating and paint correction services are done at our professional facility in Scarborough to ensure the highest quality results."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "How do I maintain ceramic coating?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Avoid automatic car washes with brushes. Use pH-neutral soap and microfiber wash mitts. We provide a complimentary maintenance kit with every ceramic coating package and offer maintenance washes to keep your coating performing at its best."
-                            }
-                        }
-                    ]
-                })
-            }} />
         </>
     );
 };
