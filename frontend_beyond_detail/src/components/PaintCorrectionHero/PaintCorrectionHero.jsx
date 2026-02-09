@@ -5,6 +5,7 @@ import { ArrowRight, Phone, Sparkles, Award, TrendingUp, Star, Shield, Clock } f
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
+import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 import carImage from '../../assets/bd/bd-24.webp';
 import carImage400w from '../../assets/bd/bd-24-400w.webp';
 import carImage800w from '../../assets/bd/bd-24-800w.webp';
@@ -48,7 +49,7 @@ export function PaintCorrectionHero({
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="paint-correction-hero__background">
           <div className="paint-correction-hero__background-image">
-            <img
+            <ImageWithSchema
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -59,6 +60,8 @@ export function PaintCorrectionHero({
               `}
               sizes="100vw"
               alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              name="Paint Correction on Black Car"
+              description="50/50 paint correction shot showing swirl mark removal on black paint at Beyond Detail Scarborough"
               loading="eager"
               fetchpriority="high"
               decoding="async"

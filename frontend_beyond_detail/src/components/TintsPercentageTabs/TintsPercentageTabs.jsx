@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { client } from '../../client';
 import { Loading } from '../../components';
+import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 import Tint_noTint from '../../assets/Tints/Car-Ceramic-No-Film.png';
 import Tint_five from '../../assets/Tints/Car-Ceramic-5-Percent.png';
 import Tint_fifteen from '../../assets/Tints/Car-Ceramic-15-Percent.png';
@@ -235,7 +236,12 @@ function TintsPercentageTabs() {
               </button>
             </div>
             <div className='tab-content' id='noTint'>
-              <img src={tintImage} alt='' />
+              <ImageWithSchema
+                src={tintImage}
+                alt='Window tint percentage simulator showing different tint levels on a car'
+                name="Window Tint Percentage Simulator"
+                description="Visual comparison of 5%, 15%, 35%, and 50% window tint levels on a vehicle"
+              />
             </div>
           </div>
         </div>

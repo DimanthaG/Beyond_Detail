@@ -5,6 +5,7 @@ import { ArrowRight, Phone, Shield, Sparkles, Award, Star, Clock } from 'lucide-
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
+import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 import carImage from '../../assets/bd/bd-28.webp';
 import carImage400w from '../../assets/bd/bd-28-400w.webp';
 import carImage800w from '../../assets/bd/bd-28-800w.webp';
@@ -48,7 +49,7 @@ export function CeramicCoatingHero({
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="ceramic-coating-hero__background">
           <div className="ceramic-coating-hero__background-image">
-            <img
+            <ImageWithSchema
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -59,6 +60,8 @@ export function CeramicCoatingHero({
               `}
               sizes="100vw"
               alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              name="BMW Ceramic Coating Result"
+              description="Ceramic coating finish on BMW M4 showing hydrophobic water beading at Beyond Detail Scarborough"
               loading="eager"
               fetchpriority="high"
               decoding="async"

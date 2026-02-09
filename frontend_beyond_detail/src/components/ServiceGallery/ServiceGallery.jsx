@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { client, urlFor } from '../../client';
 import './ServiceGallery.scss';
@@ -245,14 +246,21 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                                             className="service-gallery__slide-content"
                                             onClick={() => openLightbox(index)}
                                         >
-                                            <LazyLoadImage
+                                            <ImageWithSchema
                                                 src={item.src}
                                                 alt={item.title || `${serviceType.replace(/-/g, ' ')} service in Scarborough gallery image ${index + 1}`}
-                                                effect="blur"
-                                                className="service-gallery__image"
-                                                width={800}
-                                                height={600}
-                                            />
+                                                name={item.title || `${serviceType.replace(/-/g, ' ')} Result`}
+                                                description={`Professional ${serviceType.replace(/-/g, ' ')} service result at Beyond Detail Scarborough`}
+                                            >
+                                                <LazyLoadImage
+                                                    src={item.src}
+                                                    alt={item.title || `${serviceType.replace(/-/g, ' ')} service in Scarborough gallery image ${index + 1}`}
+                                                    effect="blur"
+                                                    className="service-gallery__image"
+                                                    width={800}
+                                                    height={600}
+                                                />
+                                            </ImageWithSchema>
                                         </div>
                                     </div>
                                 ))}

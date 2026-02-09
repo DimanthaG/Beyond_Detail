@@ -5,6 +5,7 @@ import { ArrowRight, Phone, Shield, Sparkles, Award, Star, Clock } from 'lucide-
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
 import GoogleReviewsCarousel from '../GoogleReviewsCarousel/GoogleReviewsCarousel';
 import PartnersCompact from '../Partners/PartnersCompact';
+import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 import carImage from '../../assets/bd/bd-48.webp';
 import carImage400w from '../../assets/bd/bd-48-400w.webp';
 import carImage800w from '../../assets/bd/bd-48-800w.webp';
@@ -46,7 +47,7 @@ export function TintsHero({
         {/* Car Image Background - Optimized without heavy parallax */}
         <div className="tints-hero__background">
           <div className="tints-hero__background-image">
-            <img
+            <ImageWithSchema
               src={carImage}
               srcSet={`
                 ${carImage400w} 400w,
@@ -55,6 +56,8 @@ export function TintsHero({
               `}
               sizes="100vw"
               alt={`${titleLine1} ${titleLine2} ${titleLine3 || ''} ${titleLine4 || ''}`}
+              name="LLumar Window Tint Installation"
+              description="Professional LLumar window tint installation on luxury sedan at Beyond Detail Scarborough"
               loading="eager"
               fetchpriority="high"
               decoding="async"

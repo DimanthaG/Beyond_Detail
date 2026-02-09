@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PartnersCompact from '../Partners/PartnersCompact';
 import { ServiceLinker } from '../../utils/serviceLinker';
 import { getCachedGoogleReviews } from '../../services/googleReviewsService';
+import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 // import carImageAvif from '../../assets/bd/bd-20.avif';
 // import carImage from '../../assets/bd/bd-20.webp';
 // import carImage400w from '../../assets/bd/bd-20-400w.webp';
@@ -114,7 +115,7 @@ export function HomeHero() {
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
               />
-              <img
+              <ImageWithSchema
                 src={carImage}
                 srcSet={`
                   ${carImage400w} 400w,
@@ -125,6 +126,8 @@ export function HomeHero() {
                 `}
                 sizes="(min-width: 1280px) 1200px, 100vw"
                 alt="Window tinting and auto detailing services in Scarborough, Toronto - Beyond Detail professional car care and ceramic coating"
+                name="Ceramic Coating Ferrari"
+                description="Professional ceramic coating showing mirror-like gloss on Ferrari at Beyond Detail auto detailing studio in Scarborough"
                 loading="eager"
                 fetchpriority="high"
                 decoding="async"
