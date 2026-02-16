@@ -134,9 +134,7 @@ function ContactPage() {
 
     Promise.all([sanityPromise, emailPromise])
       .then(([sanityResult, emailResult]) => {
-        console.log('✅ Form submitted successfully!');
-        console.log('Sanity ID:', sanityResult._id);
-        console.log('Email sent:', emailResult.status === 200 ? 'Success' : 'Failed');
+
 
         setLoadingMessage(false);
         SetIsFormSubmitted(true);

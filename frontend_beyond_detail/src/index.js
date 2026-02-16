@@ -20,31 +20,6 @@ root.render(
   </React.StrictMode>
 );
 
-// Register service worker for caching and offline support
-if ('serviceWorker' in navigator) {
-  if (process.env.NODE_ENV === 'production') {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .getRegistrations()
-        .then((registrations) => {
-          for (let registration of registrations) {
-            registration.unregister();
-          }
-          console.log('SW unregistered to force update');
-        })
-        .catch((error) => {
-          console.log('SW unregistration failed:', error);
-        });
-    });
-  } else {
-    // In development, unregister any existing service workers
-    navigator.serviceWorker.ready.then((registration) => {
-      registration.unregister();
-    }).catch(error => {
-      console.error(error.message);
-    });
-  }
-}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

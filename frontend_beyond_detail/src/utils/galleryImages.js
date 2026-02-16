@@ -4594,19 +4594,14 @@ const galleryImageMap = {
 export const getGalleryImages = (serviceType) => {
   try {
     const images = galleryImageMap[serviceType] || [];
-    
-    console.log(`[Gallery] Loading images for "${serviceType}"`);
-    console.log(`[Gallery] Found ${images.length} image(s)`);
-    
+
     if (images.length === 0) {
-      console.warn(`[Gallery] No images found for service type: ${serviceType}`);
       return [];
     }
-    
+
     // Sort by filename for consistent ordering
     return images.sort((a, b) => a.fileName.localeCompare(b.fileName));
   } catch (error) {
-    console.warn(`Error loading gallery images for ${serviceType}: `, error);
     return [];
   }
 };

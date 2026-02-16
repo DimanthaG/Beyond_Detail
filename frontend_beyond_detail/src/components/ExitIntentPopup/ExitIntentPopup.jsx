@@ -47,7 +47,7 @@ const ExitIntentPopup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Here you would typically integrate with your email service
-        console.log("Email captured:", email);
+        // TODO: integrate with email service (e.g., EmailJS, Mailchimp)
         setSubmitted(true);
         setTimeout(() => {
             handleClose();

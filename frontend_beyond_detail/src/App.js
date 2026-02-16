@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.scss';
 import { Footer, SocialIcons, MobileFixedFooter, FooterMap } from './components';
 import Navbar from './components/Navbar/Navbar2';

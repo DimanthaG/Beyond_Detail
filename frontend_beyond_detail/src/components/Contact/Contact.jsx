@@ -154,7 +154,8 @@ function Contact() {
       }
 
       const data = await response.json();
-      console.log('Contact form submitted successfully:', data);
+
+
 
       setLoadingMessage(false);
       SetIsFormSubmitted(true);

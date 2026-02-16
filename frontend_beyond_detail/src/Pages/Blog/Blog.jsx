@@ -204,7 +204,7 @@ function Blog() {
             let blogFromSanity = null;
 
             try {
-              console.log('Fetching blog from Sanity:', slug);
+
               const query = `*[_type == "blogPost" && slug.current == $slug][0] {
                 _id, title, slug, author, publishedAt, excerpt, mainImage, category, content, body, seoTitle, seoDescription, keywords, relatedServices
               }`;
@@ -219,7 +219,7 @@ function Blog() {
               // Enhanced Merge: Prioritize Local Backup for Content & Metadata (2026 Updates)
               const localBackup = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
               if (localBackup) {
-                console.log('Merging local content updates for:', slug);
+
                 blogFromSanity = { ...blogFromSanity, ...localBackup };
               }
 
@@ -234,7 +234,7 @@ function Blog() {
               // 3. Fallback to Local Backup if Sanity completely failed to find the post
               const localBlog = LOCAL_BLOG_POSTS.find(p => p.slug.current === slug);
               if (localBlog) {
-                console.log('Using local blog backup for:', slug);
+
                 setSelectedBlog(localBlog);
                 detailedBlogFound = true;
               } else {

@@ -31,7 +31,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
     // Try service gallery first
     client.fetch(serviceQuery, { serviceType, limit })
       .then((serviceData) => {
-        console.log('Service gallery data:', serviceData);
+
         if (serviceData && serviceData.length > 0) {
           // Filter out items without images
           const validData = serviceData.filter(item => item.image);
@@ -59,7 +59,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
         // Fallback to general gallery
         return client.fetch(galleryQuery, { limit })
           .then((galleryData) => {
-            console.log('General gallery data:', galleryData);
+
             if (galleryData && galleryData.length > 0) {
               // Filter out items without images
               const validData = galleryData.filter(item => item.galleryPicture);
@@ -142,19 +142,18 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
 
   // Filter out any images that don't have valid image data
   const validImages = images.filter(item => item && item.image);
-  
+
   // If no images, create placeholder images for display
-  const displayImages = validImages.length > 0 
+  const displayImages = validImages.length > 0
     ? validImages.slice(0, limit)
     : Array.from({ length: Math.min(limit, 6) }, (_, i) => ({
-        _id: `placeholder-${i}`,
-        title: `${title} Project ${i + 1}`,
-        image: null,
-        isPlaceholder: true
-      }));
-  
-  console.log('Display images:', displayImages);
-  console.log('Valid images count:', validImages.length);
+      _id: `placeholder-${i}`,
+      title: `${title} Project ${i + 1}`,
+      image: null,
+      isPlaceholder: true
+    }));
+
+
 
   return (
     <>
