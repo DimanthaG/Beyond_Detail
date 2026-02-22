@@ -331,41 +331,7 @@ export function HomeHero() {
                   </div>
                 </motion.div>
 
-                {/* Live Reviews - Recent */}
-                {reviews.recentReviews.length > 0 && (
-                  <motion.div
-                    className="home-hero__reviews-section"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    <div className="home-hero__reviews-header">
-                      <Star className="home-hero__reviews-icon" fill="currentColor" />
-                      <span>Recent Reviews</span>
-                    </div>
-                    <div className="home-hero__reviews-list">
-                      {reviews.recentReviews.map((review, idx) => (
-                        <div key={idx} className="home-hero__review-card">
-                          <div className="home-hero__review-header">
-                            <div className="home-hero__review-stars">
-                              {[...Array(5)].map((_, i) => (
-                                <Star
-                                  key={i}
-                                  className={`home-hero__review-star ${i < (review.rating || 5) ? 'filled' : ''
-                                    }`}
-                                  size={12}
-                                  fill={i < (review.rating || 5) ? 'currentColor' : 'none'}
-                                />
-                              ))}
-                            </div>
-                            <span className="home-hero__review-name">{review.name}</span>
-                          </div>
-                          <p className="home-hero__review-text">"{review.message?.substring(0, 80)}..."</p>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
+
               </motion.div>
             </motion.div>
           </div>

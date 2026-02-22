@@ -25,7 +25,7 @@ function Navbar2({ className = '' }) {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Window Tint', path: '/tint', className: 'list-tints-active' },
-    { name: 'Paint Correction', path: '/paint-correction', className: 'list-paint-correction-active' },
+    { name: 'Auto Detailing', path: '/auto-detail', className: 'list-auto-detail-active' },
     { name: 'Ceramic Coating', path: '/ceramic-coatings', className: 'list-ceramic-coating-active' },
     { name: 'Pricing', path: '/pricing', className: 'list-pricing-active' },
     {
@@ -36,6 +36,7 @@ function Navbar2({ className = '' }) {
         { name: 'Auto Detailing', path: '/auto-detail' },
         { name: 'Interior Detailing', path: '/interior-detailing' },
         { name: 'Exterior Detailing', path: '/exterior-detailing' },
+        { name: 'Paint Correction', path: '/paint-correction' },
         { name: 'Headlight Restoration', path: '/headlight-restoration' },
         { name: 'Odour Removal', path: '/odour-removal' },
         { name: 'Leather Cleaning', path: '/leather-cleaning' },

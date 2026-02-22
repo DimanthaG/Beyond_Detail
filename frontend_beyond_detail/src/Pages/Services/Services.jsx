@@ -14,7 +14,6 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
-const YouTubeEmbed = lazy(() => import('../../components/YouTubeEmbed/YouTubeEmbed'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Services() {
@@ -69,22 +68,6 @@ function Services() {
               />
             </Suspense>
           </ErrorBoundary>
-
-          {/* Video Showcase */}
-          <section style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '2rem', color: 'var(--white-color)', marginBottom: '0.75rem', fontFamily: 'var(--font-base)' }}>
-              Watch Our Detailing Process
-            </h2>
-            <p style={{ color: 'var(--lightGray-color)', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem', fontFamily: 'var(--font-base)', lineHeight: '1.7' }}>
-              See the Beyond Detail difference — real transformations on real vehicles.
-            </p>
-            <Suspense fallback={null}>
-              <YouTubeEmbed
-                videoId="dQw4w9WgXcQ"
-                title="Beyond Detail — Full Auto Detailing Process"
-              />
-            </Suspense>
-          </section>
 
           {/* Premium Overview */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>
