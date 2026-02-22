@@ -5,6 +5,8 @@ import { Loading } from '../../components';
 import { animationOne, transition } from '../../components/Transition';
 import { Shield, Check, ArrowRight, Zap, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ServicePricing from '../../components/ServicePricing/ServicePricing';
+import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
 
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 const FAQSection = lazy(() => import('../../components/FAQSection/FAQSection'));
@@ -176,6 +178,12 @@ const Pricing = () => {
                             </div>
                         </div>
                     </div>
+
+                    {/* Auto Detailing Packages */}
+                    <ServicePricing
+                        title="Auto Detailing Packages"
+                        packages={AUTO_DETAIL_PACKAGES}
+                    />
 
                     {/* Bundle Deals Banner */}
                     <div style={{ background: '#f07900', padding: '40px 20px', textAlign: 'center', color: 'white' }}>

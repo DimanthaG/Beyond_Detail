@@ -20,7 +20,7 @@ function Services() {
   const autoDetailFAQs = [
     {
       question: "How much does auto detailing cost in Scarborough?",
-      answer: "Our auto detailing packages in Scarborough start at $150 for basic interior cleaning. Full interior detailing starts at $200, and comprehensive full-service detailing (interior + exterior) starts at $300. Prices vary based on vehicle size and condition."
+      answer: "Our auto detailing packages in Scarborough include both interior and exterior service. The Essential Detail starts at $199, our most popular Complete Detail starts at $279, and the Ultimate Detail starts at $349. Interior-only packages start at $149. Prices vary based on vehicle size and condition."
     },
     {
       question: "How long does a full auto detail take?",

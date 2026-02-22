@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { animationOne, transition } from '../../components/Transition';
 import { Loading, FAQSection, SkillShowcase, TrustBadges, ErrorBoundary } from '../../components';
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
@@ -198,6 +199,20 @@ function InteriorDetailing() {
                 }
               ]}
             />
+
+            {/* Cross-sell: Upgrade to Full Service */}
+            <section style={{ maxWidth: '900px', margin: '0 auto 3rem', padding: '2.5rem 2rem', background: 'linear-gradient(135deg, rgba(240,121,0,0.15), rgba(240,121,0,0.05))', borderRadius: '16px', border: '1px solid rgba(240,121,0,0.3)', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1.75rem', fontWeight: '700', color: '#fff', marginBottom: '0.75rem' }}>
+                Want Exterior Too? Upgrade to Full Service
+              </h3>
+              <p style={{ fontSize: '1.1rem', color: '#ccc', maxWidth: '650px', margin: '0 auto 1.5rem', lineHeight: '1.7' }}>
+                Add a premium exterior hand wash, clay bar, and wax protection to any interior package. Auto Detailing packages start at just <strong style={{ color: '#f07900' }}>$199</strong> — interior + exterior included.
+              </p>
+              <Link to="/auto-detail" style={{ display: 'inline-block', background: '#f07900', color: '#fff', padding: '14px 32px', borderRadius: '50px', textDecoration: 'none', fontWeight: '700', fontSize: '1.05rem', transition: 'transform 0.2s' }}>
+                View Auto Detailing Packages →
+              </Link>
+            </section>
+
             <Suspense fallback={null}>
               <GoogleReviewsCarousel />
             </Suspense>

@@ -6,7 +6,7 @@ import './ServicePricing.scss';
 
 function ServicePricing({ packages = [], title = "Service Packages" }) {
   const navigate = useNavigate();
-  
+
   const revealVariants = {
     visible: (i) => ({
       y: 0,
@@ -67,9 +67,29 @@ function ServicePricing({ packages = [], title = "Service Packages" }) {
                   </div>
                 )}
               </div>
-              
+
               <div className="service-pricing__price-section">
-                {pkg.priceRange && pkg.priceRange.start > 0 ? (
+                {pkg.originalPrice && pkg.salePrice ? (
+                  <div className="service-pricing__price-anchor">
+                    <span className="service-pricing__price-label">Starting at</span>
+                    <div className="service-pricing__price-original">
+                      ${pkg.originalPrice}
+                    </div>
+                    <div className="service-pricing__price-sale">
+                      ${pkg.salePrice}
+                    </div>
+                    {pkg.savings && (
+                      <div className="service-pricing__savings-badge">
+                        SAVE ${pkg.savings}
+                      </div>
+                    )}
+                    {pkg.urgencyText && (
+                      <div className="service-pricing__urgency-text">
+                        {pkg.urgencyText}
+                      </div>
+                    )}
+                  </div>
+                ) : pkg.priceRange && pkg.priceRange.start > 0 ? (
                   <div className="service-pricing__price-range">
                     <span className="service-pricing__price-label">Starting at</span>
                     <div className="service-pricing__price">

@@ -83,10 +83,11 @@
   border-radius: 16px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  
+
   @media screen and (max-width: 768px) {
     backdrop-filter: blur(2px);
   }
+
   display: flex;
   flex-direction: column;
 
@@ -206,6 +207,64 @@
   font-style: italic;
 }
 
+.service-pricing__price-anchor {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-pricing__price-original {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #888;
+  font-family: var(--font-base);
+  text-decoration: line-through;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.75rem;
+  }
+}
+
+.service-pricing__price-sale {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--white-color);
+  font-family: var(--font-base);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 3.25rem;
+  }
+}
+
+.service-pricing__savings-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.35rem 0.85rem;
+  background: linear-gradient(135deg, #00c853, #00a844);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-base);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 200, 83, 0.3);
+}
+
+.service-pricing__urgency-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  font-family: var(--font-base);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
 .service-pricing__card-description {
   font-size: 0.9375rem;
   line-height: 1.7;
@@ -319,7 +378,3 @@
     }
   }
 }
-
-
-
-
