@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './ServicePricing.scss';
 
+const VEHICLE_TYPES = [
+  { key: 'car', label: 'Car / Sedan', surcharge: 0 },
+  { key: 'suv', label: 'SUV / Crossover', surcharge: 30 },
+  { key: 'truck', label: 'Truck / Van', surcharge: 50 },
+];
+
 function ServicePricing({ packages = [], title = "Service Packages" }) {
   const navigate = useNavigate();
+  const [vehicleType, setVehicleType] = useState('car');
+
+  const hasAnchorPricing = packages.some(p => p.originalPrice && p.salePrice);
+  const surcharge = VEHICLE_TYPES.find(v => v.key === vehicleType)?.surcharge || 0;
 
   const revealVariants = {
     visible: (i) => ({
@@ -44,6 +54,24 @@ function ServicePricing({ packages = [], title = "Service Packages" }) {
           </p>
         </motion.div>
 
+        {hasAnchorPricing && (
+          <div className="service-pricing__vehicle-tabs">
+            <span className="service-pricing__vehicle-label">Select your vehicle type:</span>
+            <div className="service-pricing__vehicle-options">
+              {VEHICLE_TYPES.map((vt) => (
+                <button
+                  key={vt.key}
+                  className={`service-pricing__vehicle-tab ${vehicleType === vt.key ? 'service-pricing__vehicle-tab--active' : ''}`}
+                  onClick={() => setVehicleType(vt.key)}
+                >
+                  {vt.label}
+                  {vt.surcharge > 0 && <span className="service-pricing__vehicle-surcharge">+${vt.surcharge}</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="service-pricing__grid">
           {packages.map((pkg, index) => (
             <motion.div
@@ -73,10 +101,10 @@ function ServicePricing({ packages = [], title = "Service Packages" }) {
                   <div className="service-pricing__price-anchor">
                     <span className="service-pricing__price-label">Starting at</span>
                     <div className="service-pricing__price-original">
-                      ${pkg.originalPrice}
+                      ${pkg.originalPrice + surcharge}
                     </div>
                     <div className="service-pricing__price-sale">
-                      ${pkg.salePrice}
+                      ${pkg.salePrice + surcharge}
                     </div>
                     {pkg.savings && (
                       <div className="service-pricing__savings-badge">

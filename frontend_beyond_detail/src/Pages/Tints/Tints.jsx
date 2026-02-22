@@ -11,6 +11,7 @@ import './Tints.scss';
 // Lazy load heavy components to improve initial bundle size
 import TintsHero from '../../components/TintsHero/TintsHero';
 import SEO from '../../components/SEO';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const TintsPercentageTabs = lazy(() => import('../../components/TintsPercentageTabs/TintsPercentageTabs'));
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
@@ -52,8 +53,8 @@ function Tints() {
   return (
     <>
       <SEO
-        title='Llumar Window Tinting Scarborough | Starting at $250 | Lifetime Warranty'
-        description='Llumar authorized dealer in Scarborough. Professional window tinting with 97% heat rejection (IRX), UV protection, and lifetime warranty. Serving Toronto & GTA. Same-day service available.'
+        title='Window Tinting Scarborough | LLumar Film | Beyond Detail'
+        description='Premium window tinting in Scarborough with LLumar film. 99% UV rejection, lifetime warranty, legal tint options. Starting at $250. Free quote available.'
         name='Beyond Detail Scarborough'
         type='website'
         serviceType='Window Tinting'
@@ -68,6 +69,7 @@ function Tints() {
         transition={{ ...transition, delay: 0 }}
       >
         <div className='tints__wrapper'>
+          <Breadcrumb />
           <TintsHero
             scrollTarget="#pricing"
             titleLine1="Llumar Window Tinting"

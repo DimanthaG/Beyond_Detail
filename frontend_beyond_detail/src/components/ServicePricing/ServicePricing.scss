@@ -264,6 +264,63 @@
   letter-spacing: 1px;
 }
 
+// Vehicle Type Tabs
+.service-pricing__vehicle-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.service-pricing__vehicle-label {
+  font-size: 0.9rem;
+  color: var(--lightGray-color);
+  font-family: var(--font-base);
+  font-weight: 500;
+}
+
+.service-pricing__vehicle-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-pricing__vehicle-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(240, 121, 0, 0.1);
+    border-color: rgba(240, 121, 0, 0.3);
+  }
+
+  &--active {
+    background: rgba(240, 121, 0, 0.15);
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+    font-weight: 600;
+  }
+}
+
+.service-pricing__vehicle-surcharge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  opacity: 0.9;
+}
 
 .service-pricing__card-description {
   font-size: 0.9375rem;

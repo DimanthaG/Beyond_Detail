@@ -7,6 +7,7 @@ import { Shield, Check, ArrowRight, Zap, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import { AUTO_DETAIL_PACKAGES } from '../../constants/servicePackages';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 const FAQSection = lazy(() => import('../../components/FAQSection/FAQSection'));
@@ -51,8 +52,8 @@ const Pricing = () => {
     return (
         <>
             <SEO
-                title="Car Detailing Pricing Scarborough 2025 | Window Tint & Ceramic Coating Costs"
-                description="Transparent pricing for window tinting, ceramic coating & paint correction in Scarborough. Request your custom quote online. Serving Toronto & GTA."
+                title="Car Detailing Prices Scarborough | Interior $149+ Auto $199+ | Beyond Detail"
+                description="Transparent pricing for car detailing in Scarborough. Interior detailing from $149, auto detailing from $199, ceramic coating & window tint. No hidden fees."
                 name="Beyond Detail Pricing"
                 type="website"
                 keywords="car detailing pricing, window tinting prices scarborough, ceramic coating cost, auto detailing quote"
@@ -66,6 +67,7 @@ const Pricing = () => {
                     transition={{ ...transition, delay: 0 }}
                     className="pricing-page"
                 >
+                    <Breadcrumb />
                     {/* Hero Section */}
                     <div className="pricing-hero" style={{
                         background: 'linear-gradient(to bottom, #000000, #111111)',

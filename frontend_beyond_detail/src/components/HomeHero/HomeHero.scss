@@ -655,12 +655,36 @@
   background: linear-gradient(135deg, var(--secondary-color), var(--darkOrange-color));
   color: var(--white-color);
   border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1rem 2.25rem;
   box-shadow: 0 4px 15px rgba(240, 121, 0, 0.3), 0 0 20px rgba(240, 121, 0, 0.2);
+  animation: heroPulse 2.5s ease-in-out infinite;
+
+  @media screen and (min-width: 768px) {
+    padding: 1.125rem 2.75rem;
+    font-size: 1.2rem;
+  }
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(240, 121, 0, 0.4), 0 0 30px rgba(240, 121, 0, 0.3);
     background: linear-gradient(135deg, var(--lightOrange-color), var(--secondary-color));
+    animation: none;
+  }
+}
+
+@keyframes heroPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(240, 121, 0, 0.3), 0 0 20px rgba(240, 121, 0, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 4px 25px rgba(240, 121, 0, 0.5), 0 0 35px rgba(240, 121, 0, 0.35);
   }
 }
 

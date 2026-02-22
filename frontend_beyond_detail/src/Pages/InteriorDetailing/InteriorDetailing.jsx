@@ -6,6 +6,7 @@ import { Loading, FAQSection, SkillShowcase, TrustBadges, ErrorBoundary } from '
 import ServiceInfoSection from '../../components/ServiceInfoSection/ServiceInfoSection';
 import ServicePricing from '../../components/ServicePricing/ServicePricing';
 import './InteriorDetailing.scss';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 // Lazy load heavy components to improve initial bundle size
 import SEO from '../../components/SEO';
@@ -41,8 +42,8 @@ function InteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Interior Car Detailing Scarborough | Shampoo, Steam Clean & Odor Removal'
-          description='Deep interior cleaning in Scarborough. Specialized in salt stain removal, hot water extraction, pet hair removal, and ozone odor treatment. Book your interior fresh start today.'
+          title='Interior Car Detailing Scarborough | Deep Cleaning from $149 | Beyond Detail'
+          description='Professional interior car detailing in Scarborough. Steam cleaning, leather conditioning, odor removal. Starting at $149. Same-day service available.'
           name='Beyond Detail Interior'
           type='website'
           serviceType='Interior Detailing'
@@ -57,6 +58,7 @@ function InteriorDetailing() {
           transition={{ ...transition, delay: 0 }}
         >
           <div className='interior-detailing__wrapper'>
+            <Breadcrumb />
             <InteriorDetailingHero scrollTarget="#pricing" />
 
             {/* Premium Overview */}

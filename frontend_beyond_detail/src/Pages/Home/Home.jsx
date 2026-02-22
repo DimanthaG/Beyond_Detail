@@ -5,6 +5,7 @@ import { HomeHero } from '../../components/HomeHero/HomeHero';
 import './Home.scss';
 
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const BeforeAfterSection = lazy(() => import('../../components/BeforeAfterSection/BeforeAfterSection'));
 const SkillShowcase = lazy(() => import('../../components/SkillShowcase/SkillShowcase'));
 const TrustBadges = lazy(() => import('../../components/TrustBadges/TrustBadges'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
@@ -54,8 +55,8 @@ function Home() {
   return (
     <div className='home__container'>
       <SEO
-        title='Car Detailing Scarborough | #1 Auto Detailing Near Me'
-        description='Best car detailing in Scarborough. Ceramic coating, paint correction, window tinting. 5+ Year Protection, free consultation. Book online today!'
+        title='Car Detailing Scarborough | Ceramic Coating & Window Tint | Beyond Detail'
+        description='Beyond Detail: Premium car detailing, ceramic coating & window tinting in Scarborough. 4.9 stars, 2000+ customers. Interior from $149. Book online today.'
         name='Beyond Detail | Car Detailing Scarborough'
         type='website'
         keywords='Car Detailing Scarborough, Mobile Car Detailing Scarborough, Auto Detailing Packages, Ceramic Coating Scarborough, Paint Correction Scarborough, Interior Detailing Toronto'
@@ -64,6 +65,9 @@ function Home() {
       <HomeHero />
       <Suspense fallback={null}>
         <GoogleReviewsCarousel />
+      </Suspense>
+      <Suspense fallback={null}>
+        <BeforeAfterSection />
       </Suspense>
       <div id="home-services">
         <Suspense fallback={null}>

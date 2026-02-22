@@ -10,6 +10,7 @@ import './CeramicCoating.scss';
 
 import CeramicCoatingHero from '../../components/CeramicCoatingHero/CeramicCoatingHero';
 import SEO from '../../components/SEO';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
@@ -42,8 +43,8 @@ function CeramicCoating() {
   return (
     <>
       <SEO
-        title='Ceramic Coating Scarborough | 5+ Year Protection | Certified Installers'
-        description='Premium ceramic coating in Scarborough. Protect your paint from salt, UV rays, and oxidation for years. Certified installers of professional-grade coatings. Book your protection package today.'
+        title='Ceramic Coating Scarborough | 5+ Year Paint Protection | Beyond Detail'
+        description='Professional ceramic coating in Scarborough. 5+ year protection, paint correction included, lifetime warranty. Free consultation. Request a quote today.'
         name='Beyond Detail Ceramic Coating'
         type='website'
         serviceType='Ceramic Coating'
@@ -58,6 +59,7 @@ function CeramicCoating() {
         transition={{ ...transition, delay: 0 }}
       >
         <div className='ceramic-coating__wrapper'>
+          <Breadcrumb />
           <CeramicCoatingHero
             scrollTarget="#pricing"
             titleLine1="Ceramic"

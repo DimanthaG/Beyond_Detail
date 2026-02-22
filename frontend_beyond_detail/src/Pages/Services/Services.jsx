@@ -10,9 +10,11 @@ import './Services.scss';
 
 import AutoDetailHero from '../../components/AutoDetailHero/AutoDetailHero';
 import SEO from '../../components/SEO';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const ServiceGallery = lazy(() => import('../../components/ServiceGallery/ServiceGallery'));
 const GoogleReviewsCarousel = lazy(() => import('../../components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+const YouTubeEmbed = lazy(() => import('../../components/YouTubeEmbed/YouTubeEmbed'));
 const Contact = lazy(() => import('../../components/Contact/Contact'));
 
 function Services() {
@@ -39,8 +41,8 @@ function Services() {
   return (
     <>
       <SEO
-        title='Auto Detailing Toronto, Scarborough, Markham, Pickering | Express, Signature & Premium Packages'
-        description='Complete auto detailing services in Toronto, Scarborough, Markham, and Pickering. Choose from Express Detail (quick & affordable), Signature Detail (deep cleaning & sanitizing), or Premium Detail (full-service experience). Professional interior and exterior detailing across the GTA.'
+        title='Auto Detailing Scarborough | Interior & Exterior from $199 | Beyond Detail'
+        description='Full auto detailing packages in Scarborough. Interior & exterior service from $199. Ceramic coating, paint correction, window tint. Book today!'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Auto Detailing'
@@ -55,6 +57,7 @@ function Services() {
         transition={{ ...transition, delay: 0 }}
       >
         <div className='auto-detail__wrapper'>
+          <Breadcrumb />
           <AutoDetailHero scrollTarget="#pricing" />
 
           <ErrorBoundary fallback={<div style={{ padding: '20px', textAlign: 'center' }}>Gallery unavailable (offline)</div>}>
@@ -66,6 +69,22 @@ function Services() {
               />
             </Suspense>
           </ErrorBoundary>
+
+          {/* Video Showcase */}
+          <section style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '2rem', color: 'var(--white-color)', marginBottom: '0.75rem', fontFamily: 'var(--font-base)' }}>
+              Watch Our Detailing Process
+            </h2>
+            <p style={{ color: 'var(--lightGray-color)', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem', fontFamily: 'var(--font-base)', lineHeight: '1.7' }}>
+              See the Beyond Detail difference — real transformations on real vehicles.
+            </p>
+            <Suspense fallback={null}>
+              <YouTubeEmbed
+                videoId="dQw4w9WgXcQ"
+                title="Beyond Detail — Full Auto Detailing Process"
+              />
+            </Suspense>
+          </section>
 
           {/* Premium Overview */}
           <section className="seo-content-box" style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1.5rem' }}>

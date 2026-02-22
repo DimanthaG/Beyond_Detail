@@ -283,7 +283,7 @@ export function HomeHero() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>Book Online - Get 10% Off</span>
+                    <span>BOOK YOUR DETAIL</span>
                     <ArrowRight className="home-hero__icon" />
                   </motion.a>
                   <motion.a

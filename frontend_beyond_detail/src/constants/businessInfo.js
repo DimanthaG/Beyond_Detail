@@ -5,7 +5,7 @@ export const LOCATIONS_STRING = LOCATIONS.join(', ');
 export const BUSINESS_INFO = {
     name: 'Beyond Detail',
     address: {
-        streetAddress: '170 Finchdene Square unit 11',
+        streetAddress: '170 Finchdene Square Unit 11',
         addressLocality: 'Scarborough',
         addressRegion: 'ON',
         postalCode: 'M1X 1B3',
