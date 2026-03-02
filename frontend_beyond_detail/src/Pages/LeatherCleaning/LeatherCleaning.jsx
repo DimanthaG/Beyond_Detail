@@ -39,8 +39,8 @@ function LeatherCleaning() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Leather Cleaning Toronto, Scarborough, Markham, Pickering | Leather Upholstery Care'
-          description='Professional leather cleaning and conditioning services in Toronto, Scarborough, Markham, and Pickering. Restore and protect your vehicle leather upholstery with expert leather care across the GTA.'
+          title='Leather Cleaning Scarborough | Leather Upholstery Care | Beyond Detail'
+          description='Professional leather cleaning and conditioning in Scarborough. Restore and protect your vehicle leather upholstery. Book at Beyond Detail. (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Leather Cleaning'

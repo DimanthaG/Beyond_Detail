@@ -40,8 +40,8 @@ function ExteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Exterior Car Detailing Scarborough | Hand Wash, Clay Bar & Wheel Detailing'
-          description='Premium exterior detailing in Scarborough. Safe two-bucket hand wash, iron decontamination, clay bar treatment, and rim detailing. Revitalize your paint today.'
+          title='Exterior Car Detailing Scarborough | Paint Decontamination'
+          description='Expert exterior car detailing in Scarborough. Paint decontamination, clay bar, wax & sealant protection. Beyond Detail. (647) 689-6109'
           name='Beyond Detail Exterior'
           type='website'
           serviceType='Exterior Detailing'

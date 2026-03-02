@@ -30,7 +30,7 @@ function CarDetailingNorthYork() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Car Detailing North York | 5+ Year Protection | Beyond Detail"
-          description="Professional car detailing in North York. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Willowdale & Don Mills areas."
+          description="Professional car detailing in North York. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Willowdale & Don Mills areas. (647) 689-6109"
           name="Beyond Detail North York"
           type="website"
           keywords="car detailing north york, auto detailing north york, window tinting north york, ceramic coating north york, car wash north york"

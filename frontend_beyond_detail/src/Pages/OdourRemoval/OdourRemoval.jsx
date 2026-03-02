@@ -38,8 +38,8 @@ function OdourRemoval() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Odour Removal Toronto, Scarborough, Markham, Pickering | Vehicle Odor Elimination'
-          description='Professional odour removal services in Toronto, Scarborough, Markham, and Pickering. Eliminate stubborn odors, smoke smell, and pet odors from your vehicle. Advanced odor removal across the GTA.'
+          title='Odour Removal Scarborough & Toronto | Vehicle Odor Elimination'
+          description='Professional odour removal in Scarborough. Eliminate smoke, pet odors & biological contaminants. Advanced ozone & steam treatment. Beyond Detail. (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Odour Removal'

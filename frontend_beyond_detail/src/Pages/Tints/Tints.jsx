@@ -53,8 +53,8 @@ function Tints() {
   return (
     <>
       <SEO
-        title='Window Tinting Scarborough | LLumar Film | Beyond Detail'
-        description='Premium window tinting in Scarborough with LLumar film. 99% UV rejection, lifetime warranty, legal tint options. Starting at $250. Free quote available.'
+        title='Window Tinting Scarborough | Ontario Law Compliant | Beyond Detail'
+        description='Expert window tinting in Scarborough. UV protection, heat reduction, privacy tinting. Ontario tint laws compliant. Lifetime warranty available. (647) 689-6109'
         name='Beyond Detail Scarborough'
         type='website'
         serviceType='Window Tinting'

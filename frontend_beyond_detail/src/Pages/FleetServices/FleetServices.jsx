@@ -41,8 +41,8 @@ function FleetServices() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Fleet Services Toronto, Scarborough, Markham, Pickering | Commercial Vehicle Detailing'
-          description='Professional fleet detailing services in Toronto, Scarborough, Markham, and Pickering. Commercial vehicle fleet maintenance, detailing, and protection. Keep your fleet looking professional across the GTA.'
+          title='Fleet Services Scarborough | Commercial Vehicle Detailing'
+          description='Professional fleet detailing in Scarborough & Toronto. Volume discounts, flexible scheduling, mobile service available. Beyond Detail. (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Fleet Services'

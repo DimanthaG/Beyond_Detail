@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+﻿import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
@@ -40,7 +40,7 @@ function WindowTintingScarborough() {
     <>
       <SEO
         title='Window Tinting Scarborough | LLUMAR Certified | Beyond Detail'
-        description='Best window tinting in Scarborough. Official LLUMAR SelectPro dealer. Lifetime warranty on all installs. Heat rejection & privacy films. Book now!'
+        description='Best window tinting in Scarborough. Official LLUMAR SelectPro dealer. Lifetime warranty on all installs. Heat rejection & privacy films. Book now! (647) 689-6109'
         name='Beyond Detail Scarborough'
         type='website'
         serviceType='Window Tinting'
@@ -61,7 +61,7 @@ function WindowTintingScarborough() {
               titleLine1="LLUMAR Window Tinting"
               titleLine2="in Scarborough"
               titleLine3=""
-              subtitle="Professional <strong>LLUMAR window film</strong> installation in Scarborough. <br/><span style='color:#f07900'>✓ Lifetime Warranty</span> &nbsp; <span style='color:#f07900'>✓ 99% UV Block</span> &nbsp; <span style='color:#f07900'>✓ Heat Reduction</span>"
+              subtitle="Professional <strong>LLUMAR window film</strong> installation in Scarborough. <br/><span style='color:#f07900'>âœ“ Lifetime Warranty</span> &nbsp; <span style='color:#f07900'>âœ“ 99% UV Block</span> &nbsp; <span style='color:#f07900'>âœ“ Heat Reduction</span>"
             />
 
             <Suspense fallback={null}>

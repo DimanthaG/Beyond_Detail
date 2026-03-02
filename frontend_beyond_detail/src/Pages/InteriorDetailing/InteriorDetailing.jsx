@@ -42,8 +42,8 @@ function InteriorDetailing() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Interior Car Detailing Scarborough | Deep Cleaning from $149 | Beyond Detail'
-          description='Professional interior car detailing in Scarborough. Steam cleaning, leather conditioning, odor removal. Starting at $149. Same-day service available.'
+          title='Interior Car Detailing Scarborough | Deep Clean Service'
+          description='Professional interior car detailing in Scarborough. Deep cleaning, leather treatment, odour removal & stain extraction. Book at Beyond Detail. (647) 689-6109'
           name='Beyond Detail Interior'
           type='website'
           serviceType='Interior Detailing'

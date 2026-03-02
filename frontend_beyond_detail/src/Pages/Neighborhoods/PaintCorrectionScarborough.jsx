@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+﻿import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
@@ -36,7 +36,7 @@ function PaintCorrectionScarborough() {
     <>
       <SEO
         title='Paint Correction Scarborough | Scratch Removal | Beyond Detail'
-        description='Expert paint correction in Scarborough. Remove swirl marks, scratches & oxidation to restore showroom shine. Multi-stage polishing. Lifetime warranty. Book today!'
+        description='Expert paint correction in Scarborough. Remove swirl marks, scratches & oxidation to restore showroom shine. Multi-stage polishing. Lifetime warranty. Book today! (647) 689-6109'
         name='Beyond Detail Scarborough'
         type='website'
         serviceType='Paint Correction'

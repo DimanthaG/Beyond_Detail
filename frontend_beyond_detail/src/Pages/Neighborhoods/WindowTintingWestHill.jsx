@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+﻿import React, { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationOne, transition } from '../../components/Transition';
@@ -25,7 +25,7 @@ function WindowTintingWestHill() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Llumar Window Tinting West Hill | Authorized Professional Installer'
-          description='Professional Llumar window tinting in West Hill by authorized installers. Reasonable pricing for 2026. Reduce heat & glare with lifetime warranty. Book Your 2026 Protection.'
+          description='Professional Llumar window tinting in West Hill by authorized installers. Reasonable pricing for 2026. Reduce heat & glare with lifetime warranty. Book Your 2026 Protection. (647) 689-6109'
           name='Beyond Detail West Hill'
           type='website'
           serviceType='Window Tinting'

@@ -40,8 +40,8 @@ function Services() {
   return (
     <>
       <SEO
-        title='Auto Detailing Scarborough | Interior & Exterior from $199 | Beyond Detail'
-        description='Full auto detailing packages in Scarborough. Interior & exterior service from $199. Ceramic coating, paint correction, window tint. Book today!'
+        title='Car Detailing Scarborough | Interior & Exterior Detailing'
+        description='Professional car detailing in Scarborough. Full interior & exterior detailing, paint protection & more. Mobile detailing available. Beyond Detail. (647) 689-6109'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Auto Detailing'

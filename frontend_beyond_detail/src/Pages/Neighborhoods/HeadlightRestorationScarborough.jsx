@@ -31,7 +31,7 @@ const HeadlightRestorationScarborough = () => {
         <>
             <SEO
                 title="Headlight Restoration Scarborough | Fix Foggy Lights | Beyond Detail"
-                description="Professional headlight restoration in Scarborough. Remove yellowing and oxidation. Increase night visibility and safety. Ceramic protection included."
+                description="Professional headlight restoration in Scarborough. Remove yellowing and oxidation. Increase night visibility and safety. Ceramic protection included. (647) 689-6109"
                 name="Beyond Detail Headlight Restoration"
                 type="website"
                 keywords="headlight restoration scarborough, headlight cleaning near me, fix yellow headlights, auto detailing scarborough"

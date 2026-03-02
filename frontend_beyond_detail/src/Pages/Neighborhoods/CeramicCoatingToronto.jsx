@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+﻿import React, { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { animationOne, transition } from '../../components/Transition';
@@ -36,7 +36,7 @@ function CeramicCoatingToronto() {
         <>
             <SEO
                 title='Ceramic Coating Toronto | Best 9H Paint Protection GTA'
-                description='Top-rated Ceramic Coating in Toronto. Protect your vehicle from winter salt & UV rays. 9H Nano Coating, Paint Correction included. Lifetime Warranty Available.'
+                description='Top-rated Ceramic Coating in Toronto. Protect your vehicle from winter salt & UV rays. 9H Nano Coating, Paint Correction included. Lifetime Warranty Available. (647) 689-6109'
                 name='Beyond Detail Toronto'
                 type='website'
                 serviceType='Ceramic Coating'
@@ -72,12 +72,12 @@ function CeramicCoatingToronto() {
                         </h2>
                         <div>
                             <p className="seo-text-lg">
-                                Toronto's diverse weather conditions—from humid summers to salt-heavy winters—can wreak havoc on your vehicle's paint.
+                                Toronto's diverse weather conditionsâ€”from humid summers to salt-heavy wintersâ€”can wreak havoc on your vehicle's paint.
                                 <strong>Ceramic Coating in Toronto</strong> is the ultimate solution for long-term protection. Unlike traditional wax that lasts a few weeks,
                                 our 9H Nano-Ceramic coatings bond permanently to your paint, offering years of protection against UV rays, bird droppings, road salt, and oxidation.
                             </p>
                             <p className="seo-text-lg">
-                                Located conveniently for minimal commute from downtown, North York, and Scarborough, Beyond Detail is Toronto’s trusted
+                                Located conveniently for minimal commute from downtown, North York, and Scarborough, Beyond Detail is Torontoâ€™s trusted
                                 expert for high-end paint protection. Every package includes professional <Link to="/paint-correction">paint correction</Link>
                                 to ensure a flawless finish before sealing it in.
                             </p>

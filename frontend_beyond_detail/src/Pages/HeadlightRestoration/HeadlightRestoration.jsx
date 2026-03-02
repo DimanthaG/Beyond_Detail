@@ -39,8 +39,8 @@ function HeadlightRestoration() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Headlight Restoration Toronto, Scarborough, Markham, Pickering | Cloudy Headlight Repair'
-          description='Professional headlight restoration services in Toronto, Scarborough, Markham, and Pickering. Restore cloudy and yellowed headlights to crystal clear condition. Expert restoration across the GTA.'
+          title='Headlight Restoration Scarborough | Restore Clarity & Safety'
+          description='Professional headlight restoration in Scarborough. Restore cloudy, yellowed headlights to crystal clarity. Safer driving, better appearance. Beyond Detail. (647) 689-6109'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Headlight Restoration'

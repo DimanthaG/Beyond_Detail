@@ -36,7 +36,7 @@ function CeramicCoatingScarborough() {
     <>
       <SEO
         title="Ceramic Coating Scarborough | 5+ Year Protection | Beyond Detail"
-        description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 5+ year protection, free consultation. Serving Toronto & North York. Get quote today!"
+        description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 5+ year protection, free consultation. Serving Toronto & North York. Get quote today! (647) 689-6109"
         name="Beyond Detail Ceramic Coating"
         type="website"
         keywords="ceramic coating scarborough, ceramic coating near me, ceramic coating north york, paint protection scarborough, best ceramic coating scarborough"

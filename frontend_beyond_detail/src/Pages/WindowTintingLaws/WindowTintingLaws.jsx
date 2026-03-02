@@ -33,8 +33,8 @@ const WindowTintingLaws = () => {
     return (
         <>
             <SEO
-                title="Ontario Window Tinting Laws | Legal Tint Limits | Beyond Detail"
-                description="Understand Ontario window tinting laws (HTA). Front windows need 70% VLT. Rear windows any darkness. Stay legal with LLUMAR certified tinting in Scarborough."
+                title="Ontario Window Tinting Laws 2026 | Legal Tint Levels Guide"
+                description="Complete guide to Ontario window tinting laws. Legal VLT percentages, front/rear rules & enforcement. Book compliant tinting at Beyond Detail. (647) 689-6109"
                 name="Beyond Detail Legal Tint"
                 type="website"
                 keywords="ontario window tint laws, is tint legal in ontario, legal tint limit scarborough, windshield tint laws ontario"

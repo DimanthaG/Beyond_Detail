@@ -43,8 +43,8 @@ function CeramicCoating() {
   return (
     <>
       <SEO
-        title='Ceramic Coating Scarborough | 5+ Year Paint Protection | Beyond Detail'
-        description='Professional ceramic coating in Scarborough. 5+ year protection, paint correction included, lifetime warranty. Free consultation. Request a quote today.'
+        title='Ceramic Coating Toronto & Scarborough | Professional Application'
+        description='Professional ceramic coating in Toronto & Scarborough. IGL Coatings certified. Long-lasting paint protection with 5-year warranty. Free consultation. (647) 689-6109'
         name='Beyond Detail Ceramic Coating'
         type='website'
         serviceType='Ceramic Coating'

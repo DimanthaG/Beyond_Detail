@@ -30,7 +30,7 @@ function CarDetailingPickering() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Car Detailing Pickering | 5+ Year Protection | Beyond Detail"
-          description="Professional car detailing in Pickering. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Durham Region & GTA."
+          description="Professional car detailing in Pickering. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Durham Region & GTA. (647) 689-6109"
           name="Beyond Detail Pickering"
           type="website"
           keywords="car detailing pickering, auto detailing pickering, window tinting pickering, ceramic coating pickering, car wash pickering"
