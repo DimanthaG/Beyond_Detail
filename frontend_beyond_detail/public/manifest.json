@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Beyond Detail",
+  "name": "Beyond Detail - Car Detailing Scarborough",
+  "description": "Professional car detailing, ceramic coating & window tinting in Scarborough & Toronto",
   "icons": [
     {
       "src": "favicon.ico",
