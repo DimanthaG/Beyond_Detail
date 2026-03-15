@@ -1,13 +1,133 @@
 'use client';
 
+import React, { Suspense, lazy } from 'react';
+import { motion } from 'framer-motion';
+import FAQSection from '@/components/FAQSection/FAQSection';
+import TrustBadges from '@/components/TrustBadges/TrustBadges';
+import SkillShowcase from '@/components/SkillShowcase/SkillShowcase';
+import ServiceInfoSection from '@/components/ServiceInfoSection/ServiceInfoSection';
+import FleetHero from '@/components/FleetHero/FleetHero';
+import FleetExpertise from '@/components/FleetExpertise/FleetExpertise';
+import FleetContactCTA from '@/components/FleetContactCTA/FleetContactCTA';
+import FleetVision from '@/components/FleetVision/FleetVision';
+import './FleetServices.scss';
+
+const GoogleReviewsCarousel = lazy(() => import('@/components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+// TODO: Migrate Contact component to a shared component
+// const Contact = lazy(() => import('@/components/Contact/Contact'));
+
+const animationOne = {
+  in: { opacity: 1 },
+  out: { opacity: 0 },
+};
+const transition = { duration: 0.4, ease: 'easeInOut' };
+
 export default function FleetServicesClient() {
+  const fleetServicesFAQs = [
+    {
+      question: "Do you offer volume discounts for fleet vehicles?",
+      answer: "Yes, we offer tiered pricing models based on the number of vehicles in your fleet and the frequency of service. Contact us for a custom quote tailored to your business needs."
+    },
+    {
+      question: "Do you come to our location?",
+      answer: "We offer both mobile detailing at your facility (space and water permitting) and service at our fully equipped studio in Scarborough. For large fleets, we can arrange a schedule that works best for your logistics."
+    },
+    {
+      question: "Can you service large vans and trucks?",
+      answer: "Yes, our facility has high bay doors to accommodate Sprinter vans, work trucks, and commercial vehicles. Our mobile team is also equipped to handle larger vehicles on-site."
+    },
+    {
+      question: "Is corporate billing available?",
+      answer: "Yes, we offer monthly invoicing and account management for our corporate fleet clients to streamline the billing process."
+    }
+  ];
+
   return (
-    <div style={{ background: '#050505', color: '#fff', minHeight: '50vh', padding: '4rem 2rem', textAlign: 'center' }}>
-      <h1 style={{ color: '#f07900', fontSize: '2rem', marginBottom: '1rem' }}>
-        Fleet Detailing Scarborough
-      </h1>
-      <p style={{ color: '#818181' }}>Volume pricing — scheduled service for all vehicle types</p>
-      <p style={{ color: '#454545', marginTop: '2rem' }}>Page content migrating...</p>
-    </div>
+    <motion.div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={{ ...transition, delay: 0 }}
+    >
+      <div className='fleet-services__wrapper'>
+        <FleetHero scrollTarget="#contact" />
+        <ServiceInfoSection
+          title="Professional Fleet Detailing Services"
+          subtitle="Commercial Vehicle Care"
+          description="Maintain your commercial vehicle fleet's professional appearance and value with our specialized fleet detailing services. We offer flexible scheduling, volume discounts, and comprehensive packages designed to keep your entire fleet looking its best while minimizing downtime."
+          benefits={[
+            {
+              title: "Volume Discounts",
+              description: "Competitive pricing for fleet accounts with discounts based on volume and frequency of service."
+            },
+            {
+              title: "Flexible Scheduling",
+              description: "Accommodate your business schedule with after-hours service, weekend availability, and on-site detailing options."
+            },
+            {
+              title: "Professional Appearance",
+              description: "Maintain a professional image that represents your business positively to customers and clients."
+            },
+            {
+              title: "Preserve Vehicle Value",
+              description: "Regular professional detailing helps maintain your fleet's resale value and extends vehicle lifespan."
+            },
+            {
+              title: "Consistent Quality",
+              description: "Standardized service ensures every vehicle in your fleet receives the same high-quality treatment."
+            },
+            {
+              title: "Comprehensive Service",
+              description: "From basic washes to full interior and exterior detailing, we offer packages for all fleet needs."
+            }
+          ]}
+          process={[
+            {
+              title: "Fleet Assessment",
+              description: "We assess your fleet size, vehicle types, and service requirements to create a customized maintenance plan."
+            },
+            {
+              title: "Service Planning",
+              description: "Develop a scheduling plan that minimizes downtime while ensuring all vehicles receive regular care."
+            },
+            {
+              title: "Regular Service Execution",
+              description: "Our team executes the agreed-upon services consistently, maintaining detailed records for each vehicle."
+            },
+            {
+              title: "Quality Assurance",
+              description: "Regular quality checks ensure service standards are maintained across your entire fleet."
+            },
+            {
+              title: "Reporting & Communication",
+              description: "Regular reports keep you informed about service completion and any additional recommendations."
+            }
+          ]}
+          features={[
+            "Volume pricing for fleet accounts",
+            "Flexible scheduling options",
+            "On-site or shop-based service",
+            "Basic to comprehensive detailing packages",
+            "Interior and exterior services",
+            "Regular maintenance programs",
+            "Service tracking and reporting",
+            "Consistent quality standards",
+            "Dedicated fleet account management",
+            "Customized service packages"
+          ]}
+        />
+        <FleetExpertise />
+        <Suspense fallback={null}>
+          <GoogleReviewsCarousel />
+        </Suspense>
+        <TrustBadges />
+        <SkillShowcase />
+        <FleetContactCTA />
+        <FleetVision />
+        <FAQSection data={fleetServicesFAQs} title="Fleet Services FAQs" />
+        {/* TODO: Add Contact component once migrated to shared */}
+      </div>
+    </motion.div>
   );
 }

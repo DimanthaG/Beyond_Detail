@@ -1,4 +1,5 @@
-import HeadlightRestorationClient from './HeadlightRestorationClient';
+import dynamic from 'next/dynamic';
+const HeadlightRestorationClient = dynamic(() => import('./HeadlightRestorationClient'), { ssr: false });
 
 export const metadata = {
   title: 'Headlight Restoration Scarborough | From $89 | Beyond Detail',

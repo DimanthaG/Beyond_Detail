@@ -1,4 +1,5 @@
-import ExteriorDetailingClient from './ExteriorDetailingClient';
+import dynamic from 'next/dynamic';
+const ExteriorDetailingClient = dynamic(() => import('./ExteriorDetailingClient'), { ssr: false });
 
 export const metadata = {
   title: 'Exterior Car Detailing Scarborough | Paint Decontamination',

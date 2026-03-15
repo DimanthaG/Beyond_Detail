@@ -1,4 +1,5 @@
-import PaintCorrectionClient from './PaintCorrectionClient';
+import dynamic from 'next/dynamic';
+const PaintCorrectionClient = dynamic(() => import('./PaintCorrectionClient'), { ssr: false });
 
 export const metadata = {
   title: 'Paint Correction Scarborough | Swirl Removal | Beyond Detail',

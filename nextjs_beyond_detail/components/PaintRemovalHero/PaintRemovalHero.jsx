@@ -7,11 +7,11 @@ import { ArrowRight, Phone, Shield, Sparkles, Award, Star, Clock } from 'lucide-
 import { getCachedGoogleReviews } from '@/services/googleReviewsService';
 import PartnersCompact from '@/components/Partners/PartnersCompact';
 import GoogleReviewsCarousel from '@/components/GoogleReviewsCarousel/GoogleReviewsCarousel';
-import carImage from '@/assets/bd/bd-24.webp';
-import carImage400w from '@/assets/bd/bd-24-400w.webp';
-import carImage800w from '@/assets/bd/bd-24-800w.webp';
-import carImage1200w from '@/assets/bd/bd-24-1200w.webp';
-import carImage1600w from '@/assets/bd/bd-24-1600w.webp';
+const carImage = '/images/bd-24.webp';
+const carImage400w = '/images/bd-24-400w.webp';
+const carImage800w = '/images/bd-24-800w.webp';
+const carImage1200w = '/images/bd-24-1200w.webp';
+const carImage1600w = '/images/bd-24-1600w.webp';
 import './PaintRemovalHero.scss';
 
 export function PaintRemovalHero({

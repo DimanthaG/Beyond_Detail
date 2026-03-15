@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+
 import './FAQSection.scss';
 
 const FAQSection = ({ title = "Frequently Asked Questions", data = [] }) => {

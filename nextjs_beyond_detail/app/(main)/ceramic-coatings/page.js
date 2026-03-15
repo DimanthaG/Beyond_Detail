@@ -1,4 +1,5 @@
-import CeramicCoatingsClient from './CeramicCoatingsClient';
+import dynamic from 'next/dynamic';
+const CeramicCoatingsClient = dynamic(() => import('./CeramicCoatingsClient'), { ssr: false });
 
 export const metadata = {
   title: 'Ceramic Coating Scarborough | IGL Certified | From $599',

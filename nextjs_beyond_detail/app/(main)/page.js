@@ -1,4 +1,6 @@
 import { generateLocalBusinessSchema, generateWebsiteSchema, generateOrganizationSchema } from '@/lib/structured-data';
+import dynamic from 'next/dynamic';
+const HomeClient = dynamic(() => import('./HomeClient'), { ssr: false });
 
 export default function HomePage() {
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -19,12 +21,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      <div style={{ background: '#050505', color: '#fff', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '1rem' }}>
-        <h1 style={{ fontSize: '2rem' }}>
-          Beyond Detail — Next.js Migration In Progress
-        </h1>
-        <p style={{ color: '#818181' }}>Phase 1 scaffolding complete. Component migration next.</p>
-      </div>
+      <HomeClient />
     </>
   );
 }

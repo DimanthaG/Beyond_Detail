@@ -1,4 +1,5 @@
-import FleetServicesClient from './FleetServicesClient';
+import dynamic from 'next/dynamic';
+const FleetServicesClient = dynamic(() => import('./FleetServicesClient'), { ssr: false });
 
 export const metadata = {
   title: 'Fleet Detailing Scarborough | Volume Pricing | Beyond Detail',

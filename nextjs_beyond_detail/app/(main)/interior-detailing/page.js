@@ -1,4 +1,5 @@
-import InteriorDetailingClient from './InteriorDetailingClient';
+import dynamic from 'next/dynamic';
+const InteriorDetailingClient = dynamic(() => import('./InteriorDetailingClient'), { ssr: false });
 
 export const metadata = {
   title: 'Interior Detailing Scarborough | Deep Clean | Beyond Detail',

@@ -1,4 +1,5 @@
-import ServiceAreasClient from './ServiceAreasClient';
+import dynamic from 'next/dynamic';
+const ServiceAreasClient = dynamic(() => import('./ServiceAreasClient'), { ssr: false });
 
 export const metadata = {
   title: 'Service Areas | Car Detailing & Window Tinting GTA | Beyond Detail',

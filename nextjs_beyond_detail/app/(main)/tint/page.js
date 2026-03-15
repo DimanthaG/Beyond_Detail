@@ -1,4 +1,5 @@
-import TintClient from './TintClient';
+import dynamic from 'next/dynamic';
+const TintClient = dynamic(() => import('./TintClient'), { ssr: false });
 
 export const metadata = {
   title: 'Window Tinting Scarborough | Llumar & Huper Optik | Beyond Detail',

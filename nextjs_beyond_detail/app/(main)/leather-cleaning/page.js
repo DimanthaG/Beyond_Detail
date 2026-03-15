@@ -1,4 +1,5 @@
-import LeatherCleaningClient from './LeatherCleaningClient';
+import dynamic from 'next/dynamic';
+const LeatherCleaningClient = dynamic(() => import('./LeatherCleaningClient'), { ssr: false });
 
 export const metadata = {
   title: 'Leather Cleaning Scarborough | Conditioning & Repair | Beyond Detail',

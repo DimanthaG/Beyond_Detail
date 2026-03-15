@@ -1,4 +1,5 @@
-import OdourRemovalClient from './OdourRemovalClient';
+import dynamic from 'next/dynamic';
+const OdourRemovalClient = dynamic(() => import('./OdourRemovalClient'), { ssr: false });
 
 export const metadata = {
   title: 'Car Odour Removal Scarborough | Smoke & Pet | Beyond Detail',

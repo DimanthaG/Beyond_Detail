@@ -1,4 +1,5 @@
-import MobileDetailingClient from './MobileDetailingClient';
+import dynamic from 'next/dynamic';
+const MobileDetailingClient = dynamic(() => import('./MobileDetailingClient'), { ssr: false });
 
 export const metadata = {
   title: 'Mobile Car Detailing Toronto | We Come To You | Beyond Detail',

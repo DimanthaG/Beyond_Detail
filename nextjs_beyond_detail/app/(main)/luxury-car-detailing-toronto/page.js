@@ -1,4 +1,5 @@
-import LuxuryDetailingClient from './LuxuryDetailingClient';
+import dynamic from 'next/dynamic';
+const LuxuryDetailingClient = dynamic(() => import('./LuxuryDetailingClient'), { ssr: false });
 
 export const metadata = {
   title: 'Luxury Car Detailing Toronto | Exotics & Supercars | Beyond Detail',

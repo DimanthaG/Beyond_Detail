@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { client } from '@/lib/sanity';
 import Loading from '@/components/Loading/Loading';
 import ImageWithSchema from '@/components/ImageWithSchema/ImageWithSchema';
-import Tint_noTint from '@/assets/Tints/Car-Ceramic-No-Film.png';
-import Tint_five from '@/assets/Tints/Car-Ceramic-5-Percent.png';
-import Tint_fifteen from '@/assets/Tints/Car-Ceramic-15-Percent.png';
-import Tint_thirtyFive from '@/assets/Tints/Car-Ceramic-35-Percent.png';
-import Tint_fifty from '@/assets/Tints/Car-Ceramic-50-Percent.png';
+const Tint_noTint = '/images/Tints/Car-Ceramic-No-Film.png';
+const Tint_five = '/images/Tints/Car-Ceramic-5-Percent.png';
+const Tint_fifteen = '/images/Tints/Car-Ceramic-15-Percent.png';
+const Tint_thirtyFive = '/images/Tints/Car-Ceramic-35-Percent.png';
+const Tint_fifty = '/images/Tints/Car-Ceramic-50-Percent.png';
 import './TintsPercentageTabs.scss';
 
 function TintsPercentageTabs() {

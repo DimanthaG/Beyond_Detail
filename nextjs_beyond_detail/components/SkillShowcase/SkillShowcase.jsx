@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Sparkles, Droplets, Shield, Sun, Car, ArrowRight } from 'lucide-react';
 
-import tintImage from '@/assets/bd/bd-26.webp';
-import paintCorrectionImage from '@/assets/bd/bd-20.webp';
-import ceramicCoatingImage from '@/assets/bd/bd-28.webp';
-import carWashImage from '@/assets/bd/bd-3.webp';
-import headlightImage from '@/assets/bd/bd-4.webp';
+const tintImage = '/images/bd-26.webp';
+const paintCorrectionImage = '/images/bd-20.webp';
+const ceramicCoatingImage = '/images/bd-28.webp';
+const carWashImage = '/images/bd-3.webp';
+const headlightImage = '/images/bd-4.webp';
 
 import './SkillShowcase.scss';
 

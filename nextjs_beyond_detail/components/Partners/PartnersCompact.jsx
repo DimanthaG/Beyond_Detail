@@ -1,15 +1,17 @@
 import React from 'react';
 import images from '@/constants/images';
-import llumarLogo400 from '@/assets/Partners/Llumar-400w.webp';
-import llumarLogo800 from '@/assets/Partners/Llumar-800w.webp';
-import iwfaLogo400 from '@/assets/Partners/IWFA-400w.webp';
-import iwfaLogo800 from '@/assets/Partners/IWFA-800w.webp';
-import cancerLogo400 from '@/assets/Partners/CancerFoundation-400w.webp';
-import cancerLogo800 from '@/assets/Partners/CancerFoundation-800w.webp';
-import carstarsLogo400 from '@/assets/Partners/Carstars-400w.webp';
-import carstarsLogo800 from '@/assets/Partners/Carstars-800w.webp';
-import menzernaLogo400 from '@/assets/Partners/menzerna-400w.webp';
-import menzernaLogo800 from '@/assets/Partners/menzerna-800w.webp';
+
+// Partner logos from public directory
+const llumarLogo400 = '/images/partners/Llumar-400w.webp';
+const llumarLogo800 = '/images/partners/Llumar-800w.webp';
+const iwfaLogo400 = '/images/partners/IWFA-400w.webp';
+const iwfaLogo800 = '/images/partners/IWFA-800w.webp';
+const cancerLogo400 = '/images/partners/CancerFoundation-400w.webp';
+const cancerLogo800 = '/images/partners/CancerFoundation-800w.webp';
+const carstarsLogo400 = '/images/partners/Carstars-400w.webp';
+const carstarsLogo800 = '/images/partners/Carstars-800w.webp';
+const menzernaLogo400 = '/images/partners/menzerna-400w.webp';
+const menzernaLogo800 = '/images/partners/menzerna-800w.webp';
 import './PartnersCompact.scss';
 
 // Partner logos - using local assets

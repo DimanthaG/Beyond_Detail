@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    styledComponents: true,
+  },
+
   // SCSS support via sass package
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],

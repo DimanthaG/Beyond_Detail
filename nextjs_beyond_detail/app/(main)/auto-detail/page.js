@@ -1,4 +1,5 @@
-import AutoDetailClient from './AutoDetailClient';
+import dynamic from 'next/dynamic';
+const AutoDetailClient = dynamic(() => import('./AutoDetailClient'), { ssr: false });
 
 export const metadata = {
   title: 'Auto Detailing Scarborough | From $149 | Beyond Detail',
