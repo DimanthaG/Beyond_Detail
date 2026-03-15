@@ -62,10 +62,10 @@ function Gallery() {
         viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
         className='gallery__pics'
         key={data._id}
-        onClick={() => getImg(urlFor(data.galleryPicture))}
+        onClick={() => getImg(urlFor(data.galleryPicture).width(1200).quality(82).url())}
       >
         <LazyLoadImage
-          src={urlFor(data.galleryPicture)}
+          src={urlFor(data.galleryPicture).width(600).quality(75).url()}
           alt='gallery'
           effect='blur'
         />
@@ -109,15 +109,15 @@ function Gallery() {
                 >
                   <div className='gallery__imageSlider'>
                     <ImageSlider
-                      image1={urlFor(compareImages[0].comparisonSlider1.image2)}
-                      image2={urlFor(compareImages[0].comparisonSlider1.image1)}
+                      image1={urlFor(compareImages[0].comparisonSlider1.image2).width(800).quality(75).url()}
+                      image2={urlFor(compareImages[0].comparisonSlider1.image1).width(800).quality(75).url()}
                       sliderColor='var(--secondary-color)'
                       handleBackgroundColor='var(--white-color)'
                       handleColor='var(--background-color)'
                     />
                     <ImageSlider
-                      image1={urlFor(compareImages[0].comparisonSlider2.image2)}
-                      image2={urlFor(compareImages[0].comparisonSlider2.image1)}
+                      image1={urlFor(compareImages[0].comparisonSlider2.image2).width(800).quality(75).url()}
+                      image2={urlFor(compareImages[0].comparisonSlider2.image1).width(800).quality(75).url()}
                       sliderColor='var(--secondary-color)'
                       handleBackgroundColor='var(--white-color)'
                       handleColor='var(--background-color)'

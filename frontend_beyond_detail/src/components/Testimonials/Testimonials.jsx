@@ -28,7 +28,7 @@ function Testimonials({
         name: item.name || '',
         role: item.company || '',
         text: item.message || '',
-        avatar: item.avatar ? urlFor(item.avatar).url() : '',
+        avatar: item.avatar ? urlFor(item.avatar).width(120).quality(80).url() : '',
         rating: item.rating || 5,
       }));
       setTestimonials(formattedTestimonials);

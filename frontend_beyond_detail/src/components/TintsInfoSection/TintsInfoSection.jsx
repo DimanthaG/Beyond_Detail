@@ -48,7 +48,7 @@ function TintsInfoSection() {
           <div className='tints__topRow__right'>
             <div className='tints__topRow__right_firstColumn'>
               <LazyLoadImage
-                src={urlFor(tintsInfoData[0].tintsInfoSection.image1)}
+                src={urlFor(tintsInfoData[0].tintsInfoSection.image1).width(600).quality(75).url()}
                 alt={tintsInfoData[0].tintsInfoSection.heading || 'Window tint service'}
                 className='tints__topRow__right_firstColumn__topPic'
                 effect='blur'
@@ -58,7 +58,7 @@ function TintsInfoSection() {
 
               <div className='tints__topRow__right_firstColumn__bottomPic__imgWrapper'>
                 <LazyLoadImage
-                  src={urlFor(tintsInfoData[0].tintsInfoSection.image2.image)}
+                  src={urlFor(tintsInfoData[0].tintsInfoSection.image2.image).width(600).quality(75).url()}
                   alt={tintsInfoData[0].tintsInfoSection.image2.heading || 'Window tint feature'}
                   className='tints__topRow__right_firstColumn__bottomPic'
                   effect='blur'
@@ -76,7 +76,7 @@ function TintsInfoSection() {
             <div className='tints__topRow__right_secondColumn'>
               <div className='tints__topRow__right_secondColumn__topPic__imgWrapper'>
                 <LazyLoadImage
-                  src={urlFor(tintsInfoData[0].tintsInfoSection.image3.image)}
+                  src={urlFor(tintsInfoData[0].tintsInfoSection.image3.image).width(600).quality(75).url()}
                   alt={tintsInfoData[0].tintsInfoSection.image3.heading || 'Window tint feature'}
                   className='tints__topRow__right_secondColumn__topPic'
                   effect='blur'
@@ -92,7 +92,7 @@ function TintsInfoSection() {
               </div>
               <div className='tints__topRow__right_secondColumn__bottomPic__imgWrapper'>
                 <LazyLoadImage
-                  src={urlFor(tintsInfoData[0].tintsInfoSection.image4.image)}
+                  src={urlFor(tintsInfoData[0].tintsInfoSection.image4.image).width(600).quality(75).url()}
                   alt={tintsInfoData[0].tintsInfoSection.image4.heading || 'Window tint feature'}
                   className='tints__topRow__right_secondColumn__bottomPic'
                   effect='blur'

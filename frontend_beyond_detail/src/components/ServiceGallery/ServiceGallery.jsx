@@ -59,7 +59,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                 // Format images for the gallery
                 let formattedImages = validImages.map((item) => ({
                     _id: item._id,
-                    src: urlFor(item.image).width(1200).url(),
+                    src: urlFor(item.image).width(800).quality(80).url(),
                     title: item.title,
                     image: item.image, // Keep original for lightbox
                     order: item.order, // Keep order for sorting
@@ -310,7 +310,7 @@ function ServiceGallery({ serviceType, title = "Gallery" }) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <LazyLoadImage
-                            src={urlFor(images[lightboxIndex]?.image).width(1920).url()}
+                            src={urlFor(images[lightboxIndex]?.image).width(1200).quality(82).url()}
                             alt={images[lightboxIndex]?.title || `${serviceType?.replace(/-/g, ' ') || 'Professional detailing'} service at Beyond Detail Scarborough - image ${lightboxIndex + 1}`}
                             effect="blur"
                             className="service-gallery__lightbox-image"

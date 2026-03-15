@@ -1,4 +1,3 @@
-import noise from '../assets/noise.gif';
 import circle from '../assets/circle.svg';
 // import logo from '../assets/logo.png';
 import bd1 from '../assets/bd/bd-1.webp';
@@ -64,7 +63,6 @@ import uniglass_logo from '../assets/Partners/uniglass.webp';
 const images = {
   circle,
   logo,
-  noise,
   bd1,
   bd2,
   bd3,

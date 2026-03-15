@@ -38,9 +38,11 @@ function HomeServicesCards() {
                   viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 >
                   <img
-                    src={urlFor(cards[0].cardOne.bgImage)}
+                    src={urlFor(cards[0].cardOne.bgImage).width(600).quality(75).url()}
                     alt={cards[0]?.cardOne?.heading || 'Auto detailing service'}
                     loading='lazy'
+                    width="600"
+                    height="400"
                   />
                   <div className='homeServicesCards__card-description1'>
                     <div className='homeServicesCards__topDescription'>
@@ -82,9 +84,11 @@ function HomeServicesCards() {
                   viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 >
                   <img
-                    src={urlFor(cards[0].cardTwo.bgImage)}
+                    src={urlFor(cards[0].cardTwo.bgImage).width(600).quality(75).url()}
                     alt={cards[0]?.cardTwo?.heading || 'Ceramic coating service'}
                     loading='lazy'
+                    width="600"
+                    height="400"
                   />
                   <div className='homeServicesCards__card-description2'>
                     <div className='homeServicesCards__topDescription'>
@@ -126,9 +130,11 @@ function HomeServicesCards() {
                   viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
                 >
                   <img
-                    src={urlFor(cards[0].cardThree.bgImage)}
+                    src={urlFor(cards[0].cardThree.bgImage).width(600).quality(75).url()}
                     alt={cards[0]?.cardThree?.heading || 'Window tinting service'}
                     loading='lazy'
+                    width="600"
+                    height="400"
                   />
                   <div className='homeServicesCards__card-description3'>
                     <div className='homeServicesCards__topDescription'>

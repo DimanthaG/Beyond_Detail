@@ -109,7 +109,7 @@ function InfoSection() {
         </div>
         <div className='column__right'>
           {info.length !== 0 && (
-            <img src={urlFor(info[0].imageOne)} alt='gallery' loading='lazy' />
+            <img src={urlFor(info[0].imageOne).width(800).quality(75).url()} alt='gallery' loading='lazy' width="800" height="600" />
           )}
         </div>
       </div>
@@ -117,7 +117,7 @@ function InfoSection() {
       <div className='info__container__bottom fade-in' ref={infoBottom}>
         <div className='column__left__bottom '>
           {info.length !== 0 && (
-            <img src={urlFor(info[0].imageTwo)} alt='gallery' loading='lazy' />
+            <img src={urlFor(info[0].imageTwo).width(800).quality(75).url()} alt='gallery' loading='lazy' width="800" height="600" />
           )}
         </div>
         <div className='column__right__bottom'>

@@ -185,7 +185,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
                 <div className="recent-work__image-wrapper">
                   {item.image && !item.isPlaceholder ? (
                     <LazyLoadImage
-                      src={urlFor(item.image).width(800).height(600).url()}
+                      src={urlFor(item.image).width(600).height(450).quality(75).url()}
                       alt={item.title || `Recent work ${index + 1}`}
                       effect="blur"
                       className="recent-work__image"
@@ -243,7 +243,7 @@ function RecentWork({ serviceType = 'tint', title = 'WINDOW TINT', limit = 6 }) 
           >
             {displayImages[lightboxIndex]?.image ? (
               <LazyLoadImage
-                src={urlFor(displayImages[lightboxIndex].image).width(1920).height(1080).url()}
+                src={urlFor(displayImages[lightboxIndex].image).width(1200).height(900).quality(82).url()}
                 alt={displayImages[lightboxIndex]?.title || `Recent work ${lightboxIndex + 1}`}
                 effect="blur"
                 className="recent-work__lightbox-image"
