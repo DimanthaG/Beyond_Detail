@@ -1,0 +1,238 @@
+'use client';
+
+import React, { useEffect, Suspense, lazy } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Award, Users, Target, Shield, Sparkles, Phone, ArrowRight } from 'lucide-react';
+import './About.scss';
+
+// TODO: These components need to be migrated to Next.js
+// import { Loading, HomeProcess, SkillShowcase, TrustBadges } from '@/components';
+// const Contact = lazy(() => import('@/components/Contact/Contact'));
+// const GoogleReviewsCarousel = lazy(() => import('@/components/GoogleReviewsCarousel/GoogleReviewsCarousel'));
+
+const animationOne = {
+  in: { opacity: 1 },
+  out: { opacity: 0 },
+};
+const transition = { duration: 0.4, ease: 'easeInOut' };
+
+function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleBookCall = () => {
+    window.location.href = 'tel:+16476896109';
+  };
+
+  const values = [
+    {
+      icon: Shield,
+      title: "Quality First",
+      description: "We never compromise on quality. Every service is performed with meticulous attention to detail using premium products and professional-grade equipment."
+    },
+    {
+      icon: Sparkles,
+      title: "Excellence",
+      description: "We strive for perfection in every detail, ensuring your vehicle receives the highest standard of care and restoration possible."
+    },
+    {
+      icon: Users,
+      title: "Customer Focused",
+      description: "Your satisfaction is our priority. We listen to your needs, provide transparent communication, and deliver results that exceed expectations."
+    },
+    {
+      icon: Award,
+      title: "Expertise",
+      description: "Our team consists of trained professionals with extensive experience in automotive detailing, paint correction, and protection services."
+    },
+    {
+      icon: Target,
+      title: "Reliability",
+      description: "We stand behind our work with warranties, follow-up support, and a commitment to maintaining long-term relationships with our clients."
+    }
+  ];
+
+  return (
+    <motion.div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={animationOne}
+      transition={{ ...transition, delay: 0 }}
+    >
+      <div className='about__wrapper'>
+        <section className='about__hero'>
+          <div className='about__hero-container'>
+            <motion.div
+              className='about__hero-content'
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <h1 className='about__hero-title'>About Us - Auto Detailing Scarborough</h1>
+              <p className='about__hero-description'>
+                Serving Toronto, Scarborough, and the GTA, Beyond Detail is your trusted automotive care specialist. We combine expert craftsmanship, premium products, and unwavering dedication to deliver exceptional results for every vehicle.
+              </p>
+              <div className='about__hero-buttons'>
+                <button
+                  className='about__hero-button about__hero-button--primary'
+                  onClick={handleBookCall}
+                >
+                  <Phone size={20} />
+                  Book a Call
+                </button>
+                <button
+                  className='about__hero-button about__hero-button--secondary'
+                  onClick={handleScrollToContact}
+                >
+                  Get Started
+                  <ArrowRight size={20} />
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className='about__story'>
+          <div className='about__story-container'>
+            <motion.div
+              className='about__story-content'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className='about__story-title'>Our Story</h2>
+              <div className='about__story-text'>
+                <p>
+                  Beyond Detail was founded with a simple mission: to provide <strong style={{ color: '#22c55e' }}>Flexible & Professional</strong> automotive care. Based in Scarborough, we recognized that while some clients need the convenience of <Link href="/mobile-detailing" style={{ color: 'inherit', textDecoration: 'underline' }}>Mobile Detailing</Link> at their driveway, others require the controlled environment of a shop for advanced <Link href="/paint-correction" style={{ color: 'inherit', textDecoration: 'underline' }}>Paint Correction</Link> and <Link href="/ceramic-coating-scarborough" style={{ color: 'inherit', textDecoration: 'underline' }}>Ceramic Coating</Link>.
+                </p>
+                <p>
+                  Today, we offer the best of both worlds. Our fully equipped mobile units service the entire GTA for unparalleled convenience, while our state-of-the-art facility at <strong>170 Finchdene Square</strong> handles heavy-duty restoration work that requires clinical precision.
+                </p>
+                <p>
+                  Our team consists of IDA-Certified technicians who are passionate about perfection. Whether we are visiting your home for a maintenance wash or restoring your vehicle&#39;s paint in our studio, you receive the same level of dedication, transparency, and premium quality that has earned us 70+ 5-star reviews.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className='about__mission'>
+          <div className='about__mission-container'>
+            <motion.div
+              className='about__mission-content'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className='about__mission-title'>Our Mission</h2>
+              <p className='about__mission-text'>
+                To provide exceptional automotive care services that protect and enhance your vehicle&#39;s appearance, value, and longevity while delivering an outstanding customer experience. We combine technical expertise with meticulous attention to detail, using premium products and proven techniques to achieve showroom-quality results.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className='about__values'>
+          <div className='about__values-container'>
+            <motion.h2
+              className='about__values-title'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Our Core Values
+            </motion.h2>
+            <motion.p
+              className='about__values-subtitle'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              The principles that guide everything we do
+            </motion.p>
+            <div className='about__values-grid'>
+              {values.map((value, index) => {
+                const IconComponent = value.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    className='about__value-card'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className='about__value-icon'>
+                      <IconComponent size={32} />
+                    </div>
+                    <h3 className='about__value-title'>{value.title}</h3>
+                    <p className='about__value-description'>{value.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* TODO: Migrate these shared components */}
+        {/* <HomeProcess /> */}
+        {/* <SkillShowcase /> */}
+
+        <section className='about__cta'>
+          <div className='about__cta-container'>
+            <motion.div
+              className='about__cta-content'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className='about__cta-title'>Ready to Experience Premium Service?</h2>
+              <p className='about__cta-text'>
+                Get in touch with us today to discuss how we can help protect and enhance your vehicle.
+              </p>
+              <div className='about__cta-buttons'>
+                <button
+                  className='about__cta-button about__cta-button--primary'
+                  onClick={handleBookCall}
+                >
+                  <Phone size={20} />
+                  Book a Call
+                </button>
+                <button
+                  className='about__cta-button about__cta-button--secondary'
+                  onClick={handleScrollToContact}
+                >
+                  Get Started
+                  <ArrowRight size={20} />
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* TODO: Migrate these shared components */}
+        {/* <GoogleReviewsCarousel /> */}
+        {/* <TrustBadges /> */}
+        {/* <SkillShowcase /> */}
+        {/* <Contact /> */}
+      </div>
+    </motion.div>
+  );
+}
+
+export default React.memo(About);
