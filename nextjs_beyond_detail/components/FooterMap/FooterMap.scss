@@ -1,0 +1,15 @@
+.footer-map-section {
+    width: 100%;
+    line-height: 0; // Removes any potential gap below the iframe
+
+    iframe {
+        width: 100%;
+        filter: invert(90%) hue-rotate(180deg); // Optional: Dark mode style map if the site is dark theme
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

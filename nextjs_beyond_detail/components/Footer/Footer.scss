@@ -1,0 +1,261 @@
+.footer {
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--white-color);
+  text-transform: uppercase;
+  font-family: var(--font-base);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(25, 25, 25, 0.4) 0%, rgba(5, 5, 5, 0) 70%);
+    pointer-events: none;
+  }
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  @media (max-width: 696px) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+  }
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 696px) {
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.footer-heading {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: var(--white-color);
+  font-family: var(--font-base);
+
+  @media (max-width: 696px) {
+    font-size: 18px;
+    margin-bottom: 1.25rem;
+  }
+}
+
+// Column 1: Company Info
+.footer-company {
+  .footer-logo {
+    margin-bottom: 1.5rem;
+
+    img {
+      width: 180px;
+      height: auto;
+      max-width: 100%;
+
+      @media (max-width: 696px) {
+        width: 160px;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .footer-phone {
+    margin-bottom: 2rem;
+
+    a {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--white-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--secondary-color);
+      }
+
+      @media (max-width: 696px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .footer-address {
+    margin-bottom: 2rem; // Added spacing for map
+
+    .footer-address-link {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 1px;
+      color: var(--white-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--secondary-color);
+      }
+
+      @media (max-width: 696px) {
+        font-size: 13px;
+      }
+    }
+  }
+
+
+}
+
+// Column 2: Social Links
+.footer-social {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--white-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+
+      &:hover {
+        color: var(--secondary-color);
+      }
+
+      @media (max-width: 696px) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// Column 3: Menu
+.footer-menu {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--white-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+
+      &:hover {
+        color: var(--secondary-color);
+      }
+
+      @media (max-width: 696px) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// Column 4: Hours
+.footer-hours {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .footer-hours-item {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: var(--white-color);
+      margin: 0;
+      line-height: 1.5;
+
+      @media (max-width: 696px) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// Footer Bottom - Copyright
+.footer-bottom {
+  width: 100%;
+  padding: 2rem 2rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 696px) {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .footer-copyright {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--white-color);
+    margin: 0;
+    opacity: 0.9;
+
+    @media (max-width: 696px) {
+      font-size: 11px;
+    }
+  }
+}
+
+// Legacy class names for backwards compatibility (can be removed if not needed)
+.footer-links-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-hidden-links {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+
+  a {
+    color: inherit;
+  }
+}
