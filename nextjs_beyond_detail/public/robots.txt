@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private/
+
+Sitemap: https://beyonddetail.ca/sitemap.xml
+Sitemap: https://beyonddetail.ca/image_sitemap.xml
