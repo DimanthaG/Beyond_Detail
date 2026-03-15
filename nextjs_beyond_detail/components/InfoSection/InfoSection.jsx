@@ -1,0 +1,148 @@
+'use client';
+
+import React, { useRef, useEffect, useState } from 'react';
+import './InfoSection.scss';
+import { urlFor, client } from '@/lib/sanity';
+import { useRouter } from 'next/navigation';
+
+function InfoSection() {
+  const [info, setInfo] = useState([]);
+
+  let navigate = useRouter();
+
+  useEffect(() => {
+    const query = '*[_type == "homeInfoSection"]';
+
+    client.fetch(query).then((data) => {
+      setInfo(data);
+    });
+  }, []);
+
+  const infoTop = useRef();
+  const infoBottom = useRef();
+  // const infoBottomPic = useRef();
+
+  useEffect(() => {
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: '0px 0px -250px 0px',
+    };
+
+    const appearOptionsTwo = {
+      threshold: 0,
+      rootMargin: '0px 0px -100px 0px',
+    };
+
+    const appearOptionsThree = {
+      threshold: 0,
+      rootMargin: '0px 0px -90px 0px',
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptions);
+
+    const appearOnScrollTwo = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptionsTwo);
+
+    new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptionsThree);
+
+    appearOnScroll.observe(infoTop.current);
+    appearOnScrollTwo.observe(infoBottom.current);
+    // appearOnScrollThree.observe(infoBottomPic.current);
+  });
+
+  return (
+    <section className='info__section'>
+      <div className='info__container fade-in' ref={infoTop}>
+        <div className='column__left'>
+          {info.length !== 0 && <h1>{info[0].headerOne}</h1>}
+          {info.length !== 0 && (
+            <p className='column__left__text'>{info[0].messageOne}</p>
+          )}
+          {info.length !== 0 && (
+            <>
+              <div className='btn__vertLine'></div>
+
+              <div
+                onClick={() => router.push('/gallery')}
+                className='btn btn-color btn-l-r'
+              >
+                <p>{info[0].buttonLabelOne}</p>
+              </div>
+            </>
+          )}
+        </div>
+        <div className='column__right'>
+          {info.length !== 0 && (
+            <img src={urlFor(info[0].imageOne).width(800).quality(75).url()} alt='gallery' loading='lazy' width="800" height="600" />
+          )}
+        </div>
+      </div>
+
+      <div className='info__container__bottom fade-in' ref={infoBottom}>
+        <div className='column__left__bottom '>
+          {info.length !== 0 && (
+            <img src={urlFor(info[0].imageTwo).width(800).quality(75).url()} alt='gallery' loading='lazy' width="800" height="600" />
+          )}
+        </div>
+        <div className='column__right__bottom'>
+          {info.length !== 0 && <h1>{info[0].headerTwo}</h1>}
+          {info.length !== 0 && (
+            <p className='column__right__text'>{info[0].messageTwo}</p>
+          )}
+          {info.length !== 0 && (
+            <>
+              <div className='btn__vertLine'></div>
+
+              <div
+                onClick={() => router.push('/auto-detail')}
+                className='btn btn-color btn-l-r'
+              >
+                <p>{info[0].buttonLabelTwo}</p>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default React.memo(InfoSection);

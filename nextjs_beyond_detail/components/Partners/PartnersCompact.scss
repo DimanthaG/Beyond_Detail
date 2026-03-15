@@ -1,0 +1,254 @@
+// Compact Partners component for hero sections
+.partners-compact {
+  width: 100%;
+  padding: 2rem 1rem;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-top: none;
+  border-bottom: none;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 2.5rem 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 3rem 3rem;
+  }
+}
+
+.partners-compact__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.partners-compact__logos-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+.partners-compact__logos-track {
+  display: flex;
+  gap: 2.5rem;
+  animation: scroll-partners-compact 40s linear infinite;
+  will-change: transform;
+  align-items: center;
+  width: fit-content;
+
+  @media screen and (min-width: 768px) {
+    gap: 3rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    gap: 4rem;
+  }
+
+  // Pause on hover
+  .partners-compact__logos-container:hover & {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll-partners-compact {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.333%));
+  }
+}
+
+.partners-compact__logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  width: 140px;
+  min-height: 50px;
+  transition: transform 0.3s ease;
+  background-color: transparent;
+  background: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 160px;
+    min-height: 60px;
+    padding: 0.75rem 1.25rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 180px;
+    min-height: 70px;
+    padding: 1rem 1.5rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.partners-compact__logo-wrapper {
+  width: 100%;
+  min-height: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  background: transparent;
+
+  @media screen and (min-width: 768px) {
+    min-height: 60px;
+    padding: 0.75rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 70px;
+    padding: 1rem;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Universal styling for ALL partner logos in compact version
+.partners-compact__logo-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  min-width: 100px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background-color: transparent !important;
+  background: transparent !important;
+  
+  // Standardize colors: Convert to grayscale, then apply brightness/contrast
+  filter: grayscale(100%) brightness(1.4) contrast(1.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  opacity: 0.85;
+  
+  // Ensure text and details are crisp and readable
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (min-width: 768px) {
+    min-height: 50px;
+    min-width: 120px;
+    filter: grayscale(100%) brightness(1.5) contrast(1.4);
+    opacity: 0.9;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 60px;
+    min-width: 140px;
+    filter: grayscale(100%) brightness(1.6) contrast(1.5);
+    opacity: 0.9;
+  }
+
+  // Hover effect: Full color restored with enhanced brightness
+  .partners-compact__logo-wrapper:hover & {
+    filter: grayscale(0%) brightness(1.8) contrast(1.6);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+// Ensure any image gets these styles
+.partners-compact img {
+  filter: grayscale(100%) brightness(1.4) contrast(1.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  transition: all 0.3s ease;
+  opacity: 0.85;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Force all containers to have transparent background
+.partners-compact__logo-item,
+.partners-compact__logo-wrapper,
+.partners-compact__logos-track,
+.partners-compact__logos-container {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.partners-compact__logo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-base);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.partners-compact__title {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.partners-compact__title-text {
+  font-family: var(--font-base);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.875rem;
+    letter-spacing: 3px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+}
+

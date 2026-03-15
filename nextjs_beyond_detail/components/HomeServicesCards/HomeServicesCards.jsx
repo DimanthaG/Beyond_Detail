@@ -1,0 +1,63 @@
+'use client';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { urlFor, client } from '../../lib/sanity';
+import { useRouter } from 'next/navigation';
+import './HomeServicesCards.scss';
+
+function HomeServicesCards() {
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const query = '*[_type == "homeServicesCards"]';
+    client.fetch(query).then((data) => { setCards(data); setLoading(true); }).catch((err) => { console.error('Failed to fetch service cards:', err); setCards([]); setLoading(true); });
+  }, []);
+
+  if (!loading) return null;
+
+  return (
+    <div className='homeServicesCards__section'>
+      {cards.length !== 0 && (
+        <div className='homeServicesCards__cards'>
+          <motion.div className='homeServicesCards__card firstCard' whileInView={{ y: [30, 0], opacity: [0, 1] }} transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }} viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}>
+            <img src={urlFor(cards[0].cardOne.bgImage).width(600).quality(75).url()} alt={cards[0]?.cardOne?.heading || 'Auto detailing service'} loading='lazy' width="600" height="400" />
+            <div className='homeServicesCards__card-description1'>
+              <div className='homeServicesCards__topDescription'><h4 className='dollarSign'>{cards[0].cardOne.dollarSign}</h4><h1>{cards[0].cardOne.price}</h1></div>
+              <h2>{cards[0].cardOne.heading}</h2><p>{cards[0].cardOne.description}</p>
+              <div className='arrow-button'>
+                <span onClick={() => { router.push(`${cards[0].cardOne.buttonUrl}#hero`); setTimeout(() => { const el = document.getElementById('hero'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }}>{cards[0].cardOne.buttonLabel}</span>
+                <span className='view-pricing-btn' onClick={() => router.push('/pricing')}>View Pricing</span>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div className='homeServicesCards__card secondCard' whileInView={{ y: [30, 0], opacity: [0, 1] }} transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }} viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}>
+            <img src={urlFor(cards[0].cardTwo.bgImage).width(600).quality(75).url()} alt={cards[0]?.cardTwo?.heading || 'Ceramic coating service'} loading='lazy' width="600" height="400" />
+            <div className='homeServicesCards__card-description2'>
+              <div className='homeServicesCards__topDescription'><h4 className='dollarSign'>{cards[0].cardTwo.dollarSign}</h4><h1>{cards[0].cardTwo.price}</h1></div>
+              <h2>{cards[0].cardTwo.heading}</h2><p>{cards[0].cardTwo.description}</p>
+              <div className='arrow-button2'>
+                <span onClick={() => { router.push(`${cards[0].cardTwo.buttonUrl}#hero`); setTimeout(() => { const el = document.getElementById('hero'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }}>{cards[0].cardTwo.buttonLabel}</span>
+                <span className='view-pricing-btn' onClick={() => router.push('/pricing')}>View Pricing</span>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div className='homeServicesCards__card' whileInView={{ y: [30, 0], opacity: [0, 1] }} transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }} viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}>
+            <img src={urlFor(cards[0].cardThree.bgImage).width(600).quality(75).url()} alt={cards[0]?.cardThree?.heading || 'Window tinting service'} loading='lazy' width="600" height="400" />
+            <div className='homeServicesCards__card-description3'>
+              <div className='homeServicesCards__topDescription'><h4 className='dollarSign'>{cards[0].cardThree.dollarSign}</h4><h1>{cards[0].cardThree.price}</h1></div>
+              <h2>{cards[0].cardThree.heading}</h2><p>{cards[0].cardThree.description}</p>
+              <div className='arrow-button'>
+                <span onClick={() => { const buttonUrl = cards[0].cardThree.buttonUrl || cards[0].cardOne.buttonUrl; router.push(`${buttonUrl}#hero`); setTimeout(() => { const el = document.getElementById('hero'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100); }}>{cards[0].cardThree.buttonLabel}</span>
+                <span className='view-pricing-btn' onClick={() => router.push('/pricing')}>View Pricing</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default HomeServicesCards;

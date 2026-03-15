@@ -1,0 +1,212 @@
+'use client';
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { CheckCircle, Clock } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import './ServicePricing.scss';
+
+const VEHICLE_TYPES = [
+  { key: 'car', label: 'Car / Sedan', surcharge: 0 },
+  { key: 'suv', label: 'SUV / Crossover', surcharge: 30 },
+  { key: 'truck', label: 'Truck / Van', surcharge: 50 },
+];
+
+function ServicePricing({ packages = [], title = "Service Packages" }) {
+  const router = useRouter();
+  const [vehicleType, setVehicleType] = useState('car');
+
+  const hasAnchorPricing = packages.some(p => p.originalPrice && p.salePrice);
+  const surcharge = VEHICLE_TYPES.find(v => v.key === vehicleType)?.surcharge || 0;
+
+  const revealVariants = {
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: Math.min(i * 0.01, 0.03),
+        duration: 0.2,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    }),
+    hidden: {
+      y: 10,
+      opacity: 0,
+    },
+  };
+
+  if (!packages || packages.length === 0) {
+    return null;
+  }
+
+  return (
+    <section id="pricing" className="service-pricing">
+      <div className="service-pricing__container">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+          variants={revealVariants}
+          custom={0}
+          className="service-pricing__header"
+        >
+          <h2 className="service-pricing__title">{title}</h2>
+          <p className="service-pricing__subtitle">
+            Choose the package that best fits your needs. All packages include professional service and quality guarantee.
+          </p>
+        </motion.div>
+
+        {hasAnchorPricing && (
+          <div className="service-pricing__vehicle-tabs">
+            <span className="service-pricing__vehicle-label">Select your vehicle type:</span>
+            <div className="service-pricing__vehicle-options">
+              {VEHICLE_TYPES.map((vt) => (
+                <button
+                  key={vt.key}
+                  className={`service-pricing__vehicle-tab ${vehicleType === vt.key ? 'service-pricing__vehicle-tab--active' : ''}`}
+                  onClick={() => setVehicleType(vt.key)}
+                >
+                  {vt.label}
+                  {vt.surcharge > 0 && <span className="service-pricing__vehicle-surcharge">+${vt.surcharge}</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="service-pricing__grid">
+          {packages.map((pkg, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+              variants={revealVariants}
+              custom={1 + index}
+              className={`service-pricing__card ${pkg.featured ? 'service-pricing__card--featured' : ''}`}
+            >
+              {pkg.featured && (
+                <div className="service-pricing__badge">Most Popular</div>
+              )}
+              <div className="service-pricing__card-header">
+                <h3 className="service-pricing__card-title">{pkg.name}</h3>
+                {pkg.duration && (
+                  <div className="service-pricing__duration">
+                    <Clock className="service-pricing__clock-icon" />
+                    <span>{pkg.duration}</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="service-pricing__price-section">
+                {pkg.originalPrice && pkg.salePrice ? (
+                  <div className="service-pricing__price-anchor">
+                    <span className="service-pricing__price-label">Starting at</span>
+                    <div className="service-pricing__price-original">
+                      ${pkg.originalPrice + surcharge}
+                    </div>
+                    <div className="service-pricing__price-sale">
+                      ${pkg.salePrice + surcharge}
+                    </div>
+                    {pkg.savings && (
+                      <div className="service-pricing__savings-badge">
+                        SAVE ${pkg.savings}
+                      </div>
+                    )}
+                    {pkg.urgencyText && (
+                      <div className="service-pricing__urgency-text">
+                        {pkg.urgencyText}
+                      </div>
+                    )}
+                  </div>
+                ) : pkg.priceRange && pkg.priceRange.start > 0 ? (
+                  <div className="service-pricing__price-range">
+                    <span className="service-pricing__price-label">Starting at</span>
+                    <div className="service-pricing__price">
+                      ${pkg.priceRange.start}
+                      {pkg.priceRange.end && pkg.priceRange.end > 0 && (
+                        <span className="service-pricing__price-end"> - ${pkg.priceRange.end}</span>
+                      )}
+                    </div>
+                  </div>
+                ) : pkg.price ? (
+                  <div className="service-pricing__price">
+                    ${pkg.price}
+                  </div>
+                ) : (
+                  <div className="service-pricing__price">
+                    See Details Below
+                  </div>
+                )}
+                {pkg.priceNote && (
+                  <p className="service-pricing__price-note">{pkg.priceNote}</p>
+                )}
+              </div>
+
+              {pkg.description && (
+                <p className="service-pricing__card-description">{pkg.description}</p>
+              )}
+
+              {pkg.features && pkg.features.length > 0 && (
+                <ul className="service-pricing__features-list">
+                  {pkg.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="service-pricing__feature-item">
+                      <CheckCircle className="service-pricing__feature-icon" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {pkg.links && pkg.links.length > 0 ? (
+                <div className="service-pricing__links">
+                  {pkg.links.map((link, linkIndex) => (
+                    <motion.button
+                      key={linkIndex}
+                      className="service-pricing__link-button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => router.push(link.href)}
+                    >
+                      {link.text}
+                    </motion.button>
+                  ))}
+                </div>
+              ) : pkg.ctaText && (
+                <motion.button
+                  className="service-pricing__cta-button"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  {pkg.ctaText}
+                </motion.button>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+          variants={revealVariants}
+          custom={packages.length + 1}
+          className="service-pricing__disclaimer"
+        >
+          <p>
+            <strong>Note:</strong> Prices are starting rates and may vary based on vehicle size, condition, and specific requirements. Additional fees may apply for excessive pet hair, heavy dirt or mud, salt stains, upholstery stains, and similar conditions. All prices exclude HST. Please remove all personal items and valuables before service.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default ServicePricing;
+
