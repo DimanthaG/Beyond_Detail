@@ -24,7 +24,7 @@ function CeramicCoatingPickering() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Pickering | Professional Paint Protection"
-          description="Best Ceramic Coating in Pickering. ⭐ Ceramic Pro Certified | 5-Year & Lifetime Warranty Packages | Hydrophobic Paint Protection | Mobile Service | Call (647) 689-6109"
+          description="Ceramic coating in Pickering by Beyond Detail. Minutes from Pickering Town Centre. Hydrophobic paint protection with warranty. Call (647) 689-6109."
           name="Beyond Detail Pickering"
           type="website"
           keywords="ceramic coating pickering, paint protection pickering, ceramic pro pickering, car coating pickering, paint correction pickering"

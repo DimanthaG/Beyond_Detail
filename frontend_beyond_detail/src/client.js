@@ -6,8 +6,8 @@ import imageUrlBuilder from '@sanity/image-url';
 export const client = createClient({
   projectId: 'trp6l9ar', // Beyond Detail Sanity project
   dataset: 'production',
-  apiVersion: '2022-02-01', // Using older stable version
-  useCdn: false, // Disable CDN to avoid CORS issues in development
+  apiVersion: '2024-01-01', // Latest stable API version
+  useCdn: process.env.NODE_ENV === 'production', // CDN for production, direct API for development
   // Token removed from frontend - should only be used server-side for write operations
   // If you need write operations, create a backend API endpoint
 });

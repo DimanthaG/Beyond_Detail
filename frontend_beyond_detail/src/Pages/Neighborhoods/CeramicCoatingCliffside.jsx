@@ -23,7 +23,7 @@ function CeramicCoatingCliffside() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Cliffside | Paint Protection Scarborough"
-          description="Best Ceramic Coating in Cliffside. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in Cliffside by Beyond Detail. Hydrophobic paint protection near Kingston Road. Paint correction included. Call (647) 689-6109."
           name="Beyond Detail Cliffside"
           type="website"
           keywords="ceramic coating cliffside, paint protection cliffside, ceramic pro cliffside, car coating cliffside, paint correction cliffside"

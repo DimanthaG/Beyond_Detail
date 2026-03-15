@@ -23,7 +23,7 @@ function CeramicCoatingWestHill() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating West Hill | Paint Protection Scarborough"
-          description="Best Ceramic Coating in West Hill. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in West Hill by Beyond Detail. Paint protection for the Kingston Rd & Morningside area. Warranty-backed packages. Call (647) 689-6109."
           name="Beyond Detail West Hill"
           type="website"
           keywords="ceramic coating west hill, paint protection west hill, ceramic pro west hill, car coating west hill, paint correction west hill"

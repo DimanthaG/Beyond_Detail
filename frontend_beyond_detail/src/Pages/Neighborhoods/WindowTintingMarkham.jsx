@@ -25,7 +25,7 @@ function WindowTintingMarkham() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Markham | Premium Car Tinting | Beyond Detail'
-          description='Expert window tinting in Markham. ⭐ LLUMAR Certified Installer | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service Available | Call (647) 689-6109'
+          description='Window tinting in Markham by Beyond Detail. LLUMAR certified installer serving Unionville & Cornell. Ceramic & carbon films. Book at (647) 689-6109.'
           name='Beyond Detail Markham'
           type='website'
           serviceType='Window Tinting'

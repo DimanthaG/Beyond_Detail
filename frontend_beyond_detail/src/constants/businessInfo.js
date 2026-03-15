@@ -13,7 +13,7 @@ export const BUSINESS_INFO = {
     },
     phone: '+1 (647) 689-6109',
     email: 'info@beyonddetail.ca',
-    url: 'https://beyonddetail.ca',
+    url: 'https://www.beyonddetail.ca',
     description: 'Professional car detailing, window tinting, and ceramic coating in Scarborough & Toronto. We restore, protect, and enhance your vehicle with deep interior cleaning, stain and salt removal, paint correction, and UV-blocking ceramic tint. Trusted by GTA drivers for quality results, lifetime warranty tint options, and expert service that keeps your car looking its best.',
     hours: {
         monday: { open: '08:00', close: '20:00' },

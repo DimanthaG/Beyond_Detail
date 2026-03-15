@@ -24,7 +24,7 @@ function CeramicCoatingMarkham() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Markham | Paint Protection & Correction Services"
-          description="Best Ceramic Coating in Markham. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
+          description="Ceramic coating in Markham by Beyond Detail. Serving Unionville, Cornell & Markville. Paint correction & nano-ceramic protection. Call (647) 689-6109."
           name="Beyond Detail Markham"
           type="website"
           keywords="ceramic coating markham, detailing markham, paint protection markham, ceramic pro markham, car coating markham, paint correction markham, ceramic coating unionville, ceramic coating box grove"

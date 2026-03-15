@@ -43,8 +43,8 @@ function CeramicCoating() {
   return (
     <>
       <SEO
-        title='Ceramic Coating Toronto & Scarborough | Professional Application'
-        description='Professional ceramic coating in Toronto & Scarborough. IGL Coatings certified. Long-lasting paint protection with 5-year warranty. Free consultation. (647) 689-6109'
+        title='Ceramic Coating Scarborough | IGL Certified | From $599'
+        description='IGL Kenzo certified ceramic coating in Scarborough. 2-9 year protection from $599. Free consultation. Call Beyond Detail — (647) 689-6109.'
         name='Beyond Detail Ceramic Coating'
         type='website'
         serviceType='Ceramic Coating'

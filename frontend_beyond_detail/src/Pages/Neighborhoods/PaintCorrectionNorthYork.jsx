@@ -23,7 +23,7 @@ function PaintCorrectionNorthYork() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction North York | Swirl Mark & Scratch Removal'
-          description='Expert paint correction in North York. Remove swirl marks, scratches & oxidation. ⭐ 5-Star Rated | Multi-Stage Polishing | Lifetime Warranty | Call (647) 689-6109'
+          description='Paint correction in North York by Beyond Detail. Serving Willowdale & Don Mills. Scratch & oxidation removal with warranty. Call (647) 689-6109.'
           name='Beyond Detail North York'
           type='website'
           serviceType='Paint Correction'

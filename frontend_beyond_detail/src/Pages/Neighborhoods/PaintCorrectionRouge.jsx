@@ -22,7 +22,7 @@ function PaintCorrectionRouge() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Rouge | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in Rouge. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in Rouge by Beyond Detail. Serving Rouge Park & Port Union. Restore showroom shine with multi-stage polishing. Call (647) 689-6109.'
           name='Beyond Detail Rouge'
           type='website'
           serviceType='Paint Correction'

@@ -39,8 +39,8 @@ function WindowTintingScarborough() {
   return (
     <>
       <SEO
-        title='Window Tinting Scarborough | LLUMAR Certified | Beyond Detail'
-        description='Best window tinting in Scarborough. Official LLUMAR SelectPro dealer. Lifetime warranty on all installs. Heat rejection & privacy films. Book now! (647) 689-6109'
+        title='Window Tinting Scarborough | Llumar & Huper Optik | Beyond Detail'
+        description='Legal window tinting in Scarborough. Llumar & Huper Optik films. Heat rejection, UV protection. From $199. Call Beyond Detail — (647) 689-6109.'
         name='Beyond Detail Scarborough'
         type='website'
         serviceType='Window Tinting'

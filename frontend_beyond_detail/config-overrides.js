@@ -41,26 +41,29 @@ module.exports = function override(config, env) {
           // Vendor chunk - large libraries
           vendor: {
             name: 'vendor',
-            chunks: 'all',
             test: /[\\/]node_modules[\\/]/,
-            priority: 20,
-            reuseExistingChunk: true
-          },
-          // Framer Motion - large library, separate chunk
-          framerMotion: {
-            name: 'framer-motion',
-            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-            chunks: 'all',
-            priority: 25,
-            reuseExistingChunk: true
+            chunks: 'initial',
+            priority: 10,
+            enforce: true,
+            minSize: 0
           },
           // React and React DOM - core libraries
           react: {
             name: 'react',
-            test: /[\\/]node_modules[\\/](react|react-dom|react-router)[\\/]/,
+            test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/,
             chunks: 'all',
-            priority: 30,
-            reuseExistingChunk: true
+            priority: 20,
+            enforce: true,
+            minSize: 0
+          },
+          // Framer Motion - large library, separate chunk
+          framerMotion: {
+            name: 'framer-motion',
+            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+            chunks: 'all',
+            priority: 20,
+            enforce: true,
+            minSize: 0
           },
           // Common chunk - shared code
           common: {

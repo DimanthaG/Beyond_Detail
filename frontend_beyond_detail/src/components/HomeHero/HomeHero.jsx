@@ -12,6 +12,7 @@ import ImageWithSchema from '../ImageWithSchema/ImageWithSchema';
 // import carImage800w from '../../assets/bd/bd-20-800w.webp';
 // import carImage1200w from '../../assets/bd/bd-20-1200w.webp';
 // import carImage1600w from '../../assets/bd/bd-20-1600w.webp';
+import { trackPhoneClick, trackCTAClick } from '../../utils/analytics';
 import './HomeHero.scss';
 
 // Use public folder images for faster LCP (matches index.html preload)
@@ -28,50 +29,8 @@ export function HomeHero() {
   const heroRef = useRef(null);
   const [reviews, setReviews] = useState({ rating: 0, totalReviews: 0, recentReviews: [] });
 
-  // Preload hero image dynamically (works with webpack hashed filenames)
-  // Preloads appropriate size based on viewport width for optimal LCP
-  // CRITICAL: Preload happens immediately, not after image loads
-  useEffect(() => {
-    // Use requestIdleCallback for non-critical preload, but start immediately if available
-    const preloadImage = () => {
-      // Prefer AVIF hero for preload (smallest) – <picture> handles fallback
-      const optimalImageSrc = carImageAvif;
-
-      // Check if preload already exists
-      const existingLink = document.querySelector(`link[rel="preload"][as="image"][href*="bd-20"]`);
-      if (existingLink) return;
-
-      // Create preload link immediately
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = optimalImageSrc;
-      link.type = 'image/avif';
-      link.setAttribute('fetchpriority', 'high');
-      link.setAttribute('imagesrcset', `
-        ${carImageAvif} 1600w
-      `);
-      link.setAttribute('imagesizes', '100vw');
-
-      // Insert at the beginning of head for highest priority
-      document.head.insertBefore(link, document.head.firstChild);
-
-      // Also preload the image using Image() API for better browser support
-      const img = new Image();
-      img.src = optimalImageSrc;
-      img.loading = 'eager';
-      img.setAttribute('fetchpriority', 'high');
-    };
-
-    // Execute immediately (don't wait)
-    preloadImage();
-
-    // Cleanup on unmount
-    return () => {
-      const linksToRemove = document.querySelectorAll(`link[rel="preload"][as="image"][href*="bd-20"]`);
-      linksToRemove.forEach(link => link.remove());
-    };
-  }, []);
+  // Hero image preload is handled by <link rel="preload"> in index.html
+  // No JS-based preload needed — it runs after React hydrates, too late for LCP
 
   // Fetch Google Reviews for trust badges and live reviews
   useEffect(() => {
@@ -275,6 +234,7 @@ export function HomeHero() {
                     className="home-hero__action-button home-hero__action-button--primary"
                     onClick={(e) => {
                       e.preventDefault();
+                      trackCTAClick('book_detail', 'homepage');
                       const element = document.querySelector("#contact");
                       if (element) {
                         element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -289,6 +249,7 @@ export function HomeHero() {
                   <motion.a
                     href="tel:16476896109"
                     className="home-hero__action-button home-hero__action-button--outline"
+                    onClick={() => trackPhoneClick('hero')}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >

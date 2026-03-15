@@ -41,8 +41,8 @@ function FleetServices() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Fleet Services Scarborough | Commercial Vehicle Detailing'
-          description='Professional fleet detailing in Scarborough & Toronto. Volume discounts, flexible scheduling, mobile service available. Beyond Detail. (647) 689-6109'
+          title='Fleet Detailing Scarborough | Volume Pricing | Beyond Detail'
+          description='Fleet detailing for businesses in Scarborough & GTA. Volume pricing, scheduled service, all vehicle types. Get a quote — (647) 689-6109.'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Fleet Services'

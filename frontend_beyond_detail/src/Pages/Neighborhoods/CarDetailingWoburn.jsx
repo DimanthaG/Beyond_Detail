@@ -20,7 +20,7 @@ function CarDetailingWoburn() {
         <>
             <SEO
                 title="Car Detailing Woburn | Auto Detailing & Ceramic Coating | Beyond Detail"
-                description="Professional car detailing in Woburn, Scarborough. ⭐ Top-Rated Auto Detailing | Mobile & In-Shop Service | Paint Correction & Ceramic Coating | Call (647) 689-6109"
+                description="Car detailing in Woburn by Beyond Detail. Near Ellesmere & Markham Rd in Scarborough. Paint correction & ceramic coating included. Call (647) 689-6109."
                 name="Beyond Detail Woburn"
                 type="website"
                 keywords="car detailing woburn, auto detailing woburn, window tinting woburn, ceramic coating woburn, car wash woburn"

@@ -27,7 +27,7 @@ function About() {
   };
 
   const handleBookCall = () => {
-    window.location.href = 'tel:+1234567890';
+    window.location.href = 'tel:+16476896109';
   };
 
   const values = [

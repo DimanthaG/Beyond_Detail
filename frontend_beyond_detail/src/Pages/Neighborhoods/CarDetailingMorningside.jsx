@@ -28,7 +28,7 @@ function CarDetailingMorningside() {
         <>
             <SEO
                 title="Car Detailing Morningside | 5+ Year Protection | Beyond Detail"
-                description="Professional car detailing in Morningside. 5+ Year Protection, Free Consultation, Same-Day Service. Serving U of T Scarborough & Military Trail areas. (647) 689-6109"
+                description="Car detailing in Morningside by Beyond Detail. Near U of T Scarborough & Military Trail. Full detail with paint protection options. Call (647) 689-6109."
                 name="Beyond Detail Morningside"
                 type="website"
                 keywords="car detailing morningside, auto detailing morningside, window tinting morningside, ceramic coating morningside, car wash morningside"

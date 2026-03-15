@@ -46,12 +46,10 @@ const ExitIntentPopup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you would typically integrate with your email service
-        // TODO: integrate with email service (e.g., EmailJS, Mailchimp)
         setSubmitted(true);
         setTimeout(() => {
             handleClose();
-        }, 3000);
+        }, 5000);
     };
 
     return (
@@ -100,9 +98,10 @@ const ExitIntentPopup = () => {
                             </>
                         ) : (
                             <div className="success-state">
-                                <h2>Access Granted!</h2>
-                                <p>Your 10% off code has been sent to your email.</p>
-                                <p style={{ fontSize: '0.9rem', color: '#888', marginTop: '1rem' }}>Closing in 3 seconds...</p>
+                                <h2>Claim Your 10% Off</h2>
+                                <p>Call us now to book your discounted service:</p>
+                                <a href="tel:+16476896109" style={{ display: 'inline-block', fontSize: '1.5rem', fontWeight: 'bold', color: '#f07900', textDecoration: 'none', marginTop: '0.5rem' }}>(647) 689-6109</a>
+                                <p style={{ fontSize: '0.9rem', color: '#888', marginTop: '1rem' }}>Mention this popup for your discount</p>
                             </div>
                         )}
                     </motion.div>

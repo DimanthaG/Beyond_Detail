@@ -21,7 +21,7 @@ function CarDetailingWhitby() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Whitby | Professional Auto Care Services"
-                    description="Best car detailing in Whitby. ⭐ Mobile & In-Shop Service. Expert Ceramic Coating, Paint Correction & Interior Shampoo. Call (647) 689-6109"
+                    description="Car detailing in Whitby by Beyond Detail. Serving Brooklin & downtown Whitby. Ceramic coating, paint correction & interior shampoo. Call (647) 689-6109."
                     name="Beyond Detail Whitby"
                     type="website"
                     keywords="car detailing whitby, auto detailing whitby, car wash whitby, ceramic coating whitby, paint correction whitby"

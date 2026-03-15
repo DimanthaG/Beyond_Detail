@@ -37,8 +37,8 @@ function PaintCorrection() {
   return (
     <>
       <SEO
-        title='Paint Correction Scarborough & Toronto | Single & Two-Stage'
-        description='Professional paint correction in Scarborough. Remove swirl marks, scratches & water spots. Single-stage (4–6 hrs) and two-stage (8–12 hrs) correction. Book now. (647) 689-6109'
+        title='Paint Correction Scarborough | Swirl Removal | Beyond Detail'
+        description='Professional paint correction in Scarborough. Machine polishing to remove swirls, scratches & oxidation. IGL certified. Call (647) 689-6109.'
         name='Beyond Detail Paint Correction'
         type='website'
         serviceType='Paint Correction'

@@ -5,6 +5,7 @@ import { client } from '../../client';
 import images from '../../constants/images';
 import './Footer.scss';
 import { BUSINESS_INFO } from '../../constants/businessInfo';
+import { trackPhoneClick } from '../../utils/analytics';
 
 function Footer() {
   const defaultFooterData = [{
@@ -53,7 +54,7 @@ function Footer() {
                   </p>
                 </div>
                 <div className='footer-phone'>
-                  <a href={`tel:${footerData[0].number?.replace(/\s/g, '')}`}>
+                  <a href={`tel:${footerData[0].number?.replace(/\s/g, '')}`} onClick={() => trackPhoneClick('footer')}>
                     {footerData[0].number}
                   </a>
                 </div>

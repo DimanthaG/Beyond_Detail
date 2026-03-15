@@ -30,7 +30,7 @@ function CarDetailingWexford() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Car Detailing Wexford | Expert Auto Detailing Services"
-          description="Top-rated car detailing in Wexford & Maryvale. ⭐ Professional In-Shop Detailing | Interior Shampoo & Exterior Wax | Ceramic Coating. Call (647) 689-6109"
+          description="Car detailing in Wexford by Beyond Detail. Serving Wexford & Maryvale near Lawrence & Pharmacy. Interior shampoo & exterior wax. Call (647) 689-6109."
           name="Beyond Detail Wexford"
           type="website"
           keywords="car detailing wexford, auto detailing wexford, car wash wexford, ceramic coating wexford, paint correction wexford"

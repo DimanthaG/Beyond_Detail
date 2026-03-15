@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import logo from '../../assets/logo_1.svg';
 import mobileLogo from '../../assets/logo_mobile_small.png';
@@ -112,7 +112,7 @@ function Navbar2({ className = '' }) {
                 )}
               </div>
             ) : (
-              <Link to={link.path} className="linkItem">{link.name}</Link>
+              <NavLink to={link.path} className={({ isActive }) => `linkItem ${isActive ? 'linkItem--active' : ''}`}>{link.name}</NavLink>
             )}
           </li>
         ))}

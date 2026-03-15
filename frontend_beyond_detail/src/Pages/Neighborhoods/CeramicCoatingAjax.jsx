@@ -24,7 +24,7 @@ function CeramicCoatingAjax() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Ajax | Paint Protection & Correction Services"
-          description="Best Ceramic Coating in Ajax. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
+          description="Ceramic coating in Ajax by Beyond Detail. Nano-ceramic paint protection with warranty. Serving Ajax & Durham Region. Get a quote at (647) 689-6109."
           name="Beyond Detail Ajax"
           type="website"
           keywords="ceramic coating ajax, paint protection ajax, ceramic pro ajax, car coating ajax, paint correction ajax"

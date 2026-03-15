@@ -21,7 +21,7 @@ function CarDetailingOshawa() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Oshawa | Auto Detailing & Paint Protection"
-                    description="Top-rated car detailing in Oshawa. ⭐ Professional Mobile Detailing & In-Shop Service. Ceramic Coating, Paint Correction & Window Tinting. Call (647) 689-6109"
+                    description="Car detailing in Oshawa by Beyond Detail. Serving north & south Oshawa near Simcoe St. Ceramic coating & paint correction available. Call (647) 689-6109."
                     name="Beyond Detail Oshawa"
                     type="website"
                     keywords="car detailing oshawa, auto detailing oshawa, car wash oshawa, ceramic coating oshawa, paint correction oshawa"

@@ -25,7 +25,7 @@ function WindowTintingNorthYork() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting North York | Premium Auto Tint | Beyond Detail'
-          description='Expert window tinting in North York. ⭐ LLUMAR Films | Heat Rejection, UV Protection & Privacy | Lifetime Warranty | Mobile Service Available | Call (647) 689-6109'
+          description='Window tinting in North York by Beyond Detail. LLUMAR films serving Willowdale & Don Mills. Heat rejection & UV protection. Call (647) 689-6109.'
           name='Beyond Detail North York'
           type='website'
           serviceType='Window Tinting'

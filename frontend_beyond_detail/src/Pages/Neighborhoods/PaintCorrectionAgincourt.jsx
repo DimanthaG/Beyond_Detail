@@ -22,7 +22,7 @@ function PaintCorrectionAgincourt() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Agincourt | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in Agincourt. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in Agincourt by Beyond Detail. Swirl mark & scratch removal near Sheppard & Midland. Multi-stage polishing. Call (647) 689-6109.'
           name='Beyond Detail Agincourt'
           type='website'
           serviceType='Paint Correction'

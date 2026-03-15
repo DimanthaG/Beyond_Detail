@@ -25,7 +25,7 @@ function WindowTintingOshawa() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Oshawa | Best Car Tint | Beyond Detail'
-          description='Professional window tinting in Oshawa. ⭐ LLUMAR Certified Installer | Ceramic & Carbon Films | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Oshawa by Beyond Detail. LLUMAR certified. Ceramic & carbon films for Durham Region drivers. Lifetime warranty. Call (647) 689-6109.'
           name='Beyond Detail Oshawa'
           type='website'
           serviceType='Window Tinting'

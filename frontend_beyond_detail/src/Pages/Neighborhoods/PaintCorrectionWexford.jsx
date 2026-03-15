@@ -22,7 +22,7 @@ function PaintCorrectionWexford() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Wexford | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in Wexford. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in Wexford by Beyond Detail. Serving Wexford & Maryvale. Professional scratch & swirl mark removal. Call (647) 689-6109.'
           name='Beyond Detail Wexford'
           type='website'
           serviceType='Paint Correction'

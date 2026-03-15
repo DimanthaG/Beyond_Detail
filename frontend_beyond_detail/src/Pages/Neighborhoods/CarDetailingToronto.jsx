@@ -21,7 +21,7 @@ function CarDetailingToronto() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Toronto | #1 Auto Detailing Services"
-                    description="Professional car detailing in Toronto. ⭐ Top-Rated Auto Detailing | Mobile & Studio Service | Lifetime Warranty | Serving Downtown, North York & GTA | Call (647) 689-6109"
+                    description="Car detailing in Toronto by Beyond Detail. Serving Downtown, Midtown & East Toronto from our Scarborough studio. Full detail packages. Call (647) 689-6109."
                     name="Beyond Detail Toronto"
                     type="website"
                     keywords="car detailing toronto, auto detailing toronto, toronto mobile detailing, car wash toronto, interior car cleaning toronto"

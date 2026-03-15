@@ -92,8 +92,8 @@ export const SEO = ({
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 43.8173,
-      longitude: -79.2476
+      latitude: 43.7764,
+      longitude: -79.2318
     },
     hasMap: 'https://maps.app.goo.gl/XfshhLecn5wS9Xd49',
     aggregateRating: {
@@ -261,20 +261,6 @@ export const SEO = ({
 
 
 
-  // FAQ Structure Data
-  const faqSchema = faq && faq.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map(item => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer
-      }
-    }))
-  } : null;
-
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -293,8 +279,8 @@ export const SEO = ({
       {/* Location Meta Tags */}
       <meta name='geo.region' content='CA-ON' />
       <meta name='geo.placename' content={LOCATIONS_STRING} />
-      <meta name='geo.position' content='43.8173;-79.2476' />
-      <meta name='ICBM' content='43.8173, -79.2476' />
+      <meta name='geo.position' content='43.7764;-79.2318' />
+      <meta name='ICBM' content='43.7764, -79.2318' />
 
       {/* Open Graph / Facebook */}
       <meta property='og:type' content={type} />
@@ -353,17 +339,26 @@ export const SEO = ({
         </script>
       )}
 
-      {/* FAQ Schema */}
-      {faqSchema && (
+      {/* WebSite Schema (homepage only) */}
+      {location.pathname === '/' && (
         <script type='application/ld+json'>
-          {JSON.stringify(faqSchema)}
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            '@id': `${BUSINESS_INFO.url}/#website`,
+            name: BUSINESS_INFO.name,
+            url: BUSINESS_INFO.url,
+            description: 'Professional car detailing, ceramic coating, window tinting & paint correction in Scarborough & Toronto.',
+            publisher: { '@id': `${BUSINESS_INFO.url}/#organization` },
+            inLanguage: 'en-CA'
+          })}
         </script>
       )}
 
       {/* ImageObject Schema for all images on the page */}
       <script type='application/ld+json'>
         {JSON.stringify({
-          '@context': 'https://schema.org/',
+          '@context': 'https://schema.org',
           '@type': 'ImageObject',
           'contentUrl': ogImage,
           'url': ogImage,

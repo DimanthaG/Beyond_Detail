@@ -36,7 +36,7 @@ function PaintCorrectionScarborough() {
     <>
       <SEO
         title='Paint Correction Scarborough | Scratch Removal | Beyond Detail'
-        description='Expert paint correction in Scarborough. Remove swirl marks, scratches & oxidation to restore showroom shine. Multi-stage polishing. Lifetime warranty. Book today! (647) 689-6109'
+        description='Paint correction in Scarborough by Beyond Detail. Studio at 170 Finchdene Sq. Remove swirls, scratches & oxidation. Book today at (647) 689-6109.'
         name='Beyond Detail Scarborough'
         type='website'
         serviceType='Paint Correction'

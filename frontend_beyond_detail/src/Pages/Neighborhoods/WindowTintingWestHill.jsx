@@ -25,7 +25,7 @@ function WindowTintingWestHill() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Llumar Window Tinting West Hill | Authorized Professional Installer'
-          description='Professional Llumar window tinting in West Hill by authorized installers. Reasonable pricing for 2026. Reduce heat & glare with lifetime warranty. Book Your 2026 Protection. (647) 689-6109'
+          description='Window tinting in West Hill by Beyond Detail. LLUMAR films near Kingston Rd & Morningside. Reduce heat & glare with lifetime warranty. Call (647) 689-6109.'
           name='Beyond Detail West Hill'
           type='website'
           serviceType='Window Tinting'

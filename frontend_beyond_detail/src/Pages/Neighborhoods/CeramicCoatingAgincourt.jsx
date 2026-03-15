@@ -23,7 +23,7 @@ function CeramicCoatingAgincourt() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Agincourt | Paint Protection Scarborough"
-          description="Best Ceramic Coating in Agincourt. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in Agincourt by Beyond Detail. IGL certified. 2-9 year paint protection near Sheppard & Midland. Book at (647) 689-6109."
           name="Beyond Detail Agincourt"
           type="website"
           keywords="ceramic coating agincourt, paint protection agincourt, ceramic pro agincourt, car coating agincourt, paint correction agincourt"

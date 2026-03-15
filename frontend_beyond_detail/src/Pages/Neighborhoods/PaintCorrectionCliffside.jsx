@@ -22,7 +22,7 @@ function PaintCorrectionCliffside() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Cliffside | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in Cliffside. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in Cliffside by Beyond Detail. Restore your paint near Kingston Road. Swirl & scratch removal with polishing. Call (647) 689-6109.'
           name='Beyond Detail Cliffside'
           type='website'
           serviceType='Paint Correction'

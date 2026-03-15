@@ -21,7 +21,7 @@ function CarDetailingCliffside() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Cliffside | Premium Auto Care & Tinting"
-                    description="Professional car detailing in Cliffside & Birchcliffe. ⭐ Mobile Service Available. Interior Shampoo, Waxing & Ceramic Coating. Call (647) 689-6109"
+                    description="Car detailing in Cliffside by Beyond Detail. Serving Birchcliffe & Kingston Road area. Interior deep clean, wax & ceramic coating. Call (647) 689-6109."
                     name="Beyond Detail Cliffside"
                     type="website"
                     keywords="car detailing cliffside, auto detailing cliffside, car wash cliffside, ceramic coating cliffside, window tinting cliffside"

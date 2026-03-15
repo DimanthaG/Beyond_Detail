@@ -21,7 +21,7 @@ function CarDetailingMarkham() {
     <>
       <SEO
         title="Car Detailing Markham | Auto Detailing Near Me | Beyond Detail"
-        description="Top-rated car detailing in Markham. Serving Unionville, Cornell, & Markville. Specialist in Ceramic Coating, Paint Correction, and Interior Detailing. Book your appointment! (647) 689-6109"
+        description="Car detailing in Markham by Beyond Detail. Serving Unionville, Cornell & Markville areas. Ceramic coating & paint correction. Book at (647) 689-6109."
         name="Beyond Detail Markham"
         type="website"
         keywords="detailing markham, car detailing markham, auto detailing markham, ceramic coating markham, window tinting markham, paint correction markham, detailing unionville, detailing box grove, car wash markham"

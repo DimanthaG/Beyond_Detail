@@ -35,8 +35,8 @@ function CeramicCoatingToronto() {
     return (
         <>
             <SEO
-                title='Ceramic Coating Toronto | Best 9H Paint Protection GTA'
-                description='Top-rated Ceramic Coating in Toronto. Protect your vehicle from winter salt & UV rays. 9H Nano Coating, Paint Correction included. Lifetime Warranty Available. (647) 689-6109'
+                title='Ceramic Coating Toronto | IGL Certified | Beyond Detail'
+                description='Professional ceramic coating in Toronto & GTA. IGL Kenzo certified. 2-9 year paint protection. Same-day service. Call (647) 689-6109.'
                 name='Beyond Detail Toronto'
                 type='website'
                 serviceType='Ceramic Coating'

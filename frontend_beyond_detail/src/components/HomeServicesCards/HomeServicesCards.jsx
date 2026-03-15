@@ -17,6 +17,10 @@ function HomeServicesCards() {
     client.fetch(query).then((data) => {
       setCards(data);
       setLoading(true);
+    }).catch((err) => {
+      console.error('Failed to fetch service cards:', err);
+      setCards([]);
+      setLoading(true);
     });
   }, []);
 
@@ -35,7 +39,7 @@ function HomeServicesCards() {
                 >
                   <img
                     src={urlFor(cards[0].cardOne.bgImage)}
-                    alt='card1'
+                    alt={cards[0]?.cardOne?.heading || 'Auto detailing service'}
                     loading='lazy'
                   />
                   <div className='homeServicesCards__card-description1'>
@@ -63,13 +67,7 @@ function HomeServicesCards() {
                         {cards[0].cardOne.buttonLabel}
                       </span>
                       <span
-                        style={{
-                          border: '2px solid #f07900',
-                          background: 'transparent',
-                          color: '#fff',
-                          marginLeft: '1rem',
-                          padding: '0 10px'
-                        }}
+                        className='view-pricing-btn'
                         onClick={() => navigate('/pricing')}
                       >
                         View Pricing
@@ -85,7 +83,7 @@ function HomeServicesCards() {
                 >
                   <img
                     src={urlFor(cards[0].cardTwo.bgImage)}
-                    alt='card2'
+                    alt={cards[0]?.cardTwo?.heading || 'Ceramic coating service'}
                     loading='lazy'
                   />
                   <div className='homeServicesCards__card-description2'>
@@ -113,13 +111,7 @@ function HomeServicesCards() {
                         {cards[0].cardTwo.buttonLabel}
                       </span>
                       <span
-                        style={{
-                          border: '2px solid #f07900',
-                          background: 'transparent',
-                          color: '#fff',
-                          marginLeft: '1rem',
-                          padding: '0 10px'
-                        }}
+                        className='view-pricing-btn'
                         onClick={() => navigate('/pricing')}
                       >
                         View Pricing
@@ -135,7 +127,7 @@ function HomeServicesCards() {
                 >
                   <img
                     src={urlFor(cards[0].cardThree.bgImage)}
-                    alt='card3'
+                    alt={cards[0]?.cardThree?.heading || 'Window tinting service'}
                     loading='lazy'
                   />
                   <div className='homeServicesCards__card-description3'>
@@ -164,13 +156,7 @@ function HomeServicesCards() {
                         {cards[0].cardThree.buttonLabel}
                       </span>
                       <span
-                        style={{
-                          border: '2px solid #f07900',
-                          background: 'transparent',
-                          color: '#fff',
-                          marginLeft: '1rem',
-                          padding: '0 10px'
-                        }}
+                        className='view-pricing-btn'
                         onClick={() => navigate('/pricing')}
                       >
                         View Pricing

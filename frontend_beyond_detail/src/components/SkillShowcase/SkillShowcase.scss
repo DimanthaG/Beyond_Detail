@@ -185,16 +185,19 @@
         line-height: 1.6;
         margin-bottom: 1rem;
         opacity: 0.8;
-        height: 0;
+        max-height: 0;
         overflow: hidden;
-        transition: height 0.4s ease, opacity 0.4s ease;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+
+        @media (max-width: 768px) {
+            max-height: 120px;
+            opacity: 0.8;
+        }
     }
 
     /* Reveal description on hover layout */
     &:hover .skill-card__desc {
-        height: auto;
-        max-height: 100px;
-        /* Safe upper limit */
+        max-height: 120px;
         opacity: 1;
         margin-bottom: 1.5rem;
     }

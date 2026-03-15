@@ -15,6 +15,10 @@ function HomeProcess() {
     client.fetch(query).then((data) => {
       setProcess(data);
       setLoading(true);
+    }).catch((err) => {
+      console.error('Failed to fetch home process:', err);
+      setProcess([]);
+      setLoading(true);
     });
   }, []);
 

@@ -21,7 +21,7 @@ function CarDetailingAgincourt() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Agincourt | Auto Detailing & Ceramic Coating"
-                    description="Professional car detailing in Agincourt. ⭐ Top-Rated Auto Detailing | Mobile & In-Shop Service | Window Tinting & Paint Correction | Call (647) 689-6109"
+                    description="Car detailing in Agincourt by Beyond Detail. Interior & exterior packages near Sheppard & Midland. Same-day service available. Call (647) 689-6109."
                     name="Beyond Detail Agincourt"
                     type="website"
                     keywords="car detailing agincourt, auto detailing agincourt, window tinting agincourt, ceramic coating agincourt, car wash agincourt"

@@ -25,7 +25,7 @@ function WindowTintingAjax() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Ajax | Premium Auto Tint | Beyond Detail'
-          description='Expert window tinting in Ajax. ⭐ LLUMAR Films | Heat Rejection, UV Protection & Privacy | Lifetime Warranty | Mobile Service Available | Call (647) 689-6109'
+          description='Window tinting in Ajax by Beyond Detail. LLUMAR ceramic & carbon films. Serving Ajax & Durham Region. Lifetime warranty. Book at (647) 689-6109.'
           name='Beyond Detail Ajax'
           type='website'
           serviceType='Window Tinting'

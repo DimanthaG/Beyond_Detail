@@ -1,7 +1,7 @@
 .contact__wrapper {
   height: 100%;
   width: 100%;
-  margin-bottom: 20rem;
+  margin-bottom: 4rem;
 
   @media screen and (min-width: 275px) {
     margin-bottom: 5em;
@@ -32,24 +32,20 @@
   }
 
   @media screen and (min-width: 1300px) {
-    margin-bottom: 20rem;
+    margin-bottom: 6rem;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
   }
 
   @media screen and (min-width: 1420px) {
-    margin-bottom: 20rem;
+    margin-bottom: 6rem;
     padding-left: 0;
     padding-right: 0;
     margin-top: 0;
   }
 
   @media screen and (min-width: 1600px) {
-
-    @media screen and (max-width: 696px) {
-      height: 290px;
-    }
 
     h1 {
       text-transform: uppercase;
@@ -529,7 +525,7 @@
     border-right: none;
     width: 100%;
     margin-bottom: 2em;
-    outline: none;
+    outline: none; /* focus-visible handles this globally */
     font-family: var(--font-base);
     transition: border-color 0.3s ease;
 
@@ -586,7 +582,7 @@
   }
 
   .contact__form .form-control:focus {
-    outline: none;
+    outline: none; /* keyboard focus handled by :focus-visible */
   }
 
   .contact__form input.form-control {
@@ -1034,15 +1030,6 @@ textarea {
   }
 }
 
-.contact__details {
-  @media screen and (max-width: 400px) {
-    display: none;
-  }
-
-  @media screen and (max-width: 696px) {
-    display: none;
-  }
-}
 
 span.anchor {
   display: block;

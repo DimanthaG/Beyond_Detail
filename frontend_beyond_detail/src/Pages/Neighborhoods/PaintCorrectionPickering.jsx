@@ -23,7 +23,7 @@ function PaintCorrectionPickering() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Pickering | Swirl Mark & Scratch Removal'
-          description='Expert paint correction in Pickering. Remove swirl marks, scratches & oxidation. ⭐ 5-Star Rated | Multi-Stage Polishing | Lifetime Warranty | Call (647) 689-6109'
+          description='Paint correction in Pickering by Beyond Detail. Near Pickering Town Centre. Multi-stage polishing for swirl & scratch removal. Call (647) 689-6109.'
           name='Beyond Detail Pickering'
           type='website'
           serviceType='Paint Correction'

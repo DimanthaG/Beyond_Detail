@@ -23,7 +23,7 @@ function CeramicCoatingMalvern() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Malvern | Paint Protection Scarborough"
-          description="Best Ceramic Coating in Malvern. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in Malvern by Beyond Detail. Serving the Malvern community near Neilson & Finch. 2-9 year paint protection. Book at (647) 689-6109."
           name="Beyond Detail Malvern"
           type="website"
           keywords="ceramic coating malvern, paint protection malvern, ceramic pro malvern, car coating malvern, paint correction malvern"

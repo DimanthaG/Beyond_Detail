@@ -24,7 +24,7 @@ function CeramicCoatingOshawa() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Oshawa | Paint Protection & Correction"
-          description="Best Ceramic Coating in Oshawa. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
+          description="Ceramic coating in Oshawa by Beyond Detail. Protect against Durham Region road salt & UV. Warranty-backed packages. Get a quote at (647) 689-6109."
           name="Beyond Detail Oshawa"
           type="website"
           keywords="ceramic coating oshawa, paint protection oshawa, ceramic pro oshawa, car coating oshawa, paint correction oshawa"

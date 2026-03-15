@@ -39,6 +39,7 @@ import { FaFacebookF } from 'react-icons/fa';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import '../../react-datepicker.css';
+import { trackFormSubmit, trackPhoneClick } from '../../utils/analytics';
 import './Contact.scss';
 
 const DatePicker = lazy(() => import('react-datepicker'));
@@ -54,6 +55,7 @@ function Contact() {
   const [isFormSubmitted, SetIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [contactData, setContactData] = useState([]);
 
   const optTints = useRef();
@@ -64,7 +66,11 @@ function Contact() {
   const optSelect = useRef();
 
   useEffect(() => {
-    const query = '*[_type == "contactPage"]';
+    // NOTE: contactPage should be a singleton in Sanity (only 1 document).
+    // Currently there are 2 documents. The query takes [0] so this still works,
+    // but the duplicate should be removed in the Sanity Studio.
+    // To enforce singleton, add a singleton plugin or use orderings + [0] in the query.
+    const query = '*[_type == "contactPage"][0...1]';
 
     client.fetch(query)
       .then((data) => {
@@ -158,12 +164,13 @@ function Contact() {
 
 
       setLoadingMessage(false);
+      setSubmitError('');
       SetIsFormSubmitted(true);
+      trackFormSubmit('contact');
     } catch (error) {
       console.error('Error submitting contact form:', error);
       setLoadingMessage(false);
-      // You could add error state here to show user-friendly error message
-      alert('Sorry, there was an error submitting your form. Please try again or call us directly.');
+      setSubmitError('Something went wrong. Please call us directly at (647) 689-6109.');
     }
   };
 
@@ -215,7 +222,7 @@ function Contact() {
                     </p>
                     <p>
                       <strong>Phone (Call/Text) :</strong>{' '}
-                      <a href='tel:+16476896109'>
+                      <a href='tel:+16476896109' onClick={() => trackPhoneClick('contact')}>
                         (647) 689-6109
                       </a>
                     </p>
@@ -277,6 +284,7 @@ function Contact() {
                   <form className='contact__form' onSubmit={handleSubmit}>
                     <div className='mb-3'>
                       <div lg='6' className='form-group'>
+                        <label htmlFor='name' className='visually-hidden'>Name</label>
                         <input
                           className='form-control rounded-0'
                           id='name'
@@ -289,6 +297,7 @@ function Contact() {
                       </div>
 
                       <div lg='6' className='form-group'>
+                        <label htmlFor='email' className='visually-hidden'>Email</label>
                         <input
                           className='form-control rounded-0'
                           id='email'
@@ -301,6 +310,7 @@ function Contact() {
                       </div>
 
                       <div lg='6' className='form-group'>
+                        <label htmlFor='phone' className='visually-hidden'>Phone</label>
                         <input
                           className='form-control rounded-0'
                           id='phone'
@@ -449,6 +459,7 @@ function Contact() {
                         </div>
                       </div>
                     </div>
+                    <label htmlFor='message' className='visually-hidden'>Message</label>
                     <textarea
                       className='form-control rounded-0'
                       id='message'
@@ -463,6 +474,11 @@ function Contact() {
                         <button className='btn-premium' type='submit' style={{ width: '100%' }}>
                           {loadingMessage ? 'Booking' : 'Book Now'}
                         </button>
+                        {submitError && (
+                          <p role="alert" style={{ color: '#ff6b6b', marginTop: '0.75rem', fontSize: '0.9rem', textAlign: 'center' }}>
+                            {submitError}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </form>
@@ -473,8 +489,8 @@ function Contact() {
                 </div>
               ) : (
                 <div>
-                  <div class='circle-loader load-complete'>
-                    <div class='checkmark draw'></div>
+                  <div className='circle-loader load-complete'>
+                    <div className='checkmark draw'></div>
                   </div>
 
                   <h3 className='head-text2'>

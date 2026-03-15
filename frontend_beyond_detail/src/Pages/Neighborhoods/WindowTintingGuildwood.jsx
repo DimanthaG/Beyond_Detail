@@ -25,7 +25,7 @@ function WindowTintingGuildwood() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Guildwood | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in Guildwood. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Guildwood by Beyond Detail. LLUMAR films for Guildwood Village residents. Legal compliance guaranteed. Call (647) 689-6109.'
           name='Beyond Detail Guildwood'
           type='website'
           serviceType='Window Tinting'

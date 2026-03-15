@@ -40,8 +40,8 @@ function Services() {
   return (
     <>
       <SEO
-        title='Car Detailing Scarborough | Interior & Exterior Detailing'
-        description='Professional car detailing in Scarborough. Full interior & exterior detailing, paint protection & more. Mobile detailing available. Beyond Detail. (647) 689-6109'
+        title='Auto Detailing Scarborough | From $149 | Beyond Detail'
+        description='Full auto detailing in Scarborough from $149. Interior & exterior packages. Same-day service available. 5-star rated. Book today — (647) 689-6109.'
         name='Beyond Detail Toronto'
         type='website'
         serviceType='Auto Detailing'

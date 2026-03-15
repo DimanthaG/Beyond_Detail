@@ -28,7 +28,7 @@ function CarDetailingHighlandCreek() {
         <>
             <SEO
                 title="Car Detailing Highland Creek | 5+ Year Protection | Beyond Detail"
-                description="Expert Auto Detailing in Highland Creek. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Highland Creek Village & Rouge River areas. (647) 689-6109"
+                description="Car detailing in Highland Creek by Beyond Detail. Serving the village & Military Trail area. Full detail packages with free consultation. (647) 689-6109."
                 name="Beyond Detail Highland Creek"
                 type="website"
                 keywords="car detailing highland creek, auto detailing highland creek, window tinting highland creek, ceramic coating highland creek, car wash highland creek"

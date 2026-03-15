@@ -33,12 +33,16 @@ function Testimonials({
       }));
       setTestimonials(formattedTestimonials);
       setLoading(true);
+    }).catch((err) => {
+      console.error('Failed to fetch testimonials:', err);
+      setTestimonials([]);
+      setLoading(true);
     });
   }, [propsTestimonials]);
 
   return (
     <>
-      {loading ? (
+      {loading && testimonials.length === 0 ? null : loading ? (
         <motion.section
           id="testimonials"
           className="testimonials-section"

@@ -115,42 +115,6 @@ export const generateProductSchema = (packageData) => {
 };
 
 /**
- * Generate HowTo Schema for Step-by-Step Guides
- * Creates rich snippets with step-by-step instructions
- */
-export const generateHowToSchema = (guide) => {
-    return {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name: guide.title,
-        description: guide.description,
-        image: guide.image || `${BUSINESS_INFO.url}/og-image.webp`,
-        totalTime: guide.duration || 'PT30M', // ISO 8601 duration format
-        estimatedCost: {
-            '@type': 'MonetaryAmount',
-            currency: 'CAD',
-            value: guide.cost || '0'
-        },
-        tool: guide.tools?.map(tool => ({
-            '@type': 'HowToTool',
-            name: tool
-        })) || [],
-        supply: guide.supplies?.map(supply => ({
-            '@type': 'HowToSupply',
-            name: supply
-        })) || [],
-        step: guide.steps.map((step, index) => ({
-            '@type': 'HowToStep',
-            position: index + 1,
-            name: step.title,
-            text: step.description,
-            image: step.image || undefined,
-            url: step.url || undefined
-        }))
-    };
-};
-
-/**
  * Generate Video Schema
  * Helps videos appear in video search results
  */
@@ -320,7 +284,6 @@ export default {
     generateReviewSchema,
     generateArticleSchema,
     generateProductSchema,
-    generateHowToSchema,
     generateVideoSchema,
     generateEventSchema,
     generateBreadcrumbSchema,

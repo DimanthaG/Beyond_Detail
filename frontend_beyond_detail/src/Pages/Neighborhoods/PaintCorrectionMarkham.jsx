@@ -24,7 +24,7 @@ function PaintCorrectionMarkham() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Markham | Swirl Mark & Scratch Removal'
-          description='Expert paint correction in Markham. Remove swirl marks, scratches & oxidation. ⭐ 5-Star Rated | Multi-Stage Polishing | Lifetime Warranty | Call (647) 689-6109'
+          description='Paint correction in Markham by Beyond Detail. Serving Unionville & Cornell. Multi-stage polishing to remove swirls & oxidation. Call (647) 689-6109.'
           name='Beyond Detail Markham'
           type='website'
           serviceType='Paint Correction'

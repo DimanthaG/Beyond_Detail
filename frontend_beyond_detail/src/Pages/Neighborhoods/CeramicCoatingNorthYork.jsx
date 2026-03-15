@@ -24,7 +24,7 @@ function CeramicCoatingNorthYork() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating North York | Paint Protection & Correction Services"
-          description="Best Ceramic Coating in North York. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
+          description="Ceramic coating in North York by Beyond Detail. Serving Willowdale & Don Mills. 9H nano-ceramic with paint correction included. Call (647) 689-6109."
           name="Beyond Detail North York"
           type="website"
           keywords="ceramic coating north york, paint protection north york, ceramic pro north york, car coating north york, paint correction north york"

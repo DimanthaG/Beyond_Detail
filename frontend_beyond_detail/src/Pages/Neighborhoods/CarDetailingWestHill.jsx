@@ -23,7 +23,7 @@ function CarDetailingWestHill() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Car Detailing West Hill | Auto Detailing & Tinting Services"
-          description="Premium car detailing in West Hill, Scarborough. ⭐ Window Tinting, Ceramic Coating & Paint Correction. Mobile Service Available. Lifetime Warranty. Call (647) 689-6109"
+          description="Car detailing in West Hill by Beyond Detail. Serving the Kingston Rd & Morningside area. Window tinting, ceramic coating & paint correction. (647) 689-6109."
           name="Beyond Detail West Hill"
           type="website"
           keywords="car detailing west hill, auto detailing west hill, window tinting west hill, ceramic coating west hill, car wash west hill"

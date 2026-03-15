@@ -23,7 +23,7 @@ function CeramicCoatingWexford() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Wexford | Paint Protection Scarborough"
-          description="Best Ceramic Coating in Wexford. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in Wexford by Beyond Detail. Serving Wexford & Maryvale near Lawrence Ave. Nano-ceramic paint protection. Call (647) 689-6109."
           name="Beyond Detail Wexford"
           type="website"
           keywords="ceramic coating wexford, paint protection wexford, ceramic pro wexford, car coating wexford, paint correction wexford"

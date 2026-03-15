@@ -35,8 +35,8 @@ function CeramicCoatingScarborough() {
   return (
     <>
       <SEO
-        title="Ceramic Coating Scarborough | 5+ Year Protection | Beyond Detail"
-        description="Professional ceramic coating in Scarborough. Premium nano-ceramic protection with 5+ year protection, free consultation. Serving Toronto & North York. Get quote today! (647) 689-6109"
+        title="Ceramic Coating Scarborough | IGL Certified | From $599"
+        description="IGL Kenzo certified ceramic coating in Scarborough. 2-9 year protection from $599. Free consultation. Call Beyond Detail — (647) 689-6109."
         name="Beyond Detail Ceramic Coating"
         type="website"
         keywords="ceramic coating scarborough, ceramic coating near me, ceramic coating north york, paint protection scarborough, best ceramic coating scarborough"

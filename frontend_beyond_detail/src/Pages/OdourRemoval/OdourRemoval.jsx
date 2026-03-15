@@ -38,8 +38,8 @@ function OdourRemoval() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Odour Removal Scarborough & Toronto | Vehicle Odor Elimination'
-          description='Professional odour removal in Scarborough. Eliminate smoke, pet odors & biological contaminants. Advanced ozone & steam treatment. Beyond Detail. (647) 689-6109'
+          title='Car Odour Removal Scarborough | Smoke & Pet | Beyond Detail'
+          description='Professional car odour removal in Scarborough. Ozone treatment for smoke, pet, food smells. Results guaranteed. Book today — (647) 689-6109.'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Odour Removal'

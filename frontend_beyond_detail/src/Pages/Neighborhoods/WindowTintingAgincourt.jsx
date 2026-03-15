@@ -25,7 +25,7 @@ function WindowTintingAgincourt() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Agincourt | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in Agincourt. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Agincourt by Beyond Detail. LLUMAR films near Sheppard & Midland. Heat rejection & UV protection. Call (647) 689-6109.'
           name='Beyond Detail Agincourt'
           type='website'
           serviceType='Window Tinting'

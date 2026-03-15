@@ -21,7 +21,7 @@ function CarDetailingGuildwood() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Guildwood | Expert Auto Detailing Services"
-                    description="Premium car detailing for Guildwood Village. ⭐ Mobile Service & Shop Access. Paint Correction, Ceramic Coating & Deep Cleaning. Call (647) 689-6109"
+                    description="Car detailing in Guildwood by Beyond Detail. Serving Guildwood Village near the GO station. Paint correction & ceramic coating. Call (647) 689-6109."
                     name="Beyond Detail Guildwood"
                     type="website"
                     keywords="car detailing guildwood, auto detailing guildwood village, car wash guildwood, ceramic coating guildwood, paint correction guildwood"

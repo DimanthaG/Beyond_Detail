@@ -30,7 +30,7 @@ function CarDetailingAjax() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Ajax | 5+ Year Protection | Beyond Detail"
-                    description="Professional car detailing in Ajax. 5+ Year Protection, Free Consultation, Same-Day Service. Serving Durham Region & GTA. (647) 689-6109"
+                    description="Car detailing in Ajax by Beyond Detail. Full interior shampoo & exterior polish near Westney Road. Serving south Ajax to Pickering. (647) 689-6109."
                     name="Beyond Detail Ajax"
                     type="website"
                     keywords="car detailing ajax, auto detailing ajax, window tinting ajax, ceramic coating ajax, car wash ajax"

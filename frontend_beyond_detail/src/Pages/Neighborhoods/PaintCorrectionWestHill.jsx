@@ -22,7 +22,7 @@ function PaintCorrectionWestHill() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction West Hill | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in West Hill. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in West Hill by Beyond Detail. Serving Kingston Rd & Morningside area. Swirl removal & paint restoration. Call (647) 689-6109.'
           name='Beyond Detail West Hill'
           type='website'
           serviceType='Paint Correction'

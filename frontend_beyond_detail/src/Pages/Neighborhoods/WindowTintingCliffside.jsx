@@ -25,7 +25,7 @@ function WindowTintingCliffside() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Cliffside | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in Cliffside. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Cliffside by Beyond Detail. LLUMAR films near Kingston Road. Privacy & heat rejection with lifetime warranty. Call (647) 689-6109.'
           name='Beyond Detail Cliffside'
           type='website'
           serviceType='Window Tinting'

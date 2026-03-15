@@ -23,7 +23,7 @@ function PaintCorrectionAjax() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Ajax | Swirl Mark & Scratch Removal'
-          description='Expert paint correction in Ajax. Remove swirl marks, scratches & oxidation. ⭐ 5-Star Rated | Multi-Stage Polishing | Lifetime Warranty | Call (647) 689-6109'
+          description='Paint correction in Ajax by Beyond Detail. Remove swirl marks, scratches & oxidation. Serving Ajax & Durham Region. Book at (647) 689-6109.'
           name='Beyond Detail Ajax'
           type='website'
           serviceType='Paint Correction'

@@ -23,7 +23,7 @@ function CeramicCoatingGuildwood() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Guildwood | Paint Protection Scarborough"
-          description="Best Ceramic Coating in Guildwood. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in Guildwood by Beyond Detail. Long-term paint protection for Guildwood Village residents. Warranty included. Call (647) 689-6109."
           name="Beyond Detail Guildwood"
           type="website"
           keywords="ceramic coating guildwood, paint protection guildwood, ceramic pro guildwood, car coating guildwood, paint correction guildwood"

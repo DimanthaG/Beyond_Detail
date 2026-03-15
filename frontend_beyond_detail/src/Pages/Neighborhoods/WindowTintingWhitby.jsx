@@ -25,7 +25,7 @@ function WindowTintingWhitby() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Whitby | Premium Auto Tint | Beyond Detail'
-          description='Expert window tinting in Whitby. ⭐ LLUMAR Films | Heat Rejection, UV Protection & Privacy | Lifetime Warranty | Mobile Service Available | Call (647) 689-6109'
+          description='Window tinting in Whitby by Beyond Detail. LLUMAR films serving Brooklin & downtown Whitby. UV protection & privacy. Book at (647) 689-6109.'
           name='Beyond Detail Whitby'
           type='website'
           serviceType='Window Tinting'

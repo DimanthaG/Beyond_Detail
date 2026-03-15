@@ -31,7 +31,7 @@ const TailLightTintingScarborough = () => {
         <>
             <SEO
                 title="Tail Light Tinting Scarborough | Smoked Lights | Beyond Detail"
-                description="Custom tail light tinting in Scarborough. Premium smoke and blackout films. Legal & safe options available. Transform your vehicle's look today."
+                description="Tail light tinting in Scarborough by Beyond Detail. Smoke & blackout films with legal compliance. Premium automotive-grade film. Call (647) 689-6109."
                 name="Beyond Detail Tail Light Tinting"
                 type="website"
                 keywords="tail light tinting scarborough, smoked tail lights, headlight tinting, auto light tinting scarborough"

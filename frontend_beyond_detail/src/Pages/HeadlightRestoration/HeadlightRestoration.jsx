@@ -39,8 +39,8 @@ function HeadlightRestoration() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Headlight Restoration Scarborough | Restore Clarity & Safety'
-          description='Professional headlight restoration in Scarborough. Restore cloudy, yellowed headlights to crystal clarity. Safer driving, better appearance. Beyond Detail. (647) 689-6109'
+          title='Headlight Restoration Scarborough | From $89 | Beyond Detail'
+          description='Foggy headlights restored to crystal clear. Professional headlight restoration in Scarborough from $89. Same-day service. Call (647) 689-6109.'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Headlight Restoration'

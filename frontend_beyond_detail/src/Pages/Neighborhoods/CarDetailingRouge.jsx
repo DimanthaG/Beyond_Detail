@@ -21,7 +21,7 @@ function CarDetailingRouge() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Rouge | Premium Auto Detailing Services"
-                    description="Best car detailing near Rouge Park & Port Union. ⭐ Professional Auto Detailing | Interior & Exterior Cleaning | Ceramic Coating | Call (647) 689-6109"
+                    description="Car detailing in Rouge by Beyond Detail. Serving Rouge Park & Port Union. Interior & exterior cleaning with ceramic coating options. Call (647) 689-6109."
                     name="Beyond Detail Rouge"
                     type="website"
                     keywords="car detailing rouge, auto detailing rouge hill, car wash rouge park, ceramic coating rouge, paint protection rouge"

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 
 import './App.scss';
 import { Footer, SocialIcons, MobileFixedFooter, FooterMap } from './components';
@@ -9,8 +9,8 @@ import { AnimatePresence } from 'framer-motion';
 import { withRouteWrapper } from './components/RouteWrapper/RouteWrapper';
 import ScrollToTop from './components/ScrollToTop';
 
-// Import Home page directly (critical for LCP)
-import { Home } from './Pages';
+// Lazy load Home page (hero image preload in index.html handles LCP independently)
+const Home = React.lazy(() => import('./Pages/Home/Home'));
 
 const ServiceAreas = lazy(() => import('./Pages/ServiceAreas/ServiceAreas'));
 const AreasWeServe = lazy(() => import('./Pages/ServiceAreas/AreasWeServe'));

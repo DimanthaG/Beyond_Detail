@@ -25,7 +25,7 @@ function WindowTintingRouge() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Rouge | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in Rouge. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Rouge by Beyond Detail. LLUMAR films serving Rouge Park & Port Union. Heat rejection & privacy films. Call (647) 689-6109.'
           name='Beyond Detail Rouge'
           type='website'
           serviceType='Window Tinting'

@@ -23,7 +23,7 @@ function PaintCorrectionWhitby() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Whitby | Swirl Mark & Scratch Removal'
-          description='Expert paint correction in Whitby. Remove swirl marks, scratches & oxidation. ⭐ 5-Star Rated | Multi-Stage Polishing | Lifetime Warranty | Call (647) 689-6109'
+          description='Paint correction in Whitby by Beyond Detail. Serving Brooklin & downtown Whitby. Remove swirls, scratches & oxidation. Book at (647) 689-6109.'
           name='Beyond Detail Whitby'
           type='website'
           serviceType='Paint Correction'

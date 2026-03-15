@@ -23,7 +23,7 @@ function CeramicCoatingRouge() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Rouge | Paint Protection Scarborough"
-          description="Best Ceramic Coating in Rouge. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Paint Protection | Call (647) 689-6109"
+          description="Ceramic coating in Rouge by Beyond Detail. Serving Rouge Park & Port Union area. Multi-year paint protection with correction included. Call (647) 689-6109."
           name="Beyond Detail Rouge"
           type="website"
           keywords="ceramic coating rouge, paint protection rouge, ceramic pro rouge, car coating rouge, paint correction rouge"

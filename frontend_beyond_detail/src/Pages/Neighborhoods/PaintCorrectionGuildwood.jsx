@@ -22,7 +22,7 @@ function PaintCorrectionGuildwood() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Guildwood | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in Guildwood. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in Guildwood by Beyond Detail. Serving Guildwood Village. Remove swirl marks & restore factory-finish gloss. Call (647) 689-6109.'
           name='Beyond Detail Guildwood'
           type='website'
           serviceType='Paint Correction'

@@ -108,10 +108,10 @@
 }
 
 .p-text {
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   text-align: left;
   color: var(--white-color);
-  line-height: 1.5;
+  line-height: 1.7;
   font-family: var(--font-base);
 
   @media screen and (min-width: 2000px) {
@@ -277,6 +277,7 @@
 /* Glassmorphism Utility */
 .glass-panel {
   background: rgba(255, 255, 255, 0.03);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -345,5 +346,11 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(240, 121, 0, 0.5);
     background: linear-gradient(135deg, #ff8c00, var(--secondary-color));
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    padding-bottom: 80px;
   }
 }

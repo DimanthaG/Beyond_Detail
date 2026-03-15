@@ -23,7 +23,7 @@ function PaintCorrectionOshawa() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Oshawa | Swirl Mark & Scratch Removal'
-          description='Expert paint correction in Oshawa. Remove swirl marks, scratches & oxidation. ⭐ 5-Star Rated | Multi-Stage Polishing | Lifetime Warranty | Call (647) 689-6109'
+          description='Paint correction in Oshawa by Beyond Detail. Remove swirls, scratches & road salt damage. Serving north & south Oshawa. Book at (647) 689-6109.'
           name='Beyond Detail Oshawa'
           type='website'
           serviceType='Paint Correction'

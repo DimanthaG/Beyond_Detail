@@ -21,7 +21,7 @@ function CarDetailingMarkhamRoad() {
             <Suspense fallback={<Loading />}>
                 <SEO
                     title="Car Detailing Markham Road | Scarborough Auto Detailing Near Me"
-                    description="Expert car detailing near Markham Road & Finch. ⭐ 5-Star Rated Studio at 170 Finchdene Sq. Interior Deep Clean, Ceramic Coating & Paint Correction. Book Online. (647) 689-6109"
+                    description="Car detailing near Markham Rd & Finch by Beyond Detail. Studio at 170 Finchdene Sq. Interior deep clean & ceramic coating. Book at (647) 689-6109."
                     name="Beyond Detail Markham Road"
                     type="website"
                     keywords="car detailing markham road, auto detailing near markham road, car wash markham road, detailing finch and markham, ceramic coating markham road"

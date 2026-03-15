@@ -22,7 +22,7 @@ function PaintCorrectionMalvern() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Paint Correction Malvern | Swirl Mark Removal Scarborough'
-          description='Expert paint correction in Malvern. Remove swirl marks & scratches. ⭐ 5-Star Rated | Multi-Stage Polishing | Call (647) 689-6109'
+          description='Paint correction in Malvern by Beyond Detail. Swirl & scratch removal near Neilson & Finch. Restore your paint clarity. Call (647) 689-6109.'
           name='Beyond Detail Malvern'
           type='website'
           serviceType='Paint Correction'

@@ -13,7 +13,15 @@
       ],
       "destination": "https://www.beyonddetail.ca/:path*",
       "permanent": true
-    }
+    },
+    { "source": "/contact-us", "destination": "/contact", "statusCode": 301 },
+    { "source": "/home", "destination": "/", "statusCode": 301 },
+    { "source": "/auto-detailing-scarborough", "destination": "/car-detailing-scarborough", "statusCode": 301 },
+    { "source": "/tail-light-tinting-scarborough", "destination": "/tail-light-tinting", "statusCode": 301 },
+    { "source": "/ontariowindowtintinglaw", "destination": "/window-tinting-laws-ontario", "statusCode": 301 },
+    { "source": "/mobile-car-detailing-toronto", "destination": "/mobile-detailing", "statusCode": 301 },
+    { "source": "/mobile-car-detailing", "destination": "/mobile-detailing", "statusCode": 301 },
+    { "source": "/exotic-car-detailing-toronto", "destination": "/luxury-car-detailing-toronto", "statusCode": 301 }
   ],
   "rewrites": [
     {

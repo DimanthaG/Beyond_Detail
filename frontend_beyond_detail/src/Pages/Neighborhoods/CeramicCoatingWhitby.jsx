@@ -24,7 +24,7 @@ function CeramicCoatingWhitby() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Ceramic Coating Whitby | Paint Protection & Correction Services"
-          description="Best Ceramic Coating in Whitby. ⭐ Ceramic Pro Certified | Lifetime Warranty Packages | Mobile Service Available | Call (647) 689-6109 for a Quote"
+          description="Ceramic coating in Whitby by Beyond Detail. Serving Brooklin & downtown Whitby. Long-term hydrophobic paint protection. Get a quote at (647) 689-6109."
           name="Beyond Detail Whitby"
           type="website"
           keywords="ceramic coating whitby, paint protection whitby, ceramic pro whitby, car coating whitby, paint correction whitby"

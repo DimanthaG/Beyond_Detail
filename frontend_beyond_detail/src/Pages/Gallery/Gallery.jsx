@@ -30,6 +30,10 @@ function Gallery() {
     client.fetch(query).then((data) => {
       setGalImages(data);
       setLoading(true);
+    }).catch((err) => {
+      console.error('Failed to fetch gallery images:', err);
+      setGalImages([]);
+      setLoading(true);
     });
   }, []);
 
@@ -39,6 +43,9 @@ function Gallery() {
 
     client.fetch(query).then((data) => {
       setCompareImages(data);
+    }).catch((err) => {
+      console.error('Failed to fetch comparison images:', err);
+      setCompareImages([]);
     });
   }, []);
 
@@ -68,7 +75,7 @@ function Gallery() {
 
   return (
     <>
-      {loading && galImages.length !== 0 && compareImages.length !== 0 ? (
+      {loading && galImages.length !== 0 ? (
         <>
           <motion.div
             initial='out'
@@ -93,29 +100,31 @@ function Gallery() {
               >
                 <h1>Auto Detailing Gallery - Scarborough</h1>
               </motion.div>
-              <motion.div
-                className='gallery__imageSlider__container'
-                whileInView={{ y: [100, 0], opacity: [0, 1] }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
-              >
-                <div className='gallery__imageSlider'>
-                  <ImageSlider
-                    image1={urlFor(compareImages[0].comparisonSlider1.image2)}
-                    image2={urlFor(compareImages[0].comparisonSlider1.image1)}
-                    sliderColor='var(--secondary-color)'
-                    handleBackgroundColor='var(--white-color)'
-                    handleColor='var(--background-color)'
-                  />
-                  <ImageSlider
-                    image1={urlFor(compareImages[0].comparisonSlider2.image2)}
-                    image2={urlFor(compareImages[0].comparisonSlider2.image1)}
-                    sliderColor='var(--secondary-color)'
-                    handleBackgroundColor='var(--white-color)'
-                    handleColor='var(--background-color)'
-                  />
-                </div>
-              </motion.div>
+              {compareImages.length !== 0 && (
+                <motion.div
+                  className='gallery__imageSlider__container'
+                  whileInView={{ y: [100, 0], opacity: [0, 1] }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true, amount: 0.05, margin: "0px 0px 50px 0px" }}
+                >
+                  <div className='gallery__imageSlider'>
+                    <ImageSlider
+                      image1={urlFor(compareImages[0].comparisonSlider1.image2)}
+                      image2={urlFor(compareImages[0].comparisonSlider1.image1)}
+                      sliderColor='var(--secondary-color)'
+                      handleBackgroundColor='var(--white-color)'
+                      handleColor='var(--background-color)'
+                    />
+                    <ImageSlider
+                      image1={urlFor(compareImages[0].comparisonSlider2.image2)}
+                      image2={urlFor(compareImages[0].comparisonSlider2.image1)}
+                      sliderColor='var(--secondary-color)'
+                      handleBackgroundColor='var(--white-color)'
+                      handleColor='var(--background-color)'
+                    />
+                  </div>
+                </motion.div>
+              )}
               <div className={model ? 'model open' : 'model'}>
                 <img src={tempImgSrc} loading='lazy' alt='large' />
                 <GrClose onClick={() => setModel(false)} />

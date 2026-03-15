@@ -31,33 +31,27 @@ function FAQs() {
   }, []);
 
   useEffect(() => {
+    // NOTE: The "faqs" content type currently has 0 documents in Sanity.
+    // All FAQ content comes from the fallbackFAQs data file.
+    // This fetch is kept so that if FAQs are added to Sanity in the future,
+    // they will be picked up automatically.
     const query = `*[_type == "faqs"] | order(order asc)`;
     client.fetch(query).then((data) => {
-      // If we have FAQs from Sanity, use them; otherwise use fallback
-      if (data && data.length > 0) {
-        setFaqs(data);
-      } else {
-        // Use fallback FAQs if Sanity has no content
+      // Fast path: if Sanity returns no FAQs, use fallback immediately
+      // without attempting a secondary query
+      if (!data || data.length === 0) {
         setFaqs(fallbackFAQs);
+        setLoading(false);
+        return;
       }
+      setFaqs(data);
       setLoading(false);
     }).catch((error) => {
       console.error('Error fetching FAQs:', error);
-      // Fallback: try without order field if it doesn't exist
-      const fallbackQuery = `*[_type == "faqs"] | order(_createdAt asc)`;
-      client.fetch(fallbackQuery).then((data) => {
-        if (data && data.length > 0) {
-          setFaqs(data);
-        } else {
-          setFaqs(fallbackFAQs);
-        }
-        setLoading(false);
-      }).catch((fallbackError) => {
-        console.error('Error fetching FAQs with fallback:', fallbackError);
-        // Use fallback FAQs if all queries fail
-        setFaqs(fallbackFAQs);
-        setLoading(false);
-      });
+      // Use fallback FAQs on any fetch error — no need for a secondary query
+      // since the content type has no documents in Sanity
+      setFaqs(fallbackFAQs);
+      setLoading(false);
     });
   }, []);
 
@@ -146,46 +140,6 @@ function FAQs() {
                     item: 'https://www.beyonddetail.ca/faqs'
                   }
                 ]
-              })}
-            </script>
-            {/* Organization Schema */}
-            <script type='application/ld+json'>
-              {JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'AutoRepair',
-                name: 'Beyond Detail',
-                description: 'Professional auto detailing services in Toronto and Scarborough',
-                url: 'https://www.beyonddetail.ca',
-                telephone: '+1-647-689-6109',
-                address: {
-                  '@type': 'PostalAddress',
-                  streetAddress: '170 Finchdene Square',
-                  addressLocality: 'Scarborough',
-                  addressRegion: 'ON',
-                  postalCode: 'M1X 1B7',
-                  addressCountry: 'CA'
-                },
-                geo: {
-                  '@type': 'GeoCoordinates',
-                  latitude: 43.8361,
-                  longitude: -79.1847
-                },
-                areaServed: [
-                  'Toronto',
-                  'Scarborough',
-                  'Markham',
-                  'North York',
-                  'Ajax',
-                  'Pickering',
-                  'Whitby',
-                  'Oshawa'
-                ],
-                priceRange: '$$',
-                aggregateRating: {
-                  '@type': 'AggregateRating',
-                  ratingValue: '4.9',
-                  reviewCount: '70'
-                }
               })}
             </script>
           </Helmet>

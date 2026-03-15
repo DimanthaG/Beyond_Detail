@@ -25,7 +25,7 @@ function WindowTintingMalvern() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Malvern | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in Malvern. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Malvern by Beyond Detail. LLUMAR films near Neilson & Finch. UV protection & privacy. Lifetime warranty. Call (647) 689-6109.'
           name='Beyond Detail Malvern'
           type='website'
           serviceType='Window Tinting'

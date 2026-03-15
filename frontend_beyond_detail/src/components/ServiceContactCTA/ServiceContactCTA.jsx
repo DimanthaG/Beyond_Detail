@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, ArrowRight } from 'lucide-react';
+import { trackPhoneClick } from '../../utils/analytics';
 import './ServiceContactCTA.scss';
 
 function ServiceContactCTA({ title = "READY TO GET STARTED?", description = "Contact us today for a personalized quote tailored to your needs." }) {
@@ -22,6 +23,7 @@ function ServiceContactCTA({ title = "READY TO GET STARTED?", description = "Con
             <motion.a
               href="tel:16476896109"
               className="service-contact-cta__button service-contact-cta__button--primary"
+              onClick={() => trackPhoneClick('service_cta')}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

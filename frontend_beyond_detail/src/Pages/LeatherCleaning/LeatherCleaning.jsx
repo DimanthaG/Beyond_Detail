@@ -39,8 +39,8 @@ function LeatherCleaning() {
     <>
       <Suspense fallback={<Loading />}>
         <SEO
-          title='Leather Cleaning Scarborough | Leather Upholstery Care | Beyond Detail'
-          description='Professional leather cleaning and conditioning in Scarborough. Restore and protect your vehicle leather upholstery. Book at Beyond Detail. (647) 689-6109'
+          title='Leather Cleaning Scarborough | Conditioning & Repair | Beyond Detail'
+          description='Leather seat cleaning & conditioning in Scarborough. Stain removal, UV protection, crack prevention. Book today — (647) 689-6109.'
           name='Beyond Detail Toronto'
           type='website'
           serviceType='Leather Cleaning'

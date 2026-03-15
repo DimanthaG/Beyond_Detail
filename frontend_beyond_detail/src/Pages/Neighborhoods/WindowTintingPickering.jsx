@@ -25,7 +25,7 @@ function WindowTintingPickering() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Pickering | Premium Auto Tint | Beyond Detail'
-          description='Expert window tinting in Pickering. ⭐ LLUMAR Films | Heat Rejection, UV Protection & Privacy | Lifetime Warranty | Mobile Service Available | Call (647) 689-6109'
+          description='Window tinting in Pickering by Beyond Detail. LLUMAR films near Pickering Town Centre. Legal compliance guaranteed. Book at (647) 689-6109.'
           name='Beyond Detail Pickering'
           type='website'
           serviceType='Window Tinting'

@@ -21,7 +21,7 @@ function CarDetailingScarborough() {
       <Suspense fallback={<Loading />}>
         <SEO
           title="Car Detailing Scarborough | Professional Auto Detailing Services"
-          description="Professional car detailing in Scarborough. ⭐ Top-Rated Auto Detailing | Professional In-Shop Service | Lifetime Warranty | Serving All Scarborough Neighborhoods | Call (647) 689-6109"
+          description="Car detailing in Scarborough by Beyond Detail. In-shop studio at 170 Finchdene Sq. Serving all Scarborough neighbourhoods. Book at (647) 689-6109."
           name="Beyond Detail Scarborough"
           type="website"
           keywords="car detailing scarborough, auto detailing scarborough, scarborough detailing, car wash scarborough, interior car cleaning scarborough"

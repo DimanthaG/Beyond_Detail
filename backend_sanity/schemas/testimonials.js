@@ -18,5 +18,20 @@ export default {
       title: 'Company',
       type: 'string',
     },
+    {
+      name: 'avatar',
+      title: 'Avatar',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'rating',
+      title: 'Rating',
+      type: 'number',
+      validation: (Rule) => Rule.min(1).max(5),
+      description: 'Customer rating from 1 to 5 stars',
+    },
   ],
 };

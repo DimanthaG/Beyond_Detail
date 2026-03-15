@@ -25,7 +25,7 @@ function WindowTintingWexford() {
       <Suspense fallback={<Loading />}>
         <SEO
           title='Window Tinting Wexford | LLUMAR Auto Tint | Beyond Detail'
-          description='Expert window tinting in Wexford. ⭐ LLUMAR Films | Heat Rejection & Privacy | Lifetime Warranty | Mobile Service | Call (647) 689-6109'
+          description='Window tinting in Wexford by Beyond Detail. LLUMAR films near Lawrence & Pharmacy. Privacy & heat rejection with warranty. Call (647) 689-6109.'
           name='Beyond Detail Wexford'
           type='website'
           serviceType='Window Tinting'
