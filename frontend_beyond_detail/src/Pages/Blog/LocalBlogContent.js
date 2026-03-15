@@ -11966,5 +11966,1422 @@ export const LOCAL_BLOG_POSTS = [
             "current": "complete-guide-car-detailing-toronto"
         },
         "title": "Complete Guide to Car Detailing in Toronto"
+    },
+    {
+        "_id": "imported-post-ceramic-coating-cost-scarborough-2026",
+        "author": "Beyond Detail Team",
+        "body": null,
+        "category": "Pricing Guide",
+        "content": [
+            {
+                "_key": "cc01a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc01a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Ceramic coating is one of those services where pricing is all over the map. You will see ads for $199 ceramic coatings on Facebook, and you will see shops quoting $2,000 or more. So what does ceramic coating actually cost in Scarborough and the GTA? Here is a straightforward breakdown based on what we charge at Beyond Detail in 2026."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc02a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc02a1b2c3c1",
+                        "_type": "span",
+                        "text": "Entry Tier — $599"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc03a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc03a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Our entry-level ceramic coating package starts at $599 for sedans and smaller vehicles. This includes a single-layer ceramic coating application, a thorough hand wash and decontamination, and light paint preparation. You get real ceramic protection — not a spray sealant marketed as ceramic."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc04a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc04a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "This tier is a solid choice for daily drivers that are in decent condition. If your paint does not have heavy swirl marks or scratches, this package gives you hydrophobic protection, UV resistance, and easier washing for the next 2-3 years."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc05a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc05a1b2c3c1",
+                        "_type": "span",
+                        "text": "Pro Tier — $899 (IGL Kenzo, 5-Year Warranty)"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc06a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc06a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "The Pro tier is our most popular package at $899. It includes a single-stage paint correction to remove light swirl marks and wash scratches, followed by a single-layer application of IGL Kenzo ceramic coating. IGL Kenzo is a professional-grade 10H coating that we are certified to apply. It comes with a 5-year manufacturer warranty."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc07a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc07a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Paint correction before coating is what separates a proper ceramic coating job from a cheap one. If you apply coating over swirl marks, you are locking in those imperfections. The correction step ensures your paint looks clean and sharp before the coating goes on."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc08a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc08a1b2c3c1",
+                        "_type": "span",
+                        "text": "Ultimate Tier — $1,299 (Multi-Layer IGL Kenzo, 9-Year Warranty)"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc09a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc09a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "The Ultimate package at $1,299 is for owners who want maximum protection and gloss. It includes a full multi-stage paint correction — we remove deeper scratches and defects that a single-stage correction cannot address. Then we apply multiple layers of IGL Kenzo ceramic coating, building up thickness and durability. This package comes with a 9-year manufacturer warranty."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc10a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc10a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "This tier is popular with new car owners who want to protect their investment from day one, and with enthusiasts who care about having a deep, wet-look finish that lasts years."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc11a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc11a1b2c3c1",
+                        "_type": "span",
+                        "text": "What Affects the Price?"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc12a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc12a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Vehicle size is the biggest factor. The prices above are based on sedans and compact cars. SUVs and trucks add 15-25% to the cost because there is simply more surface area to correct and coat. A Jeep Wrangler or a Ford F-150 takes significantly more product and time than a Honda Civic."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc13a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc13a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Paint condition also matters. A car with heavy oxidation, deep scratches, or neglected paint may need more correction work than what is included in the standard packages. We assess every vehicle individually during our free consultation and provide an exact quote before any work begins."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc14a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc14a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Colour plays a role too. Black and other dark-coloured vehicles show imperfections more easily and require more careful correction work. This can add time to the job."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc15a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc15a1b2c3c1",
+                        "_type": "span",
+                        "text": "Why Cheap $199 Ceramic Coatings Are a Waste of Money"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc16a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc16a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "You have probably seen Groupon deals or Facebook ads offering ceramic coating for $199 or even $99. Here is the truth: those are not ceramic coatings. They are spray-on sealants that last a few weeks to a couple of months. A real ceramic coating is a liquid polymer that chemically bonds to your paint and requires proper surface preparation, controlled application, and curing time."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc17a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc17a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "At $199, the shop cannot afford to spend 4-8 hours on your vehicle, use professional-grade coating products, or include any paint correction. You are paying for a quick spray and wipe that will wash off within weeks. Worse, applying a coating over contaminated or damaged paint seals in the imperfections."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc18a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc18a1b2c3c1",
+                        "_type": "span",
+                        "text": "Maintenance Costs After Coating"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc19a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc19a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "A ceramic-coated car is much easier and cheaper to maintain. You still need to wash it regularly — we recommend every two weeks — but the washes take less time because dirt and contaminants do not bond to the coated surface. A maintenance wash costs around $50-80 at a proper hand wash, or you can do it yourself with a foam cannon and microfibre mitt."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc20a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc20a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "We also recommend an annual maintenance detail and coating inspection, which runs about $150-200. This keeps your coating performing at its peak and ensures the warranty stays valid."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc21a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc21a1b2c3c1",
+                        "_type": "span",
+                        "text": "Ceramic Coating vs. Wax — The Math"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc22a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc22a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Traditional wax costs $50-100 per application and needs to be reapplied every 2-3 months. That is 4-6 applications per year, costing $200-400 annually. Over 5 years, you are looking at $1,000-2,000 on wax alone — and you never get the hardness, chemical resistance, or UV protection that ceramic provides."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc23a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc23a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "A ceramic coating at $599-1,299 is a one-time cost that lasts 2-9 years depending on the package. When you factor in the reduced maintenance costs and the protection it provides against Toronto road salt, UV damage, and bird droppings, ceramic coating is the more economical choice over time."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc24a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc24a1b2c3c1",
+                        "_type": "span",
+                        "text": "How to Get Started"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "cc25a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc25a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "We offer free consultations where we inspect your vehicle, discuss your goals, and recommend the right package. There is no pressure and no upselling. We will tell you honestly whether your car needs a full correction or if the entry-level package will do the job."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc26a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc26a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Beyond Detail is located in Scarborough, serving the entire GTA including Toronto, Markham, Pickering, and Ajax. We are IGL Kenzo certified installers with hundreds of coatings applied across all vehicle types."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "cc27a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "cc27a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Call us at (647) 689-6109 or book your free consultation online. We will get your car protected before the summer heat and winter salt take their toll."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            }
+        ],
+        "excerpt": "A transparent breakdown of ceramic coating prices in Scarborough and the GTA. From $599 entry-level to $1,299 ultimate protection with IGL Kenzo.",
+        "keywords": [
+            "ceramic coating cost scarborough",
+            "ceramic coating price toronto",
+            "ceramic coating scarborough",
+            "IGL Kenzo coating cost",
+            "ceramic coating vs wax cost",
+            "cheap ceramic coating toronto"
+        ],
+        "mainImage": null,
+        "publishedAt": "2026-03-15T12:00:00Z",
+        "relatedServices": [
+            "ceramic-coating",
+            "paint-correction"
+        ],
+        "seoDescription": "How much does ceramic coating cost in Scarborough? From $599 to $1,299 depending on package. IGL Kenzo certified. Free quote — (647) 689-6109.",
+        "seoTitle": "Ceramic Coating Cost Scarborough 2026 | $599-$1,299 Guide",
+        "slug": {
+            "current": "ceramic-coating-cost-scarborough-2026"
+        },
+        "title": "How Much Does Ceramic Coating Cost in Scarborough?"
+    },
+    {
+        "_id": "imported-post-window-tint-percentage-ontario-legal-guide",
+        "author": "Beyond Detail Team",
+        "body": null,
+        "category": "Window Tinting",
+        "content": [
+            {
+                "_key": "wt01a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt01a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Window tint laws in Ontario confuse a lot of people. Some drivers think any tint is illegal. Others assume they can go as dark as they want. The reality is somewhere in the middle, and knowing the rules can save you a fine and a failed safety inspection. Here is what you need to know in 2026."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt02a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt02a1b2c3c1",
+                        "_type": "span",
+                        "text": "Ontario Window Tint Law — The Basics"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "wt03a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt03a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Ontario's Highway Traffic Act (HTA) Section 73(3) requires that the front side windows (driver and passenger) allow at least 70% of visible light to pass through. This is measured as Visible Light Transmission (VLT). Since factory glass already blocks some light (typically around 75-80% VLT), this means you can only add a very light tint to the front side windows and still remain legal."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt04a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt04a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "The rear passenger windows and the rear windshield have no VLT restriction in Ontario. You can go as dark as you want on those windows. This is why you see many vehicles with dark rear windows and lighter front windows."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt05a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt05a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "For the windshield, you can only apply tint on the visor strip — the area above the AS-1 line, which is roughly the top 6 inches. No tint is allowed below that line on the windshield."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt06a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt06a1b2c3c1",
+                        "_type": "span",
+                        "text": "What VLT Percentages Actually Look Like"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "wt07a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt07a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "VLT percentages can be confusing because a lower number means darker tint. Here is what each level looks like in practice. 5% VLT is limo tint — nearly impossible to see through from outside, very dark inside. This is only legal on rear windows in Ontario. 15% VLT is a dark tint where you can barely see inside. Popular on rear windows for privacy. 20% VLT is slightly lighter than 15%, still provides strong privacy. A common choice for rear windows across the GTA."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt08a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt08a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "35% VLT is a medium tint that lets you see inside if you look closely. This is the darkest you should consider for front side windows if you want to push the limit while still being in the legal grey area. 50% VLT is a light tint — noticeable but subtle. Provides UV and heat protection without changing the look much. 70% VLT is nearly clear and is the legal minimum for front side windows. Ceramic film at 70% VLT still blocks significant infrared heat."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt09a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt09a1b2c3c1",
+                        "_type": "span",
+                        "text": "What Happens If You Get Pulled Over"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "wt10a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt10a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "If a police officer suspects your front window tint is too dark, they can issue an HTA ticket. The fine is typically $110. They may also issue a vehicle inspection order, which means you have to take your car to a licensed inspection station and have the tint removed or replaced to pass. That adds the cost of removal, re-tinting with a legal film, and the inspection fee."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt11a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt11a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "In practice, enforcement varies. Some officers carry a tint meter and will test your windows on the spot. Others make a judgment call based on appearance. Either way, running illegal tint on your front windows is a gamble that can cost you time and money."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt12a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt12a1b2c3c1",
+                        "_type": "span",
+                        "text": "Medical Exemptions"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "wt13a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt13a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Ontario does allow medical exemptions for darker front window tint. If you have a condition like lupus, photosensitivity, or another medical reason that requires reduced sun exposure, you can apply for an exemption through the Ministry of Transportation. You will need a letter from your doctor and must carry the exemption documentation in your vehicle at all times. The process takes a few weeks, and the exemption specifies the VLT level you are allowed."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt14a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt14a1b2c3c1",
+                        "_type": "span",
+                        "text": "Our Recommendation"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "wt15a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt15a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "For most customers in Scarborough and the GTA, we recommend 35% VLT ceramic film on the front side windows and 15-20% on the rear windows and back windshield. The 35% on the front provides noticeable heat rejection and glare reduction while keeping you in a reasonable range. On the rear, 15-20% gives you strong privacy and heat protection."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt16a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt16a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "If you want to stay strictly legal, we can install a 70% VLT ceramic film on the front sides. Even though it looks nearly clear, ceramic film at this VLT level still blocks up to 60% of infrared heat and 99% of UV rays. You get the protection benefits without any visual change or legal risk."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt17a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt17a1b2c3c1",
+                        "_type": "span",
+                        "text": "Why Ceramic Film Matters More Than Percentage"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "wt18a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt18a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "The type of film matters more than the darkness level when it comes to heat rejection. Cheap dyed films might look dark but they do very little to block heat. They also fade to purple within a year or two. Carbon films are a step up and provide decent heat rejection without the fading issue."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt19a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt19a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Ceramic film is the top tier. It uses nano-ceramic particles to block infrared heat without needing to be dark. A 70% VLT ceramic film rejects more heat than a 20% VLT dyed film. That means you can stay legal on your front windows and still keep your car significantly cooler in the summer. At Beyond Detail, we exclusively install ceramic window film because it performs better and lasts longer."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "wt20a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "wt20a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "If you are considering window tint for your vehicle in Scarborough or anywhere in the GTA, give us a call at (647) 689-6109. We will walk you through the options, show you film samples, and help you choose the right setup for your vehicle and your needs."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            }
+        ],
+        "excerpt": "A complete guide to Ontario's window tint laws, legal VLT percentages, and what we recommend for drivers in Scarborough and the GTA.",
+        "keywords": [
+            "window tint percentage ontario",
+            "ontario tint law",
+            "legal window tint ontario",
+            "window tint scarborough",
+            "VLT percentage ontario",
+            "ceramic window tint toronto"
+        ],
+        "mainImage": null,
+        "publishedAt": "2026-03-15T12:00:00Z",
+        "relatedServices": [
+            "window-tint"
+        ],
+        "seoDescription": "Ontario window tint law: 70% VLT minimum on front sides. No limit on rear. Full legal guide with recommended percentages. Beyond Detail — (647) 689-6109.",
+        "seoTitle": "Window Tint Percentage Ontario | Legal Limits 2026",
+        "slug": {
+            "current": "window-tint-percentage-ontario-legal-guide"
+        },
+        "title": "Best Window Tint Percentage for Ontario — Legal Guide"
+    },
+    {
+        "_id": "imported-post-how-to-remove-smoke-smell-from-car",
+        "author": "Beyond Detail Team",
+        "body": null,
+        "category": "Car Care Tips",
+        "content": [
+            {
+                "_key": "sm01a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm01a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Smoke smell in a car is one of the most stubborn odours to deal with. Whether you bought a used car from a smoker, had someone smoke in your vehicle, or dealt with cannabis odour, the smell gets into everything — fabric, carpet, headliner, foam padding, and the HVAC system. Here is why it is so difficult to remove and what actually works."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm02a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm02a1b2c3c1",
+                        "_type": "span",
+                        "text": "Why Smoke Smell Is So Hard to Remove"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm03a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm03a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Cigarette and cannabis smoke contain tar particles and volatile organic compounds that are microscopic. These particles do not just sit on surfaces — they penetrate deep into porous materials. Your car's headliner, seat foam, carpet backing, and dashboard plastic all absorb these particles. The HVAC system circulates smoke through the cabin and deposits residue inside the ducts and on the evaporator core."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm04a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm04a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "This is why the smell comes back after you clean. You might wipe down the surfaces and vacuum, but the particles are embedded in materials you cannot reach with a cloth or vacuum nozzle. On hot days, the heat releases trapped compounds and the smell intensifies."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm05a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm05a1b2c3c1",
+                        "_type": "span",
+                        "text": "DIY Methods That Do Not Work"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm06a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm06a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Air fresheners are the most common approach and the least effective. They mask the smell temporarily but do nothing to remove it. Once the freshener fades, the smoke smell returns. Hanging a tree freshener from your mirror while your headliner is saturated with tar is like spraying cologne on dirty laundry."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm07a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm07a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Baking soda and vinegar are popular recommendations online. Baking soda can absorb some surface-level odour from carpets, but it cannot penetrate into foam padding or the HVAC system. Vinegar has some odour-neutralizing properties, but it also leaves its own strong smell behind. Neither of these methods addresses the root cause."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm08a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm08a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Fabric sprays like Febreze work on light surface odours but are not designed for deep contamination. If someone smoked in a car regularly for months or years, a fabric spray will not cut it."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm09a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm09a1b2c3c1",
+                        "_type": "span",
+                        "text": "Professional Ozone Treatment — How It Works"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm10a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm10a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Ozone (O3) is an unstable molecule made of three oxygen atoms. An ozone generator produces high concentrations of ozone gas that fills the vehicle cabin. The extra oxygen atom breaks off and bonds with odour-causing molecules, destroying them at a molecular level. This is not masking — it is chemical elimination."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm11a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm11a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Ozone gas reaches everywhere air reaches — into seat foam, headliner material, carpet backing, and through the HVAC ducts. This is what makes it effective against embedded odours that surface cleaning cannot touch. After treatment, the ozone dissipates back into regular oxygen, leaving no chemical residue."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm12a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm12a1b2c3c1",
+                        "_type": "span",
+                        "text": "Our Full Odour Removal Process"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm13a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm13a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "At Beyond Detail, we do not just run an ozone machine and call it done. Our process starts with a full interior extraction — we use a hot water extractor to pull contaminants out of the carpet, seats, and floor mats. Then we steam clean all hard surfaces including the dashboard, door panels, centre console, and headliner. Steam at 300+ degrees kills bacteria and loosens embedded residue."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm14a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm14a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "After the physical cleaning, we run the HVAC system on recirculate while treating the cabin air intake with an antibacterial fogger. This cleans the evaporator core and ducts where smoke residue accumulates. Finally, we seal the vehicle and run the ozone generator for 1-2 hours depending on the severity."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm15a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm15a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "The entire process takes 4-6 hours. For heavy smoker vehicles, we sometimes recommend a second treatment the following day."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm16a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm16a1b2c3c1",
+                        "_type": "span",
+                        "text": "Pricing"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm17a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm17a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Our standard odour removal service starts at $149. This includes interior extraction, steam cleaning, and a single ozone treatment. It handles moderate odours — light smoke exposure, food smells, pet odours, and mildew."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm18a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm18a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "For heavy smoke contamination — vehicles where someone smoked daily for months or years — we recommend our deep elimination package at $249. This includes multiple rounds of extraction, full HVAC treatment, extended ozone treatment, and a follow-up inspection. We have successfully eliminated smoke smell from vehicles that other shops could not fix."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm19a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm19a1b2c3c1",
+                        "_type": "span",
+                        "text": "Other Odours We Handle"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm20a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm20a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Smoke is the most common odour we deal with, but it is not the only one. Pet odour from dogs and cats gets into the same materials and requires similar extraction treatment. Food and drink spills — especially milk — can create a sour smell that gets worse over time. Mildew from water leaks or flood damage produces a musty smell that can trigger allergies. Vomit requires immediate extraction to prevent permanent staining and odour. We handle all of these with the same thorough process."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm21a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm21a1b2c3c1",
+                        "_type": "span",
+                        "text": "We Guarantee Results"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "sm22a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm22a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "We guarantee odour elimination, not just masking. If you can still smell it after our treatment, we will re-treat your vehicle at no additional charge. We stand behind our work because we know the process works when done properly."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "sm23a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "sm23a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Beyond Detail is located in Scarborough, serving Toronto, Markham, Pickering, and the entire GTA. If you are dealing with a smoke smell or any persistent car odour, call us at (647) 689-6109. We will assess the situation, give you an honest quote, and get your car smelling clean again."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            }
+        ],
+        "excerpt": "Why smoke smell is so hard to remove from cars, why DIY methods fail, and how professional ozone treatment eliminates odour at the molecular level.",
+        "keywords": [
+            "car detailing smoke odor removal",
+            "remove smoke smell from car",
+            "ozone treatment car scarborough",
+            "car odour removal toronto",
+            "smoke smell car detailing",
+            "cannabis smell car removal"
+        ],
+        "mainImage": null,
+        "publishedAt": "2026-03-15T12:00:00Z",
+        "relatedServices": [
+            "interior-detailing",
+            "auto-detail"
+        ],
+        "seoDescription": "Professional car smoke odour removal in Scarborough. Ozone treatment eliminates smell at molecular level. From $149. Call Beyond Detail — (647) 689-6109.",
+        "seoTitle": "Remove Smoke Smell From Car | Ozone Treatment Scarborough",
+        "slug": {
+            "current": "how-to-remove-smoke-smell-from-car"
+        },
+        "title": "Car Odour Removal — How to Get Smoke Smell Out of Your Car"
+    },
+    {
+        "_id": "imported-post-interior-car-detailing-whats-included",
+        "author": "Beyond Detail Team",
+        "body": null,
+        "category": "Car Care Tips",
+        "content": [
+            {
+                "_key": "id01a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id01a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "A lot of people think interior car detailing is just a fancy vacuum and a wipe down. It is not. Professional interior detailing is a systematic process that cleans, sanitizes, and restores every surface inside your vehicle. Here is what is actually included, what it costs, and how to know when you need it."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id02a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id02a1b2c3c1",
+                        "_type": "span",
+                        "text": "What Professional Interior Detailing Actually Includes"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id03a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id03a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "A proper interior detail covers every surface inside the cabin. It starts with a thorough vacuum of all seats, carpets, floor mats, trunk, and crevices — including between and under seats where dirt, crumbs, and debris accumulate. We use compressed air to blow out dust from vents, buttons, and tight gaps that a vacuum cannot reach."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id04a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id04a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Next comes steam cleaning. We use a commercial steamer at 300+ degrees on hard surfaces — dashboard, centre console, door panels, cup holders, steering wheel, and shift knob. Steam kills bacteria, loosens grime, and cleans without chemicals. This is especially important for high-touch areas like the steering wheel and door handles."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id05a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id05a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "For fabric seats and carpets, we use a hot water extractor. This machine injects cleaning solution deep into the fabric and immediately suctions it out along with dirt and stains. It is the only way to truly clean fabric — surface wiping does not remove what is embedded in the fibres. For leather seats, we use a pH-balanced leather cleaner followed by a leather conditioner to prevent cracking and drying."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id06a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id06a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "We finish with interior glass cleaning (streak-free), trim dressing on plastic and vinyl surfaces, and a final wipe down of all touchpoints. The result is a cabin that looks, feels, and smells like it just rolled off the lot."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id07a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id07a1b2c3c1",
+                        "_type": "span",
+                        "text": "When Do You Need Interior Detailing?"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id08a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id08a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "After winter is the most common time. Road salt tracked in from boots leaves white stains on carpets and floor mats. Salt is corrosive and will damage fabric and rubber if left untreated. A post-winter interior detail removes all salt residue and restores your carpets. In Scarborough and the GTA, we see a big rush for this service every March and April."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id09a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id09a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "If you have kids or pets, interior detailing every 3-4 months keeps things manageable. Kids drop food, spill drinks, and leave fingerprints everywhere. Pets shed hair that embeds in fabric and leave dander that can trigger allergies. Regular detailing prevents buildup from becoming permanent."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id10a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id10a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Buying a used car is another common trigger. You do not know what the previous owner did in that car. A full interior detail and ozone treatment gives you a fresh start and eliminates any lingering odours."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id11a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id11a1b2c3c1",
+                        "_type": "span",
+                        "text": "Standard Detail ($149) vs. Deep Clean ($249)"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id12a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id12a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Our standard interior detail at $149 covers everything described above — vacuum, steam clean, extraction, leather or fabric care, glass, trim dressing. This is the right choice for vehicles that are reasonably maintained and just need a thorough cleaning. Most customers fall into this category."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id13a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id13a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "The deep clean at $249 is for vehicles that need more work. This includes multiple rounds of extraction for heavily stained seats or carpets, headliner cleaning, full HVAC treatment, and ozone odour elimination. If your car has been through a winter without interior cleaning, has pet hair embedded in every surface, or has a persistent smell, the deep clean is what you need."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id14a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id14a1b2c3c1",
+                        "_type": "span",
+                        "text": "How Long Does It Take?"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id15a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id15a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "A standard interior detail takes 2-3 hours. A deep clean takes 3-4 hours, sometimes longer if the vehicle requires multiple extraction passes or extended ozone treatment. We do not rush the process — cutting corners on drying time or extraction leads to mildew and damp carpet, which defeats the purpose."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id16a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id16a1b2c3c1",
+                        "_type": "span",
+                        "text": "DIY vs. Professional — What You Can Do at Home"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id17a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id17a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "There are things you can do at home to maintain your interior between professional details. Regular vacuuming — once a week if possible — prevents dirt from grinding into fabric. Wiping down the dashboard and steering wheel with a damp microfibre cloth removes dust and fingerprints. Using rubber floor mats in winter protects your carpets from salt."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id18a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id18a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "What you cannot do at home is deep extraction. A consumer-grade carpet cleaner does not have the suction power or water temperature of a commercial extractor. You also cannot steam clean effectively without a commercial steamer, and ozone treatment requires specialized equipment that should not be used without proper ventilation knowledge."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id19a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id19a1b2c3c1",
+                        "_type": "span",
+                        "text": "Leather vs. Cloth Seats — Different Approaches"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id20a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id20a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Leather and cloth seats require completely different products and techniques. Cloth seats absorb spills and stains — they need extraction to pull contaminants out of the fibres. Leather seats do not absorb the same way, but they dry out and crack without conditioning. Using the wrong products on leather — like all-purpose cleaners or bleach-based products — can strip the protective coating and cause permanent damage."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id21a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id21a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "We use pH-balanced cleaners specifically formulated for automotive leather. After cleaning, we apply a leather conditioner that restores moisture and flexibility. For cloth seats, we use enzymatic cleaners that break down organic stains without leaving residue. The right products make a significant difference in results and in protecting your interior long-term."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id22a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id22a1b2c3c1",
+                        "_type": "span",
+                        "text": "How to Maintain Your Interior Between Details"
+                    }
+                ],
+                "markDefs": [],
+                "style": "h2"
+            },
+            {
+                "_key": "id23a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id23a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Keep a small microfibre cloth in your glovebox for quick wipe downs. Shake out your floor mats every time you fill up gas. Do not eat in your car if you can avoid it — food particles attract bacteria and create odours over time. If you spill something, blot it immediately with a clean cloth rather than rubbing, which pushes the stain deeper into the fabric."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id24a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id24a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "For leather seats, apply a conditioner every 2-3 months, especially if your car sits in direct sun. UV exposure dries out leather faster. Parking in shade or using a windshield sunshade helps extend the life of both leather and dashboard plastic."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            },
+            {
+                "_key": "id25a1b2c3",
+                "_type": "block",
+                "children": [
+                    {
+                        "_key": "id25a1b2c3c1",
+                        "_type": "span",
+                        "marks": [],
+                        "text": "Beyond Detail is located in Scarborough and serves the entire GTA including Toronto, Markham, Pickering, and Ajax. Whether you need a standard interior refresh or a deep clean after winter, we have you covered. Call us at (647) 689-6109 or book online. Same-day service is often available."
+                    }
+                ],
+                "markDefs": [],
+                "style": "normal"
+            }
+        ],
+        "excerpt": "What professional interior car detailing includes, how much it costs, and how to know when your car needs it. A straightforward guide from Beyond Detail.",
+        "keywords": [
+            "car interior cleaning scarborough",
+            "interior car detailing toronto",
+            "car interior deep clean",
+            "steam cleaning car interior",
+            "leather seat cleaning scarborough",
+            "interior detailing cost"
+        ],
+        "mainImage": null,
+        "publishedAt": "2026-03-15T12:00:00Z",
+        "relatedServices": [
+            "interior-detailing",
+            "auto-detail"
+        ],
+        "seoDescription": "Professional interior car detailing in Scarborough from $149. Steam cleaning, extraction, leather care. Same-day service. Book at Beyond Detail — (647) 689-6109.",
+        "seoTitle": "Interior Car Detailing Scarborough | From $149 | What's Included",
+        "slug": {
+            "current": "interior-car-detailing-whats-included"
+        },
+        "title": "Interior Car Detailing — What's Included and Is It Worth It?"
     }
 ];
