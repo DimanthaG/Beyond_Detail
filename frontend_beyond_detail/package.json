@@ -30,8 +30,8 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "postbuild": "react-snap",
+    "build": "CI=false react-app-rewired build",
+    "postbuild": "if [ -z \"$VERCEL\" ]; then react-snap; fi",
     "build:analyze": "react-app-rewired build && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
