@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "CI=false react-app-rewired build",
     "postbuild": "react-snap",
     "build:analyze": "react-app-rewired build && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-app-rewired test",
