@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
-        <div id="main-content">{children}</div>
+        <div className="app" id="main-content">{children}</div>
       </body>
     </html>
   );
