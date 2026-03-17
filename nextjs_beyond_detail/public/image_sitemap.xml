@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://beyonddetail.ca/</loc>
+    <image:image>
+      <image:loc>https://beyonddetail.ca/og-image.webp</image:loc>
+      <image:title>Beyond Detail - Premium Car Detailing Toronto</image:title>
+      <image:caption>Top-rated auto detailing and ceramic coating services in Toronto and Scarborough.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/car-detailing-scarborough</loc>
+    <image:image>
+      <image:loc>https://beyonddetail.ca/images/scarborough-detailing.jpg</image:loc>
+      <image:title>Car Detailing Scarborough</image:title>
+      <image:caption>Professional car detailing services in Scarborough.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/car-detailing-morningside</loc>
+    <image:image>
+      <image:loc>https://beyonddetail.ca/og-image.webp</image:loc>
+      <image:title>Car Detailing Morningside</image:title>
+      <image:caption>Expert auto detailing near Morningside and U of T Scarborough.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://beyonddetail.ca/car-detailing-highland-creek</loc>
+    <image:image>
+      <image:loc>https://beyonddetail.ca/og-image.webp</image:loc>
+      <image:title>Car Detailing Highland Creek</image:title>
+      <image:caption>Premium car detailing in Highland Creek Village.</image:caption>
+    </image:image>
+  </url>
+</urlset>

@@ -28,5 +28,10 @@
     "react-lazy-load-image-component": "^1.6.3",
     "sass": "^1.98.0",
     "styled-components": "^6.3.11"
+  },
+  "overrides": {
+    "react-image-comparison-slider": {
+      "react": "$react"
+    }
   }
 }
