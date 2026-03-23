@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { client } from '@/lib/sanity';
 import { motion } from 'framer-motion';
-import { BsTwitter, BsInstagram } from 'react-icons/bs';
-import { FaFacebookF } from 'react-icons/fa';
+import { Instagram, Twitter, Facebook } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
@@ -259,7 +258,7 @@ function ContactPageContent() {
                   <div className='socialIcons__icon__navBar2 instagram2'>
                     <span>
                       <a href='https://www.instagram.com/beyonddetail.ca/' target='_blank' rel='noopener noreferrer'>
-                        <BsInstagram />
+                        <Instagram size={20} />
                       </a>
                     </span>
                   </div>
@@ -267,7 +266,7 @@ function ContactPageContent() {
                   <div className='socialIcons__icon__navBar2 twitter2'>
                     <span>
                       <a href='https://x.com/BeyondDetailca' target='_blank' rel='noopener noreferrer'>
-                        <BsTwitter />
+                        <Twitter size={20} />
                       </a>
                     </span>
                   </div>
@@ -275,7 +274,7 @@ function ContactPageContent() {
                   <div className='socialIcons__icon__navBar2 facebook2'>
                     <span>
                       <a href='https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/' target='_blank' rel='noopener noreferrer'>
-                        <FaFacebookF />
+                        <Facebook size={20} />
                       </a>
                     </span>
                   </div>

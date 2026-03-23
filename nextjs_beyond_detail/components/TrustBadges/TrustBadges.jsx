@@ -1,26 +1,26 @@
 import React from 'react';
-import { FaShieldAlt, FaAward, FaUserCheck, FaStar } from 'react-icons/fa';
+import { ShieldCheck, Award, UserCheck, Star } from 'lucide-react';
 import './TrustBadges.scss';
 
 const TrustBadges = () => {
     const badges = [
         {
-            icon: <FaShieldAlt />,
+            icon: <ShieldCheck size={32} />,
             title: 'Lifetime Warranty',
             description: 'We stand by our work with comprehensive warranties on tints and coatings.'
         },
         {
-            icon: <FaAward />,
+            icon: <Award size={32} />,
             title: 'Certified Professionals',
             description: 'Our technicians are trained and certified by industry leaders like LLumar.'
         },
         {
-            icon: <FaStar />,
+            icon: <Star size={32} />,
             title: 'Top Rated in GTA',
             description: 'Consistently rated 5-stars by customers in Scarborough and Toronto.'
         },
         {
-            icon: <FaUserCheck />,
+            icon: <UserCheck size={32} />,
             title: 'Satisfaction Guaranteed',
             description: 'We ensure you are 100% satisfied with our detailing and tinting services.'
         }

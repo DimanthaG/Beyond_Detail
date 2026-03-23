@@ -2,8 +2,7 @@
 
 import React from 'react';
 import './SocialIcons.scss';
-import { BsTwitter, BsInstagram } from 'react-icons/bs';
-import { FaFacebookF } from 'react-icons/fa';
+import { Instagram, Twitter, Facebook } from 'lucide-react';
 
 function SocialIcons() {
   return (
@@ -12,7 +11,7 @@ function SocialIcons() {
         <div className='socialIcons__icon instagram'>
           <span>
             <a href='https://www.instagram.com/beyonddetail.ca/' target='_blank' rel='noopener noreferrer'>
-              <BsInstagram />
+              <Instagram size={20} />
             </a>
           </span>
         </div>
@@ -20,7 +19,7 @@ function SocialIcons() {
         <div className='socialIcons__icon twitter'>
           <span>
             <a href='https://x.com/BeyondDetailca' target='_blank' rel='noopener noreferrer'>
-              <BsTwitter />
+              <Twitter size={20} />
             </a>
           </span>
         </div>
@@ -28,7 +27,7 @@ function SocialIcons() {
         <div className='socialIcons__icon facebook'>
           <span>
             <a href='https://www.facebook.com/people/Beyond-Detail-Scarborough/100088669617846/' target='_blank' rel='noopener noreferrer'>
-              <FaFacebookF />
+              <Facebook size={20} />
             </a>
           </span>
         </div>

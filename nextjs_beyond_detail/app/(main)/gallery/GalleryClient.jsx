@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { client, urlFor } from '@/lib/sanity';
 import dynamic from 'next/dynamic';
 const ImageSlider = dynamic(() => import('react-image-comparison-slider'), { ssr: false });
-import { GrClose } from 'react-icons/gr';
+import { X } from 'lucide-react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './Gallery.scss';
@@ -125,7 +125,7 @@ function Gallery() {
             )}
             <div className={model ? 'model open' : 'model'}>
               <img src={tempImgSrc} loading='lazy' alt='large' />
-              <GrClose onClick={() => setModel(false)} />
+              <X onClick={() => setModel(false)} size={24} />
             </div>
             <div className='image__wrapper'>{galleryImages}</div>
           </div>

@@ -4,6 +4,10 @@ const nextConfig = {
     styledComponents: true,
   },
 
+  // Performance optimizations
+  compress: true,
+  productionBrowserSourceMaps: false,
+
   // SCSS support via sass package
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],
@@ -16,7 +20,9 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
       },
     ],
-    formats: ['image/webp', 'image/avif'],
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
 
   async redirects() {

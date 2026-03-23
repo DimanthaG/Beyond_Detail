@@ -1,4 +1,4 @@
-import { DM_Sans } from 'next/font/google';
+import { DM_Sans, Montserrat } from 'next/font/google';
 import Script from 'next/script';
 import './globals.scss';
 import { BUSINESS_INFO } from '@/constants/businessInfo';
@@ -7,6 +7,13 @@ const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-dm-sans',
+  display: 'swap',
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
@@ -81,7 +88,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={dmSans.variable}>
+      <body className={`${dmSans.variable} ${montserrat.variable}`}>
         <a
           href="#main-content"
           className="skip-to-content"

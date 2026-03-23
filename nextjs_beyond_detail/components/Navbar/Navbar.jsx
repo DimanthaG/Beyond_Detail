@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import './Navbar.scss';
@@ -64,11 +65,11 @@ function Navbar({ className = '' }) {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${className}`}>
       <Link href="/" className="app__navbar-logo">
-        <img src="/images/logo_1.svg" alt="Beyond Detail Logo" />
+        <Image src="/images/logo_1.svg" alt="Beyond Detail Logo" width={180} height={50} priority />
       </Link>
       <div className="mobile-brand-container">
         <Link href="/" className="mobile-logo-link">
-          <img src="/images/logo_mobile_small.png" alt="Beyond Detail Logo" />
+          <Image src="/images/logo_mobile_small.png" alt="Beyond Detail Logo" width={40} height={40} priority />
         </Link>
         <div className="mobile-brand-title">
           BEYOND DETAIL <span>TORONTO</span>

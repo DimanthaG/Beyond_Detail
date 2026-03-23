@@ -1,6 +1,9 @@
 import { generateLocalBusinessSchema, generateWebsiteSchema, generateOrganizationSchema } from '@/lib/structured-data';
 import dynamic from 'next/dynamic';
-const HomeClient = dynamic(() => import('./HomeClient'), { ssr: false });
+const HomeClient = dynamic(() => import('./HomeClient'), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: '100vh' }} aria-hidden="true" />,
+});
 
 export default function HomePage() {
   const localBusinessSchema = generateLocalBusinessSchema();
